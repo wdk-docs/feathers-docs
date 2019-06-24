@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/authentication/jwt.rst:2
+msgid "JWT Authentication"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:10
+msgid "[@feathersjs/authentication-jwt](https://github.com/feathersjs/authentication-jwt) is a module for the :doc:`./server` that wraps the `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_ authentication strategy, which lets you authenticate with your Feathers application using a `JSON Web Token <https://jwt.io/>`_ access token."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:16
+msgid "This module contains 3 core pieces:"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:18
+msgid "The main initialization function"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:19
+msgid "The ``Verifier`` class"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:20
+msgid "The ```ExtractJwt`` <https://github.com/themikenicholson/passport-jwt#extracting-the-jwt-from-the-request>`_ object from passport-jwt."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:25
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:27
+msgid "In most cases initializing the module is as simple as doing this:"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:50
+msgid "This will pull from your global authentication object in your config file. It will also mix in the following defaults, which can be customized."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:55
+msgid "Options"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:75
+msgid "Additional `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_ options can be provided."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:80
+msgid "Verifier"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:82
+msgid "This is the verification class that receives the JWT payload (if verification is successful) and either returns the payload or, if an ``id`` is present in the payload, populates the entity (normally a ``user``) and returns both the entity and the payload. It has the following methods that can all be overridden. The ``verify`` function has the exact same signature as `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:100
+msgid "The ``Verifier`` class can be extended so that you customize it’s behavior without having to rewrite and test a totally custom local Passport implementation. Although that is always an option if you don’t want use this plugin."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:105
+msgid "An example of customizing the Verifier:"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:127
+msgid "Client Usage"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:130
+msgid "authentication-client"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:132
+msgid "When this module is registered server side, using the default config values this is how you can authenticate using :doc:`./client`."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:146
+msgid "HTTP"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:148
+msgid "If you are not using ``@feathersjs/authentication-client`` and you have registered this module server side then you can include the access token in an ``Authorization`` header."
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:152
+msgid "Here is what that looks like with curl:"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:159
+msgid "Sockets"
+msgstr ""
+
+#: ../../source/api/authentication/jwt.rst:161
+msgid "Authenticating using an access token via sockets is done by emitting the following message:"
+msgstr ""
+

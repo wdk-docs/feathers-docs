@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>错误 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="配置" href="configuration.html" />
+    <link rel="prev" title="活动频道" href="channels.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="application.html">应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">活动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">活动频道</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">错误</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feathers-errors">Feathers errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-errors">Custom errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#server-side-errors">Server Side Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>错误</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/errors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="errors">
+<h1>错误<a class="headerlink" href="#errors" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/errors"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/errors.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/errors/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/errors --save
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/errors</span></code> module contains a set of standard error
+classes used by all other Feathers modules as well as an <a class="reference external" href="https://expressjs.com/en/guide/error-handling.html">Express error
+handler</a> to
+format those - and other - errors and setting the correct HTTP status
+codes for REST calls.</p>
+<div class="section" id="feathers-errors">
+<h2>Feathers errors<a class="headerlink" href="#feathers-errors" title="永久链接至标题">¶</a></h2>
+<p>The following error types, all of which are instances of
+<code class="docutils literal notranslate"><span class="pre">FeathersError</span></code>, are available:</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> All of the Feathers plugins will automatically emit the
+appropriate Feathers errors for you. For example, most of the
+database adapters will already send <code class="docutils literal notranslate"><span class="pre">Conflict</span></code> or <code class="docutils literal notranslate"><span class="pre">Unprocessable</span></code>
+errors with the validation errors from the ORM.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>400: <code class="docutils literal notranslate"><span class="pre">BadRequest</span></code></p></li>
+<li><p>401: <code class="docutils literal notranslate"><span class="pre">NotAuthenticated</span></code></p></li>
+<li><p>402: <code class="docutils literal notranslate"><span class="pre">PaymentError</span></code></p></li>
+<li><p>403: <code class="docutils literal notranslate"><span class="pre">Forbidden</span></code></p></li>
+<li><p>404: <code class="docutils literal notranslate"><span class="pre">NotFound</span></code></p></li>
+<li><p>405: <code class="docutils literal notranslate"><span class="pre">MethodNotAllowed</span></code></p></li>
+<li><p>406: <code class="docutils literal notranslate"><span class="pre">NotAcceptable</span></code></p></li>
+<li><p>408: <code class="docutils literal notranslate"><span class="pre">Timeout</span></code></p></li>
+<li><p>409: <code class="docutils literal notranslate"><span class="pre">Conflict</span></code></p></li>
+<li><p>411: <code class="docutils literal notranslate"><span class="pre">LengthRequired</span></code></p></li>
+<li><p>422: <code class="docutils literal notranslate"><span class="pre">Unprocessable</span></code></p></li>
+<li><p>429: <code class="docutils literal notranslate"><span class="pre">TooManyRequests</span></code></p></li>
+<li><p>500: <code class="docutils literal notranslate"><span class="pre">GeneralError</span></code></p></li>
+<li><p>501: <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code></p></li>
+<li><p>502: <code class="docutils literal notranslate"><span class="pre">BadGateway</span></code></p></li>
+<li><p>503: <code class="docutils literal notranslate"><span class="pre">Unavailable</span></code></p></li>
+</ul>
+<p>Feathers errors contain the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - The error name (e.g. “BadRequest”, “ValidationError”,
+etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code> - The error message string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code> - The HTTP status code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">className</span></code> - A CSS class name that can be handy for styling errors
+based on the error type. (e.g. “bad-request” , etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> - An object containing anything you passed to a Feathers
+error except for the <code class="docutils literal notranslate"><span class="pre">errors</span></code> object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">errors</span></code> - An object containing whatever was passed to a Feathers
+error inside <code class="docutils literal notranslate"><span class="pre">errors</span></code>. This is typically validation errors or if
+you want to group multiple errors together.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>ProTip:</strong> To convert a Feathers error back to an object call
+<code class="docutils literal notranslate"><span class="pre">error.toJSON()</span></code>. A normal <code class="docutils literal notranslate"><span class="pre">console.log</span></code> of a JavaScript Error
+object will not automatically show those additional properties
+described above (even though they can be accessed directly).</p>
+</div></blockquote>
+</div>
+<div class="section" id="custom-errors">
+<h2>Custom errors<a class="headerlink" href="#custom-errors" title="永久链接至标题">¶</a></h2>
+<p>You can create custom errors by extending from the <code class="docutils literal notranslate"><span class="pre">FeathersError</span></code>
+class and calling its constructor with
+<code class="docutils literal notranslate"><span class="pre">(msg,</span> <span class="pre">name,</span> <span class="pre">code,</span> <span class="pre">className,</span> <span class="pre">data)</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">message</span></code> - The error message</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - The error name (e.g. <code class="docutils literal notranslate"><span class="pre">my-errror</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code> - An <a class="reference external" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP error
+code</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">className</span></code> - The full name of the error class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> - Additional data to include in the error</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">FeathersError</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/errors&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">UnsupportedMediaType</span> <span class="kr">extends</span> <span class="nx">FeathersError</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="s1">&#39;unsupported-media-type&#39;</span><span class="p">,</span> <span class="mi">415</span><span class="p">,</span> <span class="s1">&#39;UnsupportedMediaType&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UnsupportedMediaType</span><span class="p">(</span><span class="s1">&#39;Not supported&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<p>Here are a few ways that you can use them:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">errors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/errors&#39;</span><span class="p">);</span>
+
+<span class="c1">// If you were to create an error yourself.</span>
+<span class="kr">const</span> <span class="nx">notFound</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">NotFound</span><span class="p">(</span><span class="s1">&#39;User does not exist&#39;</span><span class="p">);</span>
+
+<span class="c1">// You can wrap existing errors</span>
+<span class="kr">const</span> <span class="nx">existing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">GeneralError</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;I exist&#39;</span><span class="p">));</span>
+
+<span class="c1">// You can also pass additional data</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">BadRequest</span><span class="p">(</span><span class="s1">&#39;Invalid email&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;sergey@google.com&#39;</span>
+<span class="p">});</span>
+
+<span class="c1">// You can also pass additional data without a message</span>
+<span class="kr">const</span> <span class="nx">dataWithoutMessage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">BadRequest</span><span class="p">({</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;sergey@google.com&#39;</span>
+<span class="p">});</span>
+
+<span class="c1">// If you need to pass multiple errors</span>
+<span class="kr">const</span> <span class="nx">validationErrors</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">BadRequest</span><span class="p">(</span><span class="s1">&#39;Invalid Parameters&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">errors</span><span class="o">:</span> <span class="p">{</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;Email already taken&#39;</span> <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// You can also omit the error message and we&#39;ll put in a default one for you</span>
+<span class="kr">const</span> <span class="nx">validationErrors</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">errors</span><span class="p">.</span><span class="nx">BadRequest</span><span class="p">({</span>
+  <span class="nx">errors</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;Invalid Email&#39;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="server-side-errors">
+<h2>Server Side Errors<a class="headerlink" href="#server-side-errors" title="永久链接至标题">¶</a></h2>
+<p>Promises swallow errors if you forget to add a <code class="docutils literal notranslate"><span class="pre">catch()</span></code> statement.
+Therefore, you should make sure that you <strong>always</strong> call <code class="docutils literal notranslate"><span class="pre">.catch()</span></code> on
+your promises. To catch uncaught errors at a global level you can add
+the code below to your top-most file.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">process</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;unhandledRejection&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">reason</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Unhandled Rejection at: Promise &#39;</span><span class="p">,</span> <span class="nx">p</span><span class="p">,</span> <span class="s1">&#39; reason: &#39;</span><span class="p">,</span> <span class="nx">reason</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="永久链接至标题">¶</a></h2>
+<p>It is important to make sure that errors get cleaned up before they go
+back to the client. <a class="reference external" href="https://docs.feathersjs.com/api/express.html#expresserrorhandler">Express error handling
+middlware</a>
+works only for REST calls. If you want to make sure that ws errors are
+handled as well, you need to use <a class="reference external" href="https://docs.feathersjs.com/guides/basics/hooks.html#application-hooks">App
+Hooks</a>.
+App Error Hooks get called on an error to every service call regardless
+of transport.</p>
+<p>Here is an example error handler you can add to app.hooks errors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>const errors = require(&quot;@feathersjs/errors&quot;);
+const errorHandler = ctx =&gt; {
+  if (ctx.error) {
+    const error = ctx.error;
+    if (!error.code) {
+      const newError = new errors.GeneralError(&quot;server error&quot;);
+      ctx.error = newError;
+      return ctx;
+    }
+    if (error.code === 404 || process.env.NODE_ENV === &quot;production&quot;) {
+      error.stack = null;
+    }
+    return ctx;
+  }
+};
+</pre></div>
+</div>
+<p>then add it to the error.all hook</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span><span class="o">.</span><span class="n">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">//...</span>
+  <span class="n">error</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nb">all</span><span class="p">:</span> <span class="p">[</span><span class="n">errorHandler</span><span class="p">],</span>
+    <span class="n">find</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">get</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">create</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">update</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">patch</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="n">remove</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="配置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="channels.html" class="btn btn-neutral float-left" title="活动频道" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

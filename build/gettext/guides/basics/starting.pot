@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/starting.rst:2
+msgid "Our first Feathers application"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:4
+msgid "Now that we are :doc:`./setup` we can create our first Feathers application. It will work in both, NodeJS and the browser. First, let’s create a new folder for all our examples to run in:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:13
+msgid "Since any Feathers application is a Node application, we can create a default `package.json <https://docs.npmjs.com/files/package.json>`_ using ``npm``:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:22
+msgid "Installing Feathers"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:24
+msgid "Feathers can be installed like any other Node module by installing the [@feathersjs/feathers](https://www.npmjs.com/package/@feathersjs/feathers) package through `npm <https://www.npmjs.com>`_. The same package can also be used with a module loader like Browserify or Webpack and React Native."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:37
+msgid "All Feathers core modules are in the ``@feathersjs`` npm namespace."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:40
+msgid "Your first app"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:42
+msgid "The base of any Feathers application is the :doc:`../../api/application` which can be created like this:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:49
+msgid "This application object has several methods, most importantly it allows us to register services. We will learn more about services in the next chapter, for now let’s register and use a simple service that has only a ``get`` method by creating an ``app.js`` file (in the current folder) like this:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:84
+msgid "We can run it with"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:90
+msgid "And should see"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:98
+msgid "For more information about the Feathers application object see the :doc:`../../api/application`."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:102
+msgid "In the browser"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:104
+msgid "The Feathers application we created above can also run just the same in the browser. The easiest way to load Feathers here is through a ``<script>`` tag pointing to the CDN version of Feathers. Loading it will make a ``feathers`` global variable available."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:109
+msgid "Let’s put the browser files into a new folder"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:115
+msgid "We will also need to host the folder with a webserver. This can be done with any webserver like Apache or with the `http-server module <https://www.npmjs.com/package/http-server>`_ that we can install and host the ``public/`` folder like this:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:127
+msgid "You have to keep this server running for all browser examples in the basics guide to work."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:130
+msgid "In the ``public/`` folder we add two files, an ``index.html`` that will load Feathers:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:149
+msgid "And an ``client.js`` looking like this:"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:179
+msgid "You may notice that it is pretty much the same as our ``app.js`` for Node except the missing ``feathers`` import (since it is already available as a global variable)."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:183
+msgid "If you now go to `localhost:8080 <http://localhost:8080>`_ with the console open you will also see the result logged."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:187
+msgid "You can also load Feathers with a module loader like Webpack or Browserify. For more information see the :doc:`../../api/client`."
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:191
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/basics/starting.rst:193
+msgid "In this chapter we created our first Feathers application with a simple service that works in Node and the browser. Next, let’s learn more about :doc:`services`."
+msgstr ""
+

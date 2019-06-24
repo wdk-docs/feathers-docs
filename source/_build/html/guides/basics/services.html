@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>服务 &mdash; feathers docs v2019.06.21 文档</title>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="钩子" href="hooks.html" />
+    <link rel="prev" title="我们的第一个Feathers应用程序" href="starting.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+
+
+
+          </a>
+
+
+
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#service-methods">服务方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-messages-service">消息服务</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-services">使用服务</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-events">服务活动</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html">数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="real-time.html">实时API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clients.html">客户使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generator.html">Feathers生成器（CLI）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+
+          <li><a href="../index.html">指南</a> &raquo;</li>
+
+          <li><a href="index.html">Feathers 基础功能</a> &raquo;</li>
+
+      <li>服务</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="../../_sources/guides/basics/services.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="services">
+<h1>服务<a class="headerlink" href="#services" title="永久链接至标题">¶</a></h1>
+<p>服务是每个Feathers应用程序的核心, 是JavaScript对象或实现某些 <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">方法的类</a> 的实例. 服务提供统一的, 独立于协议的界面, 用于如何与任何类型的数据交互:</p>
+<ul class="simple">
+<li><p>从数据库中读取和/或写入</p></li>
+<li><p>与文件系统交互</p></li>
+<li><p>调用另一个API</p></li>
+<li><p>调用其它其他服务</p>
+<ul>
+<li><p>发送电子邮件</p></li>
+<li><p>处理付款</p></li>
+<li><p>返回当前天气的位置等</p></li>
+</ul>
+</li>
+</ul>
+<p>独立于协议意味着对于Feathers服务而言, 如果它是通过REST API或websockets(我们将在稍后讨论)或其他任何方式在内部调用它并不重要.</p>
+<div class="section" id="service-methods">
+<h2>服务方式<a class="headerlink" href="#service-methods" title="永久链接至标题">¶</a></h2>
+<p>服务方法是服务对象可以实现的 <a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> 方法. Feathers服务方​​法有:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">find</span></code> - 查找所有数据(可能与查询匹配)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get</span></code> - 通过其唯一标识符获取单个数据条目</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create</span></code> - 创建新数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> - 通过完全替换现有数据条目来更新它</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">patch</span></code> - 通过与新数据合并来更新一个或多个数据条目</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove</span></code> - 删除一个或多个现有数据条目</p></li>
+</ul>
+<p>下面是作为普通对象和JavaScript类的Feathers服务接口的示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{% codetabs name=“Object”, type=“js” -%}
+const myService = {
+  async find(params) { return []; },
+  async get(id, params) {},
+  async create(data, params) {},
+  async update(id, data, params) {},
+  async patch(id, data, params) {},
+  async remove(id, params) {}
+}
+app.use(‘/my-service’, myService);
+{%- language name=“Class”, type=“js” -%}
+class myService {
+  async find(params) { return []; }
+  async get(id, params) {}
+  async create(data, params) {}
+  async update(id, data, params) {}
+  async patch(id, data, params) {}
+  async remove(id, params) {}
+}
+app.use(‘/my-service’, new myService());
+{%- endcodetabs %}
+</pre></div>
+</div>
+<p>服务方法的参数是:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> - 数据的唯一标识符</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> - 用户发送的数据(用于创建和更新)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code> (<em>optional</em>) - 其他参数, 例如经过身份验证的用户或查询</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>服务不必实现所有这些方法, 但必须至少有一个.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>有关服务, 服务方法和参数的详细信息, 请参阅 <span class="xref std std-doc">../api/services</span>.</p>
+</div>
+</div>
+<div class="section" id="a-messages-service">
+<h2>消息服务<a class="headerlink" href="#a-messages-service" title="永久链接至标题">¶</a></h2>
+<p>现在我们知道了服务方法的样子, 我们可以实现自己的聊天消息服务, 允许我们在内存中查找, 创建, 删除和更新消息. 在这里, 我们将使用JavaScript类来处理我们的消息, 但正如我们在上面看到的, 它也可能是一个普通的对象.</p>
+<p>下面是带有注释的完整更新的 <code class="docutils literal notranslate"><span class="pre">app.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">Messages</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Return the list of all messages</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Find the message by id</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">message</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+    <span class="c1">// Throw an error if it wasn&#39;t found</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">`Message with id </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb"> not found`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Otherwise return the message</span>
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create a new object with the original data and an id</span>
+    <span class="c1">// taken from the incrementing `currentId` counter</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="o">++</span><span class="k">this</span><span class="p">.</span><span class="nx">currentId</span>
+    <span class="p">},</span> <span class="nx">data</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">patch</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the existing message. Will throw an error if not found</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+    <span class="c1">// Merge the existing message with the new data</span>
+    <span class="c1">// and return the result</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the message by id (will throw an error if not found)</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="c1">// Find the index of the message in our message array</span>
+    <span class="kr">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+    <span class="c1">// Remove the found message from our array</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// Return the removed message</span>
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="c1">// Initialize the messages service by creating</span>
+<span class="c1">// a new instance of our class</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Messages</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-services">
+<h2>使用服务<a class="headerlink" href="#using-services" title="永久链接至标题">¶</a></h2>
+<p>可以通过调用 <code class="docutils literal notranslate"><span class="pre">app.use(path,</span> <span class="pre">service)</span></code> 在Feathers应用程序上注册服务对象.  <code class="docutils literal notranslate"><span class="pre">path</span></code> 将是服务的名称(以及URL, 如果它作为API公开, 我们将在后面介绍).</p>
+<p>我们可以通过 <code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> 检索该服务, 然后调用它的任何服务方法. 将以下内容添加到 <code class="docutils literal notranslate"><span class="pre">app.js</span></code> 的末尾:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">async</span> <span class="kd">function</span> <span class="nx">processMessages</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;First message&#39;</span>
+  <span class="p">});</span>
+
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Second message&#39;</span>
+  <span class="p">});</span>
+
+  <span class="kr">const</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">();</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Available messages&#39;</span><span class="p">,</span> <span class="nx">messageList</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">processMessages</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>并运行它</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<p>我们应该看到这一点:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Available</span> <span class="n">messages</span> <span class="p">[</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;First message&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;Second message&#39;</span> <span class="p">}</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="service-events">
+<h2>服务活动<a class="headerlink" href="#service-events" title="永久链接至标题">¶</a></h2>
+<p>注册服务时, 它将自动成为 <a class="reference external" href="https://nodejs.org/api/events.html">NodeJS EventEmitter</a>, 当修改数据的服务方法时, 它会发送带有新数据的事件, (<code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">patch</span></code> 和 <code class="docutils literal notranslate"><span class="pre">remove</span></code>)返回. 可以使用 <code class="docutils literal notranslate"><span class="pre">app.service('messages').on('eventName',</span> <span class="pre">data</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> 来监听事件. 以下是服务方法及其相应事件的列表:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>服务方式</p></th>
+<th class="head"><p>服务活动</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">service.create()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">service.on('created')</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">service.update()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">service.on('updated')</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">service.patch()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">service.on('patched')</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">service.remove()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">service.on('removed')</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>我们稍后会看到, 这是Feathers如何实现实时功能的关键. 现在, 让我们更新 <code class="docutils literal notranslate"><span class="pre">app.js</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">processMessages</span></code> 函数, 如下所示:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">async</span> <span class="kd">function</span> <span class="nx">processMessages</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Created a new message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Deleted message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;First message&#39;</span>
+  <span class="p">});</span>
+
+  <span class="kr">const</span> <span class="nx">lastMessage</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Second message&#39;</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Remove the message we just created</span>
+  <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="nx">lastMessage</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">messageList</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">();</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Available messages&#39;</span><span class="p">,</span> <span class="nx">messageList</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">processMessages</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>如果我们现在通过运行该文件</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<p>我们将看到事件处理程序如何记录这样创建和删除的消息的信息:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Created</span> <span class="n">a</span> <span class="n">new</span> <span class="n">message</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;First message&#39;</span> <span class="p">}</span>
+<span class="n">Created</span> <span class="n">a</span> <span class="n">new</span> <span class="n">message</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;Second message&#39;</span> <span class="p">}</span>
+<span class="n">Deleted</span> <span class="n">message</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;Second message&#39;</span> <span class="p">}</span>
+<span class="n">Available</span> <span class="n">messages</span> <span class="p">[</span> <span class="p">{</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="s1">&#39;First message&#39;</span> <span class="p">}</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>在本章中, 我们了解了作为Feathers核心概念的服务, 用于抽象数据操作. 我们还了解了服务如何发送我们稍后将用于创建实时应用程序的事件. 首先, 我们将看看 <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a>, 这是Feathers如何工作的另一个关键部分.</p>
+</div>
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="hooks.html" class="btn btn-neutral float-right" title="钩子" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="starting.html" class="btn btn-neutral float-left" title="我们的第一个Feathers应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>

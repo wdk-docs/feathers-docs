@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:2
+msgid "Using A View Engine"
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:4
+msgid "Since Feathers is just an extension of Express it’s really simple to render templated views on the server with data from your Feathers services. There are a few different ways that you can structure your app so this guide will show you 3 typical ways you might have your Feathers app organized."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:11
+msgid "A Single “Monolithic” App"
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:13
+msgid "You probably already know that when you register a Feathers service, Feathers creates RESTful endpoints for that service automatically. Well, really those are just Express routes, so you can define your own as well."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:18
+msgid "Your own defined REST endpoints won’t work with hooks and won’t emit socket events. If you find you need that functionality it’s probably better for you to turn your endpoints into a minimal Feathers service."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:23
+msgid "Let’s say you want to render a list of messages from most recent to oldest using the Jade template engine."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:46
+msgid "Simple right? We’ve now rendered a list of messages. All your hooks will get triggered just like they would normally so you can use hooks to pre-filter your data and keep your template rendering routes super tight."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:51
+msgid "If you call a Feathers service “internally” (ie. not over sockets or REST) you won’t have a ``context.params.provider`` attribute. This allows you to have hooks only execute when services are called externally vs. from your own code."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:57
+msgid "Feathers As A Sub-App"
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:59
+msgid "Sometimes a better way to break up your Feathers app is to put your services into an API and mount your API as a sub-app. This is just like you would do with Express. If you do this, it’s only a slight change to get data from your services."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:84
+msgid "Not a whole lot different. Your API sub app is pretty much the same as your single app in the previous example, and your main Feathers app is just a really small wrapper that does little more than render templates."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:89
+msgid "Feathers As A Separate App"
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:91
+msgid "If your app starts to get a bit busier you might decide to move your API to a completely separate standalone Feathers app, maybe even on a different server. In order for both apps to talk to each other they’ll need some way to make remote requests. Well, Feathers just so happens to have a :doc:`../api/client` that can be used on the server. This is how it works."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:123
+msgid "In the above example we set up sockets. Alternatively you could use a Feathers client :doc:`../../api/client/rest`."
+msgstr ""
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:126
+msgid "And with that, we’ve shown 3 different ways that you use a template engine with Feathers to render service data."
+msgstr ""
+

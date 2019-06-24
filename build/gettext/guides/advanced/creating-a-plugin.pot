@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:2
+msgid "Creating a Feathers Plugin"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:4
+msgid "The easiest way to create a plugin is with the `Yeoman generator <https://github.com/feathersjs/generator-feathers-plugin>`_."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:7
+msgid "First install the generator"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:13
+msgid "Then in a new directory run:"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:19
+msgid "This will scaffold out everything that is needed to start writing your plugin."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:22
+msgid "Output files from generator:"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:38
+msgid "Simple right? We technically could call it a day as we have created a Plugin. However, we probably want to do just a bit more. Generally speaking a Plugin is a :doc:`../api/services`. The fun part is that a Plugin can contain multiple Services which we will create below. This example is going to build out 2 services. The first will allow us to find members of the Feathers Core Team & the second will allow us to find the best state in the United States."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:46
+msgid "##Verifying our Service"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:48
+msgid "Before we start writing more code we need to see that things are working."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:57
+msgid "Dang! Running the example app resulted in an error and you said to yourself, “The generator must be broken and we should head over to the friendly Slack community to start our debugging journey”. Well, as nice as they may be we can get through this. Let’s take a look at the package.json that came with our generator. Most notably the scripts section."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:81
+msgid "Back in business. That error message was telling us that we need to build our project. In this case it means babel needs to do it’s thing. For development you can run watch"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:94
+msgid "After that you can run the example app and everything should be good to go."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:103
+msgid "Expanding our Plugin"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:105
+msgid "Now that we did our verification we can safely change things. For this example we want 2 services to be exposed from our Plugin. Let’s create a services directory within the src folder."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:116
+msgid "Now let’s create our two services. We will just copy the index.js file."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:158
+msgid "At this point we have index.js, best-state.js and core-team.js with identical content. The next step will be to change index.js so that it is our main file."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:162
+msgid "Our new index.js"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:173
+msgid "Now we need to actually write the services. We will only be implementing the find action as you can reference the :doc:`../../api/services` to learn more. Starting with core-team.js we want to find out the names of the members listed in the feathers.js org on github."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:207
+msgid "That will now return an array of names when service.find is called. Moving on to the best-state service we can follow the same pattern"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:236
+msgid "Notice in the above service it return a single item array with the best state listed."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:240
+msgid "Usage"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:242
+msgid "The easiest way to use our plugin will be within the same app.js file that we were using earlier. Let’s write out some basic usage in that file."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:305
+msgid "Testing"
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:307
+msgid "Our generator stubbed out some basic tests. We will remove everything and replace it with the following."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:331
+msgid "Because this is just a quick sample jshint might fail. You can either fix the syntax or change the test command."
+msgstr ""
+
+#: ../../source/guides/advanced/creating-a-plugin.rst:339
+msgid "This should give you the basic idea of creating a Plugin for Feathers."
+msgstr ""
+

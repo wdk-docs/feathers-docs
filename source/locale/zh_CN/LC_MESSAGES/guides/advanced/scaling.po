@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/advanced/scaling.rst:2
+msgid "Scaling"
+msgstr "缩放"
+
+#: ../../source/guides/advanced/scaling.rst:4
+msgid ""
+"Depending on your requirements, your feathers application may need to "
+"provide high availability. Feathers is designed to scale."
+msgstr "根据您的要求,您的Feathers应用可能需要提供高可用性.Feathers旨在扩展."
+
+#: ../../source/guides/advanced/scaling.rst:7
+msgid ""
+"The types of transports used in a feathers application will impact the "
+"scaling configuration. For example, a feathers app that uses the "
+"``feathers-rest`` adapter exclusively will require less scaling "
+"configuration because HTTP is a stateless protocol. If using websockets "
+"(a stateful protocol) through the ``feathers-socketio`` or ``feathers-"
+"primus`` adapters, configuration may be more complex to ensure websockets"
+" work properly."
+msgstr "Feathers应用程序中使用的传输类型将影响缩放配置.例如,仅使用 ``feathers-rest`` 适配器的Feathers应用程序将需要较少的缩放配置,因为HTTP是无状态协议.如果通过 ``feathers-socketio`` 或 ``feathers-primus`` 适配器使用websockets(有状态协议),配置可能会更复杂,以确保websockets正常工作."
+
+#: ../../source/guides/advanced/scaling.rst:16
+msgid "Horizontal Scaling"
+msgstr "水平缩放"
+
+#: ../../source/guides/advanced/scaling.rst:18
+msgid "Scaling horizontally refers to either:"
+msgstr "水平缩放指的是:"
+
+#: ../../source/guides/advanced/scaling.rst:20
+msgid "setting up a `cluster <https://nodejs.org/api/cluster.html>`_, or"
+msgstr "设置 `cluster <https://nodejs.org/api/cluster.html>`_,或"
+
+#: ../../source/guides/advanced/scaling.rst:21
+msgid "adding more machines to support your application"
+msgstr "添加更多机器以支持您的应用程序"
+
+#: ../../source/guides/advanced/scaling.rst:23
+msgid ""
+"To achieve high availability, varying combinations of both strategies may"
+" be used."
+msgstr "为了实现高可用性,可以使用两种策略的不同组合."
+
+#: ../../source/guides/advanced/scaling.rst:27
+msgid "Cluster configuration"
+msgstr "群集配置"
+
+#: ../../source/guides/advanced/scaling.rst:29
+msgid ""
+"`Cluster <https://nodejs.org/api/cluster.html>`_ support is built into "
+"core NodeJS. Since NodeJS is single threaded, clustering allows you to "
+"easily distribute application requests among multiple child processes "
+"(and multiple threads). Clustering is a good choice when running feathers"
+" in a multi-core environment."
+msgstr "`簇 <https://nodejs.org/api/cluster.html>`_ support内置于核心NodeJS中.由于NodeJS是单线程的,因此集群允许您在多个子进程(和多个线程)之间轻松分发应用程序请求.在多核环境中运行Feathers时,群集是一个不错的选择."
+
+#: ../../source/guides/advanced/scaling.rst:35
+msgid ""
+"Below is an example of adding clustering to feathers with the ``feathers-"
+"socketio`` provider. By default, websocket connections begin via a "
+"handshake of multiple HTTP requests and are upgraded to the websocket "
+"protocol. However, when clustering is enabled, the same worker will not "
+"process all HTTP requests for a handshake, leading to HTTP 400 errors. To"
+" ensure a successful handshake, force a single worker to process the "
+"handshake by disabling the http transport and exclusively using the "
+"``websocket`` transport."
+msgstr "下面是使用 ``feathers-socketio`` 提供程序向羽毛添加聚类的示例。默认情况下，websocket连接通过多个HTTP请求的握手开始，并升级到websocket协议。但是，启用群集时，同一工作程序将不会处理握手的所有HTTP请求，从而导致HTTP 400错误。为确保握手成功，强制单个工作人员通过禁用http传输并专门使用 ``websocket`` 传输来处理握手。"
+
+#: ../../source/guides/advanced/scaling.rst:44
+msgid ""
+"There are notable side effects to be aware of when disabling the HTTP "
+"transport for websockets. While all modern browsers support websocket "
+"connections, there is no websocket support for `IE <=9 and Android "
+"Browser <=4.3 <http://caniuse.com/#feat=websockets>`_. If you must "
+"support these browsers, use alternative scaling strategies."
+msgstr "禁用websockets的HTTP传输时需要注意很明显的副作用.虽然所有现代浏览器都支持websocket连接,但是没有websocket支持 `IE <= 9 和 Android Browser <= 4.3 <http://caniuse.com/#feat=websockets>`_. 如果您必须支持这些浏览器,请使用其他缩放策略."
+
+#: ../../source/guides/advanced/scaling.rst:71
+msgid ""
+"In your feathers client code, limit the socket.io-client to the "
+"``websocket`` transport and disable ``upgrade``."
+msgstr "在您的Feathers客户端代码中,将 socket.io-client 限制为 ``websocket`` transport 并禁用 ``upgrade``."
+

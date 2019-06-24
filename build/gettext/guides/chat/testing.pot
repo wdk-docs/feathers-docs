@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/chat/testing.rst:2
+msgid "Writing tests"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:4
+msgid "Every time we generate a hook or service, the generator will also set up a basic `Mocha <https://mochajs.org/>`_ test that we can use to implement unit tests for it. In this chapter, we will implement unit tests for our :doc:`./processing` and integration tests for the :doc:`./service`."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:10
+msgid "We can run the `code Linter <https://eslint.org/>`_ and Mocha tests with"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:17
+msgid "This will fail initially, since we implemented functionality in our hooks that is not covered by the standard tests. So let’s get those to pass first."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:22
+msgid "Unit testing hooks"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:24
+msgid "The best way to test individual hooks is to set up a dummy Feathers application with some services that return the data we expect and can test against, then register the hooks and make actual service calls to verify that they return what we’d expect."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:29
+msgid "The first hook we created was for processing new messages. For this hook, we can create a ``messages`` dummy custom :doc:`../basics/services` that just returns the same data from the ``create`` service method. To pretend we are an authenticated user, we have to pass ``params.user``. For this test, this can be a simple JavaScript object with an ``_id``."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:36
+msgid "Update ``test/hooks/process-messages.test.js`` to the following:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:87
+msgid "We can take a similar approach to test the ``gravatar`` hook in ``test/hooks/gravatar.test.js``:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:129
+msgid "In the tests above, we created a dummy service. But sometimes, we need the full Feathers service functionality. `feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_ is a useful :doc:`../basics/databases` that supports the Feathers query syntax (and pagination) but does not require a database server. We can install it as a development dependency:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:140
+msgid "Let’s use it to test the ``populateUser`` hook, by updating ``test/hooks/populate-user.test.js`` to the following:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:191
+msgid "If we now run:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:197
+msgid "All our tests should pass. Yay!"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:199
+msgid "There are some error stacks printed when running the tests. This is normal, they are log entries when running the tests for 404 (Not Found) errors."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:204
+msgid "Test database setup"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:206
+msgid "When testing database functionality, we want to make sure that the tests use a different database. We can achieve this by creating a new environment configuration in ``config/test.json`` with the following content:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:217
+msgid "This will set up the NeDB database to use ``test/data`` as the base directory instead of ``data/`` when ``NODE_ENV`` is set to ``test``. The same thing can be done with connection strings for other databases."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:221
+msgid "We also want to make sure that before every test run, the database is cleaned up. To make that possible across platforms, first run:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:228
+msgid "Now we can update the ``script`` section of ``package.json`` to the following:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:241
+msgid "On Windows the ``mocha`` should look like:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:247
+msgid "This will make sure that the ``test/data`` folder is removed before every test run and ``NODE_ENV`` is set properly."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:251
+msgid "Testing services"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:253
+msgid "To test the actual ``messages`` and ``users`` services (with all hooks wired up), we can use any REST API testing tool to make requests and verify that they return correct responses."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:257
+msgid "But there is a much faster, easier and complete approach. Since everything on top of our own hooks and services is already provided (and tested) by Feathers, we can require the :doc:`../../api/services` directly, and “fake” authentication by setting ``params.user`` as demonstrated in the hook tests above."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:263
+msgid "By default, the generator creates a service test file, e.g. \\ ``test/services/users.test.js``, that only tests that the service exists, like this:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:280
+msgid "We can then add similar tests that use the service. Following is an updated ``test/services/users.test.js`` that adds two tests. The first verifies that users can be created, the gravatar gets set and the password gets encrypted. The second verifies that the password does not get sent to external requests:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:324
+msgid "We take a similar approach for ``test/services/messages.test.js``. We create a test-specific user from the ``users`` service. We then pass it as ``params.user`` when creating a new message, and validates that message’s content:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:365
+msgid "Run ``npm test`` one more time, to verify that the tests for all our hooks, and the new service tests pass."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:369
+msgid "Client/server testing"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:371
+msgid "You can write tests which start up both a server for your app, and a Feathers client which your test can use to call the server. Such tests can expose faults in the interaction between the client and the server. They are also useful in testing the authentication of requests from the client. Install it as a development dependency:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:381
+msgid "Test ``test/services/users.test.js`` from above runs on the server. We convert it, in the following ``tests/services/client-users.test.js``, so the tests are run on the client instead of on the server. This also causes client authentication to be tested."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:489
+msgid "We first make a call on the *server* to create a new user. We then start up a server for our app. Finally the function ``makeClient`` is called to create a Feathers client and authenticate it using the newly created user."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:494
+msgid "The individual tests remain unchanged except that the service calls are now made on the client (``client.service(...).create``) instead of on the server (``app.service(...).create``)."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:498
+msgid "The ``describe('Run tests using client and server',`` statement stops a new server and client from being created for each test. This results in the test module running noticeably faster, though the tests are now exposed to potential iteractions. You can remove the statement to isolate the tests from one another."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:505
+msgid "Code coverage"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:507
+msgid "Code coverage is a great way to get some insights into how much of our code is actually executed during the tests. Using `Istanbul <https://github.com/gotwarlost/istanbul>`_ we can add it easily:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:516
+msgid "Now we have to update the ``script`` section of our ``package.json`` to:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:529
+msgid "On Windows, the ``coverage`` command looks like this:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:535
+msgid "Now run:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:541
+msgid "This will print out some additional coverage information."
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:544
+msgid "Changing the default test directory"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:546
+msgid "To change the default test directory, specify the directory you want in your project’s ``package.json`` file:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:557
+msgid "Also, don’t forget to update your mocha script in your ``package.json`` file:"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:567
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/chat/testing.rst:569
+msgid "That’s it - our chat guide is completed! We now have a fully-tested REST and real-time API, with a plain JavaScript frontend including login and signup. Follow up in the :doc:`../../api/readme` for complete details about using Feathers, or start building your own first Feathers application!"
+msgstr ""
+

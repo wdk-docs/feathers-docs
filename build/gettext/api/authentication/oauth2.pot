@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/authentication/oauth2.rst:2
+msgid "OAuth2 Authentication"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:10
+msgid "[@feathersjs/authentication-oauth2](https://github.com/feathersjs/authentication-oauth2) is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth2 authentication strategy within your Feathers application. There are hundreds of them! Some commonly used ones are:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:16
+msgid "`Facebook <https://github.com/jaredhanson/passport-facebook>`_"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:17
+msgid "`Instagram <https://github.com/jaredhanson/passport-instagram>`_"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:18
+msgid "`Github <https://github.com/jaredhanson/passport-github>`_"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:19
+msgid "`Google <https://github.com/jaredhanson/passport-google-oauth2>`_"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:20
+msgid "`Spotify <https://github.com/JMPerez/passport-spotify>`_"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:22
+msgid "This module contains 2 core pieces:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:24
+msgid "The main initialization function"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:25
+msgid "The ``Verifier`` class"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:28
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:30
+msgid "In most cases initializing the module is as simple as doing this:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:62
+msgid "This will pull from your global authentication object in your config file. It will also mix in the following defaults, which can be customized."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:66
+msgid "Registering the OAuth2 plugin will automatically set up routes to handle the OAuth redirects and authorization."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:70
+msgid "Options"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:91
+msgid "Additional passport strategy options can be provided based on the OAuth1 strategy you are configuring."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:94
+msgid "If your api and frontend live on separate domains, you will need to manually setup a handler to pass the access token back to the frontend application. `See this FAQ <https://docs.feathersjs.com/faq/readme.html#oauth-is-not-setting-the-cookie>`_."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:100
+msgid "Verifier"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:102
+msgid "This is the verification class that handles the OAuth2 verification by looking up the entity (normally a ``user``) on a given service and either creates or updates the entity and returns them. It has the following methods that can all be overridden. All methods return a promise except ``verify``, which has the exact same signature as `passport-oauth2 <https://github.com/jaredhanson/passport-oauth2>`_."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:119
+msgid "The ``Verifier`` class can be extended so that you customize it’s behavior without having to rewrite and test a totally custom local Passport implementation. Although that is always an option if you don’t want use this plugin."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:124
+msgid "An example of customizing the Verifier:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:153
+msgid "Customizing The OAuth Response"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:155
+msgid "Whenever you authenticate with an OAuth2 provider such as Facebook, the provider sends back an ``accessToken``, ``refreshToken``, and a ``profile`` that contains the authenticated entity’s information based on the OAuth2 ``scopes`` you have requested and been granted."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:160
+msgid "By default the ``Verifier`` takes everything returned by the provider and attaches it to the ``entity`` (ie. the user object) under the provider name. You will likely want to customize the data that is returned. This can be done by adding a ``before`` hook to both the ``update`` and ``create`` service methods on your ``entity``\\ ’s service."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:210
+msgid "Client Usage"
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:212
+msgid "When this module is registered server side, whether you are using ``feathers-authentication-client`` or not the user has to navigate to the authentication strategy url. This could be by setting ``window.location`` or through a link in your app."
+msgstr ""
+
+#: ../../source/api/authentication/oauth2.rst:217
+msgid "For example you might have a login button for Facebook:"
+msgstr ""
+

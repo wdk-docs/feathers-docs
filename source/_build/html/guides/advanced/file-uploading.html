@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>在FeathersJS中上传文件 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="使用视图引擎" href="using-a-view-engine.html" />
+    <link rel="prev" title="高级指南" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">高级指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">高级指南</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">在FeathersJS中上传文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#our-goals">我们的目标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#basic-upload-with-feathers-blob-and-feathers-client">基本上传 Feathers  - 斑点和 Feathers  - 客户端</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feathers-blob-with-multipart-support">具有多部分支持的Feathers-blob。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#further-improvements">进一步改进</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="using-a-view-engine.html">使用视图引擎</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-plugin.html">创建一个Feathers插件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">高级指南</a> &raquo;</li>
+        
+      <li>在FeathersJS中上传文件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/advanced/file-uploading.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file-uploads-in-feathersjs">
+<h1>在FeathersJS中上传文件<a class="headerlink" href="#file-uploads-in-feathersjs" title="永久链接至标题">¶</a></h1>
+<p>Over the last months we at <a class="reference external" href="https://ciancoders.com/">ciancoders.com</a>
+have been working in a new SPA project using Feathers and React, the
+combination of those two turns out to be <strong>just amazing</strong>.</p>
+<p>Recently we were struggling to find a way to upload files without having
+to write a separate Express middleware or having to (re)write a complex
+Feathers service.</p>
+<div class="section" id="our-goals">
+<h2>我们的目标<a class="headerlink" href="#our-goals" title="永久链接至标题">¶</a></h2>
+<p>我们希望实现上传服务来完成一些重要的事情:</p>
+<ol class="arabic simple">
+<li><p>它必须处理大文件（+ 10MB）。</p></li>
+<li><p>它需要使用应用程序的身份验证和授权。</p></li>
+<li><p>需要验证文件。</p></li>
+<li><p>At the moment there is no third party storage service involved, but
+this will change in the near future, so it has to be prepared.</p></li>
+<li><p>它必须显示上传进度。</p></li>
+</ol>
+<p>The plan is to upload the files to a feathers service so we can take
+advantage of hooks for authentication, authorization and validation, and
+for service events.</p>
+<p>Fortunately, there exists a file storage service:
+<a class="reference external" href="https://github.com/feathersjs/feathers-blob">feathers-blob</a>. With it
+we can meet our goals, but (spoiler alert) it comes with its own
+problems which we’ll discuss below.</p>
+</div>
+<div class="section" id="basic-upload-with-feathers-blob-and-feathers-client">
+<h2>基本上传 Feathers  - 斑点和 Feathers  - 客户端<a class="headerlink" href="#basic-upload-with-feathers-blob-and-feathers-client" title="永久链接至标题">¶</a></h2>
+<p>For the sake of simplicity, we will be working over a very basic
+feathers server, with just the upload service.</p>
+<p>让我们看一下服务器代码:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* --- server.js --- */</span>
+
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-socketio&#39;</span><span class="p">);</span>
+
+<span class="c1">// feathers-blob service</span>
+<span class="kr">const</span> <span class="nx">blobService</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-blob&#39;</span><span class="p">);</span>
+<span class="c1">// Here we initialize a FileSystem storage,</span>
+<span class="c1">// but you can use feathers-blob with any other</span>
+<span class="c1">// storage service like AWS or Google Drive.</span>
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs-blob-store&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">blobStorage</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/uploads&#39;</span><span class="p">);</span>
+
+
+<span class="c1">// Feathers app</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Parse HTTP JSON bodies</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="c1">// Parse URL-encoded params</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Add REST API support</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+<span class="c1">// Configure Socket.io real-time APIs</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">());</span>
+
+
+<span class="c1">// Upload Service</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/uploads&#39;</span><span class="p">,</span> <span class="nx">blobService</span><span class="p">({</span><span class="nx">Model</span><span class="o">:</span> <span class="nx">blobStorage</span><span class="p">}));</span>
+
+
+<span class="c1">// Register a nicer error handler than the default Express one</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">());</span>
+
+<span class="c1">// Start the server</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Feathers app started at localhost:3030&#39;</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Let’s look at this implemented in the <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/cli</span></code> generated
+server code:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* --- /src/services/uploads/uploads.service.js --- */</span>
+
+<span class="c1">// Initializes the `uploads` service on path `/uploads&#39;</span>
+
+
+<span class="c1">// Here we used the nedb database, but you can</span>
+<span class="c1">// use any other ORM database.</span>
+<span class="kr">const</span> <span class="nx">createService</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-nedb&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">createModel</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../models/uploads.model&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./uploads.hooks&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">filters</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./uploads.filters&#39;</span><span class="p">);</span>
+
+
+<span class="c1">// feathers-blob service</span>
+<span class="kr">const</span> <span class="nx">blobService</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-blob&#39;</span><span class="p">);</span>
+<span class="c1">// Here we initialize a FileSystem storage,</span>
+<span class="c1">// but you can use feathers-blob with any other</span>
+<span class="c1">// storage service like AWS or Google Drive.</span>
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs-blob-store&#39;</span><span class="p">);</span>
+
+
+<span class="c1">// File storage location. Folder must be created before upload.</span>
+<span class="c1">// Example: &#39;./uploads&#39; will be located under feathers app top level.</span>
+<span class="kr">const</span> <span class="nx">blobStorage</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">(</span><span class="s1">&#39;./uploads&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">Model</span> <span class="o">=</span> <span class="nx">createModel</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">paginate</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;paginate&#39;</span><span class="p">);</span>
+
+  <span class="c1">// Initialize our service with any options it requires</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/uploads&#39;</span><span class="p">,</span> <span class="nx">blobService</span><span class="p">({</span> <span class="nx">Model</span><span class="o">:</span> <span class="nx">blobStorage</span><span class="p">}));</span>
+
+  <span class="c1">// Get our initialized service so that we can register hooks and filters</span>
+  <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;uploads&#39;</span><span class="p">);</span>
+
+  <span class="nx">service</span><span class="p">.</span><span class="nx">hooks</span><span class="p">(</span><span class="nx">hooks</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">filter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">filters</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">feathers-blob</span></code> works over abstract-blob-store, which is an abstract
+interface to various storage backends, such as filesystem, AWS, or
+Google Drive. It only accepts and retrieves files encoded as dataURI
+strings.</p>
+<p>Just like that we have our backend ready, go ahead and POST something to
+localhost:3030/uploads`, for example with postman:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &#39;uri&#39;: &#39;data:image/gif;base64,R0lGODlhEwATAPcAAP/+//7/////+////fvzYvryYvvzZ/fxg/zxWfvxW/zwXPrtW/vxXvfrXv3xYvrvYvntYvnvY/ruZPrwZPfsZPjsZfjtZvfsZvHmY/zxavftaPrvavjuafzxbfnua/jta/ftbP3yb/zzcPvwb/zzcfvxcfzxc/3zdf3zdv70efvwd/rwd/vwefftd/3yfPvxfP70f/zzfvnwffvzf/rxf/rxgPjvgPjvgfnwhPvzhvjvhv71jfz0kPrykvz0mv72nvblTPnnUPjoUPrpUvnnUfnpUvXlUfnpU/npVPnqVPfnU/3uVvvsWPfpVvnqWfrrXPLiW/nrX/vtYv7xavrta/Hlcvnuf/Pphvbsif3zk/zzlPzylfjuk/z0o/LqnvbhSPbhSfjiS/jlS/jjTPfhTfjlTubUU+/iiPPokfrvl/Dll/ftovLWPfHXPvHZP/PbQ/bcRuDJP/PaRvjgSffdSe3ddu7fge7fi+zkuO7NMvPTOt2/Nu7SO+3OO/PWQdnGbOneqeneqvDqyu3JMuvJMu7KNfHNON7GZdnEbejanObXnOW8JOa9KOvCLOnBK9+4Ku3FL9ayKuzEMcenK9e+XODOiePSkODOkOW3ItisI9yxL+a9NtGiHr+VH5h5JsSfNM2bGN6rMJt4JMOYL5h4JZl5Jph3Jpl4J5h5J5h3KJl4KZp5Ks+sUN7Gi96lLL+PKMmbMZt2Jpp3Jpt3KZl4K7qFFdyiKdufKsedRdm7feOpQN2QKMKENrpvJbFfIrNjJL1mLMBpLr9oLrFhK69bJFkpE1kpFYNeTqFEIlsoFbmlnlsmFFwpGFkoF/////7+/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAANAALAAAAAATABMAAAj/AKEJHCgokKJKlhThGciQYSIva7r8SHPFzqGGAwPd4bKlh5YsPKy0qFLnT0NAaHTcsIHDho0aKkaAwGCGEkM1NmSkIjWLBosVJT6cOjUrzsBKPl54KmYsACoTMmk1WwaA1CRoeM7siJEqmTIAsjp40ICK2bEApfZcsoQlxwxRzgI8W8XhgoVYA+Kq6sMK0QEYKVCUkoVqQwQJFTwFEAAAFZ9PlFy4OEEiRIYJD55EodDA1ClTbPp0okRFxBQDBRgskAKhiRMlc+Sw4SNpFCIoBBwkUMBkCBIiY8qAgcPG0KBHrBTFQbCEV5EjQYQACfNFjp5CgxpxagVtUhIjwzaJYSHzhQ4cP3ryQHLEqJbASnu+6EIW6o2b2X0ISXK0CFSugazs0YYmwQhziyuE2PLLIv3h0hArkRhiCCzAENOLL7tgAoqDGLXSSSaPMLIIJpmAUst/GA3UCiuv1PIKLtw1FBAAOw==&#39;
+}
+</pre></div>
+</div>
+<p>该服务将以这样的方式回应:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &#39;id&#39;: &#39;6454364d8facd7a88e627e4c4b11b032d2f83af8f7f9329ffc2b7a5c879dc838.gif&#39;,
+  &#39;uri&#39;: &#39;the-same-uri-we-uploaded&#39;,
+  &#39;size&#39;: 1156
+}
+</pre></div>
+</div>
+<p>Or we can implement a very basic frontend with <code class="docutils literal notranslate"><span class="pre">feathers-client</span></code> and
+<code class="docutils literal notranslate"><span class="pre">jQuery</span></code>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Feathersjs File Upload<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span>   <span class="na">src</span><span class="o">=</span><span class="s">&#39;https://code.jquery.com/jquery-2.2.3.min.js&#39;</span>   <span class="na">integrity</span><span class="o">=</span><span class="s">&#39;sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=&#39;</span>   <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#39;anonymous&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//unpkg.com/feathers-client@^2.0.0/dist/feathers.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">&gt;</span>
+            <span class="c1">// feathers client initialization</span>
+            <span class="kr">const</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">.</span><span class="nx">rest</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">);</span>
+            <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">hooks</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">rest</span><span class="p">.</span><span class="nx">jquery</span><span class="p">(</span><span class="nx">$</span><span class="p">));</span>
+
+            <span class="c1">// setup jQuery to watch the ajax progress</span>
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajaxSetup</span><span class="p">({</span>
+                <span class="nx">xhr</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">();</span>
+                    <span class="c1">// upload progress</span>
+                    <span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;progress&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">lengthComputable</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="kd">var</span> <span class="nx">percentComplete</span> <span class="o">=</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">loaded</span> <span class="o">/</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">total</span><span class="p">;</span>
+                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;upload progress: &#39;</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">percentComplete</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">);</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+                    <span class="k">return</span> <span class="nx">xhr</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+
+            <span class="kr">const</span> <span class="nx">uploadService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;uploads&#39;</span><span class="p">);</span>
+            <span class="kr">const</span> <span class="nx">reader</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">();</span>
+
+            <span class="c1">// encode selected files</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;input#file&#39;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+                    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                    <span class="c1">// encode dataURI</span>
+                    <span class="nx">reader</span><span class="p">.</span><span class="nx">readAsDataURL</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+                <span class="p">})</span>
+            <span class="p">});</span>
+
+            <span class="c1">// when encoded, upload</span>
+            <span class="nx">reader</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;encoded file: &#39;</span><span class="p">,</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">result</span><span class="p">);</span>
+                <span class="kd">var</span> <span class="nx">upload</span> <span class="o">=</span> <span class="nx">uploadService</span>
+                    <span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="nx">uri</span><span class="o">:</span> <span class="nx">reader</span><span class="p">.</span><span class="nx">result</span><span class="p">})</span>
+                    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
+                        <span class="c1">// success</span>
+                        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;UPLOADED!! &#39;</span><span class="p">);</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Server responded with: &#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+                    <span class="p">});</span>
+            <span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Let&#39;s upload some files!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;file&#39;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;file&#39;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>This code watches for file selection, then encodes it and does an ajax
+post to upload it, watching the upload progress via the xhr object.
+Everything works as expected.</p>
+<p>Every file we select gets uploaded and saved to the <code class="docutils literal notranslate"><span class="pre">./uploads</span></code>
+directory.</p>
+<p>Work done!, let’s call it a day, shall we?</p>
+<p>… But hey, there is something that doesn’t feels quite right …right?</p>
+<div class="section" id="datauri-upload-problems">
+<h3>DataURI upload problems<a class="headerlink" href="#datauri-upload-problems" title="永久链接至标题">¶</a></h3>
+<p>It doesn’t feels right because it is not. Let’s imagine what would
+happen if we try to upload a large file, say 25MB or more: The entire
+file (plus some extra MB due to the encoding) has to be kept in memory
+for the entire upload process, this could look like nothing for a normal
+computer but for mobile devices it’s a big deal.</p>
+<p>We have a big RAM consumption problem. Not to mention we have to encode
+the file before sending it…</p>
+<p>The solution would be to modify the service, adding support for
+splitting the dataURI into small chunks, then uploading one at a time,
+collecting and reassembling everything on the server. But hey, it’s not
+that the same thing browsers and web servers has been doing since maybe
+the very early days of the web? maybe since Netscape Navigator?</p>
+<p>Well, actually it is, and doing a <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code> post is still
+the easiest way to upload a file.</p>
+</div>
+</div>
+<div class="section" id="feathers-blob-with-multipart-support">
+<h2>具有多部分支持的Feathers-blob。<a class="headerlink" href="#feathers-blob-with-multipart-support" title="永久链接至标题">¶</a></h2>
+<p>Back with the backend, in order to accept multipart uploads, we need a
+way to handle the <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code> received by the web server.
+Given that Feathers behaves like Express, let’s just use <code class="docutils literal notranslate"><span class="pre">multer</span></code> and
+a custom middleware to handle that.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* --- server.js --- */</span>
+<span class="kr">const</span> <span class="nx">multer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;multer&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">multipartMiddleware</span> <span class="o">=</span> <span class="nx">multer</span><span class="p">();</span>
+
+<span class="c1">// Upload Service with multipart support</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/uploads&#39;</span><span class="p">,</span>
+
+    <span class="c1">// multer parses the file named &#39;uri&#39;.</span>
+    <span class="c1">// Without extra params the data is</span>
+    <span class="c1">// temporarely kept in memory</span>
+    <span class="nx">multipartMiddleware</span><span class="p">.</span><span class="nx">single</span><span class="p">(</span><span class="s1">&#39;uri&#39;</span><span class="p">),</span>
+
+    <span class="c1">// another middleware, this time to</span>
+    <span class="c1">// transfer the received file to feathers</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">file</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+        <span class="nx">next</span><span class="p">();</span>
+    <span class="p">},</span>
+    <span class="nx">blobService</span><span class="p">({</span><span class="nx">Model</span><span class="o">:</span> <span class="nx">blobStorage</span><span class="p">})</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice we kept the file field name as <em>uri</em> just to maintain uniformity,
+as the service will always work with that name anyways. But you can
+change it if you prefer.</p>
+<p>Feathers-blob only understands files encoded as dataURI, so we need to
+convert them first. Let’s make a Hook for that:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* --- server.js --- */</span>
+<span class="kr">const</span> <span class="nx">dauria</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;dauria&#39;</span><span class="p">);</span>
+
+<span class="c1">// before-create Hook to get the file (if there is any)</span>
+<span class="c1">// and turn it into a datauri,</span>
+<span class="c1">// transparently getting feathers-blob to work</span>
+<span class="c1">// with multipart file uploads</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;/uploads&#39;</span><span class="p">).</span><span class="nx">before</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+        <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">uri</span> <span class="o">&amp;&amp;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">file</span><span class="p">){</span>
+                <span class="kr">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">file</span><span class="p">;</span>
+                <span class="kr">const</span> <span class="nx">uri</span> <span class="o">=</span> <span class="nx">dauria</span><span class="p">.</span><span class="nx">getBase64DataURI</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">buffer</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">mimetype</span><span class="p">);</span>
+                <span class="nx">context</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span><span class="nx">uri</span><span class="o">:</span> <span class="nx">uri</span><span class="p">};</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><em>Et voilà!</em>. Now we have a FeathersJS file storage service working, with
+support for traditional multipart uploads, and a variety of storage
+options to choose.</p>
+<p><strong>Simply awesome.</strong></p>
+</div>
+<div class="section" id="further-improvements">
+<h2>进一步改进<a class="headerlink" href="#further-improvements" title="永久链接至标题">¶</a></h2>
+<p>The service always return the dataURI back to us, which may not be
+necessary as we’d just uploaded the file, also we need to validate the
+file and check for authorization.</p>
+<p>All those things can be easily done with more Hooks, and that’s the
+benefit of keeping all inside FeathersJS services. I left that to you.</p>
+<p>For the frontend, there is a problem with the client: in order to show
+the upload progress it’s stuck with only REST functionality and not
+real-time with socket.io.</p>
+<p>The solution is to switch <code class="docutils literal notranslate"><span class="pre">feathers-client</span></code> from REST to
+<code class="docutils literal notranslate"><span class="pre">socket.io</span></code>, and just use wherever you like for uploading the files,
+that’s an easy task now that we are able to do a traditional
+<code class="docutils literal notranslate"><span class="pre">form-multipart</span></code> upload.</p>
+<p>以下是使用dropzone的示例:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Feathersjs File Upload<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#39;stylesheet&#39;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;assets/dropzone.css&#39;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;assets/dropzone.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;socket.io/socket.io.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//unpkg.com/feathers-client@^2.0.0/dist/feathers.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">&gt;</span>
+            <span class="c1">// feathers client initialization</span>
+            <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">);</span>
+            <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+            <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">hooks</span><span class="p">())</span>
+            <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
+            <span class="kr">const</span> <span class="nx">uploadService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;uploads&#39;</span><span class="p">);</span>
+
+            <span class="c1">// Now with Real-Time Support!</span>
+            <span class="nx">uploadService</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">){</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Received file created event!&#39;</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+            <span class="p">});</span>
+
+
+            <span class="c1">// Let&#39;s use DropZone!</span>
+            <span class="nx">Dropzone</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">myAwesomeDropzone</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="nx">paramName</span><span class="o">:</span> <span class="s1">&#39;uri&#39;</span><span class="p">,</span>
+                <span class="nx">uploadMultiple</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+                    <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;uploadprogress&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">progress</span><span class="p">){</span>
+                        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;progresss&#39;</span><span class="p">,</span> <span class="nx">progress</span><span class="p">);</span>
+                    <span class="p">});</span>
+                <span class="p">}</span>
+            <span class="p">};</span>
+        <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Let&#39;s upload some files!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&#39;/uploads&#39;</span>
+          <span class="na">class</span><span class="o">=</span><span class="s">&#39;dropzone&#39;</span>
+          <span class="na">id</span><span class="o">=</span><span class="s">&#39;my-awesome-dropzone&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>All the code is available via github here:
+<a class="reference external" href="https://github.com/CianCoders/feathers-example-fileupload">https://github.com/CianCoders/feathers-example-fileupload</a></p>
+<p>Hope you have learned something today, as I learned a lot writing this.</p>
+<p>Cheers!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using-a-view-engine.html" class="btn btn-neutral float-right" title="使用视图引擎" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="readme.html" class="btn btn-neutral float-left" title="高级指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

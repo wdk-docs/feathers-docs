@@ -1,0 +1,493 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/client.rst:2
+msgid "Feathers Client"
+msgstr " Feathers 客户端"
+
+#: ../../source/api/client.rst:4
+msgid ""
+"One of the most notable features of Feathers is that it can also be used "
+"as the client. In contrast with most other frameworks, it isn’t a "
+"separate library; instead you get the exact same functionality with a "
+"client and on a server. This means you can use :doc:`./hooks` and "
+"configure plugins. By default, a Feathers client automatically creates "
+"services that talk to a Feathers server."
+msgstr "Feathers最显着的特点之一是它也可以用作客户端。与大多数其他框架相比，它不是一个单独的库;相反，您可以获得与客户端和服务器完全相同的功能。这意味着您可以使用：doc：`。/ hooks`并配置插件。默认情况下，Feathers客户端会自动创建与Feathers服务器通信的服务。"
+
+#: ../../source/api/client.rst:12
+msgid ""
+"In order to connect to a Feathers server, a client creates "
+":doc:`./services` that use a REST or websocket connection to relay method"
+" calls and allow listening to :doc:`./events` on the server. This means "
+"the `Feathers application instance <./application>`_ is usable the exact "
+"same way as on the server."
+msgstr "为了连接到Feathers服务器，客户端创建：doc：`./ services`，它使用REST或websocket连接来中继方法调用，并允许在服务器上监听：doc：`。/ events`。这意味着`Feathers应用程序实例<./ application>`_的使用方式与服务器上的完全相同。"
+
+#: ../../source/api/client.rst:19
+msgid "Modules most relevant on the client are:"
+msgstr "Modules most relevant on the client are:"
+
+#: ../../source/api/client.rst:21
+#, fuzzy
+msgid "``@feathersjs/feathers`` to initialize a new Feathers :doc:`./application`"
+msgstr ":doc:`./application`"
+
+#: ../../source/api/client.rst:23
+#, fuzzy
+msgid ":doc:`./client/rest` to connect to services through :doc:`./express`."
+msgstr ""
+":doc:`@feathersjs/rest-client <./client/rest>` to connect to services "
+"through :doc:`./express`."
+
+#: ../../source/api/client.rst:25
+#, fuzzy
+msgid ":doc:`./client/socketio` to connect to services through :doc:`./socketio`."
+msgstr ""
+":doc:`@feathersjs/socketio-client <./client/socketio>` to connect to "
+"services through :doc:`./socketio`."
+
+#: ../../source/api/client.rst:27
+#, fuzzy
+msgid ":doc:`./client/primus` to connect to services through :doc:`./primus`."
+msgstr ""
+":doc:`@feathersjs/primus-client <./client/primus>` to connect to services"
+" through :doc:`./primus`."
+
+#: ../../source/api/client.rst:29
+#, fuzzy
+msgid ":doc:`./authentication/client` to authenticate a client"
+msgstr ""
+":doc:`@feathersjs/authentication-client <./authentication/client>` to "
+"authenticate a client"
+
+#: ../../source/api/client.rst:34
+msgid ""
+"You do not have to use Feathers on the client to connect to a Feathers "
+"server. The client chapters above also describe how to use a REST HTTP, "
+"Socket.io or Primus connection directly without Feathers on the client "
+"side. For details on authentication, see the "
+":doc:`./authentication/client`."
+msgstr "您不必在客户端上使用Feathers连接到Feathers服务器。上面的客户端章节还描述了如何在客户端没有Feathers的情况下直接使用REST HTTP，Socket.io或Primus连接。有关身份验证的详细信息，请参阅：doc：`。/ authentication / client`。"
+
+#: ../../source/api/client.rst:40
+msgid ""
+"This chapter describes how to set up Feathers as the client in Node, "
+"React Native and in the browser with a module loader like Webpack or "
+"Browserify or through a ``<script>`` tag. The examples are using "
+":doc:`./client/socketio`. For other connection methods see the chapters "
+"linked above."
+msgstr "本章介绍如何使用Webpack或Browserify等模块加载器或通过``<script>`标签将Feathers设置为Node，React Native和浏览器中的客户端。示例使用：doc：`。/ client / socketio`。有关其他连接方法，请参阅上面链接的章节。"
+
+#: ../../source/api/client.rst:46
+msgid ""
+"Feathers can be used on the client through the individual modules or the "
+"[@feathersjs/client](#feathersjsclient) module. The latter combines all "
+"modules mentioned above into a single, ES5 transpiled version."
+msgstr ""
+
+#: ../../source/api/client.rst:52
+msgid "Node"
+msgstr "Node"
+
+#: ../../source/api/client.rst:54
+msgid ""
+"To connect to a Feathers server in NodeJS, install the desired client "
+"connection library (here, ``socket.io-client``), alongside the Feathers "
+"core library, and the connection-specific library:"
+msgstr ""
+"To connect to a Feathers server in NodeJS, install the desired client "
+"connection library (here, ``socket.io-client``), alongside the Feathers "
+"core library, and the connection-specific library:"
+
+#: ../../source/api/client.rst:62
+msgid "Then initialize like this:"
+msgstr "Then initialize like this:"
+
+#: ../../source/api/client.rst:85
+msgid "React Native"
+msgstr "React Native"
+
+#: ../../source/api/client.rst:87
+msgid ""
+"React Native usage is the same as for the `Node client <#node>`_. Install"
+" the required packages into your `React Native "
+"<https://facebook.github.io/react-native/>`_ project."
+msgstr ""
+"React Native usage is the same as for the `Node client <#node>`_. Install"
+" the required packages into your `React Native "
+"<https://facebook.github.io/react-native/>`_ project."
+
+#: ../../source/api/client.rst:95
+msgid "Then in the main application file:"
+msgstr "Then in the main application file:"
+
+#: ../../source/api/client.rst:120
+msgid ""
+"Since React Native for Android doesn’t handle timeouts exceeding one "
+"minute, consider setting lower values for ``pingInterval`` and "
+"``pingTimeout`` of ``feathers-socketio`` on your server. This which will "
+"stop warnings related to this `issue <https://github.com/facebook/react-"
+"native/issues/12981>`_. For example:"
+msgstr "由于React Native for Android不能处理超过一分钟的超时，可以考虑在服务器上为``feathers-socketio``设置``pingInterval``和``pingTimeout``的较低值。这将停止与此问题<https://github.com/facebook/react-native/issues/12981>`_相关的警告。例如："
+
+#: ../../source/api/client.rst:138
+msgid "Module loaders"
+msgstr "Module loaders"
+
+#: ../../source/api/client.rst:140
+msgid ""
+"All modules in the ``@feathersjs`` namespace are using ES6. They must be "
+"transpiled to support browsers that don’t completely support ES6. Most "
+"client-side module loaders exclude the ``node_modules`` folder from being"
+" transpiled and have to be configured to include modules in the "
+"``@feathersjs`` namespace and the ``debug`` module."
+msgstr "``@ feathersjs``命名空间中的所有模块都使用ES6。必须将它们转换为支持不完全支持ES6的浏览器。大多数客户端模块加载器都不会将``node_modules``文件夹排除在外，并且必须配置为包含``@ feathersjs``命名空间和``debug``模块中的模块。"
+
+#: ../../source/api/client.rst:147
+msgid "Webpack"
+msgstr "Webpack"
+
+#: ../../source/api/client.rst:149
+msgid ""
+"For Webpack, the recommended ``babel-loader`` rule normally excludes "
+"everything in ``node_modules``. It has to be adjusted to skip "
+"``node_modules/@feathersjs`` and ``node_modules/debug``. In the "
+"``module`` ``rules`` in your ``webpack.config.js``, update the ``babel-"
+"loader`` section to this:"
+msgstr "对于Webpack，推荐的``babel-loader``规则通常会排除``node_modules``中的所有内容。必须调整它以跳过``node_modules / @ feathersjs``和``node_modules / debug``。在你的``webpack.config.js``中的``module```````中，将``babel-loader``部分更新为："
+
+#: ../../source/api/client.rst:164
+msgid "create-react-app"
+msgstr "create-react-app"
+
+#: ../../source/api/client.rst:166
+msgid ""
+"`create-react-app <https://github.com/facebookincubator/create-react-"
+"app>`_ uses `Webpack <#webpack>`_ but does not allow to modify the "
+"configuration unless you eject. If you do not want to eject, use the "
+"[@feathersjs/client](https://github.com/feathersjs/client) module "
+"instead."
+msgstr "`create-react-app <https://github.com/facebookincubator/create-react-app>`_使用`Webpack <#webpack>`_但不允许修改配置，除非你弹出。如果您不想弹出，请改用[@ feathersjs / client]（https://github.com/feathersjs/client）模块。"
+
+#: ../../source/api/client.rst:176
+msgid "You can then import the transpiled libraries from this package:"
+msgstr "You can then import the transpiled libraries from this package:"
+
+#: ../../source/api/client.rst:183
+msgid "Browserify"
+msgstr "Browserify"
+
+#: ../../source/api/client.rst:185
+msgid ""
+"In Browserify the `babelify <https://github.com/babel/babelify>`_ "
+"transform must be used. All Feathers packages indicate that they need the"
+" transform and should be transpiled automatically."
+msgstr ""
+"In Browserify the `babelify <https://github.com/babel/babelify>`_ "
+"transform must be used. All Feathers packages indicate that they need the"
+" transform and should be transpiled automatically."
+
+#: ../../source/api/client.rst:190
+msgid "Others"
+msgstr "Others"
+
+#: ../../source/api/client.rst:192
+msgid ""
+"As mentioned above, ``node_modules/@feathersjs`` and all its subfolders "
+"must be included in the ES6+ transpilation step when using any module "
+"loader that is using a transpiler. For non-CommonJS formats (like AMD) "
+"and an ES5 compatible version of Feathers and its client modules you can "
+"use the [@feathersjs/client module](#feathersjsclient)."
+msgstr "如上所述，当使用任何使用转换器的模块加载器时，``node_modules / @ feathersjs``及其所有子文件夹必须包含在ES6 +转换步骤中。对于非CommonJS格式（如AMD）和兼容ES5的Feathers及其客户端模块，您可以使用[@ feathersjs / client module]（＃featherssjsclient）。"
+
+#: ../../source/api/client.rst:199 ../../source/api/client.rst:214
+msgid "@feathersjs/client"
+msgstr "@feathersjs/client"
+
+#: ../../source/api/client.rst:201
+msgid "|npm version| |Changelog|"
+msgstr "|npm version| |Changelog|"
+
+#: ../../source/api/client.rst:207
+msgid ""
+"``@feathersjs/client`` is a module that bundles the separate Feathers "
+"client-side modules into one providing the code as ES5 which is "
+"compatible with modern browsers (IE10+). It can also be used directly in "
+"the browser through a ``<script>`` tag. Here is a table of which Feathers"
+" client module is included:"
+msgstr "``@ feathersjs / client``是一个模块，它将单独的Feathers客户端模块捆绑成一个模块，提供与现代浏览器（IE10 +）兼容的ES5代码。它也可以通过``<script>``标签直接在浏览器中使用。这是一个包含Feathers客户端模块的表："
+
+#: ../../source/api/client.rst:214
+msgid "Feathers module"
+msgstr "Feathers module"
+
+#: ../../source/api/client.rst:216
+msgid "@feathersjs/feathers"
+msgstr "@feathersjs/feathers"
+
+#: ../../source/api/client.rst:216
+msgid "feathers (default)"
+msgstr "feathers (default)"
+
+#: ../../source/api/client.rst:217
+msgid "@feathersjs/errors"
+msgstr "@feathersjs/errors"
+
+#: ../../source/api/client.rst:217
+msgid "feathers.errors"
+msgstr "feathers.errors"
+
+#: ../../source/api/client.rst:218
+msgid "@feathersjs/rest-client"
+msgstr "@feathersjs/rest-client"
+
+#: ../../source/api/client.rst:218
+msgid "feathers.rest"
+msgstr "feathers.rest"
+
+#: ../../source/api/client.rst:219
+msgid "@feathersjs/socketio-client"
+msgstr "@feathersjs/socketio-client"
+
+#: ../../source/api/client.rst:219
+msgid "feathers.socketio"
+msgstr "feathers.socketio"
+
+#: ../../source/api/client.rst:220
+msgid "@feathersjs/primus-client"
+msgstr "@feathersjs/primus-client"
+
+#: ../../source/api/client.rst:220
+msgid "feathers.primus"
+msgstr "feathers.primus"
+
+#: ../../source/api/client.rst:221
+msgid "@feathersjs/authentication-client"
+msgstr "@feathersjs/authentication-client"
+
+#: ../../source/api/client.rst:221
+msgid "feathers.authentication"
+msgstr "feathers.authentication"
+
+#: ../../source/api/client.rst:226
+msgid ""
+"The Feathers client libraries come transpiled to ES5 and require ES6 "
+"shims either through the `babel-polyfill <https://www.npmjs.com/package"
+"/babel-polyfill>`_ module or by including `core.js "
+"<https://github.com/zloirock/core-js>`_ in older browsers e.g. via "
+"``<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs"
+"/core-js/2.1.4/core.min.js\"></script>``"
+msgstr "Feathers客户端库被转换为ES5并需要ES6填充程序通过`babel-polyfill <https://www.npmjs.com/package/babel-polyfill>`_模块或包含`core.js <https：/ /github.com/zloirock/core-js>`_在较旧的浏览器中，例如通过``<script type = \“text / javascript \”src = \“// cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js \”> </ script> ``"
+
+#: ../../source/api/client.rst:240
+#, fuzzy
+msgid ""
+"When you are loading @feathersjs/client you do not have to install or "
+"load any of the other modules listed in the table above."
+msgstr ""
+"**Important:** When you are loading @feathersjs/client you do not have to"
+" install or load any of the other modules listed in the table above."
+
+#: ../../source/api/client.rst:245
+msgid "When to use"
+msgstr "When to use"
+
+#: ../../source/api/client.rst:247
+msgid ""
+"``@feathersjs/client`` can be used directly in the browser using a "
+"``<script>`` tag without a module loader as well as with module loaders "
+"that do not support CommonJS (like RequireJS) or React applications "
+"created with a default ``create-react-app``."
+msgstr "``feathersjs / client``可以直接在浏览器中使用``<script>``标签而不使用模块加载器，也可以使用不支持CommonJS的模块加载器（如RequireJS）或使用a创建的React应用程序默认``create-react-app``。"
+
+#: ../../source/api/client.rst:252
+msgid ""
+"If you are using the Feathers client with Node or React Native you should"
+" follow the steps described in the `Node <#node>`_ and `React Native "
+"<#react-native>`_ sections and **not** use ``@feathersjs/client``."
+msgstr ""
+"If you are using the Feathers client with Node or React Native you should"
+" follow the steps described in the `Node <#node>`_ and `React Native "
+"<#react-native>`_ sections and **not** use ``@feathersjs/client``."
+
+#: ../../source/api/client.rst:257
+#, fuzzy
+msgid ""
+"All Feathers client examples show direct usage and usage with "
+"``@feathersjs/client``."
+msgstr ""
+"**Note:** All Feathers client examples show direct usage and usage with "
+"``@feathersjs/client``."
+
+#: ../../source/api/client.rst:261
+msgid "Load with a module loader"
+msgstr "Load with a module loader"
+
+#: ../../source/api/client.rst:263
+msgid ""
+"You can use ``@feathersjs/client`` with other browser module "
+"loaders/bundlers (instead of using the modules directly) but it may "
+"include packages you may not use and result in a slightly larger bundle "
+"size."
+msgstr "您可以将``feathersss / client``与其他浏览器模块加载器/捆绑器一起使用（而不是直接使用模块），但它可能包含您可能不使用的包，并导致稍大的包大小。"
+
+#: ../../source/api/client.rst:288
+msgid "Load from CDN with ``<script>``"
+msgstr "Load from CDN with ``<script>``"
+
+#: ../../source/api/client.rst:290
+msgid ""
+"Below is an example of the scripts you would use to load "
+"``@feathersjs/client`` from `unpkg.com <https://unpkg.com>`_."
+msgstr ""
+"Below is an example of the scripts you would use to load "
+"``@feathersjs/client`` from `unpkg.com <https://unpkg.com>`_."
+
+#: ../../source/api/client.rst:315
+msgid "RequireJS"
+msgstr "RequireJS"
+
+#: ../../source/api/client.rst:317
+msgid "Here’s how to load feathers-client using RequireJS Syntax:"
+msgstr "Here’s how to load feathers-client using RequireJS Syntax:"
+
+#~ msgid ""
+#~ "One of the most notable features "
+#~ "of Feathers is that it can also"
+#~ " be used as the client. In "
+#~ "contrast with most other frameworks, it"
+#~ " isn’t a separate library; instead "
+#~ "you get the exact same functionality "
+#~ "with a client and on a server. "
+#~ "This means you can use `services "
+#~ "<./services.md>:doc:`./hooks` and configure plugins."
+#~ " By default, a Feathers client "
+#~ "automatically creates services that talk "
+#~ "to a Feathers server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In order to connect to a Feathers"
+#~ " server, a client creates `Services "
+#~ "<./services.md>`_ that use a REST or "
+#~ "websocket connection to relay method "
+#~ "calls and allow listening to "
+#~ ":doc:`./events` on the server. This "
+#~ "means the `Feathers application instance "
+#~ "<./application>`_ is usable the exact "
+#~ "same way as on the server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** You do not have to "
+#~ "use Feathers on the client to "
+#~ "connect to a Feathers server. The "
+#~ "client chapters above also describe how"
+#~ " to use a REST HTTP, Socket.io "
+#~ "or Primus connection directly without "
+#~ "Feathers on the client side. For "
+#~ "details on authentication, see the "
+#~ "`Authentication client chapter "
+#~ "<./authentication/client.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This chapter describes how to set "
+#~ "up Feathers as the client in Node,"
+#~ " React Native and in the browser "
+#~ "with a module loader like Webpack "
+#~ "or Browserify or through a ``<script>``"
+#~ " tag. The examples are using `the "
+#~ "Socket.io client <./client/socketio.md>`_. For "
+#~ "other connection methods see the "
+#~ "chapters linked above."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** Feathers can be used on"
+#~ " the client through the individual "
+#~ "modules or the "
+#~ "[@feathersjs/client](#feathersjsclient) module. The "
+#~ "latter combines all modules mentioned "
+#~ "above into a single, ES5 transpiled "
+#~ "version."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** The Feathers client libraries"
+#~ " come transpiled to ES5 and require"
+#~ " ES6 shims either through the "
+#~ "`babel-polyfill <https://www.npmjs.com/package/babel-"
+#~ "polyfill>`_ module or by including "
+#~ "`core.js <https://github.com/zloirock/core-js>`_ in"
+#~ " older browsers e.g. via ``<script "
+#~ "type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs"
+#~ "/core-js/2.1.4/core.min.js\"></script>``"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You do not have to use Feathers"
+#~ " on the client to connect to a"
+#~ " Feathers server. The client chapters "
+#~ "above also describe how to use a"
+#~ " REST HTTP, Socket.io or Primus "
+#~ "connection directly without Feathers on "
+#~ "the client side. For details on "
+#~ "authentication, see the :doc:`Authentication "
+#~ "client chapter <./authentication/client>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This chapter describes how to set "
+#~ "up Feathers as the client in Node,"
+#~ " React Native and in the browser "
+#~ "with a module loader like Webpack "
+#~ "or Browserify or through a ``<script>``"
+#~ " tag. The examples are using "
+#~ ":doc:`the Socket.io client <./client/socketio>`_."
+#~ " For other connection methods see the"
+#~ " chapters linked above."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You do not have to use Feathers"
+#~ " on the client to connect to a"
+#~ " Feathers server. The client chapters "
+#~ "above also describe how to use a"
+#~ " REST HTTP, Socket.io or Primus "
+#~ "connection directly without Feathers on "
+#~ "the client side. For details on "
+#~ "authentication, see the :doc:`Authentication "
+#~ "client chapter <./authentication/client>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This chapter describes how to set "
+#~ "up Feathers as the client in Node,"
+#~ " React Native and in the browser "
+#~ "with a module loader like Webpack "
+#~ "or Browserify or through a ``<script>``"
+#~ " tag. The examples are using "
+#~ ":doc:`the Socket.io client <./client/socketio>`. "
+#~ "For other connection methods see the "
+#~ "chapters linked above."
+#~ msgstr ""
+

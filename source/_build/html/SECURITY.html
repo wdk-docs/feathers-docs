@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feathers 安全 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="生态系统" href="Ecosystem/index.html" />
+    <link rel="prev" title="Feathers v3（秃鹰）" href="migrating.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feathers 安全</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-should-i-report-security-issues">Where should I report security issues?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-of-the-technologies-we-employ">Some of the technologies we employ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xss-attacks">XSS Attacks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href=".github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>Feathers 安全</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/SECURITY.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathers-security">
+<h1>Feathers 安全<a class="headerlink" href="#feathers-security" title="永久链接至标题">¶</a></h1>
+<p>We take security very seriously at Feathers. We welcome any peer review
+of our 100% open source code to ensure nobody’s Feathers app is ever
+compromised or hacked. As a web application developer you are
+responsible for any security breaches. We do our very best to make sure
+Feathers is as secure as possible.</p>
+<div class="section" id="where-should-i-report-security-issues">
+<h2>Where should I report security issues?<a class="headerlink" href="#where-should-i-report-security-issues" title="永久链接至标题">¶</a></h2>
+<p>In order to give the community time to respond and upgrade we strongly
+urge you report all security issues to us. Send us a PM in
+<a class="reference external" href="http://slack.feathersjs.com">Slack</a> or email us at
+<a class="reference external" href="mailto:hello&#37;&#52;&#48;feathersjs&#46;com">hello<span>&#64;</span>feathersjs<span>&#46;</span>com</a> with details and we will respond ASAP. Security
+issues always take precedence over bug fixes and feature work so we’ll
+work with you to come up with a resolution and plan and document the
+issue on Github in the appropriate repo.</p>
+<p>Issuing releases is typically very quick. Once an issue is resolved it
+is usually released immediately with the appropriate semantic version.</p>
+</div>
+<div class="section" id="security-considerations">
+<h2>Security Considerations<a class="headerlink" href="#security-considerations" title="永久链接至标题">¶</a></h2>
+<p>Here are some things that you should be aware of when writing your app
+to make sure it is secure.</p>
+<ul class="simple">
+<li><p>Make sure to set up proper <a class="reference internal" href="api/channels.html"><span class="doc">活动频道</span></a> so
+that only clients that are allowed to see them can see real-time
+updates</p></li>
+<li><p>Use hooks to check security roles to make sure users can only access
+data they should be permitted to. You can find useful hook utilities
+in
+<a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-hooks-common</a>
+and
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/">feathers-authentication-hooks</a>.</p></li>
+<li><p>Restrict the <a class="reference internal" href="api/databases/querying.html"><span class="doc">查询</span></a>
+to only the use cases your application requires by sanitizing
+<code class="docutils literal notranslate"><span class="pre">params.query</span></code> in a hook.</p></li>
+<li><p>Disable multiple element changes by throwing an error if
+<code class="docutils literal notranslate"><span class="pre">context.id</span> <span class="pre">===</span> <span class="pre">null</span></code>.</p></li>
+<li><p>Escape any HTML and JavaScript to avoid XSS attacks.</p></li>
+<li><p>Escape any SQL (typically done by the SQL library) to avoid SQL
+injection.</p></li>
+<li><p>JSON Web Tokens (JWT’s) are only signed, they are <strong>not</strong> encrypted.
+Therefore, the payload can be examined on the client. This is by
+design. <strong>DO NOT</strong> put anything that should be private in the JWT
+<code class="docutils literal notranslate"><span class="pre">payload</span></code> unless you encrypt it first.</p></li>
+<li><p>Don’t use a weak <code class="docutils literal notranslate"><span class="pre">secret</span></code> for you token service. The generator
+creates a strong one for you automatically. No need to change it.</p></li>
+</ul>
+</div>
+<div class="section" id="some-of-the-technologies-we-employ">
+<h2>Some of the technologies we employ<a class="headerlink" href="#some-of-the-technologies-we-employ" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Password storage inside <code class="docutils literal notranslate"><span class="pre">&#64;feathers/authentication-local</span></code> uses
+<a class="reference external" href="https://github.com/dcodeIO/bcrypt.js">bcrypt</a>. We don’t store the
+salts separately since they are included in the bcrypt hashes.</p></li>
+<li><p>By default, <a class="reference external" href="https://jwt.io/">JWT</a>’s are stored in Local Storage
+(instead of cookies) to avoid CSRF attacks. For JWT, we use the
+<code class="docutils literal notranslate"><span class="pre">HS256</span></code> algorithm by default (HMAC using SHA-256 hash algorithm).
+If you choose to store JWT’s in cookies, your app will have CSRF
+vulnerabilities.</p></li>
+<li><p>We run <a class="reference external" href="https://github.com/nodesecurity/nsp">nsp</a> as part of our
+CI. This notifies us if we are susceptible to any vulnerabilites that
+have been reported to the <a class="reference external" href="https://nodesecurity.io/">Node Security
+Project</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="xss-attacks">
+<h2>XSS Attacks<a class="headerlink" href="#xss-attacks" title="永久链接至标题">¶</a></h2>
+<p>As with any web application <strong>you</strong> need to guard against XSS attacks.
+Since Feathers persists the JWT in localstorage in the browser, if your
+app falls victim to a XSS attack your JWT could be used by an attacker
+to make malicious requests on your behalf. This is far from ideal.
+Therefore you need to take extra care in preventing XSS attacks. Our
+stance on this particular attack vector is that if you are susceptible
+to XSS attacks then a compromised JWT is the least of your worries
+because keystrokes could be logged and attackers can just steal
+passwords, credit card numbers, or anything else your users type
+directly.</p>
+<p>For more information see:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs/authentication/issues/132">this
+issue</a></p></li>
+<li><p>and <a class="reference external" href="https://ask.auth0.com/t/stealing-jwt-from-authenticated-user/352/3">this Auth0 forum
+thread</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Ecosystem/index.html" class="btn btn-neutral float-right" title="生态系统" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migrating.html" class="btn btn-neutral float-left" title="Feathers v3（秃鹰）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

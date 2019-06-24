@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/chat/service.rst:2
+msgid "Creating a service"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:4
+msgid "Now that we have our :doc:`./creating`, we can create a new API endpoint to store messages."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:8
+msgid "Generating a service"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:10
+msgid "In Feathers any API endpoint is represented as a :doc:`../../api/services`, which we already learned about in the :doc:`../basics/services`. To generate a new service, we can run:"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:19
+msgid "First we have to choose what kind of service we’d like to create. You can choose amongst many databases and ORMs but for this guide we will go with the default `NeDB <https://github.com/louischatriot/nedb>`_. NeDB is a database that stores its data locally in a file and requires no additional configuration or database server."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:25
+msgid "Next, when asked for the name of the service, enter ``messages``. Then keep the default path (``/messages``) by pressing enter."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:28
+msgid "The *database connection string* can also be answered with the default. (In this case of NeDB, this is the path where it should store its database files.)"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:32
+msgid "Confirming the last prompt will generate some files and wire our service up:"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:38
+msgid "Final Configuration"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:40
+msgid "Et voilà! We have a fully functional REST and real-time API for our messages."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:44
+msgid "The generated files"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:46
+msgid "As we can see, several files were created:"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:48
+msgid "``src/services/messages/messages.service.js`` - The service setup file which registers the service in a :doc:`../basics/generator`"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:50
+msgid "``src/services/messages/messages.hooks.js`` - A file that returns an :doc:`../basics/hooks` that should be registered on the service."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:53
+msgid "``src/models/messages.model.js`` - The model for our messages. Since we are using NeDB, this will simply instantiate the filesystem database."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:56
+msgid "``test/services/messages.test.js`` - A Mocha test for the service. Initially, it only tests that the service exists."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:60
+msgid "Testing the API"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:62
+msgid "If we now start our API with"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:68
+msgid "We can go to `localhost:3030/messages <http://localhost:3030/messages>`_ and will see an (empty) response from our new messages service."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:72
+msgid "We can also ``POST`` new messages and ``PUT``, ``PATCH`` and ``DELETE`` existing messages (via ``/messages/<_id>``), for example from the command line using `CURL <https://curl.haxx.se/>`_:"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:80
+msgid "Or with a REST client, e.g. \\ `Postman <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_, using this button:"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:84
+msgid "|Run in Postman|"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:86
+msgid "If we now go to `localhost:3030/messages <http://localhost:3030/messages>`_ again we will see the newly created message(s)."
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:91
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/chat/service.rst:93
+msgid "With just one command, we created a fully functional REST and real-time API endpoint. Next, let’s :doc:`./authentication` and make sure messages only go to users that are allowed to see them."
+msgstr ""
+

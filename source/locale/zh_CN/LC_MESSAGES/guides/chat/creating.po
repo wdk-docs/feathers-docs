@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/creating.rst:2
+msgid "Creating the application"
+msgstr "创建应用程序"
+
+#: ../../source/guides/chat/creating.rst:4
+msgid ""
+"In this part we are going to create a new Feathers application using the "
+"generator. We can install the generator via:"
+msgstr "在这一部分中,我们将使用生成器创建一个新的Feathers应用程序.我们可以安装发电机:"
+
+#: ../../source/guides/chat/creating.rst:13
+msgid ""
+"The prerequisites for this guide are the same as the "
+":doc:`../basics/setup`. This means that Node 8.0.0 (``node --version``) "
+"or later is required."
+msgstr "本指南的先决条件与 :doc:`../basics/setup` 相同.这意味着需要 Node 8.0.0(``node --version``) 或更高版本."
+
+#: ../../source/guides/chat/creating.rst:18
+msgid "Generating the application"
+msgstr "生成应用程序"
+
+#: ../../source/guides/chat/creating.rst:20
+msgid ""
+"With everything :doc:`../basics/setup`, let’s create a directory for our "
+"new app:"
+msgstr "随着一切 :doc:`../basics/setup`,让我们为我们的新应用创建一个目录:"
+
+#: ../../source/guides/chat/creating.rst:28
+msgid "Now we can generate the application:"
+msgstr "现在我们可以生成应用程序了:"
+
+#: ../../source/guides/chat/creating.rst:34
+msgid ""
+"When presented with the project name, just hit enter, or enter a name (no"
+" spaces)."
+msgstr "当显示项目名称时，只需按 Enter 键或输入名称（无空格）。:"
+
+#: ../../source/guides/chat/creating.rst:37
+msgid "Next, write a short description of your application."
+msgstr "接下来,写下您的应用程序的简短描述."
+
+#: ../../source/guides/chat/creating.rst:39
+msgid ""
+"The next prompt asking for the source folder can be answered by just "
+"hitting enter. This will put all source files into the ``src/`` folder."
+msgstr "只需按Enter即可回答询问源文件夹的下一个提示.这会将所有源文件放入 ``src/`` 文件夹中."
+
+#: ../../source/guides/chat/creating.rst:42
+msgid ""
+"The next prompt will ask for the package manager you want to use. The "
+"default is the standard `npm <https://www.npmjs.com/>`_."
+msgstr "下一个提示将询问您要使用的包管理器.默认为标准 `npm <https://www.npmjs.com/>`_."
+
+#: ../../source/guides/chat/creating.rst:45
+msgid ""
+"If you choose `Yarn <https://yarnpkg.com/en/>`_ instead, make sure it has"
+" been installed via ``npm install yarn -g`` first."
+msgstr "如果您选择 `Yarn <https://yarnpkg.com/en/>`_, 请确保先通过 ``npm install yarn -g`` 安装它."
+
+#: ../../source/guides/chat/creating.rst:48
+msgid ""
+"You’re now presented with the option of which transport you want to "
+"support. Since we’re setting up a real-time and REST API, we’ll go with "
+"the default REST and Socket.io options. So just hit enter."
+msgstr ""
+"现在,您将看到要支持哪种传输的选项.由于我们正在设置实时和REST "
+"API,因此我们将使用默认的REST和Socket.io选项.所以只需按Enter键即可."
+
+#: ../../source/guides/chat/creating.rst:52
+msgid "Once you confirm the final prompt, you will see something like this:"
+msgstr "确认最终提示后,您将看到如下内容:"
+
+#: ../../source/guides/chat/creating.rst:57
+msgid "Final Configuration"
+msgstr "最终配置"
+
+#: ../../source/guides/chat/creating.rst:60
+msgid "The generated files"
+msgstr "生成的文件"
+
+#: ../../source/guides/chat/creating.rst:62
+msgid "Let’s have a brief look at the files that have been generated:"
+msgstr "让我们简要了解一下已生成的文件:"
+
+#: ../../source/guides/chat/creating.rst:64
+msgid ""
+"``config/`` - Contains the configuration files for the app. "
+"``production.json`` files override ``default.json`` when in production "
+"mode by setting ``NODE_ENV=production``. For details, see the "
+":doc:`../api/configuration`."
+msgstr ""
+"``config/`` - 包含应用程序的配置文件. ``production.json`` 文件在生产模式下通过设置 ``NODE_ENV = "
+"production`` 覆盖 ``default.json``.有关详细信息,请参阅 :doc:`../api/configuration`."
+
+#: ../../source/guides/chat/creating.rst:68
+msgid ""
+"``node_modules/`` - The generator installs the project dependencies "
+"either using `npm <https://docs.npmjs.com/>`_, or `yarn "
+"<https://yarnpkg.com/en/>`_. The dependencies are also added in the "
+"``package.json``."
+msgstr ""
+"``node_modules/`` - 生成器使用 `npm <https://docs.npmjs.com/>`_ 或 `yarn "
+"<https://yarnpkg.com/en/>`_ 安装项目依赖项.依赖关系也添加在 ``package.json`` 中."
+
+#: ../../source/guides/chat/creating.rst:72
+msgid ""
+"``public/`` - Contains static files to be served. A sample favicon and "
+"``index.html`` (which will show up when going directly to the server URL)"
+" are already included."
+msgstr "``public/`` - 包含要提供的静态文件.已包含示例favicon和 ``index.html`` (直接转到服务器URL时显示)."
+
+#: ../../source/guides/chat/creating.rst:75
+msgid "``src/`` - Contains the Feathers server code."
+msgstr "``src/`` - 包含Feathers服务器代码."
+
+#: ../../source/guides/chat/creating.rst:77
+msgid ""
+":doc:`../basics/hooks`. A simple ``logger`` hook for logging debug "
+"information about our service calls is already included"
+msgstr ":doc:`../basics/hooks`. 已经包含了一个简单的 ``logger`` 钩子,用于记录有关我们的服务调用的调试信息"
+
+#: ../../source/guides/chat/creating.rst:78
+msgid ""
+"``middleware/`` contains any `Express middleware "
+"<http://expressjs.com/en/guide/writing-middleware.html>`_"
+msgstr ""
+"``middleware/`` 包含任何 `Express中间件 <http://expressjs.com/en/guide/writing-"
+"middleware.html>`_"
+
+#: ../../source/guides/chat/creating.rst:79
+msgid ":doc:`../basics/services`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:80
+msgid "``index.js`` loads and starts the application"
+msgstr "``index.js`` 加载并启动应用程序"
+
+#: ../../source/guides/chat/creating.rst:81
+msgid ":doc:`../basics/starting`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:82
+msgid "``app.hooks.js`` contains hooks that apply to every service."
+msgstr "``app.hooks.js`` 包含适用于每个服务的钩子."
+
+#: ../../source/guides/chat/creating.rst:83
+msgid ":doc:`../../api/channels`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:85
+msgid ""
+"``test/`` - Contains `Mocha <https://mochajs.org/>`_ test files for the "
+"app, hooks and services"
+msgstr "``test/`` - 包含应用程序,挂钩和服务的 `Mocha <https://mochajs.org/>`_ 测试文件"
+
+#: ../../source/guides/chat/creating.rst:88
+msgid ""
+"``app.test.js`` tests that the index page appears, as well as 404 errors "
+"for HTML pages and JSON"
+msgstr "``app.test.js`` 测试索引页面是否出现,以及HTML页面和JSON的404错误"
+
+#: ../../source/guides/chat/creating.rst:91
+msgid ""
+"``.editorconfig`` is an `EditorConfig <http://editorconfig.org/>`_ "
+"setting to help developers define and maintain consistent coding styles "
+"among different editors and IDEs."
+msgstr ""
+"``.editorconfig`` 是一个 `EditorConfig "
+"<http://editorconfig.org/>`_ 设置,帮助开发人员在不同的编辑器和IDE之间定义和维护一致的编码风格."
+
+#: ../../source/guides/chat/creating.rst:94
+msgid ""
+"``.eslintrc.json`` contains defaults for linting your code with `ESLint "
+"<http://eslint.org/docs/user-guide/getting-started>`_."
+msgstr ""
+"``.eslintrc.json`` 包含用 `ESLint <http://eslint.org/docs/user-guide/getting-"
+"started>`_ 来表示代码的默认值."
+
+#: ../../source/guides/chat/creating.rst:96
+msgid ""
+"``.gitignore`` - specifies `intentionally untracked files <https://git-"
+"scm.com/docs/gitignore>`_ which `git <https://git-scm.com/>`_, `GitHub "
+"<https://github.com/>`_ and other similar projects ignore."
+msgstr ""
+"``.gitignore``  - 指定 `故意未跟踪文件 <https://git-scm.com/docs/gitignore>`_ 其中 `git "
+"<https://git-scm.com/>`_, `GitHub <https://github.com/>`_ 和其他类似项目无视."
+
+#: ../../source/guides/chat/creating.rst:100
+msgid ""
+"``.npmignore`` specifies `files which are not to be published "
+"<https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-"
+"package>`_ for distribution."
+msgstr ""
+"``.npmignore`` 指定 `不发布的文件 <https://docs.npmjs.com/misc/developers#keeping-"
+"files-out-of-your-package>`_ 用于分发."
+
+#: ../../source/guides/chat/creating.rst:103
+msgid ""
+"``LICENSE`` - contains the License so that people know how they are "
+"permitted to use it, and any restrictions you’re placing on it. It "
+"defaults to the Feathers license."
+msgstr "``LICENSE`` - 包含许可证,以便人们知道如何使用它,以及您对它施加的任何限制.它默认为Feathers许可证."
+
+#: ../../source/guides/chat/creating.rst:106
+msgid ""
+"``package.json`` contains `information "
+"<https://docs.npmjs.com/files/package.json>`_ about our project which "
+"`npm <https://docs.npmjs.com/>`_, `yarn <https://yarnpkg.com/en/>`_ and "
+"other package managers need to install and use your package."
+msgstr ""
+"``package.json`` 包含 `info "
+"<https://docs.npmjs.com/files/package.json>`_ 关于我们的项目 `npm "
+"<https://docs.npmjs.com/>`_, `yarn "
+"<https://yarnpkg.com/en/>`_ 和其他包管理员需要安装和使用你的包."
+
+#: ../../source/guides/chat/creating.rst:113
+msgid "Running the server and tests"
+msgstr "运行服务器和测试"
+
+#: ../../source/guides/chat/creating.rst:115
+msgid "The server can now be started by running"
+msgstr "现在可以通过运行来启动服务器"
+
+#: ../../source/guides/chat/creating.rst:121
+msgid ""
+"After that, you can see a welcome page at `localhost:3030 "
+"<http://localhost:3030>`_. When making modifications, remember to stop "
+"(CTRL + C) and start the server again."
+msgstr ""
+"之后,您可以在 `localhost:3030 <http://localhost:3030>`_ 看到欢迎页面.进行修改时,请记住停止(CTRL +"
+" C)并再次启动服务器."
+
+#: ../../source/guides/chat/creating.rst:125
+msgid "The app also comes with a set of basic tests which can be run with"
+msgstr "该应用程序还附带了一组可以运行的基本测试"
+
+#: ../../source/guides/chat/creating.rst:132
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/chat/creating.rst:134
+msgid ""
+"We scaffolded a new Feathers application. The next step is to "
+":doc:`./service`."
+msgstr "我们搭建了一个新的Feathers应用程序.下一步是 :doc:`./service`."
+
+#~ msgid ":doc:`basics/starting`"
+#~ msgstr ":doc:`basics/starting`"
+
+#~ msgid ":doc:`../basics/starting`"
+#~ msgstr ""
+
+#~ msgid ":doc:`../../api/channels`"
+#~ msgstr ":doc:`../api/channels`"
+
+#~ msgid ""
+#~ ":doc:``app.js`` configures our `Feathers "
+#~ "application <../basics/starting>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:``channels.js`` sets up Feathers `event"
+#~ " channels <../../api/channels>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:``app.js`` configures our `Feathers "
+#~ "application <../basics/starting>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:``channels.js`` sets up Feathers `event"
+#~ " channels <../../api/channels>`"
+#~ msgstr ""
+

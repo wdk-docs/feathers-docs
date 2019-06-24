@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建聊天应用程序 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建聊天应用程序" href="readme.html" />
+    <link rel="prev" title="Feathers生成器(CLI)" href="../basics/generator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">创建聊天应用程序</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+      <li>创建聊天应用程序</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-chat-application">
+<h1>创建聊天应用程序<a class="headerlink" href="#creating-a-chat-application" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creating.html">创建应用程序</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="creating.html#generating-the-application">生成应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating.html#the-generated-files">生成的文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating.html#running-the-server-and-tests">运行服务器和测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating.html#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="service.html">创建服务</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="service.html#generating-a-service">生成服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#the-generated-files">生成的文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#testing-the-api">测试API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="service.html#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">添加身份验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#generate-authentication">生成身份验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#create-a-user-and-log-in">创建用户并登录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#securing-the-messages-service">保护消息服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#securing-real-time-events">保护实时事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication.html#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">处理数据</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="processing.html#sanitize-new-message">消除新消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing.html#add-a-user-avatar">添加用户头像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing.html#populate-the-message-sender">填充邮件发件人</a></li>
+<li class="toctree-l2"><a class="reference internal" href="processing.html#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frontend.html">建立一个前端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#set-up-the-index-page">设置索引页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#connect-to-the-api">连接到API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#base-and-user-message-list-html">基础和用户/消息列表HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#displaying-the-login-signup-or-chat-page">显示登录/注册或聊天页面</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#login-and-signup">登录和注册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#real-time-and-sending-messages">实时和发送消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frontend.html#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">写测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#unit-testing-hooks">Unit testing hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#test-database-setup">Test database setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#testing-services">Testing services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#client-server-testing">Client/server testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#code-coverage">Code coverage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#changing-the-default-test-directory">Changing the default test directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#whats-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="readme.html" class="btn btn-neutral float-right" title="创建聊天应用程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../basics/generator.html" class="btn btn-neutral float-left" title="Feathers生成器(CLI)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

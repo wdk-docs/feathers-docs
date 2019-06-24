@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/contributing/readme.rst:2
+msgid "Contributing"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:4
+msgid "Just like Feathers itself, all of the documentation is open source and `available to edit on GitHub <https://github.com/feathersjs/docs>`_. If you see something that you can contribute, we would LOVE a pull request with your edits! To make this easy you can click the *“Edit this page”* link at the top of the web docs."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:10
+msgid "The docs are all written in `GitHub Flavored Markdown <https://help.github.com/articles/github-flavored-markdown/>`_. If you’ve used GitHub, it’s pretty likely you’ve encountered it before. You can become a pro in a few minutes by reading their `GFM Documentation page <https://help.github.com/articles/github-flavored-markdown/>`_."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:18
+msgid "Organizing Files"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:20
+msgid "You’ll notice that the `GitHub Repo <https://github.com/feathersjs/docs>`_ is organized in a nice logical folder structure. The first file in each chapter is named as a description of the entire chapter’s topic. For example, the content related to databases is located in ``api/databases/``."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:26
+msgid "Some of the chapters are split into multiple sections to help break up the content and make it easier to digest. You can easily see how chapters are laid out by looking at the ``SUMMARY.md`` file. This convention helps keep chapters together in the file system and easy to view either directly on github or gitbook."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:33
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:35
+msgid "You’ll find the table of contents in the :doc:`https://github.com/feathersjs/docs/blob/master/SUMMARY` file. It’s a nested list of markdown links. You can link to a file simply by putting the filename (including the extension) inside the link target."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:42
+msgid "Introduction Page"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:44
+msgid "This is the root :doc:`https://github.com/feathersjs/docs/blob/master/README` file. It’s intent is to give the reader an elevator pitch of what Feathers is and why we think it is useful."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:50
+msgid "Send a Pull Request"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:52
+msgid "So that’s it. You make your edits, keep your files and the Table of Contents organized, and send us a pull request."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:56
+msgid "Enjoy the Offline Docs"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:58
+msgid "Moments after your edits are merged, they will be automatically published to the web, as a downloadable PDF, .mobi file (Kindle compatible), and ePub file (iBooks compatible)."
+msgstr ""
+
+#: ../../source/contributing/readme.rst:63
+msgid "Share"
+msgstr ""
+
+#: ../../source/contributing/readme.rst:65
+msgid "We take pride in having great documentation and we are very appreciative of any help we can get. Please, let the world know you’ve contributed to the Feathers Book or give [@FeathersJS](https://twitter.com/feathersjs) a shout out on Twitter to let others know about your changes."
+msgstr ""
+

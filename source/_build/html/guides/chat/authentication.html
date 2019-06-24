@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>添加身份验证 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="处理数据" href="processing.html" />
+    <link rel="prev" title="创建服务" href="service.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">添加身份验证</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generate-authentication">Generate authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-user-and-log-in">Create a user and log in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#securing-the-messages-service">Securing the messages service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#securing-real-time-events">Securing real-time events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>添加身份验证</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/authentication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="add-authentication">
+<h1>添加身份验证<a class="headerlink" href="#add-authentication" title="永久链接至标题">¶</a></h1>
+<p>In the previous chapters we <a href="#id1"><span class="problematic" id="id2">:doc:`created our Feathers chat application &lt;./creating.md&gt;`_</span></a> and <cite>initialized a service &lt;./service&gt;</cite> for storing messages. For a proper chat
+application we need to register and authenticate users.</p>
+<div class="section" id="generate-authentication">
+<h2>Generate authentication<a class="headerlink" href="#generate-authentication" title="永久链接至标题">¶</a></h2>
+<p>To add authentication to our application, we can run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">authentication</span>
+</pre></div>
+</div>
+<p>This first asks which authentication providers we’d like to use. In this
+guide, we’ll only cover local authentication. It should be selected by
+default. Press enter.</p>
+<p>Next we have to define the service we’ll use to store user information.
+Simply confirm the default <code class="docutils literal notranslate"><span class="pre">users</span></code>, then the default NeDB database:</p>
+<div class="figure align-default" id="id4">
+<img alt="Final Configuration" src="../../_images/authentication.png" />
+<p class="caption"><span class="caption-text">Final Configuration</span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>For details on Feathers authentication see the
+<a class="reference internal" href="../../api/authentication/server.html"><span class="doc">authentication server API documentation</span></a>.</p>
+</div>
+</div>
+<div class="section" id="create-a-user-and-log-in">
+<h2>Create a user and log in<a class="headerlink" href="#create-a-user-and-log-in" title="永久链接至标题">¶</a></h2>
+<p>We just created a <code class="docutils literal notranslate"><span class="pre">users</span></code> service and enabled local authentication.
+When restarting the application, we can now create a new user with
+<code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>, similar to what we did with messages. The
+login information is then processed into a JWT (JSON Web Token). (For
+more information see the <a class="reference internal" href="../auth/how-jwt-works.html"><span class="doc">How JWT works guide</span></a>).</p>
+<div class="section" id="create-the-user">
+<h3>Create the user<a class="headerlink" href="#create-the-user" title="永久链接至标题">¶</a></h3>
+<p>We will create a new user with the following data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;feathers@example.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The generated user service automatically securely hashes the password in
+the database, and exclude it from the response. (Passwords should never
+be transmitted back to clients). There are several ways to create a new
+user, for example, via CURL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/users/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
+</pre></div>
+</div>
+<p>With a REST client,
+e.g. <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>
+using this button:</p>
+<p><a class="reference external" href="https://app.getpostman.com/run-collection/9668636a9596d1e4a496"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Creating a user with the same email address will only work
+once, then fail since it already exists in the database. This is a
+restriction implemented for NeDB; it might have to be implemented
+manually when using a different database.</p>
+</div>
+</div>
+<div class="section" id="get-a-token">
+<h3>Get a token<a class="headerlink" href="#get-a-token" title="永久链接至标题">¶</a></h3>
+<p>To create a JWT, we can now post the login information to the
+<code class="docutils literal notranslate"><span class="pre">authentication</span></code> service, with the desired strategy (<code class="docutils literal notranslate"><span class="pre">local</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;feathers@example.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Via CURL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/authentication/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;strategy&quot;: &quot;local&quot;, &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
+</pre></div>
+</div>
+<p>With a REST client,
+e.g. <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>:</p>
+<p><a class="reference external" href="https://app.getpostman.com/run-collection/9668636a9596d1e4a496"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
+<p>The returned token can then be used to authenticate this specific user,
+by adding it to the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header of new HTTP requests. Since
+we will also use Feathers on the client when creating a frontend, we
+don’t have to worry about manually creating and using the token for this
+guide. For more information for authenticating REST API calls see the
+<span class="xref std std-doc">REST client API documentation</span>.</p>
+</div>
+</div>
+<div class="section" id="securing-the-messages-service">
+<h2>Securing the messages service<a class="headerlink" href="#securing-the-messages-service" title="永久链接至标题">¶</a></h2>
+<p>Let’s restrict our messages service to authenticated users. If we had
+run <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">authentication</span></code> <em>before</em> generating other
+services, <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">service</span></code> would have asked if the service
+should be restricted to authenticated users. However, since we created
+the messages service first, we now have to update
+<code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.hooks.js</span></code> manually to look like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">authenticate</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span> <span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)</span> <span class="p">],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+
+  <span class="nx">error</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>That way, only users with a valid JWT can access the service. This also
+automatically sets <code class="docutils literal notranslate"><span class="pre">params.user</span></code> only for authenticated users.</p>
+</div>
+<div class="section" id="securing-real-time-events">
+<h2>Securing real-time events<a class="headerlink" href="#securing-real-time-events" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">authenticate</span></code> hook introduced above restricts <em>access</em> to service
+methods, to authenticated users. We also need to ensure that <a class="reference internal" href="../basics/real-time.html"><span class="doc">real-time service events</span></a> are only sent to connections
+allowed to see them - for example when users join a specific chat room
+or one-to-one messages.</p>
+<p>Feathers uses <code class="docutils literal notranslate"><span class="pre">channels</span></code> to accomplish that. The generator already
+sets them in <code class="docutils literal notranslate"><span class="pre">src/channels.js</span></code>. (Have a look at the comments in the
+generated file and the <a class="reference internal" href="../../api/channels.html"><span class="doc">channel API documentation</span></a> to get a better idea about
+channels).</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">src/channels.js</span></code> is set up to send <em>all</em> events to all
+<em>authenticated</em> users which is what we will use for our chat
+application.</p>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>In this chapter, we initialized authentication, created a user and JWT.
+We secured the messages service and made sure that only authenticated
+users get real-time updates. We can now use that user information to
+<a class="reference internal" href="processing.html"><span class="doc">处理数据</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="processing.html" class="btn btn-neutral float-right" title="处理数据" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="service.html" class="btn btn-neutral float-left" title="创建服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

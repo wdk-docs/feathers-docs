@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/index.rst:2
+msgid "Feathers"
+msgstr ""
+
+#: ../../source/index.rst:6
+msgid "An open source REST and realtime API layer for modern applications."
+msgstr ""
+
+#: ../../source/index.rst:8
+msgid "Feathers is *a batteries included but entirely optional* minimal web application framework."
+msgstr ""
+
+#: ../../source/index.rst:11
+msgid "At its core, Feathers is a set of tools and an architecture pattern that make it easy to create scalable REST APIs and real-time applications. With Feathers, you can literally build prototypes in minutes and production-ready apps in days."
+msgstr ""
+
+#: ../../source/index.rst:16
+msgid "Feathers achieves this by being the glue code between some amazing battle-tested open-source technologies - adding a few minimal abstractions and introducing an application architecture that is easier to understand, maintain, and scale than the traditional MVC architecture."
+msgstr ""
+
+#: ../../source/index.rst:22
+msgid "If you’re interested, you can read more about `how and why Feathers came to be <https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ or find out more about its `features <https://feathersjs.com/features>`_ and `how Feathers compares to others <https://feathersjs.com/comparison>`_."
+msgstr ""
+
+#: ../../source/index.rst:29
+msgid "If you’ve decided that Feathers might be for you, feel free to dive right in and :doc:`./guides/basics/readme`."
+msgstr ""
+
+#: ../../source/index.rst:32
+msgid "You can find this documentation as a PDF `here <https://github.com/feathersjs/docs/raw/master/feathersjs.pdf>`_."
+msgstr ""
+

@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/authentication.rst:2
+msgid "Add authentication"
+msgstr "添加身份验证"
+
+#: ../../source/guides/chat/authentication.rst:4
+msgid ""
+"In the previous chapters we :doc:`./service` for storing messages. For a "
+"proper chat application we need to register and authenticate users."
+msgstr "我们构建了一个新的Feathers应用程序.下一步是 :doc:`./service`."
+
+#: ../../source/guides/chat/authentication.rst:8
+msgid "Generate authentication"
+msgstr "生成身份验证"
+
+#: ../../source/guides/chat/authentication.rst:10
+msgid "To add authentication to our application, we can run"
+msgstr "要为您的应用程序添加身份验证,我们可以运行"
+
+#: ../../source/guides/chat/authentication.rst:16
+msgid ""
+"This first asks which authentication providers we’d like to use. In this "
+"guide, we’ll only cover local authentication. It should be selected by "
+"default. Press enter."
+msgstr ""
+"首先询问我们想要使用哪些身份验证提供程序.在本指南中,我们仅介绍本地身份验证.它应该默认选中.按enter键."
+
+#: ../../source/guides/chat/authentication.rst:20
+msgid ""
+"Next we have to define the service we’ll use to store user information. "
+"Simply confirm the default ``users``, then the default NeDB database:"
+msgstr ""
+"接下来,我们必须定义我们将用于存储用户信息的服务.只需确认默认的 ``users``,然后确认默认的NeDB数据库:"
+
+#: ../../source/guides/chat/authentication.rst:26
+msgid "Final Configuration"
+msgstr "最终配置"
+
+#: ../../source/guides/chat/authentication.rst:30
+msgid ""
+"For details on Feathers authentication see the "
+":doc:`../../api/authentication/server`."
+msgstr "有关Feathers身份验证的详细信息,请参阅 :doc:`../../api/authentication/server`."
+
+#: ../../source/guides/chat/authentication.rst:34
+msgid "Create a user and log in"
+msgstr "创建用户并登录"
+
+#: ../../source/guides/chat/authentication.rst:36
+msgid ""
+"We just created a ``users`` service and enabled local authentication. "
+"When restarting the application, we can now create a new user with "
+"``email`` and ``password``, similar to what we did with messages. The "
+"login information is then processed into a JWT (JSON Web Token). (For "
+"more information see the :doc:`../auth/how-jwt-works`)."
+msgstr "我们刚刚创建了 ``users`` 服务并启用了本地身份验证.重新启动应用程序时,我们现在可以使用 ``email`` 和 ``password`` 创建一个新用户,类似于我们对消息所做的操作.然后将登录信息处理成JWT(JSON Web令牌). (有关更多信息,请参阅 :doc:`../auth/how-jwt-works`)."
+
+#: ../../source/guides/chat/authentication.rst:43
+msgid "Create the user"
+msgstr "创建用户"
+
+#: ../../source/guides/chat/authentication.rst:45
+msgid "We will create a new user with the following data:"
+msgstr "我们将使用以下数据创建一个新用户:"
+
+#: ../../source/guides/chat/authentication.rst:54
+msgid ""
+"The generated user service automatically securely hashes the password in "
+"the database, and exclude it from the response. (Passwords should never "
+"be transmitted back to clients). There are several ways to create a new "
+"user, for example, via CURL:"
+msgstr "生成的用户服务会自动安全地在数据库中散列密码,并将其从响应中排除. (密码永远不应该传回给客户).有几种方法可以创建新用户,例如,通过CURL:"
+
+#: ../../source/guides/chat/authentication.rst:63
+msgid ""
+"With a REST client, e.g. \\ `Postman "
+"<https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_"
+" using this button:"
+msgstr ""
+"使用REST客户端,例如 \\ `Postman <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_ 使用此按钮:"
+
+#: ../../source/guides/chat/authentication.rst:67
+#: ../../source/guides/chat/authentication.rst:97
+msgid "|Run in Postman|"
+msgstr "|在邮递员中运行|"
+
+#: ../../source/guides/chat/authentication.rst:69
+msgid ""
+"Creating a user with the same email address will only work once, then "
+"fail since it already exists in the database. This is a restriction "
+"implemented for NeDB; it might have to be implemented manually when using"
+" a different database."
+msgstr "创建具有相同电子邮件地址的用户只能使用一次,然后失败,因为它已存在于数据库中.这是对NeDB实施的限制;它可能必须在使用其他数据库时手动实现."
+
+#: ../../source/guides/chat/authentication.rst:75
+msgid "Get a token"
+msgstr "获得一个令牌"
+
+#: ../../source/guides/chat/authentication.rst:77
+msgid ""
+"To create a JWT, we can now post the login information to the "
+"``authentication`` service, with the desired strategy (``local``):"
+msgstr ""
+"要创建JWT,我们现在可以使用所需的策略(``local``)将登录信息发布到 ``authentication`` 服务:"
+
+#: ../../source/guides/chat/authentication.rst:88
+msgid "Via CURL:"
+msgstr "通过CURL:"
+
+#: ../../source/guides/chat/authentication.rst:94
+msgid ""
+"With a REST client, e.g. \\ `Postman "
+"<https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_:"
+msgstr ""
+"使用REST客户端,例如 \\ `Postman <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_:"
+
+#: ../../source/guides/chat/authentication.rst:99
+msgid ""
+"The returned token can then be used to authenticate this specific user, "
+"by adding it to the ``Authorization`` header of new HTTP requests. Since "
+"we will also use Feathers on the client when creating a frontend, we "
+"don’t have to worry about manually creating and using the token for this "
+"guide. For more information for authenticating REST API calls see the "
+":doc:`../../api/client/rest#authentication`."
+msgstr "然后,可以使用返回的令牌对此特定用户进行身份验证,方法是将其添加到新HTTP请求的 ``Authorization`` 标头中.由于我们在创建前端时也会在客户端上使用Feathers,因此我们不必担心手动创建和使用本指南的令牌.有关验证REST API调用的更多信息,请参阅 :doc:`../../api/client/rest＃authentication`."
+
+#: ../../source/guides/chat/authentication.rst:107
+msgid "Securing the messages service"
+msgstr "保护消息服务"
+
+#: ../../source/guides/chat/authentication.rst:109
+msgid ""
+"Let’s restrict our messages service to authenticated users. If we had run"
+" ``feathers generate authentication`` *before* generating other services,"
+" ``feathers generate service`` would have asked if the service should be "
+"restricted to authenticated users. However, since we created the messages"
+" service first, we now have to update "
+"``src/services/messages/messages.hooks.js`` manually to look like this:"
+msgstr "让我们将消息服务限制为经过身份验证的用户.如果我们在生成其他服务 *之前* 运行了 ``feathers generate authentication``, 那么 ``feathers generate service`` 会询问服务是否应该仅限于经过身份验证的用户.但是,由于我们首先创建了消息服务,所以我们现在必须手动更新 ``src/services/messages/messages.hooks.js``,如下所示:"
+
+#: ../../source/guides/chat/authentication.rst:152
+msgid ""
+"That way, only users with a valid JWT can access the service. This also "
+"automatically sets ``params.user`` only for authenticated users."
+msgstr ""
+"这样,只有拥有有效JWT的用户才能访问该服务.这也会自动为经过身份验证的用户设置 ``params.user``."
+
+#: ../../source/guides/chat/authentication.rst:156
+msgid "Securing real-time events"
+msgstr "保护实时事件"
+
+#: ../../source/guides/chat/authentication.rst:158
+msgid ""
+"The ``authenticate`` hook introduced above restricts *access* to service "
+"methods, to authenticated users. We also need to ensure that "
+":doc:`../basics/real-time` are only sent to connections allowed to see "
+"them - for example when users join a specific chat room or one-to-one "
+"messages."
+msgstr "上面介绍的 ``authenticate`` 钩子限制了 *access* 到服务方法,以及经过身份验证的用户.我们还需要确保 :doc:`../basics/real-time` 仅发送给允许查看它们的连接 - 例如,当用户加入特定聊天室或一对一消息时."
+
+#: ../../source/guides/chat/authentication.rst:163
+msgid ""
+"Feathers uses ``channels`` to accomplish that. The generator already sets"
+" them in ``src/channels.js``. (Have a look at the comments in the "
+"generated file and the :doc:`../../api/channels` to get a better idea "
+"about channels)."
+msgstr "Feathers使用 ``channels`` 来实现这一目标.生成器已将它们设置在 ``src/channels.js`` 中. (看看生成的文件中的注释和 :doc:`../../api/channels` 以更好地了解频道)."
+
+#: ../../source/guides/chat/authentication.rst:168
+msgid ""
+"By default ``src/channels.js`` is set up to send *all* events to all "
+"*authenticated* users which is what we will use for our chat application."
+msgstr ""
+"默认设置 ``src/channels.js`` 设置为将 *all* 事件发送给所有 *authenticated* 用户,这是我们将用于聊天应用程序的内容."
+
+#: ../../source/guides/chat/authentication.rst:173
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/chat/authentication.rst:175
+msgid ""
+"In this chapter, we initialized authentication, created a user and JWT. "
+"We secured the messages service and made sure that only authenticated "
+"users get real-time updates. We can now use that user information to "
+":doc:`./processing`."
+msgstr "在本章中,我们初始化了身份验证,创建了一个用户和JWT.我们保护了邮件服务,并确保只有经过身份验证的用户才能获得实时更新.我们现在可以将该用户信息用于 :doc:`./processing`."
+
+#~ msgid ""
+#~ "In the previous chapters we `created "
+#~ "our Feathers chat application "
+#~ "<./creating.md>:doc:`./service` for storing "
+#~ "messages. For a proper chat application"
+#~ " we need to register and authenticate"
+#~ " users."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We just created a ``users`` service "
+#~ "and enabled local authentication. When "
+#~ "restarting the application, we can now"
+#~ " create a new user with ``email`` "
+#~ "and ``password``, similar to what we "
+#~ "did with messages. The login information"
+#~ " is then processed into a JWT "
+#~ "(JSON Web Token). (For more information"
+#~ " see the `How JWT works guide "
+#~ "<../auth/how-jwt-works.md>`_)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** Creating a user with the "
+#~ "same email address will only work "
+#~ "once, then fail since it already "
+#~ "exists in the database. This is a"
+#~ " restriction implemented for NeDB; it "
+#~ "might have to be implemented manually"
+#~ " when using a different database."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The returned token can then be "
+#~ "used to authenticate this specific user,"
+#~ " by adding it to the "
+#~ "``Authorization`` header of new HTTP "
+#~ "requests. Since we will also use "
+#~ "Feathers on the client when creating "
+#~ "a frontend, we don’t have to worry"
+#~ " about manually creating and using "
+#~ "the token for this guide. For more"
+#~ " information for authenticating REST API"
+#~ " calls see the `REST client API "
+#~ "documentation <../../api/client/rest.md#authentication>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``authenticate`` hook introduced above "
+#~ "restricts *access* to service methods, "
+#~ "to authenticated users. We also need "
+#~ "to ensure that `real-time service "
+#~ "events <../basics/real-time.md>`_ are only "
+#~ "sent to connections allowed to see "
+#~ "them - for example when users join"
+#~ " a specific chat room or one-"
+#~ "to-one messages."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers uses ``channels`` to accomplish "
+#~ "that. The generator already sets them"
+#~ " in ``src/channels.js``. (Have a look "
+#~ "at the comments in the generated "
+#~ "file and the `channel API documentation"
+#~ " <../../api/channels.md>`_ to get a better"
+#~ " idea about channels)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the previous chapters we "
+#~ ":doc:`created our Feathers chat application"
+#~ " <./creating.md>`_ and `initialized a "
+#~ "service <./service>`_ for storing messages."
+#~ " For a proper chat application we "
+#~ "need to register and authenticate users."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We just created a ``users`` service "
+#~ "and enabled local authentication. When "
+#~ "restarting the application, we can now"
+#~ " create a new user with ``email`` "
+#~ "and ``password``, similar to what we "
+#~ "did with messages. The login information"
+#~ " is then processed into a JWT "
+#~ "(JSON Web Token). (For more information"
+#~ " see the :doc:`How JWT works guide"
+#~ " <../auth/how-jwt-works>`_)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The returned token can then be "
+#~ "used to authenticate this specific user,"
+#~ " by adding it to the "
+#~ "``Authorization`` header of new HTTP "
+#~ "requests. Since we will also use "
+#~ "Feathers on the client when creating "
+#~ "a frontend, we don’t have to worry"
+#~ " about manually creating and using "
+#~ "the token for this guide. For more"
+#~ " information for authenticating REST API"
+#~ " calls see the :doc:`REST client API"
+#~ " documentation <../../api/client/rest#authentication>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``authenticate`` hook introduced above "
+#~ "restricts *access* to service methods, "
+#~ "to authenticated users. We also need "
+#~ "to ensure that :doc:`real-time service"
+#~ " events <../basics/real-time>`_ are only"
+#~ " sent to connections allowed to see"
+#~ " them - for example when users "
+#~ "join a specific chat room or "
+#~ "one-to-one messages."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers uses ``channels`` to accomplish "
+#~ "that. The generator already sets them"
+#~ " in ``src/channels.js``. (Have a look "
+#~ "at the comments in the generated "
+#~ "file and the :doc:`channel API "
+#~ "documentation <../../api/channels>`_ to get a"
+#~ " better idea about channels)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the previous chapters we "
+#~ ":doc:`created our Feathers chat application"
+#~ " <./creating.md>`_ and `initialized a "
+#~ "service <./service>` for storing messages. "
+#~ "For a proper chat application we "
+#~ "need to register and authenticate users."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We just created a ``users`` service "
+#~ "and enabled local authentication. When "
+#~ "restarting the application, we can now"
+#~ " create a new user with ``email`` "
+#~ "and ``password``, similar to what we "
+#~ "did with messages. The login information"
+#~ " is then processed into a JWT "
+#~ "(JSON Web Token). (For more information"
+#~ " see the :doc:`How JWT works guide"
+#~ " <../auth/how-jwt-works>`)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The returned token can then be "
+#~ "used to authenticate this specific user,"
+#~ " by adding it to the "
+#~ "``Authorization`` header of new HTTP "
+#~ "requests. Since we will also use "
+#~ "Feathers on the client when creating "
+#~ "a frontend, we don’t have to worry"
+#~ " about manually creating and using "
+#~ "the token for this guide. For more"
+#~ " information for authenticating REST API"
+#~ " calls see the :doc:`REST client API"
+#~ " documentation <../../api/client/rest#authentication>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``authenticate`` hook introduced above "
+#~ "restricts *access* to service methods, "
+#~ "to authenticated users. We also need "
+#~ "to ensure that :doc:`real-time service"
+#~ " events <../basics/real-time>` are only "
+#~ "sent to connections allowed to see "
+#~ "them - for example when users join"
+#~ " a specific chat room or one-"
+#~ "to-one messages."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers uses ``channels`` to accomplish "
+#~ "that. The generator already sets them"
+#~ " in ``src/channels.js``. (Have a look "
+#~ "at the comments in the generated "
+#~ "file and the :doc:`channel API "
+#~ "documentation <../../api/channels>` to get a"
+#~ " better idea about channels)."
+#~ msgstr ""
+

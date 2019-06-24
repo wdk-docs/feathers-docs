@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FeathersJS Auth Recipe：自定义身份验证策略 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="FeathersJS Auth Recipe：认证Express中间件（SSR）" href="recipe.express-middleware.html" />
+    <link rel="prev" title="FeathersJS Auth Recipe：设置基本OAuth登录" href="recipe.oauth-basic.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe：自定义JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe：自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe：使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe：设置基本OAuth登录</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe：自定义身份验证策略</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-basic-app">Setting up the basic app</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-custom-api-key-auth-strategy">Creating a Custom API Key Auth Strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-an-anonymous-user-strategy">Creating an Anonymous User Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe：认证Express中间件（SSR）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
+        
+      <li>FeathersJS Auth Recipe：自定义身份验证策略</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/auth/recipe.custom-auth-strategy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathersjs-auth-recipe-custom-auth-strategy">
+<h1>FeathersJS Auth Recipe：自定义身份验证策略<a class="headerlink" href="#feathersjs-auth-recipe-custom-auth-strategy" title="永久链接至标题">¶</a></h1>
+<p>The Auk release of FeathersJS includes a powerful new <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">authentication suite</span></a> built on top of
+<a class="reference external" href="http://www.passportjs.org/">PassportJS</a>. The new plugins are very
+flexible, allowing you to customize nearly everything. We can leverage
+this to create completely custom authentication strategies using
+<a class="reference external" href="https://www.npmjs.com/package/passport-custom">Passport Custom</a>.
+Let’s take a look at two such examples in this guide.</p>
+<div class="section" id="setting-up-the-basic-app">
+<h2>Setting up the basic app<a class="headerlink" href="#setting-up-the-basic-app" title="永久链接至标题">¶</a></h2>
+<p>Let’s first start by creating a basic server setup.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-jwt&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">({</span> <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">jwt</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span><span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-custom-api-key-auth-strategy">
+<h2>Creating a Custom API Key Auth Strategy<a class="headerlink" href="#creating-a-custom-api-key-auth-strategy" title="永久链接至标题">¶</a></h2>
+<p>The first custom strategy example we can look at is an API Key Strategy.
+Within it, we’ll check if there is a specific header in the request
+containing a specific API key. If true, we’ll successfully authorize the
+request.</p>
+<p>First let’s make the strategy using
+<code class="docutils literal notranslate"><span class="pre">`passport-custom</span></code> &lt;<a class="reference external" href="https://www.npmjs.com/package/passport-custom">https://www.npmjs.com/package/passport-custom</a>&gt;`_
+npm package.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Strategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-custom&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">opts</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">verifier</span> <span class="o">=</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+      <span class="c1">// get the key from the request header supplied in opts</span>
+      <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="nx">opts</span><span class="p">.</span><span class="nx">header</span><span class="p">];</span>
+
+      <span class="c1">// check if the key is in the allowed keys supplied in opts</span>
+      <span class="kr">const</span> <span class="nx">match</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">allowedKeys</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+
+      <span class="c1">// user will default to false if no key is present</span>
+      <span class="c1">// and the authorization will fail</span>
+      <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">match</span> <span class="o">?</span> <span class="s1">&#39;api&#39;</span> <span class="o">:</span> <span class="nx">match</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="c1">// register the strategy in the app.passport instance</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Strategy</span><span class="p">(</span><span class="nx">verifier</span><span class="p">));</span>
+    <span class="c1">// Add options for the strategy</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">passport</span><span class="p">.</span><span class="nx">options</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">,</span> <span class="p">{});</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Next let’s add this to our server setup</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">apiKey</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./apiKey&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span>
+  <span class="nx">apiKey</span><span class="p">({</span>
+    <span class="c1">// which header to look at</span>
+    <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;x-api-key&#39;</span><span class="p">,</span>
+    <span class="c1">// which keys are allowed</span>
+    <span class="nx">allowedKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;opensesame&#39;</span><span class="p">]</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Next let’s create a custom authentication hook that conditionally
+applies auth for all external requests.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">commonHooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks-common&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">authenticate</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iff</span><span class="p">(</span>
+    <span class="c1">// if and only if the request is external</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">commonHooks</span><span class="p">.</span><span class="nx">isProvider</span><span class="p">(</span><span class="s1">&#39;external&#39;</span><span class="p">)),</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iffElse</span><span class="p">(</span>
+      <span class="c1">// if the specific header is included</span>
+      <span class="nx">ctx</span> <span class="p">=&gt;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-api-key&#39;</span><span class="p">],</span>
+      <span class="c1">// authentication with this strategy</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">),</span>
+      <span class="c1">// else fallback on the jwt strategy</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">([</span><span class="s1">&#39;jwt&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span><span class="nx">authenticate</span><span class="p">()]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Finally our <code class="docutils literal notranslate"><span class="pre">server.js</span></code> looks like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-jwt&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">commonHooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks-common&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">apiKey</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./apiKey&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">({</span> <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">jwt</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span>
+  <span class="nx">apiKey</span><span class="p">({</span>
+    <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;x-api-key&#39;</span><span class="p">,</span>
+    <span class="nx">allowedKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;opensesame&#39;</span><span class="p">]</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">());</span>
+
+<span class="kr">const</span> <span class="nx">authenticate</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iff</span><span class="p">(</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">commonHooks</span><span class="p">.</span><span class="nx">isProvider</span><span class="p">(</span><span class="s1">&#39;external&#39;</span><span class="p">)),</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iffElse</span><span class="p">(</span>
+      <span class="nx">ctx</span> <span class="p">=&gt;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-api-key&#39;</span><span class="p">],</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">),</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">([</span><span class="s1">&#39;jwt&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span><span class="nx">authenticate</span><span class="p">()]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now any request with a header <code class="docutils literal notranslate"><span class="pre">x-api-key</span></code> and the value <code class="docutils literal notranslate"><span class="pre">opensesame</span></code>
+will be authenticated by the server.</p>
+</div>
+<div class="section" id="creating-an-anonymous-user-strategy">
+<h2>Creating an Anonymous User Strategy<a class="headerlink" href="#creating-an-anonymous-user-strategy" title="永久链接至标题">¶</a></h2>
+<p>The second strategy we’ll look at is for an anonymous user. For this
+specific flow we’ll expect the client to call the <code class="docutils literal notranslate"><span class="pre">/authentication</span></code>
+endpoint letting us know that it wants to authenticate anonymously. The
+server will then create a new user and return a new JWT token that the
+client will have to use from that point onwards.</p>
+<p>First let’s create the strategy using <code class="docutils literal notranslate"><span class="pre">passport-custom</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Strategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-custom&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">opts</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">verifier</span> <span class="o">=</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// create a new user in the user service</span>
+      <span class="c1">// mark this user with a specific anonymous=true attribute</span>
+      <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="nx">opts</span><span class="p">.</span><span class="nx">userService</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+        <span class="nx">anonymous</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">});</span>
+
+      <span class="c1">// authenticate the request with this user</span>
+      <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">userId</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span>
+      <span class="p">});</span>
+    <span class="p">};</span>
+
+    <span class="c1">// register the strategy in the app.passport instance</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Strategy</span><span class="p">(</span><span class="nx">verifier</span><span class="p">));</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Next let’s update our <code class="docutils literal notranslate"><span class="pre">server.js</span></code> to use this strategy.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./anonymous&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span>
+  <span class="nx">anonymous</span><span class="p">({</span>
+    <span class="c1">// the user service</span>
+    <span class="nx">userService</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">authenticate</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iff</span><span class="p">(</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">commonHooks</span><span class="p">.</span><span class="nx">isProvider</span><span class="p">(</span><span class="s1">&#39;external&#39;</span><span class="p">)),</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iffElse</span><span class="p">(</span>
+      <span class="nx">ctx</span> <span class="p">=&gt;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-api-key&#39;</span><span class="p">],</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">),</span>
+      <span class="c1">// add the additional anonymous strategy</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">([</span><span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally our <code class="docutils literal notranslate"><span class="pre">server.js</span></code> looks like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-jwt&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">commonHooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks-common&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">apiKey</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./apiKey&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./anonymous&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">({</span> <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">jwt</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span>
+  <span class="nx">apiKey</span><span class="p">({</span>
+    <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;x-api-key&#39;</span><span class="p">,</span>
+    <span class="nx">allowedKeys</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;opensesame&#39;</span><span class="p">]</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span>
+  <span class="nx">anonymous</span><span class="p">({</span>
+    <span class="nx">userService</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span>
+  <span class="p">})</span>
+<span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">());</span>
+
+<span class="kr">const</span> <span class="nx">authenticate</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span>
+  <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iff</span><span class="p">(</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">commonHooks</span><span class="p">.</span><span class="nx">isProvider</span><span class="p">(</span><span class="s1">&#39;external&#39;</span><span class="p">)),</span>
+    <span class="nx">commonHooks</span><span class="p">.</span><span class="nx">iffElse</span><span class="p">(</span>
+      <span class="nx">ctx</span> <span class="p">=&gt;</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-api-key&#39;</span><span class="p">],</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;apiKey&#39;</span><span class="p">),</span>
+      <span class="nx">auth</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">([</span><span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+  <span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span><span class="nx">authenticate</span><span class="p">()]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now any such request will return a valid JWT token:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">POST</span> <span class="o">/</span><span class="nx">authentication</span>
+
+<span class="p">{</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;anonymous&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that this looks very similar to a request body for <code class="docutils literal notranslate"><span class="pre">local</span></code>
+strategy:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">POST</span> <span class="o">/</span><span class="nx">authentication</span>
+
+<span class="p">{</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+  <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>So for any new strategy we register, we can call the <code class="docutils literal notranslate"><span class="pre">/authentication</span></code>
+endpoint with a specific body and expect a valid JWT in return, which we
+can use from thereon.</p>
+<hr class="docutils" />
+<p>As we can see it’s very easy to create a completely custom auth strategy
+in a standard passport way using <code class="docutils literal notranslate"><span class="pre">passport-custom</span></code>.</p>
+<p>Happy Hacking!!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipe.express-middleware.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe：认证Express中间件（SSR）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recipe.oauth-basic.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe：设置基本OAuth登录" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

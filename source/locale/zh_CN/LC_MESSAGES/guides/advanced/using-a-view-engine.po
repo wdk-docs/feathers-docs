@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:2
+msgid "Using A View Engine"
+msgstr "使用视图引擎"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:4
+msgid ""
+"Since Feathers is just an extension of Express it’s really simple to "
+"render templated views on the server with data from your Feathers "
+"services. There are a few different ways that you can structure your app "
+"so this guide will show you 3 typical ways you might have your Feathers "
+"app organized."
+msgstr "由于Feathers只是Express的扩展,因此使用Feathers服务中的数据在服务器上呈现模板化视图非常简单.您可以通过几种不同的方式构建应用程序,因此本指南将向您展示3种典型的方式,您可以组织您的Feathers应用程序."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:11
+msgid "A Single “Monolithic” App"
+msgstr "单个“单片”应用程序"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:13
+msgid ""
+"You probably already know that when you register a Feathers service, "
+"Feathers creates RESTful endpoints for that service automatically. Well, "
+"really those are just Express routes, so you can define your own as well."
+msgstr ""
+"您可能已经知道,当您注册Feathers服务时,Feathers会自动为该服务创建RESTful端点.嗯,真的那些只是Express路线,所以你也可以定义自己的路线."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:18
+msgid ""
+"Your own defined REST endpoints won’t work with hooks and won’t emit "
+"socket events. If you find you need that functionality it’s probably "
+"better for you to turn your endpoints into a minimal Feathers service."
+msgstr "您自己定义的REST端点不能与钩子一起使用,也不会发出套接字事件.如果您发现需要该功能,最好将端点转换为最小的Feathers服务."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:23
+msgid ""
+"Let’s say you want to render a list of messages from most recent to "
+"oldest using the Jade template engine."
+msgstr ""
+"假设您要使用Jade模板引擎呈现从最新到最旧的消息列表."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:46
+msgid ""
+"Simple right? We’ve now rendered a list of messages. All your hooks will "
+"get triggered just like they would normally so you can use hooks to pre-"
+"filter your data and keep your template rendering routes super tight."
+msgstr ""
+"简单吧？我们现在已经呈现了一个消息列表.所有挂钩都会像通常一样被触发,因此您可以使用挂钩预先过滤数据,并使模板渲染路线保持超紧."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:51
+msgid ""
+"If you call a Feathers service “internally” (ie. not over sockets or "
+"REST) you won’t have a ``context.params.provider`` attribute. This allows"
+" you to have hooks only execute when services are called externally vs. "
+"from your own code."
+msgstr "如果你在内部调用一个Feathers服务（即不通过套接字或REST）你将没有 ``context.params.provider`` 属性.这允许您只在外部调用服务而不是从您自己的代码调用服务时执行钩子."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:57
+msgid "Feathers As A Sub-App"
+msgstr "羽毛作为子应用程序"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:59
+msgid ""
+"Sometimes a better way to break up your Feathers app is to put your "
+"services into an API and mount your API as a sub-app. This is just like "
+"you would do with Express. If you do this, it’s only a slight change to "
+"get data from your services."
+msgstr "有时,分解您的Feathers应用程序的更好方法是将您的服务放入API并将您的API作为子应用程序安装.这就像你使用Express一样.如果您这样做,从您的服务获取数据只是一个小小的改变."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:84
+msgid ""
+"Not a whole lot different. Your API sub app is pretty much the same as "
+"your single app in the previous example, and your main Feathers app is "
+"just a really small wrapper that does little more than render templates."
+msgstr ""
+"不是很多不同.您的API子应用程序与前一个示例中的单个应用程序几乎相同,而您的主要Feathers应用程序只是一个非常小的包装器,它只能渲染模板."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:89
+msgid "Feathers As A Separate App"
+msgstr "羽毛作为一个单独的应用程序"
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:91
+msgid ""
+"If your app starts to get a bit busier you might decide to move your API "
+"to a completely separate standalone Feathers app, maybe even on a "
+"different server. In order for both apps to talk to each other they’ll "
+"need some way to make remote requests. Well, Feathers just so happens to "
+"have a :doc:`../api/client` that can be used on the server. This is how "
+"it works."
+msgstr "如果您的应用程序开始变得更加繁忙,您可能决定将API移动到完全独立的独立Feathers应用程序,甚至可能在不同的服务器上.为了让两个应用程序相互通信,他们需要一些方法来进行远程请求.好吧,Feathers恰好有一个 :doc:`../api/client` 可以在服务器上使用.这是它的工作原理."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:123
+msgid ""
+"In the above example we set up sockets. Alternatively you could use a "
+"Feathers client :doc:`../../api/client/rest`."
+msgstr "在上面的例子中,我们设置了套接字.或者你可以使用Feathers客户端 :doc:`../../api/client/rest`."
+
+#: ../../source/guides/advanced/using-a-view-engine.rst:126
+msgid ""
+"And with that, we’ve shown 3 different ways that you use a template "
+"engine with Feathers to render service data."
+msgstr ""
+"有了它,我们已经展示了3种不同的方法,您可以使用带有Feathers的模板引擎来呈现服务数据."
+
+#~ msgid ""
+#~ "**ProTip:** If you call a Feathers "
+#~ "service “internally” (ie. not over "
+#~ "sockets or REST) you won’t have a"
+#~ " ``context.params.provider`` attribute. This "
+#~ "allows you to have hooks only "
+#~ "execute when services are called "
+#~ "externally vs. from your own code."
+#~ msgstr ""
+#~ "** ProTip: ** Your own defined "
+#~ "REST endpoints cannot be used with "
+#~ "hooks and will not issue socket "
+#~ "events. If you find that you need"
+#~ " this feature, it's best to convert"
+#~ " the endpoint to the smallest "
+#~ "Feathers service."
+

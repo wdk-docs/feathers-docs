@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:2
+msgid "FeathersJS Auth Recipe: Customizing the JWT Payload"
+msgstr "FeathersJS Auth Recipe:自定义JWT Payload"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:4
+msgid ""
+"The Auk release of FeathersJS includes a powerful new "
+":doc:`../../api/authentication/server` built on top of `PassportJS "
+"<http://www.passportjs.org/>`_. The new plugins are very flexible, "
+"allowing you to customize nearly everything. One feature added in the "
+"latest release is the ability to customize the JWT payload using hooks. "
+"Let’s take a look at what this means, how to make it work, and learn "
+"about the potential pitfalls you may encounter by using it."
+msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上.新插件非常灵活,允许您自定义几乎所有内容.最新版本中添加的一项功能是使用挂钩自定义JWT有效负载的功能.让我们来看看这意味着什么,如何使它工作,并了解使用它可能遇到的潜在陷阱."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:12
+msgid "The JWT Payload"
+msgstr "JWT有效载荷"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:14
+msgid ""
+"If you read the resources on :doc:`./how-jwt-works`, you’ll know that a "
+"JWT is an encoded string that can contain a payload. For a quick example,"
+" check out the Debugger on `jwt.io <https://jwt.io/>`_. The purple "
+"section on `jwt.io <https://jwt.io/>`_ is the payload. You’ll also notice"
+" that you can put arbitrary data in the payload. The payload data gets "
+"encoded as a section of the JWT string."
+msgstr "如果您阅读以下资源 :doc:`./how-jwt-works`, 您将知道JWT是一个可以包含有效负载的编码字符串.有关快速示例,请查看 `jwt.io <https://jwt.io/>`_ 上的调试器. `jwt.io <https://jwt.io/>`_ 上的紫色部分是有效载荷.您还会注意到可以在有效负载中放置任意数据.有效载荷数据被编码为JWT字符串的一部分."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:22
+msgid "The default JWT payload contains the following claims:"
+msgstr "默认的JWT有效负载包含以下声明:"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:40
+msgid ""
+"Notice that the payload **is encoded** and **IS NOT ENCRYPTED**. It’s an "
+"important difference. It means that you want to be careful what you store"
+" in the JWT payload."
+msgstr ""
+"请注意,有效负载 **编码为**, **未加密**. 这是一个重要的区别.这意味着您要小心存储在JWT有效负载中的内容."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:45
+msgid "Customizing the Payload with Hooks"
+msgstr "使用挂钩自定义Payload"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:47
+msgid ""
+"The authentication services uses the ``params.payload`` object in the "
+"hook context for the JWT payload. This means you can customize the JWT by"
+" adding a before hook after the ``authenticate`` hook."
+msgstr ""
+"身份验证服务在JWT有效负载的钩子上下文中使用 ``params.payload`` 对象.这意味着您可以通过在 ``authenticate`` 钩子之后添加一个前挂钩来自定义JWT."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:73
+msgid "Now the payload will contain the ``test`` attribute:"
+msgstr "现在有效负载将包含``test``属性:"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:94
+msgid ""
+"Note: The payload is not automatically decoded and made available in the "
+"hooks, thus, requiring you to implement this functionality in your app. "
+"Using ``jwt-decode`` is a simple solution that could be dropped in a hook"
+" as needed."
+msgstr "注意:有效负载不会自动解码并在挂钩中可用,因此需要您在应用中实现此功能.使用``jwt-decode``是一个简单的解决方案,可以根据需要放入钩子中."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:100
+msgid "Important Security Information"
+msgstr "重要的安全信息"
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:102
+msgid ""
+"As you add data to the JWT payload the token size gets larger. Try it out"
+" on `jwt.io <https://jwt.io/>`_ to see for yourself. There is an "
+"important security issue to keep in mind when customizing the payload. "
+"This issue involves the default ``HS256`` algorithm used to sign the "
+"token."
+msgstr "在向JWT有效负载添加数据时,令牌大小会变大.试试看 `jwt.io <https://jwt.io/>`_ 来亲自看看.在自定义有效负载时,请记住一个重要的安全问题.此问题涉及用于对令牌进行签名的默认 ``HS256`` 算法."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:108
+msgid ""
+"With ``HS256``, there is a relationship between the length of the secret "
+"(which must be a minimum of 256-bits) and the length of the encoded token"
+" (which varies with the payload). A larger secret-to-payload ratio (so "
+"the secret is larger than the JWT) will result in a more secure JWT. This"
+" also means that keeping the secret size the same and increasing the "
+"payload size will actually make your JWT comparatively less secure."
+msgstr "对于 ``HS256``,秘密长度(必须至少为256位)与编码令牌的长度(随有效载荷而变化)之间存在关系.更大的秘密到有效负载比(因此秘密大于JWT)将导致更安全的JWT.这也意味着保持秘密大小相同并增加有效负载大小实际上会使您的JWT相对不太安全."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:115
+msgid ""
+"The Feathers generator creates a 2048-bit secret, by default, so there is"
+" a small amount of allowable space for putting additional attributes in "
+"the JWT payload. It’s very important to keep the secret-to-payload length"
+" ratio as high as possible to avoid brute force attacks. In a brute force"
+" attack, the attacker attempts to retrieve the secret by guessing the "
+"secret over and over until getting it right. If your secret is "
+"compromised, they will be able to create signed JWT with whatever payload"
+" they wish. In short, be cautious about what you put in your JWT payload."
+msgstr "默认情况下,Feathers生成器会创建一个2048位的密钥,因此可以在JWT有效负载中添加少量允许空间来放置其他属性.保持秘密到有效负载长度比尽可能高以避免暴力攻击非常重要.在暴力攻击中,攻击者试图通过一遍又一遍地猜测秘密来检索秘密,直到它正确为止.如果您的秘密被泄露,他们将能够创建他们希望的任何有效负载的签名JWT.简而言之,请谨慎对待JWT有效负载中的内容."
+
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:125
+msgid ""
+"Finally, remember that the secret created by the generator is meant for "
+"development purposes, only. You never want to check your **production** "
+"secret into your version control system (Git, etc.). It is best to put "
+"your production secret in an environment variable and reference it in the"
+" app configuration."
+msgstr "最后,请记住,生成器创建的秘密仅用于开发目的.你永远不想把你的 **生产** 秘密检查到你的版本控制系统(Git等).最好将生产秘密放在环境变量中,并在应用程序配置中引用它."
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new `authentication suite "
+#~ "<../../api/authentication/server.md>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. One feature added in the "
+#~ "latest release is the ability to "
+#~ "customize the JWT payload using hooks."
+#~ " Let’s take a look at what this"
+#~ " means, how to make it work, "
+#~ "and learn about the potential pitfalls"
+#~ " you may encounter by using it."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. One feature added in the "
+#~ "latest release is the ability to "
+#~ "customize the JWT payload using hooks."
+#~ " Let’s take a look at what this"
+#~ " means, how to make it work, "
+#~ "and learn about the potential pitfalls"
+#~ " you may encounter by using it."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>` built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. One feature added in the "
+#~ "latest release is the ability to "
+#~ "customize the JWT payload using hooks."
+#~ " Let’s take a look at what this"
+#~ " means, how to make it work, "
+#~ "and learn about the potential pitfalls"
+#~ " you may encounter by using it."
+#~ msgstr ""
+

@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:2
+msgid "FeathersJS Auth Recipe: Custom Auth Strategy"
+msgstr "FeathersJS Auth Recipe:自定义身份验证策略"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:4
+msgid ""
+"The Auk release of FeathersJS includes a powerful new "
+":doc:`../../api/authentication/server` built on top of `PassportJS "
+"<http://www.passportjs.org/>`_. The new plugins are very flexible, "
+"allowing you to customize nearly everything. We can leverage this to "
+"create completely custom authentication strategies using `Passport Custom"
+" <https://www.npmjs.com/package/passport-custom>`_. Let’s take a look at "
+"two such examples in this guide."
+msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上.新插件非常灵活,允许您自定义几乎所有内容.我们可以利用它来使用 `Passport Custom <https://www.npmjs.com/package/passport-custom>`_ 创建完全自定义的身份验证策略.我们来看看本指南中的两个这样的例子."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:12
+msgid "Setting up the basic app"
+msgstr "设置基本应用程序"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:14
+msgid "Let’s first start by creating a basic server setup."
+msgstr "让我们首先创建一个基本的服务器设置."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:43
+msgid "Creating a Custom API Key Auth Strategy"
+msgstr "创建自定义API密钥身份验证策略"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:45
+msgid ""
+"The first custom strategy example we can look at is an API Key Strategy. "
+"Within it, we’ll check if there is a specific header in the request "
+"containing a specific API key. If true, we’ll successfully authorize the "
+"request."
+msgstr "我们可以看到的第一个自定义策略示例是API密钥策略.在其中,我们将检查请求中是否存在包含特定API密钥的特定标头.如果为true,我们将成功授权该请求."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:50
+msgid ""
+"First let’s make the strategy using ```passport-custom`` "
+"<https://www.npmjs.com/package/passport-custom>`_ npm package."
+msgstr ""
+"首先让我们使用 `passport-custom <https://www.npmjs.com/package/passport-custom>`_ npm包制定策略."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:81
+msgid "Next let’s add this to our server setup"
+msgstr "接下来让我们将它添加到我们的服务器设置中"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:96
+msgid ""
+"Next let’s create a custom authentication hook that conditionally applies"
+" auth for all external requests."
+msgstr ""
+"接下来让我们创建一个自定义身份验证挂钩,有条件地为所有外部请求应用auth."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:123
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:233
+msgid "Finally our ``server.js`` looks like this:"
+msgstr "最后我们的 ``server.js`` 看起来像这样:"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:171
+msgid ""
+"Now any request with a header ``x-api-key`` and the value ``opensesame`` "
+"will be authenticated by the server."
+msgstr ""
+"现在任何带有头文件 ``x-api-key`` 和值 ``opensesame`` 的请求都将由服务器验证."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:175
+msgid "Creating an Anonymous User Strategy"
+msgstr "创建匿名用户策略"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:177
+msgid ""
+"The second strategy we’ll look at is for an anonymous user. For this "
+"specific flow we’ll expect the client to call the ``/authentication`` "
+"endpoint letting us know that it wants to authenticate anonymously. The "
+"server will then create a new user and return a new JWT token that the "
+"client will have to use from that point onwards."
+msgstr "我们将看到的第二个策略是匿名用户.对于这个特定的流程,我们希望客户端调用 ``/authentication`` 端点,让我们知道它想要匿名进行身份验证.然后,服务器将创建一个新用户并返回一个新的JWT令牌,客户端必须从该点开始使用该令牌."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:183
+msgid "First let’s create the strategy using ``passport-custom``"
+msgstr "首先让我们使用``passport-custom``创建策略"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:209
+msgid "Next let’s update our ``server.js`` to use this strategy."
+msgstr "接下来让我们更新我们的 ``server.js`` 来使用这个策略."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:287
+msgid "Now any such request will return a valid JWT token:"
+msgstr "现在任何此类请求都将返回有效的JWT令牌:"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:297
+msgid ""
+"Note that this looks very similar to a request body for ``local`` "
+"strategy:"
+msgstr ""
+"请注意,这看起来非常类似于 ``local`` 策略的请求主体:"
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:310
+msgid ""
+"So for any new strategy we register, we can call the ``/authentication`` "
+"endpoint with a specific body and expect a valid JWT in return, which we "
+"can use from thereon."
+msgstr ""
+"因此,对于我们注册的任何新策略,我们可以使用特定的主体调用 ``/authentication`` 端点并期望返回有效的JWT,我们可以在其上使用它."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:316
+msgid ""
+"As we can see it’s very easy to create a completely custom auth strategy "
+"in a standard passport way using ``passport-custom``."
+msgstr ""
+"我们可以看到使用 ``passport-custom`` 以标准护照方式创建完全自定义的身份验证策略非常容易."
+
+#: ../../source/guides/auth/recipe.custom-auth-strategy.rst:319
+msgid "Happy Hacking!!"
+msgstr "快乐黑客!!"
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new `authentication suite "
+#~ "<../../api/authentication/server.md>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. We can leverage this to "
+#~ "create completely custom authentication "
+#~ "strategies using `Passport Custom "
+#~ "<https://www.npmjs.com/package/passport-custom>`_. Let’s"
+#~ " take a look at two such "
+#~ "examples in this guide."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. We can leverage this to "
+#~ "create completely custom authentication "
+#~ "strategies using `Passport Custom "
+#~ "<https://www.npmjs.com/package/passport-custom>`_. Let’s"
+#~ " take a look at two such "
+#~ "examples in this guide."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>` built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. We can leverage this to "
+#~ "create completely custom authentication "
+#~ "strategies using `Passport Custom "
+#~ "<https://www.npmjs.com/package/passport-custom>`_. Let’s"
+#~ " take a look at two such "
+#~ "examples in this guide."
+#~ msgstr ""
+

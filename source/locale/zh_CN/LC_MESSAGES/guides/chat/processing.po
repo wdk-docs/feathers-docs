@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/processing.rst:2
+msgid "Processing data"
+msgstr "处理数据"
+
+#: ../../source/guides/chat/processing.rst:4
+msgid ""
+"Now that we can :doc:`./authentication`, we are going to process data, "
+"sanitize the input we get from the client and add extra information. For "
+"this chapter we require an empty database which can be done by removing "
+"the ``data/`` folder (``rm -rf data/``)."
+msgstr ""
+"现在我们可以 :doc:`./authentication`,我们将处理数据,清理我们从客户端获得的输入并添加额外的信息.在本章中,我们需要一个空数据库,可以通过删除 ``data/`` 文件夹(``rm -rf data/``)来完成."
+
+#: ../../source/guides/chat/processing.rst:10
+msgid "Sanitize new message"
+msgstr "消除新消息"
+
+#: ../../source/guides/chat/processing.rst:12
+msgid ""
+"When creating a new message, we automatically sanitize our input, add the"
+" user that sent it and include the date the message has been created, "
+"before saving it in the database. This is where :doc:`../basics/hooks` "
+"come into play. In this specific case, a *before* hook. To create a new "
+"hook we can run:"
+msgstr "创建新消息时,我们会自动清理输入,添加发送消息的用户并包含消息创建日期,然后再将其保存到数据库中.这就是 :doc:`../basics/hooks` 开始发挥作用的地方.在这种特定情况下, *before* 钩子.要创建一个新的钩子,我们可以运行:"
+
+#: ../../source/guides/chat/processing.rst:22
+msgid ""
+"Let’s call this hook ``process-message``. We want to pre-process client-"
+"provided data. Therefore, in the next prompt asking for what kind of "
+"hook, choose ``before`` and press Enter."
+msgstr ""
+"我们把这个钩子叫做 ``process-message``.我们希望预处理客户提供的数据.因此,在下一个询问何种钩子的提示中,选择 ``before`` 并按Enter键."
+
+#: ../../source/guides/chat/processing.rst:26
+msgid ""
+"Next a list of all our services is displayed. For this hook, only choose "
+"the ``messages`` service. Navigate to the entry with the arrow keys and "
+"select it with the space key."
+msgstr "接下来显示我们所有服务的列表.对于这个钩子,只选择 ``messages`` 服务.使用箭头键导航到该条目,然后使用空格键选择它."
+
+#: ../../source/guides/chat/processing.rst:30
+msgid ""
+"A hook can run before any number of :doc:`../../api/services`. For this "
+"specific hook, only select ``create``. After confirming the last prompt "
+"you should see something like this:"
+msgstr "一个钩子可以在任何数量之前运行 :doc:`../../api/services`.对于这个特定的钩子,只选择 ``create``.在确认最后一个提示后,您应该看到如下内容:"
+
+#: ../../source/guides/chat/processing.rst:37
+msgid "The process-message hook prompts"
+msgstr "进程消息钩子提示"
+
+#: ../../source/guides/chat/processing.rst:39
+msgid ""
+"A hook was generated and wired up to the selected service. Now it’s time "
+"to add some code. Update ``src/hooks/process-message.js`` to look like "
+"this:"
+msgstr "生成一个挂钩并连接到所选服务.现在是时候添加一些代码了.更新 ``src/hooks/process-message.js`` 看起来像这样:"
+
+#: ../../source/guides/chat/processing.rst:78
+msgid "This validation code includes:"
+msgstr "此验证码包括:"
+
+#: ../../source/guides/chat/processing.rst:80
+msgid "Check if there is a ``text`` in the data and throw an error if not"
+msgstr "检查数据中是否有 ``text``, 如果没有则抛出错误"
+
+#: ../../source/guides/chat/processing.rst:81
+msgid "Truncate the message’s ``text`` property to 400 characters"
+msgstr "将消息的 ``text`` 属性截断为400个字符"
+
+#: ../../source/guides/chat/processing.rst:82
+msgid "Update the data submitted to the database to contain:"
+msgstr "更新提交到数据库的数据以包含:"
+
+#: ../../source/guides/chat/processing.rst:84
+msgid "The new truncated text"
+msgstr "新的截断文本"
+
+#: ../../source/guides/chat/processing.rst:85
+msgid "The currently authenticated user (so we always know who sent it)"
+msgstr "当前经过身份验证的用户(因此我们始终知道是谁发送的)"
+
+#: ../../source/guides/chat/processing.rst:86
+msgid "The current (creation) date"
+msgstr "当前(创建)日期"
+
+#: ../../source/guides/chat/processing.rst:89
+msgid "Add a user avatar"
+msgstr "添加用户头像"
+
+#: ../../source/guides/chat/processing.rst:91
+msgid ""
+"Let’s generate another hook to add a link to the `Gravatar "
+"<http://en.gravatar.com/>`_ image associated with the user’s email "
+"address, so we can display an avatar. Run:"
+msgstr ""
+"让我们生成另一个钩子来添加一个链接到与用户的电子邮件地址相关联的 `Gravatar <http://en.gravatar.com/>`_ "
+"image,这样我们就可以显示一个头像了.跑:"
+
+#: ../../source/guides/chat/processing.rst:99
+msgid "The selections are almost the same as our previous hook:"
+msgstr "选择与我们之前的钩子几乎相同:"
+
+#: ../../source/guides/chat/processing.rst:101
+msgid "Call the hook ``gravatar``"
+msgstr "调用钩子 ``gravatar``"
+
+#: ../../source/guides/chat/processing.rst:102
+msgid "It’s a ``before`` hook"
+msgstr "这是一个 ``before`` 钩子"
+
+#: ../../source/guides/chat/processing.rst:103
+msgid "… on the ``users`` service"
+msgstr "… 在 ``users`` 服务上"
+
+#: ../../source/guides/chat/processing.rst:104
+msgid "… for the ``create`` method"
+msgstr "… 用于 ``create`` 方法"
+
+#: ../../source/guides/chat/processing.rst:109
+msgid "The gravatar hook prompts"
+msgstr "gravatar 钩子提示"
+
+#: ../../source/guides/chat/processing.rst:111
+msgid "Then we update ``src/hooks/gravatar.js`` with the following code:"
+msgstr "然后我们使用以下代码更新 ``src/hooks/gravatar.js``:"
+
+#: ../../source/guides/chat/processing.rst:140
+msgid ""
+"Here we use `Node’s crypto library <https://nodejs.org/api/crypto.html>`_"
+" to create an MD5 hash of the user’s email address. This is what Gravatar"
+" uses as the URL for the avatar associated with an email address. When a "
+"new user is created, this gravatar hook will set the ``avatar`` property "
+"to the avatar image link."
+msgstr "这里我们使用 `Node的加密库 <https://nodejs.org/api/crypto.html>`_ 来创建用户电子邮件地址的MD5哈希值.这就是Gravatar用作与电子邮件地址关联的头像的URL.创建新用户时,此gravatar挂钩会将“头像”属性设置为头像图像链接."
+
+#: ../../source/guides/chat/processing.rst:148
+msgid "Populate the message sender"
+msgstr "填充邮件发件人"
+
+#: ../../source/guides/chat/processing.rst:150
+msgid ""
+"In the ``process-message`` hook we are currently just adding the user’s "
+"``_id`` as the ``userId`` property in the message. We want to show more "
+"than the ``_id`` in the UI, so we’ll need to populate more data in the "
+"message response. To display a users’ details, we need to include extra "
+"information in our messages."
+msgstr ""
+"在 ``process-message`` 钩子中,我们当前只是将用户的 ``_id`` 添加为消息中的 ``userId`` 属性.我们希望在UI中显示的不仅仅是 ``_id``,因此我们需要在消息响应中填充更多数据.要显示用户的详细信息,我们需要在邮件中包含额外信息."
+
+#: ../../source/guides/chat/processing.rst:156
+msgid "We therefore create another hook:"
+msgstr "因此我们创建另一个钩子:"
+
+#: ../../source/guides/chat/processing.rst:158
+msgid "Call the hook ``populate-user``"
+msgstr "调用钩子 ``populate-user``"
+
+#: ../../source/guides/chat/processing.rst:159
+msgid "It’s an ``after`` hook"
+msgstr "这是一个 ``after`` 钩子"
+
+#: ../../source/guides/chat/processing.rst:160
+msgid "… on the ``messages`` service"
+msgstr "… 在 ``messages`` 服务上"
+
+#: ../../source/guides/chat/processing.rst:161
+msgid "… for ``all`` methods"
+msgstr "… 对于 ``all`` 方法"
+
+#: ../../source/guides/chat/processing.rst:166
+msgid "The populate-user hook"
+msgstr "populate-user钩子"
+
+#: ../../source/guides/chat/processing.rst:168
+msgid "Once created, update ``src/hooks/populate-user.js`` to:"
+msgstr "创建后,将 ``src/hooks/populate-user.js`` 更新为:"
+
+#: ../../source/guides/chat/processing.rst:199
+msgid ""
+"``Promise.all`` ensures that all the calls run in parallel, instead of "
+"sequentially."
+msgstr "``Promise.all`` 确保所有调用并行运行,而不是顺序运行."
+
+#: ../../source/guides/chat/processing.rst:203
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/chat/processing.rst:205
+msgid ""
+"In this section, we added three hooks to pre- and post-process our "
+"message and user data. We now have a complete API to send and retrieve "
+"messages, including authentication."
+msgstr "在本节中,我们添加了三个钩子来处理我们的消息和用户数据.我们现在有一个完整的API来发送和检索消息,包括身份验证."
+
+#: ../../source/guides/chat/processing.rst:209
+msgid "Now we are ready to build a frontend :doc:`./frontend`."
+msgstr "现在我们准备构建一个前端 :doc:`./frontend`."
+
+#: ../../source/guides/chat/processing.rst:211
+msgid ""
+"See the :doc:`../frameworks/readme` for more resources on specific "
+"frameworks like React, React Native, Angular or VueJS. You’ll find guides"
+" for creating a complete chat front-end with signup, logging, user "
+"listing and messages. There are also links to complete chat applications "
+"built with some popular front-end frameworks."
+msgstr ""
+"有关 React, React Native, Angular 或 VueJS 等特定框架的更多资源,请参阅 :doc:`../frameworks/readme`.您可以找到创建完整聊天前端的指南,其中包括注册,日志记录,用户列表和消息.还有一些链接可以使用一些流行的前端框架构建完整的聊天应用程序."
+
+#: ../../source/guides/chat/processing.rst:217
+msgid ""
+"You can also browse the :doc:`../api/readme` for details on using "
+"Feathers and its database adaptors."
+msgstr "您还可以浏览 :doc:`../../api/readme`,了解有关使用Feathers及其数据库适配器的详细信息."
+
+#~ msgid ""
+#~ "When creating a new message, we "
+#~ "automatically sanitize our input, add "
+#~ "the user that sent it and include"
+#~ " the date the message has been "
+#~ "created, before saving it in the "
+#~ "database. This is where `hooks "
+#~ "<../basics/hooks.md>`_ come into play. In "
+#~ "this specific case, a *before* hook. "
+#~ "To create a new hook we can "
+#~ "run:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A hook can run before any number"
+#~ " of `service methods <../../api/services.md>`_."
+#~ " For this specific hook, only select"
+#~ " ``create``. After confirming the last "
+#~ "prompt you should see something like "
+#~ "this:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A hook can run before any number"
+#~ " of :doc:`service methods <../../api/services>`_."
+#~ " For this specific hook, only select"
+#~ " ``create``. After confirming the last "
+#~ "prompt you should see something like "
+#~ "this:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A hook can run before any number"
+#~ " of :doc:`service methods <../../api/services>`."
+#~ " For this specific hook, only select"
+#~ " ``create``. After confirming the last "
+#~ "prompt you should see something like "
+#~ "this:"
+#~ msgstr ""
+

@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/chat/creating.rst:2
+msgid "Creating the application"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:4
+msgid "In this part we are going to create a new Feathers application using the generator. We can install the generator via:"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:13
+msgid "The prerequisites for this guide are the same as the :doc:`../basics/setup`. This means that Node 8.0.0 (``node --version``) or later is required."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:18
+msgid "Generating the application"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:20
+msgid "With everything :doc:`../basics/setup`, let’s create a directory for our new app:"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:28
+msgid "Now we can generate the application:"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:34
+msgid "When presented with the project name, just hit enter, or enter a name (no spaces)."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:37
+msgid "Next, write a short description of your application."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:39
+msgid "The next prompt asking for the source folder can be answered by just hitting enter. This will put all source files into the ``src/`` folder."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:42
+msgid "The next prompt will ask for the package manager you want to use. The default is the standard `npm <https://www.npmjs.com/>`_."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:45
+msgid "If you choose `Yarn <https://yarnpkg.com/en/>`_ instead, make sure it has been installed via ``npm install yarn -g`` first."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:48
+msgid "You’re now presented with the option of which transport you want to support. Since we’re setting up a real-time and REST API, we’ll go with the default REST and Socket.io options. So just hit enter."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:52
+msgid "Once you confirm the final prompt, you will see something like this:"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:57
+msgid "Final Configuration"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:60
+msgid "The generated files"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:62
+msgid "Let’s have a brief look at the files that have been generated:"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:64
+msgid "``config/`` - Contains the configuration files for the app. ``production.json`` files override ``default.json`` when in production mode by setting ``NODE_ENV=production``. For details, see the :doc:`../api/configuration`."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:68
+msgid "``node_modules/`` - The generator installs the project dependencies either using `npm <https://docs.npmjs.com/>`_, or `yarn <https://yarnpkg.com/en/>`_. The dependencies are also added in the ``package.json``."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:72
+msgid "``public/`` - Contains static files to be served. A sample favicon and ``index.html`` (which will show up when going directly to the server URL) are already included."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:75
+msgid "``src/`` - Contains the Feathers server code."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:77
+msgid ":doc:`../basics/hooks`. A simple ``logger`` hook for logging debug information about our service calls is already included"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:78
+msgid "``middleware/`` contains any `Express middleware <http://expressjs.com/en/guide/writing-middleware.html>`_"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:79
+msgid ":doc:`../basics/services`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:80
+msgid "``index.js`` loads and starts the application"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:81
+msgid ":doc:`../basics/starting`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:82
+msgid "``app.hooks.js`` contains hooks that apply to every service."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:83
+msgid ":doc:`../../api/channels`"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:85
+msgid "``test/`` - Contains `Mocha <https://mochajs.org/>`_ test files for the app, hooks and services"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:88
+msgid "``app.test.js`` tests that the index page appears, as well as 404 errors for HTML pages and JSON"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:91
+msgid "``.editorconfig`` is an `EditorConfig <http://editorconfig.org/>`_ setting to help developers define and maintain consistent coding styles among different editors and IDEs."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:94
+msgid "``.eslintrc.json`` contains defaults for linting your code with `ESLint <http://eslint.org/docs/user-guide/getting-started>`_."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:96
+msgid "``.gitignore`` - specifies `intentionally untracked files <https://git-scm.com/docs/gitignore>`_ which `git <https://git-scm.com/>`_, `GitHub <https://github.com/>`_ and other similar projects ignore."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:100
+msgid "``.npmignore`` specifies `files which are not to be published <https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package>`_ for distribution."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:103
+msgid "``LICENSE`` - contains the License so that people know how they are permitted to use it, and any restrictions you’re placing on it. It defaults to the Feathers license."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:106
+msgid "``package.json`` contains `information <https://docs.npmjs.com/files/package.json>`_ about our project which `npm <https://docs.npmjs.com/>`_, `yarn <https://yarnpkg.com/en/>`_ and other package managers need to install and use your package."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:113
+msgid "Running the server and tests"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:115
+msgid "The server can now be started by running"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:121
+msgid "After that, you can see a welcome page at `localhost:3030 <http://localhost:3030>`_. When making modifications, remember to stop (CTRL + C) and start the server again."
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:125
+msgid "The app also comes with a set of basic tests which can be run with"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:132
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/chat/creating.rst:134
+msgid "We scaffolded a new Feathers application. The next step is to :doc:`./service`."
+msgstr ""
+

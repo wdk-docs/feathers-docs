@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/readme.rst:2
+msgid "Guides"
+msgstr ""
+
+#: ../../source/guides/readme.rst:4
+msgid ":doc:`./basics/readme`"
+msgstr ""
+
+#: ../../source/guides/readme.rst:6
+msgid "Learn about Feathers core concepts and how they fit together by going from your first Feathers application to a database backed REST and real-time API."
+msgstr ""
+
+#: ../../source/guides/readme.rst:10
+msgid ":doc:`./chat/readme`"
+msgstr ""
+
+#: ../../source/guides/readme.rst:12
+msgid "Learn how to create a chat REST and real-time API complete with authentication and data processing and how to use Feathers on the client in a simple browser chat application."
+msgstr ""
+
+#: ../../source/guides/readme.rst:16
+msgid ":doc:`./auth/readme`"
+msgstr ""
+
+#: ../../source/guides/readme.rst:18
+msgid "Learn how to add local (username & password), OAuth1, and OAuth2 authentication to your Feathers Applications and some recipes."
+msgstr ""
+
+#: ../../source/guides/readme.rst:21
+msgid ":doc:`./advanced/readme`"
+msgstr ""
+
+#: ../../source/guides/readme.rst:23
+msgid "Guides for more advanced Feathers topics like debugging, file uploads and more."
+msgstr ""
+
+#: ../../source/guides/readme.rst:25
+msgid "`The FeathersJS Youtube playlist <https://www.youtube.com/playlist?list=PLwSdIiqnDlf_lb5y1liQK2OW5daXYgKOe>`_"
+msgstr ""
+
+#: ../../source/guides/readme.rst:27
+msgid "|IMAGE ALT TEXT|"
+msgstr ""
+
+#: ../../source/guides/readme.rst:29
+msgid "A growing collection of Feathers related talks, tutorials and discussions."
+msgstr ""
+

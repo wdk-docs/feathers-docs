@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/advanced/readme.rst:2
+msgid "Advanced guides"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:4
+msgid "In this section you can find some guides for advanced topics once you have :doc:`../chat/readme`."
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:7
+msgid ":doc:`./file-uploading`"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:8
+msgid ":doc:`./using-a-view-engine`"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:9
+msgid ":doc:`./scaling`"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:10
+msgid ":doc:`./creating-a-plugin`"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:12
+msgid "Some external advanced guides:"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:14
+msgid "`Debugging <https://blog.feathersjs.com/debugging-feathers-with-visual-studio-code-406e6adf2882>`_"
+msgstr ""
+
+#: ../../source/guides/advanced/readme.rst:15
+msgid ":doc:`https://github.com/feathers-plus/feathers-authentication-management/blob/master/docs`"
+msgstr ""
+

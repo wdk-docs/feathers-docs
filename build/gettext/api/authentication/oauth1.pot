@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/authentication/oauth1.rst:2
+msgid "OAuth1 Authentication"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:10
+msgid "[@feathersjs/authentication-oauth1](https://github.com/feathersjs/authentication-oauth1) is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy within your Feathers application, most notably `Twitter <https://github.com/jaredhanson/passport-twitter>`_."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:16
+msgid "This module contains 2 core pieces:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:18
+msgid "The main initialization function"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:19
+msgid "The ``Verifier`` class"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:22
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:24
+msgid "In most cases initializing the module is as simple as doing this:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:64
+msgid "This will pull from your global authentication object in your config file. It will also mix in the following defaults, which can be customized."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:68
+msgid "Registering the OAuth1 plugin will automatically set up routes to handle the OAuth redirects and authorization."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:72
+msgid "Options"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:90
+msgid "Additional passport strategy options can be provided based on the OAuth1 strategy you are configuring."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:94
+msgid "Verifier"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:96
+msgid "This is the verification class that handles the OAuth1 verification by looking up the entity (normally a ``user``) on a given service and either creates or updates the entity and returns them. It has the following methods that can all be overridden. All methods return a promise except ``verify``, which has the exact same signature as `passport-oauth1 <https://github.com/jaredhanson/passport-oauth1>`_."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:113
+msgid "The ``Verifier`` class can be extended so that you customize it’s behavior without having to rewrite and test a totally custom local Passport implementation. Although that is always an option if you don’t want use this plugin."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:118
+msgid "An example of customizing the Verifier:"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:146
+msgid "Customizing The OAuth Response"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:148
+msgid "Whenever you authenticate with an OAuth1 provider such as Twitter, the provider sends back an ``accessToken``, ``refreshToken``, and a ``profile`` that contains the authenticated entity’s information based on the OAuth1 ``scopes`` you have requested and been granted."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:153
+msgid "By default the ``Verifier`` takes everything returned by the provider and attaches it to the ``entity`` (ie. the user object) under the provider name. You will likely want to customize the data that is returned. This can be done by adding a ``before`` hook to both the ``update`` and ``create`` service methods on your ``entity``\\ ’s service."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:203
+msgid "Client Usage"
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:205
+msgid "When this module is registered server side, whether you are using ``feathers-authentication-client`` or not the user has to navigate to the authentication strategy url. This could be by setting ``window.location`` or through a link in your app."
+msgstr ""
+
+#: ../../source/api/authentication/oauth1.rst:210
+msgid "For example you might have a login button for Twitter:"
+msgstr ""
+

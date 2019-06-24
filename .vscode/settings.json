@@ -1,0 +1,4 @@
+{
+  "restructuredtext.confPath": "${workspaceFolder}/source",
+  "search.usePCRE2": true
+}

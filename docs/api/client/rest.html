@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>REST客户端 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Socket.io 客户端" href="socketio.html" />
+    <link rel="prev" title="Feathers 客户端" href="../client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">核心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">传输层</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#client">客户端</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../client.html">Feathers 客户端</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">REST客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feathersjs-rest-client">&#64;feathersjs/rest-client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">HTTP API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="socketio.html">Socket.io 客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primus.html">Primus 客户端</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#authentication">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#database">数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>REST客户端</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/client/rest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-client">
+<h1>REST客户端<a class="headerlink" href="#rest-client" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>要在客户端上不使用Feathers直接使用Feathers REST API（通过HTTP）, 请参阅 <a class="reference external" href="＃http-api">HTTP API</a> 部分.</p>
+</div>
+<div class="section" id="feathersjs-rest-client">
+<h2>&#64;feathersjs/rest-client<a class="headerlink" href="#feathersjs-rest-client" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/feathersjs/rest-client/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/feathersjs/rest-client.png?style=social&amp;label=Star" /></a> <a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/rest-client"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/rest-client.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/rest-client/blob/master/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/rest-client --save
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;</span> <span class="pre">feathersjs/rest-client</span></code> 允许使用 <a class="reference external" href="https://jquery.com/">jQuery</a>, <cite>request &lt;https连接到通过 :doc:</cite>../express＃expressrest` 公开的服务. ://github.com/request/request&gt;`_, <a class="reference external" href="http://visionmedia.github.io/superagent/">Superagent</a>, <a class="reference external" href="https://github.com/mzabriskie/axios">Axios</a> 或者 <a class="reference external" href="https://facebook.github.io/react-native/docs/network.html">获取</a> 作为AJAX库.</p>
+<!-- --><div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>REST客户端服务确实发出 <code class="docutils literal notranslate"><span class="pre">created</span></code>, <code class="docutils literal notranslate"><span class="pre">updated</span></code>, <code class="docutils literal notranslate"><span class="pre">patchched</span></code> 和 <code class="docutils literal notranslate"><span class="pre">removed</span></code> 事件, 但只在本地为自己的实例*发出*.来自其他客户端的实时事件只能通过websocket连接接收.</p>
+</div>
+<!-- --><div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>客户端应用程序只能使用单个传输（REST，Socket.io或Primus）.通常不需要在同一客户端应用程序中使用两个传输.</p>
+</div>
+<div class="section" id="rest-baseurl">
+<h3>rest([baseUrl])<a class="headerlink" href="#rest-baseurl" title="永久链接至标题">¶</a></h3>
+<p>可以通过加载 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/rest-client</span></code> 并使用基本URL初始化客户端对象来初始化REST客户端服务:</p>
+<p>{% codetabs name=“Modular”, type=“js” -%} const feathers =
+require(‘&#64;feathersjs/feathers’); const rest =
+require(‘&#64;feathersjs/rest-client’);</p>
+<p>const app = feathers();</p>
+<p>// Connect to the same as the browser URL (only in the browser) const
+restClient = rest();</p>
+<p>// Connect to a different URL const restClient =
+rest(‘<a class="reference external" href="http://feathers-api.com">http://feathers-api.com</a>’)</p>
+<p>// Configure an AJAX library (see below) with that client
+app.configure(restClient.fetch(window.fetch));</p>
+<p>// Connect to the <code class="docutils literal notranslate"><span class="pre">http://feathers-api.com/messages</span></code> service const
+messages = app.service(‘messages’); {%- language
+name=“&#64;feathersjs/client”, type=“html” -%}</p>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script><script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script><script>
+  var app = feathers();
+  // Connect to a different URL
+  var restClient = feathers.rest('http://feathers-api.com')
+
+  // Configure an AJAX library (see below) with that client
+  app.configure(restClient.fetch(window.fetch));
+
+  // Connect to the `http://feathers-api.com/messages` service
+  const messages = app.service('messages');
+</script><p>{%- endcodetabs %}</p>
+<!-- --><div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>在浏览器中，基本URL与注册服务的位置相关.这意味着 <code class="docutils literal notranslate"><span class="pre">http://api.feathersjs.com/api/v1/messages</span></code> 的服务，其基本URL为 <code class="docutils literal notranslate"><span class="pre">http://api.feathersjs.com</span></code> 将作为 <code class="docutils literal notranslate"><span class="pre">app提供.服务（</span> <span class="pre">'API/V1/消息'）</span></code>.使用 <cite>http://api.feathersjs.com/api/v1`</cite> 的基本URL，它将是 <code class="docutils literal notranslate"><span class="pre">app.service（'messages'）</span></code>.</p>
+</div>
+</div>
+<div class="section" id="params-headers">
+<h3>params.headers<a class="headerlink" href="#params-headers" title="永久链接至标题">¶</a></h3>
+<p>请求特定标头可以通过服务调用中的``params.headers``:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A message from a REST client&#39;</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;X-Requested-With&#39;</span><span class="o">:</span> <span class="s1">&#39;FeathersJS&#39;</span> <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="params-connection">
+<h3>params.connection<a class="headerlink" href="#params-connection" title="永久链接至标题">¶</a></h3>
+<p>允许传递特定于AJAX库的其他选项. <code class="docutils literal notranslate"><span class="pre">params.connection.headers</span></code> 将与 <code class="docutils literal notranslate"><span class="pre">params.headers</span></code> 合并:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">request</span><span class="p">));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">followRedirect</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">fetch</span></code> fork <a class="reference external" href="https://github.com/Netflix/yetch">yetch</a> 它也可以用来中止请求:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">yetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;yetch&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AbortController</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">yetch</span><span class="p">));</span>
+
+<span class="kr">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">connection</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">signal</span><span class="o">:</span> <span class="nx">controller</span><span class="p">.</span><span class="nx">signal</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">promise</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>jQuery<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>将jQuery（<code class="docutils literal notranslate"><span class="pre">$</span></code>）的实例传递给``restClient.jquery``:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">jquery</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>或者使用模块加载器:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">$</span> <span class="nx">from</span> <span class="s1">&#39;jquery&#39;</span><span class="p">;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">jquery</span><span class="p">(</span><span class="nx">$</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Request<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>需要将`request &lt;<a class="reference external" href="https://github.com/request/request">https://github.com/request/request</a>&gt;`_ 对象明确传递给 <code class="docutils literal notranslate"><span class="pre">feathers.request</span></code>. 使用`request.defaults &lt;<a class="reference external" href="https://github.com/request/request#convenience-methods">https://github.com/request/request#convenience-methods</a>&gt;`_  - 创建一个新的请求对象 - 是一种设置默认标头或身份验证信息的好方法:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">requestClient</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">defaults</span><span class="p">({</span>
+  <span class="s1">&#39;auth&#39;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;user&#39;</span><span class="o">:</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pass&#39;</span><span class="o">:</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sendImmediately&#39;</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">requestClient</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Superagent<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://visionmedia.github.io/superagent/">Superagent</a> 目前使用默认配置:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;superagent&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">superagent</span><span class="p">(</span><span class="nx">superagent</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Axios<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://github.com/mzabriskie/axios">Axios</a> 目前使用默认配置:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;axios&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">axios</span><span class="p">(</span><span class="nx">axios</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Fetch<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>Fetch还使用默认配置:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// In Node</span>
+<span class="kr">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-fetch&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">fetch</span><span class="p">));</span>
+
+<span class="c1">// In modern browsers</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">restClient</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">fetch</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>HTTP API<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>您可以使用任何其他HTTP REST客户端与Feathers REST API进行通信.以下部分描述了HTTP方法，正文和查询参数属于哪个服务方法调用.</p>
+<p>URL中的所有查询参数都将在服务器上设置为 “params.query”.其他服务参数可以通过以下方式设置 <span class="xref std std-doc">express</span>. URL查询参数值始终为字符串.转换（例如字符串 <code class="docutils literal notranslate"><span class="pre">'true'</span></code> 至 布尔 <code class="docutils literal notranslate"><span class="pre">true</span></code>）也可以在钩子中完成.</p>
+<p><code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> 请求的正文类型由 Express <a class="reference external" href="http://expressjs.com/en/4x/api.html#express.json">body-parser</a> 确定中间件必须在任何服务之前注册*.您还应该确保将 <code class="docutils literal notranslate"><span class="pre">Accept</span></code> 标题设置为 <code class="docutils literal notranslate"><span class="pre">application/json</span></code>.</p>
+<div class="section" id="authentication">
+<h3>认证<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h3>
+<p>验证HTTP（REST）请求是一个两步过程.首先，您必须通过POST您要使用的策略从 <a class="reference internal" href="../authentication/server.html"><span class="doc">认证</span></a> 获取JWT:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>// POST /authentication the Content-Type header set to application/json
+{
+  &quot;strategy&quot;: &quot;local&quot;,
+  &quot;email&quot;: &quot;your email&quot;,
+  &quot;password&quot;: &quot;your password&quot;
+}
+</pre></div>
+</div>
+<p>这是卷曲的样子:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -X POST -d <span class="s1">&#39;{&quot;strategy&quot;:&quot;local&quot;,&quot;email&quot;:&quot;your email&quot;,&quot;password&quot;:&quot;your password&quot;}&#39;</span> http://localhost:3030/authentication
+</pre></div>
+</div>
+<p>然后，为了验证后续请求，将返回的 <code class="docutils literal notranslate"><span class="pre">accessToken</span></code> 添加到 <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> 标头:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -H <span class="s2">&quot;Content-Type: application/json&quot;</span> -H <span class="s2">&quot;Authorization: &lt;your access token&gt;&quot;</span> -X POST http://localhost:3030/authentication
+</pre></div>
+</div>
+<p>另请参阅:doc:<cite>../authentication/jwt`和:doc:</cite>../authentication/local` authentication chapter.</p>
+</div>
+<div class="section" id="find">
+<h3>find<a class="headerlink" href="#find" title="永久链接至标题">¶</a></h3>
+<p>从服务中检索所有匹配资源的列表</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?status=read&amp;user=10
+</pre></div>
+</div>
+<p>将在服务器上调用``messages.find（{query:{status:’read’，user:‘10’}}）``.</p>
+<p>如果你想使用任何内置的查找操作数（$ le，$ lt，$ ne，$ eq，$ in等），一般格式如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?field[$operand]=value&amp;field[$operand]=value2
+</pre></div>
+</div>
+<p>如果要使用任何内置查找操作数（$ le，$ lt，$ ne，$ eq，$ in等），通用格式如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?status[$ne]=active
+</pre></div>
+</div>
+<p>可以找到有关官方数据库适配器的可能参数的更多信息:doc:<cite>databases/querying</cite>.</p>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="永久链接至标题">¶</a></h3>
+<p>从服务中检索单个资源.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>将在服务器上调用``messages.get（1，{}）``.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages/1?fetch=all
+</pre></div>
+</div>
+<p>将在服务器上调用``messages.get（1，{query:{fetch:’all’}}）``.</p>
+</div>
+<div class="section" id="create">
+<h3>create<a class="headerlink" href="#create" title="永久链接至标题">¶</a></h3>
+<p>使用``data``创建一个新资源，它也可以是一个数组.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">messages</span>
+<span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I really have to iron&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>messagess.update（null，{“complete ”:true}，{query:{complete:’false’}}）``将在服务器上调用.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">messages</span>
+<span class="p">[</span>
+  <span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I really have to iron&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Do laundry&quot;</span> <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="永久链接至标题">¶</a></h3>
+<p>完全替换单个或多个资源.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">2</span>
+<span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I really have to do laundry&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>将在服务器上调用``messages.update（2，{“text ”:“我真的需要洗衣服，}}，<cite>}`</cite>.当通过直接向端点发送请求时没有给出``id``，例如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PUT /messages?complete=false
+{ &quot;complete&quot;: true }
+</pre></div>
+</div>
+<p>将在服务器上调用``messagess.update（null，{“complete ”:true}，{query:{complete:’false’}}）``.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>通常希望 <code class="docutils literal notranslate"><span class="pre">update</span></code> 替换整个资源，这就是数据库适配器仅支持多个记录的 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 的原因.</p>
+</div>
+</div>
+<div class="section" id="patch">
+<h3>patch<a class="headerlink" href="#patch" title="永久链接至标题">¶</a></h3>
+<p>使用新的 <code class="docutils literal notranslate"><span class="pre">data</span></code> 合并单个或多个资源的现有数据.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATCH</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">2</span>
+<span class="p">{</span> <span class="s2">&quot;read&quot;</span><span class="p">:</span> <span class="n">true</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>将在服务器上调用 <code class="docutils literal notranslate"><span class="pre">message`patch（2，{\“read</span> <span class="pre">\”:true}，{}）</span></code>.当没有通过直接向端点发送请求时给出 <code class="docutils literal notranslate"><span class="pre">id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PATCH /messages?complete=false
+{ &quot;complete&quot;: true }
+</pre></div>
+</div>
+<p>将在服务器上调用 <a href="#id1"><span class="problematic" id="id2">``</span></a>messagess.patch（null，{complete:true}，{query:{complete:’false’}}）``以更改所有读取消息的状态.</p>
+<p>这是由Feathers :doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>../databases/adapters`开箱即用的</p>
+</div>
+<div class="section" id="remove">
+<h3>remove<a class="headerlink" href="#remove" title="永久链接至标题">¶</a></h3>
+<p>删除一个或多个资源:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /messages/2?cascade=true
+</pre></div>
+</div>
+<p>将调用 <code class="docutils literal notranslate"><span class="pre">messages.remove（2，{query:{cascade:'true'}}）</span></code>.</p>
+<p>当通过直接向端点发送请求时没有给出 <code class="docutils literal notranslate"><span class="pre">id</span></code>，例如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /messages?read=true
+</pre></div>
+</div>
+<p>将调用 <code class="docutils literal notranslate"><span class="pre">messages.remove（null，{query:{read:'true'}}）</span></code> 删除所有读取消息.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="socketio.html" class="btn btn-neutral float-right" title="Socket.io 客户端" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../client.html" class="btn btn-neutral float-left" title="Feathers 客户端" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 11:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/index.rst:2
+msgid "Feathers"
+msgstr "Feathers[fɛðɚ]"
+
+#: ../../source/index.rst:6
+msgid "An open source REST and realtime API layer for modern applications."
+msgstr "适用于现代应用程序的开源REST和实时API层. "
+
+#: ../../source/index.rst:8
+msgid ""
+"Feathers is *a batteries included but entirely optional* minimal web "
+"application framework."
+msgstr "Feathers是 *包含电池, 但完全可选* 最小的Web应用程序框架. "
+
+#: ../../source/index.rst:11
+msgid ""
+"At its core, Feathers is a set of tools and an architecture pattern that "
+"make it easy to create scalable REST APIs and real-time applications. "
+"With Feathers, you can literally build prototypes in minutes and "
+"production-ready apps in days."
+msgstr "Feathers的核心是一组工具和架构模式, 可以轻松创建可扩展的REST API和实时应用程序. 使用Feathers, "
+"您可以在几分钟内完成原型制作, 并在几天内完成生产就绪的应用程序. "
+
+#: ../../source/index.rst:16
+msgid ""
+"Feathers achieves this by being the glue code between some amazing "
+"battle-tested open-source technologies - adding a few minimal "
+"abstractions and introducing an application architecture that is easier "
+"to understand, maintain, and scale than the traditional MVC architecture."
+msgstr "Feathers通过在一些经过实战考验的开源技术之间的粘合代码实现了这一点 - 增加了一些最小的抽象，并引入了比传统MVC架构更容易理解，维护和扩展的应用程序架构。"
+
+#: ../../source/index.rst:22
+msgid ""
+"If you’re interested, you can read more about `how and why Feathers came "
+"to be <https://blog.feathersjs.com/why-we-built-the-best-web-framework-"
+"you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ or find out more"
+" about its `features <https://feathersjs.com/features>`_ and `how "
+"Feathers compares to others <https://feathersjs.com/comparison>`_."
+msgstr "如果您有兴趣，可以阅读更多关于 `Feathers如何以及为何成为 <https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ 或了解更多有关其功能 `features <https://feathersjs.com/features>`_ 和 `Feathers如何与其他人比较 <https://feathersjs.com/comparison>`_。"
+
+#: ../../source/index.rst:29
+msgid ""
+"If you’ve decided that Feathers might be for you, feel free to dive right"
+" in and :doc:`./guides/basics/readme`."
+msgstr "如果您已经确定Feathers可能适合您, 请随意潜入并 :doc:`了解基础知识 <./guides/basics/readme>`. "
+
+#: ../../source/index.rst:32
+msgid ""
+"You can find this documentation as a PDF `here "
+"<https://github.com/feathersjs/docs/raw/master/feathersjs.pdf>`_."
+msgstr "您可以在PDF格式下找到此文档. `这里 <https://github.com/feathersjs/docs/raw/master/feathersjs.pdf>`_. "
+

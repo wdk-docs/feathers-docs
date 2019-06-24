@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 20:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/databases.rst:2
+msgid "Databases"
+msgstr "数据库"
+
+#: ../../source/guides/basics/databases.rst:4
+msgid ""
+"In the :doc:`./services` we created a custom in-memory messages service "
+"that can create, update and delete messages. You can probably imagine how"
+" we could implement the same thing using a database instead of storing "
+"the messages in memory so there isn’t really a database that Feathers "
+"doesn’t support."
+msgstr "In the :doc:`./services` we created a custom in-memory messages service that can create, update and delete messages. You can probably imagine how we could implement the same thing using a database instead of storing the messages in memory so there isn’t really a database that Feathers doesn’t support."
+"在 :doc:`./services` 中, 我们创建了一个可以创建, "
+"更新和删除消息的自定义内存中消息服务.您可以想象我们如何使用数据库实现相同的功能, 而不是将消息存储在内存中, "
+"因此实际上没有Feathers不支持的数据库."
+
+#: ../../source/guides/basics/databases.rst:10
+msgid ""
+"Writing all that code yourself is pretty repetitive and cumbersome though"
+" which is why Feathers has a collection of pre-built services for "
+"different databases. They offer most the basic functionality and can "
+"always be fully customized to your requirements using :doc:`./hooks`. "
+"Feathers database adapters support a common "
+":doc:`../../api/databases/common`, pagination and "
+":doc:`../../api/databases/querying` for many popular databases and NodeJS"
+" ORMs:"
+msgstr ""
+"自己编写所有代码是非常重复和繁琐的,尽管这就是为什么Feathers为不同的数据库提供了一系列预构建服务. 它们提供了大多数基本功能,并且可以使用"
+" :doc:`./hooks` 完全根据您的要求进行定制. Feathers数据库适配器支持一个常见的 "
+":doc:`../../api/databases/common`, 分页和 "
+":doc:`../../api/databases/querying` 用于许多流行的数据库和NodeJS ORM:"
+
+#: ../../source/guides/basics/databases.rst:64
+msgid ""
+"Each one of the linked adapters has a complete REST API example in their "
+"readme."
+msgstr "每个链接的适配器在其自述文件中都有一个完整的REST API示例."
+
+#: ../../source/guides/basics/databases.rst:67
+msgid ""
+"In this chapter we will look at the basic usage of the in-memory database"
+" adapter."
+msgstr "在本章中, 我们将了解内存数据库适配器的基本用法."
+
+#: ../../source/guides/basics/databases.rst:70
+msgid ""
+"You should be familiar with the database technology and ORM (`Sequelize "
+"<http://docs.sequelizejs.com/>`_, `KnexJS <http://knexjs.org/>`_ or "
+"`Mongoose <http://mongoosejs.com/>`_) before using a Feathers database "
+"adapter."
+msgstr "You should be familiar with the database technology and ORM (`Sequelize <http://docs.sequelizejs.com/>`_, `KnexJS <http://knexjs.org/>`_ or `Mongoose <http://mongoosejs.com/>`_) before using a Feathers database adapter."
+"你应该熟悉数据库技术和ORM(`Sequelize <http://docs.sequelizejs.com/>`_, `KnexJS "
+"<http://knexjs.org/>`_ 或 `Mongoose "
+"<http://mongoosejs.com/>`_)在使用Feathers数据库适配器之前."
+
+#: ../../source/guides/basics/databases.rst:77
+msgid "An in-memory database"
+msgstr "内存数据库"
+
+#: ../../source/guides/basics/databases.rst:79
+msgid ""
+"`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-"
+"memory>`_ is a Feathers database adapter that - similar to our messages "
+"service - stores its data in memory. We will use it for the examples "
+"because it also works in the browser. Let’s install it with:"
+msgstr "`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_ is a Feathers database adapter that - similar to our messages service - stores its data in memory. We will use it for the examples because it also works in the browser. Let’s install it with:"
+"`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-"
+"memory>`_ 是一个Feathers数据库适配器 - 类似于我们的消息服务 - 将其数据存储在内存中.我们将它用于示例, "
+"因为它也可以在浏览器中使用.让我们安装它:"
+
+#: ../../source/guides/basics/databases.rst:88
+msgid ""
+"We can use the adapter by requiring it and initializing it with the "
+"options we want. Here we enable pagination showing 10 entries by default "
+"and a maximum of 25 (so that clients can’t just request all data at once "
+"and crash our server):"
+msgstr "We can use the adapter by requiring it and initializing it with the options we want. Here we enable pagination showing 10 entries by default and a maximum of 25 (so that clients can’t just request all data at once and crash our server):"
+"我们可以通过要求它并使用我们想要的选项初始化它来使用适配器.在这里, 我们启用分页, 默认显示10个条目, "
+"最多25个(这样客户端不能只是一次请求所有数据并使我们的服务器崩溃):"
+
+#: ../../source/guides/basics/databases.rst:107
+msgid ""
+"That’s it. We have a complete CRUD service for our messages with querying"
+" functionality."
+msgstr "而已.我们为具有查询功能的消息提供了完整的CRUD服务."
+
+#: ../../source/guides/basics/databases.rst:111
+msgid "In the browser"
+msgstr "在浏览器中"
+
+#: ../../source/guides/basics/databases.rst:113
+msgid ""
+"We can also include ``feathers-memory`` in the browser, most easily by "
+"loading its browser build which will add it as ``feathers.memory``. In "
+"``public/index.html``:"
+msgstr ""
+"我们还可以在浏览器中包含 ``feathers-memory``, 最容易加载它的浏览器构建, 将其添加为 "
+"``feathers.memory``. 在 ``public/index.html`` 中:"
+
+#: ../../source/guides/basics/databases.rst:134
+msgid "And ``public/client.js``:"
+msgstr "和 ``public/client.js``:"
+
+#: ../../source/guides/basics/databases.rst:148
+msgid "Querying"
+msgstr "查询"
+
+#: ../../source/guides/basics/databases.rst:150
+msgid ""
+"As mentioned, all database adapters support a common way of querying the "
+"data in a ``find`` method call using ``params.query``. You can find a "
+"complete list in the :doc:`../../api/databases/querying`."
+msgstr ""
+"如上所述, 所有数据库适配器都支持使用 ``params.query`` 在 ``find`` "
+"方法调用中查询数据的常用方法.您可以在以下位置找到完整列表 :doc:`../../api/databases/querying`."
+
+#: ../../source/guides/basics/databases.rst:154
+msgid ""
+"With pagination enabled, the ``find`` method will return an object with "
+"the following properties:"
+msgstr "启用分页后, ``find`` 方法将返回具有以下属性的对象:"
+
+#: ../../source/guides/basics/databases.rst:157
+msgid "``data`` - The current list of data"
+msgstr "``data`` - 当前的数据列表"
+
+#: ../../source/guides/basics/databases.rst:158
+msgid "``limit`` - The page size"
+msgstr "``limit`` - 页面大小"
+
+#: ../../source/guides/basics/databases.rst:159
+msgid "``skip`` - The number of entries that were skipped"
+msgstr "``skip`` - 跳过的条目数"
+
+#: ../../source/guides/basics/databases.rst:160
+msgid "``total`` - The total number of entries for this query"
+msgstr "``total`` - 此查询的条目总数"
+
+#: ../../source/guides/basics/databases.rst:162
+msgid ""
+"The following example automatically creates 100 messages and makes some "
+"queries. You can add it at the end of both ``app.js`` and "
+"``public/client.js`` to see it in Node and the browser:"
+msgstr ""
+"以下示例自动创建100条消息并进行一些查询.你可以在 ``app.js`` 和 ``public/client.js`` 的末尾添加它, "
+"以便在Node和浏览器中看到它:"
+
+#: ../../source/guides/basics/databases.rst:215
+msgid "As a REST API"
+msgstr "作为REST API"
+
+#: ../../source/guides/basics/databases.rst:217
+msgid ""
+"In the :doc:`./rest` we created a REST API from our custom messages "
+"service. Using a database adapter instead will make our ``app.js`` a lot "
+"shorter:"
+msgstr "在 :doc:`./rest` 中, 我们从自定义消息服务中创建了一个REST API.使用数据库适配器将使我们的 ``app.js`` 缩短很多:"
+
+#: ../../source/guides/basics/databases.rst:257
+msgid ""
+"After starting the server with ``node app.js`` we can pass a query e.g. "
+"by going to `localhost:3030/messages?$limit=2 "
+"<http://localhost:3030/messages?$limit=2>`_."
+msgstr ""
+"使用 ``node app.js`` 启动服务器后, 我们可以传递查询, 例如通过转到 "
+"`localhost:3030/messages?$limit=2 <http://localhost:3030/messages?$limit=2>`_."
+
+#: ../../source/guides/basics/databases.rst:262
+msgid ""
+"The :doc:`../../api/databases/querying` has more examples how URLs should"
+" look like."
+msgstr ":doc:`../../api/databases/querying` 有更多示例URL的样子."
+
+#: ../../source/guides/basics/databases.rst:265
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/databases.rst:267
+msgid ""
+"Feathers database adapters are a quick way to get an API up and running. "
+"The great thing is that :doc:`./hooks` still give us all the flexibility "
+"we need to customize how they work. We already saw how we can easily "
+"create a database backed REST API, in the :doc:`real-time` we will make "
+"our API real-time."
+msgstr "Feathers database adapters are a quick way to get an API up and running. The great thing is that :doc:`./hooks` still give us all the flexibility we need to customize how they work. We already saw how we can easily create a database backed REST API, in the :doc:`real-time` we will make our API real-time."
+"Feathers数据库适配器是启动和运行API的快捷方式.最棒的是 :doc:`./hooks` 仍然为我们提供了定制工作方式所需的所有灵活性.我们已经看到了如何在以下文档中轻松创建数据库支持的REST"
+" API :doc:`real-time` 我们将使我们的API实时化."
+
+#~ msgid "Database"
+#~ msgstr ""
+
+#~ msgid "Adapter"
+#~ msgstr ""
+
+#~ msgid "In memory"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-memory <https://github. com/feathersjs-"
+#~ "ecosystem/feathers -memory>`_, `feathers-nedb "
+#~ "<https://github.co m/feathersjs-ecosystem/feathers-n "
+#~ "edb>`_"
+#~ msgstr ""
+
+#~ msgid "Localstorage, AsyncStorage"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-localstorage <https://g ithub.com"
+#~ "/feathersjs-ecosystem/fe athers-localstorage>`_"
+#~ msgstr ""
+
+#~ msgid "Filesystem"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-nedb <https://github.co m/feathersjs-"
+#~ "ecosystem/feathers-n edb>`_"
+#~ msgstr ""
+
+#~ msgid "MongoDB"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-mongodb <https://github .com"
+#~ "/feathersjs-ecosystem/feather s-mongodb>`_, "
+#~ "`feathers-mongoose <https://githu b.com/feathersjs-"
+#~ "ecosystem/feathe rs-mongoose>`_"
+#~ msgstr ""
+
+#~ msgid "MySQL, PostgreSQL, MariaDB, SQLite, MSSQL"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-knex <https://github.co m/feathersjs-"
+#~ "ecosystem/feathers-k nex>`_, `feathers-sequelize "
+#~ "<https://gith ub.com/feathersjs-ecosystem/feath "
+#~ "ers-sequelize>`_, `feathers-objection "
+#~ "<https://gith ub.com/feathersjs-ecosystem/feath "
+#~ "ers-objection>`_"
+#~ msgstr ""
+
+#~ msgid "Elasticsearch"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-elasticsearch <https://github.com/feathersjs-"
+#~ "ecosystem/f eathers-elasticsearch>`_"
+#~ msgstr ""
+
+#~ msgid "RethinkDB"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-rethinkdb <https://gith ub.com"
+#~ "/feathersjs-ecosystem/feath ers-rethinkdb>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Writing all that code yourself is "
+#~ "pretty repetitive and cumbersome though "
+#~ "which is why Feathers has a "
+#~ "collection of pre-built services for "
+#~ "different databases. They offer most the"
+#~ " basic functionality and can always "
+#~ "be fully customized to your requirements"
+#~ " using :doc:`./hooks`. Feathers database "
+#~ "adapters support a common "
+#~ ":doc:`../../api/databases/common`, pagination and "
+#~ "`querying syntax <../../api/databases/querying.md>`_ "
+#~ "for many popular databases and NodeJS"
+#~ " ORMs:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Writing all that code yourself is "
+#~ "pretty repetitive and cumbersome though "
+#~ "which is why Feathers has a "
+#~ "collection of pre-built services for "
+#~ "different databases. They offer most the"
+#~ " basic functionality and can always "
+#~ "be fully customized to your requirements"
+#~ " using `hooks <./hooks.md>`_. Feathers "
+#~ "database adapters support a common "
+#~ ":doc:`../api/databases/common`, pagination and "
+#~ "`querying syntax <../../api/databases/querying.md>`_ "
+#~ "for many popular databases and NodeJS"
+#~ " ORMs:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** You should be familiar "
+#~ "with the database technology and ORM "
+#~ "(`Sequelize <http://docs.sequelizejs.com/>`_, `KnexJS "
+#~ "<http://knexjs.org/>`_ or `Mongoose "
+#~ "<http://mongoosejs.com/>`_) before using a "
+#~ "Feathers database adapter."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As mentioned, all database adapters "
+#~ "support a common way of querying "
+#~ "the data in a ``find`` method call"
+#~ " using ``params.query``. You can find "
+#~ "a complete list in the `querying "
+#~ "syntax API <../../api/databases/querying.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are a quick"
+#~ " way to get an API up and "
+#~ "running. The great thing is that "
+#~ ":doc:`./hooks` still give us all the "
+#~ "flexibility we need to customize how "
+#~ "they work. We already saw how we"
+#~ " can easily create a database backed"
+#~ " REST API, in the `next chapter "
+#~ "<./real-time.md>`_ we will make our "
+#~ "API real-time."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Writing all that code yourself is "
+#~ "pretty repetitive and cumbersome though "
+#~ "which is why Feathers has a "
+#~ "collection of pre-built services for "
+#~ "different databases. They offer most the"
+#~ " basic functionality and can always "
+#~ "be fully customized to your requirements"
+#~ " using :doc:`./hooks`. Feathers database "
+#~ "adapters support a common "
+#~ ":doc:`../api/databases/common`, pagination and "
+#~ "`querying syntax <../../api/databases/querying>`_ "
+#~ "for many popular databases and NodeJS"
+#~ " ORMs:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As mentioned, all database adapters "
+#~ "support a common way of querying "
+#~ "the data in a ``find`` method call"
+#~ " using ``params.query``. You can find "
+#~ "a complete list in the :doc:`querying"
+#~ " syntax API <../../api/databases/querying>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are a quick"
+#~ " way to get an API up and "
+#~ "running. The great thing is that "
+#~ ":doc:`./hooks` still give us all the "
+#~ "flexibility we need to customize how "
+#~ "they work. We already saw how we"
+#~ " can easily create a database backed"
+#~ " REST API, in the :doc:`next chapter"
+#~ " <./real-time>`_ we will make our "
+#~ "API real-time."
+#~ msgstr ""
+

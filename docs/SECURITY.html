@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feathers 安全 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="令人敬畏的Feathers" href="Ecosystem/index.html" />
+    <link rel="prev" title="Feathers v3(秃鹰)" href="migrating.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feathers 安全</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#where-should-i-report-security-issues">我应该在哪里报告安全问题?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-considerations">安全考虑因素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-of-the-technologies-we-employ">我们采用的一些技术</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xss-attacks">XSS攻击</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>Feathers 安全</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/SECURITY.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathers-security">
+<h1>Feathers 安全<a class="headerlink" href="#feathers-security" title="永久链接至标题">¶</a></h1>
+<p>我们非常重视Feathers的安全.我们欢迎任何同行评审我们的100％开源代码,以确保没有人的Feathers应用程序遭到入侵或黑客入侵.作为Web应用程序开发人员,您应对任何安全漏洞负责.我们尽最大努力确保Feathers尽可能安全.</p>
+<div class="section" id="where-should-i-report-security-issues">
+<h2>我应该在哪里报告安全问题?<a class="headerlink" href="#where-should-i-report-security-issues" title="永久链接至标题">¶</a></h2>
+<p>为了让社区有时间回复和升级,我们强烈建议您向我们报告所有安全问题.请发送给我们一个PM的 <a class="reference external" href="http://slack.feathersjs.com">Slack</a> 或发送电子邮件至hello&#64;feathersjs.com,我们将尽快回复.安全问题始终优先于错误修复和功能工作,因此我们将与您一起制定解决方案并计划并在相应的回购中记录Github上的问题.</p>
+<p>发布版本通常非常快.一旦问题得到解决,通常会立即使用适当的语义版本发布.</p>
+</div>
+<div class="section" id="security-considerations">
+<h2>安全考虑因素<a class="headerlink" href="#security-considerations" title="永久链接至标题">¶</a></h2>
+<p>在编写应用程序时,您应该注意以下几点,以确保它是安全的.</p>
+<ul class="simple">
+<li><p>确保设置正确的 <a class="reference internal" href="api/channels.html"><span class="doc">事件频道</span></a>, 以便只有允许查看它们的客户才能看到实时更新</p></li>
+<li><p>使用挂钩检查安全角色,以确保用户只能访问应允许的数据.您可以在 <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-hooks-common</a> 和 <a class="reference external" href="https://github中找到有用的钩子实用程序.的.com/feathersjs生态系统/羽认证钩/">feathers-authentication-hooks</a>.</p></li>
+<li><p>通过在钩子中清理 <code class="docutils literal notranslate"><span class="pre">params.query</span></code>, 将 <a class="reference internal" href="api/databases/querying.html"><span class="doc">查询</span></a> 限制为应用程序所需的用例.</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">context.id</span> <span class="pre">===</span> <span class="pre">null</span></code> 则抛出错误来禁用多个元素更改.</p></li>
+<li><p>转义任何HTML和JavaScript以避免XSS攻击。</p></li>
+<li><p>转义任何SQL(通常由SQL库完成)以避免SQL注入.</p></li>
+<li><p>JSON Web令牌(JWT)只是签名,它们 <strong>不是</strong> 加密的.因此,可以在客户端上检查有效负载.这是设计的. <strong>除非</strong> 先加密,否则请勿在JWT <code class="docutils literal notranslate"><span class="pre">payload</span></code> 中放置任何私密内容.</p></li>
+<li><p>不要为你的令牌服务使用弱的 <code class="docutils literal notranslate"><span class="pre">secret</span></code>. 生成器会自动为您创建一个强大的生成器.无需改变它.</p></li>
+</ul>
+</div>
+<div class="section" id="some-of-the-technologies-we-employ">
+<h2>我们采用的一些技术<a class="headerlink" href="#some-of-the-technologies-we-employ" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;feathers/authentication-local</span></code> 中的密码存储使用 <a class="reference external" href="https://github.com/dcodeIO/bcrypt.js">bcrypt</a>.我们不单独存储盐,因为它们包含在bcrypt哈希中.</p></li>
+<li><p>默认情况下, <a class="reference external" href="https://jwt.io/">JWT</a>’s 存储在本地存储(而不是cookie)中以避免CSRF攻击.对于JWT,我们默认使用 <code class="docutils literal notranslate"><span class="pre">HS256</span></code> 算法(HMAC使用SHA-256哈希算法).如果您选择将JWT存储在cookie中,您的应用程序将具有CSRF漏洞.</p></li>
+<li><p>我们运行 <a class="reference external" href="https://github.com/nodesecurity/nsp">nsp</a> 作为CI的一部分.如果我们容易受到已向“节点安全项目 <a class="reference external" href="https://nodesecurity.io/">https://nodesecurity.io/</a> 报告的任何漏洞的影响,则会通知我们.</p></li>
+</ul>
+</div>
+<div class="section" id="xss-attacks">
+<h2>XSS攻击<a class="headerlink" href="#xss-attacks" title="永久链接至标题">¶</a></h2>
+<p>与任何Web应用程序一样,**您**需要防范XSS攻击.由于Feathers将JWT保留在浏览器的本地存储中,如果您的应用程序成为XSS攻击的受害者,攻击者可能会使用JWT代表您发出恶意请求.这远非理想.因此,您需要特别注意防止XSS攻击.我们对这个特定攻击媒介的立场是,如果您容易受到XSS攻击,那么受损的JWT是您最不担心的,因为可以记录击键,攻击者可以窃取密码,信用卡号或用户直接输入的任何其他内容.</p>
+<p>有关更多信息,请参阅</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs/authentication/issues/132">这个问题</a></p></li>
+<li><p>和 <a class="reference external" href="https://ask.auth0.com/t/stealing-jwt-from-authenticated-user/352/3">这个Auth0论坛帖子</a>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Ecosystem/index.html" class="btn btn-neutral float-right" title="令人敬畏的Feathers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migrating.html" class="btn btn-neutral float-left" title="Feathers v3(秃鹰)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

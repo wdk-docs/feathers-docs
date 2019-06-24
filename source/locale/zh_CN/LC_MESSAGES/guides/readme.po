@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/readme.rst:2
+msgid "Guides"
+msgstr "指南"
+
+#: ../../source/guides/readme.rst:4
+#, fuzzy
+msgid ":doc:`./basics/readme`"
+msgstr ":doc:`基础 <./basics/readme>`"
+
+#: ../../source/guides/readme.rst:6
+msgid ""
+"Learn about Feathers core concepts and how they fit together by going "
+"from your first Feathers application to a database backed REST and real-"
+"time API."
+msgstr "通过从第一个Feathers应用程序转到数据库支持的REST和实时API,了解Feathers核心概念及其如何组合在一起."
+
+#: ../../source/guides/readme.rst:10
+#, fuzzy
+msgid ":doc:`./chat/readme`"
+msgstr ":doc:`聊天应用程序 <./chat/readme>`"
+
+#: ../../source/guides/readme.rst:12
+msgid ""
+"Learn how to create a chat REST and real-time API complete with "
+"authentication and data processing and how to use Feathers on the client "
+"in a simple browser chat application."
+msgstr "了解如何使用身份验证和数据处理创建聊天REST和实时API,以及如何在简单的浏览器聊天应用程序中使用客户端上的Feathers."
+
+#: ../../source/guides/readme.rst:16
+#, fuzzy
+msgid ":doc:`./auth/readme`"
+msgstr ":doc:`认证 <./auth/readme>`"
+
+#: ../../source/guides/readme.rst:18
+msgid ""
+"Learn how to add local (username & password), OAuth1, and OAuth2 "
+"authentication to your Feathers Applications and some recipes."
+msgstr "了解如何向Feathers应用程序和一些配方添加本地(用户名和密码),OAuth1和OAuth2身份验证."
+
+#: ../../source/guides/readme.rst:21
+#, fuzzy
+msgid ":doc:`./advanced/readme`"
+msgstr ":doc:`高级主题 <./advanced/readme>`"
+
+#: ../../source/guides/readme.rst:23
+msgid ""
+"Guides for more advanced Feathers topics like debugging, file uploads and"
+" more."
+msgstr "更高级的Feathers主题指南,如调试,文件上传等."
+
+#: ../../source/guides/readme.rst:25
+msgid ""
+"`The FeathersJS Youtube playlist "
+"<https://www.youtube.com/playlist?list=PLwSdIiqnDlf_lb5y1liQK2OW5daXYgKOe>`_"
+msgstr ""
+"FeathersJS Youtube播放列表 "
+"`<https://www.youtube.com/playlist?list=PLwSdIiqnDlf_lb5y1liQK2OW5daXYgKOe>`_"
+
+#: ../../source/guides/readme.rst:27
+msgid "|IMAGE ALT TEXT|"
+msgstr "|IMAGE ALT TEXT|"
+
+#: ../../source/guides/readme.rst:29
+msgid "A growing collection of Feathers related talks, tutorials and discussions."
+msgstr "越来越多的Feathers相关讲座,教程和讨论."
+
+#~ msgid ":doc:`./basics/readme`"
+#~ msgstr ""
+
+#~ msgid ":doc:`./chat/readme`"
+#~ msgstr ""
+
+#~ msgid ":doc:`./auth/readme`"
+#~ msgstr ""
+
+#~ msgid ":doc:`./advanced/readme`"
+#~ msgstr ""
+

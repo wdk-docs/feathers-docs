@@ -1,0 +1,704 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>活动频道 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="错误" href="errors.html" />
+    <link rel="prev" title="活动" href="events.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="application.html">应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">活动</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">活动频道</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connections">Connections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-on-logout">app.on(‘logout’)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channels">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#publishing">Publishing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keeping-channels-updated">Keeping channels updated</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>活动频道</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/channels.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="event-channels">
+<h1>活动频道<a class="headerlink" href="#event-channels" title="永久链接至标题">¶</a></h1>
+<p>On a Feathers server with a real-time transport
+(<a class="reference internal" href="primus.html"><span class="doc">Primus</span></a>) set up,
+event channels determine which connected clients to send <a class="reference internal" href="events.html"><span class="doc">real-time events</span></a> to and how the sent data should look like.</p>
+<p>This chapter describes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#connections">Real-time Connections</a> and how to access them</p></li>
+<li><p><a class="reference external" href="#channels">Channel usage</a> and how to retrieve, join and leave
+channels</p></li>
+<li><p><a class="reference external" href="#publishing">Publishing events</a> to channels</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>If you are not using a real-time transport server
+(e.g. when making a REST only API or using Feathers on the client),
+channel functionality is not going to be available.</p>
+</div>
+<p>Some examples where channels are used:</p>
+<ul class="simple">
+<li><p>Real-time events should only be sent to authenticated users</p></li>
+<li><p>Users should only get updates about messages if they joined a certain
+chat room</p></li>
+<li><p>Only users in the same organization should receive real-time updates
+about their data changes</p></li>
+<li><p>Only admins should be notified when new users are created</p></li>
+<li><p>When a user is created, modified or removed, non-admins should only
+receive a “safe” version of the user object (e.g. only <code class="docutils literal notranslate"><span class="pre">email</span></code>,
+<code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">avatar</span></code>)</p></li>
+</ul>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<p>The example below shows the generated <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> file illustrating
+how the different parts fit together:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// On a new real-time connection, add it to the</span>
+    <span class="c1">// anonymous channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// connection can be undefined if there is no</span>
+    <span class="c1">// real-time connection, e.g. when logging in via REST</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">;</span>
+
+      <span class="c1">// The connection is no longer anonymous, remove it</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+      <span class="c1">// Add it to the authenticated user channel</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+      <span class="c1">// Channels can be named anything and joined on any condition</span>
+      <span class="c1">// E.g. to send real-time events only to admins use</span>
+
+      <span class="c1">// if(user.isAdmin) { app.channel(&#39;admins&#39;).join(connection); }</span>
+
+      <span class="c1">// If the user has joined e.g. chat rooms</span>
+
+      <span class="c1">// user.rooms.forEach(room =&gt; app.channel(`rooms/${room.id}`).join(connection))</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="c1">// A global publisher that sends all events to all authenticated clients</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">publish</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connections">
+<h2>Connections<a class="headerlink" href="#connections" title="永久链接至标题">¶</a></h2>
+<p>A connection is an object that represents a real-time connection. It is
+the same object as <code class="docutils literal notranslate"><span class="pre">socket.feathers</span></code> in a
+<a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a> and <code class="docutils literal notranslate"><span class="pre">socket.request.feathers</span></code> in a
+<a class="reference internal" href="primus.html"><span class="doc">Primus</span></a> middleware. You can add any kind of information
+to it but most notably, when using
+<a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a>, it will contain the
+authenticated user. By default it is located in <code class="docutils literal notranslate"><span class="pre">connection.user</span></code> once
+the client has authenticated on the socket (usually by calling
+<a class="reference internal" href="client.html"><span class="doc">Feathers 客户端</span></a>).</p>
+<p>We can get access to the <code class="docutils literal notranslate"><span class="pre">connection</span></code> object by listening to
+<code class="docutils literal notranslate"><span class="pre">app.on('connection',</span> <span class="pre">connection</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> or
+<code class="docutils literal notranslate"><span class="pre">app.on('login',</span> <span class="pre">(payload,</span> <span class="pre">{</span> <span class="pre">connection</span> <span class="pre">})</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>When a connection is terminated it will be automatically
+removed from all channels.</p>
+</div>
+<div class="section" id="app-on-connection">
+<h3>app.on(‘connection’)<a class="headerlink" href="#app-on-connection" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.on('connection',</span> <span class="pre">connection</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> is fired every time a new
+real-time connection is established. This is a good place to add the
+connection to a channel for anonymous users (in case we want to send any
+real-time updates to them):</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// On a new real-time connection, add it to the</span>
+  <span class="c1">// anonymous channel</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-on-login">
+<h3>app.on(‘login’)<a class="headerlink" href="#app-on-login" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.on('login',</span> <span class="pre">(payload,</span> <span class="pre">info)</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> is sent by the
+<a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a> and also contains
+the connection in the <code class="docutils literal notranslate"><span class="pre">info</span></code> object that is passed as the second
+parameter. Note that it can also be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> if the login happened
+through e.g. REST which does not support real-time connectivity.</p>
+<p>This is a good place to add the connection to channels related to the
+user (e.g. chat rooms, admin status etc.)</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// connection can be undefined if there is no</span>
+  <span class="c1">// real-time connection, e.g. when logging in via REST</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// The user attached to this connection</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">;</span>
+
+    <span class="c1">// The connection is no longer anonymous, remove it</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+    <span class="c1">// Add it to the authenticated user channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+    <span class="c1">// Channels can be named anything and joined on any condition `</span>
+    <span class="c1">// E.g. to send real-time events only to admins use</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If the user has joined e.g. chat rooms</span>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">room</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="sb">`rooms/</span><span class="si">${</span><span class="nx">room</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">(user,</span> <span class="pre">{</span> <span class="pre">connection</span> <span class="pre">})</span></code> is an ES6 shorthand for
+<code class="docutils literal notranslate"><span class="pre">(user,</span> <span class="pre">meta)</span> <span class="pre">=&gt;</span> <span class="pre">{</span> <span class="pre">const</span> <span class="pre">connection</span> <span class="pre">=</span> <span class="pre">meta.connection;</span> <span class="pre">}</span></code>, see
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring
+assignment</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="app-on-logout">
+<h2>app.on(‘logout’)<a class="headerlink" href="#app-on-logout" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.on('logout',</span> <span class="pre">(payload,</span> <span class="pre">info)</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> is sent by the
+<a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a> and also contains
+the connection in the <code class="docutils literal notranslate"><span class="pre">info</span></code> object that is passed as the second
+parameter when a logout happens.</p>
+<p>If the socket does not also disconnect at logout this is where users
+should be removed from their channels:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;logout&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//When logging out, leave all channels before joining anonymous channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channels">
+<h2>Channels<a class="headerlink" href="#channels" title="永久链接至标题">¶</a></h2>
+<p>A channel is an object that contains a number of connections. It can be
+created via <code class="docutils literal notranslate"><span class="pre">app.channel</span></code> and allows a connection to join or leave it.</p>
+<div class="section" id="app-channel-names">
+<h3>app.channel(…names)<a class="headerlink" href="#app-channel-names" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.channel(name)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code>, when given a single name, returns an
+existing or new named channel:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">)</span> <span class="c1">// the admin channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">)</span> <span class="c1">// the authenticated channel</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">app.channel(name1,</span> <span class="pre">name2,</span> <span class="pre">...</span> <span class="pre">nameN)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code>, when given
+multiples names, will return a combined channel. A combined channel
+contains a list of all connections (without duplicates) and re-directs
+<code class="docutils literal notranslate"><span class="pre">channel.join</span></code> and <code class="docutils literal notranslate"><span class="pre">channel.leave</span></code> calls to all its child channels.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Combine the anonymous and authenticated channel</span>
+<span class="kr">const</span> <span class="nx">combinedChannel</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">,</span> <span class="s1">&#39;authenticated&#39;</span><span class="p">)</span>
+
+<span class="c1">// Join the `anonymous` and `authenticated` channel</span>
+<span class="nx">combinedChannel</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+<span class="c1">// Join the `admins` and `chat` channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">,</span> <span class="s1">&#39;chat&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+<span class="c1">// Leave the `admins` and `chat` channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">,</span> <span class="s1">&#39;chat&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+<span class="c1">// Make user with `_id` 5 leave the admins and chat channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">,</span> <span class="s1">&#39;chat&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-channels">
+<h3>app.channels<a class="headerlink" href="#app-channels" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.channels</span> <span class="pre">-&gt;</span> <span class="pre">[string]</span></code> returns a list of all existing channel
+names.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">channels</span> <span class="c1">// [ &#39;authenticated&#39;, &#39;admins&#39;, &#39;users&#39; ]</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">)</span> <span class="c1">// will return a channel with all connections</span>
+</pre></div>
+</div>
+<p>This is useful to e.g. remove a connection from all channels:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// When a user is removed, make all their connections leave every channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channel-join-connection">
+<h3>channel.join(connection)<a class="headerlink" href="#channel-join-connection" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.join(connection)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code> adds a connection to this
+channel. If the channel is a combined channel, add the connection to all
+its child channels. If the connection is already in the channel it does
+nothing. Returns the channel object.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span> <span class="o">&amp;&amp;</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Join the admins channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+    <span class="c1">// Calling a second time will do nothing</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channel-leave-connection-fn">
+<h3>channel.leave(connection|fn)<a class="headerlink" href="#channel-leave-connection-fn" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.leave(connection|fn)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code> removes a connection from
+this channel. If the channel is a combined channel, remove the
+connection from all its child channels. Also allows to pass a callback
+that is run for every connection and returns if the connection should be
+removed or not. Returns the channel object.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Make the user with `_id` 5 leave the `admins` channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channel-filter-fn">
+<h3>channel.filter(fn)<a class="headerlink" href="#channel-filter-fn" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.filter(fn)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code> returns a new channel filtered by a
+given function which gets passed the connection.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Returns a new channel with all connections of the user with `_id` 5</span>
+<span class="kr">const</span> <span class="nx">userFive</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="channel-send-data">
+<h3>channel.send(data)<a class="headerlink" href="#channel-send-data" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.send(data)</span> <span class="pre">-&gt;</span> <span class="pre">Channel</span></code> returns a copy of this channel with
+customized data that should be sent for this event. Usually this should
+be handled by modifying either the service method result or setting
+client “safe” data in <code class="docutils literal notranslate"><span class="pre">context.dispatch</span></code> but in some cases it might
+make sense to still change the event data for certain channels.</p>
+<p>What data will be sent as the event data will be determined by the first
+available in the following order:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> from <code class="docutils literal notranslate"><span class="pre">channel.send(data)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.dispatch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.result</span></code></p></li>
+</ol>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// On a new real-time connection, add it to the</span>
+  <span class="c1">// anonymous channel</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Send the `users` `created` event to all anonymous</span>
+<span class="c1">// users but use only the name as the payload</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">send</span><span class="p">({</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">name</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>If a connection is in multiple channels (e.g. <code class="docutils literal notranslate"><span class="pre">users</span></code> and
+<code class="docutils literal notranslate"><span class="pre">admins</span></code>) it will get the data from the <em>first</em> channel that it is
+in.</p>
+</div>
+</div>
+<div class="section" id="channel-connections">
+<h3>channel.connections<a class="headerlink" href="#channel-connections" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.connections</span> <span class="pre">-&gt;</span> <span class="pre">[</span> <span class="pre">object</span> <span class="pre">]</span></code> contains a list of all connections
+in this channel.</p>
+</div>
+<div class="section" id="channel-length">
+<h3>channel.length<a class="headerlink" href="#channel-length" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">channel.length</span> <span class="pre">-&gt;</span> <span class="pre">integer</span></code> returns the total number of connections in
+this channel.</p>
+</div>
+</div>
+<div class="section" id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="永久链接至标题">¶</a></h2>
+<p>Publishers are callback functions that return which channel(s) to send
+an event to. They can be registered at the application and the service
+level and for all or specific events. A publishing function gets the
+event data and context object (<code class="docutils literal notranslate"><span class="pre">(data,</span> <span class="pre">context)</span> <span class="pre">=&gt;</span> <span class="pre">{}</span></code>) and returns a
+named or combined channel, an array of channels or <code class="docutils literal notranslate"><span class="pre">null</span></code>. Only one
+publisher can be registered for one type. Besides the standard <span class="xref std std-doc">service event names</span> an event name can also be a
+<span class="xref std std-doc">custom event</span>. <code class="docutils literal notranslate"><span class="pre">context</span></code> is the
+<a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> from the service call or an object
+containing <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">path,</span> <span class="pre">service,</span> <span class="pre">app,</span> <span class="pre">result</span> <span class="pre">}</span></code> for custom events.</p>
+<div class="section" id="service-publish-event-fn">
+<h3>service.publish([event,] fn)<a class="headerlink" href="#service-publish-event-fn" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.publish([event,]</span> <span class="pre">fn)</span> <span class="pre">-&gt;</span> <span class="pre">service</span></code> registers a publishing
+function for a specific service for a specific event or all events if no
+event name was given.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// connection can be undefined if there is no</span>
+  <span class="c1">// real-time connection, e.g. when logging in via REST</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span> <span class="o">&amp;&amp;</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Publish all messages service events only to its room channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">publish</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="sb">`rooms/</span><span class="si">${</span><span class="nx">data</span><span class="p">.</span><span class="nx">roomId</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Publish the `created` event to admins and the user that sent it</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;admins&#39;</span><span class="p">),</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span>
+      <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span>
+    <span class="p">)</span>
+  <span class="p">];</span>
+<span class="p">});</span>
+
+<span class="c1">// Prevent all events in the `password-reset` service from being published</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;password-reset&#39;</span><span class="p">).</span><span class="nx">publish</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-publish-event-fn">
+<h3>app.publish([event,] fn)<a class="headerlink" href="#app-publish-event-fn" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.publish([event,]</span> <span class="pre">fn)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> registers a publishing function for
+all services for a specific event or all events if no event name was
+given.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// connection can be undefined if there is no</span>
+  <span class="c1">// real-time connection, e.g. when logging in via REST</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Publish all events to all authenticated users</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">publish</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Publish the `log` custom event to all connections</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="publisher-precedence">
+<h3>Publisher precedence<a class="headerlink" href="#publisher-precedence" title="永久链接至标题">¶</a></h3>
+<p>The first publisher callback found in the following order will be used:</p>
+<ol class="arabic simple">
+<li><p>Service publisher for a specific event</p></li>
+<li><p>Service publisher for all events</p></li>
+<li><p>App publishers for a specific event</p></li>
+<li><p>App publishers for all events</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="keeping-channels-updated">
+<h2>Keeping channels updated<a class="headerlink" href="#keeping-channels-updated" title="永久链接至标题">¶</a></h2>
+<p>Since every application will be different, keeping the connections
+assigned to channels up to date (e.g. if a user joins/leaves a room) is
+up to you.</p>
+<p>In general, channels should reflect your persistent application data.
+This means that it normally isn’t necessary for e.g. a user to request
+to directly join a channel. This is especially important when running
+multiple instances of an application since channels are only <em>local</em> to
+the current instance.</p>
+<p>Instead, the relevant information (e.g. what rooms a user is currently
+in) should be stored in the database and then the active connections can
+be re-distributed into the appropriate channels listening to the proper
+<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+<p>The following example updates all active connections for a given user
+when the user object (which is assumed to have a <code class="docutils literal notranslate"><span class="pre">rooms</span></code> array being a
+list of room ids the user has joined) is updated or removed:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Join a channel given a user and connection</span>
+<span class="kr">const</span> <span class="nx">joinChannels</span> <span class="o">=</span> <span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">connection</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="c1">// Assuming that the chat room/user assignment is stored</span>
+  <span class="c1">// on an array of the user</span>
+  <span class="nx">user</span><span class="p">.</span><span class="nx">rooms</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">room</span> <span class="p">=&gt;</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="sb">`rooms/</span><span class="si">${</span><span class="nx">roomId</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Get a user to leave all channels</span>
+<span class="kr">const</span> <span class="nx">leaveChannels</span> <span class="o">=</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span>
+    <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">user</span><span class="p">.</span><span class="nx">_id</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Leave and re-join all channels with new user information</span>
+<span class="kr">const</span> <span class="nx">updateChannels</span> <span class="o">=</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Find all connections for this user</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">connections</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">channels</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span>
+    <span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">user</span><span class="p">.</span><span class="nx">_id</span>
+  <span class="p">);</span>
+
+  <span class="c1">// Leave all channels</span>
+  <span class="nx">leaveChannels</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+
+  <span class="c1">// Re-join all channels with the updated user information</span>
+  <span class="nx">connections</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span> <span class="nx">joinChannels</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">connection</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Join all channels on login</span>
+    <span class="nx">joinChannels</span><span class="p">(</span><span class="nx">connection</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span> <span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// On `updated` and `patched`, leave and re-join with new room assignments</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="nx">updateChannels</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;patched&#39;</span><span class="p">,</span> <span class="nx">updateChannels</span><span class="p">);</span>
+<span class="c1">// On `removed`, remove the connection from all channels</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="nx">leaveChannels</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>The number active connections is usually one (or none) but
+unless you prevent it explicitly Feathers is not preventing multiple
+logins of the same user (e.g. with two open browser windows or on a
+mobile device).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="errors.html" class="btn btn-neutral float-right" title="错误" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="events.html" class="btn btn-neutral float-left" title="活动" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

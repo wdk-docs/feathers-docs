@@ -1,0 +1,873 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feathers v3（秃鹰） &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Feathers 安全" href="SECURITY.html" />
+    <link rel="prev" title="查询" href="api/databases/querying.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Feathers v3（秃鹰）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-upgrade">Quick upgrade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-channels">Adding channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protecting-fields">Protecting fields</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-client-side-applications">Updating client side applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#feathersjs-npm-scope"><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> npm scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#main-feathers">Main Feathers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authentication">Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-side-feathers">Client side Feathers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-changes">Documentation changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#framework-independent">Framework independent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hooks-in-core">Hooks in core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-channels-and-publishing">Event channels and publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-separation-of-client-and-server-side-modules">Better separation of client and server side modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#node-6">Node 6+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-new-socket-message-format">A new Socket message format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecations-and-other-api-changes">Deprecations and other API changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#backwards-compatibility-polyfills">Backwards compatibility polyfills</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-service-filter">Basic service filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#route-parameters">Route parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#before-and-after-hook-registration"><code class="docutils literal notranslate"><span class="pre">.before</span></code> and <code class="docutils literal notranslate"><span class="pre">.after</span></code> hook registration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href=".github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>Feathers v3（秃鹰）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/migrating.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathers-v3-buzzard">
+<h1>Feathers v3（秃鹰）<a class="headerlink" href="#feathers-v3-buzzard" title="永久链接至标题">¶</a></h1>
+<p>Feathers v3 comes with some great improvements and new features and we
+highly recommend to upgrade as soon as possible. It might look a little
+daunting at first but in almost every case, the new CLI will get you
+almost all the way there automatically. This page contains information
+about the quick upgrade path and more information about all the changes
+to upgrade from Feathers v2 to v3.</p>
+<p>Read the release post at <a class="reference external" href="https://blog.feathersjs.com/flying-into-2018-13bda623f089">Flying into
+2018</a></p>
+<div class="section" id="quick-upgrade">
+<h2>Quick upgrade<a class="headerlink" href="#quick-upgrade" title="永久链接至标题">¶</a></h2>
+<p>To quickly upgrade any Feathers plugin or application you can use the
+<code class="docutils literal notranslate"><span class="pre">upgrade</span></code> command from the new CLI. First, if you have it installed,
+uninstall the old <code class="docutils literal notranslate"><span class="pre">feathers-cli</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">uninstall</span> <span class="n">feathers</span><span class="o">-</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>Then install <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/cli</span></code> and upgrade a project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+<span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">project</span>
+<span class="n">feathers</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>The CLI will use the <code class="docutils literal notranslate"><span class="pre">directories.lib</span></code> in your <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to
+know where your source files are located, defaulting to <code class="docutils literal notranslate"><span class="pre">src</span></code> if
+none provided. If you have a transpiled app/module, e.g. with babel,
+including a <code class="docutils literal notranslate"><span class="pre">lib</span></code> AND a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder, then the most simple is to
+change the <code class="docutils literal notranslate"><span class="pre">directories.lib</span></code> in your <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to
+<code class="docutils literal notranslate"><span class="pre">src</span></code>instead of <code class="docutils literal notranslate"><span class="pre">lib</span></code> so that the CLI will correctly upgrade
+the original source files and not the transpiled ones.</p>
+</div></blockquote>
+<p>In short (for more details see below) this will:</p>
+<ul class="simple">
+<li><p>Upgrade all core packages to the new scoped package names and their
+latest versions</p></li>
+<li><p>Remove all <code class="docutils literal notranslate"><span class="pre">feathers-hooks</span></code> imports and single line
+<code class="docutils literal notranslate"><span class="pre">app.configure(hooks());</span></code> (chained <code class="docutils literal notranslate"><span class="pre">.configure(hooks())</span></code> calls
+will have to be removed manually))</p></li>
+<li><p>Add Express compatibility to any application that uses
+<code class="docutils literal notranslate"><span class="pre">feathers-rest</span></code> (other Feathers apps without <code class="docutils literal notranslate"><span class="pre">feathers-rest</span></code> have
+to be updated manually)</p></li>
+<li><p>Remove all <code class="docutils literal notranslate"><span class="pre">.filter</span></code> imports and calls to <code class="docutils literal notranslate"><span class="pre">service.filter</span></code> which
+has been replaced by channel functionality</p></li>
+</ul>
+<div class="section" id="adding-channels">
+<h3>Adding channels<a class="headerlink" href="#adding-channels" title="永久链接至标题">¶</a></h3>
+<p>If you are using real-time (with Socket.io or Primus), add the following
+file as <code class="docutils literal notranslate"><span class="pre">src/channels.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// If no real-time functionality has been configured just return</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="nx">connection</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// On a new real-time connection, add it to the anonymous channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// connection can be undefined if there is no</span>
+    <span class="c1">// real-time connection, e.g. when logging in via REST</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Obtain the logged in user from the connection</span>
+      <span class="c1">// const user = connection.user;</span>
+
+      <span class="c1">// The connection is no longer anonymous, remove it</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">).</span><span class="nx">leave</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+      <span class="c1">// Add it to the authenticated user channel</span>
+      <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+      <span class="c1">// Channels can be named anything and joined on any condition</span>
+
+      <span class="c1">// E.g. to send real-time events only to admins use</span>
+      <span class="c1">// if(user.isAdmin) { app.channel(&#39;admins&#39;).join(connection); }</span>
+
+      <span class="c1">// If the user has joined e.g. chat rooms</span>
+      <span class="c1">// if(Array.isArray(user.rooms)) user.rooms.forEach(room =&gt; app.channel(`rooms/${room.id}`).join(channel));</span>
+
+      <span class="c1">// Easily organize users by email and userid for things like messaging</span>
+      <span class="c1">// app.channel(`emails/${user.email}`).join(channel);</span>
+      <span class="c1">// app.channel(`userIds/$(user.id}`).join(channel);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">publish</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">hook</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="c1">// eslint-disable-line no-unused-vars</span>
+    <span class="c1">// Here you can add event publishers to channels set up in `channels.js`</span>
+    <span class="c1">// To publish only for a specific event use `app.publish(eventname, () =&gt; {})`</span>
+
+    <span class="c1">// e.g. to publish all service events to all authenticated users use</span>
+    <span class="k">return</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Here you can also add service specific event publishers</span>
+  <span class="c1">// e..g the publish the `users` service `created` event to the `admins` channel</span>
+  <span class="c1">// app.service(&#39;users&#39;).publish(&#39;created&#39;, () =&gt; app.channel(&#39;admins&#39;));</span>
+
+  <span class="c1">// With the userid and email organization from above you can easily select involved users</span>
+  <span class="c1">// app.service(&#39;messages&#39;).publish(() =&gt; {</span>
+  <span class="c1">//   return [</span>
+  <span class="c1">//     app.channel(`userIds/${data.createdBy}`),</span>
+  <span class="c1">//     app.channel(`emails/${data.recipientEmail}`)</span>
+  <span class="c1">//   ];</span>
+  <span class="c1">// });</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>And require and configure it in <code class="docutils literal notranslate"><span class="pre">src/app.js</span></code> (note that it should be
+configured after all services so that <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> can register
+service specific publishers):</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">channels</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./channels&#39;</span><span class="p">);</span>
+
+<span class="c1">// After `app.configure(services)`</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">channels</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Very important:</strong> The <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> file shown above will publish
+all real-time events to all authenticated users. This is already
+safer than the previous default but you should carefully review the
+<a class="reference internal" href="api/channels.html"><span class="doc">活动频道</span></a> documentation and implement
+appropriate channels so that only the right users are going to
+receive real-time events.</p>
+</div></blockquote>
+<p>Once you migrated your application to channels you can remove all
+<code class="docutils literal notranslate"><span class="pre">&lt;servicename&gt;.filter.js</span></code> files.</p>
+</div>
+<div class="section" id="protecting-fields">
+<h3>Protecting fields<a class="headerlink" href="#protecting-fields" title="永久链接至标题">¶</a></h3>
+<p>Feathers v3 has a new mechanism to ensure that sensitive information
+never gets published to any client. To protect always protect the user
+password, add the <span class="xref std std-doc">protect hook</span>
+in <code class="docutils literal notranslate"><span class="pre">src/services/users/users.hooks.js</span></code> instead of the
+<code class="docutils literal notranslate"><span class="pre">remove('password')</span></code> hook:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">hashPassword</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-local&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">;</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">hashPassword</span><span class="p">,</span> <span class="nx">protect</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-local&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[</span> <span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)</span> <span class="p">],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span>
+      <span class="c1">// Make sure the password field is never sent to the client</span>
+      <span class="c1">// Always must be the last hook</span>
+      <span class="nx">protect</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+
+  <span class="nx">error</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="updating-client-side-applications">
+<h2>Updating client side applications<a class="headerlink" href="#updating-client-side-applications" title="永久链接至标题">¶</a></h2>
+<p>Client side Feathers applications can also be updated using the CLI but
+may need some manual intervention. Most importantly, since Feathers core
+now natively ships as ES6 code, the module bundler, like Webpack, has to
+be instructed to transpile it. More information can be found in the
+<a class="reference internal" href="api/client.html"><span class="doc">Feathers 客户端</span></a>. For Webpack and
+<code class="docutils literal notranslate"><span class="pre">create-react-app</span></code> usage (which both will throw a minification error
+without changes), see <span class="xref std std-doc">this section</span>.</p>
+</div>
+<div class="section" id="feathersjs-npm-scope">
+<h2><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> npm scope<a class="headerlink" href="#feathersjs-npm-scope" title="永久链接至标题">¶</a></h2>
+<p>All Feathers core modules have been moved to the <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> npm
+scope. This makes it more clear which modules are considered core and
+which modules are community supported and also allows us to more easily
+manage publishing permissions. The following modules have been renamed:</p>
+<div class="section" id="main-feathers">
+<h3>Main Feathers<a class="headerlink" href="#main-feathers" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Old name</p></th>
+<th class="head"><p>Scoped name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>feathers</p></td>
+<td><p>&#64;feathersjs/feathers</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-cli</p></td>
+<td><p>&#64;feathersjs/cli</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-commons</p></td>
+<td><p>&#64;feathersjs/commons</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-rest</p></td>
+<td><p>&#64;feathersjs/express/rest</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-socketio</p></td>
+<td><p>&#64;feathersjs/socketio</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-primus</p></td>
+<td><p>&#64;feathersjs/primus</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-errors</p></td>
+<td><p>&#64;feathersjs/errors</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-configuration</p></td>
+<td><p>&#64;feathersjs/configuration</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-socket-commons</p></td>
+<td><p>&#64;feathersjs/socket-commons</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Old name</p></th>
+<th class="head"><p>Scoped name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>feathers-authentication</p></td>
+<td><p>&#64;feathersjs/authentication</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-authentication-jwt</p></td>
+<td><p>&#64;feathersjs/authentication-jwt</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-authentication-local</p></td>
+<td><p>&#64;feathersjs/authentication-local</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-authentication-oauth1</p></td>
+<td><p>&#64;feathersjs/authentication-oauth1</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-authentication-oauth2</p></td>
+<td><p>&#64;feathersjs/authentication-oauth2</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-authentication-client</p></td>
+<td><p>&#64;feathersjs/authentication-client</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="client-side-feathers">
+<h3>Client side Feathers<a class="headerlink" href="#client-side-feathers" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Old name</p></th>
+<th class="head"><p>Scoped name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>feathers/client</p></td>
+<td><p>&#64;feathersjs/feathers</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-client</p></td>
+<td><p>&#64;feathersjs/client</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-rest/client</p></td>
+<td><p>&#64;feathersjs/rest-client</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-socketio/client</p></td>
+<td><p>&#64;feathersjs/socketio-client</p></td>
+</tr>
+<tr class="row-even"><td><p>feathers-primus/client</p></td>
+<td><p>&#64;feathersjs/primus-client</p></td>
+</tr>
+<tr class="row-odd"><td><p>feathers-authentication/client</p></td>
+<td><p>&#64;feathersjs/authentication-client</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="documentation-changes">
+<h2>Documentation changes<a class="headerlink" href="#documentation-changes" title="永久链接至标题">¶</a></h2>
+<p>With a better focus on Feathers core, the repositories, documentation
+and guides for non-core module have been moved to more appropriate
+locations:</p>
+<ul class="simple">
+<li><p>Non-core modules have been moved to the
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/">feathersjs-ecosystem</a>
+and <a class="reference external" href="https://github.com/feathers-plus/">feathers-plus</a>
+organizations. <em>Documentation for those modules can be found in the
+Readme file of their respective GitHub repositories.</em></p></li>
+<li><p>Database adapter specific documentation can now be found in the
+respective repositories readme. Links to the repositories can be
+found in the <a class="reference internal" href="api/databases/adapters.html"><span class="doc">database adapters chapter</span></a></p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">feathers-hooks-common</span></code> documentation can be found at
+<a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-plus.github.io/v1/feathers-hooks-common/</a></p></li>
+<li><p>Offline and authentication-management documentation can also be found
+at <a class="reference external" href="https://feathers-plus.github.io/">feathers-plus.github.io</a></p></li>
+<li><p>The Ecosystem page now points to
+<a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs">awesome-feathersjs</a></p></li>
+</ul>
+</div>
+<div class="section" id="framework-independent">
+<h2>Framework independent<a class="headerlink" href="#framework-independent" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers</span></code> v3 is framework independent and will work on
+the client and in Node out of the box. This means that it is not
+extending Express by default anymore.</p>
+<p>Instead <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> provides the framework bindings and the
+REST provider (previously <code class="docutils literal notranslate"><span class="pre">feathers-rest</span></code>) in either
+<code class="docutils literal notranslate"><span class="pre">require('&#64;feathersjs/express').rest</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express/rest</span></code>.
+<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> also brings Express built-in middleware like
+<code class="docutils literal notranslate"><span class="pre">express.static</span></code> and the recently included <code class="docutils literal notranslate"><span class="pre">express.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> body parsers. Once a Feathers application is
+“expressified” it can be used like the previous version:</p>
+<p><strong>Before</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;body-parser&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-rest&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">errorHandler</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-errors/handler&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">rest</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+
+<span class="c1">// Register an Express middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/somewhere&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Data from somewhere middleware&#39;</span> <span class="p">});</span>
+<span class="p">});</span>
+<span class="c1">// Statically host some files</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">feathers</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">));</span>
+
+<span class="c1">// Use a Feathers friendly Express error handler</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">errorHandler</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><strong>Now</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="c1">// Create an Express compatible Feathers application</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Add body parsing middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Initialize REST provider (previous in `feathers-rest`)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+
+<span class="c1">// Register an Express middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/somewhere&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Data from somewhere middleware&#39;</span> <span class="p">});</span>
+<span class="p">});</span>
+<span class="c1">// Statically host some files</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">));</span>
+
+<span class="c1">// Use a Feathers friendly Express error handler</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hooks-in-core">
+<h2>Hooks in core<a class="headerlink" href="#hooks-in-core" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">feathers-hooks</span></code> plugin is now a part of core and no longer has to
+be imported and configured. All services will have hook functionality
+included right away. Additionally it is now also possible to define
+different data that should be sent to the client in <code class="docutils literal notranslate"><span class="pre">hook.dispatch</span></code>
+which allows to properly secure properties that should not be shown to a
+client.</p>
+<p><strong>Before</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">hooks</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="sb">`You have to do </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">get</span><span class="p">(</span><span class="nx">hook</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">hook</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">hook</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p><strong>Now</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">message</span><span class="o">:</span> <span class="sb">`You have to do </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">get</span><span class="p">(</span><span class="nx">hook</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">hook</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">hook</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-channels-and-publishing">
+<h2>Event channels and publishing<a class="headerlink" href="#event-channels-and-publishing" title="永久链接至标题">¶</a></h2>
+<p>Previously, filters were used to run for every event and every
+connection to determine if the event should be sent or not.</p>
+<p>Event channels are a more secure and performant way to define which
+connections to send real-time events to. Instead of running for every
+event and every connection you define once which channels a connection
+belongs to when it is established or authenticated.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// On login and if it is a real-time connectionn, add the connection to the `authenticated` channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">;</span>
+
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Publish only `created` events from the `messages` service</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">));</span>
+
+<span class="c1">// Publish all real-time events from all services to the authenticated channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">publish</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>To only publish to rooms a user is in:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// On login and if it is a real-time connection, add the connection to the `authenticated` channel</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">authResult</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">;</span>
+
+    <span class="c1">// Join `authenticated` channel</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">);</span>
+
+    <span class="c1">// Join rooms channels for that user</span>
+    <span class="nx">rooms</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">roomId</span> <span class="p">=&gt;</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="sb">`rooms/</span><span class="si">${</span><span class="nx">roomId</span><span class="si">}</span><span class="sb">`</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="nx">connection</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-separation-of-client-and-server-side-modules">
+<h2>Better separation of client and server side modules<a class="headerlink" href="#better-separation-of-client-and-server-side-modules" title="永久链接至标题">¶</a></h2>
+<p>Feathers core was working on the client and the server since v2 but it
+wasn’t always entirely clear which related modules should be used how.
+Now all client side connectors are located in their own repositories
+while the main Feathers repository can be required the same way on the
+client and the server.</p>
+<p><strong>Before</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers/client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-socketio/client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-authentication-client&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">hooks</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><strong>Now</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-client&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="node-6">
+<h2>Node 6+<a class="headerlink" href="#node-6" title="永久链接至标题">¶</a></h2>
+<p>The core repositories mentioned above also have been migrated to be
+directly usable (e.g. when npm installing the repository as a Git/GitHub
+dependency) without requiring a Babel transpilation step.</p>
+<p>Since all repositories make extensive use of ES6 that also means that
+Node 4 is no longer supported.</p>
+<p>Also see
+<a class="reference external" href="https://github.com/feathersjs/feathers/issues/608">/feathers/issues/608</a>.</p>
+</div>
+<div class="section" id="a-new-socket-message-format">
+<h2>A new Socket message format<a class="headerlink" href="#a-new-socket-message-format" title="永久链接至标题">¶</a></h2>
+<p>The websocket messaging format has been updated to support proper error
+messages when trying to call a non-existing service or method (instead
+of just timing out). Using the new <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/socketio-client</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/primus-client</span></code> will automatically use that format. You
+can find the details in the <a class="reference internal" href="api/client/socketio.html"><span class="doc">Socket.io client</span></a>
+and <a class="reference internal" href="api/client/primus.html"><span class="doc">Primus client</span></a> documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>The old message format is still supported so the clients do
+not have to be updated at the same time.</p>
+</div>
+</div>
+<div class="section" id="deprecations-and-other-api-changes">
+<h2>Deprecations and other API changes<a class="headerlink" href="#deprecations-and-other-api-changes" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Callbacks are no longer supported in Feathers service methods. All
+service methods always return a Promise. Custom services must return
+a Promise or use <code class="docutils literal notranslate"><span class="pre">async/await</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">service.before</span></code> and <code class="docutils literal notranslate"><span class="pre">service.after</span></code> have been replaced with a
+single <code class="docutils literal notranslate"><span class="pre">app.hooks({</span> <span class="pre">before,</span> <span class="pre">after</span> <span class="pre">})</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> only returns a service and cannot be used to
+register a new service anymore (via <code class="docutils literal notranslate"><span class="pre">app.service(path,</span> <span class="pre">service)</span></code>).
+Use <code class="docutils literal notranslate"><span class="pre">app.use(path,</span> <span class="pre">service)</span></code> instead.</p></li>
+<li><p>Route parameters which were previously added directly to <code class="docutils literal notranslate"><span class="pre">params</span></code>
+are now in <code class="docutils literal notranslate"><span class="pre">params.route</span></code></p></li>
+<li><p>Express middleware like <code class="docutils literal notranslate"><span class="pre">feathers.static</span></code> is now located in
+<code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">express</span> <span class="pre">=</span> <span class="pre">require('&#64;feathersjs/express')</span></code> using
+<code class="docutils literal notranslate"><span class="pre">express.static</span></code></p></li>
+<li><p>Experimental TypeScript definitions have been removed from all core
+repositories. Development of TypeScript definitions for this version
+can be follow at
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-typescript">feathersjs-ecosystem/feathers-typescript</a>.
+Help welcome.</p></li>
+</ul>
+</div>
+<div class="section" id="backwards-compatibility-polyfills">
+<h2>Backwards compatibility polyfills<a class="headerlink" href="#backwards-compatibility-polyfills" title="永久链接至标题">¶</a></h2>
+<p>Besides the steps outlined above, existing hooks, database adapters,
+services and other plugins should be fully compatible with Feathers v3
+without any additional modifications.</p>
+<p>This section contains some quick backwards compatibility polyfills for
+the breaking change that can be used to make the migration easier or
+continue to use plugins that use deprecated syntax.</p>
+<div class="section" id="basic-service-filter">
+<h3>Basic service filter<a class="headerlink" href="#basic-service-filter" title="永久链接至标题">¶</a></h3>
+<p>This is a basic emulation of the previous event filter functionality. It
+does not use promises or allow modifying the data (which should now be
+handled by setting <code class="docutils literal notranslate"><span class="pre">hook.dispatch</span></code>).</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">mixins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">service</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">service</span><span class="p">.</span><span class="nx">mixin</span><span class="p">({</span>
+    <span class="nx">filter</span><span class="p">(</span><span class="nx">eventName</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">callback</span> <span class="o">?</span> <span class="p">[</span> <span class="nx">eventName</span> <span class="p">]</span> <span class="o">:</span> <span class="p">[];</span>
+
+      <span class="c1">// todos.filter(&#39;created&#39;, function(data, connection, hook) {});</span>
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">callback</span> <span class="o">=</span> <span class="nx">eventName</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="c1">// A publisher function that sends to the `authenticated`</span>
+      <span class="c1">// channel that we defined in the quick upgrade section above</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">((</span><span class="nx">data</span><span class="p">,</span> <span class="nx">hook</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">app</span><span class="p">.</span><span class="nx">channel</span><span class="p">(</span><span class="s1">&#39;authenticated&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">connection</span> <span class="p">=&gt;</span>
+          <span class="nx">callback</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">connection</span><span class="p">,</span> <span class="nx">hook</span><span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">);</span>
+
+      <span class="nx">service</span><span class="p">.</span><span class="nx">publish</span><span class="p">(...</span> <span class="nx">args</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="route-parameters">
+<h3>Route parameters<a class="headerlink" href="#route-parameters" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="p">(</span><span class="nx">hook</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">hook</span><span class="p">.</span><span class="nx">params</span><span class="p">,</span> <span class="nx">hook</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">hook</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="before-and-after-hook-registration">
+<h3><code class="docutils literal notranslate"><span class="pre">.before</span></code> and <code class="docutils literal notranslate"><span class="pre">.after</span></code> hook registration<a class="headerlink" href="#before-and-after-hook-registration" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">mixins</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">service</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">service</span><span class="p">.</span><span class="nx">mixin</span><span class="p">({</span>
+    <span class="nx">before</span><span class="p">(</span><span class="nx">before</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span> <span class="nx">before</span> <span class="p">});</span>
+    <span class="p">},</span>
+
+    <span class="nx">after</span><span class="p">(</span><span class="nx">after</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span> <span class="nx">after</span> <span class="p">});</span>
+    <span class="p">},</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SECURITY.html" class="btn btn-neutral float-right" title="Feathers 安全" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api/databases/querying.html" class="btn btn-neutral float-left" title="查询" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

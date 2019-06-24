@@ -1,0 +1,611 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:12+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/channels.rst:2
+msgid "Event channels"
+msgstr "事件频道"
+
+#: ../../source/api/channels.rst:4
+msgid ""
+"On a Feathers server with a real-time transport (:doc:`./primus`) set up,"
+" event channels determine which connected clients to send :doc:`./events`"
+" to and how the sent data should look like."
+msgstr "在设置了实时传输(:doc:`./primus`)的Feathers服务器上,事件通道确定要发送的连接客户端 :doc:`./events` to以及发送数据的外观."
+
+#: ../../source/api/channels.rst:8
+msgid "This chapter describes:"
+msgstr "本章介绍:"
+
+#: ../../source/api/channels.rst:10
+msgid "`Real-time Connections <#connections>`_ and how to access them"
+msgstr "`实时连接 <#connections>`_ 以及如何访问它们"
+
+#: ../../source/api/channels.rst:11
+msgid "`Channel usage <#channels>`_ and how to retrieve, join and leave channels"
+msgstr "`频道使用情况 <#channels>`_ 以及如何检索,加入和离开频道"
+
+#: ../../source/api/channels.rst:13
+msgid "`Publishing events <#publishing>`_ to channels"
+msgstr "`发布事件 <#publishing>`_ 到频道"
+
+#: ../../source/api/channels.rst:17
+msgid ""
+"If you are not using a real-time transport server (e.g. when making a "
+"REST only API or using Feathers on the client), channel functionality is "
+"not going to be available."
+msgstr ""
+"如果您没有使用实时传输服务器(例如,在制作仅REST API或在客户端上使用Feathers时),则通道功能将无法使用."
+
+#: ../../source/api/channels.rst:21
+msgid "Some examples where channels are used:"
+msgstr "使用频道的一些示例:"
+
+#: ../../source/api/channels.rst:23
+msgid "Real-time events should only be sent to authenticated users"
+msgstr "实时事件应仅发送给经过身份验证的用户"
+
+#: ../../source/api/channels.rst:24
+msgid ""
+"Users should only get updates about messages if they joined a certain "
+"chat room"
+msgstr ""
+"用户只有在加入某个聊天室时才能获得有关消息的更新"
+
+#: ../../source/api/channels.rst:26
+msgid ""
+"Only users in the same organization should receive real-time updates "
+"about their data changes"
+msgstr ""
+"只有同一组织中的用户才能收到有关其数据更改的实时更新"
+
+#: ../../source/api/channels.rst:28
+msgid "Only admins should be notified when new users are created"
+msgstr "创建新用户时，只应通知管理员"
+
+#: ../../source/api/channels.rst:29
+msgid ""
+"When a user is created, modified or removed, non-admins should only "
+"receive a “safe” version of the user object (e.g. only ``email``, ``id`` "
+"and ``avatar``)"
+msgstr ""
+"当用户被创建,修改或删除时,非管理员应该只接收用户对象的 “安全” 版本(例如,只有 ``email``, ``id`` 和 ``avatar``)"
+
+#: ../../source/api/channels.rst:34
+msgid "Example"
+msgstr "例如"
+
+#: ../../source/api/channels.rst:36
+msgid ""
+"The example below shows the generated ``channels.js`` file illustrating "
+"how the different parts fit together:"
+msgstr ""
+"下面的例子显示了生成的 ``channels.js`` 文件,说明了不同部分如何组合在一起:"
+
+#: ../../source/api/channels.rst:78
+msgid "Connections"
+msgstr "连接"
+
+#: ../../source/api/channels.rst:80
+msgid ""
+"A connection is an object that represents a real-time connection. It is "
+"the same object as ``socket.feathers`` in a :doc:`./socketio` and "
+"``socket.request.feathers`` in a :doc:`./primus` middleware. You can add "
+"any kind of information to it but most notably, when using "
+":doc:`./authentication/server`, it will contain the authenticated user. "
+"By default it is located in ``connection.user`` once the client has "
+"authenticated on the socket (usually by calling :doc:`./client`)."
+msgstr ""
+"连接是表示实时连接的对象.它与 ``socket.feathers`` 中的 ``socket.feathers`` 在一个 :doc:`./primus` 中间件中与 ``./socketio`` 和 ``socket.request.feathers`` 相同.您可以向其中添加任何类型的信息,但最值得注意的是,在使用 :doc:`./authentication/server` 时,它将包含经过身份验证的用户.默认情况下,一旦客户端在套接字上进行了身份验证(通常通过调用 :doc:`./client`),它就位于 ``connection.user`` 中."
+
+#: ../../source/api/channels.rst:90
+msgid ""
+"We can get access to the ``connection`` object by listening to "
+"``app.on('connection', connection => {})`` or ``app.on('login', (payload,"
+" { connection }) => {})``."
+msgstr ""
+"我们可以通过监听``app.on('connection',connection => {})``或``app.on('login',(payload,{connection})来访问``connection``对象. )=> {})``."
+
+#: ../../source/api/channels.rst:94
+msgid ""
+"When a connection is terminated it will be automatically removed from all"
+" channels."
+msgstr ""
+"当连接终止时,它将自动从所有通道中删除."
+
+#: ../../source/api/channels.rst:98
+msgid "app.on(‘connection’)"
+msgstr "app.on(‘connection’)"
+
+#: ../../source/api/channels.rst:100
+msgid ""
+"``app.on('connection', connection => {})`` is fired every time a new "
+"real-time connection is established. This is a good place to add the "
+"connection to a channel for anonymous users (in case we want to send any "
+"real-time updates to them):"
+msgstr ""
+"``app.on('connection',connection => {})``每次建立新的实时连接时都会被触发.这是为匿名用户添加通道连接的好地方(如果我们想要向他们发送任何实时更新):"
+
+#: ../../source/api/channels.rst:114
+msgid "app.on(‘login’)"
+msgstr "app.on(‘login’)"
+
+#: ../../source/api/channels.rst:116
+msgid ""
+"``app.on('login', (payload, info) => {})`` is sent by the "
+":doc:`./authentication/server` and also contains the connection in the "
+"``info`` object that is passed as the second parameter. Note that it can "
+"also be ``undefined`` if the login happened through e.g. REST which does "
+"not support real-time connectivity."
+msgstr ""
+"``app.on('login',(payload,info)=> {})``由:doc:`./authentication/server`发送,并且还包含``info``对象中的连接作为第二个参数传递.注意,如果通过例如登录发生登录,它也可以是“未定义的”. REST不支持实时连接."
+
+#: ../../source/api/channels.rst:122
+msgid ""
+"This is a good place to add the connection to channels related to the "
+"user (e.g. chat rooms, admin status etc.)"
+msgstr ""
+"这是添加与用户相关的频道的连接的好地方(例如聊天室,管理状态等)"
+
+#: ../../source/api/channels.rst:155
+msgid ""
+"``(user, { connection })`` is an ES6 shorthand for ``(user, meta) => { "
+"const connection = meta.connection; }``, see `Destructuring assignment "
+"<https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>`_."
+msgstr ""
+"``(user,{connection})``是``(user,meta)=> {const connection = meta.connection; ``,参见`解构赋值<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>`_."
+
+#: ../../source/api/channels.rst:161
+msgid "app.on(‘logout’)"
+msgstr "app.on(‘logout’)"
+
+#: ../../source/api/channels.rst:163
+msgid ""
+"``app.on('logout', (payload, info) => {})`` is sent by the "
+":doc:`./authentication/server` and also contains the connection in the "
+"``info`` object that is passed as the second parameter when a logout "
+"happens."
+msgstr ""
+"``app.on('logout',(payload,info)=> {})``由:doc:`./authentication/server`发送,并且还包含``info``对象中的连接当注销发生时,将作为第二个参数传递."
+
+#: ../../source/api/channels.rst:168
+msgid ""
+"If the socket does not also disconnect at logout this is where users "
+"should be removed from their channels:"
+msgstr ""
+"如果套接字在注销时也没有断开连接,则应将用户从其频道中删除:"
+
+#: ../../source/api/channels.rst:182
+msgid "Channels"
+msgstr "频道"
+
+#: ../../source/api/channels.rst:184
+msgid ""
+"A channel is an object that contains a number of connections. It can be "
+"created via ``app.channel`` and allows a connection to join or leave it."
+msgstr ""
+"通道是包含许多连接的对象.它可以通过``app.channel``创建,并允许连接加入或离开."
+
+#: ../../source/api/channels.rst:188
+msgid "app.channel(…names)"
+msgstr "app.channel(…names)"
+
+#: ../../source/api/channels.rst:190
+msgid ""
+"``app.channel(name) -> Channel``, when given a single name, returns an "
+"existing or new named channel:"
+msgstr ""
+"``app.channel(name) -> Channel``, 当给出单个名称时,返回现有或新命名的通道:"
+
+#: ../../source/api/channels.rst:198
+msgid ""
+"``app.channel(name1, name2, ... nameN) -> Channel``, when given multiples"
+" names, will return a combined channel. A combined channel contains a "
+"list of all connections (without duplicates) and re-directs "
+"``channel.join`` and ``channel.leave`` calls to all its child channels."
+msgstr ""
+"``app.channel(name1,name2,... nameN) - > Channel``,当给定多个名称时,将返回一个组合通道.组合通道包含所有连接的列表(没有重复),并重定向``channel.join``和``channel.leave``调用所有子通道."
+
+#: ../../source/api/channels.rst:223
+msgid "app.channels"
+msgstr "app.channels"
+
+#: ../../source/api/channels.rst:225
+msgid "``app.channels -> [string]`` returns a list of all existing channel names."
+msgstr "``app.channels  - > [string]``返回所有现有频道名称的列表."
+
+#: ../../source/api/channels.rst:237
+msgid "This is useful to e.g. remove a connection from all channels:"
+msgstr "这对于例如从所有频道中删除连接:"
+
+#: ../../source/api/channels.rst:249
+msgid "channel.join(connection)"
+msgstr "channel.join(connection)"
+
+#: ../../source/api/channels.rst:251
+msgid ""
+"``channel.join(connection) -> Channel`` adds a connection to this "
+"channel. If the channel is a combined channel, add the connection to all "
+"its child channels. If the connection is already in the channel it does "
+"nothing. Returns the channel object."
+msgstr ""
+"``channel.join(connection) - > Channel``添加了一个到这个频道的连接.如果频道是组合频道,请将连接添加到其所有子频道.如果连接已经在通道中,它什么都不做.返回通道对象."
+
+#: ../../source/api/channels.rst:269
+msgid "channel.leave(connection|fn)"
+msgstr "channel.leave(connection|fn)"
+
+#: ../../source/api/channels.rst:271
+msgid ""
+"``channel.leave(connection|fn) -> Channel`` removes a connection from "
+"this channel. If the channel is a combined channel, remove the connection"
+" from all its child channels. Also allows to pass a callback that is run "
+"for every connection and returns if the connection should be removed or "
+"not. Returns the channel object."
+msgstr ""
+"``channel.leave(connection | fn) - > Channel``删除该通道的连接.如果频道是组合频道,请从其所有子频道中删除该连接.还允许传递为每个连接运行的回调,如果应该删除连接则返回.返回通道对象."
+
+#: ../../source/api/channels.rst:285
+msgid "channel.filter(fn)"
+msgstr "channel.filter(fn)"
+
+#: ../../source/api/channels.rst:287
+msgid ""
+"``channel.filter(fn) -> Channel`` returns a new channel filtered by a "
+"given function which gets passed the connection."
+msgstr ""
+"``channel.filter(fn) - > Channel``返回由给定函数过滤的新通道,该通道将通过连接."
+
+#: ../../source/api/channels.rst:297
+msgid "channel.send(data)"
+msgstr "channel.send(data)"
+
+#: ../../source/api/channels.rst:299
+msgid ""
+"``channel.send(data) -> Channel`` returns a copy of this channel with "
+"customized data that should be sent for this event. Usually this should "
+"be handled by modifying either the service method result or setting "
+"client “safe” data in ``context.dispatch`` but in some cases it might "
+"make sense to still change the event data for certain channels."
+msgstr ""
+"``channel.send(data) -> Channel`` 返回此频道的副本,其中包含应为此事件发送的自定义数据.通常这应该通过修改服务方法结果或在``context.dispatch``中设置客户端“安全”数据来处理,但在某些情况下,仍然可以更改某些通道的事件数据."
+
+#: ../../source/api/channels.rst:305
+msgid ""
+"What data will be sent as the event data will be determined by the first "
+"available in the following order:"
+msgstr ""
+"将按照以下顺序确定的第一个数据将确定将发送哪些数据:"
+
+#: ../../source/api/channels.rst:308
+msgid "``data`` from ``channel.send(data)``"
+msgstr "``data`` from ``channel.send(data)``"
+
+#: ../../source/api/channels.rst:309
+msgid "``context.dispatch``"
+msgstr "``context.dispatch``"
+
+#: ../../source/api/channels.rst:310
+msgid "``context.result``"
+msgstr "``context.result``"
+
+#: ../../source/api/channels.rst:330
+#, fuzzy
+msgid ""
+"If a connection is in multiple channels (e.g. ``users`` and ``admins``) "
+"it will get the data from the *first* channel that it is in."
+msgstr ""
+"如果连接在多个通道中(例如``users``和``admins``),它将从它所在的* first *通道获取数据."
+
+#: ../../source/api/channels.rst:335
+msgid "channel.connections"
+msgstr "channel.connections"
+
+#: ../../source/api/channels.rst:337
+msgid ""
+"``channel.connections -> [ object ]`` contains a list of all connections "
+"in this channel."
+msgstr ""
+"``channel.connections -> [ object ]`` 包含此频道中所有连接的列表."
+
+#: ../../source/api/channels.rst:341
+msgid "channel.length"
+msgstr "channel.length"
+
+#: ../../source/api/channels.rst:343
+msgid ""
+"``channel.length -> integer`` returns the total number of connections in "
+"this channel."
+msgstr ""
+"``channel.length -> integer`` 返回此通道中的连接总数."
+
+#: ../../source/api/channels.rst:349
+msgid "Publishing"
+msgstr "出版"
+
+#: ../../source/api/channels.rst:351
+msgid ""
+"Publishers are callback functions that return which channel(s) to send an"
+" event to. They can be registered at the application and the service "
+"level and for all or specific events. A publishing function gets the "
+"event data and context object (``(data, context) => {}``) and returns a "
+"named or combined channel, an array of channels or ``null``. Only one "
+"publisher can be registered for one type. Besides the standard :ref"
+":`events_service-events` an event name can also be a :ref:`events_custom-"
+"events`. ``context`` is the :doc:`./hooks` from the service call or an "
+"object containing ``{ path, service, app, result }`` for custom events."
+msgstr "发布者是回调函数,用于返回将事件发送到的通道.它们可以在应用程序和服务级别以及所有或特定事件中注册.发布函数获取事件数据和上下文对象(``(data,context)=> {}``)并返回一个命名或组合通道,一个通道数组或``null``.一种类型只能注册一个发布者.除了标准:ref:`events_service-events`,事件名称也可以是:ref:`events_custom-events`. ``context``是来自服务调用的:doc:`./hooks`或包含``{path,service,app,result}``的自定义事件的对象."
+
+#: ../../source/api/channels.rst:363
+msgid "service.publish([event,] fn)"
+msgstr "service.publish([event,] fn)"
+
+#: ../../source/api/channels.rst:365
+msgid ""
+"``service.publish([event,] fn) -> service`` registers a publishing "
+"function for a specific service for a specific event or all events if no "
+"event name was given."
+msgstr ""
+"``service.publish([event,] fn) -> service`` 如果没有给出事件名称,则为特定事件或所有事件注册特定服务的发布功能."
+
+#: ../../source/api/channels.rst:398
+msgid "app.publish([event,] fn)"
+msgstr "app.publish([event,] fn)"
+
+#: ../../source/api/channels.rst:400
+msgid ""
+"``app.publish([event,] fn) -> app`` registers a publishing function for "
+"all services for a specific event or all events if no event name was "
+"given."
+msgstr ""
+"``app.publish([event,] fn) -> app`` 如果没有给出事件名称,则为特定事件或所有事件的所有服务注册发布功能."
+
+#: ../../source/api/channels.rst:425
+msgid "Publisher precedence"
+msgstr "发布者优先级"
+
+#: ../../source/api/channels.rst:427
+msgid "The first publisher callback found in the following order will be used:"
+msgstr "将使用按以下顺序找到的第一个发布者回调:"
+
+#: ../../source/api/channels.rst:429
+msgid "Service publisher for a specific event"
+msgstr "特定活动的服务发布者"
+
+#: ../../source/api/channels.rst:430
+msgid "Service publisher for all events"
+msgstr "所有活动的服务发布者"
+
+#: ../../source/api/channels.rst:431
+msgid "App publishers for a specific event"
+msgstr "针对特定活动的应用发布商"
+
+#: ../../source/api/channels.rst:432
+msgid "App publishers for all events"
+msgstr "适用于所有活动的应用发布商"
+
+#: ../../source/api/channels.rst:435
+msgid "Keeping channels updated"
+msgstr "保持频道更新"
+
+#: ../../source/api/channels.rst:437
+msgid ""
+"Since every application will be different, keeping the connections "
+"assigned to channels up to date (e.g. if a user joins/leaves a room) is "
+"up to you."
+msgstr ""
+"S每个应用程序都会有所不同,保持分配给频道的连接是最新的(例如,如果用户加入/离开房间)由您决定."
+
+#: ../../source/api/channels.rst:441
+msgid ""
+"In general, channels should reflect your persistent application data. "
+"This means that it normally isn’t necessary for e.g. a user to request to"
+" directly join a channel. This is especially important when running "
+"multiple instances of an application since channels are only *local* to "
+"the current instance."
+msgstr ""
+"通常,渠道应反映您的持久性应用程序数据.这意味着它通常不需要例如要求直接加入频道的用户.这在运行应用程序的多个实例时尤为重要,因为通道只是当前实例的* local *."
+
+#: ../../source/api/channels.rst:447
+msgid ""
+"Instead, the relevant information (e.g. what rooms a user is currently "
+"in) should be stored in the database and then the active connections can "
+"be re-distributed into the appropriate channels listening to the proper "
+":doc:`./events`."
+msgstr "相反,相关信息(例如,用户当前所在的房间)应该存储在数据库中,然后可以将事件连接重新分配到适当的通道中,听取正确的:doc:`./events`."
+
+#: ../../source/api/channels.rst:452
+msgid ""
+"The following example updates all active connections for a given user "
+"when the user object (which is assumed to have a ``rooms`` array being a "
+"list of room ids the user has joined) is updated or removed:"
+msgstr ""
+"以下示例更新或删除用户对象(假定其“room”数组是用户已加入的房间ID列表)时给定用户的所有活动连接:"
+
+#: ../../source/api/channels.rst:504
+msgid ""
+"The number active connections is usually one (or none) but unless you "
+"prevent it explicitly Feathers is not preventing multiple logins of the "
+"same user (e.g. with two open browser windows or on a mobile device)."
+msgstr "活动连接数通常是一个(或没有),但除非您明确阻止它,否则Feathers不会阻止同一用户的多次登录(例如,有两个打开的浏览器窗口或移动设备)."
+
+#~ msgid ""
+#~ "On a Feathers server with a "
+#~ "real-time transport (`Socket.io "
+#~ "<./socketio.md>:doc:`./primus`) set up, event "
+#~ "channels determine which connected clients "
+#~ "to send `real-time events "
+#~ "<./events.md>`_ to and how the sent "
+#~ "data should look like."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A connection is an object that "
+#~ "represents a real-time connection. It"
+#~ " is the same object as "
+#~ ":doc:`./socketio` and :doc:`./primus` middleware."
+#~ " You can add any kind of "
+#~ "information to it but most notably, "
+#~ "when using :doc:`./authentication/server`, it "
+#~ "will contain the authenticated user. By"
+#~ " default it is located in "
+#~ "``connection.user`` once the client has "
+#~ "authenticated on the socket (usually by"
+#~ " calling ``app.authenticate()`` on the "
+#~ "`client <./client.md>`_)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``app.on('login', (payload, info) => {})`` "
+#~ "is sent by the `authentication module"
+#~ " <./authentication/server.md>`_ and also contains"
+#~ " the connection in the ``info`` "
+#~ "object that is passed as the "
+#~ "second parameter. Note that it can "
+#~ "also be ``undefined`` if the login "
+#~ "happened through e.g. REST which does"
+#~ " not support real-time connectivity."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** ``(user, { connection })`` is"
+#~ " an ES6 shorthand for ``(user, meta)"
+#~ " => { const connection = "
+#~ "meta.connection; }``, see `Destructuring "
+#~ "assignment <https://developer.mozilla.org/en-"
+#~ "US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Publishers are callback functions that "
+#~ "return which channel(s) to send an "
+#~ "event to. They can be registered "
+#~ "at the application and the service "
+#~ "level and for all or specific "
+#~ "events. A publishing function gets the"
+#~ " event data and context object "
+#~ "(``(data, context) => {}``) and returns"
+#~ " a named or combined channel, an "
+#~ "array of channels or ``null``. Only "
+#~ "one publisher can be registered for "
+#~ "one type. Besides the standard `service"
+#~ " event names <./events.md#service-events>`_ "
+#~ "an event name can also be a "
+#~ "`custom event <./events.md#custom-events>`_. "
+#~ "``context`` is the `context object "
+#~ "<./hooks.md>`_ from the service call or"
+#~ " an object containing ``{ path, "
+#~ "service, app, result }`` for custom "
+#~ "events."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** The number active connections "
+#~ "is usually one (or none) but "
+#~ "unless you prevent it explicitly "
+#~ "Feathers is not preventing multiple "
+#~ "logins of the same user (e.g. with"
+#~ " two open browser windows or on "
+#~ "a mobile device)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On a Feathers server with a "
+#~ "real-time transport (:doc:`./primus`) set "
+#~ "up, event channels determine which "
+#~ "connected clients to send :doc:`real-"
+#~ "time events <./events>`_ to and how "
+#~ "the sent data should look like."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Publishers are callback functions that "
+#~ "return which channel(s) to send an "
+#~ "event to. They can be registered "
+#~ "at the application and the service "
+#~ "level and for all or specific "
+#~ "events. A publishing function gets the"
+#~ " event data and context object "
+#~ "(``(data, context) => {}``) and returns"
+#~ " a named or combined channel, an "
+#~ "array of channels or ``null``. Only "
+#~ "one publisher can be registered for "
+#~ "one type. Besides the standard "
+#~ ":doc:`service event names <./events#service-"
+#~ "events>`_ an event name can also "
+#~ "be a :doc:`custom event <./events#custom-"
+#~ "events>`_. ``context`` is the :doc:`./hooks`"
+#~ " from the service call or an "
+#~ "object containing ``{ path, service, "
+#~ "app, result }`` for custom events."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "On a Feathers server with a "
+#~ "real-time transport (:doc:`./primus`) set "
+#~ "up, event channels determine which "
+#~ "connected clients to send :doc:`real-"
+#~ "time events <./events>` to and how "
+#~ "the sent data should look like."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Publishers are callback functions that "
+#~ "return which channel(s) to send an "
+#~ "event to. They can be registered "
+#~ "at the application and the service "
+#~ "level and for all or specific "
+#~ "events. A publishing function gets the"
+#~ " event data and context object "
+#~ "(``(data, context) => {}``) and returns"
+#~ " a named or combined channel, an "
+#~ "array of channels or ``null``. Only "
+#~ "one publisher can be registered for "
+#~ "one type. Besides the standard "
+#~ ":doc:`service event names <./events#service-"
+#~ "events>` an event name can also be"
+#~ " a :doc:`custom event <./events#custom-"
+#~ "events>`. ``context`` is the :doc:`./hooks`"
+#~ " from the service call or an "
+#~ "object containing ``{ path, service, "
+#~ "app, result }`` for custom events."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Publishers are callback functions that "
+#~ "return which channel(s) to send an "
+#~ "event to. They can be registered "
+#~ "at the application and the service "
+#~ "level and for all or specific "
+#~ "events. A publishing function gets the"
+#~ " event data and context object "
+#~ "(``(data, context) => {}``) and returns"
+#~ " a named or combined channel, an "
+#~ "array of channels or ``null``. Only "
+#~ "one publisher can be registered for "
+#~ "one type. Besides the standard "
+#~ ":doc:`./events#service-events` an event name"
+#~ " can also be a :doc:`./events#custom-"
+#~ "events`. ``context`` is the :doc:`./hooks` "
+#~ "from the service call or an object"
+#~ " containing ``{ path, service, app, "
+#~ "result }`` for custom events."
+#~ msgstr ""
+

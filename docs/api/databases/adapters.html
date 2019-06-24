@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>数据库适配器 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="通用API" href="common.html" />
+    <link rel="prev" title="OAuth2身份验证" href="../authentication/oauth2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">核心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">传输层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#client">客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#authentication">认证</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#database">数据库</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">数据库适配器</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#memory-filesystem">Memory/Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql">SQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nosql">NoSQL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="common.html">通用API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="querying.html">查询</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>数据库适配器</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/databases/adapters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="database-adapters">
+<h1>数据库适配器<a class="headerlink" href="#database-adapters" title="永久链接至标题">¶</a></h1>
+<p>Feathers数据库适配器是提供：doc：<cite>services`的模块，它使用：doc：`为特定数据库实现标准`CRUD &lt;https://en.wikipedia.org/wiki/Create,_read,_update_and_delete&gt;`_功能。 ./common`用于初始化和设置，并提供：doc：</cite>./ querying`。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><a class="reference internal" href="../services.html"><span class="doc">服务</span></a> allow to implement
+access to <em>any</em> database, the database adapters listed here are just
+convenience wrappers with a common API. You can still get Feathers
+functionality for databases that are not listed here. Also have a
+look at the list of <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">community database adapters</a></p>
+</div>
+<p>The following databases are supported:</p>
+<div class="section" id="memory-filesystem">
+<h2>Memory/Filesystem<a class="headerlink" href="#memory-filesystem" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a>
+- An in-memory database adapter</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-localstorage">feathers-localstorage</a>
+- An adapter for <a class="reference internal" href="../authentication/client.html"><span class="doc">验证客户端</span></a> that can use
+the browsers <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a>
+or ReactNative’s <a class="reference external" href="https://facebook.github.io/react-native/docs/asyncstorage.html">AsyncStorage</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-nedb">feathers-nedb</a>
+- A database adapter for <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a> an in-memory or file
+system based standalone database.</p></li>
+</ul>
+</div>
+<div class="section" id="sql">
+<h2>SQL<a class="headerlink" href="#sql" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-knex">feathers-knex</a>
+- An adapter for <a class="reference external" href="http://knexjs.org/">KnexJS</a>, an SQL query builder for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize">feathers-sequelize</a>
+- An adapter for <a class="reference external" href="http://docs.sequelizejs.com/">Sequelize</a> an ORM for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-objection">feathers-objection</a>
+- A service adapter for <a class="reference external" href="https://vincit.github.io/objection.js">Objection.js</a> - A minimal SQL ORM built on top of Knex.</p></li>
+</ul>
+</div>
+<div class="section" id="nosql">
+<h2>NoSQL<a class="headerlink" href="#nosql" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose">feathers-mongoose</a>
+- A database adapter for <a class="reference external" href="http://mongoosejs.com/">Mongoose</a> an Object Modelling library for NodeJS and MongoDB</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongodb">feathers-mongodb</a>
+- A database adapter for <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> using the official NodeJS database driver</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-elasticsearch">feathers-elasticsearch</a>
+- A database adapter for <a class="reference external" href="https://github.com/elastic/elasticsearch">Elasticsearch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-rethinkdb">feathers-rethinkdb</a>
+- A database adapter for <a class="reference external" href="https://www.rethinkdb.com/">RethinkDB</a> a real-time database.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common.html" class="btn btn-neutral float-right" title="通用API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../authentication/oauth2.html" class="btn btn-neutral float-left" title="OAuth2身份验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

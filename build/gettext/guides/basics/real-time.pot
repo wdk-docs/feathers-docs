@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/real-time.rst:2
+msgid "Real-time APIs"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:4
+msgid "In the :doc:`./services` chapter we saw that Feathers services automatically send ``created``, ``updated``, ``patched`` and ``removed`` events when a ``create``, ``update``, ``patch`` or ``remove`` service method returns. Real-time means that those events are also published to connected clients so that they can react accordingly, e.g. update their UI."
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:11
+msgid "To allow real-time communication with clients we need a transport that supports bi-directional communication. In Feathers those are the :doc:`../../api/socketio` and :doc:`../../api/primus` transport both of which use `websockets <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`_ to receive real-time events *and also* call service methods."
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:18
+msgid "The :doc:`./rest` does not support real-time updates. Since socket transports also allow to call service methods and generally perform better, we recommend using a real-time transport whenever possible."
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:23
+msgid "In this chapter we will use Socket.io and create a :doc:`./databases` real-time API that also still supports a :doc:`./rest`."
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:27
+msgid "Using the transport"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:29
+msgid "After installing"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:35
+msgid "The Socket.io transport can be configured and used with a standard configuration like this:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:52
+msgid "It also works in combination with a REST API setup:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:79
+msgid "Channels"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:81
+msgid "Channels determine which real-time events should be sent to which client. For example, we might want to only send messages to authenticated users or users in the same room. For this example however, we will just enable real-time functionality for all connections:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:96
+msgid "More information about channels can be found in the :doc:`../../api/channels`."
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:100
+msgid "A messages API"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:102
+msgid "Putting it all together, our REST and real-time API with a messages service ``app.js`` looks like this:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:147
+msgid "As always, we can start our server again by running"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:154
+msgid "Using the API"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:156
+msgid "The real-time API can be used by establishing a websocket connection. For that we need the Socket.io client which we can include by updating ``public/index.html`` to:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:178
+msgid "Then we can initialize and use the socket directly making some calls and listening to real-time events by updating ``public/client.js`` to this:"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:204
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/basics/real-time.rst:206
+msgid "In this chapter we added the Socket.io transport and saw how to use channels to send events from server to client. In the :doc:`clients` we will look at how to use the browser Feathers application and client services to handle these events easily."
+msgstr ""
+

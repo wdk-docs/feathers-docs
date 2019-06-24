@@ -1,0 +1,399 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/frontend.rst:2
+msgid "Building a frontend"
+msgstr "建立一个前端"
+
+#: ../../source/guides/chat/frontend.rst:4
+msgid ""
+"As we have seen in the :doc:`../basics/readme`, Feathers works great in "
+"the browser and comes with :doc:`../basics/clients` that allow to easily "
+"connect to a Feathers server."
+msgstr "正如我们在 :doc:`../basics/readme` 中看到的,Feathers在浏览器中运行良好,并附带 :doc:`../basics/clients`, 可以轻松连接到Feathers服务器."
+
+#: ../../source/guides/chat/frontend.rst:8
+msgid ""
+"In this chapter we will create a real-time chat frontend with signup and "
+"login using modern plain JavaScript. As with the :doc:`../basics/readme`,"
+" it will only work in the latest versions of Chrome, Firefox, Safari and "
+"Edge since we won’t be using a transpiler like `Babel "
+"<http://babeljs.io/>`_. The final version can be found `here "
+"<https://github.com/feathersjs/feathers-"
+"chat/tree/master/public/vanilla>`_."
+msgstr ""
+"在本章中,我们将使用现代纯JavaScript创建一个具有注册和登录功能的实时聊天前端.与 :doc:`../basics/readme` 一样,它只适用于最新版本的 Chrome, Firefox, Safari 和 Edge,因为我们不会使用像 `Babel <http://babeljs.io/>`_ 这样的转换器. 最终版本可以在 `这里 <https://github.com/feathersjs/feathers-chat/tree/master/public/vanilla>`_ 找到."
+
+#: ../../source/guides/chat/frontend.rst:15
+msgid ""
+"We will not be using a frontend framework so we can focus on what "
+"Feathers is all about. Feathers is framework agnostic and can be used "
+"with any frontend framework like React, VueJS or Angular. For more "
+"information see the :doc:`../frameworks/readme`."
+msgstr ""
+"我们不会使用前端框架,因此我们可以专注于Feathers的全部内容. "
+"Feathers是框架无关的,可以与React,VueJS或Angular等任何前端框架一起使用.有关更多信息,请参阅 :doc:`../frameworks/readme`."
+
+#: ../../source/guides/chat/frontend.rst:21
+msgid "Set up the index page"
+msgstr "设置索引页面"
+
+#: ../../source/guides/chat/frontend.rst:23
+msgid ""
+"We are already serving the static files in the ``public`` folder and have"
+" a placeholder page in ``public/index.html``. Let’s update it to the "
+"following:"
+msgstr "我们已经在 ``public`` 文件夹中提供静态文件,并在 ``public/index.html`` 中有一个占位符页面.让我们将其更新为以下内容:"
+
+#: ../../source/guides/chat/frontend.rst:48
+msgid ""
+"This will load our chat CSS style, add a container div ``#app`` and load "
+"several libraries:"
+msgstr "这将加载我们的聊天CSS样式,添加容器 div ``＃app`` 并加载几个库:"
+
+#: ../../source/guides/chat/frontend.rst:51
+#, fuzzy
+msgid ""
+"The :doc:`../basics/clients` (since we are not using a module loader like"
+" Webpack or Browserify)"
+msgstr ":doc:`basics/clients` (因为我们没有使用像Webpack或Browserify这样的模块加载器)"
+
+#: ../../source/guides/chat/frontend.rst:53
+msgid "Socket.io provided by the chat API"
+msgstr "Socket.io由聊天API提供"
+
+#: ../../source/guides/chat/frontend.rst:54
+msgid "`MomentJS <https://momentjs.com/>`_ to format dates"
+msgstr "`MomentJS <https://momentjs.com/>`_ 来格式化日期"
+
+#: ../../source/guides/chat/frontend.rst:55
+msgid "An ``app.js`` for our code to live in"
+msgstr "我们的代码生成的 ``app.js``"
+
+#: ../../source/guides/chat/frontend.rst:57
+msgid ""
+"Let’s create ``public/app.js`` where all the following code will live "
+"(with each code sample added to the end of that file)."
+msgstr "让我们创建 ``public/app.js``,其中所有以下代码都将存在(每个代码示例都添加到该文件的末尾)."
+
+#: ../../source/guides/chat/frontend.rst:61
+msgid "Connect to the API"
+msgstr "连接到API"
+
+#: ../../source/guides/chat/frontend.rst:63
+msgid ""
+"We’ll start with the most important thing first, the connection to our "
+"Feathers API. We already learned how Feathers can be used on the client "
+"in the :doc:`../basics/readme`. Here, we do pretty much the same thing: "
+"Establish a Socket connection and initialize a new Feathers application. "
+"We also set up the authentication client for later:"
+msgstr ""
+"我们首先从最重要的事情开始,即与Feathers API的连接.我们已经在 :doc:`../basics/readme` 中学习了如何在客户端上使用Feathers.在这里,我们做了几乎相同的事情:建立一个Socket连接并初始化一个新的Feathers应用程序.我们还为以后设置了身份验证客户端:"
+
+#: ../../source/guides/chat/frontend.rst:84
+msgid ""
+"This allows us to talk to the chat API through websockets, for real-time "
+"updates."
+msgstr "这允许我们通过websockets与聊天API通信,以进行实时更新."
+
+#: ../../source/guides/chat/frontend.rst:88
+msgid "Base and user/message list HTML"
+msgstr "基础和用户/消息列表HTML"
+
+#: ../../source/guides/chat/frontend.rst:90
+msgid ""
+"Next, we have to define some static and dynamic HTML that we can insert "
+"into the page when we want to show the login page (which also doubles as "
+"the signup page) and the actual chat interface:"
+msgstr "接下来,我们必须定义一些静态和动态HTML,当我们想要显示登录页面(也可以作为注册页面)和实际聊天界面时,我们可以将其插入到页面中:"
+
+#: ../../source/guides/chat/frontend.rst:209
+msgid "This will add the following variables and functions:"
+msgstr "这将添加以下变量和函数:"
+
+#: ../../source/guides/chat/frontend.rst:211
+msgid "``loginHTML`` contains some static HTML for the login/signup page"
+msgstr "``loginHTML`` 包含登录/注册页面的一些静态HTML"
+
+#: ../../source/guides/chat/frontend.rst:212
+msgid ""
+"``chatHTML`` contains the main chat page content (once a user is logged "
+"in)"
+msgstr "``chatHTML`` 包含主要的聊天页面内容(一旦用户登录)"
+
+#: ../../source/guides/chat/frontend.rst:214
+msgid ""
+"``addUser(user)`` is a function to add a new user to the user list on the"
+" left"
+msgstr "``addUser(user)`` 是一个将新用户添加到左侧用户列表的函数"
+
+#: ../../source/guides/chat/frontend.rst:216
+msgid ""
+"``addMessage(message)`` is a function to add a new message to the list. "
+"It will also make sure that we always scroll to the bottom of the message"
+" list as messages get added"
+msgstr "``addMessage(message)`` 是一个向列表中添加新消息的函数.它还将确保在添加消息时始终滚动到消息列表的底部"
+
+#: ../../source/guides/chat/frontend.rst:221
+msgid "Displaying the login/signup or chat page"
+msgstr "显示登录/注册或聊天页面"
+
+#: ../../source/guides/chat/frontend.rst:223
+msgid ""
+"Next, we’ll add two functions to display the login and chat page, where "
+"we’ll also add a list of the 25 newest chat messages and the registered "
+"users."
+msgstr "接下来,我们将添加两个功能来显示登录和聊天页面,其中我们还将添加25个最新聊天消息和注册用户的列表."
+
+#: ../../source/guides/chat/frontend.rst:260
+msgid ""
+"``showLogin(error)`` will either show the content of loginHTML or, if the"
+" login page is already showing, add an error message. This will happen "
+"when you try to log in with invalid credentials or sign up with a user "
+"that already exists."
+msgstr "``showLogin(error)`` 将显示loginHTML的内容,或者,如果登录页面已经显示,则添加错误消息.当您尝试使用无效凭据登录或使用已存在的用户注册时,会发生这种情况."
+
+#: ../../source/guides/chat/frontend.rst:264
+msgid ""
+"``showChat()`` does several things. First, we add the static chatHTML to "
+"the page. Then we get the latest 25 messages from the messages Feathers "
+"service (this is the same as the ``/messages`` endpoint of our chat API) "
+"using the Feathers query syntax. Since the list will come back with the "
+"newest message first, we need to reverse the data. Then we add each "
+"message by calling our ``addMessage`` function so that it looks like a "
+"chat app should — with old messages getting older as you scroll up. After"
+" that we get a list of all registered users to show them in the sidebar "
+"by calling addUser."
+msgstr ""
+
+#: ../../source/guides/chat/frontend.rst:275
+msgid "Login and signup"
+msgstr "登录和注册"
+
+#: ../../source/guides/chat/frontend.rst:277
+msgid ""
+"Alright. Now we can show the login page (including an error message when "
+"something goes wrong) and if we are logged in call the ``showChat`` we "
+"defined above. We’ve built out the UI, now we have to add the "
+"functionality to actually allow people to sign up, log in and also log "
+"out."
+msgstr "好的.现在我们可以显示登录页面(包括出错时的错误消息),如果我们登录,则调用上面定义的 ``showChat``.我们已经构建了UI,现在我们必须添加功能以实际允许人们注册,登录和注销."
+
+#: ../../source/guides/chat/frontend.rst:346
+msgid ""
+"``getCredentials()`` gets us the values of the username (email) and "
+"password fields from the login/signup page to be used directly with "
+"Feathers authentication."
+msgstr "``getCredentials()`` 从登录/注册页面获取用户名(电子邮件)和密码字段的值,以便直接与Feathers身份验证一起使用."
+
+#: ../../source/guides/chat/frontend.rst:349
+msgid ""
+"``login(credentials)`` will either authenticate the credentials returned "
+"by getCredentials against our Feathers API using the local authentication"
+" strategy (e.g. username and password) or, if no credentials are given, "
+"try and use the JWT stored in localStorage. This will try and get the JWT"
+" from localStorage first where it is put automatically once you log in "
+"successfully so that we don’t have to log in every time we visit the "
+"chat. Only if that doesn’t work it will show the login page. Finally, if "
+"the login was successful it will show the chat page."
+msgstr ""
+
+#: ../../source/guides/chat/frontend.rst:358
+msgid ""
+"We also added click event listeners for three buttons. ``#login`` will "
+"get the credentials and just log in with those. Clicking ``#signup`` will"
+" signup and log in at the same time. It will first create a new user on "
+"our API and then log in with that same user information. Finally, "
+"``#logout`` will forget the JWT and then show the login page again."
+msgstr ""
+"我们还为三个按钮添加了单击事件侦听器. "
+"``login``将获得凭据,然后使用这些凭据登录.单击“#regup”将注册并同时登录.它将首先在我们的API上创建一个新用户,然后使用相同的用户信息登录.最后,``#logout``将忘记JWT,然后再次显示登录页面."
+
+#: ../../source/guides/chat/frontend.rst:366
+msgid "Real-time and sending messages"
+msgstr "实时和发送消息"
+
+#: ../../source/guides/chat/frontend.rst:368
+msgid ""
+"In the last step we will add functionality to send new message and make "
+"the user and message list update in real-time."
+msgstr "在最后一步中,我们将添加发送新消息的功能,并使用户和消息列表实时更新."
+
+#: ../../source/guides/chat/frontend.rst:397
+msgid ""
+"The ``#submit`` button event listener gets the message text from the "
+"input field, creates a new message on the messages service and then "
+"clears out the field."
+msgstr "``submit`` 按钮事件监听器从输入字段获取消息文本,在消息服务上创建新消息,然后清除该字段."
+
+#: ../../source/guides/chat/frontend.rst:400
+msgid ""
+"Next, we added two ``created`` event listeners. One for ``messages`` "
+"which calls the ``addMessage`` function to add the new message to the "
+"list and one for ``users`` which adds the user to the list via "
+"``addUser``. This is how Feathers does real-time and everything we need "
+"to do in order to get everything to update automatically."
+msgstr "接下来,我们添加了两个 ``created`` 事件监听器.一个用于 ``messages`` 调用 ``addMessage`` 函数将新消息添加到列表中,一个用于 ``users``,它通过 ``addUser`` 将用户添加到列表中.这就是Feathers实时和我们需要做的一切,以便让所有内容自动更新."
+
+#: ../../source/guides/chat/frontend.rst:405
+msgid ""
+"To kick our application off, we call ``login()`` which as mentioned above"
+" will either show the chat application right away (if we signed in before"
+" and the token isn’t expired) or the login page."
+msgstr "为了启动我们的应用程序,我们调用 ``login()`` ,如上所述,它将立即显示聊天应用程序(如果我们之前已登录且令牌未过期)或登录页面."
+
+#: ../../source/guides/chat/frontend.rst:410
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/chat/frontend.rst:412
+msgid ""
+"That’s it. We now have a plain JavaScript real-time chat frontend with "
+"login and signup. This example demonstrates many of the core principles "
+"of how you interact with a Feathers API."
+msgstr "而已.我们现在有一个简单的JavaScript实时聊天前端登录和注册.此示例演示了如何与Feathers API进行交互的许多核心原则."
+
+#: ../../source/guides/chat/frontend.rst:416
+msgid ""
+"If you run into an issue, remember you can find a complete working "
+"example `here <https://github.com/feathersjs/feathers-chat>`_."
+msgstr ""
+"如果您遇到问题, 请记住您可以在 `这里 <https://github.com/feathersjs/feathers-"
+"chat>`_ 找到一个完整的工作示例."
+
+#: ../../source/guides/chat/frontend.rst:419
+msgid "In the final chapter, we’ll look at :doc:`./testing`."
+msgstr "在最后一章中,我们将看看 :doc:`./testing`."
+
+#~ msgid ""
+#~ "**Note:** We will not be using a"
+#~ " frontend framework so we can focus"
+#~ " on what Feathers is all about. "
+#~ "Feathers is framework agnostic and can"
+#~ " be used with any frontend framework"
+#~ " like React, VueJS or Angular. For"
+#~ " more information see the "
+#~ ":doc:`frameworks/readme`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As we have seen in the "
+#~ ":doc:`basics/readme`, Feathers works great in"
+#~ " the browser and comes with "
+#~ ":doc:`../basics/clients` that allow to easily"
+#~ " connect to a Feathers server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we will create a"
+#~ " real-time chat frontend with signup"
+#~ " and login using modern plain "
+#~ "JavaScript. As with the `basics guide"
+#~ " <../basics/readme.md>`_, it will only work"
+#~ " in the latest versions of Chrome,"
+#~ " Firefox, Safari and Edge since we"
+#~ " won’t be using a transpiler like "
+#~ "`Babel <http://babeljs.io/>`_. The final "
+#~ "version can be found `here "
+#~ "<https://github.com/feathersjs/feathers-"
+#~ "chat/tree/master/public/vanilla>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** We will not be using a"
+#~ " frontend framework so we can focus"
+#~ " on what Feathers is all about. "
+#~ "Feathers is framework agnostic and can"
+#~ " be used with any frontend framework"
+#~ " like React, VueJS or Angular. For"
+#~ " more information see the "
+#~ ":doc:`../frameworks/readme`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As we have seen in the "
+#~ ":doc:`basics/readme`, Feathers works great in"
+#~ " the browser and comes with "
+#~ ":doc:`client services <../basics/clients>`_ that "
+#~ "allow to easily connect to a "
+#~ "Feathers server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we will create a"
+#~ " real-time chat frontend with signup"
+#~ " and login using modern plain "
+#~ "JavaScript. As with the :doc:`basics "
+#~ "guide <../basics/readme>`_, it will only "
+#~ "work in the latest versions of "
+#~ "Chrome, Firefox, Safari and Edge since"
+#~ " we won’t be using a transpiler "
+#~ "like `Babel <http://babeljs.io/>`_. The final"
+#~ " version can be found `here "
+#~ "<https://github.com/feathersjs/feathers-"
+#~ "chat/tree/master/public/vanilla>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We will not be using a frontend"
+#~ " framework so we can focus on "
+#~ "what Feathers is all about. Feathers "
+#~ "is framework agnostic and can be "
+#~ "used with any frontend framework like"
+#~ " React, VueJS or Angular. For more"
+#~ " information see the :doc:`frameworks "
+#~ "section <../frameworks/readme>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "As we have seen in the "
+#~ ":doc:`basics/readme`, Feathers works great in"
+#~ " the browser and comes with "
+#~ ":doc:`client services <../basics/clients>` that "
+#~ "allow to easily connect to a "
+#~ "Feathers server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we will create a"
+#~ " real-time chat frontend with signup"
+#~ " and login using modern plain "
+#~ "JavaScript. As with the :doc:`basics "
+#~ "guide <../basics/readme>`, it will only "
+#~ "work in the latest versions of "
+#~ "Chrome, Firefox, Safari and Edge since"
+#~ " we won’t be using a transpiler "
+#~ "like `Babel <http://babeljs.io/>`_. The final"
+#~ " version can be found `here "
+#~ "<https://github.com/feathersjs/feathers-"
+#~ "chat/tree/master/public/vanilla>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "We will not be using a frontend"
+#~ " framework so we can focus on "
+#~ "what Feathers is all about. Feathers "
+#~ "is framework agnostic and can be "
+#~ "used with any frontend framework like"
+#~ " React, VueJS or Angular. For more"
+#~ " information see the :doc:`frameworks "
+#~ "section <../frameworks/readme>`."
+#~ msgstr ""
+

@@ -1,0 +1,517 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:18+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/client/rest.rst:2
+msgid "REST Client"
+msgstr "REST客户端"
+
+#: ../../source/api/client/rest.rst:4
+msgid ""
+"For directly using a Feathers REST API (via HTTP) without using Feathers "
+"on the client see the `HTTP API <#http-api>`_ section."
+msgstr "要在客户端上不使用Feathers直接使用Feathers REST API（通过HTTP）, 请参阅 `HTTP API <＃http-api>`_ 部分."
+
+#: ../../source/api/client/rest.rst:9
+msgid "@feathersjs/rest-client"
+msgstr "@feathersjs/rest-client"
+
+#: ../../source/api/client/rest.rst:11
+msgid "|GitHub stars| |npm version| |Changelog|"
+msgstr "|GitHub stars| |npm version| |Changelog|"
+
+#: ../../source/api/client/rest.rst:17
+msgid ""
+"``@feathersjs/rest-client`` allows to connect to a service exposed "
+"through the :doc:`../express#expressrest` using `jQuery "
+"<https://jquery.com/>`_, `request <https://github.com/request/request>`_,"
+" `Superagent <http://visionmedia.github.io/superagent/>`_, `Axios "
+"<https://github.com/mzabriskie/axios>`_ or `Fetch "
+"<https://facebook.github.io/react-native/docs/network.html>`_ as the AJAX"
+" library."
+msgstr ""
+"``@ feathersjs/rest-client`` 允许使用 `jQuery <https://jquery.com/>`_, `request <https连接到通过 :doc:`../"
+"express＃expressrest` 公开的服务. ://github.com/request/request>`_, `Superagent "
+"<http://visionmedia.github.io/superagent/>`_, `Axios "
+"<https://github.com/mzabriskie/axios>`_ 或者 `获取 <https://facebook.github.io"
+"/react-native/docs/network.html>`_ 作为AJAX库."
+
+#: ../../source/api/client/rest.rst:32
+msgid ""
+"REST client services do emit ``created``, ``updated``, ``patched`` and "
+"``removed`` events but only *locally for their own instance*. Real-time "
+"events from other clients can only be received by using a websocket "
+"connection."
+msgstr "REST客户端服务确实发出 ``created``, ``updated``, ``patchched`` 和 ``removed`` 事件, 但只在本地为自己的实例*发出*.来自其他客户端的实时事件只能通过websocket连接接收."
+
+#: ../../source/api/client/rest.rst:43
+msgid ""
+"A client application can only use a single transport (either REST, "
+"Socket.io or Primus). Using two transports in the same client application"
+" is normally not necessary."
+msgstr ""
+"客户端应用程序只能使用单个传输（REST，Socket.io或Primus）.通常不需要在同一客户端应用程序中使用两个传输."
+
+#: ../../source/api/client/rest.rst:48
+msgid "rest([baseUrl])"
+msgstr "rest([baseUrl])"
+
+#: ../../source/api/client/rest.rst:50
+msgid ""
+"REST client services can be initialized by loading ``@feathersjs/rest-"
+"client`` and initializing a client object with a base URL:"
+msgstr ""
+"可以通过加载 ``@feathersjs/rest-client`` 并使用基本URL初始化客户端对象来初始化REST客户端服务:"
+
+#: ../../source/api/client/rest.rst:54
+#, python-format
+msgid ""
+"{% codetabs name=“Modular”, type=“js” -%} const feathers = "
+"require(‘@feathersjs/feathers’); const rest = require(‘@feathersjs/rest-"
+"client’);"
+msgstr ""
+"{% codetabs name=“Modular”, type=“js” -%} const feathers = require(‘@feathersjs/feathers’); const rest = require(‘@feathersjs/rest-client’);"
+
+#: ../../source/api/client/rest.rst:58
+msgid "const app = feathers();"
+msgstr "const app = feathers();"
+
+#: ../../source/api/client/rest.rst:60
+#, fuzzy
+msgid ""
+"//Connect to the same as the browser URL (only in the browser) const "
+"restClient = rest();"
+msgstr ""
+"//Connect to the same as the browser URL (only in the browser) const "
+"restClient = rest();"
+
+#: ../../source/api/client/rest.rst:63
+#, fuzzy
+msgid ""
+"//Connect to a different URL const restClient = rest(‘http://feathers-"
+"api.com’)"
+msgstr ""
+"//Connect to a different URL const restClient = rest(‘http://feathers-"
+"api.com’)"
+
+#: ../../source/api/client/rest.rst:66
+#, fuzzy
+msgid ""
+"//Configure an AJAX library (see below) with that client "
+"app.configure(restClient.fetch(window.fetch));"
+msgstr ""
+"//Configure an AJAX library (see below) with that client "
+"app.configure(restClient.fetch(window.fetch));"
+
+#: ../../source/api/client/rest.rst:69
+#, fuzzy
+msgid ""
+"//Connect to the ``http://feathers-api.com/messages`` service const "
+"messages = app.service(‘messages’); {%- language "
+"name=“@feathersjs/client”, type=“html” -%}"
+msgstr ""
+"//Connect to the ``http://feathers-api.com/messages`` service const "
+"messages = app.service(‘messages’); {%- language "
+"name=“@feathersjs/client”, type=“html” -%}"
+
+#: ../../source/api/client/rest.rst:95
+msgid "{%- endcodetabs %}"
+msgstr "{%- endcodetabs %}"
+
+#: ../../source/api/client/rest.rst:103
+msgid ""
+"In the browser, the base URL is relative from where services are "
+"registered. That means that a service at "
+"``http://api.feathersjs.com/api/v1/messages`` with a base URL of "
+"``http://api.feathersjs.com`` would be available as "
+"``app.service('api/v1/messages')``. With a base URL of "
+"``http://api.feathersjs.com/api/v1`` it would be "
+"``app.service('messages')``."
+msgstr "在浏览器中，基本URL与注册服务的位置相关.这意味着 ``http://api.feathersjs.com/api/v1/messages`` 的服务，其基本URL为 ``http://api.feathersjs.com`` 将作为 ``app提供.服务（ 'API/V1/消息'）``.使用 `http://api.feathersjs.com/api/v1`` 的基本URL，它将是 ``app.service（'messages'）``."
+
+#: ../../source/api/client/rest.rst:112
+msgid "params.headers"
+msgstr "params.headers"
+
+#: ../../source/api/client/rest.rst:114
+msgid ""
+"Request specific headers can be through ``params.headers`` in a service "
+"call:"
+msgstr ""
+"请求特定标头可以通过服务调用中的``params.headers``:"
+
+#: ../../source/api/client/rest.rst:126
+msgid "params.connection"
+msgstr "params.connection"
+
+#: ../../source/api/client/rest.rst:128
+msgid ""
+"Allows to pass additional options specific to the AJAX library. "
+"``params.connection.headers`` will be merged with ``params.headers``:"
+msgstr ""
+"允许传递特定于AJAX库的其他选项. ``params.connection.headers`` 将与 ``params.headers`` 合并:"
+
+#: ../../source/api/client/rest.rst:141
+msgid ""
+"With the ``fetch`` fork `yetch <https://github.com/Netflix/yetch>`_ it "
+"can also be used to abort requests:"
+msgstr ""
+"使用 ``fetch`` fork `yetch <https://github.com/Netflix/yetch>`_ 它也可以用来中止请求:"
+
+#: ../../source/api/client/rest.rst:160
+msgid "jQuery"
+msgstr "jQuery"
+
+#: ../../source/api/client/rest.rst:162
+msgid "Pass the instance of jQuery (``$``) to ``restClient.jquery``:"
+msgstr "将jQuery（``$``）的实例传递给``restClient.jquery``:"
+
+#: ../../source/api/client/rest.rst:168
+msgid "Or with a module loader:"
+msgstr "或者使用模块加载器:"
+
+#: ../../source/api/client/rest.rst:177
+msgid "Request"
+msgstr "Request"
+
+#: ../../source/api/client/rest.rst:179
+msgid ""
+"The `request <https://github.com/request/request>`_ object needs to be "
+"passed explicitly to ``feathers.request``. Using `request.defaults "
+"<https://github.com/request/request#convenience-methods>`_ - which "
+"creates a new request object - is a great way to set things like default "
+"headers or authentication information:"
+msgstr ""
+"需要将`request "
+"<https://github.com/request/request>`_ 对象明确传递给 ``feathers.request``. 使用`request.defaults"
+" <https://github.com/request/request#convenience-methods>`_  - 创建一个新的请求对象"
+" - 是一种设置默认标头或身份验证信息的好方法:"
+
+#: ../../source/api/client/rest.rst:199
+msgid "Superagent"
+msgstr "Superagent"
+
+#: ../../source/api/client/rest.rst:201
+msgid ""
+"`Superagent <http://visionmedia.github.io/superagent/>`_ currently works "
+"with a default configuration:"
+msgstr ""
+"`Superagent <http://visionmedia.github.io/superagent/>`_ 目前使用默认配置:"
+
+#: ../../source/api/client/rest.rst:211
+msgid "Axios"
+msgstr "Axios"
+
+#: ../../source/api/client/rest.rst:213
+msgid ""
+"`Axios <http://github.com/mzabriskie/axios>`_ currently works with a "
+"default configuration:"
+msgstr ""
+"`Axios <http://github.com/mzabriskie/axios>`_ 目前使用默认配置:"
+
+#: ../../source/api/client/rest.rst:223
+msgid "Fetch"
+msgstr "Fetch"
+
+#: ../../source/api/client/rest.rst:225
+msgid "Fetch also uses a default configuration:"
+msgstr "Fetch还使用默认配置:"
+
+#: ../../source/api/client/rest.rst:238
+msgid "HTTP API"
+msgstr "HTTP API"
+
+#: ../../source/api/client/rest.rst:240
+msgid ""
+"You can communicate with a Feathers REST API using any other HTTP REST "
+"client. The following section describes what HTTP method, body and query "
+"parameters belong to which service method call."
+msgstr ""
+"您可以使用任何其他HTTP REST客户端与Feathers REST API进行通信.以下部分描述了HTTP方法，正文和查询参数属于哪个服务方法调用."
+
+#: ../../source/api/client/rest.rst:244
+msgid ""
+"All query parameters in a URL will be set as ``params.query`` on the "
+"server. Other service parameters can be set through :doc:`express`. URL "
+"query parameter values will always be strings. Conversion (e.g. the "
+"string ``'true'`` to boolean ``true``) can be done in a hook as well."
+msgstr ""
+"URL中的所有查询参数都将在服务器上设置为 “params.query”.其他服务参数可以通过以下方式设置 :doc:`express`. "
+"URL查询参数值始终为字符串.转换（例如字符串 ``'true'`` 至 布尔 ``true``）也可以在钩子中完成."
+
+#: ../../source/api/client/rest.rst:250
+msgid ""
+"The body type for ``POST``, ``PUT`` and ``PATCH`` requests is determined "
+"by the Express `body-parser "
+"<http://expressjs.com/en/4x/api.html#express.json>`_ middleware which has"
+" to be registered *before* any service. You should also make sure you are"
+" setting your ``Accept`` header to ``application/json``."
+msgstr ""
+"``POST``, ``PUT`` 和 ``PATCH`` 请求的正文类型由 Express `body-parser "
+"<http://expressjs.com/en/4x/api.html#express.json>`_ 确定中间件必须在任何服务之前注册*.您还应该确保将 ``Accept`` 标题设置为 ``application/json``."
+
+#: ../../source/api/client/rest.rst:258
+msgid "Authentication"
+msgstr "认证"
+
+#: ../../source/api/client/rest.rst:260
+msgid ""
+"Authenticating HTTP (REST) requests is a two step process. First you have"
+" to obtain a JWT from the :doc:`../authentication/server` by POSTing the "
+"strategy you want to use:"
+msgstr ""
+"验证HTTP（REST）请求是一个两步过程.首先，您必须通过POST您要使用的策略从 :doc:`../authentication/server` 获取JWT:"
+
+#: ../../source/api/client/rest.rst:273
+msgid "Here is what that looks like with curl:"
+msgstr "这是卷曲的样子:"
+
+#: ../../source/api/client/rest.rst:279
+msgid ""
+"Then to authenticate subsequent requests, add the returned "
+"``accessToken`` to the ``Authorization`` header:"
+msgstr ""
+"然后，为了验证后续请求，将返回的 ``accessToken`` 添加到 ``Authorization`` 标头:"
+
+#: ../../source/api/client/rest.rst:286
+msgid ""
+"Also see the :doc:`../authentication/jwt` and "
+":doc:`../authentication/local` authentication chapter."
+msgstr "另请参阅:doc:`../authentication/jwt`和:doc:`../authentication/local` authentication chapter."
+
+#: ../../source/api/client/rest.rst:289
+msgid "find"
+msgstr "find"
+
+#: ../../source/api/client/rest.rst:291
+msgid "Retrieves a list of all matching resources from the service"
+msgstr "从服务中检索所有匹配资源的列表"
+
+#: ../../source/api/client/rest.rst:297
+msgid ""
+"Will call ``messages.find({ query: { status: 'read', user: '10' } })`` on"
+" the server."
+msgstr ""
+"将在服务器上调用``messages.find（{query:{status:'read'，user:'10'}}）``."
+
+#: ../../source/api/client/rest.rst:300
+msgid ""
+"If you want to use any of the built-in find operands ($le, $lt, $ne, $eq,"
+" $in, etc.) the general format is as follows:"
+msgstr ""
+"如果你想使用任何内置的查找操作数（$ le，$ lt，$ ne，$ eq，$ in等），一般格式如下:"
+
+#: ../../source/api/client/rest.rst:307
+msgid ""
+"For example, to find the records where field *status* is not equal to "
+"**active** you could do"
+msgstr ""
+"如果要使用任何内置查找操作数（$ le，$ lt，$ ne，$ eq，$ in等），通用格式如下:"
+
+#: ../../source/api/client/rest.rst:314
+msgid ""
+"More information about the possible parameters for official database "
+"adapters can be found :doc:`../databases/querying`."
+msgstr ""
+"可以找到有关官方数据库适配器的可能参数的更多信息:doc:`databases/querying`."
+
+#: ../../source/api/client/rest.rst:318
+msgid "get"
+msgstr "get"
+
+#: ../../source/api/client/rest.rst:320
+msgid "Retrieve a single resource from the service."
+msgstr "从服务中检索单个资源."
+
+#: ../../source/api/client/rest.rst:326
+msgid "Will call ``messages.get(1, {})`` on the server."
+msgstr "将在服务器上调用``messages.get（1，{}）``."
+
+#: ../../source/api/client/rest.rst:332
+msgid "Will call ``messages.get(1, { query: { fetch: 'all' } })`` on the server."
+msgstr "将在服务器上调用``messages.get（1，{query:{fetch:'all'}}）``."
+
+#: ../../source/api/client/rest.rst:336
+msgid "create"
+msgstr "create"
+
+#: ../../source/api/client/rest.rst:338
+msgid "Create a new resource with ``data`` which may also be an array."
+msgstr "使用``data``创建一个新资源，它也可以是一个数组."
+
+#: ../../source/api/client/rest.rst:345
+msgid ""
+"Will call ``messages.create({ \"text\": \"I really have to iron\" }, "
+"{})`` on the server."
+msgstr ""
+"``messagess.update（null，{\“complete \”:true}，{query:{complete:'false'}}）``将在服务器上调用."
+
+#: ../../source/api/client/rest.rst:357
+msgid "update"
+msgstr "update"
+
+#: ../../source/api/client/rest.rst:359
+msgid "Completely replace a single or multiple resources."
+msgstr "完全替换单个或多个资源."
+
+#: ../../source/api/client/rest.rst:366
+msgid ""
+"Will call ``messages.update(2, { \"text\": \"I really have to do "
+"laundry\" }, {})`` on the server. When no ``id`` is given by sending the "
+"request directly to the endpoint something like:"
+msgstr ""
+"将在服务器上调用``messages.update（2，{\“text \”:\“我真的需要洗衣服，}}，`}``.当通过直接向端点发送请求时没有给出``id``，例如:"
+
+#: ../../source/api/client/rest.rst:376
+msgid ""
+"Will call ``messages.update(null, { \"complete\": true }, { query: { "
+"complete: 'false' } })`` on the server."
+msgstr ""
+"将在服务器上调用``messagess.update（null，{\“complete \”:true}，{query:{complete:'false'}}）``."
+
+#: ../../source/api/client/rest.rst:380
+msgid ""
+"``update`` is normally expected to replace an entire resource which is "
+"why the database adapters only support ``patch`` for multiple records."
+msgstr ""
+"通常希望 ``update`` 替换整个资源，这就是数据库适配器仅支持多个记录的 ``patch`` 的原因."
+
+#: ../../source/api/client/rest.rst:385
+msgid "patch"
+msgstr "patch"
+
+#: ../../source/api/client/rest.rst:387
+msgid ""
+"Merge the existing data of a single or multiple resources with the new "
+"``data``."
+msgstr ""
+"使用新的 ``data`` 合并单个或多个资源的现有数据."
+
+#: ../../source/api/client/rest.rst:395
+msgid ""
+"Will call ``messages.patch(2, { \"read\": true }, {})`` on the server. "
+"When no ``id`` is given by sending the request directly to the endpoint "
+"something like:"
+msgstr ""
+"将在服务器上调用 ``message`patch（2，{\“read \”:true}，{}）``.当没有通过直接向端点发送请求时给出 ``id``:"
+
+#: ../../source/api/client/rest.rst:404
+msgid ""
+"Will call ``messages.patch(null, { complete: true }, { query: { complete:"
+" 'false' } })`` on the server to change the status for all read messages."
+msgstr "将在服务器上调用 ``messagess.patch（null，{complete:true}，{query:{complete:'false'}}）``以更改所有读取消息的状态."
+
+#: ../../source/api/client/rest.rst:408
+msgid ""
+"This is supported out of the box by the Feathers "
+":doc:`../databases/adapters`"
+msgstr "这是由Feathers :doc:`../databases/adapters`开箱即用的"
+
+#: ../../source/api/client/rest.rst:411
+msgid "remove"
+msgstr "remove"
+
+#: ../../source/api/client/rest.rst:413
+msgid "Remove a single or multiple resources:"
+msgstr "删除一个或多个资源:"
+
+#: ../../source/api/client/rest.rst:419
+msgid "Will call ``messages.remove(2, { query: { cascade: 'true' } })``."
+msgstr "将调用 ``messages.remove（2，{query:{cascade:'true'}}）``."
+
+#: ../../source/api/client/rest.rst:421
+msgid ""
+"When no ``id`` is given by sending the request directly to the endpoint "
+"something like:"
+msgstr ""
+"当通过直接向端点发送请求时没有给出 ``id``，例如:"
+
+#: ../../source/api/client/rest.rst:428
+msgid ""
+"Will call ``messages.remove(null, { query: { read: 'true' } })`` to "
+"delete all read messages."
+msgstr ""
+"将调用 ``messages.remove（null，{query:{read:'true'}}）`` 删除所有读取消息."
+
+#~ msgid ""
+#~ "All query parameters in a URL will"
+#~ " be set as ``params.query`` on the"
+#~ " server. Other service parameters can "
+#~ "be set through `hooks "
+#~ "<../hooks.md>:doc:`express`. URL query parameter "
+#~ "values will always be strings. "
+#~ "Conversion (e.g. the string ``'true'`` "
+#~ "to boolean ``true``) can be done "
+#~ "in a hook as well."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``@feathersjs/rest-client`` allows to connect"
+#~ " to a service exposed through the "
+#~ "`Express REST API <../express.md#expressrest>`_ "
+#~ "using `jQuery <https://jquery.com/>`_, `request "
+#~ "<https://github.com/request/request>`_, `Superagent "
+#~ "<http://visionmedia.github.io/superagent/>`_, `Axios "
+#~ "<https://github.com/mzabriskie/axios>`_ or `Fetch "
+#~ "<https://facebook.github.io/react-native/docs/network.html>`_"
+#~ " as the AJAX library."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``@feathersjs/rest-client`` allows to connect"
+#~ " to a service exposed through the "
+#~ ":doc:`Express REST API <../express#expressrest>`_"
+#~ " using `jQuery <https://jquery.com/>`_, `request"
+#~ " <https://github.com/request/request>`_, `Superagent "
+#~ "<http://visionmedia.github.io/superagent/>`_, `Axios "
+#~ "<https://github.com/mzabriskie/axios>`_ or `Fetch "
+#~ "<https://facebook.github.io/react-native/docs/network.html>`_"
+#~ " as the AJAX library."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``@feathersjs/rest-client`` allows to connect"
+#~ " to a service exposed through the "
+#~ ":doc:`Express REST API <../express#expressrest>` "
+#~ "using `jQuery <https://jquery.com/>`_, `request "
+#~ "<https://github.com/request/request>`_, `Superagent "
+#~ "<http://visionmedia.github.io/superagent/>`_, `Axios "
+#~ "<https://github.com/mzabriskie/axios>`_ or `Fetch "
+#~ "<https://facebook.github.io/react-native/docs/network.html>`_"
+#~ " as the AJAX library."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**ProTip:** In the browser, the base "
+#~ "URL is relative from where services "
+#~ "are registered. That means that a "
+#~ "service at ``http://api.feathersjs.com/api/v1/messages``"
+#~ " with a base URL of "
+#~ "``http://api.feathersjs.com`` would be available "
+#~ "as ``app.service('api/v1/messages')``. With a "
+#~ "base URL of ``http://api.feathersjs.com/api/v1`` "
+#~ "it would be ``app.service('messages')``."
+#~ msgstr ""
+#~ "**ProTip:** 在浏览器中, 基本URL与注册服务的位置相关.这意味着``http://"
+#~ "api.feathersjs.com/api/v1/"
+#~ "messages``的服务, 其基本URL为``http://"
+#~ "api.feathersjs.com``将作为``app提供.服务（ 'API/V1 "
+#~ "/消息'）``.使用`http://api.feathersjs.com/api/"
+#~ " v1``的基本URL, 它将是``app.service（'messages'）``."
+

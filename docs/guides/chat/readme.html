@@ -1,0 +1,255 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建聊天应用程序 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建应用程序" href="creating.html" />
+    <link rel="prev" title="创建聊天应用程序" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>创建聊天应用程序</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-chat-application">
+<h1>创建聊天应用程序<a class="headerlink" href="#creating-a-chat-application" title="永久链接至标题">¶</a></h1>
+<p>好吧！让我们构建我们的第一个Feathers应用程序！我们将使用 <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a> 作为数据库构建一个实时聊天应用程序.这是一个很好的方式来涵盖在现实世界的应用程序中你需要做的所有事情以及Feathers如何提供帮助.拥有实时组件比Todo列表更有意义. :眨眼:</p>
+<p>在本教程中,您将从无到有实时聊天应用程序,包括注册,登录,基于令牌的身份验证和授权,所有这些都使用RESTful和实时API.您可以立即阅读本指南,但我们建议您首先在 <a class="reference internal" href="../basics/readme.html"><span class="doc">Feathers 基础知识</span></a> 中对Feathers有一个基本的了解.</p>
+<div class="figure align-default" id="id1">
+<img alt="Chat app screenshot" src="../../_images/chat.gif" />
+<p class="caption"><span class="caption-text">聊天应用截图</span><a class="headerlink" href="#id1" title="永久链接至图片">¶</a></p>
+</div>
+<p>您可以再 <a class="reference external" href="https://github.com/feathersjs/feathers-chat">这里</a> 找到一个完整的工作示例.</p>
+<p><a class="reference internal" href="creating.html"><span class="doc">创建应用程序</span></a></p>
+<p>使用生成器创建新应用程序.</p>
+<p><a class="reference internal" href="service.html"><span class="doc">创建服务</span></a></p>
+<p>添加API端点以存储消息.</p>
+<p><a class="reference internal" href="authentication.html"><span class="doc">添加身份验证</span></a></p>
+<p>添加用户注册和登录.</p>
+<p><a class="reference internal" href="processing.html"><span class="doc">处理数据</span></a></p>
+<p>清理和处理用户数据.</p>
+<p><a class="reference internal" href="frontend.html"><span class="doc">建立一个前端</span></a></p>
+<p>通过创建一个小型实时聊天前端,了解如何在浏览器中使用Feathers.</p>
+<p><a class="reference internal" href="testing.html"><span class="doc">写测试</span></a></p>
+<p>编写自动化单元测试并将代码覆盖添加到聊天应用程序中.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="creating.html" class="btn btn-neutral float-right" title="创建应用程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="创建聊天应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

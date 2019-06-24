@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FeathersJS Auth Recipe：自定义登录响应 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="FeathersJS Auth Recipe：使用混合身份验证创建端点" href="recipe.mixed-auth.html" />
+    <link rel="prev" title="FeathersJS Auth Recipe：自定义JWT Payload" href="recipe.customize-jwt-payload.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe：自定义JWT Payload</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe：自定义登录响应</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changes-to-the-login-response">Changes to the Login Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-login-response">Customizing the Login Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-the-user-entity">Accessing the User Entity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe：使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe：设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe：自定义身份验证策略</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe：认证Express中间件（SSR）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
+        
+      <li>FeathersJS Auth Recipe：自定义登录响应</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/auth/recipe.customize-response.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathersjs-auth-recipe-customizing-the-login-response">
+<h1>FeathersJS Auth Recipe：自定义登录响应<a class="headerlink" href="#feathersjs-auth-recipe-customizing-the-login-response" title="永久链接至标题">¶</a></h1>
+<p>The Auk release of FeathersJS includes a powerful new <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">authentication suite</span></a> built on top of
+<a class="reference external" href="http://www.passportjs.org/">PassportJS</a>. The new plugins are very
+flexible, allowing you to customize nearly everything. This flexibility
+required making some changes. In this guide, we’ll look at the changes
+to the login response and how you can customize it.</p>
+<div class="section" id="changes-to-the-login-response">
+<h2>Changes to the Login Response<a class="headerlink" href="#changes-to-the-login-response" title="永久链接至标题">¶</a></h2>
+<p>The previous version of <code class="docutils literal notranslate"><span class="pre">feathers-authentication</span></code> always returned the
+same response. It looked something like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">token</span><span class="o">:</span> <span class="s1">&#39;&lt;the jwt token&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">user</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;my@email.com&#39;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The JWT also contained a payload which held an <code class="docutils literal notranslate"><span class="pre">id</span></code> property
+representing the user <code class="docutils literal notranslate"><span class="pre">id</span></code>. We found that this was too restrictive for
+some of our more technical apps. For instance, what if you wanted to
+authenticate a device instead of a user? Or what if you want to
+authenticate both a device <strong>and</strong> a user? The old plugin couldn’t
+handle those situations. The new one does. To make it work, we started
+by simplifying the response. The default response now looks like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">accessToken</span><span class="o">:</span> <span class="s1">&#39;&lt;the jwt token&gt;&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The JWT also contains a payload which has a <code class="docutils literal notranslate"><span class="pre">userId</span></code> property.</p>
+<p>Based on the above, you can see that we still authenticate a <code class="docutils literal notranslate"><span class="pre">user</span></code> by
+default. In this case, the <code class="docutils literal notranslate"><span class="pre">user</span></code> is what we call the <code class="docutils literal notranslate"><span class="pre">entity</span></code>. It’s
+the generic name of what is being authenticated. It’s customizable, but
+that’s not covered in this guide. Instead, let’s focus on what it takes
+to add the user in the login response.</p>
+</div>
+<div class="section" id="customizing-the-login-response">
+<h2>Customizing the Login Response<a class="headerlink" href="#customizing-the-login-response" title="永久链接至标题">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> endpoint is now a Feathers service. It uses the
+<code class="docutils literal notranslate"><span class="pre">create</span></code> method for login and the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method for logout. Just
+like with all Feathers services, you can customize the response with the
+<span class="xref std std-doc">../api/hooks</span>. For what we want to do, the
+important part is the <code class="docutils literal notranslate"><span class="pre">context.result</span></code>, which becomes the response
+body. We can use an <code class="docutils literal notranslate"><span class="pre">after</span></code> hook to customize the <code class="docutils literal notranslate"><span class="pre">context.result</span></code>
+to return anything that we want:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;/authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>After a successful login, the <code class="docutils literal notranslate"><span class="pre">context.result</span></code> already contains the
+<code class="docutils literal notranslate"><span class="pre">accessToken</span></code>. The above example modified the response to look like
+this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">accessToken</span><span class="o">:</span> <span class="s1">&#39;&lt;the jwt token&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-the-user-entity">
+<h2>Accessing the User Entity<a class="headerlink" href="#accessing-the-user-entity" title="永久链接至标题">¶</a></h2>
+<p>Let’s see how to include the <code class="docutils literal notranslate"><span class="pre">user</span></code> in the response, as was done in
+previous versions. The <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> service modifies the
+<code class="docutils literal notranslate"><span class="pre">context.params</span></code> object to contain the entity object (in this case,
+the <code class="docutils literal notranslate"><span class="pre">user</span></code>). With that information, you might have already figured out
+how to get the user into the response. It just has to be copied from
+<code class="docutils literal notranslate"><span class="pre">context.params.user</span></code> to the <code class="docutils literal notranslate"><span class="pre">context.result.user</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;/authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+
+        <span class="c1">// Don&#39;t expose sensitive information.</span>
+        <span class="k">delete</span> <span class="nx">context</span><span class="p">.</span><span class="nx">result</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>At this point, the response now includes the <code class="docutils literal notranslate"><span class="pre">accessToken</span></code> and the
+<code class="docutils literal notranslate"><span class="pre">user</span></code>. Now the client won’t have to make an additional request for
+the <code class="docutils literal notranslate"><span class="pre">user</span></code> data. <em>As is shown in the above example, be sure to not
+expose any sensitive information.</em></p>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping Up<a class="headerlink" href="#wrapping-up" title="永久链接至标题">¶</a></h2>
+<p>You’ve now learned some of the differences in the new
+<code class="docutils literal notranslate"><span class="pre">feathers-authentication</span></code> plugin. Instead of using two endpoints, it’s
+using a single service. It also has a simplified response, compared to
+before. Now, you can customize the response to include whatever
+information you need.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe：使用混合身份验证创建端点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recipe.customize-jwt-payload.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe：自定义JWT Payload" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

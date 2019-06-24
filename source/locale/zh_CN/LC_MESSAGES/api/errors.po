@@ -1,0 +1,250 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/errors.rst:2
+msgid "Errors"
+msgstr "错误"
+
+#: ../../source/api/errors.rst:4
+msgid "|npm version| |Changelog|"
+msgstr "|npm version| |Changelog|"
+
+#: ../../source/api/errors.rst:10
+msgid ""
+"The ``@feathersjs/errors`` module contains a set of standard error "
+"classes used by all other Feathers modules as well as an `Express error "
+"handler <https://expressjs.com/en/guide/error-handling.html>`_ to format "
+"those - and other - errors and setting the correct HTTP status codes for "
+"REST calls."
+msgstr ""
+"``feathersjs/errors`` 模块包含一组标准错误类,供所有其他Feathers模块使用,以及一个 `Express错误处理程序 <https://expressjs.com/en/guide/error-handling.html>`_ 格式化那些 - 以及其他 - 错误并为REST调用设置正确的HTTP状态代码."
+
+#: ../../source/api/errors.rst:17
+msgid "Feathers errors"
+msgstr "羽毛错误"
+
+#: ../../source/api/errors.rst:19
+msgid ""
+"The following error types, all of which are instances of "
+"``FeathersError``, are available:"
+msgstr ""
+"可以使用以下错误类型,它们都是 ``FeathersError`` 的实例:"
+
+#: ../../source/api/errors.rst:22
+msgid ""
+"All of the Feathers plugins will automatically emit the appropriate "
+"Feathers errors for you. For example, most of the database adapters will "
+"already send ``Conflict`` or ``Unprocessable`` errors with the validation"
+" errors from the ORM."
+msgstr ""
+"所有Feathers插件都会自动为您发出相应的Feathers错误.例如,大多数数据库适配器已经发送了来自ORM的验证错误的 ``Conflict`` 或 ``Unprocessable`` 错误."
+
+#: ../../source/api/errors.rst:27
+msgid "400: ``BadRequest``"
+msgstr "400: ``BadRequest``"
+
+#: ../../source/api/errors.rst:28
+msgid "401: ``NotAuthenticated``"
+msgstr "401: ``NotAuthenticated``"
+
+#: ../../source/api/errors.rst:29
+msgid "402: ``PaymentError``"
+msgstr "402: ``PaymentError``"
+
+#: ../../source/api/errors.rst:30
+msgid "403: ``Forbidden``"
+msgstr "403: ``Forbidden``"
+
+#: ../../source/api/errors.rst:31
+msgid "404: ``NotFound``"
+msgstr "404: ``NotFound``"
+
+#: ../../source/api/errors.rst:32
+msgid "405: ``MethodNotAllowed``"
+msgstr "405: ``MethodNotAllowed``"
+
+#: ../../source/api/errors.rst:33
+msgid "406: ``NotAcceptable``"
+msgstr "406: ``NotAcceptable``"
+
+#: ../../source/api/errors.rst:34
+msgid "408: ``Timeout``"
+msgstr "408: ``Timeout``"
+
+#: ../../source/api/errors.rst:35
+msgid "409: ``Conflict``"
+msgstr "409: ``Conflict``"
+
+#: ../../source/api/errors.rst:36
+msgid "411: ``LengthRequired``"
+msgstr "411: ``LengthRequired``"
+
+#: ../../source/api/errors.rst:37
+msgid "422: ``Unprocessable``"
+msgstr "422: ``Unprocessable``"
+
+#: ../../source/api/errors.rst:38
+msgid "429: ``TooManyRequests``"
+msgstr "429: ``TooManyRequests``"
+
+#: ../../source/api/errors.rst:39
+msgid "500: ``GeneralError``"
+msgstr "500: ``GeneralError``"
+
+#: ../../source/api/errors.rst:40
+msgid "501: ``NotImplemented``"
+msgstr "501: ``NotImplemented``"
+
+#: ../../source/api/errors.rst:41
+msgid "502: ``BadGateway``"
+msgstr "502: ``BadGateway``"
+
+#: ../../source/api/errors.rst:42
+msgid "503: ``Unavailable``"
+msgstr "503: ``Unavailable``"
+
+#: ../../source/api/errors.rst:44
+msgid "Feathers errors contain the following fields:"
+msgstr "Feathers错误包含以下字段:"
+
+#: ../../source/api/errors.rst:46
+msgid "``name`` - The error name (e.g. “BadRequest”, “ValidationError”, etc.)"
+msgstr "``name`` - 错误名称(例如 “BadRequest”, “ValidationError” 等)"
+
+#: ../../source/api/errors.rst:48
+msgid "``message`` - The error message string"
+msgstr "``message`` - 错误消息字符串"
+
+#: ../../source/api/errors.rst:49
+msgid "``code`` - The HTTP status code"
+msgstr "``code`` - HTTP状态代码"
+
+#: ../../source/api/errors.rst:50
+msgid ""
+"``className`` - A CSS class name that can be handy for styling errors "
+"based on the error type. (e.g. “bad-request” , etc.)"
+msgstr ""
+"``className`` - 一个CSS类名,可以根据错误类型设置样式错误. (例如  “bad-request”  等)"
+
+#: ../../source/api/errors.rst:52
+msgid ""
+"``data`` - An object containing anything you passed to a Feathers error "
+"except for the ``errors`` object."
+msgstr ""
+"``data`` - 包含传递给Feathers错误的任何对象的对象,除了 ``errors`` 对象."
+
+#: ../../source/api/errors.rst:54
+msgid ""
+"``errors`` - An object containing whatever was passed to a Feathers error"
+" inside ``errors``. This is typically validation errors or if you want to"
+" group multiple errors together."
+msgstr ""
+"``errors`` - 包含任何内容的对象传递给 ``errors`` 中的Feathers错误.这通常是验证错误,或者您想要将多个错误组合在一起."
+
+#: ../../source/api/errors.rst:60
+msgid ""
+"To convert a Feathers error back to an object call ``error.toJSON()``. A "
+"normal ``console.log`` of a JavaScript Error object will not "
+"automatically show those additional properties described above (even "
+"though they can be accessed directly)."
+msgstr ""
+"要将Feathers错误转换回对象,请调用 ``error.toJSON()``. JavaScript Error对象的正常 ``console.log`` 不会自动显示上面描述的那些附加属性(即使它们可以直接访问)."
+
+#: ../../source/api/errors.rst:66
+msgid "Custom errors"
+msgstr "自定义错误"
+
+#: ../../source/api/errors.rst:68
+msgid ""
+"You can create custom errors by extending from the ``FeathersError`` "
+"class and calling its constructor with ``(msg, name, code, className, "
+"data)``:"
+msgstr ""
+"您可以通过从 ``FeathersError`` 类扩展并使用 ``(msg,name,code,className,data)` 来调用其构造函数来创建自定义错误.:"
+
+#: ../../source/api/errors.rst:72
+msgid "``message`` - The error message"
+msgstr "``message`` - 错误消息"
+
+#: ../../source/api/errors.rst:73
+msgid "``name`` - The error name (e.g. ``my-errror``)"
+msgstr "``name`` - 错误名称(如 ``my-error``)"
+
+#: ../../source/api/errors.rst:74
+msgid ""
+"``code`` - An `HTTP error code "
+"<https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_"
+msgstr ""
+"``code`` - An `HTTP error code "
+"<https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_"
+
+#: ../../source/api/errors.rst:76
+msgid "``className`` - The full name of the error class"
+msgstr "``className`` - 错误类的全名"
+
+#: ../../source/api/errors.rst:77
+msgid "``data`` - Additional data to include in the error"
+msgstr "``data`` - 要包含在错误中的其他数据"
+
+#: ../../source/api/errors.rst:94
+msgid "Examples"
+msgstr "例子"
+
+#: ../../source/api/errors.rst:96
+msgid "Here are a few ways that you can use them:"
+msgstr "您可以使用以下几种方法:"
+
+#: ../../source/api/errors.rst:131
+msgid "Server Side Errors"
+msgstr "服务器端错误"
+
+#: ../../source/api/errors.rst:133
+msgid ""
+"Promises swallow errors if you forget to add a ``catch()`` statement. "
+"Therefore, you should make sure that you **always** call ``.catch()`` on "
+"your promises. To catch uncaught errors at a global level you can add the"
+" code below to your top-most file."
+msgstr ""
+"如果您忘记添加 ``catch()`` 语句,则承诺吞下错误.因此,你应该确保你**总是**在你的承诺上调用 ``.catch()``.要在全局级别捕获未捕获的错误,您可以将以下代码添加到最顶层的文件中."
+
+#: ../../source/api/errors.rst:145
+msgid "Error Handling"
+msgstr "错误处理"
+
+#: ../../source/api/errors.rst:147
+msgid ""
+"It is important to make sure that errors get cleaned up before they go "
+"back to the client. `Express error handling middlware "
+"<https://docs.feathersjs.com/api/express.html#expresserrorhandler>`_ "
+"works only for REST calls. If you want to make sure that ws errors are "
+"handled as well, you need to use `App Hooks "
+"<https://docs.feathersjs.com/guides/basics/hooks.html#application-"
+"hooks>`_. App Error Hooks get called on an error to every service call "
+"regardless of transport."
+msgstr "确保在返回客户端之前清除错误非常重要. `快速错误处理middlware <https://docs.feathersjs.com/api/express.html#expresserrorhandler>`_ 仅适用于REST调用.如果你想确保也处理ws错误,你需要使用 `App Hooks <https://docs.feathersjs.com/guides/basics/hooks.html#application-hooks>`_. App Error Hooks会在每次服务调用时调用错误,无论传输如何."
+
+#: ../../source/api/errors.rst:156
+msgid "Here is an example error handler you can add to app.hooks errors."
+msgstr "这是一个示例错误处理程序,您可以添加到app.hooks错误."
+
+#: ../../source/api/errors.rst:176
+msgid "then add it to the error.all hook"
+msgstr "然后将它添加到error.all钩子"
+

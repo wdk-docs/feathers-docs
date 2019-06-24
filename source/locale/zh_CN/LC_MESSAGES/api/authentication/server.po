@@ -1,0 +1,635 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/authentication/server.rst:2
+msgid "Authentication"
+msgstr "认证"
+
+#: ../../source/api/authentication/server.rst:4
+msgid "|npm version| |Changelog|"
+msgstr "|npm version| |Changelog|"
+
+#: ../../source/api/authentication/server.rst:10
+msgid ""
+"The "
+"[@feathersjs/authentication](https://github.com/feathersjs/authentication)"
+" module assists in using JWT for authentication. It has three primary "
+"purposes:"
+msgstr ""
+"[@ feathersjs / "
+"authentication]（https://github.com/feathersjs/authentication）模块有助于使用JWT进行身份验证。它有三个主要目的："
+
+#: ../../source/api/authentication/server.rst:15
+msgid ""
+"Setup an ``/authentication`` endpoint to create JSON Web Tokens (JWT). "
+"JWT are used as access tokens. You can learn more about JWT at `jwt.io "
+"<https://jwt.io>`_"
+msgstr ""
+"Setup an ``/authentication`` endpoint to create JSON Web Tokens (JWT). "
+"JWT are used as access tokens. You can learn more about JWT at `jwt.io "
+"<https://jwt.io>`_"
+
+#: ../../source/api/authentication/server.rst:18
+msgid "Provide a consistent authentication API for all Feathers transports"
+msgstr "Provide a consistent authentication API for all Feathers transports"
+
+#: ../../source/api/authentication/server.rst:19
+msgid ""
+"Provide a framework for authentication plugins that use `Passport "
+"<http://passportjs.org/>`_ strategies to protect endpoints."
+msgstr ""
+"Provide a framework for authentication plugins that use `Passport "
+"<http://passportjs.org/>`_ strategies to protect endpoints."
+
+#: ../../source/api/authentication/server.rst:25
+#, fuzzy
+msgid ""
+"If you are using a 0.x version of "
+"`https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating`_."
+" The hooks that were once bundled with this module are now located at "
+"`feathers-authentication-hooks <https://github.com/feathersjs-ecosystem"
+"/feathers-authentication-hooks>`_."
+msgstr ""
+"如果您使用的是0.x版本：doc：`https：// github.com / feathersjs / authentication / "
+"blob / 4344c6f037f2660e4636c1c05ea22a0000649312 / docs / "
+"migrating`。曾与这个模块捆绑在一起的钩子现在位于`feathers-authentication-hooks "
+"<https://github.com/feathersjs-ecosystem/feathers-authentication-"
+"hooks>`_。"
+
+#: ../../source/api/authentication/server.rst:31
+msgid "Complementary Plugins"
+msgstr "Complementary Plugins"
+
+#: ../../source/api/authentication/server.rst:33
+msgid "The following plugins are complementary, but entirely optional:"
+msgstr "The following plugins are complementary, but entirely optional:"
+
+#: ../../source/api/authentication/server.rst:35
+#, fuzzy
+msgid "Using the authentication server on the client: :doc:`./client`"
+msgstr ""
+"Using the authentication server on the client: [@feathersjs"
+"/authentication-client](./client.md)"
+
+#: ../../source/api/authentication/server.rst:37
+#, fuzzy
+msgid "Local (username/password) authentication: :doc:`./local`"
+msgstr ""
+"Local (username/password) authentication: [@feathersjs/authentication-"
+"local](./local.md)"
+
+#: ../../source/api/authentication/server.rst:39
+msgid "JWT authentication: :doc:`./jwt`"
+msgstr ""
+
+#: ../../source/api/authentication/server.rst:40
+#, fuzzy
+msgid "OAuth1 authentication: :doc:`./oauth1`"
+msgstr "OAuth1 authentication: :doc:`@feathersjs/authentication-oauth1 <./oauth1>`"
+
+#: ../../source/api/authentication/server.rst:42
+#, fuzzy
+msgid "OAuth2 authentication: :doc:`./oauth2`"
+msgstr "OAuth2 authentication: :doc:`@feathersjs/authentication-oauth2 <./oauth2>`"
+
+#: ../../source/api/authentication/server.rst:46
+msgid "app.configure(auth(options))"
+msgstr "app.configure(auth(options))"
+
+#: ../../source/api/authentication/server.rst:48
+msgid ""
+"Configure the authentication plugin with the given options. For options "
+"that are not provided, the `default options <#default-options>`_ will be "
+"used."
+msgstr ""
+"Configure the authentication plugin with the given options. For options "
+"that are not provided, the `default options <#default-options>`_ will be "
+"used."
+
+#: ../../source/api/authentication/server.rst:61
+#, fuzzy
+msgid "The plugin has to be configured **before** any other service."
+msgstr ""
+"**Important:** The plugin has to be configured **before** any other "
+"service."
+
+#: ../../source/api/authentication/server.rst:65
+msgid "Options"
+msgstr "Options"
+
+#: ../../source/api/authentication/server.rst:67
+msgid ""
+"The following default options will be mixed in with your global ``auth`` "
+"object from your config file. It will set the mixed options back onto the"
+" app so that they are available at any time by calling "
+"``app.get('authentication')``. They can all be overridden and are "
+"required by some of the authentication plugins."
+msgstr "以下默认选项将与配置文件中的全局``auth``对象混合在一起。它会将混合选项设置回应用程序，以便通过调用``app.get（'authentication'）``随时可用。它们都可以被覆盖，并且是某些身份验证插件所必需的。"
+
+#: ../../source/api/authentication/server.rst:101
+#, fuzzy
+msgid ""
+"The ``typ`` in the JWT header options is not a typo. It is the `typ "
+"parameter defined in the JWT specification "
+"<https://tools.ietf.org/html/rfc7519#section-5.1>`_."
+msgstr ""
+"**Note:** The ``typ`` in the JWT header options is not a typo. It is the "
+"`typ parameter defined in the JWT specification "
+"<https://tools.ietf.org/html/rfc7519#section-5.1>`_."
+
+#: ../../source/api/authentication/server.rst:106
+msgid "app.service(‘authentication’)"
+msgstr "app.service(‘authentication’)"
+
+#: ../../source/api/authentication/server.rst:108
+msgid ""
+"The heart of this plugin is a service for creating JWT. It’s a normal "
+"Feathers service that implements only the ``create`` and ``remove`` "
+"methods. The ``/authentication`` service provides all of the "
+"functionality that the ``/auth/local`` and ``/auth/token`` endpoints did."
+" To choose a strategy, the client must pass the ``strategy`` name in the "
+"request body. This will be different based on the plugin used. See the "
+"documentation for the plugins listed at the top of this page for more "
+"information."
+msgstr ""
+
+#: ../../source/api/authentication/server.rst:118
+msgid "service.create(data)"
+msgstr "service.create(data)"
+
+#: ../../source/api/authentication/server.rst:120
+msgid ""
+"The ``create`` method will be used in nearly every Feathers application. "
+"It creates a JWT based on the ``jwt`` options configured on the plugin. "
+"The API of this method utilizes the ``context`` object."
+msgstr ""
+"The ``create`` method will be used in nearly every Feathers application. "
+"It creates a JWT based on the ``jwt`` options configured on the plugin. "
+"The API of this method utilizes the ``context`` object."
+
+#: ../../source/api/authentication/server.rst:124
+msgid ""
+"If you are manually generating JWT’s, and for example, wanted to create a"
+" JWT with the `payload <https://jwt.io>`_ ``{userId: \"abc123\"}``:"
+msgstr ""
+"If you are manually generating JWT’s, and for example, wanted to create a"
+" JWT with the `payload <https://jwt.io>`_ ``{userId: \"abc123\"}``:"
+
+#: ../../source/api/authentication/server.rst:132
+msgid ""
+"Anything included in the ``data.payload`` object will be in the JWT’s "
+"payload. If you include a ``payload`` object in `params "
+"<https://docs.feathersjs.com/api/services.html#createdata-params>`_, it’s"
+" properties will take precedence over ``data``."
+msgstr ""
+"Anything included in the ``data.payload`` object will be in the JWT’s "
+"payload. If you include a ``payload`` object in `params "
+"<https://docs.feathersjs.com/api/services.html#createdata-params>`_, it’s"
+" properties will take precedence over ``data``."
+
+#: ../../source/api/authentication/server.rst:138
+msgid "service.remove(data)"
+msgstr "service.remove(data)"
+
+#: ../../source/api/authentication/server.rst:140
+msgid ""
+"The ``remove`` method is used less often. Its main purpose is adding "
+"hooks to the “logout” process. For example, in services that require high"
+" control over security, a developer can register hooks on the ``remove`` "
+"method that perform token blacklisting."
+msgstr "较少使用``remove``方法。它的主要目的是为“注销”过程添加钩子。例如，在需要高度安全控制的服务中，开发人员可以在执行令牌黑名单的``remove``方法上注册挂钩。"
+
+#: ../../source/api/authentication/server.rst:146
+msgid "service.hooks({ before })"
+msgstr "service.hooks({ before })"
+
+#: ../../source/api/authentication/server.rst:148
+msgid ""
+"These properties can be modified to change the behavior of the "
+"``/authentication`` service:"
+msgstr ""
+"These properties can be modified to change the behavior of the "
+"``/authentication`` service:"
+
+#: ../../source/api/authentication/server.rst:151
+msgid "``context.data.payload {Object}`` - determines the payload of the JWT"
+msgstr "``context.data.payload {Object}`` - determines the payload of the JWT"
+
+#: ../../source/api/authentication/server.rst:152
+msgid ""
+"``context.params.payload {Object}`` - also determines the payload of the "
+"JWT. Any matching attributes in the ``context.data.payload`` will be "
+"overwritten by these. Persists into after hooks."
+msgstr ""
+"``context.params.payload {Object}`` - also determines the payload of the "
+"JWT. Any matching attributes in the ``context.data.payload`` will be "
+"overwritten by these. Persists into after hooks."
+
+#: ../../source/api/authentication/server.rst:155
+msgid ""
+"``context.params.authenticated {Boolean}`` - After successful "
+"authentication, will be set to ``true``, unless it’s set to ``false`` in "
+"a before hook. If you set it to ``false`` in a before hook, it will "
+"prevent the websocket from being flagged as authenticated. Persists into "
+"after hooks."
+msgstr ""
+"``context.params.authenticated {Boolean}`` - "
+"成功验证后，将被设置为``true``，除非它在before hook中设置为``false``。如果在before "
+"hook中将其设置为“false”，则会阻止websocket被标记为已验证。坚持后钩。"
+
+#: ../../source/api/authentication/server.rst:162
+msgid "service.hooks({ after })"
+msgstr "service.hooks({ after })"
+
+#: ../../source/api/authentication/server.rst:164
+msgid ""
+"``context.params[entity] {Object}`` - After successful authentication, "
+"the ``entity`` looked up from the database will be populated here. (The "
+"default option is ``user``.)"
+msgstr ""
+"``context.params[entity] {Object}`` - After successful authentication, "
+"the ``entity`` looked up from the database will be populated here. (The "
+"default option is ``user``.)"
+
+#: ../../source/api/authentication/server.rst:169
+msgid "app.passport"
+msgstr "app.passport"
+
+#: ../../source/api/authentication/server.rst:172
+msgid "app.passport.createJWT(payload, options)"
+msgstr "app.passport.createJWT(payload, options)"
+
+#: ../../source/api/authentication/server.rst:174
+msgid ""
+"``app.passport.createJWT(payload, options) -> Promise`` is used by the "
+"`authentication service <#appserviceauthentication>`_ to generate JSON "
+"Web Tokens."
+msgstr ""
+"``app.passport.createJWT(payload, options) -> Promise`` is used by the "
+"`authentication service <#appserviceauthentication>`_ to generate JSON "
+"Web Tokens."
+
+#: ../../source/api/authentication/server.rst:178
+msgid ""
+"``payload {Object}`` - becomes the JWT payload. Will also include an "
+"``exp`` property denoting the expiry timestamp."
+msgstr ""
+"``payload {Object}`` - becomes the JWT payload. Will also include an "
+"``exp`` property denoting the expiry timestamp."
+
+#: ../../source/api/authentication/server.rst:179
+#, fuzzy
+msgid ""
+"``options {Object}`` - the options passed to `jsonwebtoken sign() "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-"
+"secretorprivatekey-options-callback>`_"
+msgstr ""
+"``options {Object}`` - the options passed to `jsonwebtoken ``sign()`` "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-"
+"secretorprivatekey-options-callback>`_"
+
+#: ../../source/api/authentication/server.rst:180
+msgid ""
+"``secret {String | Buffer}`` - either the secret for HMAC algorithms, or "
+"the PEM encoded private key for RSA and ECDSA."
+msgstr ""
+"``secret {String | Buffer}`` - either the secret for HMAC algorithms, or "
+"the PEM encoded private key for RSA and ECDSA."
+
+#: ../../source/api/authentication/server.rst:181
+msgid ""
+"``jwt`` - See the `jsonwebtoken "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-"
+"secretorprivatekey-options-callback>`_ package docs for other available "
+"options. The authenticate method uses the `default ``jwt`` options "
+"<#default-options>`_. When using this package directly, they have to be "
+"passed in manually."
+msgstr ""
+"``jwt``  - 有关其他可用选项，请参阅`jsonwebtoken "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-"
+"secretorprivatekey-options-callback>`_ package docs。 "
+"authenticate方法使用`default``jwt``选项<#default-options>`_。直接使用此包时，必须手动传递它们。"
+
+#: ../../source/api/authentication/server.rst:185
+msgid "The returned ``promise`` resolves with the JWT or fails with an error."
+msgstr "返回的``promise``用JWT解析或失败并出错。"
+
+#: ../../source/api/authentication/server.rst:188
+msgid "app.passport.verifyJWT(token, options)"
+msgstr "app.passport.verifyJWT(token, options)"
+
+#: ../../source/api/authentication/server.rst:190
+msgid ""
+"Verifies the signature and payload of the passed in JWT ``token`` using "
+"the ``options``."
+msgstr ""
+"Verifies the signature and payload of the passed in JWT ``token`` using "
+"the ``options``."
+
+#: ../../source/api/authentication/server.rst:192
+msgid "``token {JWT}`` - the JWT to be verified."
+msgstr "``token {JWT}`` - the JWT to be verified."
+
+#: ../../source/api/authentication/server.rst:193
+#, fuzzy
+msgid ""
+"``options {Object}`` the options passed to `jsonwebtoken verify() "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-"
+"secretorpublickey-options-callback>`_"
+msgstr ""
+"``options {Object}`` the options passed to `jsonwebtoken ``verify()`` "
+"<https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-"
+"secretorpublickey-options-callback>`_"
+
+#: ../../source/api/authentication/server.rst:194
+msgid ""
+"``secret {String | Buffer}`` - - either the secret for HMAC algorithms, "
+"or the PEM encoded private key for RSA and ECDSA."
+msgstr ""
+"``secret {String | Buffer}`` - - either the secret for HMAC algorithms, "
+"or the PEM encoded private key for RSA and ECDSA."
+
+#: ../../source/api/authentication/server.rst:195
+#, fuzzy
+msgid ""
+"See the `jsonwebtoken <https://www.npmjs.com/package/jsonwebtoken"
+"#jwtsignpayload-secretorprivatekey-options-callback>`_ package docs for "
+"other available options."
+msgstr ""
+"See the ```jsonwebtoken`` <https://www.npmjs.com/package/jsonwebtoken"
+"#jwtsignpayload-secretorprivatekey-options-callback>`_ package docs for "
+"other available options."
+
+#: ../../source/api/authentication/server.rst:197
+msgid "The returned ``promise`` resolves with the payload or fails with an error."
+msgstr "The returned ``promise`` resolves with the payload or fails with an error."
+
+#: ../../source/api/authentication/server.rst:200
+msgid "auth.hooks.authenticate(strategies)"
+msgstr "auth.hooks.authenticate(strategies)"
+
+#: ../../source/api/authentication/server.rst:202
+#, fuzzy
+msgid ""
+"``@feathersjs/authentication`` only includes a single hook. This bundled "
+"``authenticate`` hook is used to register an array of authentication "
+"strategies on a service method."
+msgstr ""
+"``@feathersjs/authentication`` only includes a single hook. This bundled "
+"``authenticate`` hook is usedto register an array of authentication "
+"strategies on a service method."
+
+#: ../../source/api/authentication/server.rst:206
+msgid ""
+"This should usually be used on your ``/authentication`` service. Without "
+"it, you can hit the ``authentication`` service and generate a JWT "
+"``accessToken`` without authentication (ie. anonymous authentication)."
+msgstr ""
+
+#: ../../source/api/authentication/server.rst:225
+msgid "Authentication Events"
+msgstr "Authentication Events"
+
+#: ../../source/api/authentication/server.rst:227
+msgid ""
+"The ``login`` and ``logout`` events are emitted on the ``app`` object "
+"whenever a client successfully authenticates or “logs out”. (With JWT, "
+"logging out doesn’t invalidate the JWT. (Read the section on JWT for "
+"details.) These events are only emitted on the server."
+msgstr ""
+"只要客户端成功验证或“注销”，就会在``app``对象上发出``login``和``logout``事件。 "
+"（使用JWT时，注销不会使JWT无效。（有关详细信息，请阅读JWT部分。）这些事件仅在服务器上发出。"
+
+#: ../../source/api/authentication/server.rst:233
+msgid "app.on(‘login’, callback))"
+msgstr "app.on(‘login’, callback))"
+
+#: ../../source/api/authentication/server.rst:236
+msgid "app.on(‘logout’, callback))"
+msgstr "app.on(‘logout’, callback))"
+
+#: ../../source/api/authentication/server.rst:238
+msgid "These two events use a ``callback`` function with the same signature."
+msgstr "These two events use a ``callback`` function with the same signature."
+
+#: ../../source/api/authentication/server.rst:240
+msgid ""
+"``result`` {Object} - The final ``context.result`` from the "
+"``authentication`` service. Unless you customize the ``context.response``"
+" in an after hook, this will only contain the ``accessToken``, which is "
+"the JWT."
+msgstr ""
+"``result`` {Object}  - "
+"来自``authentication``服务的最终``context.result``。除非你在后钩子中自定义``context.response``，否则它只包含``accessToken``，它是JWT。"
+
+#: ../../source/api/authentication/server.rst:244
+#, fuzzy
+msgid ""
+"``meta`` {Object} - information about the request. *The ``meta`` data "
+"varies per transport / provider as follows.*"
+msgstr ""
+"``meta`` {Object} - information about the request. *The ``meta`` data "
+"varies per transport/provider as follows.*"
+
+#: ../../source/api/authentication/server.rst:247
+msgid "Using ``@feathersjs/express/rest``"
+msgstr "Using ``@feathersjs/express/rest``"
+
+#: ../../source/api/authentication/server.rst:249
+msgid "``provider`` {String} - will always be ``\"rest\"``"
+msgstr "``provider`` {String} - will always be ``\"rest\"``"
+
+#: ../../source/api/authentication/server.rst:250
+msgid "``req`` {Object} - the Express request object."
+msgstr "``req`` {Object} - the Express request object."
+
+#: ../../source/api/authentication/server.rst:251
+msgid "``res`` {Object} - the Express response object."
+msgstr "``res`` {Object} - the Express response object."
+
+#: ../../source/api/authentication/server.rst:253
+msgid "Using ``feathers-socketio`` and ``feathers-primus``:"
+msgstr "Using ``feathers-socketio`` and ``feathers-primus``:"
+
+#: ../../source/api/authentication/server.rst:255
+msgid "``provider`` {String} - the transport name: ``socketio`` or ``primus``"
+msgstr "``provider`` {String} - the transport name: ``socketio`` or ``primus``"
+
+#: ../../source/api/authentication/server.rst:257
+msgid "``connection`` {Object} - the same as ``params`` in the hook context"
+msgstr "``connection`` {Object} - the same as ``params`` in the hook context"
+
+#: ../../source/api/authentication/server.rst:259
+msgid ""
+"``socket`` {SocketObject} - the current user’s WebSocket object. It also "
+"contains the ``feathers`` attribute, which is the same as ``params`` in "
+"the hook context."
+msgstr ""
+"``socket`` {SocketObject} - the current user’s WebSocket object. It also "
+"contains the ``feathers`` attribute, which is the same as ``params`` in "
+"the hook context."
+
+#: ../../source/api/authentication/server.rst:264
+msgid "Express Middleware"
+msgstr "Express Middleware"
+
+#: ../../source/api/authentication/server.rst:266
+msgid ""
+"There is an ``authenticate`` middleware. It is used the exact same way as"
+" the regular Passport express middleware:"
+msgstr ""
+"There is an ``authenticate`` middleware. It is used the exact same way as"
+" the regular Passport express middleware:"
+
+#: ../../source/api/authentication/server.rst:278
+#, fuzzy
+msgid "For details, see the :doc:`../../guides/auth/recipe.express-middleware`."
+msgstr "For details, see the :doc:`../guides/auth/recipe.express-middleware`."
+
+#: ../../source/api/authentication/server.rst:280
+msgid ""
+"Additional middleware are included and exposed, but you typically don’t "
+"need to worry about them:"
+msgstr ""
+"Additional middleware are included and exposed, but you typically don’t "
+"need to worry about them:"
+
+#: ../../source/api/authentication/server.rst:283
+msgid "``emitEvents`` - emit ``login`` and ``logout`` events"
+msgstr "``emitEvents`` - emit ``login`` and ``logout`` events"
+
+#: ../../source/api/authentication/server.rst:284
+msgid ""
+"``exposeCookies`` - expose cookies to Feathers so they are available to "
+"hooks and services. **This is NOT used by default as its use exposes your"
+" API to CSRF vulnerabilities.** Only use it if you really know what "
+"you’re doing."
+msgstr ""
+"``exposeCookies``  - 向Feathers公开cookie，以便它们可用于钩子和服务。 "
+"**默认情况下不使用它，因为它的使用会将您的API暴露给CSRF漏洞。**只有在您真正知道自己在做什么的情况下才使用它。"
+
+#: ../../source/api/authentication/server.rst:288
+msgid ""
+"``exposeHeaders`` - expose headers to Feathers so they are available to "
+"hooks and services. **This is NOT used by default as its use exposes your"
+" API to CSRF vulnerabilities.** Only use it if you really know what "
+"you’re doing."
+msgstr ""
+"``exposeHeaders``  - 向Feathers公开标题，以便它们可用于钩子和服务。 "
+"**默认情况下不使用它，因为它的使用会将您的API暴露给CSRF漏洞。**只有在您真正知道自己在做什么的情况下才使用它。"
+
+#: ../../source/api/authentication/server.rst:292
+msgid ""
+"``failureRedirect`` - support redirecting on auth failure. Only triggered"
+" if ``hook.redirect`` is set."
+msgstr ""
+"``failureRedirect`` - support redirecting on auth failure. Only triggered"
+" if ``hook.redirect`` is set."
+
+#: ../../source/api/authentication/server.rst:294
+msgid ""
+"``successRedirect`` - support redirecting on auth success. Only triggered"
+" if ``hook.redirect`` is set."
+msgstr ""
+"``successRedirect`` - support redirecting on auth success. Only triggered"
+" if ``hook.redirect`` is set."
+
+#: ../../source/api/authentication/server.rst:296
+msgid ""
+"``setCookie`` - support setting the JWT access token in a cookie. Only "
+"enabled if cookies are enabled. **Note: Feathers will NOT read an access "
+"token from a cookie. This would expose the API to CSRF attacks.** This "
+"``setCookie`` feature is available primarily for helping with Server Side"
+" Rendering."
+msgstr ""
+"``setCookie``  - 支持在cookie中设置JWT访问令牌。仅在启用cookie时启用。 "
+"**注意：Feathers不会从cookie中读取访问令牌。这会使API暴露于CSRF攻击。**这个``setCookie``功能主要用于帮助进行服务器端渲染。"
+
+#: ../../source/api/authentication/server.rst:303
+msgid "Complete Example"
+msgstr "Complete Example"
+
+#: ../../source/api/authentication/server.rst:305
+msgid ""
+"Here’s an example of a Feathers server that uses "
+"``@feathersjs/authentication`` for local authentication."
+msgstr ""
+"Here’s an example of a Feathers server that uses "
+"``@feathersjs/authentication`` for local authentication."
+
+#~ msgid ""
+#~ "**Note:** If you are using a 0.x"
+#~ " version of ``feathers-authentication`` "
+#~ "please refer to `the migration guide "
+#~ "<https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating.md>`_."
+#~ " The hooks that were once bundled "
+#~ "with this module are now located "
+#~ "at `feathers-authentication-hooks "
+#~ "<https://github.com/feathersjs-ecosystem/feathers-"
+#~ "authentication-hooks>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``jwt`` - See the ```jsonwebtoken`` "
+#~ "<https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-"
+#~ "secretorprivatekey-options-callback>`_ package "
+#~ "docs for other available options. The"
+#~ " authenticate method uses the `default "
+#~ "``jwt`` options <#default-options>`_. When "
+#~ "using this package directly, they have"
+#~ " to be passed in manually."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** This should usually be used"
+#~ " on your ``/authentication`` service. "
+#~ "Without it, you can hit the "
+#~ "``authentication`` service and generate a "
+#~ "JWT ``accessToken`` without authentication "
+#~ "(ie. anonymous authentication)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are using a 0.x version "
+#~ "of :doc:``feathers-authentication`` please "
+#~ "refer to `the migration guide "
+#~ "<https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating>`_."
+#~ " The hooks that were once bundled "
+#~ "with this module are now located "
+#~ "at `feathers-authentication-hooks "
+#~ "<https://github.com/feathersjs-ecosystem/feathers-"
+#~ "authentication-hooks>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you are using a 0.x version "
+#~ "of :doc:``feathers-authentication`` please "
+#~ "refer to `the migration guide "
+#~ "<https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating>`."
+#~ " The hooks that were once bundled "
+#~ "with this module are now located "
+#~ "at `feathers-authentication-hooks "
+#~ "<https://github.com/feathersjs-ecosystem/feathers-"
+#~ "authentication-hooks>`_."
+#~ msgstr ""
+
+#~ msgid "JWT authentication: :doc:`@feathersjs/authentication-jwt <./jwt>`"
+#~ msgstr "JWT authentication: :doc:`@feathersjs/authentication-jwt <./jwt>`"
+

@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>钩子 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="REST APIs" href="rest.html" />
+    <link rel="prev" title="服务" href="services.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">钩子</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quick-example">快速举例</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hook-functions">钩子函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">钩子上下文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#registering-hooks">注册钩子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#validating-data">验证数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-hooks">应用程序挂钩</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-logging">记录错误</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#more-examples">更多例子</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html">数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="real-time.html">实时API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clients.html">客户使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generator.html">Feathers生成器（CLI）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">Feathers 基础功能</a> &raquo;</li>
+        
+      <li>钩子</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/basics/hooks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hooks">
+<h1>钩子<a class="headerlink" href="#hooks" title="永久链接至标题">¶</a></h1>
+<p>正如我们在 <a class="reference internal" href="services.html"><span class="doc">服务</span></a> 中看到的,Feathers服务是实现数据存储和修改的好方法.从技术上讲,我们可以在服务中实现所有应用程序逻辑,但通常应用程序需要跨多个服务的类似功能.例如,如果允许用户甚至调用服务方法或将当前日期添加到我们正在保存的所有数据,我们可能希望检查所有服务.只需使用服务,我们就必须每次都重新实现这一点.</p>
+<p>这是Feathers钩子的用武之地.钩子是可插入的中间件函数,可以在 <strong>之后</strong>,**之后** 或服务方法的 __ error__s 之后注册.您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程.</p>
+<p>就像服务本身一样,钩子是 <em>独立于运输的</em>.它们通常也是服务不可知的,这意味着它们可以与 <em>any</em>服务一起使用.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>有关hook API的完整概述,请参阅 <a class="reference internal" href="../../api/hooks.html"><span class="doc">钩子API文档</span></a>.</p>
+</div>
+<p>钩子通常用于处理诸如验证,授权,日志记录,填充相关实体,发送通知等内容.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>有关钩子背后的设计模式的更多信息,请参阅 <a class="reference external" href="https://blog.feathersjs.com/api-service-composition-with-hooks-47af13aa6c01">此博客文章</a>.</p>
+</div>
+<div class="section" id="quick-example">
+<h2>快速举例<a class="headerlink" href="#quick-example" title="永久链接至标题">¶</a></h2>
+<p>这是一个钩子的快速示例,它在调用实际的 <code class="docutils literal notranslate"><span class="pre">create</span></code> 服务方法之前向数据添加 <code class="docutils literal notranslate"><span class="pre">createdAt</span></code> 属性:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">createdAt</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+      <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hook-functions">
+<h2>钩子函数<a class="headerlink" href="#hook-functions" title="永久链接至标题">¶</a></h2>
+<p>钩子函数是一个函数,它将 <a class="reference external" href="#hook-context">钩子上下文</a> 作为参数并返回该上下文或什么都不返回.挂钩函数按照它们注册的顺序运行,并且只有在当前挂钩函数完成后才会继续到下一个.如果钩子函数抛出错误,将跳过所有剩余的挂钩(可能还有服务调用),并返回错误.</p>
+<p>使钩子更易于重复使用的常见模式(例如,使上面的示例中的 <code class="docutils literal notranslate"><span class="pre">createdAt</span></code> 属性名称可配置)是创建一个包装函数,它接受这些选项并返回一个钩子函数:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">setTimestamp</span> <span class="o">=</span> <span class="nx">name</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">(</span><span class="s1">&#39;createdAt&#39;</span><span class="p">),</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">(</span><span class="s1">&#39;updatedAt&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>现在我们有一个可重用的钩子,可以在任何属性上设置时间戳.</p>
+</div>
+<div class="section" id="id1">
+<h2>钩子上下文<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>钩子 <code class="docutils literal notranslate"><span class="pre">context</span></code> 是一个包含服务方法调用信息的对象.它具有只读和可写属性.只读属性是:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context.app</span></code> - Feathers应用程序对象</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.service</span></code> - 此钩子当前正在运行的服务</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.path</span></code> - 服务的路径</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.method</span></code> - 服务方式</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.type</span></code> - 钩型 (<code class="docutils literal notranslate"><span class="pre">before</span></code>, <code class="docutils literal notranslate"><span class="pre">after</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">error</span></code>)</p></li>
+</ul>
+<p>可写属性是:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params</span></code> - 服务方法调用 <code class="docutils literal notranslate"><span class="pre">params</span></code>. 对于外部调用, <code class="docutils literal notranslate"><span class="pre">params</span></code> 通常包含:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> - 服务调用的查询(例如,REST的查询字符串)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params.provider</span></code> - 传输的名称（我们将在下一章中看到）调用已完成. 通常是 <code class="docutils literal notranslate"><span class="pre">rest</span></code>, <code class="docutils literal notranslate"><span class="pre">socketio</span></code>, <code class="docutils literal notranslate"><span class="pre">primus</span></code>. 内部调用将是 <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.id</span></code> - 用于 <code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">remove</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code> 和 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 服务方法调用的 <code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.data</span></code> - 用户在 <code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code> 和 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 服务方法调用中发送的 <code class="docutils literal notranslate"><span class="pre">data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.error</span></code> - 抛出的错误(在 <code class="docutils literal notranslate"><span class="pre">error</span></code> 钩子中)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.result</span></code> - 服务方法调用的结果(在 <code class="docutils literal notranslate"><span class="pre">after</span></code> 钩子中)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>有关钩子上下文的更多信息, 请参阅 <a class="reference internal" href="../../api/hooks.html"><span class="doc">钩子API文档</span></a>.</p>
+</div>
+</div>
+<div class="section" id="registering-hooks">
+<h2>注册钩子<a class="headerlink" href="#registering-hooks" title="永久链接至标题">¶</a></h2>
+<p>注册挂钩的最常用方法是在这样的对象中:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">messagesHooks</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="p">},</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">(</span><span class="nx">messagesHooks</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这样可以一目了然地查看执行挂钩的顺序以及使用哪种方法.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code> 是一个特殊的关键字,这意味着这些钩子将在此链中特定于方法的钩子之前运行.</p>
+</div>
+<p>例如,如果挂钩是这样注册的:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">messagesHooks</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook01</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook11</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">get</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook21</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook31</span><span class="p">(),</span> <span class="nx">hook32</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook41</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook51</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook61</span><span class="p">()</span> <span class="p">],</span>
+  <span class="p">},</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook05</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">find</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook15</span><span class="p">(),</span> <span class="nx">hook16</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook35</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook45</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook55</span><span class="p">()</span> <span class="p">],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[</span> <span class="nx">hook65</span><span class="p">()</span> <span class="p">],</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">(</span><span class="nx">messagesHooks</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>此图说明了何时执行每个挂钩:</p>
+<div class="figure align-default" id="id2">
+<img alt="Hook flow" src="../../_images/hook-flow.jpg" />
+<p class="caption"><span class="caption-text">钩流</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="validating-data">
+<h2>验证数据<a class="headerlink" href="#validating-data" title="永久链接至标题">¶</a></h2>
+<p>If a hook throws an error, all following hooks will be skipped and the
+error will be returned to the user. This makes <code class="docutils literal notranslate"><span class="pre">before</span></code> hooks a great
+place to validate incoming data by throwing an error for invalid data.
+We can throw a normal <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">JavaScript
+error</a>
+or <a class="reference internal" href="../../api/errors.html"><span class="doc">错误</span></a> which has some additional
+functionality (like returning the proper error code for REST calls).</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/errors</span></code> 是一个单独的模块,因此您必须在需要之前将其添加到项目中:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/errors --save
+</pre></div>
+</div>
+<p>我们只需要 <code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code> 和 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 的钩子,因为这些是允许用户提交数据的唯一服务方法:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">BadRequest</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/errors&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">validate</span> <span class="o">=</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+
+  <span class="c1">// Check if there is `text` property</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">BadRequest</span><span class="p">(</span><span class="s1">&#39;Message text must exist&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Check if it is a string and not just whitespace</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">text</span> <span class="o">!==</span> <span class="s1">&#39;string&#39;</span> <span class="o">||</span> <span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nx">BadRequest</span><span class="p">(</span><span class="s1">&#39;Message text is invalid&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Change the data to be only the text</span>
+  <span class="c1">// This prevents people from adding other properties to our database</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">validate</span><span class="p">,</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">validate</span><span class="p">,</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="nx">validate</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>抛出一个合适的 <a class="reference internal" href="../../api/errors.html"><span class="doc">Feathers错误</span></a> 允许添加更多信息并返回正确的HTTP状态代码.</p>
+</div>
+</div>
+<div class="section" id="application-hooks">
+<h2>应用程序挂钩<a class="headerlink" href="#application-hooks" title="永久链接至标题">¶</a></h2>
+<p>有时我们想在Feathers应用程序中为每个服务自动添加一个钩子。这是应用程序挂钩可用于的内容。它们与服务特定挂钩的工作方式相同，但以更具体的顺序运行:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">before</span></code> 应用程序挂钩总是在 所有服务 <code class="docutils literal notranslate"><span class="pre">before</span></code> 挂钩之前运行</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">after</span></code> 应用程序挂钩总是在 所有服务 <code class="docutils literal notranslate"><span class="pre">after</span></code> 挂钩后运行</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code> 应用程序挂钩总是在 所有服务 <code class="docutils literal notranslate"><span class="pre">error</span></code> 挂钩后运行</p></li>
+</ul>
+</div>
+<div class="section" id="error-logging">
+<h2>记录错误<a class="headerlink" href="#error-logging" title="永久链接至标题">¶</a></h2>
+<p>应用程序挂钩的一个很好用途是记录任何服务方法调用错误.以下示例使用路径和方法名称以及错误堆栈记录每个服务方法错误:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">error</span><span class="o">:</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`Error in &#39;</span><span class="si">${</span><span class="nx">context</span><span class="p">.</span><span class="nx">path</span><span class="si">}</span><span class="sb">&#39; service method &#39;</span><span class="si">${</span><span class="nx">context</span><span class="p">.</span><span class="nx">method</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">,</span> <span class="nx">context</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-examples">
+<h2>更多例子<a class="headerlink" href="#more-examples" title="永久链接至标题">¶</a></h2>
+<p><span class="xref std std-doc">chat/readme</span> 将显示更多示例，例如如何关联数据和添加由以下创建的钩子的用户信息 <a class="reference internal" href="generator.html"><span class="doc">Feathers生成器（CLI）</span></a>.</p>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>在本章中,我们学习了如何将Feathers钩子用作服务方法调用的中间件,以验证和操作传入和传出数据,而无需更改我们的服务.在下一章中,我们将把消息服务转换为 <a class="reference internal" href="rest.html"><span class="doc">全功能REST API</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rest.html" class="btn btn-neutral float-right" title="REST APIs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral float-left" title="服务" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

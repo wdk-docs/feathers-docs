@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>REST APIs &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="数据库" href="databases.html" />
+    <link rel="prev" title="钩子" href="hooks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">REST APIs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rest-and-services">REST and services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-integration">Express integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#a-messages-rest-api">A messages REST API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-api">Using the API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html">数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="real-time.html">实时API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clients.html">客户使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generator.html">Feathers生成器（CLI）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">Feathers 基础功能</a> &raquo;</li>
+        
+      <li>REST APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/basics/rest.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rest-apis">
+<h1>REST APIs<a class="headerlink" href="#rest-apis" title="永久链接至标题">¶</a></h1>
+<p>In the previous chapters we learned about Feathers <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> and created a
+messages service that works in NodeJS and the browser. We saw how
+Feathers automatically sends events but so far we didn’t really create a
+web API that other people can use.</p>
+<p>This is what Feathers transports do. A transport is a plugin that turns
+a Feathers application into a server that exposes our services through
+different protocols for other clients to use. Since a transport involves
+running a server it won’t work in the browser but we will learn later
+that there are complementary plugins for connecting to a Feathers server
+in a browser Feathers application.</p>
+<p>Currently Feathers officially has three transports:</p>
+<ul class="simple">
+<li><p><span class="xref std std-doc">../api/express</span> for exposing services through a JSON REST API</p></li>
+<li><p><span class="xref std std-doc">../api/socketio</span> for connecting to services through websockets and also receiving real-time service events</p></li>
+<li><p><span class="xref std std-doc">../api/primus</span> an alternative to Socket.io supporting several websocket protocols which also supports real-time events</p></li>
+</ul>
+<p>In this chapter we will look at the HTTP REST transport and Feathers
+Express framework integration.</p>
+<div class="section" id="rest-and-services">
+<h2>REST and services<a class="headerlink" href="#rest-and-services" title="永久链接至标题">¶</a></h2>
+<p>One of the goals of Feathers is to make building <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST APIs</a>
+easier since it is by far the most common protocol for web APIs. For
+example, we want to make a request like <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/messages/1</span></code> and get a
+JSON response like <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;id&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;The</span> <span class="pre">first</span> <span class="pre">message&quot;</span> <span class="pre">}</span></code>. You may
+already have noticed that the Feathers service methods and the HTTP
+methods like <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> are fairly
+complementary to each other:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Service method</p></th>
+<th class="head"><p>HTTP method</p></th>
+<th class="head"><p>Path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>.find()</p></td>
+<td><p>GET</p></td>
+<td><p>/messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>.get()</p></td>
+<td><p>GET</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-even"><td><p>.create()</p></td>
+<td><p>POST</p></td>
+<td><p>/messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>.update()</p></td>
+<td><p>PUT</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-even"><td><p>.patch()</p></td>
+<td><p>PATCH</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-odd"><td><p>.remove()</p></td>
+<td><p>DELETE</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+</tbody>
+</table>
+<p>What the Feathers REST transport essentially does is to automatically
+map our existing service methods to those endpoints.</p>
+</div>
+<div class="section" id="express-integration">
+<h2>Express integration<a class="headerlink" href="#express-integration" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://expressjs.com/">Express</a> is probably the most popular Node
+framework for creating web applications and APIs. The <a class="reference internal" href="../../api/express.html"><span class="doc">Feathers Express integration</span></a> allows us to turn a Feathers
+application into an application that is both a Feathers application and
+a fully compatible Express application. This means you can use Feathers
+functionality like services and also any existing Express middleware. As
+mentioned before, the Express framework integration only works on the
+server.</p>
+<p>To add the integration we install <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">express</span> <span class="o">--</span><span class="n">save</span>
+</pre></div>
+</div>
+<p>Then we can initialize a Feathers and Express application that exposes
+services as a REST API on port <code class="docutils literal notranslate"><span class="pre">3030</span></code> like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="c1">// This creates an app that is both, an Express and Feathers app</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Turn on JSON body parsing for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+<span class="c1">// Turn on URL-encoded body parsing for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Set up REST transport using Express</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+
+<span class="c1">// Set up an error handler that gives us nicer errors</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">());</span>
+
+<span class="c1">// Start the server on port 3030</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">express.json</span></code>, <code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> and <code class="docutils literal notranslate"><span class="pre">express.errorHandler</span></code>
+are normal Express middlewares. We can still use <code class="docutils literal notranslate"><span class="pre">app.use</span></code> to register
+a Feathers service though.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>You can find more information about the Express
+framework integration in the <a class="reference internal" href="../../api/express.html"><span class="doc">Express API chapter</span></a>.</p>
+</div>
+</div>
+<div class="section" id="a-messages-rest-api">
+<h2>A messages REST API<a class="headerlink" href="#a-messages-rest-api" title="永久链接至标题">¶</a></h2>
+<p>The code above is really all we need to turn our messages service into a
+REST API. Here is the complete code for our <code class="docutils literal notranslate"><span class="pre">app.js</span></code> exposing the
+service from the <a class="reference internal" href="services.html"><span class="doc">服务</span></a> through a REST
+API:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">Messages</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">currentId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Return the list of all messages</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Find the message by id</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">message</span><span class="p">.</span><span class="nx">id</span> <span class="o">===</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+
+    <span class="c1">// Throw an error if it wasn&#39;t found</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">`Message with id </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb"> not found`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Otherwise return the message</span>
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Create a new object with the original data and an id</span>
+    <span class="c1">// taken from the incrementing `currentId` counter</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">({</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="o">++</span><span class="k">this</span><span class="p">.</span><span class="nx">currentId</span>
+    <span class="p">},</span> <span class="nx">data</span><span class="p">);</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">patch</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the existing message. Will throw an error if not found</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+    <span class="c1">// Merge the existing message with the new data</span>
+    <span class="c1">// and return the result</span>
+    <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the message by id (will throw an error if not found)</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+    <span class="c1">// Find the index of the message in our message array</span>
+    <span class="kr">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+
+    <span class="c1">// Remove the found message from our array</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+    <span class="c1">// Return the removed message</span>
+    <span class="k">return</span> <span class="nx">message</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Turn on JSON body parsing for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="c1">// Turn on URL-encoded body parsing for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Set up REST transport using Express</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">());</span>
+
+<span class="c1">// Initialize the messages service by creating</span>
+<span class="c1">// a new instance of our class</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Messages</span><span class="p">());</span>
+
+<span class="c1">// Set up an error handler that gives us nicer errors</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">());</span>
+
+<span class="c1">// Start the server on port 3030</span>
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+
+<span class="c1">// Use the service to create a new message on the server</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hello from the server&#39;</span>
+<span class="p">});</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;listening&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Feathers REST API started at http://localhost:3030&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>You can start the server by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>The server will stay running until you stop it by pressing
+Control + C in the terminal. Remember to stop and start the server
+every time <code class="docutils literal notranslate"><span class="pre">app.js</span></code> changes.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>In Express an error handler, here <code class="docutils literal notranslate"><span class="pre">app.use(express.errorHandler());</span></code>, always has to be the last line
+before starting the server.</p>
+</div>
+</div>
+<div class="section" id="using-the-api">
+<h2>Using the API<a class="headerlink" href="#using-the-api" title="永久链接至标题">¶</a></h2>
+<p>Once the server is running the first thing we can do is hit
+<a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a> in the
+browser. Since we already created a message on the server, the JSON
+response will look like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="s2">&quot;Hello from the server&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p>We can also retrieve that specific message by going to <a class="reference external" href="http://localhost:3030/messages/1">localhost:3030/messages/1</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>A browser plugin like <a class="reference external" href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh">JSON viewer for Chrome</a>
+makes it much nicer to view JSON responses.</p>
+</div>
+<p>New messages can now be created by sending a POST request with JSON data to the same URL by using cURL on the command line like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -X POST \</span>
+<span class="go">  http://localhost:3030/messages/ \</span>
+<span class="go">  -H &#39;Content-Type: application/json&#39; \</span>
+<span class="go">  -d &#39;{ &quot;text&quot;: &quot;Hello from the command line!&quot; }&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>You can also use tools like
+<a class="reference external" href="https://www.getpostman.com/">Postman</a> to make HTTP requests.</p>
+</div>
+<p>If you now refresh <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a> you will see the newly created message.</p>
+<p>We can also remove a message by sending a <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> to its URL:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -X DELETE \</span>
+<span class="go">  http://localhost:3030/messages/1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>In this chapter we built a fully functional messages REST API.
+You can probably already imagine how our messages service could store its data
+in a database instead of the <span class="xref std std-doc">messages</span> array. In the <a class="reference external" href="./databases">next chapter</a>,
+let’s look at some services that implement
+different databases allowing us to create those APIs with even less code!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="databases.html" class="btn btn-neutral float-right" title="数据库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hooks.html" class="btn btn-neutral float-left" title="钩子" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

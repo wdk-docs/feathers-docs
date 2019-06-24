@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/configuration.rst:2
+msgid "Configuration"
+msgstr "配置"
+
+#: ../../source/api/configuration.rst:4
+msgid "|npm version| |Changelog|"
+msgstr "|npm version| |Changelog|"
+
+#: ../../source/api/configuration.rst:10
+msgid ""
+"``@feathersjs/configuration`` is a wrapper for `node-config "
+"<https://github.com/lorenwest/node-config>`_ which allows to configure a"
+" server side Feathers application."
+msgstr "``feathersress/configuration`` 是 `node-config <https://github.com/lorenwest/node-config>`_ 的包装器,允许配置服务器端Feathers应用程序."
+
+#: ../../source/api/configuration.rst:14
+msgid ""
+"By default this implementation will look in ``config/*`` for "
+"``default.json`` which retains convention. As per the `config docs "
+"<https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_ "
+"you can organize *“hierarchical configurations for your app "
+"deployments”*. See the usage section below for better information how to "
+"implement this."
+msgstr "默认情况下,这个实现将在 ``config/*`` 中查找保留约定的 ``default.json``.根据 `配置文档 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_, 您可以为应用程序部署组织 *“应用程序部署的分层配置”*. 有关如何实现此操作的更多信息,请参阅下面的使用部分."
+
+#: ../../source/api/configuration.rst:22
+msgid "Usage"
+msgstr "用法"
+
+#: ../../source/api/configuration.rst:24
+msgid ""
+"The ``@feathersjs/configuration`` module is an app configuration function"
+" that takes a root directory (usually something like ``_dirname`` in "
+"your application) and the configuration folder (set to ``config`` by "
+"default):"
+msgstr "``@feathersjs/configuration`` 模块是一个app配置函数,它接受一个根目录(通常类似于应用程序中的 ``_dirname``)和配置文件夹(默认设置为 ``config``)："
+
+#: ../../source/api/configuration.rst:38
+msgid "Changing the location of the configuration directory"
+msgstr "更改配置目录的位置"
+
+#: ../../source/api/configuration.rst:40
+msgid ""
+"By default, Feathers will use the ``config/`` directory in the root of "
+"your project’s source directory. To change this, e.g., if you have "
+"Feathers installed under the ``server/`` directory and you want your "
+"configuration at ``server/config/``, you have to set the "
+"``NODE_CONFIG_DIR`` environment variable in ``app.js`` *before* importing"
+" ``@feathersjs/configuration``:"
+msgstr "默认情况下,Feathers将使用项目源目录根目录中的 ``config/`` 目录.要改变这一点,例如,如果你在 ``server/`` 目录下安装了Feathers并且想要你的配置在 ``server/config/``,你必须在导入 ``@feathersjs/configuration`` *之前* 在 ``app.js`` 中设置 ``NODE_CONFIG_DIR`` 环境变量: "
+
+#: ../../source/api/configuration.rst:47
+msgid "e.g., In ``server/app.js``:"
+msgstr "例如, 在 ``server/app.js``:"
+
+#: ../../source/api/configuration.rst:54
+msgid ""
+"The above code is portable, so you can keep your ``config/`` directory "
+"with the rest of your Feathers files. It will work, for example, even if "
+"you change the directory from ``server/`` to ``amazing-server``, etc."
+msgstr "上面的代码是可移植的,所以你可以将你的 ``config/`` 目录与其余的Feathers文件保存在一起.例如,即使您将目录从 ``server/`` 更改为 ``amazing-server`` 等,它也可以工作."
+
+#: ../../source/api/configuration.rst:58
+msgid ""
+"(The NODE_CONFIG_DIR environment variable isn’t used directly by "
+"@feathersjs/configuration but by the `node-config "
+"<https://github.com/lorenwest/node-config>`_ module that it uses. For "
+"more information on configuring node-config settings, see the "
+"`Configuration Files Wiki page <https://github.com/lorenwest/node-"
+"config/wiki/Configuration-Files>`_."
+msgstr "(@feathersjs/configuration不直接使用 NODE_CONFIG_DIR 环境变量,而是使用它所使用的 `node-config <https://github.com/lorenwest/node-config>`_ 模块.有关配置节点的更多信息-config设置,请参阅 `配置文档Wiki页面 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_."
+
+#: ../../source/api/configuration.rst:66
+msgid "Variable types"
+msgstr "变量类型"
+
+#: ../../source/api/configuration.rst:68
+msgid "``@feathersjs/configuration`` uses the following variable mechanisms:"
+msgstr "``@feathersjs/configuration`` 使用以下变量机制:"
+
+#: ../../source/api/configuration.rst:70
+msgid "Given a root and configuration path load a ``default.json`` in that path"
+msgstr "给定根和配置路径在该路径中加载 ``default.json``"
+
+#: ../../source/api/configuration.rst:72
+msgid ""
+"Also try to load ``<NODE_ENV>.json`` in that path, and if found, extend "
+"the default configuration"
+msgstr "还尝试在该路径中加载 ``<NODE_ENV>.json``,如果找到,则扩展默认配置"
+
+#: ../../source/api/configuration.rst:74
+msgid ""
+"Go through each configuration value and sets it on the application (via "
+"``app.set(name, value)``)."
+msgstr "浏览每个配置值并在应用程序上设置它(通过 ``app.set(name,value)``)."
+
+#: ../../source/api/configuration.rst:77
+msgid ""
+"If the value is a valid environment variable (e.v. ``NODE_ENV``), use its"
+" value instead"
+msgstr "如果值是有效的环境变量(例如 ``NODE_ENV``),请改用它的值"
+
+#: ../../source/api/configuration.rst:79
+msgid ""
+"If the value starts with ``./`` or ``../`` turn it into an absolute path "
+"relative to the configuration file path"
+msgstr "如果值以 ``./`` 或 ``../`` 开头,则将其转换为相对于配置文件路径的绝对路径"
+
+#: ../../source/api/configuration.rst:81
+msgid ""
+"If the value is escaped (starting with a ``\\``) always use that value "
+"(e.g. ``\\\\NODE_ENV`` will become ``NODE_ENV``)"
+msgstr "如果值被转义（以 ``\\`` 开头），则始终使用该值（例如 ``\\\\NODE_ENV`` 将变为 ``NODE_ENV``）"
+
+#: ../../source/api/configuration.rst:84
+msgid ""
+"Both ``default`` and ``<env>`` configurations can be modules which "
+"provide their computed settings with ``module.exports = {...}`` and a "
+"``.js`` file suffix. See ``test/config/testing.js`` for an example. All "
+"rules listed above apply for ``.js`` modules."
+msgstr "``default`` 和 ``<env>`` 配置都可以是模块,它们用 ``module.exports = {...}`` 和 ``.js`` 文件后缀提供计算设置.有关示例,请参阅 ``test/config/testing.js``. 上面列出的所有规则都适用于 ``.js`` 模块."
+
+#: ../../source/api/configuration.rst:90
+msgid "Example"
+msgstr "例"
+
+#: ../../source/api/configuration.rst:92
+msgid ""
+"In ``config/default.json`` we want to use the local development "
+"environment and default MongoDB connection string:"
+msgstr "在 ``config/default.json`` 中我们想要使用本地开发环境和默认的MongoDB连接字符串："
+
+#: ../../source/api/configuration.rst:105
+msgid ""
+"In ``config/production.json`` we are going to use environment variables "
+"(e.g. set by Heroku) and use ``public/dist`` to load the frontend "
+"production build:"
+msgstr "在 ``config/production.json`` 中,我们将使用环境变量(例如由Heroku设置)并使用 ``public/dist`` 来加载前端生成版本："
+
+#: ../../source/api/configuration.rst:118
+msgid "Now it can be used in our ``app.js`` like this:"
+msgstr "现在它可以在我们的 ``app.js`` 中使用:"
+
+#: ../../source/api/configuration.rst:137
+msgid "If you now run"
+msgstr "如果你现在运行"
+
+#: ../../source/api/configuration.rst:148
+msgid ""
+"Or via custom environment variables by setting them in ``config/custom-"
+"environment-variables.json``:"
+msgstr "或者通过在 ``config/custom-environment-variables.json`` 中设置自定义环境变量："
+
+#: ../../source/api/configuration.rst:167
+msgid ""
+"You can also override these variables with arguments. Read more about how"
+" with `node-config <https://github.com/lorenwest/node-config>`_"
+msgstr "您还可以使用参数覆盖这些变量.阅读更多关于如何使用 `node-config <https://github.com/lorenwest/node-config>`_"
+

@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>事件 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="事件频道" href="channels.html" />
+    <link rel="prev" title="钩子" href="hooks.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#core">核心</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="application.html">应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">事件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eventemitters">EventEmitters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-service-events">服务事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events-custom-events">自定义事件</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">事件频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transports">传输层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>事件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/events.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="events">
+<h1>事件<a class="headerlink" href="#events" title="永久链接至标题">¶</a></h1>
+<p>事件是Feathers实时功能的关键部分. Feathers中的所有事件都通过 <a class="reference external" href="https://nodejs.org/api/events.html">NodeJS EventEmitter</a> interface提供.本节介绍</p>
+<ul class="simple">
+<li><p>快速概述 <a class="reference external" href="#eventemitters">NodeJS EventEmitter接口</a></p></li>
+<li><p>标准的 <a class="reference external" href="＃service-events">服务事件</a></p></li>
+<li><p>如何允许从服务器向客户端发送 <a class="reference external" href="#custom-events">自定义事件</a></p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>有关如何向客户端发送实时事件的更多信息,请参阅 <a class="reference internal" href="channels.html"><span class="doc">事件频道</span></a>.</p>
+</div>
+<div class="section" id="eventemitters">
+<h2>EventEmitters<a class="headerlink" href="#eventemitters" title="永久链接至标题">¶</a></h2>
+<p>一旦注册,任何 <a class="reference internal" href="services.html"><span class="doc">服务</span></a> 变成标准的 <a class="reference external" href="https://nodejs.org/api/events.html">NodeJS EventEmitter</a> 并且可以相应地使用.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+
+<span class="c1">// Listen to a normal service event</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;patched&#39;</span><span class="p">,</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;message patched&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">));</span>
+
+<span class="c1">// Only listen to an event once</span>
+<span class="nx">messsages</span><span class="p">.</span><span class="nx">once</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="nx">message</span> <span class="p">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;First time a message has been removed&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// A reference to a handler</span>
+<span class="kr">const</span> <span class="nx">onCreatedListener</span> <span class="o">=</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;New message created&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+
+<span class="c1">// Listen `created` with a handler reference</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">onCreatedListener</span><span class="p">);</span>
+
+<span class="c1">// Unbind the `created` event listener</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">onCreatedListener</span><span class="p">);</span>
+
+<span class="c1">// Send a custom event</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;customEvent&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;customEvent&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="s1">&#39;can be anything&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events-service-events">
+<span id="id2"></span><h2>服务事件<a class="headerlink" href="#events-service-events" title="永久链接至标题">¶</a></h2>
+<p>当相应的服务方法成功返回时,任何服务都会自动发出 <code class="docutils literal notranslate"><span class="pre">created</span></code>, <code class="docutils literal notranslate"><span class="pre">updated</span></code>, <code class="docutils literal notranslate"><span class="pre">patchched</span></code> 和 <code class="docutils literal notranslate"><span class="pre">removed</span></code> 事件.这适用于客户端以及服务器.当客户端使用 <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a> 或 <a class="reference internal" href="primus.html"><span class="doc">Primus</span></a> 时,事件将自动从服务器推送到所有连接的客户端.这实际上是Feathers实时的方式.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>直到你的所有 <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> 都被执行后才会触发事件.</p>
+</div>
+<!-- --><div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>有关如何发布这些事件以实现对已连接客户端的实时更新的信息,请参阅 <a class="reference internal" href="channels.html"><span class="doc">事件频道</span></a>.</p>
+</div>
+<p>除了事件 <code class="docutils literal notranslate"><span class="pre">data</span></code> 之外,所有事件还从它们作为第二个参数传递的方法调用中得到 <a class="reference external" href="./hooks">钩子上下文</a>.</p>
+<div class="section" id="created">
+<h3>created<a class="headerlink" href="#created" title="永久链接至标题">¶</a></h3>
+<p>当服务 <code class="docutils literal notranslate"><span class="pre">create</span></code> 成功返回时, <code class="docutils literal notranslate"><span class="pre">created</span></code> 事件将触发结果数据.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Retrieve the wrapped service object which will be an event emitter</span>
+<span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">));</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;We have to do something!&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updated-patched">
+<h3>updated, patched<a class="headerlink" href="#updated-patched" title="永久链接至标题">¶</a></h3>
+<p>当服务 <code class="docutils literal notranslate"><span class="pre">update</span></code> 或 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 方法成功回调时, <code class="docutils literal notranslate"><span class="pre">updated</span></code> 和 <code class="docutils literal notranslate"><span class="pre">patched</span></code> 事件将使用回调数据触发.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/my/messages/&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">},</span>
+
+  <span class="nx">patch</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;my/messages&#39;</span><span class="p">);</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;updated&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">));</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;patched&#39;</span><span class="p">,</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;patched&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">));</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;updated message&#39;</span>
+<span class="p">});</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;patched message&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removed">
+<h3>removed<a class="headerlink" href="#removed" title="永久链接至标题">¶</a></h3>
+<p>当服务 <code class="docutils literal notranslate"><span class="pre">remove</span></code> 成功回调时, <code class="docutils literal notranslate"><span class="pre">removed</span></code> 事件将使用回调数据触发.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span> <span class="nx">id</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+
+<span class="nx">messages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;removed&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">));</span>
+<span class="nx">messages</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="events-custom-events">
+<span id="id3"></span><h2>自定义事件<a class="headerlink" href="#events-custom-events" title="永久链接至标题">¶</a></h2>
+<p>默认情况下,实时客户端只接收 <a class="reference external" href="＃service-events">标准事件</a>.但是,可以将服务上的自定义事件列表定义为 <code class="docutils literal notranslate"><span class="pre">service.events</span></code>,当服务器上调用 <code class="docutils literal notranslate"><span class="pre">service.emit('customevent',data)</span></code> 时,也应该传递这些事件.自定义事件的 <code class="docutils literal notranslate"><span class="pre">context</span></code> 不是一个完整的钩子上下文,而只是一个包含 <code class="docutils literal notranslate"><span class="pre">{app,service,path,result}</span></code> 的对象.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>自定义事件只能从服务器发送到客户端,而不是其他方式(客户端到服务器). <a class="reference external" href="../faq/readme.md#how-do-i-create-custom-methods">学到更多</a></p>
+</div>
+<p>例如,在处理付款时向客户端发送状态事件的付款服务可能如下所示:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">PaymentService</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">events</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">];</span>
+  <span class="p">},</span>
+
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">createStripeCustomer</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">user</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">customer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;created&#39;</span> <span class="p">});</span>
+      <span class="k">return</span> <span class="nx">createPayment</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;completed&#39;</span> <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="databases/common.html"><span class="doc">通用API</span></a> 也将自定义事件列表作为 <a class="reference external" href="./databases/common.md#serviceoptions">初始化选项</a>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-&lt;adaptername&gt;&#39;</span><span class="p">);</span> <span class="c1">// e.g. `feathers-mongodb`</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/payments&#39;</span><span class="p">,</span> <span class="nx">service</span><span class="p">({</span>
+  <span class="nx">events</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;status&#39;</span> <span class="p">],</span>
+  <span class="nx">Model</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">service.emit</span></code> 自定义事件也可以在钩子中发送:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;payments&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">service</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;completed&#39;</span> <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>自定义事件可以是 <a class="reference internal" href="channels.html#channels-publishing"><span class="std std-ref">Publishing</span></a> 就像标准事件一样,并在 <span class="xref std std-ref">client/socketio_listening-to-events</span> 中监听它.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;payments&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;payments status&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="channels.html" class="btn btn-neutral float-right" title="事件频道" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hooks.html" class="btn btn-neutral float-left" title="钩子" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

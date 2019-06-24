@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>表达 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Socket.io" href="socketio.html" />
+    <link rel="prev" title="配置" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#core">Core</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#transports">Transports</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">表达</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#express-app">express(app)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-1">express()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-use-path-service-mw-mw">app.use(path, service|mw|[mw])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-listen-port">app.listen(port)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-setup-server">app.setup(server)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-rest">express.rest()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-notfound-options">express.notFound(options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-errorhandler">express.errorHandler()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#routing">Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="socketio.html">Socket.io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primus.html">Primus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>表达</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/express.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="express">
+<h1>表达<a class="headerlink" href="#express" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/express"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/express.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/express/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/express --save
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> module contains
+<a class="reference external" href="http://expressjs.com/">Express</a> framework integrations for Feathers:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="#expressapp">Express framework bindings</a> to make a Feathers
+application Express compatible</p></li>
+<li><p>An Express based transport to expose services through a <a class="reference external" href="#expressrest">REST
+API</a></p></li>
+<li><p>An <a href="#id2"><span class="problematic" id="id3">:doc:`Express error handler &lt;#expresserrorhandler&gt;`_</span></a> for <cite>Feathers    errors &lt;./errors&gt;</cite></p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Very Important:</strong> This page describes how to set up an Express
+server and REST API. See the <a class="reference internal" href="client/rest.html"><span class="doc">REST client chapter</span></a> how to use this server on the client.</p>
+</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>This chapter assumes that you are familiar with
+<a class="reference external" href="http://expressjs.com/en/guide/routing.html">Express</a>.</p>
+</div>
+<div class="section" id="express-app">
+<h2>express(app)<a class="headerlink" href="#express-app" title="永久链接至标题">¶</a></h2>
+<p>:doc:<code class="docutils literal notranslate"><span class="pre">express(app)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> is a function that turns a <cite>Feathers application &lt;./application&gt;</cite> into a fully Express (4+) compatible
+application that additionally to Feathers functionality also lets you
+use the <a class="reference external" href="http://expressjs.com/en/4x/api.html">Express API</a>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="c1">// Create an app that is a Feathers AND Express application</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> (<code class="docutils literal notranslate"><span class="pre">express</span></code>) also exposes the
+standard <a class="reference external" href="http://expressjs.com/en/4x/api.html#express">Express
+middleware</a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">express.json</span></code> - A JSON body parser</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> - A URL encoded form body parser</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">express.static</span></code> - To statically host files in a folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">express.Router</span></code> - Creates an Express router object</p></li>
+</ul>
+</div>
+<div class="section" id="express-1">
+<span id="id5"></span><h2>express()<a class="headerlink" href="#express-1" title="永久链接至标题">¶</a></h2>
+<p>If no Feathers application is passed, <code class="docutils literal notranslate"><span class="pre">express()</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> returns a
+plain Express application just like a normal call to Express would.</p>
+</div>
+<div class="section" id="app-use-path-service-mw-mw">
+<h2>app.use(path, service|mw|[mw])<a class="headerlink" href="#app-use-path-service-mw-mw" title="永久链接至标题">¶</a></h2>
+<p>:doc:<code class="docutils literal notranslate"><span class="pre">app.use(path,</span> <span class="pre">service|mw|[mw])</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> registers either a <cite>service object &lt;./services&gt;</cite>,
+an <a class="reference external" href="http://expressjs.com/en/guide/writing-middleware.html">Express middleware</a> or
+an array of <a class="reference external" href="http://expressjs.com/en/guide/writing-middleware.html">Express middleware</a> on
+the given path. If <a class="reference internal" href="services.html"><span class="doc">服务</span></a> is passed it
+will use Feathers registration mechanism, for a middleware function
+Express.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register a service</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span> <span class="nx">id</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Register an Express middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Hello world from Express middleware&#39;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="c1">// Register multiple Express middleware functions</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/test&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="s1">&#39;Step 1 worked&#39;</span><span class="p">;</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span>
+    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Hello world from Express middleware &#39;</span> <span class="o">+</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-listen-port">
+<h2>app.listen(port)<a class="headerlink" href="#app-listen-port" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.listen(port)</span> <span class="pre">-&gt;</span> <span class="pre">HttpServer</span></code> will first call Express
+<a class="reference external" href="http://expressjs.com/en/4x/api.html#app.listen">app.listen</a> and then
+internally also call the <span class="xref std std-doc">Feathers app.setup(server)</span>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Listen on port 3030</span>
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;listening&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Feathers application started&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-setup-server">
+<h2>app.setup(server)<a class="headerlink" href="#app-setup-server" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.setup(server)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> is usually called internally by
+<code class="docutils literal notranslate"><span class="pre">app.listen</span></code> but in the cases described below needs to be called
+explicitly.</p>
+<div class="section" id="sub-apps">
+<h3>Sub-Apps<a class="headerlink" href="#sub-apps" title="永久链接至标题">¶</a></h3>
+<p>When registering an application as a sub-app, <code class="docutils literal notranslate"><span class="pre">app.setup(server)</span></code> has
+to be called to initialize the sub-apps services.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/service&#39;</span><span class="p">,</span> <span class="nx">myService</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">mainApp</span> <span class="o">=</span> <span class="nx">express</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/api/v1&#39;</span><span class="p">,</span> <span class="nx">api</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">mainApp</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+
+<span class="c1">// Now call setup on the Feathers app with the server</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>ProTip:</strong> We recommend avoiding complex sub-app setups because
+websockets and Feathers built in authentication are not fully sub-app
+aware at the moment.</p>
+</div></blockquote>
+</div>
+<div class="section" id="https">
+<h3>HTTPS<a class="headerlink" href="#https" title="永久链接至标题">¶</a></h3>
+<p>HTTPS requires creating a separate server in which case
+<code class="docutils literal notranslate"><span class="pre">app.setup(server)</span></code> also has to be called explicitly.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">https</span>  <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">https</span><span class="p">.</span><span class="nx">createServer</span><span class="p">({</span>
+  <span class="nx">key</span><span class="o">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;privatekey.pem&#39;</span><span class="p">),</span>
+  <span class="nx">cert</span><span class="o">:</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;certificate.pem&#39;</span><span class="p">)</span>
+<span class="p">},</span> <span class="nx">app</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">443</span><span class="p">);</span>
+
+<span class="c1">// Call app.setup to initialize all services and SocketIO</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="virtual-hosts">
+<h3>Virtual Hosts<a class="headerlink" href="#virtual-hosts" title="永久链接至标题">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/expressjs/vhost">vhost</a> Express middleware
+can be used to run a Feathers application on a virtual host but again
+requires <code class="docutils literal notranslate"><span class="pre">app.setup(server)</span></code> to be called explicitly.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">vhost</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;vhost&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">todoService</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">express</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="nx">vhost</span><span class="p">(</span><span class="s1">&#39;foo.com&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">host</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+
+<span class="c1">// Here we need to call app.setup because .listen on our virtal hosted</span>
+<span class="c1">// app is never called</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="express-rest">
+<h2>express.rest()<a class="headerlink" href="#express-rest" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">express.rest</span></code> registers a Feathers transport mechanism that allows
+you to expose and consume <a class="reference internal" href="services.html"><span class="doc">服务</span></a> through a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful
+API</a>.
+This means that you can call a service method through the <code class="docutils literal notranslate"><span class="pre">GET</span></code>,
+<code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> <a class="reference external" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP
+methods</a>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Service method</p></th>
+<th class="head"><p>HTTP method</p></th>
+<th class="head"><p>Path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>.find()</p></td>
+<td><p>GET</p></td>
+<td><p>/messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>.get()</p></td>
+<td><p>GET</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-even"><td><p>.create()</p></td>
+<td><p>POST</p></td>
+<td><p>/messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>.update()</p></td>
+<td><p>PUT</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-even"><td><p>.patch()</p></td>
+<td><p>PATCH</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+<tr class="row-odd"><td><p>.remove()</p></td>
+<td><p>DELETE</p></td>
+<td><p>/messages/1</p></td>
+</tr>
+</tbody>
+</table>
+<p>To expose services through a RESTful API we will have to configure
+<code class="docutils literal notranslate"><span class="pre">express.rest</span></code> and provide our own body parser middleware (usually the
+standard <a class="reference external" href="https://github.com/expressjs/body-parser">Express 4
+body-parser</a>) to make REST
+<code class="docutils literal notranslate"><span class="pre">.create</span></code>, <code class="docutils literal notranslate"><span class="pre">.update</span></code> and <code class="docutils literal notranslate"><span class="pre">.patch</span></code> calls parse the data in the HTTP
+body. If you would like to add other middleware <em>before</em> the REST
+handler, call <code class="docutils literal notranslate"><span class="pre">app.use(middleware)</span></code> before registering any services.</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> The body-parser middleware has to be registered <em>before</em>
+any service. Otherwise the service method will throw a
+<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">data</span> <span class="pre">provided</span></code> or
+<code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">parameter</span> <span class="pre">for</span> <span class="pre">'create'</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">an</span> <span class="pre">object</span></code> error.</p>
+</div></blockquote>
+<div class="section" id="app-configure-express-rest">
+<h3>app.configure(express.rest())<a class="headerlink" href="#app-configure-express-rest" title="永久链接至标题">¶</a></h3>
+<p>Configures the transport provider with a standard formatter sending JSON
+response via
+<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.json">res.json</a>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="c1">// Create an Express compatible Feathers application</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Turn on JSON parser for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="c1">// Turn on URL-encoded parser for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Set up REST transport</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-configure-express-rest-formatter">
+<h3>app.configure(express.rest(formatter))<a class="headerlink" href="#app-configure-express-rest-formatter" title="永久链接至标题">¶</a></h3>
+<p>The default REST response formatter is a middleware that formats the
+data retrieved by the service as JSON. If you would like to configure
+your own <code class="docutils literal notranslate"><span class="pre">formatter</span></code> middleware pass a <code class="docutils literal notranslate"><span class="pre">formatter(req,</span> <span class="pre">res)</span></code>
+function. This middleware will have access to <code class="docutils literal notranslate"><span class="pre">res.data</span></code> which is the
+data returned by the service.
+<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.format">res.format</a> can be
+used for content negotiation.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Turn on JSON parser for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="c1">// Turn on URL-encoded parser for REST services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+<span class="c1">// Set up REST transport</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Format the message as text/plain</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">format</span><span class="p">({</span>
+    <span class="s1">&#39;text/plain&#39;</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="sb">`The Message is: &quot;</span><span class="si">${</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="si">}</span><span class="sb">&quot;`</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-service-middleware">
+<h3>Custom service middleware<a class="headerlink" href="#custom-service-middleware" title="永久链接至标题">¶</a></h3>
+<p>Custom Express middleware that only should run before or after a
+specific service can be passed to <code class="docutils literal notranslate"><span class="pre">app.use</span></code> in the order it should
+run:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">todoService</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="sb">`You have to do </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">!`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">ensureAuthenticated</span><span class="p">,</span> <span class="nx">logRequest</span><span class="p">,</span> <span class="nx">todoService</span><span class="p">,</span> <span class="nx">updateData</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Middleware that runs after the service has the service call information
+available as</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">res.data</span></code> - The data that will be sent</p></li>
+<li><p><a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> context of the service
+method call</p></li>
+</ul>
+<p>For example <code class="docutils literal notranslate"><span class="pre">updateData</span></code> could look like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">updateData</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">updateData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>ProTip:</strong> If you run <code class="docutils literal notranslate"><span class="pre">res.send</span></code> in a custom middleware after the
+service and don’t call <code class="docutils literal notranslate"><span class="pre">next</span></code>, other middleware (like the REST
+formatter) will be skipped. This can be used to e.g. render different
+views for certain service method calls.</p>
+</div></blockquote>
+</div>
+<div class="section" id="params">
+<h3>params<a class="headerlink" href="#params" title="永久链接至标题">¶</a></h3>
+<p>All middleware registered after the <span class="xref std std-doc">./rest</span> will
+have access to the <code class="docutils literal notranslate"><span class="pre">req.feathers</span></code> object to set properties on the
+service method <code class="docutils literal notranslate"><span class="pre">params</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;body-parser&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="nx">extended</span><span class="o">:</span> <span class="kc">true</span><span class="p">}))</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">fromMiddleware</span> <span class="o">=</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">;</span>
+    <span class="nx">next</span><span class="p">();</span>
+  <span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">provider</span><span class="p">);</span> <span class="c1">// -&gt; &#39;rest&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">fromMiddleware</span><span class="p">);</span> <span class="c1">// -&gt; &#39;Hello world&#39;</span>
+
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="sb">`You have to do </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">!`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can see the parameters set by running the example and visiting
+<code class="docutils literal notranslate"><span class="pre">http://localhost:3030/todos/test</span></code>.</p>
+<p>Avoid setting <code class="docutils literal notranslate"><span class="pre">req.feathers</span> <span class="pre">=</span> <span class="pre">something</span></code> directly since it may already
+contain information that other Feathers plugins rely on. Adding
+individual properties or using
+<code class="docutils literal notranslate"><span class="pre">Object.assign(req.feathers,</span> <span class="pre">something)</span></code> is the more reliable option.</p>
+<blockquote>
+<div><p><strong>Very important:</strong> Since the order of Express middleware matters,
+any middleware that sets service parameters has to be registered
+<em>before</em> your services (in a generated application before
+<code class="docutils literal notranslate"><span class="pre">app.configure(services)</span></code> or in <code class="docutils literal notranslate"><span class="pre">middleware/index.js</span></code>).</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>ProTip:</strong> Although it may be convenient to set
+<code class="docutils literal notranslate"><span class="pre">req.feathers.req</span> <span class="pre">=</span> <span class="pre">req;</span></code> to have access to the request object in
+the service, we recommend keeping your services as provider
+independent as possible. There usually is a way to pre-process your
+data in a middleware so that the service does not need to know about
+the HTTP request or response.</p>
+</div></blockquote>
+</div>
+<div class="section" id="params-query">
+<h3>params.query<a class="headerlink" href="#params-query" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">params.query</span></code> will contain the URL query parameters sent from the
+client. For the REST transport the query string is parsed using the
+<a class="reference external" href="https://github.com/ljharb/qs">qs</a> module. For some query string
+examples see the <a class="reference internal" href="databases/querying.html"><span class="doc">查询</span></a>
+chapter.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>Only <code class="docutils literal notranslate"><span class="pre">params.query</span></code> is passed between the server and
+the client, other parts of <code class="docutils literal notranslate"><span class="pre">params</span></code> are not. This is for security
+reasons so that a client can’t set things like <code class="docutils literal notranslate"><span class="pre">params.user</span></code> or the
+database options. You can always map from <code class="docutils literal notranslate"><span class="pre">params.query</span></code> to other
+<a class="reference internal" href="hooks.html"><span class="doc">钩</span></a>.</p>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?read=true&amp;$sort[createdAt]=-1
+</pre></div>
+</div>
+<p>Will set <code class="docutils literal notranslate"><span class="pre">params.query</span></code> to</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;$sort&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;createdAt&quot;</span><span class="o">:</span> <span class="s2">&quot;-1&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>ProTip:</strong> Since the URL is just a string, there will be <strong>no type
+conversion</strong>. This can be done manually in a <a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> or
+with the <a class="reference external" href="https://github.com/xpepermint/query-types">query-types</a>
+Express middleware to convert Boolean and Numeric types.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>If an array in your request consists of more than 20 items,
+the <a class="reference external" href="https://www.npmjs.com/package/qs">qs</a> parser implicitly
+<a class="reference external" href="https://github.com/ljharb/qs#parsing-arrays">converts</a> it to an
+object with indices as keys. To extend this limit, you can set a
+custom query parser:
+<code class="docutils literal notranslate"><span class="pre">app.set('query</span> <span class="pre">parser',</span> <span class="pre">str</span> <span class="pre">=&gt;</span> <span class="pre">qs.parse(str,</span> <span class="pre">{arrayLimit:</span> <span class="pre">1000}))</span></code></p>
+</div>
+</div>
+<div class="section" id="params-provider">
+<h3><code class="docutils literal notranslate"><span class="pre">params.provider</span></code><a class="headerlink" href="#params-provider" title="永久链接至标题">¶</a></h3>
+<p>For any <a class="reference internal" href="services.html"><span class="doc">服务</span></a> made through REST
+<a class="reference internal" href="hooks.html"><span class="doc">钩</span></a>
+this can for example be used to prevent external users from making a
+service method call:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">remove</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// check for if(context.params.provider) to prevent any external call</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">provider</span> <span class="o">===</span> <span class="s1">&#39;rest&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;You can not delete a user via REST&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="params-route">
+<h3>params.route<a class="headerlink" href="#params-route" title="永久链接至标题">¶</a></h3>
+<p>See the <a class="reference external" href="#routing">routing section</a>.</p>
+</div>
+</div>
+<div class="section" id="express-notfound-options">
+<h2>express.notFound(options)<a class="headerlink" href="#express-notfound-options" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">express.notFound()</span></code> returns middleware that returns a <code class="docutils literal notranslate"><span class="pre">NotFound</span></code>
+(404) <a class="reference internal" href="errors.html"><span class="doc">错误</span></a>. It should be used as the last
+middleware <strong>before</strong> the error handler. The following options are
+available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the URL should be included in the
+error message (default: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Return errors that include the URL</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">notFound</span><span class="p">({</span> <span class="nx">verbose</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">errorHandler</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="express-errorhandler">
+<h2>express.errorHandler()<a class="headerlink" href="#express-errorhandler" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">expres.errorHandler</span></code> is an <a class="reference external" href="https://expressjs.com/en/guide/error-handling.html">Express error
+handler</a>
+middleware that formats any error response to a REST call as JSON (or
+HTML if e.g. someone hits our API directly in the browser) and sets the
+appropriate error code.</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> You can still use any other Express compatible <a class="reference external" href="http://expressjs.com/en/guide/error-handling.html">error
+middleware</a>
+with Feathers. In fact, the <code class="docutils literal notranslate"><span class="pre">express.errors</span></code> is just a slightly
+customized one. <strong>Very Important:</strong> Just as in Express, the error
+handler has to be registered <em>after</em> all middleware and services.</p>
+</div></blockquote>
+<div class="section" id="app-use-express-errorhandler">
+<h3><code class="docutils literal notranslate"><span class="pre">app.use(express.errorHandler())</span></code><a class="headerlink" href="#app-use-express-errorhandler" title="永久链接至标题">¶</a></h3>
+<p>Set up the error handler with the default configuration.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// before starting the app</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="app-use-express-errorhandler-options">
+<h3><code class="docutils literal notranslate"><span class="pre">app.use(express.errorHandler(options))</span></code><a class="headerlink" href="#app-use-express-errorhandler-options" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="c1">// Just like Express your error middleware needs to be</span>
+<span class="c1">// set up last in your middleware chain.</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">errorHandler</span><span class="p">({</span>
+    <span class="nx">html</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// render your error view with the error object</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">errorHandler</span><span class="p">({</span>
+    <span class="nx">html</span><span class="o">:</span> <span class="p">{</span>
+      <span class="mi">404</span><span class="o">:</span> <span class="s1">&#39;path/to/notFound.html&#39;</span><span class="p">,</span>
+      <span class="mi">500</span><span class="o">:</span> <span class="s1">&#39;there/will/be/robots.html&#39;</span>
+    <span class="p">}</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>ProTip:</strong> If you want to have the response in json format be sure
+to set the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header in your request to <code class="docutils literal notranslate"><span class="pre">application/json</span></code>
+otherwise the default error handler will return HTML.</p>
+</div></blockquote>
+<p>The following options can be passed when creating a new localstorage
+service:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">html</span></code> (Function|Object) [optional] - A custom formatter function
+or an object that contains the path to your custom html error pages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logger</span></code> (Function|false) (default: <code class="docutils literal notranslate"><span class="pre">console</span></code>) - Set a logger
+object to log the error (it will be logger with
+<code class="docutils literal notranslate"><span class="pre">logger.error(error)</span></code></p></li>
+</ul>
+<blockquote>
+<div><p><strong>ProTip:</strong> <code class="docutils literal notranslate"><span class="pre">html</span></code> can also be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> to disable html
+error pages altogether so that only JSON is returned.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="routing">
+<h2>Routing<a class="headerlink" href="#routing" title="永久链接至标题">¶</a></h2>
+<p>Express route placeholders in a service URL will be added to the
+services <code class="docutils literal notranslate"><span class="pre">params.route</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>See the <span class="xref std std-doc">FAQ entry on nested routes</span> for
+more details on when and when not to use nested routes.</p>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">rest</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">fromMiddleware</span> <span class="o">=</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">;</span>
+    <span class="nx">next</span><span class="p">();</span>
+  <span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users/:userId/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span> <span class="c1">// -&gt; ?query</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">provider</span><span class="p">);</span> <span class="c1">// -&gt; &#39;rest&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">fromMiddleware</span><span class="p">);</span> <span class="c1">// -&gt; &#39;Hello world&#39;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span> <span class="c1">// will be `1` for GET /users/1/messages</span>
+
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span>
+      <span class="nx">params</span><span class="p">,</span>
+      <span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="sb">`Feathers is great!`</span><span class="p">,</span>
+      <span class="nx">createdAt</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="socketio.html" class="btn btn-neutral float-right" title="Socket.io" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral float-left" title="配置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

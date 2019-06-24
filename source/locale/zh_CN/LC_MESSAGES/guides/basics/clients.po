@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/clients.rst:2
+msgid "Client use"
+msgstr "客户端使用"
+
+#: ../../source/guides/basics/clients.rst:4
+msgid ""
+"So far, we have seen that Feathers with its services, events and hooks "
+"can also be used in the browser, which is a very unique feature. By "
+"implementing custom services that talk to an API in the browser, Feathers"
+" allows us to structure any client-side application with any framework."
+msgstr "到目前为止,我们已经看到Feathers及其服务,事件和钩子也可以在浏览器中使用,这是一个非常独特的功能.通过在浏览器中实现与API通信的自定义服务,Feathers允许我们使用任何框架构建任何客户端应用程序."
+
+#: ../../source/guides/basics/clients.rst:10
+msgid ""
+"This is exactly what Feathers client-side services do. In order to "
+"connect to a Feathers server, a client creates Services that use a REST "
+"or websocket connection to relay method calls and allow listening to "
+"events from the server. This means that we can use a client-side Feathers"
+" application to transparently talk to a Feathers server the same way we’d"
+" use it locally (as we’ve done in previous examples)!"
+msgstr "这正是Feathers客户端服务所做的.为了连接到Feathers服务器,客户端创建使用REST或websocket连接来中继方法调用并允许从服务器侦听事件的服务.这意味着我们可以使用客户端Feathers应用程序透明地与Feathers服务器通信,就像我们在本地使用它一样(正如我们在前面的例子中所做的那样)！"
+
+#: ../../source/guides/basics/clients.rst:17
+msgid ""
+"The following examples demonstrate using the Feathers client through a "
+"``<script>`` tag. For more information on using a module loader like "
+"Webpack or Browserify and loading individual modules see the "
+":doc:`../api/client`."
+msgstr "以下示例演示如何通过 ``<script>`` 标签使用Feathers客户端.有关使用Webpack或Browserify等模块加载器以及加载单个模块的更多信息,请参阅 :doc:`../api/client`."
+
+#: ../../source/guides/basics/clients.rst:23
+msgid "Real-time client"
+msgstr "实时客户端"
+
+#: ../../source/guides/basics/clients.rst:25
+msgid ""
+"In the :doc:`./real-time` we saw an example of how to directly use a "
+"websocket connection to make service calls and listen to events. We can "
+"also use a browser Feathers application and client services that use this"
+" connection. Let’s update ``public/client.js`` to:"
+msgstr "在 :doc:`./real-time` 中,我们看到了一个如何直接使用websocket连接来进行服务调用和监听事件的示例.我们还可以使用浏览器Feathers应用程序和使用此连接的客户端服务.让我们将 ``public/client.js`` 更新为:"
+
+#: ../../source/guides/basics/clients.rst:56
+msgid "REST client"
+msgstr "REST客户端"
+
+#: ../../source/guides/basics/clients.rst:58
+msgid ""
+"We can also create services that communicate via REST using many "
+"different Ajax libraries like `jQuery <https://jquery.com>`_ or `Axios "
+"<https://github.com/axios/axios>`_. For this example, we will use `fetch "
+"<https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`_ since it’s"
+" built-in modern browsers."
+msgstr "我们还可以使用许多不同的Ajax库创建通过REST进行通信的服务,例如 `jQuery <https://jquery.com>`_ 或 `Axios <https://github.com/axios/axios>`_.对于这个例子,我们将使用 `fetch <https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API>`_,因为它是内置的现代浏览器."
+
+#: ../../source/guides/basics/clients.rst:65
+msgid ""
+"REST services can only emit real-time events locally, to themselves. REST"
+" does not support real-time updates from the server."
+msgstr "REST服务只能在本地向自己发送实时事件. REST不支持来自服务器的实时更新."
+
+#: ../../source/guides/basics/clients.rst:69
+msgid ""
+"Since we are making a cross-domain request, we first have to enable "
+"`Cross-Origin Resource sharing (CORS) <https://developer.mozilla.org/en-"
+"US/docs/Web/HTTP/CORS>`_ on the server. Update ``app.js`` to:"
+msgstr ""
+"由于我们正在提出跨域请求,因此我们首先必须启用 `跨源资源共享(CORS) <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>`_ on服务器.将 ``app.js`` 更新为:"
+
+#: ../../source/guides/basics/clients.rst:125
+msgid ""
+"This is just a basic middleware setting the headers. In production (and "
+"applications created by the Feathers generator) we will use the `cors "
+"<https://github.com/expressjs/cors>`_ module."
+msgstr "这只是设置标题的基本中间件.在生产(以及Feathers生成器创建的应用程序)中,我们将使用 `cors <https://github.com/expressjs/cors>`_ module."
+
+#: ../../source/guides/basics/clients.rst:129
+msgid "Then we can update ``public/client.js`` to:"
+msgstr "然后我们可以将``public/client.js``更新为:"
+
+#: ../../source/guides/basics/clients.rst:157
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/clients.rst:159
+msgid ""
+"In this chapter we learned how to transparently connect to another "
+"Feathers server and use its services as we previously did when accessing "
+"them server-side. In the :doc:`./generator` we’ll briefly look at the "
+"Feathers generator (CLI) and the patterns it uses to structure an "
+"application before jumping into :doc:`../chat/readme`."
+msgstr "在本章中,我们学习了如何透明地连接到另一个Feathers服务器并使用其服务,就像我们以前在服务器端访问它们时所做的那样.在 :doc:`./generator` 中,我们将简要介绍Feathers生成器(CLI)以及它在构建应用程序之前用于构建应用程序的模式 :doc:`../chat/readme`."
+
+#~ msgid ""
+#~ "**Note:** The following examples demonstrate"
+#~ " using the Feathers client through a"
+#~ " ``<script>`` tag. For more information "
+#~ "on using a module loader like "
+#~ "Webpack or Browserify and loading "
+#~ "individual modules see the "
+#~ ":doc:`../api/client`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we learned how to"
+#~ " transparently connect to another Feathers"
+#~ " server and use its services as "
+#~ "we previously did when accessing them"
+#~ " server-side. In the :doc:`./generator` "
+#~ "we’ll briefly look at the Feathers "
+#~ "generator (CLI) and the patterns it "
+#~ "uses to structure an application before"
+#~ " jumping into `building a full chat"
+#~ " application <../chat/readme.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we learned how to"
+#~ " transparently connect to another Feathers"
+#~ " server and use its services as "
+#~ "we previously did when accessing them"
+#~ " server-side. In the :doc:`./generator` "
+#~ "we’ll briefly look at the Feathers "
+#~ "generator (CLI) and the patterns it "
+#~ "uses to structure an application before"
+#~ " jumping into :doc:`building a full "
+#~ "chat application <../chat/readme>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we learned how to"
+#~ " transparently connect to another Feathers"
+#~ " server and use its services as "
+#~ "we previously did when accessing them"
+#~ " server-side. In the :doc:`./generator` "
+#~ "we’ll briefly look at the Feathers "
+#~ "generator (CLI) and the patterns it "
+#~ "uses to structure an application before"
+#~ " jumping into :doc:`building a full "
+#~ "chat application <../chat/readme>`."
+#~ msgstr ""
+

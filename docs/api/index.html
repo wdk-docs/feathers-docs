@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="API" href="readme.html" />
+    <link rel="prev" title="与前端框架集成" href="../guides/frameworks/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core">核心</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="application.html">应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">事件频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transports">传输层</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="express.html">Express</a></li>
+<li class="toctree-l3"><a class="reference internal" href="socketio.html">Socket.io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primus.html">Primus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#client">客户端</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="client.html">Feathers 客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client/rest.html">REST客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client/socketio.html">Socket.io 客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client/primus.html">Primus 客户端</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">认证</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="authentication/server.html">认证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication/client.html">验证客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication/local.html">本地验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication/jwt.html">JWT身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication/oauth1.html">OAuth1身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication/oauth2.html">OAuth2身份验证</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#database">数据库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="databases/adapters.html">数据库适配器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases/common.html">通用API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases/querying.html">查询</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<p>本节介绍Feathers的所有API及其各个模块。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="readme.html">API</a></li>
+</ul>
+</div>
+<div class="section" id="core">
+<h2>核心<a class="headerlink" href="#core" title="永久链接至标题">¶</a></h2>
+<p><strong>Core:</strong> Feathers核心功能</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="application.html#use-path-service">.use(path, service)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#service-path">.service(path)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#hooks-hooks">.hooks(hooks)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#publish-event-publisher">.publish([event, ] publisher)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#configure-callback">.configure(callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#listen-port">.listen(port)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#setup-server">.setup([server])</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#set-name-value">.set(name, value)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#get-name">.get(name)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#on-eventname-listener">.on(eventname, listener)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#emit-eventname-data">.emit(eventname, data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#removelistener-eventname-listener">.removeListener(eventname, [ listener ])</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#mixins">.mixins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#services">.services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="application.html#defaultservice">.defaultService</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="services.html">服务</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="services.html#service-methods">服务方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html#feathers-functionality">Feathers功能</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks.html">钩子</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#quick-example">快速示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#hook-functions">钩子功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#id1">钩子上下文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#id2">钩子流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#id3">异步钩子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#registering-hooks">注册钩子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks.html#application-hooks">应用程序挂钩</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">事件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#eventemitters">EventEmitters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#events-service-events">服务事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#events-custom-events">自定义事件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">事件频道</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#example">例如</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#connections">连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#app-on-logout">app.on(‘logout’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#channels">频道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#publishing">出版</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channels.html#keeping-channels-updated">保持频道更新</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">错误</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#feathers-errors">羽毛错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#custom-errors">自定义错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#examples">例子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#server-side-errors">服务器端错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#error-handling">错误处理</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#usage">用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#changing-the-location-of-the-configuration-directory">更改配置目录的位置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#variable-types">变量类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#example">例</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="transports">
+<h2>传输层<a class="headerlink" href="#transports" title="永久链接至标题">¶</a></h2>
+<p>将Feathers应用程序公开为API服务器</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="express.html">Express</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="express.html#express-app">express(app)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#express-1">express()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#app-use-path-service-mw-mw">app.use(path, service|mw|[mw])</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#app-listen-port">app.listen(port)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#app-setup-server">app.setup(server)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#express-rest">express.rest()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#express-notfound-options">express.notFound(options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#express-errorhandler">express.errorHandler()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="express.html#routing">Routing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socketio.html">Socket.io</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socketio.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socketio.html#params">params</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primus.html">Primus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primus.html#configuration">配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primus.html#params">params</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="client">
+<h2>客户端<a class="headerlink" href="#client" title="永久链接至标题">¶</a></h2>
+<p>有关如何在客户端上使用Feathers的更多详细信息</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Feathers 客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client.html#node">Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html#react-native">React Native</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html#module-loaders">Module loaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html#feathersjs-client">&#64;feathersjs/client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client/rest.html">REST客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client/rest.html#feathersjs-rest-client">&#64;feathersjs/rest-client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client/rest.html#id9">HTTP API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client/socketio.html">Socket.io 客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client/socketio.html#feathersjs-socketio-client">&#64;feathersjs/socketio-client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client/socketio.html#id1">直接连接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client/primus.html">Primus 客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client/primus.html#loading-the-primus-client-library">加载Primus客户端库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client/primus.html#client-use-in-nodejs">客户端在NodeJS中使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client/primus.html#feathersjs-primus-client">&#64;feathersjs/primus-client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client/primus.html#id1">Direct connection</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>认证<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h2>
+<p>Feathers认证机制</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="authentication/server.html">认证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#complementary-plugins">Complementary Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#app-configure-auth-options">app.configure(auth(options))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#app-service-authentication">app.service(‘authentication’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#app-passport">app.passport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#auth-hooks-authenticate-strategies">auth.hooks.authenticate(strategies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#authentication-events">Authentication Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#express-middleware">Express Middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/server.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/client.html">验证客户端</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-configure-auth-options">app.configure(auth(options))</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-authenticate">app.authenticate()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-authenticate-options">app.authenticate(options)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-logout">app.logout()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-passport">app.passport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#authentication-events">Authentication Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-on-authenticated-callback">app.on(‘authenticated’, callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-on-logout-callback">app.on(‘logout’, callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#app-on-reauthentication-error-errorhandler">app.on(‘reauthentication-error’, errorHandler)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#hooks">Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/client.html#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/local.html">本地验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/local.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/local.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/local.html#hooks">hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/local.html#verifier">Verifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/local.html#client-usage">Client Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/jwt.html">JWT身份验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/jwt.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/jwt.html#verifier">Verifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/jwt.html#client-usage">Client Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/oauth1.html">OAuth1身份验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth1.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth1.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth1.html#verifier">Verifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth1.html#customizing-the-oauth-response">Customizing The OAuth Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth1.html#client-usage">Client Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/oauth2.html">OAuth2身份验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth2.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth2.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth2.html#verifier">Verifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth2.html#customizing-the-oauth-response">Customizing The OAuth Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/oauth2.html#client-usage">Client Usage</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="database">
+<h2>数据库<a class="headerlink" href="#database" title="永久链接至标题">¶</a></h2>
+<p>简化常见的数据库适配器API和查询机制</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="databases/adapters.html">数据库适配器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="databases/adapters.html#memory-filesystem">Memory/Filesystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/adapters.html#sql">SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/adapters.html#nosql">NoSQL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="databases/common.html">通用API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="databases/common.html#service-options"><code class="docutils literal notranslate"><span class="pre">service([options])</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/common.html#pagination">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/common.html#service-methods">Service methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/common.html#extending-adapters">Extending Adapters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="databases/querying.html">查询</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#equality">Equality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#limit"><code class="docutils literal notranslate"><span class="pre">$limit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#skip"><code class="docutils literal notranslate"><span class="pre">$skip</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#sort"><code class="docutils literal notranslate"><span class="pre">$sort</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#select"><code class="docutils literal notranslate"><span class="pre">$select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#in-nin"><code class="docutils literal notranslate"><span class="pre">$in</span></code>, <code class="docutils literal notranslate"><span class="pre">$nin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#lt-lte"><code class="docutils literal notranslate"><span class="pre">$lt</span></code>, <code class="docutils literal notranslate"><span class="pre">$lte</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#gt-gte"><code class="docutils literal notranslate"><span class="pre">$gt</span></code>, <code class="docutils literal notranslate"><span class="pre">$gte</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#ne"><code class="docutils literal notranslate"><span class="pre">$ne</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#or"><code class="docutils literal notranslate"><span class="pre">$or</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="databases/querying.html#search">Search</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="readme.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../guides/frameworks/readme.html" class="btn btn-neutral float-left" title="与前端框架集成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

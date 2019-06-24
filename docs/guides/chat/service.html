@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建服务 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="添加身份验证" href="authentication.html" />
+    <link rel="prev" title="创建应用程序" href="creating.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">创建服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-service">生成服务</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-generated-files">生成的文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-the-api">测试API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>创建服务</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/service.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-service">
+<h1>创建服务<a class="headerlink" href="#creating-a-service" title="永久链接至标题">¶</a></h1>
+<p>现在我们有了:doc:<cite>./creating</cite>,我们可以创建一个新的API端点来存储消息.</p>
+<div class="section" id="generating-a-service">
+<h2>生成服务<a class="headerlink" href="#generating-a-service" title="永久链接至标题">¶</a></h2>
+<p>在Feathers中,任何API端点都表示为 <a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a>, 我们已经在 <a class="reference internal" href="../basics/services.html"><span class="doc">服务</span></a> 中学到了这一点.要生成新服务,我们可以运行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">service</span>
+</pre></div>
+</div>
+<p>首先,我们必须选择我们想要创建的服务类型.您可以在许多数据库和ORM中进行选择,但是对于本指南,我们将使用默认的 <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a>. NeDB是一个数据库,它将数据本地存储在一个文件中,不需要额外的配置或数据库服务器.</p>
+<p>接下来,当询问服务名称时,输入  <code class="docutils literal notranslate"><span class="pre">messages</span></code>.然后按Enter键保留默认路径(<code class="docutils literal notranslate"><span class="pre">/messages</span></code>).</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>数据库连接字符串*也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)</p>
+<p>确认最后一个提示将生成一些文件并连接我们的服务:</p>
+<div class="figure align-default" id="id2">
+<img alt="Final Configuration" src="../../_images/service.png" />
+<p class="caption"><span class="caption-text">最终配置</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+<p>Etvoilà！我们为消息提供了功能齐全的REST和实时API.</p>
+</div>
+<div class="section" id="the-generated-files">
+<h2>生成的文件<a class="headerlink" href="#the-generated-files" title="永久链接至标题">¶</a></h2>
+<p>我们可以看到,创建了几个文件:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.service.js</span></code>  - 在以下服务中注册服务的服务设置文件:doc:<cite>../basics/generator</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.hooks.js</span></code> - A file that returns an
+<a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a> that should be
+registered on the service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/models/messages.model.js</span></code> - 我们的消息模型.由于我们使用的是NeDB,因此只需实例化文件系统数据库.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code> - 服务的摩卡测试.最初,它只测试服务是否存在.</p></li>
+</ul>
+</div>
+<div class="section" id="testing-the-api">
+<h2>测试API<a class="headerlink" href="#testing-the-api" title="永久链接至标题">¶</a></h2>
+<p>如果我们现在启动我们的API</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>我们可以转到 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a> 并看到来自我们的新消息服务的(空)响应.</p>
+<p>我们还可以 <code class="docutils literal notranslate"><span class="pre">POST</span></code> 新消息和 <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> 现有消息(通过 <code class="docutils literal notranslate"><span class="pre">/messages/&lt;_id&gt;</span></code>),例如从命令行使用 <a class="reference external" href="https://curl.haxx.se/">CURL</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/messages/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;text&quot;: &quot;Hello from the command line!&quot; }&#39;</span>
+</pre></div>
+</div>
+<p>或者使用REST客户端,例如 <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>, 使用此按钮:</p>
+<p><a href="#id3"><span class="problematic" id="id4">|在邮递员中运行|</span></a></p>
+<p>如果我们现在再次转到 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a>, 我们将看到新创建的消息.</p>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>只需一个命令,我们就可以创建一个功能齐全的REST和实时API端点.接下来,让我们 <a class="reference internal" href="authentication.html"><span class="doc">添加身份验证</span></a> 并确保消息仅发送给允许查看它们的用户.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authentication.html" class="btn btn-neutral float-right" title="添加身份验证" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="creating.html" class="btn btn-neutral float-left" title="创建应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/authentication/client.rst:2
+msgid "Authentication Client"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:10
+msgid "The [@feathersjs/authentication-client](https://github.com/feathersjs/authentication-client) module allows you to easily authenticate against a Feathers server. It is not required, but makes it easier to implement authentication in your client by automatically storing and sending the JWT access token and handling re-authenticating when a websocket disconnects."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:17
+msgid "This module contains:"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:19
+msgid "`The main entry function <#configuration>`_"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:20
+msgid "`Additional feathersClient methods <#additional-feathersclient-methods>`_"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:22
+msgid "`Some helpful hooks <#hooks>`_"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:25
+msgid "app.configure(auth(options))"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:27
+msgid "Setup is done the same as all Feathers plugins, using the ``configure`` method:"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:46
+msgid "**> The**\\ :doc:`client`\\ **(Rest, Socket, Primus…) must have been initialized previously to the authentication plugin.**"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:51
+msgid "Options"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:53
+msgid "The following default options will be mixed in with the settings you pass in when configuring authentication. It will set the mixed options back to to the app so that they are available at any time by ``app.get('auth')``. They can all be overridden."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:72
+msgid "To enable storing the JWT make sure to provide a ``storage`` when configuring the plugin. The following storage options are available:"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:75
+msgid "``window.localStorage`` in the browser to use the browsers `localStorage <https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage>`_"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:77
+msgid "`AsyncStorage <https://facebook.github.io/react-native/docs/asyncstorage.html>`_ for *React Native*"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:79
+msgid "`localForage <https://www.npmjs.com/package/localforage>`_ which helps deal with older browsers and browsers in Incognito / Private Browsing mode."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:82
+msgid "`cookie-storage <https://www.npmjs.com/package/cookie-storage>`_ uses cookies. It can be useful on devices that don’t support ``localStorage``."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:87
+msgid "app.authenticate()"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:89
+msgid "``app.authenticate() -> Promise`` with no arguments will try to authenticate using the JWT from the ``storage``. This is normally called to either show your application (when successful) or showing a login page or redirecting to the appropriate oAuth link."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:104
+msgid "``app.authenticate()`` **has** to be called when you want to use the token from storage and **only once** when the application initializes. Once successful, all subsequent requests will send their authentication information automatically."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:110
+msgid "app.authenticate(options)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:112
+msgid "``app.authenticate(options) -> Promise`` will try to authenticate with a Feathers server by passing a ``strategy`` and other properties as credentials. It will use whichever transport has been setup on the client (@feathersjs/rest-client, @feathersjs/socketio-client, or @feathersjs/primus-client)."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:142
+msgid "``data {Object}`` - of the format ``{strategy [, ...otherProps]}``"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:144
+msgid "``strategy {String}`` - the name of the strategy to be used to authenticate. Required."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:146
+msgid "``...otherProps {Properties}`` vary depending on the chosen strategy. Above is an example of using the ``jwt`` strategy. Below is one for the ``local`` strategy."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:151
+msgid "app.logout()"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:153
+msgid "Removes the JWT accessToken from storage on the client. It also calls the :doc:`./server` on the Feathers server."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:158
+msgid "app.passport"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:160
+msgid "``app.passport`` contains helper functions to work with the JWT."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:163
+msgid "app.passport.getJWT()"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:165
+msgid "Pull the JWT from ``storage`` or the cookie. Returns a Promise."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:168
+msgid "app.passport.verifyJWT(token)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:170
+msgid "Verify that a JWT is not expired and decode it to get the payload. Returns a Promise."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:174
+msgid "app.passport.payloadIsValid(token)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:176
+msgid "Synchronously verify that a token has not expired. Returns a Boolean."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:179
+msgid "Authentication Events"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:181
+msgid "On the client authentication events are emitted on the app object whenever a client successfully authenticates or “logs out”. These events are emitted on the client."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:186
+msgid "app.on(‘authenticated’, callback)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:189
+msgid "app.on(‘logout’, callback)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:192
+msgid "app.on(‘reauthentication-error’, errorHandler)"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:194
+msgid "In the event that your server goes down or the client loses connectivity, it will automatically handle attempting to re-authenticate the socket when the client regains connectivity with the server. In order to handle an authentication failure during automatic re-authentication you need to implement the following event listener:"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:216
+msgid "Hooks"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:218
+msgid "There are 3 hooks. They are really meant for internal use and you shouldn’t need to worry about them very often."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:221
+msgid "``populateAccessToken`` - Takes the token and puts in on ``hooks.params.accessToken`` in case you need it in one of your client side services or hooks"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:224
+msgid "``populateHeader`` - Add the accessToken to the authorization header"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:225
+msgid "``populateEntity`` - Experimental. Populate an entity based on the JWT payload."
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:229
+msgid "Complete Example"
+msgstr ""
+
+#: ../../source/api/authentication/client.rst:231
+msgid "Here’s an example of a Feathers client that uses ``@feathersjs/authentication-client``."
+msgstr ""
+

@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>应用 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="服务" href="services.html" />
+    <link rel="prev" title="API" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#core">核心</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">应用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-path-service">.use(path, service)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-path">.service(path)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hooks-hooks">.hooks(hooks)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#publish-event-publisher">.publish([event, ] publisher)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-callback">.configure(callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#listen-port">.listen(port)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-server">.setup([server])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-name-value">.set(name, value)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-name">.get(name)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#on-eventname-listener">.on(eventname, listener)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emit-eventname-data">.emit(eventname, data)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removelistener-eventname-listener">.removeListener(eventname, [ listener ])</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mixins">.mixins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services">.services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defaultservice">.defaultService</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">活动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">活动频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transports">传输层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">API</a> &raquo;</li>
+        
+      <li>应用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/application.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application">
+<h1>应用<a class="headerlink" href="#application" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/feathersjs/feathers/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/feathersjs/feathers.png?style=social&amp;label=Star" /></a> <a class="reference external" href="https://www.npmjs.com/package/feathers"><img alt="npm version" src="https://img.shields.io/npm/v/feathers.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/feathers/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/feathers --save
+</pre></div>
+</div>
+<p>The core <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers</span></code> module provides the ability to initialize new Feathers application instances.
+It works in Node, React Native and the browser (see the <a class="reference internal" href="client.html"><span class="doc">Feathers 客户端</span></a> chapter for more information).
+Each instance allows for registration and retrieval of <a class="reference internal" href="hooks.html"><span class="doc">钩</span></a>, plugin configuration, and getting and setting configuration options.
+An initialized Feathers application is referred to as the <strong>app object</strong>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="use-path-service">
+<h2>.use(path, service)<a class="headerlink" href="#use-path-service" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="services.html"><span class="doc">服务</span></a> on a given <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add a service.</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="sb">`This is the </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb"> message!`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">path</span></code> can be <code class="docutils literal notranslate"><span class="pre">/</span></code> to register a service at the root level.</p>
+</div>
+</div>
+<div class="section" id="service-path">
+<h2>.service(path)<a class="headerlink" href="#service-path" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="services.html"><span class="doc">服务</span></a> for the given path.
+Feathers internally creates a new object from each registered service.
+This means that the object returned by <code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> will provide the same methods
+and functionality as your original service object
+but also functionality added by Feathers and its plugins like <a class="reference internal" href="events.html"><span class="doc">活动</span></a> and <a class="reference internal" href="services.html#services-feathers-functionality"><span class="std std-ref">Feathers functionality</span></a>.
+<code class="docutils literal notranslate"><span class="pre">path</span></code> can be the service name with or without leading and trailing slashes.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">messageService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+<span class="nx">messageService</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/my/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">todoService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;my/todos&#39;</span><span class="p">);</span>
+<span class="c1">// todoService is an event emitter</span>
+<span class="nx">todoService</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">,</span> <span class="nx">todo</span> <span class="p">=&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Created todo&#39;</span><span class="p">,</span> <span class="nx">todo</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hooks-hooks">
+<h2>.hooks(hooks)<a class="headerlink" href="#hooks-hooks" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.hooks(hooks)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> allows registration of application-level hooks. For more information see the <a class="reference internal" href="hooks.html#hooks-application-hooks"><span class="std std-ref">Application hooks</span></a>.</p>
+</div>
+<div class="section" id="publish-event-publisher">
+<h2>.publish([event, ] publisher)<a class="headerlink" href="#publish-event-publisher" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.publish([event,</span> <span class="pre">]</span> <span class="pre">publisher)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> registers a global event publisher. For more information see the <a class="reference internal" href="channels.html#channels-publishing"><span class="std std-ref">Publishing</span></a> chapter.</p>
+</div>
+<div class="section" id="configure-callback">
+<h2>.configure(callback)<a class="headerlink" href="#configure-callback" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.configure(callback)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> runs a <code class="docutils literal notranslate"><span class="pre">callback</span></code> function that gets passed the application object.
+It is used to initialize plugins or services.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">setupService</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">todoService</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">setupService</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="listen-port">
+<h2>.listen(port)<a class="headerlink" href="#listen-port" title="永久链接至标题">¶</a></h2>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>app.listen（[port]） - &gt; HTTPServer``在给定端口上启动应用程序。它将设置所有已配置的传输（如果有），然后使用服务器对象运行``app.setup（server）``（见下文），然后返回服务器对象。</p>
+<p><code class="docutils literal notranslate"><span class="pre">listen</span></code> will only be available if a server side transport (REST,
+Socket.io or Primus) has been configured.</p>
+</div>
+<div class="section" id="setup-server">
+<h2>.setup([server])<a class="headerlink" href="#setup-server" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.setup（[server]）</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">app``用于通过调用each：doc：`services</span> <span class="pre">#setupapp-path`方法（如果可用）来初始化所有服务。它还将使用传递的``server``实例（例如通过``http.createServer</span></code>）来设置SocketIO（如果已启用）以及可能需要服务器实例的任何其他提供程序。</p>
+<p>Normally <code class="docutils literal notranslate"><span class="pre">app.setup</span></code> will be called automatically when starting the application via <code class="docutils literal notranslate"><span class="pre">app.listen([port])</span></code> but there are cases when it needs to be called explicitly.</p>
+</div>
+<div class="section" id="set-name-value">
+<h2>.set(name, value)<a class="headerlink" href="#set-name-value" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.set(name,</span> <span class="pre">value)</span> <span class="pre">-&gt;</span> <span class="pre">app</span></code> assigns setting <code class="docutils literal notranslate"><span class="pre">name</span></code> to <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+</div>
+<div class="section" id="get-name">
+<h2>.get(name)<a class="headerlink" href="#get-name" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.get(name)</span> <span class="pre">-&gt;</span> <span class="pre">value</span></code> retrieves the setting <code class="docutils literal notranslate"><span class="pre">name</span></code>.
+For more information on server side Express settings see the <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.set">Express documentation</a>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="mi">3030</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-eventname-listener">
+<h2>.on(eventname, listener)<a class="headerlink" href="#on-eventname-listener" title="永久链接至标题">¶</a></h2>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">NodeJS EventEmitter .on</a>.
+Registers a <code class="docutils literal notranslate"><span class="pre">listener</span></code> method (<code class="docutils literal notranslate"><span class="pre">function(data)</span> <span class="pre">{}</span></code>) for the given <code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="nx">user</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Logged in&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="emit-eventname-data">
+<h2>.emit(eventname, data)<a class="headerlink" href="#emit-eventname-data" title="永久链接至标题">¶</a></h2>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_emit_eventname_args">NodeJS EventEmitter .emit</a>.
+Emits the event <code class="docutils literal notranslate"><span class="pre">eventname</span></code> to all event listeners.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;Something happened&#39;</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;myevent&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;myevent happened&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removelistener-eventname-listener">
+<h2>.removeListener(eventname, [ listener ])<a class="headerlink" href="#removelistener-eventname-listener" title="永久链接至标题">¶</a></h2>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener">NodeJS EventEmitter .removeListener</a>.
+Removes all or the given listener for <code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+</div>
+<div class="section" id="mixins">
+<h2>.mixins<a class="headerlink" href="#mixins" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.mixins``包含服务混合列表。</span> <span class="pre">mixin是一个回调（``（service，path）=&gt;</span> <span class="pre">{}</span></code>），它为每个正在注册的服务运行。添加自己的mixins允许为每个注册的服务添加功能。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+<span class="c1">// Mixins have to be added before registering any services</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">mixins</span><span class="p">.</span><span class="nx">push</span><span class="p">((</span><span class="nx">service</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">service</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`Hello from service at &#39;</span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span> <span class="nx">id</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">sayHello</span><span class="p">();</span>
+<span class="c1">// -&gt; Hello from service at &#39;todos&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="services">
+<h2>.services<a class="headerlink" href="#services" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="services.html"><span class="doc">服务</span></a> keyed by the path they have been registered via <code class="docutils literal notranslate"><span class="pre">app.use(path,</span> <span class="pre">service)</span></code>.
+This allows to return a list of all available service names:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">servicePaths</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">services</span><span class="p">);</span>
+<span class="nx">servicePaths</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">path</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">service</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>To retrieve services, the <a class="reference external" href="#servicepath">app.service(path)</a> method should be used (not <code class="docutils literal notranslate"><span class="pre">app.services.path</span></code> directly).</p>
+</div>
+<p>A Feathers：doc：<cite>client`对它所连接的服务器一无所知。这意味着``app.services``将*不会*自​​动包含服务器上可用的所有服务。相反，服务器必须提供其服务列表，例如，通过：doc：</cite>./ services`。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/info&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">async</span> <span class="nx">find</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">services</span><span class="o">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">services</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="defaultservice">
+<h2>.defaultService<a class="headerlink" href="#defaultservice" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.defaultService</span></code> can be a function that returns an instance of a new standard service for <code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> if there isn’t one registered yet.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+
+<span class="c1">// For every `path` that doesn&#39;t have a service automatically return a new in-memory service</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">defaultService</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">memory</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is used by the <a class="reference internal" href="client.html"><span class="doc">Feathers 客户端</span></a> to automatically register client side services that talk to a Feathers server.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="services.html" class="btn btn-neutral float-right" title="服务" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="readme.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

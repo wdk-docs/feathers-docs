@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/authentication/jwt.rst:2
+msgid "JWT Authentication"
+msgstr "JWT身份验证"
+
+#: ../../source/api/authentication/jwt.rst:4
+msgid "|npm version| |Changelog|"
+msgstr "|npm version| |Changelog|"
+
+#: ../../source/api/authentication/jwt.rst:10
+msgid ""
+"[@feathersjs/authentication-jwt](https://github.com/feathersjs"
+"/authentication-jwt) is a module for the :doc:`./server` that wraps the "
+"`passport-jwt <https://github.com/themikenicholson/passport-jwt>`_ "
+"authentication strategy, which lets you authenticate with your Feathers "
+"application using a `JSON Web Token <https://jwt.io/>`_ access token."
+msgstr "[@ feathersjs / authentication-jwt]（https://github.com/feathersjs/authentication-jwt）是一个模块：doc：`。/ server`，它包装了`passport-jwt <https：// github。 com / themikenicholson / passport-jwt>`_ authentication strategy，它允许您使用`JSON Web Token <https://jwt.io/>`_ access token对您的Feathers应用程序进行身份验证。"
+
+#: ../../source/api/authentication/jwt.rst:16
+msgid "This module contains 3 core pieces:"
+msgstr "This module contains 3 core pieces:"
+
+#: ../../source/api/authentication/jwt.rst:18
+msgid "The main initialization function"
+msgstr "The main initialization function"
+
+#: ../../source/api/authentication/jwt.rst:19
+msgid "The ``Verifier`` class"
+msgstr "The ``Verifier`` class"
+
+#: ../../source/api/authentication/jwt.rst:20
+msgid ""
+"The ```ExtractJwt`` <https://github.com/themikenicholson/passport-jwt"
+"#extracting-the-jwt-from-the-request>`_ object from passport-jwt."
+msgstr ""
+"The ```ExtractJwt`` <https://github.com/themikenicholson/passport-jwt"
+"#extracting-the-jwt-from-the-request>`_ object from passport-jwt."
+
+#: ../../source/api/authentication/jwt.rst:25
+msgid "Configuration"
+msgstr "Configuration"
+
+#: ../../source/api/authentication/jwt.rst:27
+msgid "In most cases initializing the module is as simple as doing this:"
+msgstr "In most cases initializing the module is as simple as doing this:"
+
+#: ../../source/api/authentication/jwt.rst:50
+msgid ""
+"This will pull from your global authentication object in your config "
+"file. It will also mix in the following defaults, which can be "
+"customized."
+msgstr ""
+"This will pull from your global authentication object in your config "
+"file. It will also mix in the following defaults, which can be "
+"customized."
+
+#: ../../source/api/authentication/jwt.rst:55
+msgid "Options"
+msgstr "Options"
+
+#: ../../source/api/authentication/jwt.rst:75
+msgid ""
+"Additional `passport-jwt <https://github.com/themikenicholson/passport-"
+"jwt>`_ options can be provided."
+msgstr ""
+"Additional `passport-jwt <https://github.com/themikenicholson/passport-"
+"jwt>`_ options can be provided."
+
+#: ../../source/api/authentication/jwt.rst:80
+msgid "Verifier"
+msgstr "Verifier"
+
+#: ../../source/api/authentication/jwt.rst:82
+msgid ""
+"This is the verification class that receives the JWT payload (if "
+"verification is successful) and either returns the payload or, if an "
+"``id`` is present in the payload, populates the entity (normally a "
+"``user``) and returns both the entity and the payload. It has the "
+"following methods that can all be overridden. The ``verify`` function has"
+" the exact same signature as `passport-jwt "
+"<https://github.com/themikenicholson/passport-jwt>`_."
+msgstr "[@ feathersjs / authentication-jwt] (https://github.com/feathersjs/authentication-jwt) is a module: doc:`. / server`, which wraps `passport-jwt <https:// github. Com / themikenicholson / passport-jwt>`_ authentication strategy, which allows you to authenticate your Feathers application using the `JSON Web Token <https://jwt.io/>`_ access token."
+
+#: ../../source/api/authentication/jwt.rst:100
+msgid ""
+"The ``Verifier`` class can be extended so that you customize it’s "
+"behavior without having to rewrite and test a totally custom local "
+"Passport implementation. Although that is always an option if you don’t "
+"want use this plugin."
+msgstr "可以扩展``Verifier``类，以便您可以自定义它的行为，而无需重写和测试完全自定义的本地Passport实现。虽然如果您不想使用此插件，这始终是一个选项。"
+
+#: ../../source/api/authentication/jwt.rst:105
+msgid "An example of customizing the Verifier:"
+msgstr "An example of customizing the Verifier:"
+
+#: ../../source/api/authentication/jwt.rst:127
+msgid "Client Usage"
+msgstr "Client Usage"
+
+#: ../../source/api/authentication/jwt.rst:130
+msgid "authentication-client"
+msgstr "authentication-client"
+
+#: ../../source/api/authentication/jwt.rst:132
+#, fuzzy
+msgid ""
+"When this module is registered server side, using the default config "
+"values this is how you can authenticate using :doc:`./client`."
+msgstr ""
+"When this module is registered server side, using the default config "
+"values this is how you can authenticate using :doc:`@feathersjs"
+"/authentication-client <./client>`:"
+
+#: ../../source/api/authentication/jwt.rst:146
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../../source/api/authentication/jwt.rst:148
+msgid ""
+"If you are not using ``@feathersjs/authentication-client`` and you have "
+"registered this module server side then you can include the access token "
+"in an ``Authorization`` header."
+msgstr ""
+"If you are not using ``@feathersjs/authentication-client`` and you have "
+"registered this module server side then you can include the access token "
+"in an ``Authorization`` header."
+
+#: ../../source/api/authentication/jwt.rst:152
+msgid "Here is what that looks like with curl:"
+msgstr "Here is what that looks like with curl:"
+
+#: ../../source/api/authentication/jwt.rst:159
+msgid "Sockets"
+msgstr "Sockets"
+
+#: ../../source/api/authentication/jwt.rst:161
+msgid ""
+"Authenticating using an access token via sockets is done by emitting the "
+"following message:"
+msgstr ""
+"Authenticating using an access token via sockets is done by emitting the "
+"following message:"
+
+#~ msgid ""
+#~ "[@feathersjs/authentication-jwt](https://github.com/feathersjs"
+#~ "/authentication-jwt) is a module for "
+#~ "the `authentication server <./server.md>`_ "
+#~ "that wraps the `passport-jwt "
+#~ "<https://github.com/themikenicholson/passport-jwt>`_ "
+#~ "authentication strategy, which lets you "
+#~ "authenticate with your Feathers application"
+#~ " using a `JSON Web Token "
+#~ "<https://jwt.io/>`_ access token."
+#~ msgstr ""
+

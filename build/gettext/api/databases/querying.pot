@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:22+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/databases/querying.rst:2
+msgid "Querying"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:4
+msgid "All official database adapters support a common way for querying, sorting, limiting and selecting ``find`` method calls as part of ``params.query``. Querying also applies ``update``, ``patch`` and ``remove`` method calls if the ``id`` is set to ``null``."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:9
+msgid "When used via REST URLs all query values are strings. Depending on the service the values in ``params.query`` might have to be converted to the right type in a :doc:`../hooks`."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:14
+msgid "Equality"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:16
+msgid "All fields that do not contain special query parameters are compared directly for equality."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:34
+msgid "``$limit``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:36
+msgid "``$limit`` will return only the number of results you specify:"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:54
+msgid "With :doc:`common#pagination`. to just get the number of available records set ``$limit`` to ``0``. This will only run a (fast) counting query against the database and return a page object with the ``total`` and an empty ``data`` array."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:60
+msgid "``$skip``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:62
+msgid "``$skip`` will skip the specified number of results:"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:80
+msgid "``$sort``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:82
+msgid "``$sort`` will sort based on the object you provide. It can contain a list of properties by which to sort mapped to the order (``1`` ascending, ``-1`` descending)."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:103
+msgid "``$select``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:105
+msgid "``$select`` allows to pick which fields to include in the result. This will work for any service method."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:129
+msgid "``$in``, ``$nin``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:131
+msgid "Find all records where the property does (``$in``) or does not (``$nin``) match any of the given values."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:150
+msgid "``$lt``, ``$lte``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:152
+msgid "Find all records where the value is less (``$lt``) or less and equal (``$lte``) to a given value."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:173
+msgid "``$gt``, ``$gte``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:175
+msgid "Find all records where the value is more (``$gt``) or more and equal (``$gte``) to a given value."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:196
+msgid "``$ne``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:198
+msgid "Find all records that do not equal the given property value."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:216
+msgid "``$or``"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:218
+msgid "Find all records that match any of the given criteria."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:238
+msgid "Search"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:240
+msgid "Searching is not part of the common querying syntax since it is very specific to the database you are using. Many databases already support their own search syntax:"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:244
+msgid "Regular expressions (converted in a hook) for Mongoose, MongoDB and NeDB. See `this comment <https://github.com/feathersjs/feathers/issues/334#issuecomment-234432108>`_"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:248
+msgid "For MongoDB also see `feathers-mongodb-fuzzy-search <https://www.npmjs.com/package/feathers-mongodb-fuzzy-search>`_"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:250
+msgid "For NeDB also see `feathers-nedb-fuzzy-search <https://www.npmjs.com/package/feathers-nedb-fuzzy-search>`_"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:253
+msgid "`$like for Sequelize <http://docs.sequelizejs.com/en/latest/docs/querying/>`_ which can be set in `params.sequelize <https://github.com/feathersjs-ecosystem/feathers-sequelize#paramssequelize>`_"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:257
+msgid "Some database adapters like `KnexJS <https://github.com/feathersjs-ecosystem/feathers-knex>`_, `RethinkDB <https://github.com/feathersjs-ecosystem/feathers-rethinkdb>`_ and `Elasticsearch <https://github.com/feathersjs-ecosystem/feathers-elasticsearch>`_ also support non-standard query parameters which are described in their documentation pages."
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:264
+msgid "For additional search functionality see `feathers-solr <https://www.npmjs.com/package/feathers-solr>`_"
+msgstr ""
+
+#: ../../source/api/databases/querying.rst:267
+msgid "For further discussions see `this issue <https://github.com/feathersjs/feathers/issues/334>`_."
+msgstr ""
+

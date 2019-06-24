@@ -1,0 +1,447 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/rest.rst:2
+msgid "REST APIs"
+msgstr "REST APIs"
+
+#: ../../source/guides/basics/rest.rst:4
+msgid ""
+"In the previous chapters we learned about Feathers :doc:`./hooks` and "
+"created a messages service that works in NodeJS and the browser. We saw "
+"how Feathers automatically sends events but so far we didn’t really "
+"create a web API that other people can use."
+msgstr "在前面的章节中, 我们了解了Feathers "
+":doc:`./hooks` 并创建了一个在NodeJS和浏览器中工作的消息服务.我们看到了Feathers如何自动发送事件, "
+"但到目前为止我们并没有真正创建其他人可以使用的Web API."
+
+#: ../../source/guides/basics/rest.rst:9
+msgid ""
+"This is what Feathers transports do. A transport is a plugin that turns a"
+" Feathers application into a server that exposes our services through "
+"different protocols for other clients to use. Since a transport involves "
+"running a server it won’t work in the browser but we will learn later "
+"that there are complementary plugins for connecting to a Feathers server "
+"in a browser Feathers application."
+msgstr "这就是Feathers传输的目的.传输是一个插件, "
+"可以将Feathers应用程序转换为服务器, 通过不同的协议公开我们的服务, 供其他客户端使用.由于传输涉及运行服务器, "
+"因此它无法在浏览器中运行, 但我们稍后会了解到, 在浏览器Feathers应用程序中有连接到Feathers服务器的补充插件."
+
+#: ../../source/guides/basics/rest.rst:16
+msgid "Currently Feathers officially has three transports:"
+msgstr "目前, Feathers正式拥有三种传输工具:"
+
+#: ../../source/guides/basics/rest.rst:18
+#, fuzzy
+msgid ":doc:`../../api/express` for exposing services through a JSON REST API"
+msgstr ":doc:`../api/express` 用于通过JSON REST API公开服务"
+
+#: ../../source/guides/basics/rest.rst:19
+#, fuzzy
+msgid ""
+":doc:`../../api/socketio` for connecting to services through websockets "
+"and also receiving real-time service events"
+msgstr ":doc:`../api/socketio` 通过websockets连接服务并接收实时服务事件"
+
+#: ../../source/guides/basics/rest.rst:20
+#, fuzzy
+msgid ""
+":doc:`../../api/primus` an alternative to Socket.io supporting several "
+"websocket protocols which also supports real-time events"
+msgstr ":doc:`../api/primus` Socket.io的替代方案, 支持几个支持实时事件的websocket协议"
+
+#: ../../source/guides/basics/rest.rst:22
+msgid ""
+"In this chapter we will look at the HTTP REST transport and Feathers "
+"Express framework integration."
+msgstr "在本章中, 我们将介绍HTTP REST传输和Feathers Express框架集成."
+
+#: ../../source/guides/basics/rest.rst:26
+msgid "REST and services"
+msgstr "REST和服务"
+
+#: ../../source/guides/basics/rest.rst:28
+#, fuzzy
+msgid ""
+"One of the goals of Feathers is to make building `REST APIs "
+"<https://en.wikipedia.org/wiki/Representational_state_transfer>`_ easier "
+"since it is by far the most common protocol for web APIs. For example, we"
+" want to make a request like ``GET /messages/1`` and get a JSON response "
+"like ``{ \"id\": 1, \"text\": \"The first message\" }``. You may already "
+"have noticed that the Feathers service methods and the HTTP methods like "
+"``GET``, ``POST``, ``PATCH`` and ``DELETE`` are fairly complementary to "
+"each other:"
+msgstr ""
+"Feathers的目标之一是使构建 `REST API "
+"<https://en.wikipedia.org/wiki/Representational_state_transfer>`_ 更容易, "
+"因为它是迄今为止最常用的Web API协议.例如, 我们想要发出像 ``GET/messages/1`` 这样的请求, 并获得一个JSON响应, "
+"如 ``{ \"id\": 1, \"text\": \"The first message\" }``. "
+"您可能已经注意到Feathers服务方法和HTTP方法, 如 ``GET``, ``POST``, ``PATCH`` 和 ``DELETE`` "
+"是相互补充的:"
+
+#: ../../source/guides/basics/rest.rst:37
+msgid "Service method"
+msgstr "服务方式"
+
+#: ../../source/guides/basics/rest.rst:37
+msgid "HTTP method"
+msgstr "HTTP方法"
+
+#: ../../source/guides/basics/rest.rst:37
+msgid "Path"
+msgstr "Path"
+
+#: ../../source/guides/basics/rest.rst:39
+msgid ".find()"
+msgstr ".find()"
+
+#: ../../source/guides/basics/rest.rst:39
+#: ../../source/guides/basics/rest.rst:40
+msgid "GET"
+msgstr "GET"
+
+#: ../../source/guides/basics/rest.rst:39
+#: ../../source/guides/basics/rest.rst:41
+msgid "/messages"
+msgstr "/messages"
+
+#: ../../source/guides/basics/rest.rst:40
+msgid ".get()"
+msgstr ".get()"
+
+#: ../../source/guides/basics/rest.rst:40
+#: ../../source/guides/basics/rest.rst:42
+#: ../../source/guides/basics/rest.rst:43
+#: ../../source/guides/basics/rest.rst:44
+msgid "/messages/1"
+msgstr "/messages/1"
+
+#: ../../source/guides/basics/rest.rst:41
+msgid ".create()"
+msgstr ".create()"
+
+#: ../../source/guides/basics/rest.rst:41
+msgid "POST"
+msgstr "POST"
+
+#: ../../source/guides/basics/rest.rst:42
+msgid ".update()"
+msgstr ".update()"
+
+#: ../../source/guides/basics/rest.rst:42
+msgid "PUT"
+msgstr "PUT"
+
+#: ../../source/guides/basics/rest.rst:43
+msgid ".patch()"
+msgstr ".patch()"
+
+#: ../../source/guides/basics/rest.rst:43
+msgid "PATCH"
+msgstr "PATCH"
+
+#: ../../source/guides/basics/rest.rst:44
+msgid ".remove()"
+msgstr ".remove()"
+
+#: ../../source/guides/basics/rest.rst:44
+msgid "DELETE"
+msgstr "DELETE"
+
+#: ../../source/guides/basics/rest.rst:47
+msgid ""
+"What the Feathers REST transport essentially does is to automatically map"
+" our existing service methods to those endpoints."
+msgstr "Feathers REST传输的基本功能是自动将现有服务方法映射到这些端点."
+
+#: ../../source/guides/basics/rest.rst:51
+msgid "Express integration"
+msgstr "快速整合"
+
+#: ../../source/guides/basics/rest.rst:53
+msgid ""
+"`Express <http://expressjs.com/>`_ is probably the most popular Node "
+"framework for creating web applications and APIs. The "
+":doc:`../../api/express` allows us to turn a Feathers application into an"
+" application that is both a Feathers application and a fully compatible "
+"Express application. This means you can use Feathers functionality like "
+"services and also any existing Express middleware. As mentioned before, "
+"the Express framework integration only works on the server."
+msgstr ""
+"`Express <http://expressjs.com/>`_ is probably the most popular Node "
+"framework for creating web applications and APIs. The "
+":doc:`../../api/express` allows us to turn a Feathers application into an"
+" application that is both a Feathers application and a fully compatible "
+"Express application. This means you can use Feathers functionality like "
+"services and also any existing Express middleware. As mentioned before, "
+"the Express framework integration only works on the server."
+
+#: ../../source/guides/basics/rest.rst:61
+msgid "To add the integration we install ``@feathersjs/express``:"
+msgstr "要添加我们安装的集成 ``@feathersjs/express``:"
+
+#: ../../source/guides/basics/rest.rst:67
+msgid ""
+"Then we can initialize a Feathers and Express application that exposes "
+"services as a REST API on port ``3030`` like this:"
+msgstr "然后我们可以初始化一个Feathers和Express应用程序, 它将服务作为REST API在端口 ``3030`` 上公开:"
+
+#: ../../source/guides/basics/rest.rst:91
+msgid ""
+"``express.json``, ``express.urlencoded`` and ``express.errorHandler`` are"
+" normal Express middlewares. We can still use ``app.use`` to register a "
+"Feathers service though."
+msgstr ""
+"``express.json``, ``express.urlencoded`` 和 ``express.errorHandler`` "
+"是正常的Express中间件.我们仍然可以使用``app.use``来注册Feathers服务."
+
+#: ../../source/guides/basics/rest.rst:95
+#, fuzzy
+msgid ""
+"You can find more information about the Express framework integration in "
+"the :doc:`../../api/express`."
+msgstr "您可以在 :doc:`Express API chapter <../../api/express>` 中找到有关Express框架集成的更多信息."
+
+#: ../../source/guides/basics/rest.rst:99
+msgid "A messages REST API"
+msgstr "消息REST API"
+
+#: ../../source/guides/basics/rest.rst:101
+msgid ""
+"The code above is really all we need to turn our messages service into a "
+"REST API. Here is the complete code for our ``app.js`` exposing the "
+"service from the :doc:`./services` through a REST API:"
+msgstr ""
+"上面的代码实际上是我们将消息服务转换为REST API所需的全部内容.以下是我们的 ``app.js`` 的完整代码, 它通过REST API从 "
+":doc:`./services` 公开服务:"
+
+#: ../../source/guides/basics/rest.rst:196
+msgid "You can start the server by running"
+msgstr "您可以通过运行来启动服务器"
+
+#: ../../source/guides/basics/rest.rst:202
+msgid ""
+"The server will stay running until you stop it by pressing Control + C in"
+" the terminal. Remember to stop and start the server every time "
+"``app.js`` changes."
+msgstr "服务器将一直运行, 直到您通过终端中的Control + C停止它.记得每次``app.js``改变时停止并启动服务器."
+
+#: ../../source/guides/basics/rest.rst:207
+msgid ""
+"In Express an error handler, here ``app.use(express.errorHandler());``, "
+"always has to be the last line before starting the server."
+msgstr ""
+"在Express中一个错误处理程序, 这里 ``app.use(express.errorHandler());``, "
+"总是必须是启动服务器之前的最后一行."
+
+#: ../../source/guides/basics/rest.rst:211
+msgid "Using the API"
+msgstr "使用API"
+
+#: ../../source/guides/basics/rest.rst:213
+msgid ""
+"Once the server is running the first thing we can do is hit "
+"`localhost:3030/messages <http://localhost:3030/messages>`_ in the "
+"browser. Since we already created a message on the server, the JSON "
+"response will look like this:"
+msgstr ""
+"Once the server is running the first thing we can do is hit "
+"`localhost:3030/messages <http://localhost:3030/messages>`_ in the "
+"browser. Since we already created a message on the server, the JSON "
+"response will look like this:一旦服务器运行, 我们可以做的第一件事是在浏览器中点击 "
+"`localhost:3030/messages <http://localhost:3030/messages>`_. "
+"由于我们已经在服务器上创建了一条消息, 因此JSON响应将如下所示:"
+
+#: ../../source/guides/basics/rest.rst:222
+msgid ""
+"We can also retrieve that specific message by going to "
+"`localhost:3030/messages/1 <http://localhost:3030/messages/1>`_."
+msgstr ""
+"我们还可以通过转到 `localhost:3030/messages/1 <http://localhost:3030/messages/1>`_"
+" 来检索该特定消息."
+
+#: ../../source/guides/basics/rest.rst:225
+msgid ""
+"A browser plugin like `JSON viewer for Chrome "
+"<https://chrome.google.com/webstore/detail/json-"
+"viewer/gbmdgpbipfallnflgajpaliibnhdgobh>`_ makes it much nicer to view "
+"JSON responses."
+msgstr ""
+"A browser plugin like `JSON viewer for Chrome "
+"<https://chrome.google.com/webstore/detail/json-"
+"viewer/gbmdgpbipfallnflgajpaliibnhdgobh>`_ makes it much nicer to view "
+"JSON responses.一个浏览器插件, 如 `JSON viewer for Chrome "
+"<https://chrome.google.com/webstore/detail/json-"
+"viewer/gbmdgpbipfallnflgajpaliibnhdgobh>`_, 可以更好地查看JSON响应."
+
+#: ../../source/guides/basics/rest.rst:228
+msgid ""
+"New messages can now be created by sending a POST request with JSON data "
+"to the same URL by using cURL on the command line like this:"
+msgstr "现在可以通过在命令行上使用cURL将带有JSON数据的POST请求发送到同一URL来创建新消息, 如下所示:"
+
+#: ../../source/guides/basics/rest.rst:237
+msgid ""
+"You can also use tools like `Postman <https://www.getpostman.com/>`_ to "
+"make HTTP requests."
+msgstr "您还可以使用\"Postman <https://www.getpostman.com/>`_等工具发出HTTP请求."
+
+#: ../../source/guides/basics/rest.rst:240
+msgid ""
+"If you now refresh `localhost:3030/messages "
+"<http://localhost:3030/messages>`_ you will see the newly created "
+"message."
+msgstr ""
+"如果您现在刷新 `localhost:3030/messages <http://localhost:3030/messages>`_, "
+"您将看到新创建的消息."
+
+#: ../../source/guides/basics/rest.rst:242
+msgid "We can also remove a message by sending a ``DELETE`` to its URL:"
+msgstr "我们还可以通过向其URL发送\"DELETE\"来删除消息:"
+
+#: ../../source/guides/basics/rest.rst:250
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/rest.rst:252
+msgid ""
+"In this chapter we built a fully functional messages REST API. You can "
+"probably already imagine how our messages service could store its data in"
+" a database instead of the :doc:`messages` array. In the "
+":doc:`databases`, let’s look at some services that implement different "
+"databases allowing us to create those APIs with even less code!"
+msgstr "在本章中, 我们构建了一个功能完备的消息REST API.您可能已经可以想象我们的消息服务如何将其数据存储在数据库中而不是 :doc:`messages` "
+"数组中.在 `下一章 <./databases>`_ 中, 让我们看看一些实现不同数据库的服务, 允许我们用更少的代码创建这些API！"
+
+#~ msgid ""
+#~ "In the previous chapters we learned "
+#~ "about Feathers `services "
+#~ "<./services.md>:doc:`./hooks` and created a "
+#~ "messages service that works in NodeJS"
+#~ " and the browser. We saw how "
+#~ "Feathers automatically sends events but "
+#~ "so far we didn’t really create a"
+#~ " web API that other people can "
+#~ "use."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Express <http://expressjs.com/>`_ is probably "
+#~ "the most popular Node framework for "
+#~ "creating web applications and APIs. The"
+#~ " `Feathers Express integration "
+#~ "<../../api/express.md>`_ allows us to turn "
+#~ "a Feathers application into an "
+#~ "application that is both a Feathers "
+#~ "application and a fully compatible "
+#~ "Express application. This means you can"
+#~ " use Feathers functionality like services"
+#~ " and also any existing Express "
+#~ "middleware. As mentioned before, the "
+#~ "Express framework integration only works "
+#~ "on the server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we built a fully"
+#~ " functional messages REST API. You "
+#~ "can probably already imagine how our "
+#~ "messages service could store its data"
+#~ " in a database instead of the "
+#~ "``messages`` array. In the `next chapter"
+#~ " <./databases.md>`_, let’s look at some "
+#~ "services that implement different databases"
+#~ " allowing us to create those APIs "
+#~ "with even less code!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Express <http://expressjs.com/>`_ is probably "
+#~ "the most popular Node framework for "
+#~ "creating web applications and APIs. The"
+#~ " :doc:`Feathers Express integration "
+#~ "<../../api/express>`_ allows us to turn "
+#~ "a Feathers application into an "
+#~ "application that is both a Feathers "
+#~ "application and a fully compatible "
+#~ "Express application. This means you can"
+#~ " use Feathers functionality like services"
+#~ " and also any existing Express "
+#~ "middleware. As mentioned before, the "
+#~ "Express framework integration only works "
+#~ "on the server."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Pro Tip:** A browser plugin like "
+#~ "`JSON viewer for Chrome "
+#~ "<https://chrome.google.com/webstore/detail/json-"
+#~ "viewer/gbmdgpbipfallnflgajpaliibnhdgobh>`_ makes it "
+#~ "much nicer to view JSON responses."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we built a fully"
+#~ " functional messages REST API. You "
+#~ "can probably already imagine how our "
+#~ "messages service could store its data"
+#~ " in a database instead of the "
+#~ ":doc:``messages`` array. In the `next "
+#~ "chapter <./databases>`_, let’s look at "
+#~ "some services that implement different "
+#~ "databases allowing us to create those"
+#~ " APIs with even less code!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we built a fully"
+#~ " functional messages REST API. You "
+#~ "can probably already imagine how our "
+#~ "messages service could store its data"
+#~ " in a database instead of the "
+#~ ":doc:``messages`` array. In the `next "
+#~ "chapter <./databases>`, let’s look at "
+#~ "some services that implement different "
+#~ "databases allowing us to create those"
+#~ " APIs with even less code!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Express <http://expressjs.com/>`_ is probably "
+#~ "the most popular Node framework for "
+#~ "creating web applications and APIs. The"
+#~ " :doc:`Feathers Express integration "
+#~ "<../../api/express>` allows us to turn a"
+#~ " Feathers application into an application"
+#~ " that is both a Feathers application"
+#~ " and a fully compatible Express "
+#~ "application. This means you can use "
+#~ "Feathers functionality like services and "
+#~ "also any existing Express middleware. As"
+#~ " mentioned before, the Express framework"
+#~ " integration only works on the "
+#~ "server."
+#~ msgstr ""
+#~ "`Express <http://expressjs.com/>`_ "
+#~ "可能是用于创建Web应用程序和API的最流行的Node框架. :doc:`Feathers Express集成"
+#~ " <../../api/express>` "
+#~ "允许我们将Feathers应用程序变成一个既是Feathers应用程序又是完全兼容的Express应用程序的应用程序.这意味着您可以使用诸如服务之类的Feathers功能以及任何现有的Express中间件.如前所述,"
+#~ " Express框架集成仅适用于服务器."
+

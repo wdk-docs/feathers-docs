@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>验证客户端 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="本地验证" href="local.html" />
+    <link rel="prev" title="认证" href="server.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#client">Client</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#authentication">Authentication</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="server.html">认证</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">验证客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#app-configure-auth-options">app.configure(auth(options))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-authenticate">app.authenticate()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-authenticate-options">app.authenticate(options)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-logout">app.logout()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-passport">app.passport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication-events">Authentication Events</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-on-authenticated-callback">app.on(‘authenticated’, callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-on-logout-callback">app.on(‘logout’, callback)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-on-reauthentication-error-errorhandler">app.on(‘reauthentication-error’, errorHandler)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hooks">Hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oauth2.html">OAuth2身份验证</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>验证客户端</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/authentication/client.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="authentication-client">
+<h1>验证客户端<a class="headerlink" href="#authentication-client" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/authentication-client"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/authentication-client.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/authentication-client/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">authentication</span><span class="o">-</span><span class="n">client</span> <span class="o">--</span><span class="n">save</span>
+</pre></div>
+</div>
+<p>The
+[&#64;feathersjs/authentication-client](<a class="reference external" href="https://github.com/feathersjs/authentication-client">https://github.com/feathersjs/authentication-client</a>)
+module allows you to easily authenticate against a Feathers server. It
+is not required, but makes it easier to implement authentication in your
+client by automatically storing and sending the JWT access token and
+handling re-authenticating when a websocket disconnects.</p>
+<p>This module contains:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#configuration">The main entry function</a></p></li>
+<li><p><a class="reference external" href="#additional-feathersclient-methods">Additional feathersClient
+methods</a></p></li>
+<li><p><a class="reference external" href="#hooks">Some helpful hooks</a></p></li>
+</ul>
+<div class="section" id="app-configure-auth-options">
+<h2>app.configure(auth(options))<a class="headerlink" href="#app-configure-auth-options" title="永久链接至标题">¶</a></h2>
+<p>Setup is done the same as all Feathers plugins, using the <code class="docutils literal notranslate"><span class="pre">configure</span></code>
+method:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-client&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://api.feathersjs.com&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="c1">// Setup the transport (Rest, Socket, etc.) here</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
+
+<span class="c1">// Available options are listed in the &quot;Options&quot; section</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">(</span><span class="nx">options</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>&gt; The</strong><a class="reference internal" href="#"><span class="doc">验证客户端</span></a><strong>(Rest, Socket,
+Primus…) must have been initialized previously to the authentication
+plugin.</strong></p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<p>The following default options will be mixed in with the settings you
+pass in when configuring authentication. It will set the mixed options
+back to to the app so that they are available at any time by
+<code class="docutils literal notranslate"><span class="pre">app.get('auth')</span></code>. They can all be overridden.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="c1">// the default authorization header for REST</span>
+  <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// if set will add a prefix to the header value. for example if prefix was &#39;JWT&#39; then the header would be &#39;Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOi...&#39;</span>
+  <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/authentication&#39;</span><span class="p">,</span> <span class="c1">// the server-side authentication service path</span>
+  <span class="nx">jwtStrategy</span><span class="o">:</span> <span class="s1">&#39;jwt&#39;</span><span class="p">,</span> <span class="c1">// the name of the JWT authentication strategy</span>
+  <span class="nx">entity</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="c1">// the entity you are authenticating (ie. a users)</span>
+  <span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="c1">// the service to look up the entity</span>
+  <span class="nx">cookie</span><span class="o">:</span> <span class="s1">&#39;feathers-jwt&#39;</span><span class="p">,</span> <span class="c1">// the name of the cookie to parse the JWT from when cookies are enabled server side</span>
+  <span class="nx">storageKey</span><span class="o">:</span> <span class="s1">&#39;feathers-jwt&#39;</span><span class="p">,</span> <span class="c1">// the key to store the accessToken in localstorage or AsyncStorage on React Native</span>
+  <span class="nx">storage</span><span class="o">:</span> <span class="kc">undefined</span> <span class="c1">// Passing a WebStorage-compatible object to enable automatic storage on the client.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To enable storing the JWT make sure to provide a <code class="docutils literal notranslate"><span class="pre">storage</span></code> when
+configuring the plugin. The following storage options are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">window.localStorage</span></code> in the browser to use the browsers
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a></p></li>
+<li><p><a class="reference external" href="https://facebook.github.io/react-native/docs/asyncstorage.html">AsyncStorage</a>
+for <em>React Native</em></p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/package/localforage">localForage</a> which
+helps deal with older browsers and browsers in Incognito / Private
+Browsing mode.</p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/package/cookie-storage">cookie-storage</a>
+uses cookies. It can be useful on devices that don’t support
+<code class="docutils literal notranslate"><span class="pre">localStorage</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="app-authenticate">
+<h2>app.authenticate()<a class="headerlink" href="#app-authenticate" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.authenticate()</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> with no arguments will try to
+authenticate using the JWT from the <code class="docutils literal notranslate"><span class="pre">storage</span></code>. This is normally called
+to either show your application (when successful) or showing a login
+page or redirecting to the appropriate oAuth link.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// show application page</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// show login page</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><code class="docutils literal notranslate"><span class="pre">app.authenticate()</span></code> <strong>has</strong> to be called when you
+want to use the token from storage and <strong>only once</strong> when the
+application initializes. Once successful, all subsequent requests
+will send their authentication information automatically.</p>
+</div>
+</div>
+<div class="section" id="app-authenticate-options">
+<h2>app.authenticate(options)<a class="headerlink" href="#app-authenticate-options" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.authenticate(options)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> will try to authenticate with a
+Feathers server by passing a <code class="docutils literal notranslate"><span class="pre">strategy</span></code> and other properties as
+credentials. It will use whichever transport has been setup on the
+client (&#64;feathersjs/rest-client, &#64;feathersjs/socketio-client, or
+&#64;feathersjs/primus-client).</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Authenticate with the local email/password strategy</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;my@email.com&#39;</span><span class="p">,</span>
+  <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;my-password&#39;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Logged in</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Show login page (potentially with `e.message`)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Authentication error&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;jwt&#39;</span><span class="p">,</span>
+  <span class="nx">accessToken</span><span class="o">:</span> <span class="s1">&#39;&lt;the.jwt.token.string&gt;&#39;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// JWT authentication successful</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Authentication error&#39;</span><span class="p">,</span> <span class="nx">e</span><span class="p">);</span>
+  <span class="c1">// Show login page</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">{Object}</span></code> - of the format <code class="docutils literal notranslate"><span class="pre">{strategy</span> <span class="pre">[,</span> <span class="pre">...otherProps]}</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">strategy</span> <span class="pre">{String}</span></code> - the name of the strategy to be used to
+authenticate. Required.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">...otherProps</span> <span class="pre">{Properties}</span></code> vary depending on the chosen
+strategy. Above is an example of using the <code class="docutils literal notranslate"><span class="pre">jwt</span></code> strategy. Below
+is one for the <code class="docutils literal notranslate"><span class="pre">local</span></code> strategy.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="app-logout">
+<h2>app.logout()<a class="headerlink" href="#app-logout" title="永久链接至标题">¶</a></h2>
+<p>Removes the JWT accessToken from storage on the client. It also calls
+the <a class="reference internal" href="server.html"><span class="doc">认证</span></a>
+on the Feathers server.</p>
+</div>
+<div class="section" id="app-passport">
+<h2>app.passport<a class="headerlink" href="#app-passport" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">app.passport</span></code> contains helper functions to work with the JWT.</p>
+<div class="section" id="app-passport-getjwt">
+<h3>app.passport.getJWT()<a class="headerlink" href="#app-passport-getjwt" title="永久链接至标题">¶</a></h3>
+<p>Pull the JWT from <code class="docutils literal notranslate"><span class="pre">storage</span></code> or the cookie. Returns a Promise.</p>
+</div>
+<div class="section" id="app-passport-verifyjwt-token">
+<h3>app.passport.verifyJWT(token)<a class="headerlink" href="#app-passport-verifyjwt-token" title="永久链接至标题">¶</a></h3>
+<p>Verify that a JWT is not expired and decode it to get the payload.
+Returns a Promise.</p>
+</div>
+<div class="section" id="app-passport-payloadisvalid-token">
+<h3>app.passport.payloadIsValid(token)<a class="headerlink" href="#app-passport-payloadisvalid-token" title="永久链接至标题">¶</a></h3>
+<p>Synchronously verify that a token has not expired. Returns a Boolean.</p>
+</div>
+</div>
+<div class="section" id="authentication-events">
+<h2>Authentication Events<a class="headerlink" href="#authentication-events" title="永久链接至标题">¶</a></h2>
+<p>On the client authentication events are emitted on the app object
+whenever a client successfully authenticates or “logs out”. These events
+are emitted on the client.</p>
+</div>
+<div class="section" id="app-on-authenticated-callback">
+<h2>app.on(‘authenticated’, callback)<a class="headerlink" href="#app-on-authenticated-callback" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="app-on-logout-callback">
+<h2>app.on(‘logout’, callback)<a class="headerlink" href="#app-on-logout-callback" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="app-on-reauthentication-error-errorhandler">
+<h2>app.on(‘reauthentication-error’, errorHandler)<a class="headerlink" href="#app-on-reauthentication-error-errorhandler" title="永久链接至标题">¶</a></h2>
+<p>In the event that your server goes down or the client loses
+connectivity, it will automatically handle attempting to re-authenticate
+the socket when the client regains connectivity with the server. In
+order to handle an authentication failure during automatic
+re-authentication you need to implement the following event listener:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">errorHandler</span> <span class="o">=</span> <span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
+    <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;admin@feathersjs.com&#39;</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span>
+  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// You are now authenticated again</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="c1">// Handle when auth fails during a reconnect or a transport upgrade</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;reauthentication-error&#39;</span><span class="p">,</span> <span class="nx">errorHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hooks">
+<h2>Hooks<a class="headerlink" href="#hooks" title="永久链接至标题">¶</a></h2>
+<p>There are 3 hooks. They are really meant for internal use and you
+shouldn’t need to worry about them very often.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">populateAccessToken</span></code> - Takes the token and puts in on
+<code class="docutils literal notranslate"><span class="pre">hooks.params.accessToken</span></code> in case you need it in one of your
+client side services or hooks</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">populateHeader</span></code> - Add the accessToken to the authorization header</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">populateEntity</span></code> - Experimental. Populate an entity based on the
+JWT payload.</p></li>
+</ul>
+</div>
+<div class="section" id="complete-example">
+<h2>Complete Example<a class="headerlink" href="#complete-example" title="永久链接至标题">¶</a></h2>
+<p>Here’s an example of a Feathers client that uses
+<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/authentication-client</span></code>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/rest-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-client&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">superagent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;superagent&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">localStorage</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;localstorage-memory&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">feathersClient</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">feathersClient</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">rest</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">).</span><span class="nx">superagent</span><span class="p">(</span><span class="nx">superagent</span><span class="p">))</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">auth</span><span class="p">({</span> <span class="nx">storage</span><span class="o">:</span> <span class="nx">localStorage</span> <span class="p">}));</span>
+
+<span class="nx">feathersClient</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;admin@feathersjs.com&#39;</span><span class="p">,</span>
+  <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;admin&#39;</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Authenticated!&#39;</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">feathersClient</span><span class="p">.</span><span class="nx">passport</span><span class="p">.</span><span class="nx">verifyJWT</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">accessToken</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">payload</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;JWT Payload&#39;</span><span class="p">,</span> <span class="nx">payload</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">feathersClient</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="nx">payload</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">feathersClient</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="nx">feathersClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">));</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error authenticating!&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="local.html" class="btn btn-neutral float-right" title="本地验证" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="server.html" class="btn btn-neutral float-left" title="认证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

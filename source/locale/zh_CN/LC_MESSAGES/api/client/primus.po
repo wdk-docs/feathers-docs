@@ -1,0 +1,471 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:18+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/client/primus.rst:2
+msgid "Primus Client"
+msgstr "Primus 客户端"
+
+#: ../../source/api/client/primus.rst:4
+msgid ""
+"We recommend using Feathers and the ``@feathersjs/primus-client`` module "
+"on the client if possible. To use a direct Primus connection without "
+"using Feathers on the client however see the `Direct connection <#direct-"
+"connection>`_ section."
+msgstr ""
+"如果可能的话，我们建议在客户端上使用Feathers和 ``feathersress/primus-"
+"client``模块。要在客户端上不使用Feathers而直接使用Primus连接，请参阅 `直接连接 <#direct-connection>`_ 部分。"
+
+#: ../../source/api/client/primus.rst:10
+msgid "Loading the Primus client library"
+msgstr "加载Primus客户端库"
+
+#: ../../source/api/client/primus.rst:12
+msgid ""
+"In the browser the Primus client library (usually at "
+"``primus/primus.js``) always has to be loaded using a ``<script>`` tag:"
+msgstr ""
+"在浏览器中，Primus客户端库(通常位于 ``primus/primus.js``)总是必须使用 ``<script>`` 标签加载:"
+
+#: ../../source/api/client/primus.rst:21
+msgid ""
+"This will make the ``Primus`` object globally available. Module loader "
+"options are currently not available."
+msgstr ""
+"这将使 ``Primus`` 对象全局可用。模块加载程序选项目前不可用。"
+
+#: ../../source/api/client/primus.rst:25
+msgid "Client use in NodeJS"
+msgstr "客户端在NodeJS中使用"
+
+#: ../../source/api/client/primus.rst:27
+msgid "In NodeJS a Primus client can be initialized as follows:"
+msgstr "在NodeJS中，可以按如下方式初始化Primus客户端："
+
+#: ../../source/api/client/primus.rst:42
+msgid "@feathersjs/primus-client"
+msgstr "@feathersjs/primus-client"
+
+#: ../../source/api/client/primus.rst:44
+msgid "|GitHub stars| |npm version| |Changelog|"
+msgstr "|GitHub stars| |npm version| |Changelog|"
+
+#: ../../source/api/client/primus.rst:50
+msgid ""
+"The ``@feathersjs/primus-client`` module allows to connect to services "
+"exposed through the :doc:`primus` via the configured websocket library."
+msgstr "The :doc:`primus` via the configured websocket library."
+
+#: ../../source/api/client/primus.rst:54
+msgid ""
+"Primus sockets are also used to *call* service methods. Using sockets for"
+" both, calling methods and receiving real-time events is generally faster"
+" than using :doc:`./express` and there is no need to use both, REST and "
+"websockets in the same client application at the same time."
+msgstr ""
+"Primus套接字也用于* call *服务方法。使用套接字，调用方法和接收实时事件通常比使用：doc：`。/ "
+"express`更快，并且不需要同时在同一客户端应用程序中同时使用REST和websockets。"
+
+#: ../../source/api/client/primus.rst:61
+msgid "``primus(socket)``"
+msgstr "``primus(socket)``"
+
+#: ../../source/api/client/primus.rst:63
+msgid "Initialize the Primus client using a given socket and the default options."
+msgstr "使用给定套接字和默认选项初始化Primus客户端。"
+
+#: ../../source/api/client/primus.rst:66
+#, python-format
+msgid ""
+"{% codetabs name=“Modular”, type=“js” -%} const feathers = "
+"require(‘@feathersjs/feathers’); const primusClient = "
+"require(‘@feathersjs/primus-client’); const socket = new "
+"Primus(‘http://api.my-feathers-server.com’);"
+msgstr ""
+"{% codetabs name=“Modular”, type=“js” -%} const feathers = "
+"require(‘@feathersjs/feathers’); const primusClient = "
+"require(‘@feathersjs/primus-client’); const socket = new "
+"Primus(‘http://api.my-feathers-server.com’);"
+
+#: ../../source/api/client/primus.rst:71
+msgid "const app = feathers();"
+msgstr "const app = feathers();"
+
+#: ../../source/api/client/primus.rst:73
+msgid "app.configure(primusClient(socket));"
+msgstr "app.configure(primusClient(socket));"
+
+#: ../../source/api/client/primus.rst:75
+#, fuzzy
+msgid ""
+"// Receive real-time events through Primus app.service(‘messages’) "
+".on(‘created’, message => console.log(‘New message created’, message));"
+msgstr ""
+"//Receive real-time events through Primus app.service(‘messages’) "
+".on(‘created’, message => console.log(‘New message created’, message));"
+
+#: ../../source/api/client/primus.rst:78
+#, fuzzy
+msgid ""
+"// Call the ``messages`` service app.service(‘messages’).create({ text: "
+"‘A message from a REST client’ }); {%- language "
+"name=“@feathersjs/client”, type=“html” -%}"
+msgstr ""
+"//Call the ``messages`` service app.service(‘messages’).create({ text: ‘A"
+" message from a REST client’ }); {%- language name=“@feathersjs/client”, "
+"type=“html” -%}"
+
+#: ../../source/api/client/primus.rst:114
+msgid "{%- endcodetabs %}"
+msgstr "{%- endcodetabs %}"
+
+#: ../../source/api/client/primus.rst:117
+msgid "``primus(socket, options)``"
+msgstr "``primus(socket, options)``"
+
+#: ../../source/api/client/primus.rst:119
+msgid "Initialize the Primus client using a given socket and the given options."
+msgstr "Initialize the Primus client using a given socket and the given options."
+
+#: ../../source/api/client/primus.rst:121
+msgid "Options can be:"
+msgstr "Options can be:"
+
+#: ../../source/api/client/primus.rst:123
+msgid ""
+"``timeout`` (default: 5000ms) - The time after which a method call fails "
+"and times out. This usually happens when calling a service or service "
+"method that does not exist."
+msgstr ""
+"``timeout`` (default: 5000ms) - The time after which a method call fails "
+"and times out. This usually happens when calling a service or service "
+"method that does not exist."
+
+#: ../../source/api/client/primus.rst:137
+msgid "The timeout per service can be changed like this:"
+msgstr "The timeout per service can be changed like this:"
+
+#: ../../source/api/client/primus.rst:144
+msgid "Direct connection"
+msgstr "Direct connection"
+
+#: ../../source/api/client/primus.rst:146
+msgid ""
+"In the browser, the connection can be established by loading the client "
+"from ``primus/primus.js`` and instantiating a new ``Primus`` instance. "
+"Unlike HTTP calls, websockets do not have a cross-origin restriction in "
+"the browser so it is possible to connect to any Feathers server."
+msgstr ""
+"在浏览器中，可以通过从``primus / "
+"primus.js``加载客户端并实例化一个新的``Primus``实例来建立连接。与HTTP调用不同，websockets在浏览器中没有跨源限制，因此可以连接到任何Feathers服务器。"
+
+#: ../../source/api/client/primus.rst:151
+msgid ""
+"See the `Primus docs <https://github.com/primus/primus#connecting-from-"
+"the-browser>`_ for more details."
+msgstr ""
+"See the `Primus docs <https://github.com/primus/primus#connecting-from-"
+"the-browser>`_ for more details."
+
+#: ../../source/api/client/primus.rst:156
+msgid "which is where Feathers will set up Primus."
+msgstr ""
+
+#: ../../source/api/client/primus.rst:165
+msgid ""
+"Service methods can be called by emitting a "
+"``<servicepath>::<methodname>`` event with the method parameters. "
+"``servicepath`` is the name the service has been registered with (in "
+"``app.use``) without leading or trailing slashes. An optional callback "
+"following the ``function(error, data)`` Node convention will be called "
+"with the result of the method call or any errors that might have "
+"occurred."
+msgstr ""
+"可以通过使用方法参数发出``<servicepath> :: <methodname>``事件来调用服务方法。 "
+"``servicepath``是服务已注册的名称(在``app.use``中)，没有前导或尾随斜杠。将使用方法调用的结果或可能发生的任何错误调用``function(error，data)``Node约定之后的可选回调。"
+
+#: ../../source/api/client/primus.rst:173
+#, fuzzy
+msgid ""
+"``params`` will be set as ``params.query`` in the service method call. "
+"Other service parameters can be set through a :doc:`primus`."
+msgstr ":doc:`real-time/primus`."
+
+#: ../../source/api/client/primus.rst:177
+msgid "Authentication"
+msgstr "Authentication"
+
+#: ../../source/api/client/primus.rst:179
+msgid ""
+"Sockets can be authenticated by sending the ``authenticate`` event with "
+"the ``strategy`` and the payload. For specific examples see the “Direct "
+"Connection” section in the :doc:`../authentication/jwt` authentication "
+"chapters."
+msgstr ""
+
+#: ../../source/api/client/primus.rst:196
+msgid "``find``"
+msgstr "``find``"
+
+#: ../../source/api/client/primus.rst:198
+msgid "Retrieves a list of all matching resources from the service"
+msgstr "Retrieves a list of all matching resources from the service"
+
+#: ../../source/api/client/primus.rst:206
+msgid ""
+"Will call ``app.service('messages').find({ query: { status: 'read', user:"
+" 10 } })`` on the server."
+msgstr ""
+"Will call ``app.service('messages').find({ query: { status: 'read', user:"
+" 10 } })`` on the server."
+
+#: ../../source/api/client/primus.rst:211
+msgid "get"
+msgstr "get"
+
+#: ../../source/api/client/primus.rst:213
+msgid "Retrieve a single resource from the service."
+msgstr "Retrieve a single resource from the service."
+
+#: ../../source/api/client/primus.rst:221
+msgid "Will call ``app.service('messages').get(1, {})`` on the server."
+msgstr "Will call ``app.service('messages').get(1, {})`` on the server."
+
+#: ../../source/api/client/primus.rst:229
+msgid ""
+"Will call ``app.service('messages').get(1, { query: { fetch: 'all' } })``"
+" on the server."
+msgstr ""
+"Will call ``app.service('messages').get(1, { query: { fetch: 'all' } })``"
+" on the server."
+
+#: ../../source/api/client/primus.rst:234
+msgid "create"
+msgstr "create"
+
+#: ../../source/api/client/primus.rst:236
+msgid "Create a new resource with ``data`` which may also be an array."
+msgstr "Create a new resource with ``data`` which may also be an array."
+
+#: ../../source/api/client/primus.rst:246
+msgid ""
+"Will call ``app.service('messages').create({ \"text\": \"I really have to"
+" iron\" }, {})`` on the server."
+msgstr ""
+"Will call ``app.service('messages').create({ \"text\": \"I really have to"
+" iron\" }, {})`` on the server."
+
+#: ../../source/api/client/primus.rst:257
+msgid "Will call ``app.service('messages').create`` on the server with the array."
+msgstr "Will call ``app.service('messages').create`` on the server with the array."
+
+#: ../../source/api/client/primus.rst:261
+msgid "update"
+msgstr "update"
+
+#: ../../source/api/client/primus.rst:263
+msgid "Completely replace a single or multiple resources."
+msgstr "Completely replace a single or multiple resources."
+
+#: ../../source/api/client/primus.rst:273
+msgid ""
+"Will call ``app.service('messages').update(2, { \"text\": \"I really have"
+" to do laundry\" }, {})`` on the server. The ``id`` can also be ``null`` "
+"to update multiple resources:"
+msgstr ""
+"Will call ``app.service('messages').update(2, { \"text\": \"I really have"
+" to do laundry\" }, {})`` on the server. The ``id`` can also be ``null`` "
+"to update multiple resources:"
+
+#: ../../source/api/client/primus.rst:284
+msgid ""
+"Will call ``app.service('messages').update(null, { complete: true }, { "
+"query: { complete: false } })`` on the server."
+msgstr ""
+"Will call ``app.service('messages').update(null, { complete: true }, { "
+"query: { complete: false } })`` on the server."
+
+#: ../../source/api/client/primus.rst:288
+#, fuzzy
+msgid ""
+"``update`` is normally expected to replace an entire resource which is "
+"why the database adapters only support ``patch`` for multiple records."
+msgstr ""
+"**ProTip:** ``update`` is normally expected to replace an entire resource"
+" which is why the database adapters only support ``patch`` for multiple "
+"records."
+
+#: ../../source/api/client/primus.rst:293
+msgid "patch"
+msgstr "patch"
+
+#: ../../source/api/client/primus.rst:295
+msgid ""
+"Merge the existing data of a single or multiple resources with the new "
+"``data``."
+msgstr ""
+"Merge the existing data of a single or multiple resources with the new "
+"``data``."
+
+#: ../../source/api/client/primus.rst:306
+msgid ""
+"Will call ``app.service('messages').patch(2, { \"read\": true }, {})`` on"
+" the server. The ``id`` can also be ``null`` to update multiple "
+"resources:"
+msgstr ""
+"Will call ``app.service('messages').patch(2, { \"read\": true }, {})`` on"
+" the server. The ``id`` can also be ``null`` to update multiple "
+"resources:"
+
+#: ../../source/api/client/primus.rst:320
+msgid ""
+"Will call ``app.service('messages').patch(null, { complete: true }, { "
+"query: { complete: false } })`` on the server to change the status for "
+"all read app.service(‘messages’)."
+msgstr ""
+"Will call ``app.service('messages').patch(null, { complete: true }, { "
+"query: { complete: false } })`` on the server to change the status for "
+"all read app.service(‘messages’)."
+
+#: ../../source/api/client/primus.rst:324
+#, fuzzy
+msgid "This is supported out of the box by the Feathers :doc:`../readme`"
+msgstr "This is supported out of the box by the Feathers :doc:`databases/readme`"
+
+#: ../../source/api/client/primus.rst:327
+msgid "remove"
+msgstr "remove"
+
+#: ../../source/api/client/primus.rst:329
+msgid "Remove a single or multiple resources:"
+msgstr "Remove a single or multiple resources:"
+
+#: ../../source/api/client/primus.rst:337
+msgid ""
+"Will call ``app.service('messages').remove(2, { query: { cascade: true } "
+"})`` on the server. The ``id`` can also be ``null`` to remove multiple "
+"resources:"
+msgstr ""
+"Will call ``app.service('messages').remove(2, { query: { cascade: true } "
+"})`` on the server. The ``id`` can also be ``null`` to remove multiple "
+"resources:"
+
+#: ../../source/api/client/primus.rst:346
+msgid ""
+"Will call ``app.service('messages').remove(null, { query: { read: 'true' "
+"} })`` on the server to delete all read app.service(‘messages’)."
+msgstr ""
+"Will call ``app.service('messages').remove(null, { query: { read: 'true' "
+"} })`` on the server to delete all read app.service(‘messages’)."
+
+#: ../../source/api/client/primus.rst:351
+msgid "Listening to events"
+msgstr "Listening to events"
+
+#: ../../source/api/client/primus.rst:353
+#, fuzzy
+msgid ""
+"Listening to service events allows real-time behaviour in an application."
+" :doc:`../events` are sent to the socket in the form of ``servicepath "
+"eventname``."
+msgstr ""
+"Listening to service events allows real-time behaviour in an application."
+" :doc:`events` are sent to the socket in the form of ``servicepath "
+"eventname``."
+
+#: ../../source/api/client/primus.rst:358
+msgid "created"
+msgstr "created"
+
+#: ../../source/api/client/primus.rst:360
+msgid ""
+"The ``created`` event will be published with the callback data when a "
+"service ``create`` returns successfully."
+msgstr ""
+"The ``created`` event will be published with the callback data when a "
+"service ``create`` returns successfully."
+
+#: ../../source/api/client/primus.rst:370
+msgid "updated, patched"
+msgstr "updated, patched"
+
+#: ../../source/api/client/primus.rst:372
+msgid ""
+"The ``updated`` and ``patched`` events will be published with the "
+"callback data when a service ``update`` or ``patch`` method calls back "
+"successfully."
+msgstr ""
+"The ``updated`` and ``patched`` events will be published with the "
+"callback data when a service ``update`` or ``patch`` method calls back "
+"successfully."
+
+#: ../../source/api/client/primus.rst:389
+msgid "removed"
+msgstr "removed"
+
+#: ../../source/api/client/primus.rst:391
+msgid ""
+"The ``removed`` event will be published with the callback data when a "
+"service ``remove`` calls back successfully."
+msgstr ""
+"The ``removed`` event will be published with the callback data when a "
+"service ``remove`` calls back successfully."
+
+#~ msgid ""
+#~ "**Note:** We recommend using Feathers "
+#~ "and the ``@feathersjs/primus-client`` module"
+#~ " on the client if possible. To "
+#~ "use a direct Primus connection without"
+#~ " using Feathers on the client however"
+#~ " see the `Direct connection <#direct-"
+#~ "connection>`_ section."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** Primus sockets are also "
+#~ "used to *call* service methods. Using"
+#~ " sockets for both, calling methods "
+#~ "and receiving real-time events is "
+#~ "generally faster than using :doc:`./express`"
+#~ " and there is no need to use"
+#~ " both, REST and websockets in the "
+#~ "same client application at the same "
+#~ "time."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**ProTip**: The socket connection URL "
+#~ "has to point to the server root"
+#~ " which is where Feathers will set "
+#~ "up Primus."
+#~ msgstr ""
+#~ "**ProTip**: The socket connection URL "
+#~ "has to point to the server root"
+#~ " which is where Feathers will set "
+#~ "up Primus."
+
+#~ msgid ""
+#~ "Sockets can be authenticated by sending"
+#~ " the ``authenticate`` event with the "
+#~ "``strategy`` and the payload. For "
+#~ "specific examples see the “Direct "
+#~ "Connection” section in the :doc:`./jwt` "
+#~ "authentication chapters."
+#~ msgstr ""
+

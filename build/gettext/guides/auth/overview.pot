@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/auth/overview.rst:2
+msgid "An Overview of Feathers Authentication"
+msgstr ""
+
+#: ../../source/guides/auth/overview.rst:4
+msgid "The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of `PassportJS <http://www.passportjs.org/>`_. The new plugins are very flexible, allowing you to customize nearly everything."
+msgstr ""
+
+#: ../../source/guides/auth/overview.rst:9
+msgid "A Single Auth Endpoint"
+msgstr ""
+
+#: ../../source/guides/auth/overview.rst:11
+msgid "In the previous ``feathers-authentication`` plugin, there were two auth endpoints: ``/auth/local`` was for username and password login. ``/auth/token`` was for JWT-based login. In making the latest version, we decided that auth could be more like the rest of Feathers. We created an ``/authentication`` service. This single endpoint handles both ``local``, and ``jwt`` logins, and more."
+msgstr ""
+
+#: ../../source/guides/auth/overview.rst:18
+msgid "Here are a couple of examples that show what this single ``/authentication`` endpoint looks like in practice. This first one shows the payload for ``local`` auth in the new version."
+msgstr ""
+

@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/frameworks/readme.rst:2
+msgid "Integrating with Frontend Frameworks"
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:4
+msgid "Feathers works the same on the server and on the client and is front-end framework agnostic! You can use it with Vue, React, React Native, Angular, or whatever other front-end tech stack you choose."
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:9
+msgid "Client Side Docs"
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:11
+msgid "If you want to learn how to use Feathers as a client in Node.js, React Native, or in the browser with a module loader like Webpack refer to the :doc:`../../api/client`."
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:16
+msgid "Examples"
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:18
+msgid "The :doc:`../chat/readme` guide gives a basic intro to using the Feathers Client in a vanilla JavaScript environment. That’s a good place to start so you can see how simple it is."
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:23
+msgid "Beyond the basics, see `this list <https://github.com/feathersjs/awesome-feathersjs#examples>`_ of Feathers examples in `awesome-feathersjs <https://github.com/feathersjs/awesome-feathersjs>`_."
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:29
+msgid "Framework Integrations"
+msgstr ""
+
+#: ../../source/guides/frameworks/readme.rst:31
+msgid "See `this list <https://github.com/feathersjs/awesome-feathersjs#js-clients>`_ of Feathers front-end framework integrations if you are looking for something that makes Feathers even easier to use with things like React, Vue or others."
+msgstr ""
+

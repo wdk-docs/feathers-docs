@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FeathersJS Auth Recipe:自定义JWT Payload &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="FeathersJS Auth Recipe:自定义登录响应" href="recipe.customize-response.html" />
+    <link rel="prev" title="JSON Web令牌的工作原理" href="how-jwt-works.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe:自定义JWT Payload</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-jwt-payload">JWT有效载荷</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-payload-with-hooks">使用挂钩自定义Payload</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#important-security-information">重要的安全信息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe:自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe:设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe:自定义身份验证策略</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe:认证Express中间件(SSR)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
+        
+      <li>FeathersJS Auth Recipe:自定义JWT Payload</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/auth/recipe.customize-jwt-payload.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathersjs-auth-recipe-customizing-the-jwt-payload">
+<h1>FeathersJS Auth Recipe:自定义JWT Payload<a class="headerlink" href="#feathersjs-auth-recipe-customizing-the-jwt-payload" title="永久链接至标题">¶</a></h1>
+<p>FeatusJS的Auk版本包括一个强大的新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上.新插件非常灵活,允许您自定义几乎所有内容.最新版本中添加的一项功能是使用挂钩自定义JWT有效负载的功能.让我们来看看这意味着什么,如何使它工作,并了解使用它可能遇到的潜在陷阱.</p>
+<div class="section" id="the-jwt-payload">
+<h2>JWT有效载荷<a class="headerlink" href="#the-jwt-payload" title="永久链接至标题">¶</a></h2>
+<p>If you read the resources on <a class="reference internal" href="how-jwt-works.html"><span class="doc">JSON Web令牌的工作原理</span></a>,
+you’ll know that a JWT is an encoded string that can contain a payload.
+For a quick example, check out the Debugger on
+<a class="reference external" href="https://jwt.io/">jwt.io</a>. The purple section on
+<a class="reference external" href="https://jwt.io/">jwt.io</a> is the payload. You’ll also notice that you
+can put arbitrary data in the payload. The payload data gets encoded as
+a section of the JWT string.</p>
+<p>默认的JWT有效负载包含以下声明:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">decode</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jwt-decode&#39;</span><span class="p">)</span>
+<span class="c1">// Retrieve the token from wherever you&#39;ve stored it.</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;feathers-jwt&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">decode</span><span class="p">(</span><span class="nx">jwt</span><span class="p">)</span>
+
+<span class="nx">payload</span> <span class="o">===</span> <span class="p">{</span>
+  <span class="nx">aud</span><span class="o">:</span> <span class="s1">&#39;https://yourdomain.com&#39;</span><span class="p">,</span> <span class="c1">// audience</span>
+  <span class="nx">exp</span><span class="o">:</span> <span class="mi">23852348347</span><span class="p">,</span> <span class="c1">// expires at time</span>
+  <span class="nx">iat</span><span class="o">:</span> <span class="mi">23852132232</span><span class="p">,</span> <span class="c1">// issued at time</span>
+  <span class="nx">iss</span><span class="o">:</span> <span class="s1">&#39;feathers&#39;</span><span class="p">,</span> <span class="c1">// issuer</span>
+  <span class="nx">sub</span><span class="o">:</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">,</span> <span class="c1">// subject</span>
+  <span class="nx">userId</span><span class="o">:</span> <span class="mi">1</span> <span class="c1">// the user&#39;s id</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>请注意,有效负载 <strong>编码为</strong>, <strong>未加密</strong>. 这是一个重要的区别.这意味着您要小心存储在JWT有效负载中的内容.</p>
+</div>
+<div class="section" id="customizing-the-payload-with-hooks">
+<h2>使用挂钩自定义Payload<a class="headerlink" href="#customizing-the-payload-with-hooks" title="永久链接至标题">¶</a></h2>
+<p>身份验证服务在JWT有效负载的钩子上下文中使用 <code class="docutils literal notranslate"><span class="pre">params.payload</span></code> 对象.这意味着您可以通过在 <code class="docutils literal notranslate"><span class="pre">authenticate</span></code> 钩子之后添加一个前挂钩来自定义JWT.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">authentication</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">strategies</span><span class="p">),</span>
+
+      <span class="c1">// This hook adds the `test` attribute to the JWT payload by</span>
+      <span class="c1">// modifying params.payload.</span>
+      <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// make sure params.payload exists</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">payload</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">payload</span> <span class="o">||</span> <span class="p">{}</span>
+        <span class="c1">// merge in a `test` property</span>
+        <span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span><span class="nx">test</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">})</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nx">remove</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">authentication</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>现在有效负载将包含``test``属性:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">decode</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jwt-decode&#39;</span><span class="p">)</span>
+<span class="c1">// Retrieve the token from wherever you&#39;ve stored it.</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;feathers-jwt&#39;</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">decode</span><span class="p">(</span><span class="nx">jwt</span><span class="p">)</span>
+
+<span class="nx">payload</span> <span class="o">===</span> <span class="p">{</span>
+  <span class="nx">aud</span><span class="o">:</span> <span class="s1">&#39;https://yourdomain.com&#39;</span><span class="p">,</span>
+  <span class="nx">exp</span><span class="o">:</span> <span class="mi">23852348347</span><span class="p">,</span>
+  <span class="nx">iat</span><span class="o">:</span> <span class="mi">23852132232</span><span class="p">,</span>
+  <span class="nx">iss</span><span class="o">:</span> <span class="s1">&#39;feathers&#39;</span><span class="p">,</span>
+  <span class="nx">sub</span><span class="o">:</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">,</span>
+  <span class="nx">userId</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span> <span class="c1">// Here&#39;s the new claim we just added</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>注意:有效负载不会自动解码并在挂钩中可用,因此需要您在应用中实现此功能.使用``jwt-decode``是一个简单的解决方案,可以根据需要放入钩子中.</p>
+</div></blockquote>
+</div>
+<div class="section" id="important-security-information">
+<h2>重要的安全信息<a class="headerlink" href="#important-security-information" title="永久链接至标题">¶</a></h2>
+<p>在向JWT有效负载添加数据时,令牌大小会变大.试试看 <a class="reference external" href="https://jwt.io/">jwt.io</a> 来亲自看看.在自定义有效负载时,请记住一个重要的安全问题.此问题涉及用于对令牌进行签名的默认 <code class="docutils literal notranslate"><span class="pre">HS256</span></code> 算法.</p>
+<p>对于 <code class="docutils literal notranslate"><span class="pre">HS256</span></code>,秘密长度(必须至少为256位)与编码令牌的长度(随有效载荷而变化)之间存在关系.更大的秘密到有效负载比(因此秘密大于JWT)将导致更安全的JWT.这也意味着保持秘密大小相同并增加有效负载大小实际上会使您的JWT相对不太安全.</p>
+<p>默认情况下,Feathers生成器会创建一个2048位的密钥,因此可以在JWT有效负载中添加少量允许空间来放置其他属性.保持秘密到有效负载长度比尽可能高以避免暴力攻击非常重要.在暴力攻击中,攻击者试图通过一遍又一遍地猜测秘密来检索秘密,直到它正确为止.如果您的秘密被泄露,他们将能够创建他们希望的任何有效负载的签名JWT.简而言之,请谨慎对待JWT有效负载中的内容.</p>
+<p>最后,请记住,生成器创建的秘密仅用于开发目的.你永远不想把你的 <strong>生产</strong> 秘密检查到你的版本控制系统(Git等).最好将生产秘密放在环境变量中,并在应用程序配置中引用它.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipe.customize-response.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe:自定义登录响应" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how-jwt-works.html" class="btn btn-neutral float-left" title="JSON Web令牌的工作原理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

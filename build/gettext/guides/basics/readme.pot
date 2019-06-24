@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/readme.rst:2
+msgid "Feathers basics"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:4
+msgid "This guide covers the basics and core concepts of any Feathers application."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:7
+msgid ":doc:`./setup`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:9
+msgid "Learn how to install and get started with Feathers."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:11
+msgid ":doc:`./starting`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:13
+msgid "Create your first Feathers application that works in NodeJS and in the browser."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:16
+msgid ":doc:`./services`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:18
+msgid "The heart of every Feathers application and the core concept for abstracting data access."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:21
+msgid ":doc:`./hooks`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:23
+msgid "Middleware for services to handle validation, authorization, logging, populating related entities, sending notifications and more."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:26
+msgid ":doc:`./rest`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:28
+msgid "Learn how to turn a service into a REST API."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:30
+msgid ":doc:`./databases`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:32
+msgid "Learn how to easily connect to databases."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:34
+msgid ":doc:`./real-time`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:36
+msgid "Expose your database-backed services through full-feature REST and real-time APIs."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:39
+msgid ":doc:`./clients`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:41
+msgid "Use a Feathers REST and real-time API server through Feathers in the browser."
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:44
+msgid ":doc:`./generator`"
+msgstr ""
+
+#: ../../source/guides/basics/readme.rst:46
+msgid "Shows how to install the Feathers CLI and the patterns it uses to structure an application."
+msgstr ""
+

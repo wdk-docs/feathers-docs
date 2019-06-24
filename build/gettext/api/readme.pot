@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/readme.rst:2
+msgid "API"
+msgstr ""
+
+#: ../../source/api/readme.rst:4
+msgid "This section describes all the APIs of Feathers and its individual modules."
+msgstr ""
+
+#: ../../source/api/readme.rst:7
+msgid "**Core:** Feathers core functionality"
+msgstr ""
+
+#: ../../source/api/readme.rst:9
+msgid ":doc:`application` - The main Feathers application API"
+msgstr ""
+
+#: ../../source/api/readme.rst:11
+msgid ":doc:`services` - Service objects and their methods and Feathers specific functionality"
+msgstr ""
+
+#: ../../source/api/readme.rst:13
+msgid ":doc:`hooks` - Pluggable middleware for service methods"
+msgstr ""
+
+#: ../../source/api/readme.rst:14
+msgid ":doc:`events` - Events sent by Feathers service methods"
+msgstr ""
+
+#: ../../source/api/readme.rst:15
+msgid ":doc:`channels` - Decide what events to send to connected real-time clients"
+msgstr ""
+
+#: ../../source/api/readme.rst:17
+msgid ":doc:`errors` - A collection of error classes used throughout Feathers"
+msgstr ""
+
+#: ../../source/api/readme.rst:19
+msgid ":doc:`configuration` - A node-config wrapper to initialize configuration of a server side application."
+msgstr ""
+
+#: ../../source/api/readme.rst:22
+msgid "**Transports:** Expose a Feathers application as an API server"
+msgstr ""
+
+#: ../../source/api/readme.rst:24
+msgid ":doc:`express` - Feathers Express framework bindings, REST API provider and error middleware."
+msgstr ""
+
+#: ../../source/api/readme.rst:26
+msgid ":doc:`socketio` - The Socket.io real-time transport provider"
+msgstr ""
+
+#: ../../source/api/readme.rst:28
+msgid ":doc:`primus` - The Primus real-time transport provider"
+msgstr ""
+
+#: ../../source/api/readme.rst:30
+msgid "**Client:** More details on how to use Feathers on the client"
+msgstr ""
+
+#: ../../source/api/readme.rst:32
+msgid ":doc:`client` - Feathers client usage in Node, React Native and the browser (also with Webpack and Browserify)"
+msgstr ""
+
+#: ../../source/api/readme.rst:34
+msgid ":doc:`client/rest` - Feathers client and direct REST API server usage"
+msgstr ""
+
+#: ../../source/api/readme.rst:36
+msgid ":doc:`client/socketio` - Feathers client and direct Socket.io API server usage"
+msgstr ""
+
+#: ../../source/api/readme.rst:38
+msgid ":doc:`client/primus` - Feathers client and direct Primus API server usage"
+msgstr ""
+
+#: ../../source/api/readme.rst:41
+msgid "**Authentication:** Feathers authentication mechanism"
+msgstr ""
+
+#: ../../source/api/readme.rst:43
+msgid ":doc:`authentication/server` - The main authentication server configuration"
+msgstr ""
+
+#: ../../source/api/readme.rst:45
+msgid ":doc:`authentication/client` - A client for a Feathers authentication server"
+msgstr ""
+
+#: ../../source/api/readme.rst:47
+msgid ":doc:`authentication/local` - Local email/password authentication"
+msgstr ""
+
+#: ../../source/api/readme.rst:49
+msgid ":doc:`authentication/jwt` - JWT authentication"
+msgstr ""
+
+#: ../../source/api/readme.rst:50
+msgid ":doc:`authentication/oauth1` - Obtain a JWT through oAuth1"
+msgstr ""
+
+#: ../../source/api/readme.rst:52
+msgid ":doc:`authentication/oauth2` - Obtain a JWT through oAuth2"
+msgstr ""
+
+#: ../../source/api/readme.rst:55
+msgid "**Database:** Feathers common database adapter API and querying mechanism"
+msgstr ""
+
+#: ../../source/api/readme.rst:58
+msgid ":doc:`databases/adapters` - A list of supported database adapters"
+msgstr ""
+
+#: ../../source/api/readme.rst:60
+msgid ":doc:`databases/common` - Database adapter common initialization and configuration API"
+msgstr ""
+
+#: ../../source/api/readme.rst:62
+msgid ":doc:`databases/querying` - The common querying mechanism"
+msgstr ""
+

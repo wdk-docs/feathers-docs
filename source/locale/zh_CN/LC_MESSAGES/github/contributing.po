@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 10:31+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/github/contributing.rst:2
+msgid "Contributing to Feathers"
+msgstr ""
+
+#: ../../source/github/contributing.rst:4
+msgid "Thank you for contributing to Feathers! :heart: :tada:"
+msgstr ""
+
+#: ../../source/github/contributing.rst:6
+msgid ""
+"Feathers embraces modularity and is broken up across many repos. To make "
+"this easier to manage we currently use Github projects for issue triage "
+"and visibility. To get a high level view of the core releases you can go "
+"to https://github.com/feathersjs/feathers/projects."
+msgstr ""
+
+#: ../../source/github/contributing.rst:12
+msgid "Report a bug"
+msgstr ""
+
+#: ../../source/github/contributing.rst:14
+msgid ""
+"Before creating an issue please make sure you have checked out the docs, "
+"specifically the `FAQ <https://docs.feathersjs.com/help/faq.html>`_ "
+"section. You might want to also try searching Github. It’s pretty likely "
+"someone has already asked a similar question."
+msgstr ""
+
+#: ../../source/github/contributing.rst:19
+msgid ""
+"If you haven’t found your answer please feel free to join our `slack "
+"channel <http://slack.feathersjs.com>`_, create an issue on Github, or "
+"post on `Stackoverflow <http://stackoverflow.com>`_ using the "
+"``feathers`` or ``feathersjs`` tag. We try our best to monitor "
+"Stackoverflow but you’re likely to get more immediate responses in Slack "
+"and Github."
+msgstr ""
+
+#: ../../source/github/contributing.rst:26
+msgid ""
+"Issues can be reported in the `issue tracker "
+"<https://github.com/feathersjs/feathers/issues>`_. Since feathers "
+"combines many modules it can be hard for us to assess the root cause "
+"without knowing which modules are being used and what your configuration "
+"looks like, so **it helps us immensely if you can link to a simple "
+"example that reproduces your issue**."
+msgstr ""
+
+#: ../../source/github/contributing.rst:34
+msgid "Report a Security Concern"
+msgstr ""
+
+#: ../../source/github/contributing.rst:36
+#, python-format
+msgid ""
+"We take security very seriously at Feathers. We welcome any peer review "
+"of our 100% open source code to ensure nobody’s Feathers app is ever "
+"compromised or hacked. As a web application developer you are responsible"
+" for any security breaches. We do our very best to make sure Feathers is "
+"as secure as possible by default."
+msgstr ""
+
+#: ../../source/github/contributing.rst:42
+msgid ""
+"In order to give the community time to respond and upgrade we strongly "
+"urge you report all security issues to us. Send one of the core team "
+"members a PM in `Slack <http://slack.feathersjs.com>`_ or email us at "
+"hello@feathersjs.com with details and we will respond ASAP."
+msgstr ""
+
+#: ../../source/github/contributing.rst:47
+msgid ""
+"For full details refer to our `Security docs "
+"<https://docs.feathersjs.com/SECURITY.html>`_."
+msgstr ""
+
+#: ../../source/github/contributing.rst:51
+msgid "Pull Requests"
+msgstr ""
+
+#: ../../source/github/contributing.rst:53
+msgid ""
+"We :heart: pull requests and we’re continually working to make it as easy"
+" as possible for people to contribute, including a `Plugin Generator "
+"<https://github.com/feathersjs/generator-feathers-plugin>`_ and a `common"
+" test suite <https://github.com/feathersjs/feathers-service-tests>`_ for "
+"database adapters."
+msgstr ""
+
+#: ../../source/github/contributing.rst:60
+msgid ""
+"We prefer small pull requests with minimal code changes. The smaller they"
+" are the easier they are to review and merge. A FeathersJS maintainer "
+"will pick up your PR and review it as soon as they can. They may ask for "
+"changes or reject your pull request. This is not a reflection of you as "
+"an engineer or a person. Please accept feedback graciously as we will "
+"also try to be sensitive when providing it."
+msgstr ""
+
+#: ../../source/github/contributing.rst:67
+msgid ""
+"Although we generally accept many PRs they can be rejected for many "
+"reasons. We will be as transparent as possible but it may simply be that "
+"you do not have the same context, historical knowledge or information "
+"regarding the roadmap that the maintainers have. We value the time you "
+"take to put together any contributions so we pledge to always be "
+"respectful of that time and will try to be as open as possible so that "
+"you don’t waste it. :smile:"
+msgstr ""
+
+#: ../../source/github/contributing.rst:75
+msgid ""
+"**All PRs (except documentation) should be accompanied with tests and "
+"pass the linting rules.**"
+msgstr ""
+
+#: ../../source/github/contributing.rst:79
+msgid "Code style"
+msgstr ""
+
+#: ../../source/github/contributing.rst:81
+msgid ""
+"Before running the tests from the ``test/`` folder ``npm test`` will run "
+"ESlint. You can check your code changes individually by running ``npm run"
+" lint``."
+msgstr ""
+
+#: ../../source/github/contributing.rst:86
+msgid "Tests"
+msgstr ""
+
+#: ../../source/github/contributing.rst:88
+msgid ""
+"`Mocha <http://mochajs.org/>`_ tests are located in the ``test/`` folder "
+"and can be run using the ``npm run mocha`` or ``npm test`` (with ESLint "
+"and code coverage) command."
+msgstr ""
+
+#: ../../source/github/contributing.rst:93
+msgid "Documentation"
+msgstr ""
+
+#: ../../source/github/contributing.rst:95
+msgid ""
+"Feathers documentation is contained in Markdown files in the `docs "
+"<https://github.com/feathersjs/docs>`_ repository. To change the "
+"documentation submit a pull request to that repo, referencing any other "
+"PR if applicable, and the docs will be updated with the next release."
+msgstr ""
+
+#: ../../source/github/contributing.rst:101
+msgid "Community Contributions"
+msgstr ""
+
+#: ../../source/github/contributing.rst:103
+msgid ""
+"If you’ve written something awesome about Feathers, for the Feathers "
+"ecosystem, or created an app using Feathers please add it to the "
+"`awesome-feathersjs <https://github.com/feathersjs-ecosystem/awesome-"
+"feathersjs>`_."
+msgstr ""
+
+#: ../../source/github/contributing.rst:107
+msgid ""
+"If you are looking to create a new plugin you also might want to check "
+"out the `Plugin Generator <https://github.com/feathersjs/generator-"
+"feathers-plugin>`_ that can be used to scaffold plugins to be Feathers "
+"compliant from the start."
+msgstr ""
+
+#: ../../source/github/contributing.rst:113
+msgid ""
+"If you think your module would be a good core ``feathersjs`` module or "
+"``featherjs-ecosystem`` module then please contact one of the Feathers "
+"maintainers in `Slack <http://slack.feathersjs.com>`_ and we can discuss "
+"whether it belongs and how to get it there. :beers:"
+msgstr ""
+
+#: ../../source/github/contributing.rst:119
+msgid "Contributor Code of Conduct"
+msgstr ""
+
+#: ../../source/github/contributing.rst:121
+msgid ""
+"As contributors and maintainers of this project, we pledge to respect all"
+" people who contribute through reporting issues, posting feature "
+"requests, updating documentation, submitting pull requests or patches, "
+"and other activities."
+msgstr ""
+
+#: ../../source/github/contributing.rst:126
+msgid ""
+"We are committed to making participation in this project a harassment-"
+"free experience for everyone, regardless of level of experience, gender, "
+"gender identity and expression, sexual orientation, disability, personal "
+"appearance, body size, race, ethnicity, age, or religion."
+msgstr ""
+
+#: ../../source/github/contributing.rst:132
+msgid ""
+"Examples of unacceptable behavior by participants include the use of "
+"sexual language or imagery, derogatory comments or personal attacks, "
+"trolling, public or private harassment, insults, or other unprofessional "
+"conduct."
+msgstr ""
+
+#: ../../source/github/contributing.rst:137
+msgid ""
+"Project maintainers have the right and responsibility to remove, edit, or"
+" reject comments, commits, code, wiki edits, issues, and other "
+"contributions that are not aligned to this Code of Conduct. Project "
+"maintainers who do not follow the Code of Conduct may be removed from the"
+" project team."
+msgstr ""
+
+#: ../../source/github/contributing.rst:143
+msgid ""
+"Instances of abusive, harassing, or otherwise unacceptable behavior may "
+"be reported by opening an issue or contacting one or more of the project "
+"maintainers."
+msgstr ""
+
+#: ../../source/github/contributing.rst:147
+msgid ""
+"This Code of Conduct is adapted from the `Contributor Covenant <http"
+"://contributor-covenant.org>`_, version 1.0.0, available at http"
+"://contributor-covenant.org/version/1/0/0/"
+msgstr ""
+

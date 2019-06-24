@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>常问问题 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="特约" href="../contributing/readme.html" />
+    <link rel="prev" title="求助！" href="../help/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">求助！</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">常问问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-node-versions-does-feathers-support">Feathers支持哪些Node版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-create-custom-methods">如何创建自定义方法?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-nested-or-custom-routes">如何进行嵌套或自定义路由?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-you-support-another-database">你能支持另一个数据库吗?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-am-not-getting-real-time-events">我没有得到实时事件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-search">我该如何搜索?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-am-i-not-getting-json-errors">为什么我没有收到JSON错误?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-am-i-not-getting-the-correct-http-error-code">为什么我没有收到正确的HTTP错误代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-do-custom-methods-like-findorcreate">我怎样才能做 <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code> 这样的自定义方法?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-you-using-jwt-for-sessions">为什么使用JWT进行会话</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-render-templates">如何渲染模板?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oauth-is-not-setting-the-cookie">OAuth未设置Cookie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-create-channels-or-rooms">如何创建频道或房间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-validation">我该如何进行验证?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preferred-way">首选方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-orm-way">ORM方式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-associations">如何做协会?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preferred-way-1">首选方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-orm-way-1">ORM方式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequelize-models-and-associations">Sequelize模型和协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-about-koa-hapi-x">Koa/Hapi/X 怎么样?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-access-the-request-object-in-hooks-or-services">如何在挂钩或服务中访问请求对象?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-mount-sub-apps">如何挂载子应用程序?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-some-processing-after-sending-the-response-to-the-user">将响应发送给用户后如何进行处理?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-debug-my-app">如何调试我的应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#possible-eventemitter-memory-leak-detected-warning"><code class="docutils literal notranslate"><span class="pre">可能检测到EventEmitter内存泄漏</span></code> 警告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-cant-i-pass-params-from-the-client">为什么我不能从客户端传递 <code class="docutils literal notranslate"><span class="pre">params</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-queries-with-null-values-arent-working">我的带有空值的查询无效</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-queries-with-arrays-failing">为什么带有数组的查询失败?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-always-get-a-404-for-my-custom-middleware">我的自定义中间件总是得到404</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-get-oauth-working-across-different-domains">如何让OAuth跨不同的域工作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-configuration-isnt-loaded">我的配置未加载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-set-up-https">如何设置HTTPS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-feathers-production-ready">羽毛生产准备好了吗?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>常问问题</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/faq/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faq">
+<h1>常问问题<a class="headerlink" href="#faq" title="永久链接至标题">¶</a></h1>
+<p>我们一直在收集一些常见问题.我们要么直接更新指南, 要么在这里提供答案, 要么两者兼而有之.</p>
+<div class="section" id="what-node-versions-does-feathers-support">
+<h2>Feathers支持哪些Node版本<a class="headerlink" href="#what-node-versions-does-feathers-support" title="永久链接至标题">¶</a></h2>
+<p>最新版本的Feathers和所有插件适用于Node 6及更高版本.当官方支持周期结束时, 将支持 node 6, 直到 <strong>2019-04-18</strong>.</p>
+<p>CLI的 <a class="reference external" href="https://docs.feathersjs.com/">Feathers指南</a> 和应用程序(<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/cli</span></code>)使用更新的语言功能, 如 <code class="docutils literal notranslate"><span class="pre">async/await</span></code>, 并要求 node 8或以后.</p>
+</div>
+<div class="section" id="how-do-i-create-custom-methods">
+<span id="faq-how-do-i-create-custom-methods"></span><h2>如何创建自定义方法?<a class="headerlink" href="#how-do-i-create-custom-methods" title="永久链接至标题">¶</a></h2>
+<p>关于Feathers的一个重要事项是, 它只向客户公开官方 <a class="reference internal" href="../api/services.html"><span class="doc">服务</span></a>. 虽然您可以在服务器上添加和使用任何服务方法, 但是不能将这些自定义方法公开给客户端.</p>
+<p>Feathers是围绕 <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints">REST架构约束</a> 构建的, 并且有很多很好的理由. 通常, 几乎任何可能需要自定义方法或RPC样式操作的东西也可以通过创建 <a class="reference internal" href="../api/services.html"><span class="doc">服务</span></a> 或通过 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> 来完成.</p>
+<p>到目前为止, 这些好处(如安全性, 可预测性, 发送定义良好的实时事件)远远超过了概念化应用程序逻辑时所需思想的微小变化.</p>
+<p>例子:</p>
+<ul class="simple">
+<li><p>发送不在数据库中存储邮件消息的电子邮件操作.</p></li>
+</ul>
+<p>资源(服务)不必是数据库记录. 它可以是任何类型的资源(例如城市的当前天气或创建将发送它的电子邮件). 发送电子邮件通常使用单独的电子邮件 <a class="reference internal" href="../api/services.html"><span class="doc">服务</span></a>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/email&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">sendEmail</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>或者在 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> 中.</p>
+<ul class="simple">
+<li><p>在电子商务网站下订单.在幕后, 将在一个事务中插入许多记录: order_item, order_header, voucher_tracking等.</p></li>
+</ul>
+<p>这就是 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> 适用于.在创建新订单时, 您还有一个定义良好的钩链:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;orders&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">validateData</span><span class="p">(),</span>
+      <span class="nx">checkStock</span><span class="p">(),</span>
+      <span class="nx">checkVoucher</span><span class="p">()</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">chargePayment</span><span class="p">(),</span> <span class="c1">// hook that calls `app.service(&#39;payment&#39;).create()`</span>
+      <span class="nx">sendEmail</span><span class="p">(),</span> <span class="c1">// hook that calls `app.service(&#39;email&#39;).create()`</span>
+      <span class="nx">updateStock</span><span class="p">()</span> <span class="c1">// Update product stock here</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>一个 <code class="docutils literal notranslate"><span class="pre">userService.resetPassword</span></code> 方法</p></li>
+</ul>
+<p>这也可以实现为在 <code class="docutils literal notranslate"><span class="pre">create</span></code> 方法中重置密码的密码服务:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">PasswordService</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">user_id</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">userService</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">userService</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">passwordToken</span><span class="o">:</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="nx">sendEmail</span><span class="p">(</span><span class="nx">user</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="nx">setup</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-do-nested-or-custom-routes">
+<h2>如何进行嵌套或自定义路由?<a class="headerlink" href="#how-do-i-do-nested-or-custom-routes" title="永久链接至标题">¶</a></h2>
+<p>通常情况下,我们发现实际上并不需要它们,并且保持路线尽可能平坦要好得多.例如 <code class="docutils literal notranslate"><span class="pre">users/:userId/posts</span></code> 之类的东西 - 虽然很适合人类阅读 - 但实际上并不像等价的那样容易解析和处理 <a class="reference internal" href="../api/databases/querying.html"><span class="doc">查询</span></a>. 另外,当通过没有路线概念的websocket连接使用Feathers时,这也会更好.</p>
+<p>但是, 仍然可以通过在嵌套路由上注册现有服务并将route参数映射到这样的查询参数来创建服务的嵌套路由.:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span> <span class="nx">postService</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">userService</span><span class="p">);</span>
+
+<span class="c1">// re-export the posts service on the /users/:userId/posts route</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users/:userId/posts&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">));</span>
+
+<span class="c1">// A hook that updates `data` with the route parameter</span>
+<span class="kd">function</span> <span class="nx">mapUserIdToData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span> <span class="o">&amp;&amp;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// For the new route, map the `:userId` route parameter to the query in a hook</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users/:userId/posts&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">find</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">mapUserIdToData</span><span class="p">,</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">mapUserIdToData</span><span class="p">,</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="nx">mapUserIdToData</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>现在转到 <code class="docutils literal notranslate"><span class="pre">/users/123/posts</span></code> 将调用 <code class="docutils literal notranslate"><span class="pre">postService.find({query:{userId:123}})</span></code> 并返回该用户的所有帖子.</p>
+<p>有关URL路由和参数的更多信息, 请参阅 <a class="reference internal" href="../api/express.html"><span class="doc">Express</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>URL永远不应包含更改数据的操作(如 <code class="docutils literal notranslate"><span class="pre">post/publish</span></code> 或 <code class="docutils literal notranslate"><span class="pre">post/delete</span></code>).这一直是HTTP协议的重要组成部分,而Feathers比大多数其他框架更严格地执行此操作.例如,要发布一个帖子,你会称之为 <code class="docutils literal notranslate"><span class="pre">.patch(id,{published:true})</span></code>.</p>
+</div>
+</div>
+<div class="section" id="can-you-support-another-database">
+<h2>你能支持另一个数据库吗?<a class="headerlink" href="#can-you-support-another-database" title="永久链接至标题">¶</a></h2>
+<p>Feathers <a class="reference internal" href="../api/databases/adapters.html"><span class="doc">数据库适配器</span></a> 实现了将Feathers用于某些数据库和ORM所需的90％的功能.但是,即使您喜欢的数据库或ORM不在列表中,或者适配器不支持您正在寻找的特定功能,Feathers仍然可以通过以下方式满足您的所有需求 <a class="reference internal" href="../api/services.html"><span class="doc">服务</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>要正确使用Feathers, 了解服务如何工作以及所有现有数据库适配器只是与数据库本身通信的服务非常重要.</p>
+</div>
+<p>编写自己的服务的原因和方法包括 <a class="reference internal" href="../guides/basics/readme.html"><span class="doc">Feathers 基础知识</span></a>.在生成器中,可以通过运行 <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">service</span></code>,选择“自定义服务”,然后编辑 <code class="docutils literal notranslate"><span class="pre">&lt;servicename&gt;/&lt;servicename&gt;</span> <span class="pre">.class.js</span></code> 文件来创建自定义服务,以生成相应的数据库调用.</p>
+<p>如果您想发布自己的数据库适配器, 首先要确保该数据库还没有一个 <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">社区维护适配器</a> ( 许多维护者都是很高兴得到一些帮助).  如果没有, 你可以运行 <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">plugin</span></code> 来创建一个新的插件. 可以在 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">羽毛记忆库</a> 中找到数据库适配器的参考实现. 社区维护的适配器总是有可能毕业于 <em>官方</em> Feathers适配器, 但目前还没有计划直接添加对Feathers团队的任何新数据库的支持.</p>
+</div>
+<div class="section" id="i-am-not-getting-real-time-events">
+<h2>我没有得到实时事件<a class="headerlink" href="#i-am-not-getting-real-time-events" title="永久链接至标题">¶</a></h2>
+<p>Feathers Buzzard (<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers&#64;v3.0.0</span></code>)引入了一个新的,更安全的事件系统,默认情况下 <strong>不会</strong> 发送实时事件.如果您没有在客户端上获得实时事件,则通常是 <a class="reference internal" href="../api/channels.html"><span class="doc">事件频道</span></a> 设置存在问题.</p>
+<p>看一下 <a class="reference external" href="https://feathersjs.com/">feathersjs.com</a> 的例子 <a class="reference internal" href="../guides/basics/real-time.html"><span class="doc">实时API</span></a> 和 <a class="reference internal" href="../api/channels.html"><span class="doc">事件频道</span></a>.如果要从以前的版本迁移,请参阅 <span class="xref std std-ref">migrationing_adding-channels</span>.</p>
+<p>生成的应用程序已经设置了一个 <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> 文件, 默认情况下只向经过身份验证的用户发送事件, 但可以根据 <a class="reference internal" href="../api/channels.html"><span class="doc">事件频道</span></a> 修改为您的需求.</p>
+</div>
+<div class="section" id="how-do-i-do-search">
+<h2>我该如何搜索?<a class="headerlink" href="#how-do-i-do-search" title="永久链接至标题">¶</a></h2>
+<p>这取决于您使用的数据库适配器. 有关更多信息, 请参阅 <span class="xref std std-doc">../api/databases/querying#search</span>.</p>
+</div>
+<div class="section" id="why-am-i-not-getting-json-errors">
+<h2>为什么我没有收到JSON错误?<a class="headerlink" href="#why-am-i-not-getting-json-errors" title="永久链接至标题">¶</a></h2>
+<p>如果你得到一个纯文本错误和一个500状态代码来处理应该返回不同状态代码的错误,请确保你有 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> 模块配置的 <code class="docutils literal notranslate"><span class="pre">express.errorHandler()</span></code> <span class="xref std std-doc">../api/express#expresserrorhandler</span> 章节.</p>
+</div>
+<div class="section" id="why-am-i-not-getting-the-correct-http-error-code">
+<h2>为什么我没有收到正确的HTTP错误代码<a class="headerlink" href="#why-am-i-not-getting-the-correct-http-error-code" title="永久链接至标题">¶</a></h2>
+<p>见上面的答案.</p>
+</div>
+<div class="section" id="how-can-i-do-custom-methods-like-findorcreate">
+<h2>我怎样才能做 <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code> 这样的自定义方法?<a class="headerlink" href="#how-can-i-do-custom-methods-like-findorcreate" title="永久链接至标题">¶</a></h2>
+<p>自定义功能几乎总是可以使用挂钩映射到现有服务方法. 例如, <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code> 可以作为服务的 <code class="docutils literal notranslate"><span class="pre">get</span></code> 方法的前挂钩实现. <a class="reference external" href="https://gist.github.com/marshallswain/9fa3b1e855633af00998">请参阅此要点</a> 以获取如何在前挂钩中实现此功能的示例.</p>
+</div>
+<div class="section" id="why-are-you-using-jwt-for-sessions">
+<h2>为什么使用JWT进行会话<a class="headerlink" href="#why-are-you-using-jwt-for-sessions" title="永久链接至标题">¶</a></h2>
+<p>Feathers使用 <a class="reference external" href="https://jwt.io/">JSON web tokens(JWT)</a> 作为其标准身份验证机制.一些文章,如 <a class="reference external" href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/">停止使用JWT进行会话</a> 促进使用标准cookie和HTTP会话.虽然它提出了一些有效点,但并非所有这些都适用于Feathers,并且Feathers依赖于JWT还有其他很好的理由:</p>
+<ul class="simple">
+<li><p>Feathers旨在支持许多不同的传输机制,其中大多数不依赖于HTTP,但是作为身份验证机制可以很好地与JWT配合使用.对于通常不受传统HTTP会话保护的已建立连接的websockets,情况就已如此.</p></li>
+<li><p>默认情况下,Feathers存储在JWT有效内容中的唯一内容是用户ID.这是一个有状态的标记.您可以通过将更多数据放入JWT有效负载来更改此设置并使令牌无状态,但这由您自行决定.目前,在JWT被验证为未过期或被篡改之后,每个请求都会查找用户.</p></li>
+<li><p>您需要确保撤消JWT令牌或设置较低的过期日期或添加自定义逻辑以验证用户的帐户是否仍然有效/有效.目前默认的到期时间是1天.我们为大多数应用选择了合理的默认设置,但根据您的应用,这可能太长或太短.</p></li>
+</ul>
+<p>此外,通过使用:doc:<cite>../api/express</cite>,仍然可以将Feathers与现有的* traditional * Express会话机制一起使用.例如,来自传统Express会话的所有服务调用的 <code class="docutils literal notranslate"><span class="pre">params.user</span></code> 可以像这样传递:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Set service call `param.user` from `session.user`</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-render-templates">
+<h2>如何渲染模板?<a class="headerlink" href="#how-do-i-render-templates" title="永久链接至标题">¶</a></h2>
+<p>Feathers就像Express一样工作,所以它完全相同.我们创建了一个 <a class="reference internal" href="../guides/advanced/using-a-view-engine.html"><span class="doc">使用视图引擎</span></a>.有关使用身份验证保护Express视图的信息,请参阅 <a class="reference internal" href="../guides/auth/recipe.express-middleware.html"><span class="doc">FeathersJS Auth Recipe:认证Express中间件(SSR)</span></a>.</p>
+</div>
+<div class="section" id="oauth-is-not-setting-the-cookie">
+<h2>OAuth未设置Cookie<a class="headerlink" href="#oauth-is-not-setting-the-cookie" title="永久链接至标题">¶</a></h2>
+<p>如果您通过oAuth进行身份验证,但您的API和前端驻留在不同的域上,则无法设置身份验证客户端使用的cookie.相反,必须使用查询字符串重定向,如 <a class="reference external" href="https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67">this gist</a> 所示.</p>
+</div>
+<div class="section" id="how-do-i-create-channels-or-rooms">
+<h2>如何创建频道或房间<a class="headerlink" href="#how-do-i-create-channels-or-rooms" title="永久链接至标题">¶</a></h2>
+<p>在Feathers <a class="reference internal" href="../api/channels.html"><span class="doc">事件频道</span></a> 是向某些客户发送 <a class="reference internal" href="../api/events.html"><span class="doc">事件</span></a> 的方式.</p>
+</div>
+<div class="section" id="how-do-i-do-validation">
+<h2>我该如何进行验证?<a class="headerlink" href="#how-do-i-do-validation" title="永久链接至标题">¶</a></h2>
+<p>如果您的数据库/ORM支持模型或模式(即Mongoose或Sequelize), 那么您有2个选项.</p>
+<div class="section" id="the-preferred-way">
+<h3>首选方式<a class="headerlink" href="#the-preferred-way" title="永久链接至标题">¶</a></h3>
+<p>You perform validation at the service level <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a>. This is better because it keeps your app
+database agnostic so you can easily swap databases without having to
+change your validations much.</p>
+<p>如果你编写了一堆小钩子来验证特定的东西, 那么它更容易测试, 而且性能稍微高一些, 因为你可以提前退出验证链, 而不必一直到将数据插入到数据库中找出该数据是否无效.</p>
+<p>如果您没有模型或模式, 那么使用钩子进行验证是您唯一的选择.如果您想出一些不同的东西, 请随时提交PR！</p>
+</div>
+<div class="section" id="the-orm-way">
+<h3>ORM方式<a class="headerlink" href="#the-orm-way" title="永久链接至标题">¶</a></h3>
+<p>使用ORM适配器, 您可以在模型级别执行验证:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose#validation">使用Mongoose</a></p></li>
+<li><p><a class="reference external" href="http://docs.sequelizejs.com/en/latest/docs/models-definition/#validations">使用Sequelize</a></p></li>
+</ul>
+<p>关于模型级验证的好处是Feathers会以一种很好的一致格式将验证错误返回给客户端.</p>
+</div>
+</div>
+<div class="section" id="how-do-i-do-associations">
+<h2>如何做协会?<a class="headerlink" href="#how-do-i-do-associations" title="永久链接至标题">¶</a></h2>
+<p>与验证类似, 它取决于您的数据库/ORM是否支持模型.</p>
+<div class="section" id="the-preferred-way-1">
+<span id="id1"></span><h3>首选方式<a class="headerlink" href="#the-preferred-way-1" title="永久链接至标题">¶</a></h3>
+<p>对于任何Feathers数据库/ORM适配器, 您只需使用 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> 从其他服务获取数据.</p>
+<p>This is a better approach because it keeps your application database
+agnostic and service oriented. By referencing the services (using
+<code class="docutils literal notranslate"><span class="pre">app.service().find()</span></code>, etc.) you can still decouple your app and have
+these services live on entirely separate machines or use entirely
+different databases without having to change any of your fetching code.
+We show how to associate data in a hook in the <a class="reference internal" href="../guides/chat/processing.html"><span class="doc">处理数据</span></a>.
+An alternative are the <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/#fastjoin">fastJoin</a>
+or <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/#populate">populate</a>
+in <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-hooks-common</a>.</p>
+</div>
+<div class="section" id="the-orm-way-1">
+<span id="id2"></span><h3>ORM方式<a class="headerlink" href="#the-orm-way-1" title="永久链接至标题">¶</a></h3>
+<p>使用mongoose, 您可以使用 <code class="docutils literal notranslate"><span class="pre">$populate</span></code> 查询参数来填充嵌套文档.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Find Hulk Hogan and include all the messages he sent</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hulk@hogan.net&#39;</span><span class="p">,</span>
+    <span class="nx">$populate</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;sentMessages&#39;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>使用Sequelize, 你可以做到这一点:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Find Hulk Hogan and include all the messages he sent</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hulk@hogan.net&#39;</span><span class="p">,</span>
+  <span class="nx">sequelize</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">include</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">model</span><span class="o">:</span> <span class="nx">Message</span><span class="p">,</span>
+      <span class="nx">where</span><span class="o">:</span> <span class="p">{</span> <span class="nx">sender</span><span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">col</span><span class="p">(</span><span class="s1">&#39;user.id&#39;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>或者 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize#associations-and-relations">如此处所述</a> 将其设置在钩子中.</p>
+</div>
+</div>
+<div class="section" id="sequelize-models-and-associations">
+<h2>Sequelize模型和协会<a class="headerlink" href="#sequelize-models-and-associations" title="永久链接至标题">¶</a></h2>
+<p>如果您正在使用 <a class="reference external" href="http://docs.sequelizejs.com/">Sequelize</a> adapter, 首先了解SQL和Sequelize非常重要.有关如何使用Sequelize Feathers适配器关联模型的更多信息, 请参阅feathers-sequelize文档中的 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize#associations">associations部分</a>.</p>
+</div>
+<div class="section" id="what-about-koa-hapi-x">
+<h2>Koa/Hapi/X 怎么样?<a class="headerlink" href="#what-about-koa-hapi-x" title="永久链接至标题">¶</a></h2>
+<p>还有许多其他节点服务器框架，如Koa，一个*“Node.JS的下一代Web框架”<a href="#id1"><span class="problematic" id="id2">*</span></a>使用ES6生成器函数而不是Express中间件或HapiJS等。 目前，Feathers与框架无关，但仅为HTTP API提供 <a class="reference internal" href="../api/express.html"><span class="doc">Express</span></a> 集成。 未来可能会支持更多的框架，直接 <a class="reference external" href="https://nodejs.org/api/http.html">Node HTTP</a> 是最有可能的。</p>
+</div>
+<div class="section" id="how-do-i-access-the-request-object-in-hooks-or-services">
+<h2>如何在挂钩或服务中访问请求对象?<a class="headerlink" href="#how-do-i-access-the-request-object-in-hooks-or-services" title="永久链接至标题">¶</a></h2>
+<p>简而言之，你不应该这样做。如果你看一下 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> ，你会看到钩子上可用的所有参数。</p>
+<p>如果您仍然需要请求对象中的某些内容(例如, 请求的IP地址), 您只需将其添加到 <code class="docutils literal notranslate"><span class="pre">req.feathers</span></code> 对象 <span class="xref std std-doc">../api/express#params</span> 或 :doc :<cite>../API/socketio＃appconfiguresocketiocallback</cite>.</p>
+</div>
+<div class="section" id="how-do-i-mount-sub-apps">
+<h2>如何挂载子应用程序?<a class="headerlink" href="#how-do-i-mount-sub-apps" title="永久链接至标题">¶</a></h2>
+<p>它与Express几乎完全相同。可以找到更多信息 <span class="xref std std-doc">../api/express #sub-apps</span>.</p>
+</div>
+<div class="section" id="how-do-i-do-some-processing-after-sending-the-response-to-the-user">
+<h2>将响应发送给用户后如何进行处理?<a class="headerlink" href="#how-do-i-do-some-processing-after-sending-the-response-to-the-user" title="永久链接至标题">¶</a></h2>
+<p>钩子工作流程允许您非常优雅地处理这些情况.这取决于你在钩子里回来的承诺.这是一个发送电子邮件但不等待成功消息的钩子的示例.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// Send an email by calling to the email service.</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;emails&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;user@email.com&#39;</span><span class="p">,</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You are so great!&#39;</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Send a message to some logging service.</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+
+  <span class="c1">// Return a resolved promise to immediately move to the next hook</span>
+  <span class="c1">// and not wait for the two previous promises to resolve.</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-debug-my-app">
+<h2>如何调试我的应用程序<a class="headerlink" href="#how-do-i-debug-my-app" title="永久链接至标题">¶</a></h2>
+<p>它与调试任何其他NodeJS应用程序没有什么不同, 但您可以参考 <a class="reference external" href="https://blog.feathersjs.com/debugging-feathers-with-visual-studio-code-406e6adf2882">此博客文章</a> 获取更多特定的Feathers技巧和窍门.</p>
+</div>
+<div class="section" id="possible-eventemitter-memory-leak-detected-warning">
+<h2><code class="docutils literal notranslate"><span class="pre">可能检测到EventEmitter内存泄漏</span></code> 警告<a class="headerlink" href="#possible-eventemitter-memory-leak-detected-warning" title="永久链接至标题">¶</a></h2>
+<p>This warning is not as bad as it sounds. If you got it from Feathers you
+most likely registered more than 64 services and/or event listeners on a
+Socket. If you don’t think there are that many services or event
+listeners you may have a memory leak. Otherwise you can increase the
+number in the <a class="reference internal" href="../api/socketio.html"><span class="doc">Socket.io</span></a> via
+<code class="docutils literal notranslate"><span class="pre">io.sockets.setMaxListeners(number)</span></code> and with
+<a class="reference internal" href="../api/primus.html"><span class="doc">Primus</span></a> via <code class="docutils literal notranslate"><span class="pre">primus.setMaxListeners(number)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">number</span></code> can be <code class="docutils literal notranslate"><span class="pre">0</span></code> for unlimited listeners or any other number of
+how many listeners you’d expect in the worst case.</p>
+</div>
+<div class="section" id="why-cant-i-pass-params-from-the-client">
+<h2>为什么我不能从客户端传递 <code class="docutils literal notranslate"><span class="pre">params</span></code>?<a class="headerlink" href="#why-cant-i-pass-params-from-the-client" title="永久链接至标题">¶</a></h2>
+<p>当你拨打电话时:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span> <span class="p">};</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">patch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span> <span class="nx">admin</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// handle response</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>on the client the <code class="docutils literal notranslate"><span class="pre">context.params</span></code> object will only be available in
+your client side hooks. It will not be provided to the server. The
+reason for this is because <code class="docutils literal notranslate"><span class="pre">context.params</span></code> on the server usually
+contains information that should be server-side only. This can be
+database options, whether a request is authenticated, etc. If we passed
+those directly from the client to the server this would be a big
+security risk. Only the client side <code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> and
+<code class="docutils literal notranslate"><span class="pre">context.params.headers</span></code> objects are provided to the server.</p>
+<p>如果您需要将信息从客户端传递到不属于查询的服务器, 则需要将其添加到客户端的 <code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> 并明确地将其从``context.params中拉出来.在服务器端查询``.这可以这样实现:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// client side</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">$client</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">platform</span><span class="o">:</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span>
+          <span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1.0&#39;</span>
+        <span class="p">};</span>
+
+        <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// server side, inside app.hooks.js</span>
+<span class="kr">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks-common&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span>
+      <span class="c1">// remove values from context.params.query.$client and move them to context.params</span>
+      <span class="c1">// so context.params.query.$client.version -&gt; context.params.version</span>
+      <span class="c1">// and context.params.query.$client is removed.</span>
+      <span class="nx">hooks</span><span class="p">.</span><span class="nx">client</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="s1">&#39;platform&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="my-queries-with-null-values-arent-working">
+<h2>我的带有空值的查询无效<a class="headerlink" href="#my-queries-with-null-values-arent-working" title="永久链接至标题">¶</a></h2>
+<p>When making a request using REST (HTTP) query <em>string</em> values don’t have
+any type information and will always be strings. Some database adapters
+that have a schema (like <code class="docutils literal notranslate"><span class="pre">feathers-mongoose</span></code> or
+<code class="docutils literal notranslate"><span class="pre">feathers-sequelize</span></code>) will try to convert values to the correct type
+but others (like <code class="docutils literal notranslate"><span class="pre">feathers-mongodb</span></code>) can’t. Additionally, <code class="docutils literal notranslate"><span class="pre">null</span></code>
+will always be a string and always has to be converted if you want to
+query for <code class="docutils literal notranslate"><span class="pre">null</span></code>. This can be done in a <code class="docutils literal notranslate"><span class="pre">before</span></code>
+<a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;myservice&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">find</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="p">{</span> <span class="nx">params</span><span class="o">:</span> <span class="p">{</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">phone</span> <span class="o">===</span> <span class="s1">&#39;null&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">query</span><span class="p">.</span><span class="nx">phone</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">;</span>
+
+      <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>另见 <a class="reference external" href="https://github.com/feathersjs/feathers/issues/894">this issue</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>使用websockets时不会发生此问题, 因为它保留所有类型信息.</p>
+</div>
+</div>
+<div class="section" id="why-are-queries-with-arrays-failing">
+<h2>为什么带有数组的查询失败?<a class="headerlink" href="#why-are-queries-with-arrays-failing" title="永久链接至标题">¶</a></h2>
+<p>如果你正在使用REST和大型数组的查询(确切地说超过21个项目)失败, 那么你可能会遇到 <a class="reference external" href="https://github.com/ljharb/qs">querystring</a> module的问题.默认情况下, <a class="reference external" href="https://github.com/ljharb/qs#parsing-arrays">将数组的大小限制为21项</a> 推荐的解决方案是通过 <code class="docutils literal notranslate"><span class="pre">app.set('query</span> <span class="pre">parser',</span> <span class="pre">parserFunction)</span></code> 实现自定义查询字符串解析器函数, 并将 <code class="docutils literal notranslate"><span class="pre">arrayLimit</span></code> 选项设置为更高的值:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;qs&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;query parser&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">qs</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">arrayLimit</span><span class="o">:</span> <span class="mi">100</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>有关更多信息, 请参阅 <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.set">Express应用程序设置</a> [&#64;feathersjs/rest＃88](<a class="reference external" href="https://github.com/feathersjs/feathers-rest/issues/88">https://github.com/feathersjs/feathers-rest/issues/88</a>) 和 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205">feathers-mongoose＃205</a>.</p>
+</div>
+<div class="section" id="i-always-get-a-404-for-my-custom-middleware">
+<h2>我的自定义中间件总是得到404<a class="headerlink" href="#i-always-get-a-404-for-my-custom-middleware" title="永久链接至标题">¶</a></h2>
+<p>Just like in Express itself, the order of middleware matters. If you
+registered a custom middleware outside of the generator, you have to
+make sure that it runs before the <code class="docutils literal notranslate"><span class="pre">notFound()</span></code> error midlleware.</p>
+</div>
+<div class="section" id="how-do-i-get-oauth-working-across-different-domains">
+<h2>如何让OAuth跨不同的域工作<a class="headerlink" href="#how-do-i-get-oauth-working-across-different-domains" title="永久链接至标题">¶</a></h2>
+<p>标准的Feathers oAuth设置将JWT设置在cookie中, 该cookie只能在同一个域之间传递.如果您的前端在不同的域上运行, 则必须使用查询字符串重定向, 如 <a class="reference external" href="https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67">此要点</a> 中所述.</p>
+</div>
+<div class="section" id="my-configuration-isnt-loaded">
+<h2>我的配置未加载<a class="headerlink" href="#my-configuration-isnt-loaded" title="永久链接至标题">¶</a></h2>
+<p>If you are running or requiring the Feathers app from a different folder
+<a class="reference internal" href="../api/configuration.html"><span class="doc">配置</span></a> needs to be
+instructed where the configuration files for the app are located. Since
+it uses <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> this
+can be done by setting the <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Environment-Variables#node_config_dir">NODE_CONFIG_DIR envorinment variable</a>.</p>
+</div>
+<div class="section" id="how-do-i-set-up-https">
+<h2>如何设置HTTPS?<a class="headerlink" href="#how-do-i-set-up-https" title="永久链接至标题">¶</a></h2>
+<p>查看羽毛 <span class="xref std std-doc">../api/express#https</span>.</p>
+</div>
+<div class="section" id="is-feathers-production-ready">
+<h2>羽毛生产准备好了吗?<a class="headerlink" href="#is-feathers-production-ready" title="永久链接至标题">¶</a></h2>
+<p>Yes! It’s being used in production by a bunch of companies from startups
+to fortune 500s. For some more details see <a class="reference external" href="https://www.quora.com/Is-FeathersJS-production-ready">this answer on
+Quora</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing/readme.html" class="btn btn-neutral float-right" title="特约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../help/readme.html" class="btn btn-neutral float-left" title="求助！" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

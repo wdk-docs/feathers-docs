@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>写测试 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="身份验证指南和食谱" href="../auth/index.html" />
+    <link rel="prev" title="建立一个前端" href="frontend.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">写测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unit-testing-hooks">Unit testing hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-database-setup">Test database setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-services">Testing services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-server-testing">Client/server testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-coverage">Code coverage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-default-test-directory">Changing the default test directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>写测试</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/testing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-tests">
+<h1>写测试<a class="headerlink" href="#writing-tests" title="永久链接至标题">¶</a></h1>
+<p>Every time we generate a hook or service, the generator will also set up
+a basic <a class="reference external" href="https://mochajs.org/">Mocha</a> test that we can use to
+implement unit tests for it. In this chapter, we will implement unit
+tests for our <a class="reference internal" href="processing.html"><span class="doc">处理数据</span></a> and integration tests for the
+<a class="reference internal" href="service.html"><span class="doc">创建服务</span></a>.</p>
+<p>We can run the <a class="reference external" href="https://eslint.org/">code Linter</a> and Mocha tests
+with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>This will fail initially, since we implemented functionality in our
+hooks that is not covered by the standard tests. So let’s get those to
+pass first.</p>
+<div class="section" id="unit-testing-hooks">
+<h2>Unit testing hooks<a class="headerlink" href="#unit-testing-hooks" title="永久链接至标题">¶</a></h2>
+<p>The best way to test individual hooks is to set up a dummy Feathers
+application with some services that return the data we expect and can
+test against, then register the hooks and make actual service calls to
+verify that they return what we’d expect.</p>
+<p>The first hook we created was for processing new messages. For this
+hook, we can create a <code class="docutils literal notranslate"><span class="pre">messages</span></code> dummy custom
+<span class="xref std std-doc">basics/services</span> that just returns the same data from
+the <code class="docutils literal notranslate"><span class="pre">create</span></code> service method. To pretend we are an authenticated user,
+we have to pass <code class="docutils literal notranslate"><span class="pre">params.user</span></code>. For this test, this can be a simple
+JavaScript object with an <code class="docutils literal notranslate"><span class="pre">_id</span></code>.</p>
+<p>Update <code class="docutils literal notranslate"><span class="pre">test/hooks/process-messages.test.js</span></code> to the following:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">processMessage</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/hooks/process-message&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;process-message\&#39; hook&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">app</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Create a new plain Feathers application</span>
+    <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+    <span class="c1">// Register a dummy custom service that just return the</span>
+    <span class="c1">// message data back</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Register the `processMessage` hook on that service</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+      <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">create</span><span class="o">:</span> <span class="nx">processMessage</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;processes the message as expected&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// A user stub with just an `_id`</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">_id</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span> <span class="p">};</span>
+    <span class="c1">// The service method call `params`</span>
+    <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">};</span>
+
+    <span class="c1">// Create a new message with params that contains our user</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hi there&#39;</span><span class="p">,</span>
+      <span class="nx">additional</span><span class="o">:</span> <span class="s1">&#39;should be removed&#39;</span>
+    <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span> <span class="s1">&#39;Hi there&#39;</span><span class="p">);</span>
+    <span class="c1">// `userId` was set</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">userId</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">);</span>
+    <span class="c1">// `additional` property has been removed</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">additional</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>We can take a similar approach to test the <code class="docutils literal notranslate"><span class="pre">gravatar</span></code> hook in
+<code class="docutils literal notranslate"><span class="pre">test/hooks/gravatar.test.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">gravatar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/hooks/gravatar&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;gravatar\&#39; hook&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">app</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+    <span class="c1">// A dummy users service for testing</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">async</span> <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Add the hook to the dummy service</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+      <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">create</span><span class="o">:</span> <span class="nx">gravatar</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;creates a gravatar link from the users email&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test@example.com&#39;</span>
+    <span class="p">});</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span>
+      <span class="nx">avatar</span><span class="o">:</span> <span class="s1">&#39;https://s.gravatar.com/avatar/55502f40dc8b7c769880b10874abc9d0?s=60&#39;</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>In the tests above, we created a dummy service. But sometimes, we need
+the full Feathers service functionality.
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a>
+is a useful <span class="xref std std-doc">basics/databases</span> that supports
+the Feathers query syntax (and pagination) but does not require a
+database server. We can install it as a development dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">feathers</span><span class="o">-</span><span class="n">memory</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Let’s use it to test the <code class="docutils literal notranslate"><span class="pre">populateUser</span></code> hook, by updating
+<code class="docutils literal notranslate"><span class="pre">test/hooks/populate-user.test.js</span></code> to the following:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">populateUser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/hooks/populate-user&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;populate-user\&#39; hook&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">user</span><span class="p">;</span>
+
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Database adapter pagination options</span>
+    <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+        <span class="k">default</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nx">max</span><span class="o">:</span> <span class="mi">25</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+
+    <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+    <span class="c1">// Register `users` and `messages` service in-memory</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">(</span><span class="nx">options</span><span class="p">));</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">(</span><span class="nx">options</span><span class="p">));</span>
+
+    <span class="c1">// Add the hook to the dummy service</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+      <span class="nx">after</span><span class="o">:</span> <span class="nx">populateUser</span><span class="p">()</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Create a new user we can use to test with</span>
+    <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test@user.com&#39;</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;populates a new message with the user&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A test message&#39;</span><span class="p">,</span>
+      <span class="c1">// Set `userId` manually (usually done by `process-message` hook)</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">id</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Make sure that user got added to the returned message</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>If we now run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>All our tests should pass. Yay!</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>There are some error stacks printed when running the tests.
+This is normal, they are log entries when running the tests for 404
+(Not Found) errors.</p>
+</div>
+</div>
+<div class="section" id="test-database-setup">
+<h2>Test database setup<a class="headerlink" href="#test-database-setup" title="永久链接至标题">¶</a></h2>
+<p>When testing database functionality, we want to make sure that the tests
+use a different database. We can achieve this by creating a new
+environment configuration in <code class="docutils literal notranslate"><span class="pre">config/test.json</span></code> with the following
+content:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;nedb&quot;</span><span class="o">:</span> <span class="s2">&quot;../test/data&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will set up the NeDB database to use <code class="docutils literal notranslate"><span class="pre">test/data</span></code> as the base
+directory instead of <code class="docutils literal notranslate"><span class="pre">data/</span></code> when <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> is set to <code class="docutils literal notranslate"><span class="pre">test</span></code>. The
+same thing can be done with connection strings for other databases.</p>
+<p>We also want to make sure that before every test run, the database is
+cleaned up. To make that possible across platforms, first run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">shx</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Now we can update the <code class="docutils literal notranslate"><span class="pre">script</span></code> section of <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to the
+following:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;test&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run eslint &amp;&amp; npm run mocha&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;eslint src/. test/. --config .eslintrc.json&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="s2">&quot;node src/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;clean&quot;</span><span class="o">:</span> <span class="s2">&quot;shx rm -rf test/data/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mocha&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run clean &amp;&amp; NODE_ENV=test mocha test/ --recursive --exit&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>On Windows the <code class="docutils literal notranslate"><span class="pre">mocha</span></code> should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">clean</span> <span class="o">&amp;</span> <span class="n">SET</span> <span class="n">NODE_ENV</span><span class="o">=</span><span class="n">test</span><span class="o">&amp;</span> <span class="n">mocha</span> <span class="n">test</span><span class="o">/</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">exit</span>
+</pre></div>
+</div>
+<p>This will make sure that the <code class="docutils literal notranslate"><span class="pre">test/data</span></code> folder is removed before
+every test run and <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> is set properly.</p>
+</div>
+<div class="section" id="testing-services">
+<h2>Testing services<a class="headerlink" href="#testing-services" title="永久链接至标题">¶</a></h2>
+<p>To test the actual <code class="docutils literal notranslate"><span class="pre">messages</span></code> and <code class="docutils literal notranslate"><span class="pre">users</span></code> services (with all hooks
+wired up), we can use any REST API testing tool to make requests and
+verify that they return correct responses.</p>
+<p>But there is a much faster, easier and complete approach. Since
+everything on top of our own hooks and services is already provided (and
+tested) by Feathers, we can require the
+:doc:<span class="xref std std-doc">../api/application</span> object using the <cite>service methods &lt;../../api/services&gt;</cite> directly, and “fake” authentication
+by setting <code class="docutils literal notranslate"><span class="pre">params.user</span></code> as demonstrated in the hook tests above.</p>
+<p>By default, the generator creates a service test file,
+e.g. <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code>, that only tests that the service
+exists, like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;users\&#39; service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;registered the service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="s1">&#39;Registered the service&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>We can then add similar tests that use the service. Following is an
+updated <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code> that adds two tests. The first
+verifies that users can be created, the gravatar gets set and the
+password gets encrypted. The second verifies that the password does not
+get sent to external requests:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;users\&#39; service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;registered the service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="s1">&#39;Registered the service&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;creates a user, encrypts password and adds gravatar&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test@example.com&#39;</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Verify Gravatar has been set as we&#39;d expect</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatar</span><span class="p">,</span> <span class="s1">&#39;https://s.gravatar.com/avatar/55502f40dc8b7c769880b10874abc9d0?s=60&#39;</span><span class="p">);</span>
+    <span class="c1">// Makes sure the password got encrypted</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">!==</span> <span class="s1">&#39;secret&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;removes password for external requests&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Setting `provider` indicates an external request</span>
+    <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;rest&#39;</span> <span class="p">};</span>
+
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;test2@example.com&#39;</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span>
+    <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+
+    <span class="c1">// Make sure password has been removed</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>We take a similar approach for <code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code>. We
+create a test-specific user from the <code class="docutils literal notranslate"><span class="pre">users</span></code> service. We then pass it
+as <code class="docutils literal notranslate"><span class="pre">params.user</span></code> when creating a new message, and validates that
+message’s content:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;messages\&#39; service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;registered the service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="s1">&#39;Registered the service&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;creates and processes message, adds user information&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Create a new user we can use for testing</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;messagetest@example.com&#39;</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;supersecret&#39;</span>
+    <span class="p">});</span>
+
+    <span class="c1">// The messages service call params (with the user we just created)</span>
+    <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">};</span>
+    <span class="kr">const</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;a test&#39;</span><span class="p">,</span>
+      <span class="nx">additional</span><span class="o">:</span> <span class="s1">&#39;should be removed&#39;</span>
+    <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span> <span class="s1">&#39;a test&#39;</span><span class="p">);</span>
+    <span class="c1">// `userId` should be set to passed users it</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">);</span>
+    <span class="c1">// Additional property has been removed</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">additional</span><span class="p">);</span>
+    <span class="c1">// `user` has been populated</span>
+    <span class="nx">assert</span><span class="p">.</span><span class="nx">deepEqual</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span> <span class="nx">user</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> one more time, to verify that the tests for all our
+hooks, and the new service tests pass.</p>
+</div>
+<div class="section" id="client-server-testing">
+<h2>Client/server testing<a class="headerlink" href="#client-server-testing" title="永久链接至标题">¶</a></h2>
+<p>You can write tests which start up both a server for your app, and a
+Feathers client which your test can use to call the server. Such tests
+can expose faults in the interaction between the client and the server.
+They are also useful in testing the authentication of requests from the
+client. Install it as a development dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">client</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Test <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code> from above runs on the server. We
+convert it, in the following <code class="docutils literal notranslate"><span class="pre">tests/services/client-users.test.js</span></code>, so
+the tests are run on the client instead of on the server. This also
+causes client authentication to be tested.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">feathersClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;host&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="s1">&#39;login@example.com&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">password</span> <span class="o">=</span> <span class="s1">&#39;login&#39;</span><span class="p">;</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;\&#39;users\&#39; service - client&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">timeout</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">server</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">client</span><span class="p">;</span>
+
+  <span class="nx">before</span><span class="p">(</span><span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span> <span class="p">});</span>
+
+    <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">);</span>
+    <span class="nx">server</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;listening&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// eslint-disable-next-line no-console</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Feathers application started on http://%s:%d&#39;</span><span class="p">,</span> <span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">client</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">makeClient</span><span class="p">(</span><span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="nx">after</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">client</span><span class="p">.</span><span class="nx">logout</span><span class="p">();</span>
+    <span class="nx">server</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Run tests using client and server&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;registered the service&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">service</span><span class="p">,</span> <span class="s1">&#39;Registered the service&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;creates a user, encrypts password and adds gravatar&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;testclient@example.com&#39;</span><span class="p">,</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span>
+      <span class="p">});</span>
+
+      <span class="c1">// Verify Gravatar has been set to what we&#39;d expect</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">equal</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">avatar</span><span class="p">,</span> <span class="s1">&#39;https://s.gravatar.com/avatar/1b9c869fa7a93e59463c31a377fe0cf6?s=60&#39;</span><span class="p">);</span>
+      <span class="c1">// Makes sure the password got encrypted</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="o">!==</span> <span class="s1">&#39;secret&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">it</span><span class="p">(</span><span class="s1">&#39;removes password for external requests&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Setting `provider` indicates an external request</span>
+      <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">provider</span><span class="o">:</span> <span class="s1">&#39;rest&#39;</span> <span class="p">};</span>
+
+      <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;testclient2@example.com&#39;</span><span class="p">,</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;secret&#39;</span>
+      <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+
+      <span class="c1">// Make sure password has been removed</span>
+      <span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">makeClient</span><span class="p">(</span><span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">feathersClient</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="sb">`http://</span><span class="si">${</span><span class="nx">host</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">],</span> <span class="nx">forceNew</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">reconnection</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">extraHeaders</span><span class="o">:</span> <span class="p">{}</span>
+  <span class="p">});</span>
+  <span class="nx">client</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathersClient</span><span class="p">.</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
+  <span class="nx">client</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathersClient</span><span class="p">.</span><span class="nx">authentication</span><span class="p">({</span>
+    <span class="nx">storage</span><span class="o">:</span> <span class="nx">localStorage</span><span class="p">()</span>
+  <span class="p">}));</span>
+
+  <span class="nx">await</span> <span class="nx">client</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
+    <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="p">,</span>
+    <span class="nx">password</span><span class="p">,</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="nx">client</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">localStorage</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">setItem</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">getItem</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">},</span>
+    <span class="nx">removeItem</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">delete</span> <span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We first make a call on the <em>server</em> to create a new user. We then start
+up a server for our app. Finally the function <code class="docutils literal notranslate"><span class="pre">makeClient</span></code> is called
+to create a Feathers client and authenticate it using the newly created
+user.</p>
+<p>The individual tests remain unchanged except that the service calls are
+now made on the client (<code class="docutils literal notranslate"><span class="pre">client.service(...).create</span></code>) instead of on
+the server (<code class="docutils literal notranslate"><span class="pre">app.service(...).create</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">describe('Run</span> <span class="pre">tests</span> <span class="pre">using</span> <span class="pre">client</span> <span class="pre">and</span> <span class="pre">server',</span></code> statement stops a
+new server and client from being created for each test. This results in
+the test module running noticeably faster, though the tests are now
+exposed to potential iteractions. You can remove the statement to
+isolate the tests from one another.</p>
+</div>
+<div class="section" id="code-coverage">
+<h2>Code coverage<a class="headerlink" href="#code-coverage" title="永久链接至标题">¶</a></h2>
+<p>Code coverage is a great way to get some insights into how much of our
+code is actually executed during the tests. Using
+<a class="reference external" href="https://github.com/gotwarlost/istanbul">Istanbul</a> we can add it
+easily:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">nyc</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+<p>Now we have to update the <code class="docutils literal notranslate"><span class="pre">script</span></code> section of our <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;test&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run eslint &amp;&amp; npm run coverage&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;coverage&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run clean &amp;&amp; NODE_ENV=test nyc mocha&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;eslint src/. test/. --config .eslintrc.json --fix&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;start&quot;</span><span class="o">:</span> <span class="s2">&quot;node src/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;clean&quot;</span><span class="o">:</span> <span class="s2">&quot;shx rm -rf test/data/&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mocha&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run clean &amp;&amp; NODE_ENV=test mocha test/ --recursive --exit&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+<p>On Windows, the <code class="docutils literal notranslate"><span class="pre">coverage</span></code> command looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">clean</span> <span class="o">&amp;</span> <span class="n">SET</span> <span class="n">NODE_ENV</span><span class="o">=</span><span class="n">test</span><span class="o">&amp;</span> <span class="n">nyc</span> <span class="n">mocha</span>
+</pre></div>
+</div>
+<p>Now run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>This will print out some additional coverage information.</p>
+</div>
+<div class="section" id="changing-the-default-test-directory">
+<h2>Changing the default test directory<a class="headerlink" href="#changing-the-default-test-directory" title="永久链接至标题">¶</a></h2>
+<p>To change the default test directory, specify the directory you want in
+your project’s <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;directories&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;server/test/&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, don’t forget to update your mocha script in your <code class="docutils literal notranslate"><span class="pre">package.json</span></code>
+file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;scripts&quot;: {
+  &quot;mocha&quot;: &quot;mocha server/test/ --recursive --exit&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>That’s it - our chat guide is completed! We now have a fully-tested REST
+and real-time API, with a plain JavaScript frontend including login and
+signup. Follow up in the <a class="reference internal" href="../../api/readme.html"><span class="doc">Feathers API documentation</span></a> for complete details about using
+Feathers, or start building your own first Feathers application!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../auth/index.html" class="btn btn-neutral float-right" title="身份验证指南和食谱" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="frontend.html" class="btn btn-neutral float-left" title="建立一个前端" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:2
+msgid "FeathersJS Auth Recipe: Authenticating Express middleware (SSR)"
+msgstr "FeathersJS 认证食谱: 认证Express中间件(SSR)"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:4
+msgid ""
+"Feathers authentication also supports authenticating routes of Express "
+"middleware and can be used for server side rendering. This recipe shows "
+"how to create a login form, a ``/logout`` endpoint and a protected "
+"``/chat`` endpoint that renders all users and recent chat messages from "
+"our :doc:`chat/readme`."
+msgstr "Feathers身份验证还支持验证Express中间件的路由,并可用于服务器端呈现.此配方显示如何创建登录表单, ``/logout`` 端点和受保护的 ``/chat`` 端点,该端点呈现来自我们的所有用户和最近的聊天消息 :doc:`chat/readme`."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:10
+msgid "The key steps are:"
+msgstr "关键步骤是:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:12
+msgid ""
+"Obtain the JWT by either going through the oAuth or local authentication "
+"flow"
+msgstr ""
+"通过oAuth或本地身份验证流程获取JWT"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:14
+msgid ""
+"Set the JWT in the cookie (since the browser will send it with every "
+"request)"
+msgstr ""
+"在cookie中设置JWT(因为浏览器会在每次请求时发送它)"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:16
+msgid ""
+"Before any middleware that needs to be protected, add the "
+"``cookieParser()`` and the ``authenticate('jwt')`` authentication Express"
+" middleware. This will set ``req.user`` from the user information in JWT "
+"or show a 401 error page if there is no JWT or it is invalid."
+msgstr "在需要保护的任何中间件之前,添加 ``cookieParser()`` 和 ``authenticate('jwt')`` authentication Express中间件.这将从JWT中的用户信息设置 ``req.user``, 或者如果没有JWT则显示401错误页面或它是无效的."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:23
+msgid "Configuration"
+msgstr "配置"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:25
+msgid ""
+"In order for the browser to send the JWT with every request, cookies have"
+" to be enabled in the authentication configuration."
+msgstr ""
+"为了使浏览器在每次请求时都发送JWT,必须在身份验证配置中启用cookie."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:28
+msgid "If you are using oAuth2, cookies are already enabled."
+msgstr "如果您使用的是oAuth2,则已启用Cookie."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:30
+msgid ""
+"If not enabled yet, add the following to the ``authentication`` section "
+"in ``config/default.json``:"
+msgstr ""
+"如果尚未启用,请将以下内容添加到 ``config/default.json`` 中的 ``authentication`` 部分:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:40
+msgid ""
+"We want to authenticate with a username and password login by submitting "
+"a normal HTML form to the ``/authentication`` endpoint. By default a "
+"successful POST to that endpoint would render JSON with our JWT. This is "
+"fine for REST APIs but in our case we want to be redirected to our "
+"protected page. We can do this by setting a ``successRedirect`` in the "
+"``local`` strategy section of the ``authentication`` configuration in "
+"``config/default.json``:"
+msgstr "我们希望通过向 ``/authentication`` 端点提交普通的HTML表单来使用用户名和密码登录进行身份验证.默认情况下,对该端点的成功POST将使用我们的JWT呈现JSON.这适用于REST API,但在我们的例子中,我们希望被重定向到受保护的页面.我们可以通过在 ``config/default.json`` 中 ``authentication`` 配置的 ``local`` 策略部分设置 ``successRedirect`` 来做到这一点:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:58
+msgid "Setting up middleware"
+msgstr "设置中间件"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:60
+msgid ""
+"The :doc:`../api/authentication/jwt` will look for a JWT in the cookie "
+"but only routes that parse the cookie will be able to access it. This can"
+" be done with the `cookie-parser Express middleware "
+"<https://github.com/expressjs/cookie-parser>`_:"
+msgstr ":doc:`../api/authentication/jwt` 将在cookie中查找JWT,但只有解析cookie的路径才能访问它.这可以通过  `cookie-parser Express中间件 <https://github.com/expressjs/cookie-parser>`_ 来完成:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:69
+msgid ""
+"Now we can protect any Express route by first adding ``cookieParser(), "
+"authenticate('jwt')`` to the chain."
+msgstr ""
+"现在我们可以通过首先向链中添加 ``cookieParser(),authenticate('jwt')`` 来保护任何Express路由."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:72
+msgid ""
+"Only register the cookie parser middleware before routes that actually "
+"need to be protected by the JWT in the cookie in order to prevent CSRF "
+"security issues."
+msgstr ""
+"只有在实际需要由cookie中的JWT保护的路由之前注册cookie解析器中间件才能防止CSRF安全问题."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:76
+msgid ""
+"Since we want to render views on the server we have to register an "
+"`Express template engine <http://expressjs.com/en/guide/using-template-"
+"engines.html>`_. For this example we will use `EJS "
+"<https://www.npmjs.com/package/ejs>`_:"
+msgstr "由于我们想要在服务器上呈现视图,我们必须注册一个 `Express模板引擎 <http://expressjs.com/en/guide/using-template-engines.html>`_. 在本例中,我们将使用 `EJS <https://www.npmjs.com/package/ejs>`_:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:86
+msgid "Next, we can update ``src/middleware/index.js`` to"
+msgstr "接下来,我们可以将 ``src/middleware/index.js`` 更新为"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:88
+msgid ""
+"Set the view engine to EJS (the default folder for views in Express is "
+"``views/`` in the root of the project)"
+msgstr ""
+"将视图引擎设置为EJS(Express中视图的默认文件夹是项目根目录中的 ``views/``)"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:90
+msgid "Register a ``/login`` route that renders ``views/login.ejs``"
+msgstr "注册一个 ``/login`` 路由,呈现 ``views/login.ejs``"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:91
+msgid ""
+"Register a protected ``/chat`` route that gets all messages and users "
+"from the :doc:`../api/application` and then renders ``views/chat.ejs``"
+msgstr ""
+"注册一个protected :doc:`../api/application`,然后渲染 ``views/chat.ejs``"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:94
+msgid ""
+"Register a ``/logout`` route that deletes the cookie and redirect back to"
+" the login page"
+msgstr ""
+"注册一个 ``/logout`` 路由,删除cookie并重定向回登录页面"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:99
+msgid ""
+"We could also generate the middleware using ``feathers generate "
+"middleware`` but since they are all fairly short we can keep it in the "
+"same file for now."
+msgstr ""
+"我们也可以使用 ``feathers generate middleware`` 生成中间件,但由于它们都很短,我们现在可以将它保存在同一个文件中."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:142
+msgid ""
+"``npm ls @feathersjs/authentication-jwt`` has to show that version 2.0.0 "
+"or later is installed."
+msgstr ""
+"``npm ls @ feathersjs/authentication-jwt`` 必须显示已安装2.0.0或更高版本."
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:146
+msgid "Views"
+msgstr "查看"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:148
+msgid ""
+"The login form has to make a POST request to the ``/authentication`` "
+"endpoint and send the same fields as any other API client would. In our "
+"case specifically:"
+msgstr ""
+"登录表单必须向 ``/authentication`` 端点发出POST请求,并发送与任何其他API客户端相同的字段.在我们的案例中具体:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:160
+msgid ""
+"``email`` and ``passwords`` are normal input fields and we can add the "
+"``strategy`` as a hidden field. The form has to submit a POST request to "
+"the ``/authentication`` endpoint. Since services can accept both, JSON "
+"and URL encoded forms we do not have to do anything else. The login page "
+"at ``views/login.ejs`` then looks like this:"
+msgstr "``email`` 和 ``passwords`` 是正常的输入字段,我们可以将 ``strategy`` 添加为隐藏字段.表单必须向 ``/authentication`` 端点提交POST请求.由于服务可以接受JSON和URL编码形式,因此我们不需要做任何其他事情. ``views/login.ejs`` 的登录页面如下所示:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:210
+msgid ""
+"The ``views/chat.ejs`` page has the ``users``, ``user`` (the "
+"authenticated user) and ``messages`` properties available which we passed"
+" in the ``/chat`` middleware. Rendering messages and users looks similar "
+"to the :doc:`chat/frontend`:"
+msgstr "``views/chat.ejs`` 页面有 ``users``, ``user`` (经过身份验证的用户)和 ``messages`` 属性,我们在 ``/chat`` 中间件中传递了它们.渲染消息和用户看起来类似于 :doc:`chat/frontend`:"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:289
+msgid ""
+"If we now start the server (``npm start``) and go to "
+"`localhost:3030/login <http://localhost:3030/login>`_ we can see the "
+"login page. We can use the login information from one of the users "
+"created in the :doc:`chat/frontend` and once successful, we will be "
+"redirected to ``/chat`` which shows the list of all current messages and "
+"users and clicking the ``Sign out`` button will log us out and redirect "
+"to the login page."
+msgstr "如果我们现在启动服务器(``npm start``)并转到 `localhost:3030/login <http://localhost:3030/login>`_ 我们可以看到登录页面.我们可以使用在 :doc:`chat/frontend` 中创建的用户之一的登录信息,一旦成功,我们将被重定向到 ``/chat``, 显示所有当前消息和用户的列表,然后单击 ``Sign out`` 按钮会将我们注销并重定向到登录页面."
+

@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/chat/processing.rst:2
+msgid "Processing data"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:4
+msgid "Now that we can :doc:`./authentication`, we are going to process data, sanitize the input we get from the client and add extra information. For this chapter we require an empty database which can be done by removing the ``data/`` folder (``rm -rf data/``)."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:10
+msgid "Sanitize new message"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:12
+msgid "When creating a new message, we automatically sanitize our input, add the user that sent it and include the date the message has been created, before saving it in the database. This is where :doc:`../basics/hooks` come into play. In this specific case, a *before* hook. To create a new hook we can run:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:22
+msgid "Let’s call this hook ``process-message``. We want to pre-process client-provided data. Therefore, in the next prompt asking for what kind of hook, choose ``before`` and press Enter."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:26
+msgid "Next a list of all our services is displayed. For this hook, only choose the ``messages`` service. Navigate to the entry with the arrow keys and select it with the space key."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:30
+msgid "A hook can run before any number of :doc:`../../api/services`. For this specific hook, only select ``create``. After confirming the last prompt you should see something like this:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:37
+msgid "The process-message hook prompts"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:39
+msgid "A hook was generated and wired up to the selected service. Now it’s time to add some code. Update ``src/hooks/process-message.js`` to look like this:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:78
+msgid "This validation code includes:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:80
+msgid "Check if there is a ``text`` in the data and throw an error if not"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:81
+msgid "Truncate the message’s ``text`` property to 400 characters"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:82
+msgid "Update the data submitted to the database to contain:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:84
+msgid "The new truncated text"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:85
+msgid "The currently authenticated user (so we always know who sent it)"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:86
+msgid "The current (creation) date"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:89
+msgid "Add a user avatar"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:91
+msgid "Let’s generate another hook to add a link to the `Gravatar <http://en.gravatar.com/>`_ image associated with the user’s email address, so we can display an avatar. Run:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:99
+msgid "The selections are almost the same as our previous hook:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:101
+msgid "Call the hook ``gravatar``"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:102
+msgid "It’s a ``before`` hook"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:103
+msgid "… on the ``users`` service"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:104
+msgid "… for the ``create`` method"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:109
+msgid "The gravatar hook prompts"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:111
+msgid "Then we update ``src/hooks/gravatar.js`` with the following code:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:140
+msgid "Here we use `Node’s crypto library <https://nodejs.org/api/crypto.html>`_ to create an MD5 hash of the user’s email address. This is what Gravatar uses as the URL for the avatar associated with an email address. When a new user is created, this gravatar hook will set the ``avatar`` property to the avatar image link."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:148
+msgid "Populate the message sender"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:150
+msgid "In the ``process-message`` hook we are currently just adding the user’s ``_id`` as the ``userId`` property in the message. We want to show more than the ``_id`` in the UI, so we’ll need to populate more data in the message response. To display a users’ details, we need to include extra information in our messages."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:156
+msgid "We therefore create another hook:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:158
+msgid "Call the hook ``populate-user``"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:159
+msgid "It’s an ``after`` hook"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:160
+msgid "… on the ``messages`` service"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:161
+msgid "… for ``all`` methods"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:166
+msgid "The populate-user hook"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:168
+msgid "Once created, update ``src/hooks/populate-user.js`` to:"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:199
+msgid "``Promise.all`` ensures that all the calls run in parallel, instead of sequentially."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:203
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:205
+msgid "In this section, we added three hooks to pre- and post-process our message and user data. We now have a complete API to send and retrieve messages, including authentication."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:209
+msgid "Now we are ready to build a frontend :doc:`./frontend`."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:211
+msgid "See the :doc:`../frameworks/readme` for more resources on specific frameworks like React, React Native, Angular or VueJS. You’ll find guides for creating a complete chat front-end with signup, logging, user listing and messages. There are also links to complete chat applications built with some popular front-end frameworks."
+msgstr ""
+
+#: ../../source/guides/chat/processing.rst:217
+msgid "You can also browse the :doc:`../api/readme` for details on using Feathers and its database adaptors."
+msgstr ""
+

@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建应用程序 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建服务" href="service.html" />
+    <link rel="prev" title="创建聊天应用程序" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">创建应用程序</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generating-the-application">Generating the application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-generated-files">The generated files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-server-and-tests">Running the server and tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>创建应用程序</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/creating.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-the-application">
+<h1>创建应用程序<a class="headerlink" href="#creating-the-application" title="永久链接至标题">¶</a></h1>
+<p>In this part we are going to create a new Feathers application using the
+generator. We can install the generator via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>The prerequisites for this guide are the same as the
+<span class="xref std std-doc">basics/setup</span>. This means that Node
+8.0.0 (<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>) or later is required.</p>
+</div>
+<div class="section" id="generating-the-application">
+<h2>Generating the application<a class="headerlink" href="#generating-the-application" title="永久链接至标题">¶</a></h2>
+<p>With everything <span class="xref std std-doc">basics/setup</span>, let’s create a
+directory for our new app:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir feathers-chat
+$ cd feathers-chat/
+</pre></div>
+</div>
+<p>Now we can generate the application:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ feathers generate app
+</pre></div>
+</div>
+<p>When presented with the project name, just hit enter, or enter a name
+(no spaces).</p>
+<p>Next, write a short description of your application.</p>
+<p>The next prompt asking for the source folder can be answered by just
+hitting enter. This will put all source files into the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder.</p>
+<p>The next prompt will ask for the package manager you want to use. The
+default is the standard <a class="reference external" href="https://www.npmjs.com/">npm</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>If you choose <a class="reference external" href="https://yarnpkg.com/en/">Yarn</a> instead,
+make sure it has been installed via <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">yarn</span> <span class="pre">-g</span></code> first.</p>
+</div>
+<p>You’re now presented with the option of which transport you want to
+support. Since we’re setting up a real-time and REST API, we’ll go with
+the default REST and Socket.io options. So just hit enter.</p>
+<p>Once you confirm the final prompt, you will see something like this:</p>
+<div class="figure align-default" id="id5">
+<img alt="Final Configuration" src="../../_images/creating.png" />
+<p class="caption"><span class="caption-text">Final Configuration</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="the-generated-files">
+<h2>The generated files<a class="headerlink" href="#the-generated-files" title="永久链接至标题">¶</a></h2>
+<p>Let’s have a brief look at the files that have been generated:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config/</span></code> - Contains the configuration files for the app.
+<code class="docutils literal notranslate"><span class="pre">production.json</span></code> files override <code class="docutils literal notranslate"><span class="pre">default.json</span></code> when in
+production mode by setting <code class="docutils literal notranslate"><span class="pre">NODE_ENV=production</span></code>. For details, see
+the <span class="xref std std-doc">../api/configuration</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node_modules/</span></code> - The generator installs the project dependencies
+either using <a class="reference external" href="https://docs.npmjs.com/">npm</a>, or
+<a class="reference external" href="https://yarnpkg.com/en/">yarn</a>. The dependencies are also added
+in the <code class="docutils literal notranslate"><span class="pre">package.json</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public/</span></code> - Contains static files to be served. A sample favicon
+and <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (which will show up when going directly to the
+server URL) are already included.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/</span></code> - Contains the Feathers server code.</p>
+<ul>
+<li><p><span class="xref std std-doc">basics/hooks</span>. A
+simple <code class="docutils literal notranslate"><span class="pre">logger</span></code> hook for logging debug information about our
+service calls is already included</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">middleware/</span></code> contains any <a class="reference external" href="http://expressjs.com/en/guide/writing-middleware.html">Express
+middleware</a></p></li>
+<li><p><span class="xref std std-doc">basics/services</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.js</span></code> loads and starts the application</p></li>
+<li><p>:doc:<code class="docutils literal notranslate"><span class="pre">app.js</span></code> configures our <cite>Feathers application &lt;../basics/starting&gt;</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.hooks.js</span></code> contains hooks that apply to every service.</p></li>
+<li><p>:doc:<code class="docutils literal notranslate"><span class="pre">channels.js</span></code> sets up Feathers <cite>event channels &lt;../../api/channels&gt;</cite></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - Contains <a class="reference external" href="https://mochajs.org/">Mocha</a> test files for
+the app, hooks and services</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.test.js</span></code> tests that the index page appears, as well as 404
+errors for HTML pages and JSON</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.editorconfig</span></code> is an <a class="reference external" href="http://editorconfig.org/">EditorConfig</a>
+setting to help developers define and maintain consistent coding
+styles among different editors and IDEs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.eslintrc.json</span></code> contains defaults for linting your code with
+<a class="reference external" href="http://eslint.org/docs/user-guide/getting-started">ESLint</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> - specifies <a class="reference external" href="https://git-scm.com/docs/gitignore">intentionally untracked
+files</a> which
+<a class="reference external" href="https://git-scm.com/">git</a>, <a class="reference external" href="https://github.com/">GitHub</a> and
+other similar projects ignore.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.npmignore</span></code> specifies <a class="reference external" href="https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package">files which are not to be
+published</a>
+for distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> - contains the License so that people know how they are
+permitted to use it, and any restrictions you’re placing on it. It
+defaults to the Feathers license.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package.json</span></code> contains
+<a class="reference external" href="https://docs.npmjs.com/files/package.json">information</a> about our
+project which <a class="reference external" href="https://docs.npmjs.com/">npm</a>,
+<a class="reference external" href="https://yarnpkg.com/en/">yarn</a> and other package managers need to
+install and use your package.</p></li>
+</ul>
+</div>
+<div class="section" id="running-the-server-and-tests">
+<h2>Running the server and tests<a class="headerlink" href="#running-the-server-and-tests" title="永久链接至标题">¶</a></h2>
+<p>The server can now be started by running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>After that, you can see a welcome page at
+<a class="reference external" href="http://localhost:3030">localhost:3030</a>. When making modifications,
+remember to stop (CTRL + C) and start the server again.</p>
+<p>The app also comes with a set of basic tests which can be run with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>We scaffolded a new Feathers application. The next step is to <a class="reference internal" href="service.html"><span class="doc">create a service for messages</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="service.html" class="btn btn-neutral float-right" title="创建服务" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="readme.html" class="btn btn-neutral float-left" title="创建聊天应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

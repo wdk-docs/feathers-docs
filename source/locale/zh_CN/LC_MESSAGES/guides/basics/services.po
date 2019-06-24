@@ -1,0 +1,311 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/services.rst:2
+msgid "Services"
+msgstr "服务"
+
+#: ../../source/guides/basics/services.rst:4
+msgid ""
+"Services are the heart of every Feathers application and are JavaScript "
+"objects or instances of `a class "
+"<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_"
+" that implement certain methods. Services provide a uniform, protocol "
+"independent interface for how to interact with any kind of data like:"
+msgstr "服务是每个Feathers应用程序的核心, 是JavaScript对象或实现某些 `方法的类 <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_ 的实例. 服务提供统一的, 独立于协议的界面, 用于如何与任何类型的数据交互:"
+
+#: ../../source/guides/basics/services.rst:9
+msgid "Reading and/or writing from a database"
+msgstr "从数据库中读取和/或写入"
+
+#: ../../source/guides/basics/services.rst:10
+msgid "Interacting with the file system"
+msgstr "与文件系统交互"
+
+#: ../../source/guides/basics/services.rst:11
+msgid "Call another API"
+msgstr "调用另一个API"
+
+#: ../../source/guides/basics/services.rst:12
+msgid "Call other services like"
+msgstr "调用其它其他服务"
+
+#: ../../source/guides/basics/services.rst:14
+msgid "Sending an email"
+msgstr "发送电子邮件"
+
+#: ../../source/guides/basics/services.rst:15
+msgid "Processing a payment"
+msgstr "处理付款"
+
+#: ../../source/guides/basics/services.rst:16
+msgid "Returning the current weather for a location, etc."
+msgstr "返回当前天气的位置等"
+
+#: ../../source/guides/basics/services.rst:18
+msgid ""
+"Protocol independent means that to a Feathers service it does not matter "
+"if it has been called internally, through a REST API or websockets (both "
+"of which we will look at later) or any other way."
+msgstr ""
+"独立于协议意味着对于Feathers服务而言, 如果它是通过REST API或websockets(我们将在稍后讨论)或其他任何方式在内部调用它并不重要. "
+
+#: ../../source/guides/basics/services.rst:23
+msgid "Service methods"
+msgstr "服务方式"
+
+#: ../../source/guides/basics/services.rst:25
+msgid ""
+"Service methods are `CRUD "
+"<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ methods"
+" that a service object can implement. Feathers service methods are:"
+msgstr "服务方法是服务对象可以实现的 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ 方法. Feathers服务方​​法有:"
+
+#: ../../source/guides/basics/services.rst:28
+msgid "``find`` - Find all data (potentially matching a query)"
+msgstr "``find`` - 查找所有数据(可能与查询匹配)"
+
+#: ../../source/guides/basics/services.rst:29
+msgid "``get`` - Get a single data entry by its unique identifier"
+msgstr "``get`` - 通过其唯一标识符获取单个数据条目"
+
+#: ../../source/guides/basics/services.rst:30
+msgid "``create`` - Create new data"
+msgstr "``create`` - 创建新数据"
+
+#: ../../source/guides/basics/services.rst:31
+msgid "``update`` - Update an existing data entry by completely replacing it"
+msgstr "``update`` - 通过完全替换现有数据条目来更新它"
+
+#: ../../source/guides/basics/services.rst:32
+msgid "``patch`` - Update one or more data entries by merging with the new data"
+msgstr "``patch`` - 通过与新数据合并来更新一个或多个数据条目"
+
+#: ../../source/guides/basics/services.rst:33
+msgid "``remove`` - Remove one or more existing data entries"
+msgstr "``remove`` - 删除一个或多个现有数据条目"
+
+#: ../../source/guides/basics/services.rst:35
+msgid ""
+"Below is an example of Feathers service interface as a normal object and "
+"a JavaScript class:"
+msgstr ""
+"下面是作为普通对象和JavaScript类的Feathers服务接口的示例:"
+
+#: ../../source/guides/basics/services.rst:61
+msgid "The parameters for service methods are:"
+msgstr "服务方法的参数是:"
+
+#: ../../source/guides/basics/services.rst:63
+msgid "``id`` - The unique identifier for the data"
+msgstr "``id`` - 数据的唯一标识符"
+
+#: ../../source/guides/basics/services.rst:64
+msgid "``data`` - The data sent by the user (for creating and updating)"
+msgstr "``data`` - 用户发送的数据(用于创建和更新)"
+
+#: ../../source/guides/basics/services.rst:65
+msgid ""
+"``params`` (*optional*) - Additional parameters, for example the "
+"authenticated user or the query"
+msgstr ""
+"``params`` (*optional*) - 其他参数, 例如经过身份验证的用户或查询"
+
+#: ../../source/guides/basics/services.rst:69
+msgid ""
+"A service does not have to implement all those methods but must have at "
+"least one."
+msgstr ""
+"服务不必实现所有这些方法, 但必须至少有一个. "
+
+#: ../../source/guides/basics/services.rst:72
+msgid ""
+"For more information about service, service methods and parameters see "
+"the :doc:`../../api/services`."
+msgstr ""
+"有关服务, 服务方法和参数的详细信息, 请参阅 :doc:`../api/services`."
+
+#: ../../source/guides/basics/services.rst:76
+msgid "A messages service"
+msgstr "消息服务"
+
+#: ../../source/guides/basics/services.rst:78
+msgid ""
+"Now that we know how service methods look like we can implement our own "
+"chat message service that allows us to find, create, remove and update "
+"messages in-memory. Here we will use a JavaScript class to work with our "
+"messages but as we’ve seen above it could also be a normal object."
+msgstr "现在我们知道了服务方法的样子, 我们可以实现自己的聊天消息服务, 允许我们在内存中查找, 创建, 删除和更新消息. 在这里, 我们将使用JavaScript类来处理我们的消息, 但正如我们在上面看到的, 它也可能是一个普通的对象. "
+
+#: ../../source/guides/basics/services.rst:83
+msgid "Below is the complete updated ``app.js`` with comments:"
+msgstr "下面是带有注释的完整更新的 ``app.js``:"
+
+#: ../../source/guides/basics/services.rst:155
+msgid "Using services"
+msgstr "使用服务"
+
+#: ../../source/guides/basics/services.rst:157
+msgid ""
+"A service object can be registered on a Feathers application by calling "
+"``app.use(path, service)``. ``path`` will be the name of the service (and"
+" the URL if it is exposed as an API which we will learn later)."
+msgstr ""
+"可以通过调用 ``app.use(path, service)`` 在Feathers应用程序上注册服务对象.  ``path`` 将是服务的名称(以及URL, 如果它作为API公开, 我们将在后面介绍). "
+
+#: ../../source/guides/basics/services.rst:161
+msgid ""
+"We can retrieve that service via ``app.service(path)`` and then call any "
+"of its service methods. Add the following to the end of ``app.js``:"
+msgstr ""
+"我们可以通过 ``app.service(path)`` 检索该服务, 然后调用它的任何服务方法. 将以下内容添加到 ``app.js`` 的末尾:"
+
+#: ../../source/guides/basics/services.rst:182
+msgid "And run it with"
+msgstr "并运行它"
+
+#: ../../source/guides/basics/services.rst:188
+msgid "We should see this:"
+msgstr "我们应该看到这一点:"
+
+#: ../../source/guides/basics/services.rst:196
+msgid "Service events"
+msgstr "服务事件"
+
+#: ../../source/guides/basics/services.rst:198
+msgid ""
+"When you register a service it will automatically become a `NodeJS "
+"EventEmitter <https://nodejs.org/api/events.html>`_ that sends events "
+"with the new data when a service method that modifies data "
+"(``create``,``update``, ``patch`` and ``remove``) returns. Events can be "
+"listened to with ``app.service('messages').on('eventName', data => {})``."
+" Here is a list of the service methods and their corresponding events:"
+msgstr "注册服务时, 它将自动成为 `NodeJS EventEmitter <https://nodejs.org/api/events.html>`_, 当修改数据的服务方法时, 它会发送带有新数据的事件, (``update``, ``patch`` 和 ``remove``)返回. 可以使用 ``app.service('messages').on('eventName', data => {})`` 来监听事件. 以下是服务方法及其相应事件的列表:"
+
+#: ../../source/guides/basics/services.rst:204
+msgid "Service method"
+msgstr "服务方式"
+
+#: ../../source/guides/basics/services.rst:204
+msgid "Service event"
+msgstr "服务事件"
+
+#: ../../source/guides/basics/services.rst:206
+msgid "``service.create()``"
+msgstr "``service.create()``"
+
+#: ../../source/guides/basics/services.rst:206
+msgid "``service.on('created')``"
+msgstr "``service.on('created')``"
+
+#: ../../source/guides/basics/services.rst:207
+msgid "``service.update()``"
+msgstr "``service.update()``"
+
+#: ../../source/guides/basics/services.rst:207
+msgid "``service.on('updated')``"
+msgstr "``service.on('updated')``"
+
+#: ../../source/guides/basics/services.rst:208
+msgid "``service.patch()``"
+msgstr "``service.patch()``"
+
+#: ../../source/guides/basics/services.rst:208
+msgid "``service.on('patched')``"
+msgstr "``service.on('patched')``"
+
+#: ../../source/guides/basics/services.rst:209
+msgid "``service.remove()``"
+msgstr "``service.remove()``"
+
+#: ../../source/guides/basics/services.rst:209
+msgid "``service.on('removed')``"
+msgstr "``service.on('removed')``"
+
+#: ../../source/guides/basics/services.rst:212
+msgid ""
+"We will see later that this is the key to how Feathers enables real-time "
+"functionality. For now, let’s update the ``processMessages`` function in "
+"``app.js`` as follows:"
+msgstr ""
+"我们稍后会看到, 这是Feathers如何实现实时功能的关键. 现在, 让我们更新 ``app.js`` 中的 ``processMessages`` 函数, 如下所示:"
+
+#: ../../source/guides/basics/services.rst:245
+msgid "If we now run the file via"
+msgstr "如果我们现在通过运行该文件"
+
+#: ../../source/guides/basics/services.rst:251
+msgid ""
+"We will see how the event handlers are logging the information of created"
+" and deleted message like this:"
+msgstr ""
+"我们将看到事件处理程序如何记录这样创建和删除的消息的信息:"
+
+#: ../../source/guides/basics/services.rst:262
+msgid "What’s next?"
+msgstr "下一步是什么?"
+
+#: ../../source/guides/basics/services.rst:264
+msgid ""
+"In this chapter we learned about services as Feathers core concept for "
+"abstracting data operations. We also saw how a service sends events which"
+" we will use later to create real-time applications. First, we will look "
+"at :doc:`./hooks` which is the other key part of how Feathers works."
+msgstr "在本章中, 我们了解了作为Feathers核心概念的服务, 用于抽象数据操作. 我们还了解了服务如何发送我们稍后将用于创建实时应用程序的事件. 首先, 我们将看看 :doc:`hooks`, 这是Feathers如何工作的另一个关键部分. "
+
+#~ msgid ""
+#~ "{% codetabs name=“Object”, type=“js” -%} "
+#~ "const myService = { async find(params)"
+#~ " { return []; }, async get(id, "
+#~ "params) {}, async create(data, params) "
+#~ "{}, async update(id, data, params) {},"
+#~ " async patch(id, data, params) {}, "
+#~ "async remove(id, params) {} }"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "app.use(‘/my-service’, myService); {%- "
+#~ "language name=“Class”, type=“js” -%} class "
+#~ "myService { async find(params) { return"
+#~ " []; } async get(id, params) {} "
+#~ "async create(data, params) {} async "
+#~ "update(id, data, params) {} async "
+#~ "patch(id, data, params) {} async "
+#~ "remove(id, params) {} }"
+#~ msgstr ""
+
+#~ msgid "app.use(‘/my-service’, new myService()); {%- endcodetabs %}"
+#~ msgstr "app.use(‘/my-service’, new myService()); {%- endcodetabs %}"
+
+#~ msgid ""
+#~ "When you register a service it "
+#~ "will automatically become a `NodeJS "
+#~ "EventEmitter <https://nodejs.org/api/events.html>`_ that"
+#~ " sends events with the new data "
+#~ "when a service method that modifies "
+#~ "data (``create``, ``update``, ``patch`` and"
+#~ " ``remove``) returns. Events can be "
+#~ "listened to with "
+#~ "``app.service('messages').on('eventName', data => "
+#~ "{})``. Here is a list of the "
+#~ "service methods and their corresponding "
+#~ "events:"
+#~ msgstr ""
+

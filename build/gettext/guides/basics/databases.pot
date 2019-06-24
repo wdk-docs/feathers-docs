@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 20:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/databases.rst:2
+msgid "Databases"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:4
+msgid "In the :doc:`./services` we created a custom in-memory messages service that can create, update and delete messages. You can probably imagine how we could implement the same thing using a database instead of storing the messages in memory so there isn’t really a database that Feathers doesn’t support."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:10
+msgid "Writing all that code yourself is pretty repetitive and cumbersome though which is why Feathers has a collection of pre-built services for different databases. They offer most the basic functionality and can always be fully customized to your requirements using :doc:`./hooks`. Feathers database adapters support a common :doc:`../../api/databases/common`, pagination and :doc:`../../api/databases/querying` for many popular databases and NodeJS ORMs:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:64
+msgid "Each one of the linked adapters has a complete REST API example in their readme."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:67
+msgid "In this chapter we will look at the basic usage of the in-memory database adapter."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:70
+msgid "You should be familiar with the database technology and ORM (`Sequelize <http://docs.sequelizejs.com/>`_, `KnexJS <http://knexjs.org/>`_ or `Mongoose <http://mongoosejs.com/>`_) before using a Feathers database adapter."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:77
+msgid "An in-memory database"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:79
+msgid "`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_ is a Feathers database adapter that - similar to our messages service - stores its data in memory. We will use it for the examples because it also works in the browser. Let’s install it with:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:88
+msgid "We can use the adapter by requiring it and initializing it with the options we want. Here we enable pagination showing 10 entries by default and a maximum of 25 (so that clients can’t just request all data at once and crash our server):"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:107
+msgid "That’s it. We have a complete CRUD service for our messages with querying functionality."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:111
+msgid "In the browser"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:113
+msgid "We can also include ``feathers-memory`` in the browser, most easily by loading its browser build which will add it as ``feathers.memory``. In ``public/index.html``:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:134
+msgid "And ``public/client.js``:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:148
+msgid "Querying"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:150
+msgid "As mentioned, all database adapters support a common way of querying the data in a ``find`` method call using ``params.query``. You can find a complete list in the :doc:`../../api/databases/querying`."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:154
+msgid "With pagination enabled, the ``find`` method will return an object with the following properties:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:157
+msgid "``data`` - The current list of data"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:158
+msgid "``limit`` - The page size"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:159
+msgid "``skip`` - The number of entries that were skipped"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:160
+msgid "``total`` - The total number of entries for this query"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:162
+msgid "The following example automatically creates 100 messages and makes some queries. You can add it at the end of both ``app.js`` and ``public/client.js`` to see it in Node and the browser:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:215
+msgid "As a REST API"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:217
+msgid "In the :doc:`./rest` we created a REST API from our custom messages service. Using a database adapter instead will make our ``app.js`` a lot shorter:"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:257
+msgid "After starting the server with ``node app.js`` we can pass a query e.g. by going to `localhost:3030/messages?$limit=2 <http://localhost:3030/messages?$limit=2>`_."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:262
+msgid "The :doc:`../../api/databases/querying` has more examples how URLs should look like."
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:265
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/basics/databases.rst:267
+msgid "Feathers database adapters are a quick way to get an API up and running. The great thing is that :doc:`./hooks` still give us all the flexibility we need to customize how they work. We already saw how we can easily create a database backed REST API, in the :doc:`real-time` we will make our API real-time."
+msgstr ""
+

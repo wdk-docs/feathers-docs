@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>通用API &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="查询" href="querying.html" />
+    <link rel="prev" title="数据库适配器" href="adapters.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">核心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">传输层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#client">客户端</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#authentication">认证</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#database">数据库</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="adapters.html">数据库适配器</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">通用API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#service-options"><code class="docutils literal notranslate"><span class="pre">service([options])</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pagination">Pagination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#service-methods">Service methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extending-adapters">Extending Adapters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="querying.html">查询</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>通用API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/databases/common.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-api">
+<h1>通用API<a class="headerlink" href="#common-api" title="永久链接至标题">¶</a></h1>
+<p>所有数据库适配器都实现了用于初始化，分页，扩展和查询的通用接口。本章介绍常见的适配器初始化和选项，如何启用和使用分页，有关特定服务方法的行为以及如何使用自定义功能扩展适配器的详细信息。</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>Every database adapter is an implementation of the
+<a class="reference internal" href="../services.html"><span class="doc">服务</span></a>. We recommend being
+familiar with services, service events and hooks before using a
+database adapter.</p>
+</div>
+<div class="section" id="service-options">
+<span id="databases-common-serviceoptions"></span><h2><code class="docutils literal notranslate"><span class="pre">service([options])</span></code><a class="headerlink" href="#service-options" title="永久链接至标题">¶</a></h2>
+<p>返回使用给定选项初始化的新服务实例。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-&lt;adaptername&gt;&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="nx">service</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="nx">service</span><span class="p">({</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">events</span><span class="p">,</span> <span class="nx">paginate</span> <span class="p">}));</span>
+</pre></div>
+</div>
+<p><strong>Options:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> (<em>optional</em>) - The name of the id field property (usually set
+by default to <code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">_id</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code> (<em>optional</em>) - A list of <a class="reference external" href="../events#custom-events">custom service
+events</a> sent by this service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paginate</span></code> (<em>optional</em>) - A <a class="reference external" href="#pagination">pagination object</a>
+containing a <code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> page size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whitelist</span></code> (<em>optional</em>) - A list of additional non-standard query
+parameters to allow (e.g <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">'$regex',</span> <span class="pre">'$populate'</span> <span class="pre">]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multi``（*</span> <span class="pre">optional</span> <span class="pre">*，default：``false</span></code>） - 允许带有数组的``create``和带有``null``的``update``和``remove``来改变多个项目。对于所有方法或一组允许的方法都可以是``true``（例如``’‘remove’，’create’]``</p></li>
+</ul>
+</div>
+<div class="section" id="pagination">
+<h2>Pagination<a class="headerlink" href="#pagination" title="永久链接至标题">¶</a></h2>
+<p>When initializing an adapter you can set the following pagination
+options in the <code class="docutils literal notranslate"><span class="pre">paginate</span></code> object:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> - Sets the default number of items when <code class="docutils literal notranslate"><span class="pre">$limit</span></code> is not
+set</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max</span></code> - Sets the maximum allowed number of items per page (even if
+the <code class="docutils literal notranslate"><span class="pre">$limit</span></code> query parameter is set higher)</p></li>
+</ul>
+<p>When <code class="docutils literal notranslate"><span class="pre">paginate.default</span></code> is set, <code class="docutils literal notranslate"><span class="pre">find</span></code> will return an <em>page object</em>
+(instead of the normal array) in the following form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;total number of records&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max number of items per page&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;number of skipped items (offset)&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">/*</span> <span class="n">data</span> <span class="o">*/</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The pagination options can be set as follows:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-&lt;db-name&gt;&#39;</span><span class="p">);</span>
+
+<span class="c1">// Set the `paginate` option during initialization</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">service</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">25</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+
+<span class="c1">// override pagination in `params.paginate` for this call</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">200</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// disable pagination for this call</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>客户端中不提供禁用或更改默认分页的功能。只有``params.query``被传递给服务器（另见这里的解决方法&lt;<a class="reference external" href="https://github.com/feathersjs/feathers/issues/382#issuecomment-238407741">https://github.com/feathersjs/feathers/issues/382#issuecomment-238407741</a>&gt;`_）</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>To just get the number of available records set
+<code class="docutils literal notranslate"><span class="pre">$limit</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code>. This will only run a (fast) counting query
+against the database.</p>
+</div>
+</div>
+<div class="section" id="service-methods">
+<h2>Service methods<a class="headerlink" href="#service-methods" title="永久链接至标题">¶</a></h2>
+<p>This section describes specifics on how the <a class="reference internal" href="../services.html"><span class="doc">服务</span></a> are implemented for all adapters.</p>
+<div class="section" id="adapter-model">
+<h3>adapter.Model<a class="headerlink" href="#adapter-model" title="永久链接至标题">¶</a></h3>
+<p>如果ORM或数据库支持模型，则可以在``adapter.Model``中找到模型实例或属于此适配器的集合的引用。这允许使用该模型轻松地进行自定义查询，例如，在钩子里：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Make a MongoDB aggregation (`messages` is using `feathers-mongodb`)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">async</span> <span class="nx">find</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">service</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([</span>
+        <span class="p">{</span> <span class="nx">$match</span><span class="o">:</span> <span class="p">{</span><span class="nx">item_id</span><span class="o">:</span> <span class="nx">id</span><span class="p">}</span> <span class="p">},</span> <span class="p">{</span>
+          <span class="nx">$group</span><span class="o">:</span> <span class="p">{</span><span class="nx">_id</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">total_quantity</span><span class="o">:</span> <span class="p">{</span><span class="nx">$sum</span><span class="o">:</span> <span class="s1">&#39;$quantity&#39;</span><span class="p">}</span> <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">]).</span><span class="nx">toArray</span><span class="p">();</span>
+
+      <span class="c1">// Do something with results</span>
+
+      <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-find-params">
+<h3>adapter.find(params)<a class="headerlink" href="#adapter-find-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.find(params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> returns a list of all records
+matching the query in <a class="reference internal" href="querying.html"><span class="doc">查询</span></a>. Will either return an array with the
+results or a page object if <a class="reference external" href="#pagination">pagination is enabled</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>When used via REST URLs all query values are strings.
+Depending on the database the values in <code class="docutils literal notranslate"><span class="pre">params.query</span></code> might have
+to be converted to the right type in a <a class="reference internal" href="../hooks.html"><span class="doc">钩</span></a>.</p>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Find all messages for user with id 1</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">userId</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">messages</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messages</span><span class="p">));</span>
+
+<span class="c1">// Find all messages belonging to room 1 or 3</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">roomId</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">$in</span><span class="o">:</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span> <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">messages</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messages</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Find all messages for user with id 1</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?userId=1
+</pre></div>
+</div>
+<p>Find all messages belonging to room 1 or 3</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?roomId[$in]=1&amp;roomId[$in]=3
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-get-id-params">
+<h3>adapter.get(id, params)<a class="headerlink" href="#adapter-get-id-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.get(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> retrieves a single record by its
+unique identifier (the field set in the <code class="docutils literal notranslate"><span class="pre">id</span></code> option during
+initialization).</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-create-data-params">
+<h3>adapter.create(data, params)<a class="headerlink" href="#adapter-create-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.create(data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> creates a new record with
+<code class="docutils literal notranslate"><span class="pre">data</span></code>. <code class="docutils literal notranslate"><span class="pre">data</span></code> can also be an array to create multiple records.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A test message&#39;</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">([{</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Hi&#39;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;How are you&#39;</span>
+  <span class="p">}])</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">messages</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messages</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">messages</span>
+<span class="p">{</span>
+  <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;A test message&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-update-id-data-params">
+<h3>adapter.update(id, data, params)<a class="headerlink" href="#adapter-update-id-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.update（id，data，params）</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise``完全用``data``替换``id``标识的单个记录。不允许替换多个记录（``id``不能是``null</span></code>）。 <a href="#id1"><span class="problematic" id="id2">``</span></a>id``无法更改。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Updates message&#39;</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">1</span>
+<span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Updated message&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-patch-id-data-params">
+<h3>adapter.patch(id, data, params)<a class="headerlink" href="#adapter-patch-id-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.patch（id，data，params）</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise``将``id``标识的记录与``data``合并。</span> <span class="pre">``id``可以是``null``以允许替换多个记录（所有匹配``params.query``的记录与</span></code>.find``中相同）。 <a href="#id1"><span class="problematic" id="id2">``</span></a>id``无法更改。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">patch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A patched message&#39;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+
+<span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span> <span class="nx">read</span><span class="o">:</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Mark all unread messages as read</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">patch</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">read</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATCH</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">1</span>
+<span class="p">{</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;A patched message&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Mark all unread messages as read</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PATCH /messages?read=false
+{ &quot;read&quot;: true }
+</pre></div>
+</div>
+</div>
+<div class="section" id="adapter-remove-id-params">
+<h3>adapter.remove(id, params)<a class="headerlink" href="#adapter-remove-id-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">adapter.remove(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> removes a record identified by
+<code class="docutils literal notranslate"><span class="pre">id</span></code>. <code class="docutils literal notranslate"><span class="pre">id</span></code> can be <code class="docutils literal notranslate"><span class="pre">null</span></code> to allow removing multiple records (all
+records that match <code class="docutils literal notranslate"><span class="pre">params.query</span></code> the same as in <code class="docutils literal notranslate"><span class="pre">.find</span></code>).</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">));</span>
+
+<span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span> <span class="nx">read</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Remove all read messages</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">messages</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Remove all read messages</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /messages?read=true
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extending-adapters">
+<h2>Extending Adapters<a class="headerlink" href="#extending-adapters" title="永久链接至标题">¶</a></h2>
+<p>There are two ways to extend existing database adapters. Either by
+extending the ES6 base class or by adding functionality through hooks.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>Keep in mind that calling the original service methods
+will return a Promise that resolves with the value.</p>
+</div>
+<div class="section" id="hooks">
+<h3>Hooks<a class="headerlink" href="#hooks" title="永久链接至标题">¶</a></h3>
+<p>The most flexible option is weaving in functionality through <a class="reference internal" href="../hooks.html"><span class="doc">钩</span></a>.
+For example, <code class="docutils literal notranslate"><span class="pre">createdAt</span></code> and <code class="docutils literal notranslate"><span class="pre">updatedAt</span></code> timestamps could be added like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+
+<span class="c1">// Import the database adapter of choice</span>
+<span class="kr">const</span> <span class="nx">service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-&lt;adapter&gt;&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">().</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">service</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">createdAt</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">],</span>
+
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">updatedAt</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="classes-es6">
+<h3>Classes (ES6)<a class="headerlink" href="#classes-es6" title="永久链接至标题">¶</a></h3>
+<p>All modules also export an <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6
+class</a>
+as <code class="docutils literal notranslate"><span class="pre">Service</span></code> that can be directly extended like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">Service</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">&#39;feathers-&lt;database&gt;&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">MyService</span> <span class="kr">extends</span> <span class="nx">Service</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">created_at</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">updated_at</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="kr">super</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">MyService</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="querying.html" class="btn btn-neutral float-right" title="查询" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="adapters.html" class="btn btn-neutral float-left" title="数据库适配器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

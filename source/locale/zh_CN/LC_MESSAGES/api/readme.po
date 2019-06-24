@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/readme.rst:2
+msgid "API"
+msgstr "API"
+
+#: ../../source/api/readme.rst:4
+msgid ""
+"This section describes all the APIs of Feathers and its individual "
+"modules."
+msgstr "本节介绍Feathers的所有API及其各个模块。"
+
+#: ../../source/api/readme.rst:7
+msgid "**Core:** Feathers core functionality"
+msgstr "**Core:** Feathers核心功能"
+
+#: ../../source/api/readme.rst:9
+msgid ":doc:`application` - The main Feathers application API"
+msgstr ":doc:`application` - 主要的Feathers应用程序API"
+
+#: ../../source/api/readme.rst:11
+msgid ""
+":doc:`services` - Service objects and their methods and "
+"Feathers specific functionality"
+msgstr ":doc:`services` - 服务对象及其方法和Feathers特定功能"
+
+#: ../../source/api/readme.rst:13
+msgid ":doc:`hooks` - Pluggable middleware for service methods"
+msgstr ":doc:`hooks` - 用于服务方法的可插拔中间件"
+
+#: ../../source/api/readme.rst:14
+msgid ":doc:`events` - Events sent by Feathers service methods"
+msgstr ":doc:`events` - Feathers服务方法发送的事件"
+
+#: ../../source/api/readme.rst:15
+msgid ""
+":doc:`channels` - Decide what events to send to connected "
+"real-time clients"
+msgstr ":doc:`channels` - 确定要发送给连接的实时客户端的事件"
+
+#: ../../source/api/readme.rst:17
+msgid ""
+":doc:`errors` - A collection of error classes used throughout "
+"Feathers"
+msgstr ":doc:`errors` - Feathers中使用的错误类集合"
+
+#: ../../source/api/readme.rst:19
+msgid ""
+":doc:`configuration` - A node-config wrapper to "
+"initialize configuration of a server side application."
+msgstr ":doc:`configuration` - 用于初始化服务器端应用程序配置的node-config包装器。"
+
+#: ../../source/api/readme.rst:22
+msgid "**Transports:** Expose a Feathers application as an API server"
+msgstr "**Transports:** 将Feathers应用程序公开为API服务器"
+
+#: ../../source/api/readme.rst:24
+msgid ""
+":doc:`express` - Feathers Express framework bindings, REST API "
+"provider and error middleware."
+msgstr ":doc:`express` - Feathers Express框架绑定，REST API提供程序和错误中间件。"
+
+#: ../../source/api/readme.rst:26
+msgid ":doc:`socketio` - The Socket.io real-time transport provider"
+msgstr ":doc:`socketio` - Socket.io实时传输提供程序"
+
+#: ../../source/api/readme.rst:28
+msgid ":doc:`primus` - The Primus real-time transport provider"
+msgstr ":doc:`primus` - Primus实时运输提供商"
+
+#: ../../source/api/readme.rst:30
+msgid "**Client:** More details on how to use Feathers on the client"
+msgstr "**Client:** 有关如何在客户端上使用Feathers的更多详细信息"
+
+#: ../../source/api/readme.rst:32
+msgid ""
+":doc:`client` - Feathers client usage in Node, React Native and "
+"the browser (also with Webpack and Browserify)"
+msgstr ":doc:`client` - 在Node，React Native和浏览器中使用客户端（也使用Webpack和Browserify）"
+
+#: ../../source/api/readme.rst:34
+msgid ""
+":doc:`client/rest` - Feathers client and direct REST API server "
+"usage"
+msgstr ":doc:`client/rest` - 支持客户端和直接REST API服务器使用"
+
+#: ../../source/api/readme.rst:36
+msgid ""
+":doc:`client/socketio` - Feathers client and direct Socket.io"
+" API server usage"
+msgstr ":doc:`client/socketio` - 支持客户端和直接REST API服务器使用"
+
+#: ../../source/api/readme.rst:38
+msgid ""
+":doc:`client/primus` - Feathers client and direct Primus API "
+"server usage"
+msgstr ":doc:`client/primus` - 支持客户端和直接REST API服务器使用"
+
+#: ../../source/api/readme.rst:41
+msgid "**Authentication:** Feathers authentication mechanism"
+msgstr "**Authentication:** Feathers认证机制"
+
+#: ../../source/api/readme.rst:43
+msgid ""
+":doc:`authentication/server` - The main authentication server "
+"configuration"
+msgstr ":doc:`authentication/server` - 主认证服务器配置"
+
+#: ../../source/api/readme.rst:45
+msgid ""
+":doc:`authentication/client` - A client for a Feathers "
+"authentication server"
+msgstr ":doc:`authentication/client` - Feathers身份验证服务器的客户端"
+
+#: ../../source/api/readme.rst:47
+msgid ":doc:`authentication/local` - Local email/password authentication"
+msgstr ":doc:`authentication/local` - 本地电子邮件/密码验证"
+
+#: ../../source/api/readme.rst:49
+msgid ":doc:`authentication/jwt` - JWT authentication"
+msgstr ":doc:`authentication/jwt` - JWT身份验证"
+
+#: ../../source/api/readme.rst:50
+msgid ":doc:`authentication/oauth1` - Obtain a JWT through oAuth1"
+msgstr ":doc:`authentication/oauth1` - 通过oAuth1获得JWT"
+
+#: ../../source/api/readme.rst:52
+msgid ":doc:`authentication/oauth2` - Obtain a JWT through oAuth2"
+msgstr ":doc:`authentication/oauth2` - 通过oAuth2获得JWT"
+
+#: ../../source/api/readme.rst:55
+msgid "**Database:** Feathers common database adapter API and querying mechanism"
+msgstr "**Database:** 简化常见的数据库适配器API和查询机制"
+
+#: ../../source/api/readme.rst:58
+msgid ""
+":doc:`databases/adapters` - A list of supported database "
+"adapters"
+msgstr ":doc:`databases/adapters` - 支持的数据库适配器列表"
+
+#: ../../source/api/readme.rst:60
+msgid ""
+":doc:`databases/common` - Database adapter common "
+"initialization and configuration API"
+msgstr ":doc:`databases/common` - 数据库适配器常用初始化和配置API"
+
+#: ../../source/api/readme.rst:62
+msgid ":doc:`databases/querying` - The common querying mechanism"
+msgstr ":doc:`databases/querying` - 常见的查询机制"
+

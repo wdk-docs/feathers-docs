@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:2
+msgid "FeathersJS Auth Recipe: Authenticating Express middleware (SSR)"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:4
+msgid "Feathers authentication also supports authenticating routes of Express middleware and can be used for server side rendering. This recipe shows how to create a login form, a ``/logout`` endpoint and a protected ``/chat`` endpoint that renders all users and recent chat messages from our :doc:`chat/readme`."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:10
+msgid "The key steps are:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:12
+msgid "Obtain the JWT by either going through the oAuth or local authentication flow"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:14
+msgid "Set the JWT in the cookie (since the browser will send it with every request)"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:16
+msgid "Before any middleware that needs to be protected, add the ``cookieParser()`` and the ``authenticate('jwt')`` authentication Express middleware. This will set ``req.user`` from the user information in JWT or show a 401 error page if there is no JWT or it is invalid."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:23
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:25
+msgid "In order for the browser to send the JWT with every request, cookies have to be enabled in the authentication configuration."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:28
+msgid "If you are using oAuth2, cookies are already enabled."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:30
+msgid "If not enabled yet, add the following to the ``authentication`` section in ``config/default.json``:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:40
+msgid "We want to authenticate with a username and password login by submitting a normal HTML form to the ``/authentication`` endpoint. By default a successful POST to that endpoint would render JSON with our JWT. This is fine for REST APIs but in our case we want to be redirected to our protected page. We can do this by setting a ``successRedirect`` in the ``local`` strategy section of the ``authentication`` configuration in ``config/default.json``:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:58
+msgid "Setting up middleware"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:60
+msgid "The :doc:`../api/authentication/jwt` will look for a JWT in the cookie but only routes that parse the cookie will be able to access it. This can be done with the `cookie-parser Express middleware <https://github.com/expressjs/cookie-parser>`_:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:69
+msgid "Now we can protect any Express route by first adding ``cookieParser(), authenticate('jwt')`` to the chain."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:72
+msgid "Only register the cookie parser middleware before routes that actually need to be protected by the JWT in the cookie in order to prevent CSRF security issues."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:76
+msgid "Since we want to render views on the server we have to register an `Express template engine <http://expressjs.com/en/guide/using-template-engines.html>`_. For this example we will use `EJS <https://www.npmjs.com/package/ejs>`_:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:86
+msgid "Next, we can update ``src/middleware/index.js`` to"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:88
+msgid "Set the view engine to EJS (the default folder for views in Express is ``views/`` in the root of the project)"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:90
+msgid "Register a ``/login`` route that renders ``views/login.ejs``"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:91
+msgid "Register a protected ``/chat`` route that gets all messages and users from the :doc:`../api/application` and then renders ``views/chat.ejs``"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:94
+msgid "Register a ``/logout`` route that deletes the cookie and redirect back to the login page"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:99
+msgid "We could also generate the middleware using ``feathers generate middleware`` but since they are all fairly short we can keep it in the same file for now."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:142
+msgid "``npm ls @feathersjs/authentication-jwt`` has to show that version 2.0.0 or later is installed."
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:146
+msgid "Views"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:148
+msgid "The login form has to make a POST request to the ``/authentication`` endpoint and send the same fields as any other API client would. In our case specifically:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:160
+msgid "``email`` and ``passwords`` are normal input fields and we can add the ``strategy`` as a hidden field. The form has to submit a POST request to the ``/authentication`` endpoint. Since services can accept both, JSON and URL encoded forms we do not have to do anything else. The login page at ``views/login.ejs`` then looks like this:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:210
+msgid "The ``views/chat.ejs`` page has the ``users``, ``user`` (the authenticated user) and ``messages`` properties available which we passed in the ``/chat`` middleware. Rendering messages and users looks similar to the :doc:`chat/frontend`:"
+msgstr ""
+
+#: ../../source/guides/auth/recipe.express-middleware.rst:289
+msgid "If we now start the server (``npm start``) and go to `localhost:3030/login <http://localhost:3030/login>`_ we can see the login page. We can use the login information from one of the users created in the :doc:`chat/frontend` and once successful, we will be redirected to ``/chat`` which shows the list of all current messages and users and clicking the ``Sign out`` button will log us out and redirect to the login page."
+msgstr ""
+

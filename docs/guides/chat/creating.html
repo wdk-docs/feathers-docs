@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>创建应用程序 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建服务" href="service.html" />
+    <link rel="prev" title="创建聊天应用程序" href="readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">创建应用程序</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#generating-the-application">生成应用程序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-generated-files">生成的文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-server-and-tests">运行服务器和测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>创建应用程序</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/creating.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-the-application">
+<h1>创建应用程序<a class="headerlink" href="#creating-the-application" title="永久链接至标题">¶</a></h1>
+<p>在这一部分中,我们将使用生成器创建一个新的Feathers应用程序.我们可以安装发电机:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>本指南的先决条件与 <a class="reference internal" href="../basics/setup.html"><span class="doc">配置</span></a> 相同.这意味着需要 Node 8.0.0(<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>) 或更高版本.</p>
+</div>
+<div class="section" id="generating-the-application">
+<h2>生成应用程序<a class="headerlink" href="#generating-the-application" title="永久链接至标题">¶</a></h2>
+<p>随着一切 <a class="reference internal" href="../basics/setup.html"><span class="doc">配置</span></a>,让我们为我们的新应用创建一个目录:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir feathers-chat
+$ cd feathers-chat/
+</pre></div>
+</div>
+<p>现在我们可以生成应用程序了:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ feathers generate app
+</pre></div>
+</div>
+<p>当显示项目名称时，只需按 Enter 键或输入名称（无空格）。:</p>
+<p>接下来,写下您的应用程序的简短描述.</p>
+<p>只需按Enter即可回答询问源文件夹的下一个提示.这会将所有源文件放入 <code class="docutils literal notranslate"><span class="pre">src/</span></code> 文件夹中.</p>
+<p>下一个提示将询问您要使用的包管理器.默认为标准 <a class="reference external" href="https://www.npmjs.com/">npm</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果您选择 <a class="reference external" href="https://yarnpkg.com/en/">Yarn</a>, 请确保先通过 <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">yarn</span> <span class="pre">-g</span></code> 安装它.</p>
+</div>
+<p>现在,您将看到要支持哪种传输的选项.由于我们正在设置实时和REST API,因此我们将使用默认的REST和Socket.io选项.所以只需按Enter键即可.</p>
+<p>确认最终提示后,您将看到如下内容:</p>
+<div class="figure align-default" id="id5">
+<img alt="Final Configuration" src="../../_images/creating.png" />
+<p class="caption"><span class="caption-text">最终配置</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="the-generated-files">
+<h2>生成的文件<a class="headerlink" href="#the-generated-files" title="永久链接至标题">¶</a></h2>
+<p>让我们简要了解一下已生成的文件:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config/</span></code> - 包含应用程序的配置文件. <code class="docutils literal notranslate"><span class="pre">production.json</span></code> 文件在生产模式下通过设置 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span> <span class="pre">=</span> <span class="pre">production</span></code> 覆盖 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>.有关详细信息,请参阅 <span class="xref std std-doc">../api/configuration</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node_modules/</span></code> - 生成器使用 <a class="reference external" href="https://docs.npmjs.com/">npm</a> 或 <a class="reference external" href="https://yarnpkg.com/en/">yarn</a> 安装项目依赖项.依赖关系也添加在 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 中.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public/</span></code> - 包含要提供的静态文件.已包含示例favicon和 <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (直接转到服务器URL时显示).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/</span></code> - 包含Feathers服务器代码.</p>
+<ul>
+<li><p><a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a>. 已经包含了一个简单的 <code class="docutils literal notranslate"><span class="pre">logger</span></code> 钩子,用于记录有关我们的服务调用的调试信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">middleware/</span></code> 包含任何 <a class="reference external" href="http://expressjs.com/en/guide/writing-middleware.html">Express中间件</a></p></li>
+<li><p><a class="reference internal" href="../basics/services.html"><span class="doc">服务</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.js</span></code> 加载并启动应用程序</p></li>
+<li><p><a class="reference internal" href="../basics/starting.html"><span class="doc">我们的第一个Feathers应用程序</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.hooks.js</span></code> 包含适用于每个服务的钩子.</p></li>
+<li><p><a class="reference internal" href="../../api/channels.html"><span class="doc">事件频道</span></a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/</span></code> - 包含应用程序,挂钩和服务的 <a class="reference external" href="https://mochajs.org/">Mocha</a> 测试文件</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">app.test.js</span></code> 测试索引页面是否出现,以及HTML页面和JSON的404错误</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.editorconfig</span></code> 是一个 <a class="reference external" href="http://editorconfig.org/">EditorConfig</a> 设置,帮助开发人员在不同的编辑器和IDE之间定义和维护一致的编码风格.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.eslintrc.json</span></code> 包含用 <a class="reference external" href="http://eslint.org/docs/user-guide/getting-started">ESLint</a> 来表示代码的默认值.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>  - 指定 <a class="reference external" href="https://git-scm.com/docs/gitignore">故意未跟踪文件</a> 其中 <a class="reference external" href="https://git-scm.com/">git</a>, <a class="reference external" href="https://github.com/">GitHub</a> 和其他类似项目无视.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.npmignore</span></code> 指定 <a class="reference external" href="https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package">不发布的文件</a> 用于分发.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> - 包含许可证,以便人们知道如何使用它,以及您对它施加的任何限制.它默认为Feathers许可证.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">package.json</span></code> 包含 <a class="reference external" href="https://docs.npmjs.com/files/package.json">info</a> 关于我们的项目 <a class="reference external" href="https://docs.npmjs.com/">npm</a>, <a class="reference external" href="https://yarnpkg.com/en/">yarn</a> 和其他包管理员需要安装和使用你的包.</p></li>
+</ul>
+</div>
+<div class="section" id="running-the-server-and-tests">
+<h2>运行服务器和测试<a class="headerlink" href="#running-the-server-and-tests" title="永久链接至标题">¶</a></h2>
+<p>现在可以通过运行来启动服务器</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>之后,您可以在 <a class="reference external" href="http://localhost:3030">localhost:3030</a> 看到欢迎页面.进行修改时,请记住停止(CTRL + C)并再次启动服务器.</p>
+<p>该应用程序还附带了一组可以运行的基本测试</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>我们搭建了一个新的Feathers应用程序.下一步是 <a class="reference internal" href="service.html"><span class="doc">创建服务</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="service.html" class="btn btn-neutral float-right" title="创建服务" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="readme.html" class="btn btn-neutral float-left" title="创建聊天应用程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

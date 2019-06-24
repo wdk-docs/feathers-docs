@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 11:03+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/index.rst:2
+msgid "API"
+msgstr ""
+
+#: ../../source/api/index.rst:4
+msgid "This section describes all the APIs of Feathers and its individual modules."
+msgstr ""
+
+#: ../../source/api/index.rst:12
+msgid "Core"
+msgstr ""
+
+#: ../../source/api/index.rst:14
+msgid "**Core:** Feathers core functionality"
+msgstr ""
+
+#: ../../source/api/index.rst:28
+msgid "Transports"
+msgstr ""
+
+#: ../../source/api/index.rst:30
+msgid "Expose a Feathers application as an API server"
+msgstr ""
+
+#: ../../source/api/index.rst:40
+msgid "Client"
+msgstr ""
+
+#: ../../source/api/index.rst:42
+msgid "More details on how to use Feathers on the client"
+msgstr ""
+
+#: ../../source/api/index.rst:53
+msgid "Authentication"
+msgstr ""
+
+#: ../../source/api/index.rst:55
+msgid "Feathers authentication mechanism"
+msgstr ""
+
+#: ../../source/api/index.rst:68
+msgid "Database"
+msgstr ""
+
+#: ../../source/api/index.rst:70
+msgid "Feathers common database adapter API and querying mechanism"
+msgstr ""
+

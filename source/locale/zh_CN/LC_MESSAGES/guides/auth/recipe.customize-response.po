@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:2
+msgid "FeathersJS Auth Recipe: Customizing the Login Response"
+msgstr "FeathersJS Auth Recipe:自定义登录响应"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:4
+msgid ""
+"The Auk release of FeathersJS includes a powerful new "
+":doc:`../../api/authentication/server` built on top of `PassportJS "
+"<http://www.passportjs.org/>`_. The new plugins are very flexible, "
+"allowing you to customize nearly everything. This flexibility required "
+"making some changes. In this guide, we’ll look at the changes to the "
+"login response and how you can customize it."
+msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上.新插件非常灵活,允许您自定义几乎所有内容.这种灵活性需要做出一些改变.在本指南中,我们将查看登录响应的更改以及如何自定义它."
+
+#: ../../source/guides/auth/recipe.customize-response.rst:11
+msgid "Changes to the Login Response"
+msgstr "登录响应的更改"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:13
+msgid ""
+"The previous version of ``feathers-authentication`` always returned the "
+"same response. It looked something like this:"
+msgstr ""
+"以前版本的 ``feathers-authentication`` 总是返回相同的响应.它看起来像这样:"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:26
+msgid ""
+"The JWT also contained a payload which held an ``id`` property "
+"representing the user ``id``. We found that this was too restrictive for "
+"some of our more technical apps. For instance, what if you wanted to "
+"authenticate a device instead of a user? Or what if you want to "
+"authenticate both a device **and** a user? The old plugin couldn’t handle"
+" those situations. The new one does. To make it work, we started by "
+"simplifying the response. The default response now looks like this:"
+msgstr "JWT还包含一个有效负载,其中包含一个表示用户 ``id`` 的 ``id`` 属性.我们发现这对我们的一些技术性应用来说过于严格.例如,如果您想要验证设备而不是用户,该怎么办？或者,如果您要对设备**和**用户进行身份验证,该怎么办？旧插件无法处理这些情况.新的那个.为了使其工作,我们首先简化了响应.现在,默认响应如下所示:"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:40
+msgid "The JWT also contains a payload which has a ``userId`` property."
+msgstr "JWT还包含一个具有 ``userId`` 属性的有效负载."
+
+#: ../../source/guides/auth/recipe.customize-response.rst:42
+msgid ""
+"Based on the above, you can see that we still authenticate a ``user`` by "
+"default. In this case, the ``user`` is what we call the ``entity``. It’s "
+"the generic name of what is being authenticated. It’s customizable, but "
+"that’s not covered in this guide. Instead, let’s focus on what it takes "
+"to add the user in the login response."
+msgstr "基于以上所述,您可以看到我们默认仍然会对 ``user`` 进行身份验证.在这种情况下,``user`` 就是我们所说的 ``entity``.它是经过身份验证的通用名称.它是可定制的,但本指南未涉及.相反,让我们关注在登录响应中添加用户所需的内容."
+
+#: ../../source/guides/auth/recipe.customize-response.rst:49
+msgid "Customizing the Login Response"
+msgstr "自定义登录响应"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:51
+msgid ""
+"The ``/authentication`` endpoint is now a Feathers service. It uses the "
+"``create`` method for login and the ``remove`` method for logout. Just "
+"like with all Feathers services, you can customize the response with the "
+":doc:`../api/hooks`. For what we want to do, the important part is the "
+"``context.result``, which becomes the response body. We can use an "
+"``after`` hook to customize the ``context.result`` to return anything "
+"that we want:"
+msgstr "``/authentication`` 端点现在是Feathers服务.它使用 ``create`` 方法进行登录,使用 ``remove`` 方法进行注销.就像所有Feathers服务一样,您可以使用 :doc:`../api/hooks` 自定义响应.对于我们想要做的事情,重要的部分是 ``context.result``,它成为了响应体.我们可以使用 ``after`` 钩子来定制 ``context.result`` 以返回我们想要的任何内容:"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:71
+msgid ""
+"After a successful login, the ``context.result`` already contains the "
+"``accessToken``. The above example modified the response to look like "
+"this:"
+msgstr ""
+"成功登录后, ``context.result`` 已经包含 ``accessToken``.上面的示例将响应修改为如下所示:"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:83
+msgid "Accessing the User Entity"
+msgstr "访问用户实体"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:85
+msgid ""
+"Let’s see how to include the ``user`` in the response, as was done in "
+"previous versions. The ``/authentication`` service modifies the "
+"``context.params`` object to contain the entity object (in this case, the"
+" ``user``). With that information, you might have already figured out how"
+" to get the user into the response. It just has to be copied from "
+"``context.params.user`` to the ``context.result.user``:"
+msgstr "让我们看看如何在响应中包含 ``user``,就像在以前的版本中一样. ``/authentication`` 服务修改 ``context.params`` 对象以包含实体对象(在本例中为 ``user``).有了这些信息,您可能已经想出了如何让用户进入响应.它只需要从 ``context.params.user`` 复制到 ``context.result.user``:"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:107
+msgid ""
+"At this point, the response now includes the ``accessToken`` and the "
+"``user``. Now the client won’t have to make an additional request for the"
+" ``user`` data. *As is shown in the above example, be sure to not expose "
+"any sensitive information.*"
+msgstr "此时,响应现在包括 ``accessToken`` 和 ``user``.现在,客户端不必另外请求 ``user`` 数据. *如上例所示,请务必不要泄露任何敏感信息.*"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:113
+msgid "Wrapping Up"
+msgstr "包起来"
+
+#: ../../source/guides/auth/recipe.customize-response.rst:115
+msgid ""
+"You’ve now learned some of the differences in the new ``feathers-"
+"authentication`` plugin. Instead of using two endpoints, it’s using a "
+"single service. It also has a simplified response, compared to before. "
+"Now, you can customize the response to include whatever information you "
+"need."
+msgstr "您现在已经了解了新的 ``feathers-authentication`` 插件中的一些差异.它不使用两个端点,而是使用单个服务.与之前相比,它还具有简化的响应.现在,您可以自定义响应以包含所需的任何信息."
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new `authentication suite "
+#~ "<../../api/authentication/server.md>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. This flexibility required making"
+#~ " some changes. In this guide, we’ll"
+#~ " look at the changes to the "
+#~ "login response and how you can "
+#~ "customize it."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. This flexibility required making"
+#~ " some changes. In this guide, we’ll"
+#~ " look at the changes to the "
+#~ "login response and how you can "
+#~ "customize it."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>` built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "The new plugins are very flexible, "
+#~ "allowing you to customize nearly "
+#~ "everything. This flexibility required making"
+#~ " some changes. In this guide, we’ll"
+#~ " look at the changes to the "
+#~ "login response and how you can "
+#~ "customize it."
+#~ msgstr ""
+

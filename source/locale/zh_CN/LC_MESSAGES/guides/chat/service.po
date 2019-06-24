@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/service.rst:2
+msgid "Creating a service"
+msgstr "创建服务"
+
+#: ../../source/guides/chat/service.rst:4
+msgid ""
+"Now that we have our :doc:`./creating`, we can create a new API endpoint "
+"to store messages."
+msgstr "现在我们有了:doc:`./creating`,我们可以创建一个新的API端点来存储消息."
+
+#: ../../source/guides/chat/service.rst:8
+msgid "Generating a service"
+msgstr "生成服务"
+
+#: ../../source/guides/chat/service.rst:10
+msgid ""
+"In Feathers any API endpoint is represented as a "
+":doc:`../../api/services`, which we already learned about in the "
+":doc:`../basics/services`. To generate a new service, we can run:"
+msgstr "在Feathers中,任何API端点都表示为 :doc:`../../api/services`, 我们已经在 :doc:`../basics/services` 中学到了这一点.要生成新服务,我们可以运行:"
+
+#: ../../source/guides/chat/service.rst:19
+msgid ""
+"First we have to choose what kind of service we’d like to create. You can"
+" choose amongst many databases and ORMs but for this guide we will go "
+"with the default `NeDB <https://github.com/louischatriot/nedb>`_. NeDB is"
+" a database that stores its data locally in a file and requires no "
+"additional configuration or database server."
+msgstr ""
+"首先,我们必须选择我们想要创建的服务类型.您可以在许多数据库和ORM中进行选择,但是对于本指南,我们将使用默认的 `NeDB "
+"<https://github.com/louischatriot/nedb>`_. "
+"NeDB是一个数据库,它将数据本地存储在一个文件中,不需要额外的配置或数据库服务器."
+
+#: ../../source/guides/chat/service.rst:25
+msgid ""
+"Next, when asked for the name of the service, enter ``messages``. Then "
+"keep the default path (``/messages``) by pressing enter."
+msgstr "接下来,当询问服务名称时,输入  ``messages``.然后按Enter键保留默认路径(``/messages``)."
+
+#: ../../source/guides/chat/service.rst:28
+msgid ""
+"The *database connection string* can also be answered with the default. "
+"(In this case of NeDB, this is the path where it should store its "
+"database files.)"
+msgstr "*数据库连接字符串*也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)"
+
+#: ../../source/guides/chat/service.rst:32
+msgid ""
+"Confirming the last prompt will generate some files and wire our service "
+"up:"
+msgstr "确认最后一个提示将生成一些文件并连接我们的服务:"
+
+#: ../../source/guides/chat/service.rst:38
+msgid "Final Configuration"
+msgstr "最终配置"
+
+#: ../../source/guides/chat/service.rst:40
+msgid ""
+"Et voilà! We have a fully functional REST and real-time API for our "
+"messages."
+msgstr "Etvoilà！我们为消息提供了功能齐全的REST和实时API."
+
+#: ../../source/guides/chat/service.rst:44
+msgid "The generated files"
+msgstr "生成的文件"
+
+#: ../../source/guides/chat/service.rst:46
+msgid "As we can see, several files were created:"
+msgstr "我们可以看到,创建了几个文件:"
+
+#: ../../source/guides/chat/service.rst:48
+msgid ""
+"``src/services/messages/messages.service.js`` - The service setup file "
+"which registers the service in a :doc:`../basics/generator`"
+msgstr ""
+"``src/services/messages/messages.service.js``  - "
+"在以下服务中注册服务的服务设置文件:doc:`../basics/generator`"
+
+#: ../../source/guides/chat/service.rst:50
+#, fuzzy
+msgid ""
+"``src/services/messages/messages.hooks.js`` - A file that returns an "
+":doc:`../basics/hooks` that should be registered on the service."
+msgstr ""
+"``src/services/messages/messages.hooks.js`` - "
+"一个文件,它返回一个应该在服务上注册的 :doc:`../basics/hooks`."
+
+#: ../../source/guides/chat/service.rst:53
+msgid ""
+"``src/models/messages.model.js`` - The model for our messages. Since we "
+"are using NeDB, this will simply instantiate the filesystem database."
+msgstr "``src/models/messages.model.js`` - 我们的消息模型.由于我们使用的是NeDB,因此只需实例化文件系统数据库."
+
+#: ../../source/guides/chat/service.rst:56
+msgid ""
+"``test/services/messages.test.js`` - A Mocha test for the service. "
+"Initially, it only tests that the service exists."
+msgstr "``test/services/messages.test.js`` - 服务的摩卡测试.最初,它只测试服务是否存在."
+
+#: ../../source/guides/chat/service.rst:60
+msgid "Testing the API"
+msgstr "测试API"
+
+#: ../../source/guides/chat/service.rst:62
+msgid "If we now start our API with"
+msgstr "如果我们现在启动我们的API"
+
+#: ../../source/guides/chat/service.rst:68
+msgid ""
+"We can go to `localhost:3030/messages <http://localhost:3030/messages>`_ "
+"and will see an (empty) response from our new messages service."
+msgstr ""
+"我们可以转到 `localhost:3030/messages "
+"<http://localhost:3030/messages>`_ 并看到来自我们的新消息服务的(空)响应."
+
+#: ../../source/guides/chat/service.rst:72
+msgid ""
+"We can also ``POST`` new messages and ``PUT``, ``PATCH`` and ``DELETE`` "
+"existing messages (via ``/messages/<_id>``), for example from the command"
+" line using `CURL <https://curl.haxx.se/>`_:"
+msgstr ""
+"我们还可以 ``POST`` 新消息和 ``PUT``, ``PATCH`` 和 ``DELETE`` 现有消息(通过 ``/messages/<_id>``),例如从命令行使用 `CURL <https://curl.haxx.se/>`_:"
+
+#: ../../source/guides/chat/service.rst:80
+msgid ""
+"Or with a REST client, e.g. \\ `Postman "
+"<https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_,"
+" using this button:"
+msgstr ""
+"或者使用REST客户端,例如 \\ `Postman <https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en>`_, 使用此按钮:"
+
+#: ../../source/guides/chat/service.rst:84
+msgid "|Run in Postman|"
+msgstr "|在邮递员中运行|"
+
+#: ../../source/guides/chat/service.rst:86
+msgid ""
+"If we now go to `localhost:3030/messages "
+"<http://localhost:3030/messages>`_ again we will see the newly created "
+"message(s)."
+msgstr ""
+"如果我们现在再次转到 `localhost:3030/messages <http://localhost:3030/messages>`_, 我们将看到新创建的消息."
+
+#: ../../source/guides/chat/service.rst:91
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/chat/service.rst:93
+msgid ""
+"With just one command, we created a fully functional REST and real-time "
+"API endpoint. Next, let’s :doc:`./authentication` and make sure messages "
+"only go to users that are allowed to see them."
+msgstr "只需一个命令,我们就可以创建一个功能齐全的REST和实时API端点.接下来,让我们 :doc:`./authentication` 并确保消息仅发送给允许查看它们的用户."
+

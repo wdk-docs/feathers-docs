@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/hooks.rst:2
+msgid "Hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:4
+msgid "As we have seen in the :doc:`./services`, Feathers services are a great way to implement data storage and modification. Technically, we could implement all our application logic within services but very often an application requires similar functionality across multiple services. For example, we might want to check for all services if a user is allowed to even call the service method or add the current date to all data that we are saving. With just using services we would have to implement this again every time."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:13
+msgid "This is where Feathers hooks come in. Hooks are pluggable middleware functions that can be registered **before**, **after** or on \\__error__s of a service method. You can register a single hook function or create a chain of them to create complex work-flows."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:18
+msgid "Just like services themselves, hooks are *transport independent*. They are usually also service agnostic, meaning they can be used with ​\\ *any*\\ ​ service. This pattern keeps your application logic flexible, composable, and much easier to trace through and debug."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:24
+msgid "A full overview of the hook API can be found in the :doc:`../../api/hooks`."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:26
+msgid "Hooks are commonly used to handle things like validation, authorization, logging, populating related entities, sending notifications and more."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:29
+msgid "For more information about the design patterns behind hooks see `this blog post <https://blog.feathersjs.com/api-service-composition-with-hooks-47af13aa6c01>`_."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:34
+msgid "Quick example"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:36
+msgid "Here is a quick example for a hook that adds a ``createdAt`` property to the data before calling the actual ``create`` service method:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:52
+msgid "Hook functions"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:54
+msgid "A hook function is a function that takes the `hook context <#hook-context>`_ as the parameter and returns that context or nothing. Hook functions run in the order they are registered and will only continue to the next once the current hook function completes. If a hook function throws an error, all remaining hooks (and possibly the service call) will be skipped and the error will be returned."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:61
+msgid "A common pattern to make hooks more re-usable (e.g. making the ``createdAt`` property name from the example above configurable) is to create a wrapper function that takes those options and returns a hook function:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:83
+msgid "Now we have a re-usable hook that can set the timestamp on any property."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:86
+msgid "Hook context"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:88
+msgid "The hook ``context`` is an object which contains information about the service method call. It has read-only and writable properties. Read-only properties are:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:92
+msgid "``context.app`` - The Feathers application object"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:93
+msgid "``context.service`` - The service this hook is currently running on"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:94
+msgid "``context.path`` - The path of the service"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:95
+msgid "``context.method`` - The service method"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:96
+msgid "``context.type`` - The hook type (``before``, ``after`` or ``error``)"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:98
+msgid "Writeable properties are:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:100
+msgid "``context.params`` - The service method call ``params``. For external calls, ``params`` usually contains:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:103
+msgid "``context.params.query`` - The query (e.g. query string for REST) for the service call"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:105
+msgid "``context.params.provider`` - The name of the transport (which we will look at in the next chapter) the call has been made through. Usually ``rest``, ``socketio``, ``primus``. Will be ``undefined`` for internal calls."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:110
+msgid "``context.id`` - The ``id`` for a ``get``, ``remove``, ``update`` and ``patch`` service method call"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:112
+msgid "``context.data`` - The ``data`` sent by the user in a ``create``, ``update`` and ``patch`` service method call"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:114
+msgid "``context.error`` - The error that was thrown (in ``error`` hooks)"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:115
+msgid "``context.result`` - The result of the service method call (in ``after`` hooks)"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:121
+msgid "For more information about the hook context see the :doc:`../../api/hooks`."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:124
+msgid "Registering hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:126
+msgid "The most common way to register hooks is in an object like this:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:152
+msgid "This makes it easy to see at one glance in which order hooks are executed and for which method."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:155
+msgid "``all`` is a special keyword which means those hooks will run before the method specific hooks in this chain."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:158
+msgid "For example, if hooks are registered like so:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:184
+msgid "This diagram illustrates when each hook will be executed:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:189
+msgid "Hook flow"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:192
+msgid "Validating data"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:194
+msgid "If a hook throws an error, all following hooks will be skipped and the error will be returned to the user. This makes ``before`` hooks a great place to validate incoming data by throwing an error for invalid data. We can throw a normal `JavaScript error <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or :doc:`../../api/errors` which has some additional functionality (like returning the proper error code for REST calls)."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:202
+msgid "``@feathersjs/errors`` is a separate module, so you must add it to your project before requiring it:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:209
+msgid "We will only need the hook for ``create``, ``update`` and ``patch`` since those are the only service methods that allow user submitted data:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:249
+msgid "Throwing an appropriate :doc:`../../api/errors` allows to add more information and return the correct HTTP status code."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:253
+msgid "Application hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:255
+msgid "Sometimes we want to automatically add a hook to every service in our Feathers application. This is what application hooks can be used for. They work the same as service specific hooks but run in a more specific order:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:260
+msgid "``before`` application hooks will always run *before* all service ``before`` hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:262
+msgid "``after`` application hooks will always run *after* all service ``after`` hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:264
+msgid "``error`` application hooks will always run *after* all service ``error`` hooks"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:268
+msgid "Error logging"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:270
+msgid "A good use for application hooks is to log any service method call error. The following example logs every service method error with the path and method name as well as the error stack:"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:283
+msgid "More examples"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:285
+msgid "The :doc:`chat/readme` will show several more examples like how to associate data and adding user information for hooks created by :doc:`./generator`."
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:290
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/basics/hooks.rst:292
+msgid "In this chapter we learned how Feathers hooks can be used as middleware for service method calls to validate and manipulate incoming and outgoing data without having to change our service. In the next chapter we will turn our messages service into a :doc:`./rest`."
+msgstr ""
+

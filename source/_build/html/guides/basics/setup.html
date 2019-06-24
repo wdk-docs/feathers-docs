@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>配置 &mdash; feathers docs v2019.06.21 文档</title>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="我们的第一个Feathers应用程序" href="starting.html" />
+    <link rel="prev" title="Feathers 基础知识" href="readme.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+
+
+
+          </a>
+
+
+
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">先决条件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-you-should-know">你应该知道什么</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-we-wont-cover">我们不会涉及的内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html">数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="real-time.html">实时API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clients.html">客户使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generator.html">Feathers生成器（CLI）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+
+          <li><a href="../index.html">指南</a> &raquo;</li>
+
+          <li><a href="index.html">Feathers 基础功能</a> &raquo;</li>
+
+      <li>配置</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="../../_sources/guides/basics/setup.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="setting-up">
+<h1>配置<a class="headerlink" href="#setting-up" title="永久链接至标题">¶</a></h1>
+<p>在本节中, 我们将介绍最佳学习Feathers所需的工具和初步知识.</p>
+<div class="section" id="prerequisites">
+<h2>先决条件<a class="headerlink" href="#prerequisites" title="永久链接至标题">¶</a></h2>
+<p>Feathers和大多数插件都在 <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> v6.0.0及更高版本上运行. 对于指南, 我们将使用仅适用于Node v8.0.0及更高版本的语法. 在MacOS和其他Unix系统上, <a class="reference external" href="https://github.com/creationix/nvm">节点版本管理器</a> 是快速安装最新版本的NodeJS并使其保持最新的好方法.</p>
+<p>安装成功后, 终端上应该有 <code class="docutils literal notranslate"><span class="pre">node</span></code> 和 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 命令, 并在运行以下命令时显示类似的命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node --version
+v8.5.0
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm --version
+5.5.1
+</pre></div>
+</div>
+<p>Feathers在浏览器中工作并支持IE 10及更高版本. 但是, 本指南中使用的示例仅适用于最新版本的Chrome, Firefox, Safari和Edge.</p>
+</div>
+<div class="section" id="what-you-should-know">
+<h2>你应该知道什么<a class="headerlink" href="#what-you-should-know" title="永久链接至标题">¶</a></h2>
+<p>读者应该有使用 <a class="reference external" href="http://es6-features.org/">ES6</a> 的一些合理的JavaScript经验, 以及一些NodeJS的经验和它支持的JavaScript功能, 如 <a class="reference external" href="https://nodejs.org/api/modules.html">module system</a>. 熟悉HTTP和 <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST API</a> 以及websockets也很有帮助.</p>
+<p>指南示例使用 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a>. 我们强烈建议您熟悉 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a> 和 <code class="docutils literal notranslate"><span class="pre">async/await</span></code> (以及它们如何互动). 有关JavaScript承诺的详细介绍, 请参阅 <a class="reference external" href="https://www.promisejs.org/">promisejs.org</a> 然后在 <a class="reference external" href="https://blog.risingstack.com/mastering-async-await-in-nodejs/">这篇博客文章中</a> 跟进 <code class="docutils literal notranslate"><span class="pre">async/await</span></code>.</p>
+<p>Feathers works standalone but also provides <a class="reference internal" href="../../api/express.html"><span class="doc">an integration</span></a> with
+<a class="reference external" href="http://expressjs.com/">Express</a>. This guide does not require any
+in-depth knowledge of Express but some experience with Express will be
+helpful in the future (see the <a class="reference external" href="http://expressjs.com/en/guide/routing.html">Express
+guide</a> to get started).</p>
+</div>
+<div class="section" id="what-we-wont-cover">
+<h2>我们不会涉及的内容<a class="headerlink" href="#what-we-wont-cover" title="永久链接至标题">¶</a></h2>
+<p>尽管Feathers适用于许多数据库, 但本指南仅使用独立数据库适配器的示例, 因此无需运行数据库服务器.</p>
+<p>Authentication will be shown later in the <a class="reference internal" href="../chat/readme.html"><span class="doc">chat application guide</span></a>.</p>
+<p>All examples will reside within a single file. The Feathers generator
+(CLI) will create a recommended structure for a Feathers application.
+You can see what it does to structure an application in the <a href="#id1"><span class="problematic" id="id2">:doc:`Generator guide &lt;./generator&gt;`_</span></a> and how to use it in the <cite>chat application guide &lt;../chat/readme&gt;</cite>.</p>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>All set up and good to go? Let’s <a class="reference internal" href="starting.html"><span class="doc">install Feathers and create our first app</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="starting.html" class="btn btn-neutral float-right" title="我们的第一个Feathers应用程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="readme.html" class="btn btn-neutral float-left" title="Feathers 基础知识" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>

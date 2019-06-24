@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/advanced/file-uploading.rst:2
+msgid "File uploads in FeathersJS"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:4
+msgid "Over the last months we at `ciancoders.com <https://ciancoders.com/>`_ have been working in a new SPA project using Feathers and React, the combination of those two turns out to be **just amazing**."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:8
+msgid "Recently we were struggling to find a way to upload files without having to write a separate Express middleware or having to (re)write a complex Feathers service."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:13
+msgid "Our Goals"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:15
+msgid "We want to implement an upload service to accomplish a few important things:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:18
+msgid "It has to handle large files (+10MB)."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:19
+msgid "It needs to work with the app’s authentication and authorization."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:20
+msgid "The files need to be validated."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:21
+msgid "At the moment there is no third party storage service involved, but this will change in the near future, so it has to be prepared."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:23
+msgid "It has to show the upload progress."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:25
+msgid "The plan is to upload the files to a feathers service so we can take advantage of hooks for authentication, authorization and validation, and for service events."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:29
+msgid "Fortunately, there exists a file storage service: `feathers-blob <https://github.com/feathersjs/feathers-blob>`_. With it we can meet our goals, but (spoiler alert) it comes with its own problems which we’ll discuss below."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:35
+msgid "Basic upload with feathers-blob and feathers-client"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:37
+msgid "For the sake of simplicity, we will be working over a very basic feathers server, with just the upload service."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:40
+msgid "Lets look at the server code:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:84
+msgid "Let’s look at this implemented in the ``@feathersjs/cli`` generated server code:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:133
+msgid "``feathers-blob`` works over abstract-blob-store, which is an abstract interface to various storage backends, such as filesystem, AWS, or Google Drive. It only accepts and retrieves files encoded as dataURI strings."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:138
+msgid "Just like that we have our backend ready, go ahead and POST something to localhost:3030/uploads`, for example with postman:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:147
+msgid "The service will respond with something like this:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:157
+msgid "Or we can implement a very basic frontend with ``feathers-client`` and ``jQuery``:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:222
+msgid "This code watches for file selection, then encodes it and does an ajax post to upload it, watching the upload progress via the xhr object. Everything works as expected."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:226
+msgid "Every file we select gets uploaded and saved to the ``./uploads`` directory."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:229
+msgid "Work done!, let’s call it a day, shall we?"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:231
+msgid "… But hey, there is something that doesn’t feels quite right …right?"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:234
+msgid "DataURI upload problems"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:236
+msgid "It doesn’t feels right because it is not. Let’s imagine what would happen if we try to upload a large file, say 25MB or more: The entire file (plus some extra MB due to the encoding) has to be kept in memory for the entire upload process, this could look like nothing for a normal computer but for mobile devices it’s a big deal."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:242
+msgid "We have a big RAM consumption problem. Not to mention we have to encode the file before sending it…"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:245
+msgid "The solution would be to modify the service, adding support for splitting the dataURI into small chunks, then uploading one at a time, collecting and reassembling everything on the server. But hey, it’s not that the same thing browsers and web servers has been doing since maybe the very early days of the web? maybe since Netscape Navigator?"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:251
+msgid "Well, actually it is, and doing a ``multipart/form-data`` post is still the easiest way to upload a file."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:255
+msgid "Feathers-blob with multipart support."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:257
+msgid "Back with the backend, in order to accept multipart uploads, we need a way to handle the ``multipart/form-data`` received by the web server. Given that Feathers behaves like Express, let’s just use ``multer`` and a custom middleware to handle that."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:285
+msgid "Notice we kept the file field name as *uri* just to maintain uniformity, as the service will always work with that name anyways. But you can change it if you prefer."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:289
+msgid "Feathers-blob only understands files encoded as dataURI, so we need to convert them first. Let’s make a Hook for that:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:313
+msgid "*Et voilà!*. Now we have a FeathersJS file storage service working, with support for traditional multipart uploads, and a variety of storage options to choose."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:317
+msgid "**Simply awesome.**"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:320
+msgid "Further improvements"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:322
+msgid "The service always return the dataURI back to us, which may not be necessary as we’d just uploaded the file, also we need to validate the file and check for authorization."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:326
+msgid "All those things can be easily done with more Hooks, and that’s the benefit of keeping all inside FeathersJS services. I left that to you."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:329
+msgid "For the frontend, there is a problem with the client: in order to show the upload progress it’s stuck with only REST functionality and not real-time with socket.io."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:333
+msgid "The solution is to switch ``feathers-client`` from REST to ``socket.io``, and just use wherever you like for uploading the files, that’s an easy task now that we are able to do a traditional ``form-multipart`` upload."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:338
+msgid "Here is an example using dropzone:"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:387
+msgid "All the code is available via github here: https://github.com/CianCoders/feathers-example-fileupload"
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:390
+msgid "Hope you have learned something today, as I learned a lot writing this."
+msgstr ""
+
+#: ../../source/guides/advanced/file-uploading.rst:392
+msgid "Cheers!"
+msgstr ""
+

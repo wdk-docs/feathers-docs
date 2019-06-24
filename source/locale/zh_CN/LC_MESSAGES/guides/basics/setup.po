@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/setup.rst:2
+msgid "Setting up"
+msgstr "配置"
+
+#: ../../source/guides/basics/setup.rst:4
+msgid ""
+"In this section we will go over the required tools and preliminary "
+"knowledge for best learning Feathers."
+msgstr "在本节中, 我们将介绍最佳学习Feathers所需的工具和初步知识. "
+
+#: ../../source/guides/basics/setup.rst:8
+msgid "Prerequisites"
+msgstr "先决条件"
+
+#: ../../source/guides/basics/setup.rst:10
+msgid ""
+"Feathers and most plug-ins work on `NodeJS <https://nodejs.org/en/>`_ "
+"v6.0.0 and up. For the guides we will use syntax that only works with "
+"Node v8.0.0 and later. On MacOS and other Unix systems the `Node Version "
+"Manager <https://github.com/creationix/nvm>`_ is a good way to quickly "
+"install the latest version of NodeJS and keep it up to date."
+msgstr "Feathers和大多数插件都在 `NodeJS <https://nodejs.org/en/>`_ v6.0.0及更高版本上运行. 对于指南, "
+"我们将使用仅适用于Node v8.0.0及更高版本的语法. 在MacOS和其他Unix系统上, `节点版本管理器 "
+"<https://github.com/creationix/nvm>`_ 是快速安装最新版本的NodeJS并使其保持最新的好方法. "
+
+#: ../../source/guides/basics/setup.rst:16
+msgid ""
+"After successful installation, the ``node`` and ``npm`` commands should "
+"be available on the terminal and show something similar when running the "
+"following commands:"
+msgstr "安装成功后, 终端上应该有 ``node`` 和 ``npm`` 命令, 并在运行以下命令时显示类似的命令:"
+
+#: ../../source/guides/basics/setup.rst:30
+msgid ""
+"Feathers does work in the browser and supports IE 10 and up. The examples"
+" used in this guide will however only work in the most recent versions of"
+" Chrome, Firefox, Safari and Edge."
+msgstr ""
+"Feathers在浏览器中工作并支持IE 10及更高版本. 但是, 本指南中使用的示例仅适用于最新版本的Chrome, Firefox, "
+"Safari和Edge. "
+
+#: ../../source/guides/basics/setup.rst:35
+msgid "What you should know"
+msgstr "你应该知道什么"
+
+#: ../../source/guides/basics/setup.rst:37
+msgid ""
+"Readers should have reasonable JavaScript experience using `ES6 "
+"<http://es6-features.org/>`_ and some experience with NodeJS and the "
+"JavaScript features it supports like the `module system "
+"<https://nodejs.org/api/modules.html>`_. Some familiarity with HTTP and "
+"`REST APIs "
+"<https://en.wikipedia.org/wiki/Representational_state_transfer>`_ as well"
+" as websockets is also helpful."
+msgstr ""
+"读者应该有使用 `ES6 <http://es6-features.org/>`_ 的一些合理的JavaScript经验, "
+"以及一些NodeJS的经验和它支持的JavaScript功能, 如 `module system <https://nodejs.org/api/"
+" modules.html>`_. 熟悉HTTP和 `REST API "
+"<https://en.wikipedia.org/wiki/Representational_state_transfer>`_ "
+"以及websockets也很有帮助. "
+
+#: ../../source/guides/basics/setup.rst:45
+msgid ""
+"The guide examples use `async/await <https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Statements/async_function>`_. "
+"Familiarity with `Promises <https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ and "
+"``async/await`` (and how they interact) is highly recommended. For a good"
+" introduction to JavaScript promises see `promisejs.org "
+"<https://www.promisejs.org/>`_ and then follow up with ``async/await`` in"
+" `this blog post <https://blog.risingstack.com/mastering-async-await-in-"
+"nodejs/>`_."
+msgstr ""
+"指南示例使用 `async/await <https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Statements/async_function>`_. 我们强烈建议您熟悉 "
+"`Promises <https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ 和 "
+"``async/await`` (以及它们如何互动). 有关JavaScript承诺的详细介绍, 请参阅 `promisejs.org "
+"<https://www.promisejs.org/>`_ 然后在 `这篇博客文章中 <https://blog.risingstack.com"
+"/mastering-async-await-in-nodejs/>`_ 跟进 ``async/await``."
+
+#: ../../source/guides/basics/setup.rst:55
+msgid ""
+"Feathers works standalone but also provides :doc:`../../api/express` with"
+" `Express <http://expressjs.com/>`_. This guide does not require any in-"
+"depth knowledge of Express but some experience with Express will be "
+"helpful in the future (see the `Express guide "
+"<http://expressjs.com/en/guide/routing.html>`_ to get started)."
+msgstr "Feathers独立工作，但也提供 :doc:`../../api/express` with `Express <http://expressjs.com/>`_.本指南不需要任何深入的Express知识，但有一些使用Express的经验将来会有所帮助(参见 `快速指南<http://expressjs.com/en/guide/routing.html>`_ 获取启动)."
+
+#: ../../source/guides/basics/setup.rst:62
+msgid "What we won’t cover"
+msgstr "我们不会涉及的内容"
+
+#: ../../source/guides/basics/setup.rst:64
+msgid ""
+"Although Feathers works with many databases, this guide will only use "
+"examples of standalone database adapters so there is no need to run a "
+"database server."
+msgstr "尽管Feathers适用于许多数据库, 但本指南仅使用独立数据库适配器的示例, 因此无需运行数据库服务器. "
+
+#: ../../source/guides/basics/setup.rst:68
+msgid "Authentication will be shown later in the :doc:`../chat/readme`."
+msgstr "验证将在稍后的 :doc:`../chat/readme` 中显示. "
+
+#: ../../source/guides/basics/setup.rst:70
+msgid ""
+"All examples will reside within a single file. The Feathers generator "
+"(CLI) will create a recommended structure for a Feathers application. You"
+" can see what it does to structure an application in the "
+":doc:`../chat/readme`."
+msgstr "所有示例都将驻留在单个文件中. Feathers生成器(CLI)将为Feathers应用程序创建推荐的结构.您可以在 :doc:`../chat/readme` 中查看它对构建应用程序的作用."
+
+#: ../../source/guides/basics/setup.rst:75
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/setup.rst:77
+msgid "All set up and good to go? Let’s :doc:`starting`."
+msgstr "所有设置和好去？让我们 :doc:`starting`. "
+
+#~ msgid ""
+#~ "Feathers works standalone but also "
+#~ "provides `an integration <../../api/express.md>`_"
+#~ " with `Express <http://expressjs.com/>`_. This"
+#~ " guide does not require any in-"
+#~ "depth knowledge of Express but some "
+#~ "experience with Express will be helpful"
+#~ " in the future (see the `Express "
+#~ "guide <http://expressjs.com/en/guide/routing.html>`_ to"
+#~ " get started)."
+#~ msgstr ""
+#~ "Feathers独立工作, 但也提供 :doc:`一个集成 <../../api/express>`"
+#~ " 与 `Express <http://expressjs.com/>`_. "
+#~ "本指南不需要任何深入的Express知识, 但有一些使用Express的经验将来会有所帮助(参见 `快速指南 "
+#~ "<http://expressjs.com/en/guide/routing.html>`_ 获取启动). "
+
+#~ msgid ""
+#~ "Feathers works standalone but also "
+#~ "provides :doc:`an integration <../../api/express>`_"
+#~ " with `Express <http://expressjs.com/>`_. This"
+#~ " guide does not require any in-"
+#~ "depth knowledge of Express but some "
+#~ "experience with Express will be helpful"
+#~ " in the future (see the `Express "
+#~ "guide <http://expressjs.com/en/guide/routing.html>`_ to"
+#~ " get started)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers works standalone but also "
+#~ "provides :doc:`an integration <../../api/express>`"
+#~ " with `Express <http://expressjs.com/>`_. This"
+#~ " guide does not require any in-"
+#~ "depth knowledge of Express but some "
+#~ "experience with Express will be helpful"
+#~ " in the future (see the `Express "
+#~ "guide <http://expressjs.com/en/guide/routing.html>`_ to"
+#~ " get started)."
+#~ msgstr ""
+

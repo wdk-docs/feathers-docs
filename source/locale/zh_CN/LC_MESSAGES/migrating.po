@@ -1,0 +1,767 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:39+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/migrating.rst:2
+msgid "Feathers v3 (Buzzard)"
+msgstr " Feathers v3(秃鹰)"
+
+#: ../../source/migrating.rst:4
+msgid ""
+"Feathers v3 comes with some great improvements and new features and we "
+"highly recommend to upgrade as soon as possible. It might look a little "
+"daunting at first but in almost every case, the new CLI will get you "
+"almost all the way there automatically. This page contains information "
+"about the quick upgrade path and more information about all the changes "
+"to upgrade from Feathers v2 to v3."
+msgstr ""
+"Feathers "
+"v3带有一些很棒的改进和新功能,我们强烈建议您尽快升级.一开始看起来有点令人生畏,但几乎在所有情况下,新的CLI都会自动为您提供所有方式.此页面包含有关快速升级路径的信息以及有关从Feathers"
+" v2升级到v3的所有更改的更多信息."
+
+#: ../../source/migrating.rst:11
+msgid ""
+"Read the release post at `Flying into 2018 <https://blog.feathersjs.com"
+"/flying-into-2018-13bda623f089>`_"
+msgstr ""
+"阅读 `飞入2018年 <https://blog.feathersjs.com/flying-"
+"into-2018-13bda623f089>`_ 的发布帖子"
+
+#: ../../source/migrating.rst:15
+msgid "Quick upgrade"
+msgstr "快速升级"
+
+#: ../../source/migrating.rst:17
+msgid ""
+"To quickly upgrade any Feathers plugin or application you can use the "
+"``upgrade`` command from the new CLI. First, if you have it installed, "
+"uninstall the old ``feathers-cli``:"
+msgstr ""
+"要快速升级任何Feathers插件或应用程序,您可以使用新CLI中的 ``upgrade`` 命令.首先,如果安装了它,请卸载旧的"
+" ``feathers-cli``:"
+
+#: ../../source/migrating.rst:25
+msgid "Then install ``@feathersjs/cli`` and upgrade a project:"
+msgstr "然后安装 ``@feathersjs/cli`` 并升级项目:"
+
+#: ../../source/migrating.rst:35
+msgid ""
+"The CLI will use the ``directories.lib`` in your ``package.json`` to know"
+" where your source files are located, defaulting to ``src`` if none "
+"provided. If you have a transpiled app/module, e.g. with babel, including"
+" a ``lib`` AND a ``src`` folder, then the most simple is to change the "
+"``directories.lib`` in your ``package.json`` to ``src``\\ instead of "
+"``lib`` so that the CLI will correctly upgrade the original source files "
+"and not the transpiled ones."
+msgstr ""
+"CLI将使用 ``package.json`` 中的 ``directories.lib`` 来知道源文件的位置,如果没有提供,则默认为 ``src``.如果您有一个已转换的应用/模块,例如使用babel,包括 ``lib`` 和 ``src`` 文件夹,最简单的是将 ``package.json`` 中的 ``directories.lib`` 更改为 ``src``"
+" \\ \\而不是 ``lib``,以便CLI将正确升级原始源文件而不是已转换的源文件."
+
+#: ../../source/migrating.rst:43
+msgid "In short (for more details see below) this will:"
+msgstr "简而言之(有关详细信息,请参见下文),这将:"
+
+#: ../../source/migrating.rst:45
+msgid ""
+"Upgrade all core packages to the new scoped package names and their "
+"latest versions"
+msgstr "将所有核心软件包升级到新的作用域软件包名称及其最新版本"
+
+#: ../../source/migrating.rst:47
+msgid ""
+"Remove all ``feathers-hooks`` imports and single line "
+"``app.configure(hooks());`` (chained ``.configure(hooks())`` calls will "
+"have to be removed manually))"
+msgstr ""
+"删除所有 ``feathers-"
+"hooks`` 导入和单行 ``app.configure(hooks());`` (链接 ``.configure(hooks())`` 调用必须手动删除))"
+
+#: ../../source/migrating.rst:50
+msgid ""
+"Add Express compatibility to any application that uses ``feathers-rest`` "
+"(other Feathers apps without ``feathers-rest`` have to be updated "
+"manually)"
+msgstr ""
+"为任何使用 ``feathers-rest`` 的应用程序添加Express兼容性(其他没有 ``feathers-"
+"rest`` 的Feathers应用程序必须手动更新)"
+
+#: ../../source/migrating.rst:53
+msgid ""
+"Remove all ``.filter`` imports and calls to ``service.filter`` which has "
+"been replaced by channel functionality"
+msgstr "删除所有 ``.filter`` 导入并调用已被通道功能取代的 ``service.filter``"
+
+#: ../../source/migrating.rst:57
+msgid "Adding channels"
+msgstr "添加频道"
+
+#: ../../source/migrating.rst:59
+msgid ""
+"If you are using real-time (with Socket.io or Primus), add the following "
+"file as ``src/channels.js``:"
+msgstr "如果您使用实时(使用Socket.io或Primus),请将以下文件添加为 ``src/channels.js``:"
+
+#: ../../source/migrating.rst:123
+msgid ""
+"And require and configure it in ``src/app.js`` (note that it should be "
+"configured after all services so that ``channels.js`` can register "
+"service specific publishers):"
+msgstr "并且需要在 ``src/app.js`` 中配置它(注意它应该在所有服务之后配置,以便 ``channels.js`` 可以注册服务特定的发布者):"
+
+#: ../../source/migrating.rst:136
+msgid ""
+"**Very important:** The ``channels.js`` file shown above will publish all"
+" real-time events to all authenticated users. This is already safer than "
+"the previous default but you should carefully review the "
+":doc:`./api/channels` documentation and implement appropriate channels so"
+" that only the right users are going to receive real-time events."
+msgstr "**非常重要:** 上面显示的` `channels.js`` 文件会将所有实时事件发布给所有经过身份验证的用户.这比以前的默认值更安全,但您应该仔细查看:doc:`./api/channels`文档并实现适当的通道,以便只有正确的用户才能接收实时事件."
+
+#: ../../source/migrating.rst:143
+msgid ""
+"Once you migrated your application to channels you can remove all "
+"``<servicename>.filter.js`` files."
+msgstr "将应用程序迁移到通道后,可以删除所有 ``<servicename> .filter.js`` 文件."
+
+#: ../../source/migrating.rst:147
+msgid "Protecting fields"
+msgstr "保护领域"
+
+#: ../../source/migrating.rst:149
+msgid ""
+"Feathers v3 has a new mechanism to ensure that sensitive information "
+"never gets published to any client. To protect always protect the user "
+"password, add the :doc:`api/authentication/local#protect` in "
+"``src/services/users/users.hooks.js`` instead of the "
+"``remove('password')`` hook:"
+msgstr ""
+"Feathers "
+"v3有一种新机制可确保敏感信息永远不会发布到任何客户端.要保护始终保护用户密码,请在 ``src/services/users/users.hooks.js`` 中添加 :doc:`api/authentication/local＃protect`,而不是 ``remove('password')`` 钩子:"
+
+#: ../../source/migrating.rst:197
+msgid "Updating client side applications"
+msgstr "更新客户端应用程序"
+
+#: ../../source/migrating.rst:199
+#, fuzzy
+msgid ""
+"Client side Feathers applications can also be updated using the CLI but "
+"may need some manual intervention. Most importantly, since Feathers core "
+"now natively ships as ES6 code, the module bundler, like Webpack, has to "
+"be instructed to transpile it. More information can be found in the "
+":doc:`./api/client`. For Webpack and ``create-react-app`` usage (which "
+"both will throw a minification error without changes), see "
+":ref:`api_client_webpack`."
+msgstr ""
+"客户端Feathers应用程序也可以使用CLI进行更新,但可能需要一些手动干预.最重要的是,由于Feathers核心现在本身作为ES6代码发布,因此必须指示模块捆绑器(如Webpack)进行转换.更多信息可以在 :doc:`./api/client` 中找到.对于Webpack和"
+"``create-react-"
+"app``用法(两者都会在没有更改的情况下抛出缩小错误),请参阅:doc:`./api/client＃webpack`."
+
+#: ../../source/migrating.rst:208
+msgid "``@feathersjs`` npm scope"
+msgstr "``@feathersjs`` npm scope"
+
+#: ../../source/migrating.rst:210
+msgid ""
+"All Feathers core modules have been moved to the ``@feathersjs`` npm "
+"scope. This makes it more clear which modules are considered core and "
+"which modules are community supported and also allows us to more easily "
+"manage publishing permissions. The following modules have been renamed:"
+msgstr ""
+"所有Feathers核心模块都已移至 ``@feathersjs`` "
+"npm范围.这使得更清楚哪些模块被视为核心模块以及哪些模块受社区支持,并且还允许我们更轻松地管理发布权限.以下模块已重命名:"
+
+#: ../../source/migrating.rst:216
+msgid "Main Feathers"
+msgstr "主要Feathers"
+
+#: ../../source/migrating.rst:219 ../../source/migrating.rst:236
+#: ../../source/migrating.rst:250
+msgid "Old name"
+msgstr "旧名"
+
+#: ../../source/migrating.rst:219 ../../source/migrating.rst:236
+#: ../../source/migrating.rst:250
+msgid "Scoped name"
+msgstr "范围名称"
+
+#: ../../source/migrating.rst:221
+msgid "feathers"
+msgstr "feathers"
+
+#: ../../source/migrating.rst:221 ../../source/migrating.rst:252
+msgid "@feathersjs/feathers"
+msgstr "@feathersjs/feathers"
+
+#: ../../source/migrating.rst:222
+msgid "feathers-cli"
+msgstr "feathers-cli"
+
+#: ../../source/migrating.rst:222
+msgid "@feathersjs/cli"
+msgstr "@feathersjs/cli"
+
+#: ../../source/migrating.rst:223
+msgid "feathers-commons"
+msgstr "feathers-commons"
+
+#: ../../source/migrating.rst:223
+msgid "@feathersjs/commons"
+msgstr "@feathersjs/commons"
+
+#: ../../source/migrating.rst:224
+msgid "feathers-rest"
+msgstr "feathers-rest"
+
+#: ../../source/migrating.rst:224
+msgid "@feathersjs/express/rest"
+msgstr "@feathersjs/express/rest"
+
+#: ../../source/migrating.rst:225
+msgid "feathers-socketio"
+msgstr "feathers-socketio"
+
+#: ../../source/migrating.rst:225
+msgid "@feathersjs/socketio"
+msgstr "@feathersjs/socketio"
+
+#: ../../source/migrating.rst:226
+msgid "feathers-primus"
+msgstr "feathers-primus"
+
+#: ../../source/migrating.rst:226
+msgid "@feathersjs/primus"
+msgstr "@feathersjs/primus"
+
+#: ../../source/migrating.rst:227
+msgid "feathers-errors"
+msgstr "feathers-errors"
+
+#: ../../source/migrating.rst:227
+msgid "@feathersjs/errors"
+msgstr "@feathersjs/errors"
+
+#: ../../source/migrating.rst:228
+msgid "feathers-configuration"
+msgstr "feathers-configuration"
+
+#: ../../source/migrating.rst:228
+msgid "@feathersjs/configuration"
+msgstr "@feathersjs/configuration"
+
+#: ../../source/migrating.rst:229
+msgid "feathers-socket-commons"
+msgstr "feathers-socket-commons"
+
+#: ../../source/migrating.rst:229
+msgid "@feathersjs/socket-commons"
+msgstr "@feathersjs/socket-commons"
+
+#: ../../source/migrating.rst:233
+msgid "Authentication"
+msgstr "认证"
+
+#: ../../source/migrating.rst:238
+msgid "feathers-authentication"
+msgstr "feathers-authentication"
+
+#: ../../source/migrating.rst:238
+msgid "@feathersjs/authentication"
+msgstr "@feathersjs/authentication"
+
+#: ../../source/migrating.rst:239
+msgid "feathers-authentication-jwt"
+msgstr "feathers-authentication-jwt"
+
+#: ../../source/migrating.rst:239
+msgid "@feathersjs/authentication-jwt"
+msgstr "@feathersjs/authentication-jwt"
+
+#: ../../source/migrating.rst:240
+msgid "feathers-authentication-local"
+msgstr "feathers-authentication-local"
+
+#: ../../source/migrating.rst:240
+msgid "@feathersjs/authentication-local"
+msgstr "@feathersjs/authentication-local"
+
+#: ../../source/migrating.rst:241
+msgid "feathers-authentication-oauth1"
+msgstr "feathers-authentication-oauth1"
+
+#: ../../source/migrating.rst:241
+msgid "@feathersjs/authentication-oauth1"
+msgstr "@feathersjs/authentication-oauth1"
+
+#: ../../source/migrating.rst:242
+msgid "feathers-authentication-oauth2"
+msgstr "feathers-authentication-oauth2"
+
+#: ../../source/migrating.rst:242
+msgid "@feathersjs/authentication-oauth2"
+msgstr "@feathersjs/authentication-oauth2"
+
+#: ../../source/migrating.rst:243
+msgid "feathers-authentication-client"
+msgstr "feathers-authentication-client"
+
+#: ../../source/migrating.rst:243 ../../source/migrating.rst:257
+msgid "@feathersjs/authentication-client"
+msgstr "@feathersjs/authentication-client"
+
+#: ../../source/migrating.rst:247
+msgid "Client side Feathers"
+msgstr "客户端羽毛"
+
+#: ../../source/migrating.rst:252
+msgid "feathers/client"
+msgstr "feathers/client"
+
+#: ../../source/migrating.rst:253
+msgid "feathers-client"
+msgstr "feathers-client"
+
+#: ../../source/migrating.rst:253
+msgid "@feathersjs/client"
+msgstr "@feathersjs/client"
+
+#: ../../source/migrating.rst:254
+msgid "feathers-rest/client"
+msgstr "feathers-rest/client"
+
+#: ../../source/migrating.rst:254
+msgid "@feathersjs/rest-client"
+msgstr "@feathersjs/rest-client"
+
+#: ../../source/migrating.rst:255
+msgid "feathers-socketio/client"
+msgstr "feathers-socketio/client"
+
+#: ../../source/migrating.rst:255
+msgid "@feathersjs/socketio-client"
+msgstr "@feathersjs/socketio-client"
+
+#: ../../source/migrating.rst:256
+msgid "feathers-primus/client"
+msgstr "feathers-primus/client"
+
+#: ../../source/migrating.rst:256
+msgid "@feathersjs/primus-client"
+msgstr "@feathersjs/primus-client"
+
+#: ../../source/migrating.rst:257
+msgid "feathers-authentication/client"
+msgstr "feathers-authentication/client"
+
+#: ../../source/migrating.rst:261
+msgid "Documentation changes"
+msgstr "文档更改"
+
+#: ../../source/migrating.rst:263
+msgid ""
+"With a better focus on Feathers core, the repositories, documentation and"
+" guides for non-core module have been moved to more appropriate "
+"locations:"
+msgstr "通过更好地关注Feathers核心,非核心模块的存储库,文档和指南已移至更合适的位置:"
+
+#: ../../source/migrating.rst:267
+msgid ""
+"Non-core modules have been moved to the `feathersjs-ecosystem "
+"<https://github.com/feathersjs-ecosystem/>`_ and `feathers-plus "
+"<https://github.com/feathers-plus/>`_ organizations. *Documentation for "
+"those modules can be found in the Readme file of their respective GitHub "
+"repositories.*"
+msgstr ""
+"非核心模块已被转移到 `feathersjs-ecosystem <https://github.com/feathersjs-"
+"ecosystem/>`_ 和 `feathers-plus <https://github.com/feathers-plus/>`_ 组织. "
+"*这些模块的文档可以在各自的GitHub存储库的自述文件中找到.*"
+
+#: ../../source/migrating.rst:272
+#, fuzzy
+msgid ""
+"Database adapter specific documentation can now be found in the "
+"respective repositories readme. Links to the repositories can be found in"
+" the :doc:`./api/databases/adapters`"
+msgstr "现在可以在相应的存储库自述文件中找到特定于数据库适配器的文档.可以在 :doc:`./api/databases/adapters` 中找到存储库的链接"
+
+#: ../../source/migrating.rst:275
+msgid ""
+"The ``feathers-hooks-common`` documentation can be found at `feathers-"
+"plus.github.io/v1/feathers-hooks-common/<https://feathers-"
+"plus.github.io/v1/feathers-hooks-common/>`_"
+msgstr ""
+"``feathers-hooks-common`` 文档可以在 `feathers-plus.github.io/v1/feathers-hooks-common/<https://feathers-plus.github.io/v1/feathers-hooks-common/>`_"
+
+#: ../../source/migrating.rst:277
+msgid ""
+"Offline and authentication-management documentation can also be found at "
+"`feathers-plus.github.io <https://feathers-plus.github.io/>`_"
+msgstr ""
+"离线和身份验证管理文档也可以在 `feathers-plus.github.io <https://feathers-"
+"plus.github.io/>`_ 找到."
+
+#: ../../source/migrating.rst:279
+msgid ""
+"The Ecosystem page now points to `awesome-feathersjs "
+"<https://github.com/feathersjs/awesome-feathersjs>`_"
+msgstr ""
+"生态系统页面现在指向 `awesome-feathersjs <https://github.com/feathersjs/awesome-"
+"feathersjs>`_"
+
+#: ../../source/migrating.rst:283
+msgid "Framework independent"
+msgstr "框架独立"
+
+#: ../../source/migrating.rst:285
+msgid ""
+"``@feathersjs/feathers`` v3 is framework independent and will work on the"
+" client and in Node out of the box. This means that it is not extending "
+"Express by default anymore."
+msgstr "``@feathersjs/feathers`` v3与框架无关,可以在客户端和开箱即用的Node中运行.这意味着它不再默认扩展Express."
+
+#: ../../source/migrating.rst:289
+msgid ""
+"Instead ``@feathersjs/express`` provides the framework bindings and the "
+"REST provider (previously ``feathers-rest``) in either "
+"``require('@feathersjs/express').rest`` or ``@feathersjs/express/rest``. "
+"``@feathersjs/express`` also brings Express built-in middleware like "
+"``express.static`` and the recently included ``express.json`` and "
+"``express.urlencoded`` body parsers. Once a Feathers application is "
+"“expressified” it can be used like the previous version:"
+msgstr ""
+"而 ``@feathersjs/express`` 在 ``require('@feathersjs/express').rest`` 或 ``@"
+"feathersjs/`` 中提供框架绑定和REST提供程序(以前称为 ``feathers-rest``).express/rest``. ``@"
+"feathersjs/express`` 还带有Express内置中间件,如 ``express.static`` 和最近包含的 ``express.json`` 和 ``express.urlencoded`` 身体解析器.一旦Feathers应用程序被 “表达”,它就可以像以前的版本一样使用:"
+
+#: ../../source/migrating.rst:297 ../../source/migrating.rst:358
+#: ../../source/migrating.rst:462
+msgid "**Before**"
+msgstr "**Before**"
+
+#: ../../source/migrating.rst:322 ../../source/migrating.rst:384
+#: ../../source/migrating.rst:478
+msgid "**Now**"
+msgstr "**Now**"
+
+#: ../../source/migrating.rst:349
+msgid "Hooks in core"
+msgstr "钩子在核心"
+
+#: ../../source/migrating.rst:351
+msgid ""
+"The ``feathers-hooks`` plugin is now a part of core and no longer has to "
+"be imported and configured. All services will have hook functionality "
+"included right away. Additionally it is now also possible to define "
+"different data that should be sent to the client in ``hook.dispatch`` "
+"which allows to properly secure properties that should not be shown to a "
+"client."
+msgstr ""
+"``feathers-hooks`` 插件现在是核心的一部分,不再需要导入和配置.所有服务都将立即包含挂钩功能.此外,现在还可以定义应该在 ``hook.dispatch`` 中发送给客户端的不同数据,这样可以正确保护不应该显示给客户端的属性."
+
+#: ../../source/migrating.rst:409
+msgid "Event channels and publishing"
+msgstr "事件频道和出版"
+
+#: ../../source/migrating.rst:411
+msgid ""
+"Previously, filters were used to run for every event and every connection"
+" to determine if the event should be sent or not."
+msgstr "以前,过滤器用于为每个事件和每个连接运行,以确定是否应该发送事件."
+
+#: ../../source/migrating.rst:414
+msgid ""
+"Event channels are a more secure and performant way to define which "
+"connections to send real-time events to. Instead of running for every "
+"event and every connection you define once which channels a connection "
+"belongs to when it is established or authenticated."
+msgstr "事件通道是一种更安全,更高效的方式,用于定义将实时事件发送到的连接.而不是为每个事件和每个连接运行,而是在建立或验证连接时定义连接属于哪个通道."
+
+#: ../../source/migrating.rst:436
+msgid "To only publish to rooms a user is in:"
+msgstr "要仅发布到用户所在的房间:"
+
+#: ../../source/migrating.rst:454
+msgid "Better separation of client and server side modules"
+msgstr "更好地分离客户端和服务器端模块"
+
+#: ../../source/migrating.rst:456
+msgid ""
+"Feathers core was working on the client and the server since v2 but it "
+"wasn’t always entirely clear which related modules should be used how. "
+"Now all client side connectors are located in their own repositories "
+"while the main Feathers repository can be required the same way on the "
+"client and the server."
+msgstr "自v2以来,Feathers核心一直在客户端和服务器上运行,但并不总是很清楚应该使用哪些相关模块.现在,所有客户端连接器都位于它们自己的存储库中,而主要的Feathers存储库在客户端和服务器上可能需要相同的方式."
+
+#: ../../source/migrating.rst:493
+msgid "Node 6+"
+msgstr "Node 6+"
+
+#: ../../source/migrating.rst:495
+msgid ""
+"The core repositories mentioned above also have been migrated to be "
+"directly usable (e.g. when npm installing the repository as a Git/GitHub "
+"dependency) without requiring a Babel transpilation step."
+msgstr "上面提到的核心存储库也已经被迁移到可以直接使用(例如,当npm将存储库安装为Git/GitHub依赖关系时),而不需要Babel转换步骤."
+
+#: ../../source/migrating.rst:499
+msgid ""
+"Since all repositories make extensive use of ES6 that also means that "
+"Node 4 is no longer supported."
+msgstr "由于所有存储库都广泛使用ES6,这也意味着不再支持节点4."
+
+#: ../../source/migrating.rst:502
+msgid ""
+"Also see `/feathers/issues/608 "
+"<https://github.com/feathersjs/feathers/issues/608>`_."
+msgstr ""
+"另见 `/feathers/issues/608 "
+"<https://github.com/feathersjs/feathers/issues/608>`_."
+
+#: ../../source/migrating.rst:506
+msgid "A new Socket message format"
+msgstr "一种新的Socket消息格式"
+
+#: ../../source/migrating.rst:508
+msgid ""
+"The websocket messaging format has been updated to support proper error "
+"messages when trying to call a non-existing service or method (instead of"
+" just timing out). Using the new ``@feathersjs/socketio-client`` and "
+"``@feathersjs/primus-client`` will automatically use that format. You can"
+" find the details in the :doc:`api/client/socketio` and "
+":doc:`./api/client/primus` documentation."
+msgstr ""
+"在尝试调用不存在的服务或方法(而不是仅仅超时)时,websocket消息传递格式已更新为支持正确的错误消息.使用新的 ``@feathersjs"
+"/socketio-client`` 和 ``@feathersjs/primus-"
+"client`` 将自动使用该格式.您可以在 :doc:`api/client/socketio` 和 :doc:`./api/client/primus` 文档中找到详细信息."
+
+#: ../../source/migrating.rst:515
+msgid ""
+"The old message format is still supported so the clients do not have to "
+"be updated at the same time."
+msgstr "仍支持旧邮件格式,因此不必同时更新客户端."
+
+#: ../../source/migrating.rst:519
+msgid "Deprecations and other API changes"
+msgstr "弃用和其他API更改"
+
+#: ../../source/migrating.rst:521
+msgid ""
+"Callbacks are no longer supported in Feathers service methods. All "
+"service methods always return a Promise. Custom services must return a "
+"Promise or use ``async/await``."
+msgstr "Feathers服务方法不再支持回调.所有服务方法总是返回Promise.自定义服务必须返回Promise或使用 ``async/await``."
+
+#: ../../source/migrating.rst:524
+msgid ""
+"``service.before`` and ``service.after`` have been replaced with a single"
+" ``app.hooks({ before, after })``"
+msgstr "``service.before`` 和 ``service.after`` 已被替换为单个 ``app.hooks({before,after})``"
+
+#: ../../source/migrating.rst:526
+msgid ""
+"``app.service(path)`` only returns a service and cannot be used to "
+"register a new service anymore (via ``app.service(path, service)``). Use "
+"``app.use(path, service)`` instead."
+msgstr "``app.service(path)`` 只返回一个服务,不再用于注册新服务(通过 ``app.service(path,service)``).请使用 ``app.use(path,service)``."
+
+#: ../../source/migrating.rst:529
+msgid ""
+"Route parameters which were previously added directly to ``params`` are "
+"now in ``params.route``"
+msgstr "之前直接添加到“params”的路由参数现在位于 ``params.route`` 中"
+
+#: ../../source/migrating.rst:531
+msgid ""
+"Express middleware like ``feathers.static`` is now located in ``const "
+"express = require('@feathersjs/express')`` using ``express.static``"
+msgstr ""
+"像 ``feathers.static`` 这样的快速中间件现在位于 ``const express = require('@"
+"feathersjs/express')`` 使用 ``express.static``"
+
+#: ../../source/migrating.rst:534
+msgid ""
+"Experimental TypeScript definitions have been removed from all core "
+"repositories. Development of TypeScript definitions for this version can "
+"be follow at `feathersjs-ecosystem/feathers-typescript "
+"<https://github.com/feathersjs-ecosystem/feathers-typescript>`_. Help "
+"welcome."
+msgstr ""
+"已从所有核心存储库中删除实验性TypeScript定义.可以在 `feathersjs-ecosystem/feathers-typescript "
+"<https://github.com/feathersjs-ecosystem/feathers-"
+"typescript>`_ 中开发此版本的TypeScript定义.欢迎帮助."
+
+#: ../../source/migrating.rst:541
+msgid "Backwards compatibility polyfills"
+msgstr "向后兼容性polyfill"
+
+#: ../../source/migrating.rst:543
+msgid ""
+"Besides the steps outlined above, existing hooks, database adapters, "
+"services and other plugins should be fully compatible with Feathers v3 "
+"without any additional modifications."
+msgstr "除了上面列出的步骤,现有的钩子,数据库适配器,服务和其他插件应该与Feathers v3完全兼容,无需任何额外的修改."
+
+#: ../../source/migrating.rst:547
+msgid ""
+"This section contains some quick backwards compatibility polyfills for "
+"the breaking change that can be used to make the migration easier or "
+"continue to use plugins that use deprecated syntax."
+msgstr "本节包含一些快速向后兼容性polyfill,用于突破性更改,可用于简化迁移或继续使用使用弃用语法的插件."
+
+#: ../../source/migrating.rst:552
+msgid "Basic service filter"
+msgstr "基本服务过滤器"
+
+#: ../../source/migrating.rst:554
+msgid ""
+"This is a basic emulation of the previous event filter functionality. It "
+"does not use promises or allow modifying the data (which should now be "
+"handled by setting ``hook.dispatch``)."
+msgstr "这是先前事件过滤器功能的基本模拟.它不使用promises或允许修改数据(现在应该通过设置 ``hook.dispatch`` 来处理)."
+
+#: ../../source/migrating.rst:584
+msgid "Route parameters"
+msgstr "路线参数"
+
+#: ../../source/migrating.rst:597
+msgid "``.before`` and ``.after`` hook registration"
+msgstr "``.before`` 和 ``.after`` 挂钩注册"
+
+#~ msgid ""
+#~ "**Very important:** The ``channels.js`` file"
+#~ " shown above will publish all "
+#~ "real-time events to all authenticated "
+#~ "users. This is already safer than "
+#~ "the previous default but you should "
+#~ "carefully review the `channels "
+#~ "<./api/channels.md>`_ documentation and implement"
+#~ " appropriate channels so that only "
+#~ "the right users are going to "
+#~ "receive real-time events."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers v3 has a new mechanism to"
+#~ " ensure that sensitive information never"
+#~ " gets published to any client. To "
+#~ "protect always protect the user "
+#~ "password, add the `protect hook "
+#~ "<api/authentication/local.md#protect>`_ in "
+#~ "``src/services/users/users.hooks.js`` instead of the"
+#~ " ``remove('password')`` hook:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Client side Feathers applications can "
+#~ "also be updated using the CLI but"
+#~ " may need some manual intervention. "
+#~ "Most importantly, since Feathers core "
+#~ "now natively ships as ES6 code, "
+#~ "the module bundler, like Webpack, has"
+#~ " to be instructed to transpile it."
+#~ " More information can be found in "
+#~ "the :doc:`./api/client`. For Webpack and "
+#~ "``create-react-app`` usage (which both"
+#~ " will throw a minification error "
+#~ "without changes), see `this section "
+#~ "<./api/client.md#webpack>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The websocket messaging format has been"
+#~ " updated to support proper error "
+#~ "messages when trying to call a "
+#~ "non-existing service or method (instead "
+#~ "of just timing out). Using the new"
+#~ " ``@feathersjs/socketio-client`` and "
+#~ "``@feathersjs/primus-client`` will automatically "
+#~ "use that format. You can find the"
+#~ " details in the :doc:`api/client/socketio` "
+#~ "and :doc:`./api/client/primus` documentation."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers v3 has a new mechanism to"
+#~ " ensure that sensitive information never"
+#~ " gets published to any client. To "
+#~ "protect always protect the user "
+#~ "password, add the :doc:`protect hook "
+#~ "<api/authentication/local#protect>`_ in "
+#~ "``src/services/users/users.hooks.js`` instead of the"
+#~ " ``remove('password')`` hook:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Client side Feathers applications can "
+#~ "also be updated using the CLI but"
+#~ " may need some manual intervention. "
+#~ "Most importantly, since Feathers core "
+#~ "now natively ships as ES6 code, "
+#~ "the module bundler, like Webpack, has"
+#~ " to be instructed to transpile it."
+#~ " More information can be found in "
+#~ "the :doc:`./api/client`. For Webpack and "
+#~ "``create-react-app`` usage (which both"
+#~ " will throw a minification error "
+#~ "without changes), see :doc:`this section "
+#~ "<./api/client#webpack>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers v3 has a new mechanism to"
+#~ " ensure that sensitive information never"
+#~ " gets published to any client. To "
+#~ "protect always protect the user "
+#~ "password, add the :doc:`protect hook "
+#~ "<api/authentication/local#protect>` in "
+#~ "``src/services/users/users.hooks.js`` instead of the"
+#~ " ``remove('password')`` hook:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Client side Feathers applications can "
+#~ "also be updated using the CLI but"
+#~ " may need some manual intervention. "
+#~ "Most importantly, since Feathers core "
+#~ "now natively ships as ES6 code, "
+#~ "the module bundler, like Webpack, has"
+#~ " to be instructed to transpile it."
+#~ " More information can be found in "
+#~ "the :doc:`./api/client`. For Webpack and "
+#~ "``create-react-app`` usage (which both"
+#~ " will throw a minification error "
+#~ "without changes), see :doc:`this section "
+#~ "<./api/client#webpack>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The websocket messaging format has been"
+#~ " updated to support proper error "
+#~ "messages when trying to call a "
+#~ "non-existing service or method (instead "
+#~ "of just timing out). Using the new"
+#~ " ``@feathersjs/socketio-client`` and "
+#~ "``@feathersjs/primus-client`` will automatically "
+#~ "use that format. You can find the"
+#~ " details in the :doc:`Socket.io client "
+#~ "<api/client/socketio>` and :doc:`Primus client "
+#~ "<./api/client/primus>` documentation."
+#~ msgstr ""
+

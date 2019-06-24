@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>处理数据 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="建立一个前端" href="frontend.html" />
+    <link rel="prev" title="添加身份验证" href="authentication.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">创建聊天应用程序</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">创建聊天应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating.html">创建应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">创建服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="authentication.html">添加身份验证</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">处理数据</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sanitize-new-message">消除新消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-user-avatar">添加用户头像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#populate-the-message-sender">填充邮件发件人</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="testing.html">写测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">创建聊天应用程序</a> &raquo;</li>
+        
+      <li>处理数据</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/chat/processing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="processing-data">
+<h1>处理数据<a class="headerlink" href="#processing-data" title="永久链接至标题">¶</a></h1>
+<p>现在我们可以 <a class="reference internal" href="authentication.html"><span class="doc">添加身份验证</span></a>,我们将处理数据,清理我们从客户端获得的输入并添加额外的信息.在本章中,我们需要一个空数据库,可以通过删除 <code class="docutils literal notranslate"><span class="pre">data/</span></code> 文件夹(<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">data/</span></code>)来完成.</p>
+<div class="section" id="sanitize-new-message">
+<h2>消除新消息<a class="headerlink" href="#sanitize-new-message" title="永久链接至标题">¶</a></h2>
+<p>创建新消息时,我们会自动清理输入,添加发送消息的用户并包含消息创建日期,然后再将其保存到数据库中.这就是 <a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a> 开始发挥作用的地方.在这种特定情况下, <em>before</em> 钩子.要创建一个新的钩子,我们可以运行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">hook</span>
+</pre></div>
+</div>
+<p>我们把这个钩子叫做 <code class="docutils literal notranslate"><span class="pre">process-message</span></code>.我们希望预处理客户提供的数据.因此,在下一个询问何种钩子的提示中,选择 <code class="docutils literal notranslate"><span class="pre">before</span></code> 并按Enter键.</p>
+<p>接下来显示我们所有服务的列表.对于这个钩子,只选择 <code class="docutils literal notranslate"><span class="pre">messages</span></code> 服务.使用箭头键导航到该条目,然后使用空格键选择它.</p>
+<p>一个钩子可以在任何数量之前运行 <a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a>.对于这个特定的钩子,只选择 <code class="docutils literal notranslate"><span class="pre">create</span></code>.在确认最后一个提示后,您应该看到如下内容:</p>
+<div class="figure align-default" id="id1">
+<img alt="The process-message hook prompts" src="../../_images/process-message.png" />
+<p class="caption"><span class="caption-text">进程消息钩子提示</span><a class="headerlink" href="#id1" title="永久链接至图片">¶</a></p>
+</div>
+<p>生成一个挂钩并连接到所选服务.现在是时候添加一些代码了.更新 <code class="docutils literal notranslate"><span class="pre">src/hooks/process-message.js</span></code> 看起来像这样:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use this hook to manipulate incoming or outgoing data.</span>
+<span class="c1">// For more information on hooks see: http://docs.feathersjs.com/api/hooks.html</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span> <span class="c1">// eslint-disable-line no-unused-vars</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">data</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+
+    <span class="c1">// Throw an error if we didn&#39;t get a text</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">&#39;A message must have a text&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// The authenticated user</span>
+    <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+    <span class="c1">// The actual message text</span>
+    <span class="kr">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span>
+      <span class="c1">// Messages can&#39;t be longer than 400 characters</span>
+      <span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+
+    <span class="c1">// Override the original data (so that people can&#39;t submit additional stuff)</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">text</span><span class="p">,</span>
+      <span class="c1">// Set the user id</span>
+      <span class="nx">userId</span><span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span>
+      <span class="c1">// Add the current date</span>
+      <span class="nx">createdAt</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">()</span>
+    <span class="p">};</span>
+
+    <span class="c1">// Best practice: hooks should always return the context</span>
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>此验证码包括:</p>
+<ol class="arabic simple">
+<li><p>检查数据中是否有 <code class="docutils literal notranslate"><span class="pre">text</span></code>, 如果没有则抛出错误</p></li>
+<li><p>将消息的 <code class="docutils literal notranslate"><span class="pre">text</span></code> 属性截断为400个字符</p></li>
+<li><p>更新提交到数据库的数据以包含:</p></li>
+</ol>
+<ul class="simple">
+<li><p>新的截断文本</p></li>
+<li><p>当前经过身份验证的用户(因此我们始终知道是谁发送的)</p></li>
+<li><p>当前(创建)日期</p></li>
+</ul>
+</div>
+<div class="section" id="add-a-user-avatar">
+<h2>添加用户头像<a class="headerlink" href="#add-a-user-avatar" title="永久链接至标题">¶</a></h2>
+<p>让我们生成另一个钩子来添加一个链接到与用户的电子邮件地址相关联的 <a class="reference external" href="http://en.gravatar.com/">Gravatar</a> image,这样我们就可以显示一个头像了.跑:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">hook</span>
+</pre></div>
+</div>
+<p>选择与我们之前的钩子几乎相同:</p>
+<ul class="simple">
+<li><p>调用钩子 <code class="docutils literal notranslate"><span class="pre">gravatar</span></code></p></li>
+<li><p>这是一个 <code class="docutils literal notranslate"><span class="pre">before</span></code> 钩子</p></li>
+<li><p>… 在 <code class="docutils literal notranslate"><span class="pre">users</span></code> 服务上</p></li>
+<li><p>… 用于 <code class="docutils literal notranslate"><span class="pre">create</span></code> 方法</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<img alt="The gravatar hook prompts" src="../../_images/gravatar.png" />
+<p class="caption"><span class="caption-text">gravatar 钩子提示</span><a class="headerlink" href="#id2" title="永久链接至图片">¶</a></p>
+</div>
+<p>然后我们使用以下代码更新 <code class="docutils literal notranslate"><span class="pre">src/hooks/gravatar.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use this hook to manipulate incoming or outgoing data.</span>
+<span class="c1">// For more information on hooks, see: http://docs.feathersjs.com/api/hooks.html</span>
+
+<span class="c1">// We need this to create the MD5 hash</span>
+<span class="kr">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+
+<span class="c1">// The Gravatar image service</span>
+<span class="kr">const</span> <span class="nx">gravatarUrl</span> <span class="o">=</span> <span class="s1">&#39;https://s.gravatar.com/avatar&#39;</span><span class="p">;</span>
+<span class="c1">// The size query. Our chat needs 60px images</span>
+<span class="kr">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="s1">&#39;s=60&#39;</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span> <span class="c1">// eslint-disable-line no-unused-vars</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// The user email</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">email</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="c1">// Gravatar uses MD5 hashes from an email address (all lowercase) to get the image</span>
+    <span class="kr">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;md5&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">email</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">avatar</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">gravatarUrl</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">hash</span><span class="si">}</span><span class="sb">?</span><span class="si">${</span><span class="nx">query</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+
+    <span class="c1">// Best practice: hooks should always return the context</span>
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>这里我们使用 <a class="reference external" href="https://nodejs.org/api/crypto.html">Node的加密库</a> 来创建用户电子邮件地址的MD5哈希值.这就是Gravatar用作与电子邮件地址关联的头像的URL.创建新用户时,此gravatar挂钩会将“头像”属性设置为头像图像链接.</p>
+</div>
+<div class="section" id="populate-the-message-sender">
+<h2>填充邮件发件人<a class="headerlink" href="#populate-the-message-sender" title="永久链接至标题">¶</a></h2>
+<p>在 <code class="docutils literal notranslate"><span class="pre">process-message</span></code> 钩子中,我们当前只是将用户的 <code class="docutils literal notranslate"><span class="pre">_id</span></code> 添加为消息中的 <code class="docutils literal notranslate"><span class="pre">userId</span></code> 属性.我们希望在UI中显示的不仅仅是 <code class="docutils literal notranslate"><span class="pre">_id</span></code>,因此我们需要在消息响应中填充更多数据.要显示用户的详细信息,我们需要在邮件中包含额外信息.</p>
+<p>因此我们创建另一个钩子:</p>
+<ul class="simple">
+<li><p>调用钩子 <code class="docutils literal notranslate"><span class="pre">populate-user</span></code></p></li>
+<li><p>这是一个 <code class="docutils literal notranslate"><span class="pre">after</span></code> 钩子</p></li>
+<li><p>… 在 <code class="docutils literal notranslate"><span class="pre">messages</span></code> 服务上</p></li>
+<li><p>… 对于 <code class="docutils literal notranslate"><span class="pre">all</span></code> 方法</p></li>
+</ul>
+<div class="figure align-default" id="id3">
+<img alt="The populate-user hook" src="../../_images/populate-user.png" />
+<p class="caption"><span class="caption-text">populate-user钩子</span><a class="headerlink" href="#id3" title="永久链接至图片">¶</a></p>
+</div>
+<p>创建后,将 <code class="docutils literal notranslate"><span class="pre">src/hooks/populate-user.js</span></code> 更新为:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use this hook to manipulate incoming or outgoing data.</span>
+<span class="c1">// For more information on hooks, see: http://docs.feathersjs.com/api/hooks.html</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span> <span class="c1">// eslint-disable-line no-unused-vars</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Get `app`, `method`, `params` and `result` from the hook context</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">app</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="nx">params</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+
+    <span class="c1">// Make sure that we always have a list of messages either by wrapping</span>
+    <span class="c1">// a single message into an array or by getting the `data` from the `find` method&#39;s result</span>
+    <span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;find&#39;</span> <span class="o">?</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span> <span class="o">:</span> <span class="p">[</span> <span class="nx">result</span> <span class="p">];</span>
+
+    <span class="c1">// Asynchronously get user object from each message&#39;s `userId`</span>
+    <span class="c1">// and add it to the message</span>
+    <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">messages</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">async</span> <span class="nx">message</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// Also pass the original `params` to the service call</span>
+      <span class="c1">// so that it has the same information available (e.g. who is requesting it)</span>
+      <span class="nx">message</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">userId</span><span class="p">,</span> <span class="nx">params</span><span class="p">);</span>
+    <span class="p">}));</span>
+
+    <span class="c1">// Best practice: hooks should always return the context</span>
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">Promise.all</span></code> 确保所有调用并行运行,而不是顺序运行.</p>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>在本节中,我们添加了三个钩子来处理我们的消息和用户数据.我们现在有一个完整的API来发送和检索消息,包括身份验证.</p>
+<p>现在我们准备构建一个前端 <a class="reference internal" href="frontend.html"><span class="doc">建立一个前端</span></a>.</p>
+<p>有关 React, React Native, Angular 或 VueJS 等特定框架的更多资源,请参阅 <a class="reference internal" href="../frameworks/readme.html"><span class="doc">与前端框架集成</span></a>.您可以找到创建完整聊天前端的指南,其中包括注册,日志记录,用户列表和消息.还有一些链接可以使用一些流行的前端框架构建完整的聊天应用程序.</p>
+<p>您还可以浏览 <a class="reference internal" href="../../api/readme.html"><span class="doc">API</span></a>,了解有关使用Feathers及其数据库适配器的详细信息.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="frontend.html" class="btn btn-neutral float-right" title="建立一个前端" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="authentication.html" class="btn btn-neutral float-left" title="添加身份验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

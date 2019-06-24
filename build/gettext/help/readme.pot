@@ -1,0 +1,30 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/help/readme.rst:2
+msgid "Help!"
+msgstr ""
+
+#: ../../source/help/readme.rst:4
+msgid "There are many ways that you can get help but before you explore them please check the other parts of these docs, the :doc:`../faq/readme`, `Stackoverflow <http://stackoverflow.com/questions/tagged/feathersjs>`_, `Github Issues <https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+user%3Afeathersjs+>`_ and our `Medium publication <https://blog.feathersjs.com/>`_."
+msgstr ""
+
+#: ../../source/help/readme.rst:12
+msgid "If none of those work it’s a very real possibility that we screwed something up or it’s just not clear. We’re sorry :disappointed_relieved:. We want to hear about it and are very friendly so feel free to come talk to us in `Slack <http://slack.feathersjs.com/>`_ or in the `Russian Telegram chat <https://t.me/featherjs>`_, `submit your issue <https://github.com/feathersjs/feathers/issues/new>`_ on Github or ask on `StackOverflow <http://stackoverflow.com>`_ using the `feathersjs <http://stackoverflow.com/questions/tagged/feathersjs>`_ tag."
+msgstr ""
+

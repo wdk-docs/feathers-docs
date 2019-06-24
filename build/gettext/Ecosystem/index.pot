@@ -1,0 +1,922 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 12:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/Ecosystem/index.rst:2
+msgid "`Awesome Feathers <https://github.com/feathersjs/awesome-feathersjs>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:4
+msgid "https://github.com/feathersjs-ecosystem"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:6
+msgid "`awesome <https://awesome.re>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:12
+msgid "Resources"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:15
+msgid "Official Resources"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:17
+msgid "`Website <https://feathersjs.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:18
+msgid "`Docs <https://docs.feathersjs.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:19
+msgid "`Blog <https://blog.feathersjs.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:20
+msgid "`Guides <https://docs.feathersjs.com/guides/readme.md>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:21
+msgid "`Slack <https://slack.feathersjs.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:22
+msgid "`Telegram Russian chat <https://t.me/featherjs>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:23
+msgid "`Twitter <https://twitter.com/feathersjs>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:26
+msgid "Videos"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:28
+msgid "`The FeathersJS Youtube playlist <https://www.youtube.com/playlist?list=PLwSdIiqnDlf_lb5y1liQK2OW5daXYgKOe>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:29
+msgid "`FeathersJS Real-Time Chat App - Tutorial <https://www.youtube.com/watch?v=CuM4vLkBaik>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:30
+msgid "`Fullstack Feathersjs and React Web App <https://www.youtube.com/playlist?list=PLN3n1USn4xlnulnnBGD2RMid_p7xVj9xU>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:33
+msgid "Articles and Blog Posts"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:35
+msgid "`Feathers Cheatsheet <https://github.com/LeCoupa/awesome-cheatsheets/blob/master/backend/feathers.js>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:36
+msgid "`Integrating Nuxt into your Feathers Application <https://blog.feathersjs.com/ssr-vuejs-app-with-feathers-and-nuxt-bb7dfd3e6397>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:37
+msgid "`How to do server side rendering with Feathers.js and Next.js <http://www.albertgao.xyz/2018/02/04/how-to-do-server-side-rendering-with-feathersjs-and-nextjs/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:38
+msgid "`Russian article - Связи между таблицами sequelize в FeathersJS <https://weburoki.pro/model-relation-feathers-feathers>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:39
+msgid "`Russian article about querying - Запросы сервисам FeathersJS <https://weburoki.pro/querying-feathersjs-service>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:42
+msgid "Examples"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:44
+msgid "`Feathers Chat <https://github.com/feathersjs/feathers-chat>`_ `Official Feathers Repo </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:45
+msgid "`Feathers React Native Chat <https://github.com/feathersjs-ecosystem/feathers-react-native-chat>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:46
+msgid "`Feathers-Vuex (Vue.js) Chat <https://github.com/feathers-plus/feathers-chat-vuex>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:47
+msgid "`Feathers-Vuex (Vue.js) TodoMVC example project <https://github.com/wdmtech/feathers-vuex-todomvc>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:48
+msgid "`Best Buy API Playground <https://github.com/BestBuy/api-playground>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:49
+msgid "`Feathers + Quasar <https://github.com/claustres/quasar-feathers-tutorial>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:50
+msgid "`Feathers + Apollo <https://github.com/swarthout/feathers-apollo>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:51
+msgid "`Feathers 2 + Vue 2 + SSR + Email Verification <https://github.com/codingfriend1/Feathers-Vue>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:52
+msgid "`Feathers 2 + Vue 2 + Email Verification + Cordova + Framework 7 <https://github.com/codingfriend1/Feathers-Vue/tree/cordova>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:53
+msgid "`Feathers + React + Mobx <https://github.com/foxhound87/rfx-stack>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:54
+msgid "`Feathers + React + Webpack <https://github.com/sscaff1/feathers-webpack-react>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:55
+msgid "`Observables with Angular2 and FeathersJS <https://berndsgn.ch/posts/observables-with-angular-and-feathersjs/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:56
+msgid "[Feathers + React + Redux + Webpack + local auth. Production quality](https://github.com/eddyystop/feathers-starter-react-redux-login-roles)."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:57
+msgid "`Live query. Mirror part of a DB on the client. <https://github.com/eddyystop/feathers-live-query>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:58
+msgid "`Feathers + React + Redux + Webpack + complete auth + offline mode (ideal for production) <https://github.com/bertho-zero/react-redux-universal-hot-example>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:59
+msgid "`Build a CRUD App Using React, Redux and FeathersJS <https://www.sitepoint.com/crud-app-react-redux-feathersjs/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:60
+msgid "`feathers-nuxt <https://github.com/silvestreh/feathers-nuxt>`_ - A sample/starter for server-side rendered Vue.js + Feathers applications that supports user authentication"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:61
+msgid "`Passwordless Auth Example Using feathers-authentication-management <https://github.com/rhythnic/feathers-passwordless-auth-example>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:62
+msgid "`Feathers Chat + Login with Facebook <https://github.com/morenoh149/feathers-chat-facebook-signup-api>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:63
+msgid "`Feathers Chat + Phone Signup SMS pin <https://github.com/morenoh149/feathers-chat-phone-signup-sms>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:64
+msgid "`Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-examples/tree/master/examples/feathers/sql-database>`_ - An example for integrating Feathers with [Forest admin](https://www.forestadmin.com/)."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:65
+msgid "`Feathers + Next.js <https://github.com/Albert-Gao/feathers-next-example>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:66
+msgid "`Feathers + Aor-feathers-client + Admin on Rest <https://github.com/kfern/feathers-aor-test-integration>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:67
+msgid "`MyEthereum.app: Feathers + Sequelize + React + Redux + Jest + Zeit deployments <https://github.com/petermikitsh/myethereumapp>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:68
+msgid "`Feathers + Vue and Nuxt <https://github.com/7kmCo/feathers-vue-nuxt>`_ Nuxt.js or Vue.js templates."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:69
+msgid "`Feathers + Nuxt Boilerplate <https://gitlab.com/fexell/featherjs-nuxtjs-boilerplate>`_ Feathers + Nuxt boilerplate with Login, Sign Up, Reauthentication, etc."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:70
+msgid "`Quasar Feathers Structured Conversation <https://github.com/KnowledgeGarden/tqks-featherweight-prototype>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:71
+msgid "`Quasar Feathers tutorial <https://github.com/claustres/quasar-feathers-tutorial>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:72
+msgid "`Feathers + Nuxt Sao Template <https://github.com/feathers-nuxt/template-app>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:73
+msgid "`Frontless: Feathers + RiotJS + Turbolinks + Express <https://github.com/nesterow/frontless>`_ Isomorphic application boilerplate for RiotJS."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:76
+msgid "Projects Using Feathers"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:78
+msgid "`Akt'n'Map <https://aktnmap.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:79
+msgid "`BeachfrontDigital <https://beachfront.digital>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:80
+msgid "`ContactImpact <https://www.contactimpact.de>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:81
+msgid "`Equibit Group <https://equibitgroup.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:82
+msgid "`Foxflow <https://www.foxflow.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:83
+msgid "`GenerousTickets <https://generoustickets.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:84
+msgid "`Gratify <https://gratifyhq.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:85
+msgid "`Headstart <http://www.headstartapp.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:86
+msgid "`HaulHound <https://haulhound.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:87
+msgid "`J.A.B. Property Investments <https://jabpi.com>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:88
+msgid "`Koola <http://koola.io/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:89
+msgid "`Krawler <https://kalisio.github.io/krawler/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:90
+msgid "`Shakepay <https://shakepay.co>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:91
+msgid "`Sleeker <https://sleeker.co>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:92
+msgid "`Simpla <https://www.simpla.io/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:93
+msgid "`Stoplight <https://stoplight.io/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:94
+msgid "`Taxfyle <https://www.taxfyle.com/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:95
+msgid "`Work ID <http://work.id/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:96
+msgid "`Weacast <https://weacast.gitbooks.io/weacast-docs/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:97
+msgid "`June.ai <https://june.ai/>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:100
+msgid "Plugins"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:103
+msgid "Authentication and Authorization"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:105
+msgid "`@feathersjs/authentication <https://docs.feathersjs.com/api/authentication/server.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:106
+msgid "`@feathersjs/authentication-client <https://docs.feathersjs.com/api/authentication/client.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:107
+msgid "`@feathersjs/authentication-local <https://docs.feathersjs.com/api/authentication/local.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:108
+msgid "`@feathersjs/authentication-oauth1 <https://docs.feathersjs.com/api/authentication/oauth1.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:109
+msgid "`@feathersjs/authentication-oauth2 <https://docs.feathersjs.com/api/authentication/oauth2.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:111
+msgid "`feathers-accounts <https://www.npmjs.com/package/feathers-accounts>`_ - Token-Based User Account System for FeathersJS (configure)."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:112
+msgid "`feathers-authentication-popups <https://github.com/feathersjs/feathers-authentication-popups>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:113
+msgid "`feathers-authentication-keystone <https://github.com/virtuozzo/feathers-authentication-keystone>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:114
+msgid "`feathers-permissions <https://github.com/feathersjs-ecosystem/feathers-permissions>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:115
+msgid "`feathers-authentication-management <https://github.com/feathers-plus/feathers-authentication-management>`_ - User email verification and password reset capabilities to local feathers-authentication (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:116
+msgid "`feathers-authentication-compatibility <https://www.npmjs.com/package/feathers-authentication-compatibility>`_ - Keep `v0.x` clients compatible with `v1.0+` authentication"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:119
+msgid "Caching"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:121
+msgid "`feathers-hooks-rediscache <https://github.com/idealley/feathers-hooks-rediscache>`_ - API endpoint caching with Redis."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:124
+msgid "Database"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:126
+msgid "`feathers-elasticsearch <https://github.com/feathersjs-ecosystem/feathers-elasticsearch>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:127
+msgid "`feathers-knex <https://github.com/feathersjs-ecosystem/feathers-knex>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:128
+msgid "`feathers-localstorage <https://github.com/feathersjs-ecosystem/feathers-localstorage>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:129
+msgid "`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:130
+msgid "`feathers-mongodb <https://github.com/feathersjs-ecosystem/feathers-mongodb>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:131
+msgid "`feathers-mongoose <https://github.com/feathersjs-ecosystem/feathers-mongoose>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:132
+msgid "`feathers-nedb <https://github.com/feathersjs-ecosystem/feathers-nedb>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:133
+msgid "`feathers-sequelize <https://github.com/feathersjs-ecosystem/feathers-sequelize>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:135
+msgid "`amity-mongodb <https://www.npmjs.com/package/amity-mongodb>`_ - Use various FeatherJS services to manage a MongoDB server with Amity."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:136
+msgid "`feathers-arangodb <https://github.com/AnatidaeProject/feathers-arangodb>`_ - A Feathers database adapter for ArangoDB using official NodeJS driver for ArangoDB."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:137
+msgid "`feathers-blob <https://github.com/feathersjs-ecosystem/feathers-blob>`_ - Feathers abstract blob store service (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:138
+msgid "`feathers-blueprints <https://www.npmjs.com/package/feathers-blueprints>`_ - Add some of the Sails.js blueprints functionality to Feathers. (configure)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:139
+msgid "`feathers-bookshelf <https://www.npmjs.com/package/feathers-bookshelf>`_ - A bookshelf ORM service adapter (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:140
+msgid "`feathers-couchdb <https://github.com/lontongcorp/feathers-couchdb>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:141
+msgid "`feathersjs-couchbase <https://github.com/Sieabah/feathersjs-couchbase>`_ - Full FeathersJS Query API for couchbase-server"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:142
+msgid "`feathers-dynamodb <https://github.com/jus101/feathers-dynamodb>`_ - Work in progress - help wanted!"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:143
+msgid "`feathers-filemaker <https://www.npmjs.com/package/feathers-filemaker>`_ - Filemaker adapter for feathers.js"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:144
+msgid "`feathers-linvodb <https://www.npmjs.com/package/feathers-linvodb>`_ - Create an LinvoDB Service for FeatherJS. (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:145
+msgid "`feathers-loopback-connector <https://github.com/kethan/feathers-loopback-connector>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:146
+msgid "`feathers-mongo-collections <https://www.npmjs.com/package/feathers-mongo-collections>`_ - MongoDB collections service for FeathersJS. (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:147
+msgid "`feathers-mongo-databases <https://www.npmjs.com/package/feathers-mongo-databases>`_ - Create a MongoDB database service for FeathersJS. (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:148
+msgid "`feathers-mongodb-management <https://github.com/feathersjs-ecosystem/feathers-mongodb-management>`_ - Manage MongoDB users, databases and collections using FeathersJS services."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:149
+msgid "`feathers-mongodb-revisions <https://www.npmjs.com/package/feathers-mongodb-revisions>`_ - This Feathers database adapter extends the basic MongoDB adapter, adding revision support. (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:150
+msgid "`feathers-mongodb-fuzzy-search <https://github.com/arve0/feathers-mongodb-fuzzy-search>`_ - Add fuzzy search to your mongodb service queries"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:151
+msgid "`feathers-nedb-dump <https://www.npmjs.com/package/feathers-nedb-dump>`_ - Middleware for Feathers.js - dumps and restores NeDB database for a given service (middleware)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:152
+msgid "`feathers-objection <https://github.com/feathersjs-ecosystem/feathers-objection>`_ - A service adapter for `Objection.js <https://vincit.github.io/objection.js>`_ - A minimal SQL ORM built on top of Knex."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:153
+msgid "`feathers-orm-service <https://www.npmjs.com/package/feathers-orm-service>`_ - Easily create an Object Relational Mapping Service for Featherjs."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:154
+msgid "`feathers-rethinkdb <https://github.com/feathersjs-ecosystem/feathers-rethinkdb>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:155
+msgid "`feathers-rethinky <https://www.npmjs.com/package/feathers-rethinky>`_ - Thinky.js RethinkDB Adaptor for Feathers JS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:156
+msgid "`feathers-seeder <https://www.npmjs.com/package/feathers-seeder>`_ - Straightforward data seeder for FeathersJS services."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:157
+msgid "`feathers-skypager <https://www.npmjs.com/package/feathers-skypager>`_ - A skypager ORM service adapter (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:158
+msgid "`feathers-solr <https://www.npmjs.com/package/feathers-solr>`_ - Solr Adapter for Feathersjs"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:159
+msgid "`nextql-feathers <https://github.com/giapnguyen74/nextql-feathers>`_ - Featherjs plugin for NextQL-Yet Another Data Query Language. Equivalent GraphQL but much more simple"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:160
+msgid "`feathers-cassandra <https://github.com/dekelev/feathers-cassandra>`_ - Feathers service adapter for Cassandra DB based on Express-Cassandra ORM and CassanKnex query builder"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:161
+msgid "`feathers-json-patch <https://github.com/sibartlett/feathers-json-patch>`_ - Add JSON Patch support to any Feathers database adapter or service."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:164
+msgid "Documentation"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:166
+msgid "`feathers-swagger <https://github.com/feathersjs-ecosystem/feathers-swagger>`_ - Add documentation to your Feathers services and feed them to Swagger UI. (configure)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:169
+msgid "Email and SMS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:171
+msgid "`feathers-mailer <https://github.com/feathersjs-ecosystem/feathers-mailer>`_ - Feathers mailer service using nodemailer (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:174
+msgid "Hooks"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:176
+msgid "`feathers-hooks-commons <https://feathers-plus.github.io/v1/feathers-hooks-common/>`_ - Collection of useful Feathers hooks."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:177
+msgid "`feathers-hooks-csvtoarray <https://www.npmjs.com/package/feathers-hooks-csvtoarray>`_ - Feathers hook for converting a comma-delimited list to an Array of strings."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:178
+msgid "`feathers-hooks-jsonapify <https://www.npmjs.com/package/feathers-hooks-jsonapify>`_ - Feathers hook for outputting data in a JSON-API-compliant way."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:179
+msgid "`feathers-populate-hook <https://www.npmjs.com/package/feathers-populate-hook>`_ - Feathers hook to populate multiple fields with n:m, n:1 or 1:m relations. (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:180
+msgid "`feathers-transform-hook <https://www.npmjs.com/package/feathers-transform-hook>`_ - Feathers hook for transform hook.data parameters (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:181
+msgid "`feathers-virtual-attribute-hook <https://www.npmjs.com/package/feathers-virtual-attribute-hook>`_ - Feathers hook for add virtual attributes to your service response (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:184
+msgid "Payments"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:186
+msgid "`feathers-stripe <https://github.com/feathersjs-ecosystem/feathers-stripe>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:187
+msgid "`feathers-stripe-webhooks <https://github.com/fixate/feathers-stripe-webhooks>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:190
+msgid "Scaling"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:192
+msgid "`mostly-feathers <https://github.com/MostlyJS/mostly-feathers>`_ - Convert your Feathers APIs into microservices"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:193
+msgid "`mostly-feathers-rest <https://github.com/MostlyJS/mostly-feathers-rest>`_ - Expose your microservice as a RESTful API"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:194
+msgid "`feathers-cluster <https://www.npmjs.com/package/feathers-cluster>`_ - Easily take advantage of multi-core systems for Feathers. (configure)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:195
+msgid "`feathers-sync <https://github.com/feathersjs-ecosystem/feathers-sync>`_ - Synchronize service events between application instances using MongoDB publish/subscribe (configure)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:196
+msgid "`feathers-batch <https://github.com/feathersjs-ecosystem/feathers-batch/>`_ - Batch multiple Feathers service calls into one (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:197
+msgid "`feathers-distributed <https://github.com/kalisio/feathers-distributed>`_ - Distribute your Feathers services as microservices"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:200
+msgid "Social media"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:202
+msgid "`feathers-services-instagram-feed <https://www.npmjs.com/package/feathers-services-instagram-feed>`_ - A service that allows to fetch a given user's Instagram feed via its public endpoints."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:205
+msgid "Testing"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:207
+msgid "`feathers-tests-fake-app-users <https://www.npmjs.com/package/feathers-tests-fake-app-users>`_ - Fake some feathers dependencies in service unit tests. Starter for your customized fakes (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:208
+msgid "`feathers-factory <https://github.com/JorgenVatle/feathers-factory>`_ - Quickly build reusable random data generators for your Feathers services."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:211
+msgid "Logging"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:213
+msgid "`feathers-splunk <https://www.npmjs.com/package/feathers-splunk>`_ - Integrates the splunk into feathersjs services for logging."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:216
+msgid "Transports"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:218
+msgid "`@feathersjs/primus <https://docs.feathersjs.com/api/primus.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:219
+msgid "`@feathersjs/express <https://docs.feathersjs.com/api/express.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:220
+msgid "`@feathersjs/socketio <https://docs.feathersjs.com/api/socketio.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:221
+msgid "`@feathersjs/primus-client <https://docs.feathersjs.com/api/client/primus.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:222
+msgid "`@feathersjs/rest-client <https://docs.feathersjs.com/api/client/rest.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:223
+msgid "`@feathersjs/socketio-client <https://docs.feathersjs.com/api/client/socketio.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:225
+msgid "`feathers-socketcluster <https://github.com/polst/feathers-socketcluster>`_ - Use SocketCluster for client/server communication. Not published."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:228
+msgid "Utilities"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:230
+msgid "`@feathersjs/cli <https://github.com/feathersjs/cli>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:231
+msgid "`@feathersjs/client <https://docs.feathersjs.com/api/client.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:232
+msgid "`@feathersjs/configuration <https://docs.feathersjs.com/api/configuration.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:233
+msgid "`@feathersjs/errors <https://docs.feathersjs.com/api/errors.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:234
+msgid "`generator-feathers <https://github.com/feathersjs/generator-feathers>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:235
+msgid "`generator-feathers-plugin <https://github.com/feathersjs/generator-feathers-plugin>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:237
+msgid "`FeathersQuery <https://trinly01.github.io/FeathersQuery/) - Feathers Query is a Lightweight Graphical User Interface (GUI>`_ for Feathers Services. It is a Visual Tool to help you manage data collections."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:238
+msgid "`feathers-bootstrap <https://github.com/daffl/feathers-bootstrap>`_ - Feathers application bootstrap and configuration using JSON files"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:239
+msgid "`feathers-generator <https://github.com/feathersjs-ecosystem/feathers-generator>`_ - A Metalsmith based generator using `feathers-bootstrap`"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:240
+msgid "`feathers-fs <https://github.com/feathersjs/feathers-fs>`_ - Use the FeathersJS service interface to read and write data in the file system."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:241
+msgid "`feathers-hooks-utils <https://www.npmjs.com/package/feathers-hooks-utils>`_ - Utility library for writing Feathersjs hooks. (hooks)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:242
+msgid "`feathers-profiler <https://github.com/feathers-plus/feathers-profiler>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:243
+msgid "`feathers-versionate <https://github.com/luke3butler/feathers-versionate>`_ - Utility for creating and working with nested service paths."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:244
+msgid "`feathers-findone <https://github.com/fridays/feathers-findone) - Adds a .findOne(>`_ method to services in Feathers.js"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:245
+msgid "`feathers-opentracing <https://github.com/dekelev/feathers-opentracing>`_ - OpenTracing integration for FeathersJS services"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:247
+msgid "`fastfeathers <https://github.com/edwardsmarkf/fastfeathers>`_ - collection of bash-shell scripts to run various feathers examples quickly"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:249
+msgid "`feathers-kong <https://github.com/dekelev/feathers-kong>`_ - A Feathers service for `Kong API Gateway <https://docs.konghq.com>`_ admin API"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:252
+msgid "Validation"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:254
+msgid "`feathers-hooks-validate-joi <https://www.npmjs.com/package/feathers-hooks-validate-joi>`_ - Feathers hook utility for schema validation, sanitization and client notification using Joi. (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:255
+msgid "`feathers-hook-validation-jsonschema <https://www.npmjs.com/package/feathers-hook-validation-jsonschema>`_ - Validate Feathers resources using JSON Schema. (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:256
+msgid "`feathers-tcomb <https://www.npmjs.com/package/feathers-tcomb>`_ - validate feathers services using tcomb (app.service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:257
+msgid "`feathers-validate-hook <https://www.npmjs.com/package/feathers-validate-hook>`_ - Feathers hook for validate json-schema with is-my-json-valid (hook)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:258
+msgid "`feathers-validator <https://www.npmjs.com/package/feathers-validator>`_ - A validator for Feathers services. (service)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:261
+msgid "Mobile Clients"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:263
+msgid "The Feathers client works with React Native but here is a collection of native libraries/SDKs."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:266
+msgid "iOS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:268
+msgid "`FeathersjsClientSwift <https://github.com/truebucha/FeathersjsClientSwift>`_ - An iOS client written in Swift."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:269
+msgid "`Feathers <https://github.com/startupthekid/feathers-ios>`_ - Feathers compliant SDK written in Swift 3. Supports rest and socket providers."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:272
+msgid "Android"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:275
+msgid "Frontend frameworks"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:278
+msgid "Framework Agnostic"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:280
+msgid "`@feathersjs/client <https://docs.feathersjs.com/api/client.html>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_ - All of the main client packages rolled into one."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:281
+msgid "`wings-feathers <https://www.npmjs.com/package/wings-feathers>`_ - A FeathersJS 4-Way realtime reactive data sync and callback observable for any frontend frameworks (ie. React, Vue, Angular)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:282
+msgid "`feathers-reactive <https://github.com/feathersjs-ecosystem/feathers-reactive>`_ - Live query streams for Feathers. Turns a Feathers service call into an RxJS observables that automatically updates on real-time events."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:285
+msgid "DoneJS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:287
+msgid "`can-connect-feathers <https://www.npmjs.com/package/can-connect-feathers>`_ - Feathers client library for DoneJS (feathers-client)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:288
+msgid "`canjs-feathers <https://www.npmjs.com/package/canjs-feathers>`_ - CanJS model implementation that connects to Feathers services through feathers-client. (feathers-client)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:289
+msgid "`donejs-feathers <https://www.npmjs.com/package/donejs-feathers>`_ - A generator to quickly add FeathersJS to your DoneJS project. Includes Auth! (generator)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:292
+msgid "React and Redux"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:294
+msgid "`feathers-action <https://www.npmjs.com/package/feathers-action>`_ - use feathers services with redux (connector)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:295
+msgid "`feathers-action-creators <https://www.npmjs.com/package/feathers-action-creators>`_ - redux action creators for feathers services"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:296
+msgid "`feathers-action-reducer <https://www.npmjs.com/package/feathers-action-reducer>`_ - redux reducer for feathers service actions"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:297
+msgid "`feathers-action-types <https://www.npmjs.com/package/feathers-action-types>`_ - flux action types for feathers services (connector)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:298
+msgid "`feathers-react-redux <https://www.npmjs.com/package/feathers-react-redux>`_ - Unofficial Feathers bindings for React-Redux."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:299
+msgid "`feathers-reduxify-services <https://github.com/eddyystop/feathers-reduxify-services>`_ - Wrap Feathers services so they work transparently and perfectly with Redux."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:300
+msgid "`feathers-reduxify-authentication <https://github.com/eddyystop/feathers-reduxify-authentication>`_ - Wrap Feathers.authentication so it works with Redux, and with auth packages for React-Router."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:303
+msgid "VueJS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:305
+msgid "`feathers-vuex <https://github.com/feathers-plus/feathers-vuex>`_ - Integration of Feathers services with your Vuex store."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:306
+msgid "`vue-syncers-feathers <https://www.npmjs.com/package/vue-syncers-feathers>`_ - Synchronises feathers services with vue objects, updated in real time (connector)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:307
+msgid "`vue-feathers <https://github.com/sunabozu/vue-feathers>`_ - A plugin for Vuejs 1.x & 2.x to easily access your feathers services."
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:310
+msgid "Angular 1"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:312
+msgid "`ng-feathers <https://www.npmjs.com/package/ng-feathers>`_ - Feathers client for AngularJS. FeatherJS for plain old AngularJS (1.X)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:315
+msgid "Angular 2"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:317
+msgid "Submit yours!"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:320
+msgid "Polymer"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:322
+msgid "`feathers-polymer <https://github.com/thosakwe/polymer-feathers>`_"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:325
+msgid "AureliaJS"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:327
+msgid "`aurelia-feathersjs-socket-demo <https://bitbucket.org/praveengandhi/aurelia-feathersjs-socket-demo>`_ - Aurelia app (built with Aurelia-CLI connected to Feathers server application via websockets (socket.io)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:330
+msgid "Mithril"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:332
+msgid "`feathers-mithril <https://www.npmjs.com/package/feathers-mithril>`_ - Connect feathers.js to mithril.js (connector)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:335
+msgid "React Admin"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:337
+msgid "`ra-data-feathers <https://github.com/josx/ra-data-feathers>`_ - A feathers rest/socket.io client for react-admin. (Admin)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:340
+msgid "Admin on Rest (replaced by React Admin)"
+msgstr ""
+
+#: ../../source/Ecosystem/index.rst:342
+msgid "`Aor-feathers-client <https://github.com/josx/aor-feathers-client>`_ - A feathers rest client for admin-on-rest. (Admin)"
+msgstr ""
+

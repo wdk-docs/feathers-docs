@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FeathersJS Auth Recipe：认证Express中间件（SSR） &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="高级指南" href="../advanced/index.html" />
+    <link rel="prev" title="FeathersJS Auth Recipe：自定义身份验证策略" href="recipe.custom-auth-strategy.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe：自定义JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe：自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe：使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe：设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe：自定义身份验证策略</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe：认证Express中间件（SSR）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-middleware">Setting up middleware</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#views">Views</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
+        
+      <li>FeathersJS Auth Recipe：认证Express中间件（SSR）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/auth/recipe.express-middleware.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathersjs-auth-recipe-authenticating-express-middleware-ssr">
+<h1>FeathersJS Auth Recipe：认证Express中间件（SSR）<a class="headerlink" href="#feathersjs-auth-recipe-authenticating-express-middleware-ssr" title="永久链接至标题">¶</a></h1>
+<p>Feathers authentication also supports authenticating routes of Express
+middleware and can be used for server side rendering. This recipe shows
+how to create a login form, a <code class="docutils literal notranslate"><span class="pre">/logout</span></code> endpoint and a protected
+<code class="docutils literal notranslate"><span class="pre">/chat</span></code> endpoint that renders all users and recent chat messages from
+our <span class="xref std std-doc">chat/readme</span>.</p>
+<p>The key steps are:</p>
+<ol class="arabic simple">
+<li><p>Obtain the JWT by either going through the oAuth or local
+authentication flow</p></li>
+<li><p>Set the JWT in the cookie (since the browser will send it with every
+request)</p></li>
+<li><p>Before any middleware that needs to be protected, add the
+<code class="docutils literal notranslate"><span class="pre">cookieParser()</span></code> and the <code class="docutils literal notranslate"><span class="pre">authenticate('jwt')</span></code> authentication
+Express middleware. This will set <code class="docutils literal notranslate"><span class="pre">req.user</span></code> from the user
+information in JWT or show a 401 error page if there is no JWT or it
+is invalid.</p></li>
+</ol>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h2>
+<p>In order for the browser to send the JWT with every request, cookies
+have to be enabled in the authentication configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>If you are using oAuth2, cookies are already enabled.</p>
+</div>
+<p>If not enabled yet, add the following to the <code class="docutils literal notranslate"><span class="pre">authentication</span></code> section
+in <code class="docutils literal notranslate"><span class="pre">config/default.json</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;cookie&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;enabled&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;feathers-jwt&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We want to authenticate with a username and password login by submitting
+a normal HTML form to the <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> endpoint. By default a
+successful POST to that endpoint would render JSON with our JWT. This is
+fine for REST APIs but in our case we want to be redirected to our
+protected page. We can do this by setting a <code class="docutils literal notranslate"><span class="pre">successRedirect</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">local</span></code> strategy section of the <code class="docutils literal notranslate"><span class="pre">authentication</span></code> configuration in
+<code class="docutils literal notranslate"><span class="pre">config/default.json</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;local&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;entity&quot;</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;usernameField&quot;</span><span class="o">:</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;passwordField&quot;</span><span class="o">:</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;successRedirect&quot;</span><span class="o">:</span> <span class="s2">&quot;/chat&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-middleware">
+<h2>Setting up middleware<a class="headerlink" href="#setting-up-middleware" title="永久链接至标题">¶</a></h2>
+<p>The <span class="xref std std-doc">../api/authentication/jwt</span>
+will look for a JWT in the cookie but only routes that parse the cookie
+will be able to access it. This can be done with the <a class="reference external" href="https://github.com/expressjs/cookie-parser">cookie-parser
+Express middleware</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">cookie</span><span class="o">-</span><span class="n">parser</span>
+</pre></div>
+</div>
+<p>Now we can protect any Express route by first adding
+<code class="docutils literal notranslate"><span class="pre">cookieParser(),</span> <span class="pre">authenticate('jwt')</span></code> to the chain.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Only register the cookie parser middleware before routes
+that actually need to be protected by the JWT in the cookie in order
+to prevent CSRF security issues.</p>
+</div>
+<p>Since we want to render views on the server we have to register an
+<a class="reference external" href="http://expressjs.com/en/guide/using-template-engines.html">Express template
+engine</a>.
+For this example we will use
+<a class="reference external" href="https://www.npmjs.com/package/ejs">EJS</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">ejs</span>
+</pre></div>
+</div>
+<p>Next, we can update <code class="docutils literal notranslate"><span class="pre">src/middleware/index.js</span></code> to</p>
+<ul class="simple">
+<li><p>Set the view engine to EJS (the default folder for views in Express
+is <code class="docutils literal notranslate"><span class="pre">views/</span></code> in the root of the project)</p></li>
+<li><p>Register a <code class="docutils literal notranslate"><span class="pre">/login</span></code> route that renders <code class="docutils literal notranslate"><span class="pre">views/login.ejs</span></code></p></li>
+<li><p>Register a protected <span class="xref std std-doc">../api/application</span> and then renders <code class="docutils literal notranslate"><span class="pre">views/chat.ejs</span></code></p></li>
+<li><p>Register a <code class="docutils literal notranslate"><span class="pre">/logout</span></code> route that deletes the cookie and redirect
+back to the login page</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>We could also generate the middleware using
+<code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">middleware</span></code> but since they are all fairly short
+we can keep it in the same file for now.</p>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cookieParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cookie-parser&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">authenticate</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">).</span><span class="nx">express</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use EJS as the view engine (using the `views` folder by default)</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;view engine&#39;</span><span class="p">,</span> <span class="s1">&#39;ejs&#39;</span><span class="p">);</span>
+
+  <span class="c1">// Render the /login view</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">));</span>
+
+  <span class="c1">// Render the protected chat page</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/chat&#39;</span><span class="p">,</span> <span class="nx">cookieParser</span><span class="p">(),</span> <span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">),</span> <span class="nx">async</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// `req.user` is set by `authenticate(&#39;jwt&#39;)`</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">user</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">;</span>
+    <span class="c1">// Since we are rendering on the server we have to pass the authenticated user</span>
+    <span class="c1">// from `req.user` as `params.user` to our services</span>
+    <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">user</span><span class="p">,</span> <span class="nx">query</span><span class="o">:</span> <span class="p">{}</span>
+    <span class="p">};</span>
+    <span class="c1">// Find the list of users</span>
+    <span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+    <span class="c1">// Find the most recent messages</span>
+    <span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;chat&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">users</span><span class="p">,</span> <span class="nx">messages</span> <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="c1">// For the logout route we remove the JWT from the cookie</span>
+  <span class="c1">// and redirect back to the login page</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="nx">cookieParser</span><span class="p">(),</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">clearCookie</span><span class="p">(</span><span class="s1">&#39;feathers-jwt&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">ls</span> <span class="pre">&#64;feathersjs/authentication-jwt</span></code> has to show that
+version 2.0.0 or later is installed.</p>
+</div>
+</div>
+<div class="section" id="views">
+<h2>Views<a class="headerlink" href="#views" title="永久链接至标题">¶</a></h2>
+<p>The login form has to make a POST request to the <code class="docutils literal notranslate"><span class="pre">/authentication</span></code>
+endpoint and send the same fields as any other API client would. In our
+case specifically:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;mypassword&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">email</span></code> and <code class="docutils literal notranslate"><span class="pre">passwords</span></code> are normal input fields and we can add the
+<code class="docutils literal notranslate"><span class="pre">strategy</span></code> as a hidden field. The form has to submit a POST request to
+the <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> endpoint. Since services can accept both, JSON
+and URL encoded forms we do not have to do anything else. The login page
+at <code class="docutils literal notranslate"><span class="pre">views/login.ejs</span></code> then looks like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;content-type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span>
+    <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0&quot;</span> <span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Feathers chat login<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;shortcut icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;favicon.ico&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;//cdn.rawgit.com/feathersjs/feathers-chat/v0.2.0/public/base.css&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;//cdn.rawgit.com/feathersjs/feathers-chat/v0.2.0/public/chat.css&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;app&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;flex flex-column&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">main</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;login container&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-12 col-6-tablet push-3-tablet text-center heading&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;font-100&quot;</span><span class="p">&gt;</span>Log in<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-12 col-6-tablet push-3-tablet col-4-desktop push-4-desktop&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/authentication&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;strategy&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;local&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;block&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+              <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;block&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;login&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button button-primary block signup&quot;</span><span class="p">&gt;</span>
+              Log in
+            <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">views/chat.ejs</span></code> page has the <code class="docutils literal notranslate"><span class="pre">users</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code> (the
+authenticated user) and <code class="docutils literal notranslate"><span class="pre">messages</span></code> properties available which we
+passed in the <code class="docutils literal notranslate"><span class="pre">/chat</span></code> middleware. Rendering messages and users looks
+similar to the <span class="xref std std-doc">chat/frontend</span>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot;
+    content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0&quot; /&gt;
+  &lt;title&gt;Feathers chat&lt;/title&gt;
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.rawgit.com/feathersjs/feathers-chat/v0.2.0/public/base.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.rawgit.com/feathersjs/feathers-chat/v0.2.0/public/chat.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app&quot; class=&quot;flex flex-column&quot;&gt;
+    &lt;main class=&quot;flex flex-column&quot;&gt;
+      &lt;header class=&quot;title-bar flex flex-row flex-center&quot;&gt;
+        &lt;div class=&quot;title-wrapper block center-element&quot;&gt;
+          &lt;img class=&quot;logo&quot; src=&quot;http://feathersjs.com/img/feathers-logo-wide.png&quot;
+            alt=&quot;Feathers Logo&quot;&gt;
+          &lt;span class=&quot;title&quot;&gt;Chat&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/header&gt;
+
+      &lt;div class=&quot;flex flex-row flex-1 clear&quot;&gt;
+        &lt;aside class=&quot;sidebar col col-3 flex flex-column flex-space-between&quot;&gt;
+          &lt;header class=&quot;flex flex-row flex-center&quot;&gt;
+            &lt;h4 class=&quot;font-300 text-center&quot;&gt;
+              &lt;span class=&quot;font-600 online-count&quot;&gt;
+                &lt;%= users.total %&gt;
+              &lt;/span&gt; users
+            &lt;/h4&gt;
+          &lt;/header&gt;
+
+          &lt;ul class=&quot;flex flex-column flex-1 list-unstyled user-list&quot;&gt;
+            &lt;% users.data.forEach(user =&gt; { %&gt;&lt;li&gt;
+              &lt;a class=&quot;block relative&quot; href=&quot;#&quot;&gt;
+                &lt;img src=&quot;&lt;%= user.avatar %&gt;&quot; alt=&quot;&quot; class=&quot;avatar&quot;&gt;
+                &lt;span class=&quot;absolute username&quot;&gt;&lt;%= user.email %&gt;&lt;/span&gt;
+              &lt;/a&gt;
+            &lt;/li&gt;&lt;% }); %&gt;
+          &lt;/ul&gt;
+          &lt;footer class=&quot;flex flex-row flex-center&quot;&gt;
+            &lt;a href=&quot;/logout&quot; id=&quot;logout&quot; class=&quot;button button-primary&quot;&gt;
+              Sign Out
+            &lt;/a&gt;
+          &lt;/footer&gt;
+        &lt;/aside&gt;
+
+        &lt;div class=&quot;flex flex-column col col-9&quot;&gt;
+          &lt;main class=&quot;chat flex flex-column flex-1 clear&quot;&gt;
+            &lt;% messages.data.forEach(message =&gt; { %&gt;
+            &lt;div class=&quot;message flex flex-row&quot;&gt;
+              &lt;img src=&quot;&lt;%= message.user &amp;&amp; message.user.avatar %&gt;&quot;
+                alt=&quot;&lt;%= message.user &amp;&amp; message.user.email %&gt;&quot; class=&quot;avatar&quot;&gt;
+              &lt;div class=&quot;message-wrapper&quot;&gt;
+                &lt;p class=&quot;message-header&quot;&gt;
+                  &lt;span class=&quot;username font-600&quot;&gt;
+                    &lt;%= message.user &amp;&amp; message.user.email %&gt;
+                  &lt;/span&gt;
+                  &lt;span class=&quot;sent-date font-300&quot;&gt;&lt;%= new Date(message.createdAt).toString() %&gt;&lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p class=&quot;message-content font-300&quot;&gt;&lt;%= message.text %&gt;&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;% }); %&gt;
+          &lt;/main&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>If we now start the server (<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">start</span></code>) and go to
+<a class="reference external" href="http://localhost:3030/login">localhost:3030/login</a> we can see the
+login page. We can use the login information from one of the users
+created in the <span class="xref std std-doc">chat/frontend</span> and
+once successful, we will be redirected to <code class="docutils literal notranslate"><span class="pre">/chat</span></code> which shows the list
+of all current messages and users and clicking the <code class="docutils literal notranslate"><span class="pre">Sign</span> <span class="pre">out</span></code> button
+will log us out and redirect to the login page.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../advanced/index.html" class="btn btn-neutral float-right" title="高级指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe：自定义身份验证策略" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/hooks.rst:2
+msgid "Hooks"
+msgstr "钩子"
+
+#: ../../source/guides/basics/hooks.rst:4
+msgid ""
+"As we have seen in the :doc:`./services`, Feathers services are a great "
+"way to implement data storage and modification. Technically, we could "
+"implement all our application logic within services but very often an "
+"application requires similar functionality across multiple services. For "
+"example, we might want to check for all services if a user is allowed to "
+"even call the service method or add the current date to all data that we "
+"are saving. With just using services we would have to implement this "
+"again every time."
+msgstr ""
+"正如我们在 :doc:`./services` "
+"中看到的,Feathers服务是实现数据存储和修改的好方法.从技术上讲,我们可以在服务中实现所有应用程序逻辑,但通常应用程序需要跨多个服务的类似功能.例如,如果允许用户甚至调用服务方法或将当前日期添加到我们正在保存的所有数据,我们可能希望检查所有服务.只需使用服务,我们就必须每次都重新实现这一点."
+
+#: ../../source/guides/basics/hooks.rst:13
+msgid ""
+"This is where Feathers hooks come in. Hooks are pluggable middleware "
+"functions that can be registered **before**, **after** or on \\__error__s"
+" of a service method. You can register a single hook function or create a"
+" chain of them to create complex work-flows."
+msgstr "This is where Feathers hooks come in. Hooks are pluggable middleware functions that can be registered **before**, **after** or on \\__error__s of a service method. You can register a single hook function or create a chain of them to create complex work-flows."
+"这是Feathers钩子的用武之地.钩子是可插入的中间件函数,可以在 **之后**,**之后** 或服务方法的 \\__ error__s "
+"之后注册.您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程."
+
+#: ../../source/guides/basics/hooks.rst:18
+msgid ""
+"Just like services themselves, hooks are *transport independent*. They "
+"are usually also service agnostic, meaning they can be used with ​\\ "
+"*any*\\ ​ service. This pattern keeps your application logic flexible, "
+"composable, and much easier to trace through and debug."
+msgstr "Just like services themselves, hooks are *transport independent*. They are usually also service agnostic, meaning they can be used with ​\\ *any*\\ ​ service. This pattern keeps your application logic flexible, composable, and much easier to trace through and debug."
+"就像服务本身一样,钩子是 *独立于运输的*.它们通常也是服务不可知的,这意味着它们可以与 \\ *any*\\ "
+"服务一起使用.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试."
+
+#: ../../source/guides/basics/hooks.rst:24
+#, fuzzy
+msgid ""
+"A full overview of the hook API can be found in the "
+":doc:`../../api/hooks`."
+msgstr "有关hook API的完整概述,请参阅 :doc:`钩子API文档 <../../api/hooks>`."
+
+#: ../../source/guides/basics/hooks.rst:26
+msgid ""
+"Hooks are commonly used to handle things like validation, authorization, "
+"logging, populating related entities, sending notifications and more."
+msgstr "钩子通常用于处理诸如验证,授权,日志记录,填充相关实体,发送通知等内容."
+
+#: ../../source/guides/basics/hooks.rst:29
+msgid ""
+"For more information about the design patterns behind hooks see `this "
+"blog post <https://blog.feathersjs.com/api-service-composition-with-"
+"hooks-47af13aa6c01>`_."
+msgstr ""
+"有关钩子背后的设计模式的更多信息,请参阅 `此博客文章 <https://blog.feathersjs.com/api-service-"
+"composition-with-hooks-47af13aa6c01>`_."
+
+#: ../../source/guides/basics/hooks.rst:34
+msgid "Quick example"
+msgstr "快速举例"
+
+#: ../../source/guides/basics/hooks.rst:36
+msgid ""
+"Here is a quick example for a hook that adds a ``createdAt`` property to "
+"the data before calling the actual ``create`` service method:"
+msgstr "这是一个钩子的快速示例,它在调用实际的 ``create`` 服务方法之前向数据添加 ``createdAt`` 属性:"
+
+#: ../../source/guides/basics/hooks.rst:52
+msgid "Hook functions"
+msgstr "钩子函数"
+
+#: ../../source/guides/basics/hooks.rst:54
+msgid ""
+"A hook function is a function that takes the `hook context <#hook-"
+"context>`_ as the parameter and returns that context or nothing. Hook "
+"functions run in the order they are registered and will only continue to "
+"the next once the current hook function completes. If a hook function "
+"throws an error, all remaining hooks (and possibly the service call) will"
+" be skipped and the error will be returned."
+msgstr "A hook function is a function that takes the `hook context <#hook-context>`_ as the parameter and returns that context or nothing. Hook functions run in the order they are registered and will only continue to the next once the current hook function completes. If a hook function throws an error, all remaining hooks (and possibly the service call) will be skipped and the error will be returned."
+"钩子函数是一个函数,它将 `钩子上下文 <#hook-context>`_ "
+"作为参数并返回该上下文或什么都不返回.挂钩函数按照它们注册的顺序运行,并且只有在当前挂钩函数完成后才会继续到下一个.如果钩子函数抛出错误,将跳过所有剩余的挂钩(可能还有服务调用),并返回错误."
+
+#: ../../source/guides/basics/hooks.rst:61
+msgid ""
+"A common pattern to make hooks more re-usable (e.g. making the "
+"``createdAt`` property name from the example above configurable) is to "
+"create a wrapper function that takes those options and returns a hook "
+"function:"
+msgstr "A common pattern to make hooks more re-usable (e.g. making the ``createdAt`` property name from the example above configurable) is to create a wrapper function that takes those options and returns a hook function:"
+"使钩子更易于重复使用的常见模式(例如,使上面的示例中的 ``createdAt`` "
+"属性名称可配置)是创建一个包装函数,它接受这些选项并返回一个钩子函数:"
+
+#: ../../source/guides/basics/hooks.rst:83
+msgid "Now we have a re-usable hook that can set the timestamp on any property."
+msgstr "现在我们有一个可重用的钩子,可以在任何属性上设置时间戳."
+
+#: ../../source/guides/basics/hooks.rst:86
+msgid "Hook context"
+msgstr "钩子上下文"
+
+#: ../../source/guides/basics/hooks.rst:88
+msgid ""
+"The hook ``context`` is an object which contains information about the "
+"service method call. It has read-only and writable properties. Read-only "
+"properties are:"
+msgstr "钩子 ``context`` 是一个包含服务方法调用信息的对象.它具有只读和可写属性.只读属性是:"
+
+#: ../../source/guides/basics/hooks.rst:92
+msgid "``context.app`` - The Feathers application object"
+msgstr "``context.app`` - Feathers应用程序对象"
+
+#: ../../source/guides/basics/hooks.rst:93
+msgid "``context.service`` - The service this hook is currently running on"
+msgstr "``context.service`` - 此钩子当前正在运行的服务"
+
+#: ../../source/guides/basics/hooks.rst:94
+msgid "``context.path`` - The path of the service"
+msgstr "``context.path`` - 服务的路径"
+
+#: ../../source/guides/basics/hooks.rst:95
+msgid "``context.method`` - The service method"
+msgstr "``context.method`` - 服务方式"
+
+#: ../../source/guides/basics/hooks.rst:96
+msgid "``context.type`` - The hook type (``before``, ``after`` or ``error``)"
+msgstr "``context.type`` - 钩型 (``before``, ``after`` 或者 ``error``)"
+
+#: ../../source/guides/basics/hooks.rst:98
+msgid "Writeable properties are:"
+msgstr "可写属性是:"
+
+#: ../../source/guides/basics/hooks.rst:100
+msgid ""
+"``context.params`` - The service method call ``params``. For external "
+"calls, ``params`` usually contains:"
+msgstr "``context.params`` - 服务方法调用 ``params``. 对于外部调用, ``params`` 通常包含:"
+
+#: ../../source/guides/basics/hooks.rst:103
+msgid ""
+"``context.params.query`` - The query (e.g. query string for REST) for the"
+" service call"
+msgstr "``context.params.query`` - 服务调用的查询(例如,REST的查询字符串)"
+
+#: ../../source/guides/basics/hooks.rst:105
+msgid ""
+"``context.params.provider`` - The name of the transport (which we will "
+"look at in the next chapter) the call has been made through. Usually "
+"``rest``, ``socketio``, ``primus``. Will be ``undefined`` for internal "
+"calls."
+msgstr "``context.params.provider`` - The name of the transport (which we will look at in the next chapter) the call has been made through. Usually ``rest``, ``socketio``, ``primus``. Will be ``undefined`` for internal calls."
+"``context.params.provider`` - 传输的名称(我们将在下一章中看到)调用已完成. 通常是 ``rest``, "
+"``socketio``, ``primus``. 内部调用将是 ``undefined``. "
+
+#: ../../source/guides/basics/hooks.rst:110
+msgid ""
+"``context.id`` - The ``id`` for a ``get``, ``remove``, ``update`` and "
+"``patch`` service method call"
+msgstr ""
+"``context.id`` - 用于 ``get``, ``remove``, ``update`` 和 ``patch`` 服务方法调用的 "
+"``id``"
+
+#: ../../source/guides/basics/hooks.rst:112
+msgid ""
+"``context.data`` - The ``data`` sent by the user in a ``create``, "
+"``update`` and ``patch`` service method call"
+msgstr ""
+"``context.data`` - 用户在 ``create``, ``update`` 和 ``patch`` 服务方法调用中发送的 "
+"``data``"
+
+#: ../../source/guides/basics/hooks.rst:114
+msgid "``context.error`` - The error that was thrown (in ``error`` hooks)"
+msgstr "``context.error`` - 抛出的错误(在 ``error`` 钩子中)"
+
+#: ../../source/guides/basics/hooks.rst:115
+msgid ""
+"``context.result`` - The result of the service method call (in ``after`` "
+"hooks)"
+msgstr "``context.result`` - 服务方法调用的结果(在 ``after`` 钩子中)"
+
+#: ../../source/guides/basics/hooks.rst:121
+#, fuzzy
+msgid ""
+"For more information about the hook context see the "
+":doc:`../../api/hooks`."
+msgstr "有关钩子上下文的更多信息, 请参阅 :doc:`钩子API文档 <../../api/hooks>`."
+
+#: ../../source/guides/basics/hooks.rst:124
+msgid "Registering hooks"
+msgstr "注册钩子"
+
+#: ../../source/guides/basics/hooks.rst:126
+msgid "The most common way to register hooks is in an object like this:"
+msgstr "注册挂钩的最常用方法是在这样的对象中:"
+
+#: ../../source/guides/basics/hooks.rst:152
+msgid ""
+"This makes it easy to see at one glance in which order hooks are executed"
+" and for which method."
+msgstr "这样可以一目了然地查看执行挂钩的顺序以及使用哪种方法."
+
+#: ../../source/guides/basics/hooks.rst:155
+msgid ""
+"``all`` is a special keyword which means those hooks will run before the "
+"method specific hooks in this chain."
+msgstr "``all`` 是一个特殊的关键字,这意味着这些钩子将在此链中特定于方法的钩子之前运行."
+
+#: ../../source/guides/basics/hooks.rst:158
+msgid "For example, if hooks are registered like so:"
+msgstr "例如,如果挂钩是这样注册的:"
+
+#: ../../source/guides/basics/hooks.rst:184
+msgid "This diagram illustrates when each hook will be executed:"
+msgstr "此图说明了何时执行每个挂钩:"
+
+#: ../../source/guides/basics/hooks.rst:189
+msgid "Hook flow"
+msgstr "钩流"
+
+#: ../../source/guides/basics/hooks.rst:192
+msgid "Validating data"
+msgstr "验证数据"
+
+#: ../../source/guides/basics/hooks.rst:194
+msgid ""
+"If a hook throws an error, all following hooks will be skipped and the "
+"error will be returned to the user. This makes ``before`` hooks a great "
+"place to validate incoming data by throwing an error for invalid data. We"
+" can throw a normal `JavaScript error <https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or "
+":doc:`../../api/errors` which has some additional functionality (like "
+"returning the proper error code for REST calls)."
+msgstr "If a hook throws an error, all following hooks will be skipped and the error will be returned to the user. This makes ``before`` hooks a great place to validate incoming data by throwing an error for invalid data. We can throw a normal `JavaScript error <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or :doc:`../../api/errors` which has some additional functionality (like returning the proper error code for REST calls)."
+"如果钩子抛出错误,将跳过所有后续钩子并将错误返回给用户. 这使得 ``before`` "
+"挂钩成为一个很好的地方,通过抛出无效数据的错误来验证传入的数据.我们可以抛出正常的 `JavaScript错误 "
+"<https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ 或 "
+":doc:`../../api/errors` 具有一些额外的功能(比如返回REST调用的正确错误代码)."
+
+#: ../../source/guides/basics/hooks.rst:202
+msgid ""
+"``@feathersjs/errors`` is a separate module, so you must add it to your "
+"project before requiring it:"
+msgstr "``@feathersjs/errors`` 是一个单独的模块,因此您必须在需要之前将其添加到项目中:"
+
+#: ../../source/guides/basics/hooks.rst:209
+msgid ""
+"We will only need the hook for ``create``, ``update`` and ``patch`` since"
+" those are the only service methods that allow user submitted data:"
+msgstr "我们只需要 ``create``, ``update`` 和 ``patch`` 的钩子,因为这些是允许用户提交数据的唯一服务方法:"
+
+#: ../../source/guides/basics/hooks.rst:249
+#, fuzzy
+msgid ""
+"Throwing an appropriate :doc:`../../api/errors` allows to add more "
+"information and return the correct HTTP status code."
+msgstr "抛出一个合适的 :doc:`Feathers错误 <../../api/errors>` 允许添加更多信息并返回正确的HTTP状态代码."
+
+#: ../../source/guides/basics/hooks.rst:253
+msgid "Application hooks"
+msgstr "应用程序挂钩"
+
+#: ../../source/guides/basics/hooks.rst:255
+msgid ""
+"Sometimes we want to automatically add a hook to every service in our "
+"Feathers application. This is what application hooks can be used for. "
+"They work the same as service specific hooks but run in a more specific "
+"order:"
+msgstr "有时我们想在Feathers应用程序中为每个服务自动添加一个钩子.这是应用程序挂钩可用于的内容.它们与服务特定挂钩的工作方式相同,但以更具体的顺序运行:"
+
+#: ../../source/guides/basics/hooks.rst:260
+msgid ""
+"``before`` application hooks will always run *before* all service "
+"``before`` hooks"
+msgstr "``before`` 应用程序挂钩总是在 所有服务 ``before`` 挂钩之前运行"
+
+#: ../../source/guides/basics/hooks.rst:262
+msgid ""
+"``after`` application hooks will always run *after* all service ``after``"
+" hooks"
+msgstr "``after`` 应用程序挂钩总是在 所有服务 ``after`` 挂钩后运行"
+
+#: ../../source/guides/basics/hooks.rst:264
+msgid ""
+"``error`` application hooks will always run *after* all service ``error``"
+" hooks"
+msgstr "``error`` 应用程序挂钩总是在 所有服务 ``error`` 挂钩后运行"
+
+#: ../../source/guides/basics/hooks.rst:268
+msgid "Error logging"
+msgstr "记录错误"
+
+#: ../../source/guides/basics/hooks.rst:270
+msgid ""
+"A good use for application hooks is to log any service method call error."
+" The following example logs every service method error with the path and "
+"method name as well as the error stack:"
+msgstr "应用程序挂钩的一个很好用途是记录任何服务方法调用错误.以下示例使用路径和方法名称以及错误堆栈记录每个服务方法错误:"
+
+#: ../../source/guides/basics/hooks.rst:283
+msgid "More examples"
+msgstr "更多例子"
+
+#: ../../source/guides/basics/hooks.rst:285
+msgid ""
+"The :doc:`chat/readme` will show several more examples like how to "
+"associate data and adding user information for hooks created by "
+":doc:`./generator`."
+msgstr ":doc:`chat/readme` 将显示更多示例,例如如何关联数据和添加由以下创建的钩子的用户信息 :doc:`./generator`."
+
+#: ../../source/guides/basics/hooks.rst:290
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/hooks.rst:292
+#, fuzzy
+msgid ""
+"In this chapter we learned how Feathers hooks can be used as middleware "
+"for service method calls to validate and manipulate incoming and outgoing"
+" data without having to change our service. In the next chapter we will "
+"turn our messages service into a :doc:`./rest`."
+msgstr "In this chapter we learned how Feathers hooks can be used as middleware for service method calls to validate and manipulate incoming and outgoing data without having to change our service. In the next chapter we will turn our messages service into a :doc:`./rest`."
+"在本章中,我们学习了如何将Feathers钩子用作服务方法调用的中间件,以验证和操作传入和传出数据,而无需更改我们的服务.在下一章中,我们将把消息服务转换为"
+" :doc:`全功能REST API <./rest>`."
+
+#~ msgid ""
+#~ "If a hook throws an error, all "
+#~ "following hooks will be skipped and "
+#~ "the error will be returned to the"
+#~ " user. This makes ``before`` hooks a"
+#~ " great place to validate incoming "
+#~ "data by throwing an error for "
+#~ "invalid data. We can throw a "
+#~ "normal `JavaScript error "
+#~ "<https://developer.mozilla.org/en-"
+#~ "US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or "
+#~ ":doc:`../../api/errors` which has some "
+#~ "additional functionality (like returning the"
+#~ " proper error code for REST calls)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we learned how "
+#~ "Feathers hooks can be used as "
+#~ "middleware for service method calls to"
+#~ " validate and manipulate incoming and "
+#~ "outgoing data without having to change"
+#~ " our service. In the next chapter "
+#~ "we will turn our messages service "
+#~ "into a `fully functional REST API "
+#~ "<./rest.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we learned how "
+#~ "Feathers hooks can be used as "
+#~ "middleware for service method calls to"
+#~ " validate and manipulate incoming and "
+#~ "outgoing data without having to change"
+#~ " our service. In the next chapter "
+#~ "we will turn our messages service "
+#~ "into a :doc:`fully functional REST API"
+#~ " <./rest>`_."
+#~ msgstr ""
+

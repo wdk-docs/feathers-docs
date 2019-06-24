@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/advanced/file-uploading.rst:2
+msgid "File uploads in FeathersJS"
+msgstr "在FeathersJS中上传文件"
+
+#: ../../source/guides/advanced/file-uploading.rst:4
+msgid ""
+"Over the last months we at `ciancoders.com <https://ciancoders.com/>`_ "
+"have been working in a new SPA project using Feathers and React, the "
+"combination of those two turns out to be **just amazing**."
+msgstr "在过去的几个月里,我们在 `ciancoders.com <https://ciancoders.com/>`_ 一直在使用Feathers和React进行一个新的SPA项目,这两个项目的组合结果是 **真是太棒了**."
+
+#: ../../source/guides/advanced/file-uploading.rst:8
+msgid ""
+"Recently we were struggling to find a way to upload files without having "
+"to write a separate Express middleware or having to (re)write a complex "
+"Feathers service."
+msgstr "最近,我们一直在努力寻找一种上传文件的方法,而无需编写单独的Express中间件或必须(重新)编写复杂的Feathers服务."
+
+#: ../../source/guides/advanced/file-uploading.rst:13
+msgid "Our Goals"
+msgstr "我们的目标"
+
+#: ../../source/guides/advanced/file-uploading.rst:15
+msgid ""
+"We want to implement an upload service to accomplish a few important "
+"things:"
+msgstr "我们希望实现上传服务来完成一些重要的事情:"
+
+#: ../../source/guides/advanced/file-uploading.rst:18
+msgid "It has to handle large files (+10MB)."
+msgstr "它必须处理大文件(+ 10MB)."
+
+#: ../../source/guides/advanced/file-uploading.rst:19
+msgid "It needs to work with the app’s authentication and authorization."
+msgstr "它需要使用应用程序的身份验证和授权."
+
+#: ../../source/guides/advanced/file-uploading.rst:20
+msgid "The files need to be validated."
+msgstr "需要验证文件."
+
+#: ../../source/guides/advanced/file-uploading.rst:21
+msgid ""
+"At the moment there is no third party storage service involved, but this "
+"will change in the near future, so it has to be prepared."
+msgstr "目前没有涉及第三方存储服务,但这将在不久的将来发生变化,因此必须做好准备."
+
+#: ../../source/guides/advanced/file-uploading.rst:23
+msgid "It has to show the upload progress."
+msgstr "它必须显示上传进度."
+
+#: ../../source/guides/advanced/file-uploading.rst:25
+msgid ""
+"The plan is to upload the files to a feathers service so we can take "
+"advantage of hooks for authentication, authorization and validation, and "
+"for service events."
+msgstr "计划是将文件上传到feat服务,以便我们可以利用钩子进行身份验证,授权和验证以及服务事件."
+
+#: ../../source/guides/advanced/file-uploading.rst:29
+msgid ""
+"Fortunately, there exists a file storage service: `feathers-blob "
+"<https://github.com/feathersjs/feathers-blob>`_. With it we can meet our"
+" goals, but (spoiler alert) it comes with its own problems which we’ll "
+"discuss below."
+msgstr "幸运的是,存在一个文件存储服务: `feathers-blob <https://github.com/feathersjs/feathers-blob>`_. 有了它我们可以实现我们的目标,但(扰乱警报)它带来了自己的问题,我们将在下面讨论."
+
+#: ../../source/guides/advanced/file-uploading.rst:35
+msgid "Basic upload with feathers-blob and feathers-client"
+msgstr "带 feathers-blob 和 feathers-client 的基本上传"
+
+#: ../../source/guides/advanced/file-uploading.rst:37
+msgid ""
+"For the sake of simplicity, we will be working over a very basic feathers"
+" server, with just the upload service."
+msgstr "为了简单起见,我们将使用上传服务在一个非常基本的Feathers服务器上工作."
+
+#: ../../source/guides/advanced/file-uploading.rst:40
+msgid "Lets look at the server code:"
+msgstr "让我们看一下服务器代码:"
+
+#: ../../source/guides/advanced/file-uploading.rst:84
+msgid ""
+"Let’s look at this implemented in the ``@feathersjs/cli`` generated "
+"server code:"
+msgstr "让我们看一下在 ``@feathersjs/cli`` 生成的服务器代码中实现的:"
+
+#: ../../source/guides/advanced/file-uploading.rst:133
+msgid ""
+"``feathers-blob`` works over abstract-blob-store, which is an abstract "
+"interface to various storage backends, such as filesystem, AWS, or Google"
+" Drive. It only accepts and retrieves files encoded as dataURI strings."
+msgstr "``feathers-blob`` 适用于abstract-blob-store,它是各种存储后端的抽象接口,例如文件系统,AWS或Google Drive.它只接受和检索编码为dataURI字符串的文件."
+
+#: ../../source/guides/advanced/file-uploading.rst:138
+msgid ""
+"Just like that we have our backend ready, go ahead and POST something to "
+"localhost:3030/uploads`, for example with postman:"
+msgstr "就像我们已准备好后端一样,继续将一些东西发布到 `localhost:3030/uploads`,例如 postman:"
+
+#: ../../source/guides/advanced/file-uploading.rst:147
+msgid "The service will respond with something like this:"
+msgstr "该服务将以这样的方式回应:"
+
+#: ../../source/guides/advanced/file-uploading.rst:157
+msgid ""
+"Or we can implement a very basic frontend with ``feathers-client`` and "
+"``jQuery``:"
+msgstr "或者我们可以使用 ``feathers-client`` 和 ``jQuery`` 实现一个非常基本的前端:"
+
+#: ../../source/guides/advanced/file-uploading.rst:222
+msgid ""
+"This code watches for file selection, then encodes it and does an ajax "
+"post to upload it, watching the upload progress via the xhr object. "
+"Everything works as expected."
+msgstr "此代码监视文件选择,然后对其进行编码并执行ajax发布以上载它,通过xhr对象观察上载进度.一切都按预期工作."
+
+#: ../../source/guides/advanced/file-uploading.rst:226
+msgid ""
+"Every file we select gets uploaded and saved to the ``./uploads`` "
+"directory."
+msgstr "我们选择的每个文件都会上传并保存到 ``./uploads`` 目录中."
+
+#: ../../source/guides/advanced/file-uploading.rst:229
+msgid "Work done!, let’s call it a day, shall we?"
+msgstr "完成工作！让我们称它为一天,好吗？"
+
+#: ../../source/guides/advanced/file-uploading.rst:231
+msgid "… But hey, there is something that doesn’t feels quite right …right?"
+msgstr "… 但是,嘿,有些事情感觉不太正确......对吗？"
+
+#: ../../source/guides/advanced/file-uploading.rst:234
+msgid "DataURI upload problems"
+msgstr "DataURI上传问题"
+
+#: ../../source/guides/advanced/file-uploading.rst:236
+msgid ""
+"It doesn’t feels right because it is not. Let’s imagine what would happen"
+" if we try to upload a large file, say 25MB or more: The entire file "
+"(plus some extra MB due to the encoding) has to be kept in memory for the"
+" entire upload process, this could look like nothing for a normal "
+"computer but for mobile devices it’s a big deal."
+msgstr "感觉不对,因为事实并非如此.让我们想象如果我们尝试上传一个大文件,例如25MB或更多文件会发生什么:整个文件(加上一些额外的MB由于编码)必须保存在整个上传过程的内存中,这对于一台普通的电脑,但对于移动设备来说,这是一个大问题."
+
+#: ../../source/guides/advanced/file-uploading.rst:242
+msgid ""
+"We have a big RAM consumption problem. Not to mention we have to encode "
+"the file before sending it…"
+msgstr "我们有一个很大的RAM消耗问题.更不用说我们必须在发送之前对文件进行编码…"
+
+#: ../../source/guides/advanced/file-uploading.rst:245
+msgid ""
+"The solution would be to modify the service, adding support for splitting"
+" the dataURI into small chunks, then uploading one at a time, collecting "
+"and reassembling everything on the server. But hey, it’s not that the "
+"same thing browsers and web servers has been doing since maybe the very "
+"early days of the web? maybe since Netscape Navigator?"
+msgstr "解决方案是修改服务,添加支持将dataURI分成小块,然后一次上传一个,收集并重新组装服务器上的所有内容.但是,嘿,这可能不是浏览器和网络服务器一直在做的事情,因为可能是网络的早期阶段？也许是因为Netscape Navigator？"
+
+#: ../../source/guides/advanced/file-uploading.rst:251
+msgid ""
+"Well, actually it is, and doing a ``multipart/form-data`` post is still "
+"the easiest way to upload a file."
+msgstr "嗯,实际上它是,并且做一个 ``multipart/form-data`` 帖子仍然是上传文件最简单的方法."
+
+#: ../../source/guides/advanced/file-uploading.rst:255
+msgid "Feathers-blob with multipart support."
+msgstr "具有多部分支持的Feathers-blob."
+
+#: ../../source/guides/advanced/file-uploading.rst:257
+msgid ""
+"Back with the backend, in order to accept multipart uploads, we need a "
+"way to handle the ``multipart/form-data`` received by the web server. "
+"Given that Feathers behaves like Express, let’s just use ``multer`` and a"
+" custom middleware to handle that."
+msgstr "回到后端,为了接受分段上传,我们需要一种方法来处理Web服务器收到的 ``multipart/form-data``.鉴于Feathers的行为类似Express,我们只需使用``multer``和一个自定义中间件来处理它."
+
+#: ../../source/guides/advanced/file-uploading.rst:285
+msgid ""
+"Notice we kept the file field name as *uri* just to maintain uniformity, "
+"as the service will always work with that name anyways. But you can "
+"change it if you prefer."
+msgstr "请注意,我们将文件字段名称保留为 *uri* 以保持一致性,因为服务始终使用该名称.但如果您愿意,可以更改它."
+
+#: ../../source/guides/advanced/file-uploading.rst:289
+msgid ""
+"Feathers-blob only understands files encoded as dataURI, so we need to "
+"convert them first. Let’s make a Hook for that:"
+msgstr "Feathers-blob只能理解编码为dataURI的文件,因此我们需要先将它们转换.让我们为此做一个钩子:"
+
+#: ../../source/guides/advanced/file-uploading.rst:313
+msgid ""
+"*Et voilà!*. Now we have a FeathersJS file storage service working, with "
+"support for traditional multipart uploads, and a variety of storage "
+"options to choose."
+msgstr "*Etvoilà！*.现在我们有一个FeathersJS文件存储服务,支持传统的分段上传,以及各种存储选项供选择."
+
+#: ../../source/guides/advanced/file-uploading.rst:317
+msgid "**Simply awesome.**"
+msgstr "**就是棒.**"
+
+#: ../../source/guides/advanced/file-uploading.rst:320
+msgid "Further improvements"
+msgstr "进一步改进"
+
+#: ../../source/guides/advanced/file-uploading.rst:322
+msgid ""
+"The service always return the dataURI back to us, which may not be "
+"necessary as we’d just uploaded the file, also we need to validate the "
+"file and check for authorization."
+msgstr "该服务始终将dataURI返回给我们,这可能没有必要,因为我们刚刚上传了文件,我们还需要验证文件并检查授权."
+
+#: ../../source/guides/advanced/file-uploading.rst:326
+msgid ""
+"All those things can be easily done with more Hooks, and that’s the "
+"benefit of keeping all inside FeathersJS services. I left that to you."
+msgstr "所有这些事情都可以通过更多的Hook轻松完成,这样可以保留所有内部的FeathersJS服务.我把它留给了你."
+
+#: ../../source/guides/advanced/file-uploading.rst:329
+msgid ""
+"For the frontend, there is a problem with the client: in order to show "
+"the upload progress it’s stuck with only REST functionality and not real-"
+"time with socket.io."
+msgstr "对于前端,客户端存在一个问题:为了显示上传进度,它只使用REST功能,而不是实时使用socket.io."
+
+#: ../../source/guides/advanced/file-uploading.rst:333
+msgid ""
+"The solution is to switch ``feathers-client`` from REST to ``socket.io``,"
+" and just use wherever you like for uploading the files, that’s an easy "
+"task now that we are able to do a traditional ``form-multipart`` upload."
+msgstr "解决方案是将 ``feathers-client`` 从REST切换到 ``socket.io``,只需使用你想要的任何地方上传文件,这是一个简单的任务,因为我们能够做一个传统的 ``form-multipart`` 上传."
+
+#: ../../source/guides/advanced/file-uploading.rst:338
+msgid "Here is an example using dropzone:"
+msgstr "以下是使用dropzone的示例:"
+
+#: ../../source/guides/advanced/file-uploading.rst:387
+msgid ""
+"All the code is available via github here: https://github.com/CianCoders"
+"/feathers-example-fileupload"
+msgstr "所有代码都可以通过github在这里找到: https://github.com/CianCoders/feathers-example-fileupload"
+
+#: ../../source/guides/advanced/file-uploading.rst:390
+msgid "Hope you have learned something today, as I learned a lot writing this."
+msgstr "希望你今天学到了一些东西,因为我学到了很多东西."
+
+#: ../../source/guides/advanced/file-uploading.rst:392
+msgid "Cheers!"
+msgstr "干杯!"
+

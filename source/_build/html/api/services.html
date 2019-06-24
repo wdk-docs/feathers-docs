@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>服务 &mdash; feathers docs v2019.06.21 文档</title>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+
+
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="钩" href="hooks.html" />
+    <link rel="prev" title="应用" href="application.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+
+
+
+          </a>
+
+
+
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="readme.html">API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#core">Core</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="application.html">应用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">服务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#service-methods">Service methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feathers-functionality">Feathers functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">活动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">活动频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#transports">Transports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#client">Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#database">Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+
+          <li><a href="index.html">API</a> &raquo;</li>
+
+      <li>服务</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="../_sources/api/services.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="services">
+<h1>服务<a class="headerlink" href="#services" title="永久链接至标题">¶</a></h1>
+<p>“Services” are the heart of every Feathers application. Services are
+JavaScript objects (or instances of <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6
+classes</a>)
+that implement <a class="reference external" href="#service-methods">certain methods</a>. Feathers itself
+will also add some <a class="reference external" href="#feathers-functionality">additional methods and
+functionality</a> to its services.</p>
+<div class="section" id="service-methods">
+<h2>Service methods<a class="headerlink" href="#service-methods" title="永久链接至标题">¶</a></h2>
+<p>Service methods are pre-defined
+<a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>
+methods that your service object can implement (or that have already
+been implemented by one of the <a class="reference internal" href="databases/common.html"><span class="doc">database adapters</span></a>). Below is a complete example of the
+Feathers <em>service interface</em> as a normal JavaScript object either
+returning a
+<code class="docutils literal notranslate"><span class="pre">`Promise</span></code> &lt;<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise</a>&gt;`_
+or using
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a>:</p>
+<p>{% codetabs name=“Promise”, type=“js” -%} const myService = {
+find(params) { return Promise.resolve([]); }, get(id, params) {},
+create(data, params) {}, update(id, data, params) {}, patch(id, data,
+params) {}, remove(id, params) {}, setup(app, path) {} }</p>
+<p>app.use(‘/my-service’, myService); {%- language name=“async/await”,
+type=“js” -%} const myService = { async find(params) { return []; },
+async get(id, params) {}, async create(data, params) {}, async
+update(id, data, params) {}, async patch(id, data, params) {}, async
+remove(id, params) {}, setup(app, path) {} }</p>
+<p>app.use(‘/my-service’, myService); {%- endcodetabs %}</p>
+<p>Services can also be an instance of an <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6
+class</a>:</p>
+<p>.. code-block:: js
+
+class MyService {
+find(params) { return Promise.resolve([]); } get(id, params) {}
+create(data, params) {} update(id, data, params) {} patch(id, data,
+params) {} remove(id, params) {} setup(app, path) {} }</p>
+<p>app.use(‘/my-service’, new MyService()); {%- language
+name=“async/await”, type=“js” -%} class MyService { async find(params) {
+return []; } async get(id, params) {} async create(data, params) {}
+async update(id, data, params) {} async patch(id, data, params) {} async
+remove(id, params) {} setup(app, path) {} }</p>
+<p>app.use(‘/my-service’, new MyService()); {%- endcodetabs %}</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> Methods are optional, and if a method is not implemented
+Feathers will automatically emit a <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> error.</p>
+</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>Always use the service returned by
+<code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> not the service object (the <code class="docutils literal notranslate"><span class="pre">myService</span></code>
+object above) directly. See the <a class="reference external" href="./application.md#servicepath">app.service
+documentation</a> for more information.</p>
+</div>
+<p>Service methods must return a
+<code class="docutils literal notranslate"><span class="pre">`Promise</span></code> &lt;<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise</a>&gt;`_
+or be declared as <code class="docutils literal notranslate"><span class="pre">async</span></code> and have the following parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> — The identifier for the resource. A resource is the data
+identified by a unique id.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> — The resource data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code> - Additional parameters for the method call, see
+<a class="reference external" href="#params">params</a></p></li>
+</ul>
+<p>Once registered, the service can be retrieved and used via
+<span class="xref std std-doc">app.service()</span>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;my-service&#39;</span><span class="p">);</span>
+
+<span class="nx">myService</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">items</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;.find()&#39;</span><span class="p">,</span> <span class="nx">items</span><span class="p">));</span>
+<span class="nx">myService</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;.get(1)&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Keep in mind that services don’t have to use databases. You could easily
+replace the database in the example with a package that uses some API
+to, for example, pull in GitHub stars or stock ticker data.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>This section describes the general usage of service
+methods and how to implement them. They are already implemented by
+the official Feathers database adapters. For specifics on how to use
+the database adapters, see the <a class="reference internal" href="databases/common.html"><span class="doc">database adapters common API</span></a>.</p>
+</div>
+<div class="section" id="id1">
+<h3>params<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">params</span></code> contain additional information for the service method call.
+Some properties in <code class="docutils literal notranslate"><span class="pre">params</span></code> can be set by Feathers already. Commonly
+used are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">params.query</span></code> - the query parameters from the client, either
+passed as URL query parameters (see the <a class="reference internal" href="express.html"><span class="doc">表达</span></a>
+chapter) or through websockets (see <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a> or
+<a class="reference internal" href="primus.html"><span class="doc">Primus</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params.provider</span></code> - The transport (<code class="docutils literal notranslate"><span class="pre">rest</span></code>, <code class="docutils literal notranslate"><span class="pre">socketio</span></code> or
+<code class="docutils literal notranslate"><span class="pre">primus</span></code>) used for this service call. Will be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> for
+internal calls from the server (unless passed explicitly).</p></li>
+<li><p>:doc:<code class="docutils literal notranslate"><span class="pre">params.user</span></code> - The authenticated user, either set by <cite>Feathers authentication &lt;./authentication/server&gt;</cite> or passed explicitly.</p></li>
+<li><p><a class="reference internal" href="channels.html"><span class="doc">活动频道</span></a>.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>For external calls only <code class="docutils literal notranslate"><span class="pre">params.query</span></code> will be sent
+between the client and server. If not passed, <code class="docutils literal notranslate"><span class="pre">params.query</span></code> will
+be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> for internal calls.</p>
+</div>
+</div>
+<div class="section" id="find-params">
+<h3>.find(params)<a class="headerlink" href="#find-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.find(params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Retrieves a list of all resources
+from the service. Provider parameters will be passed as
+<code class="docutils literal notranslate"><span class="pre">params.query</span></code>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">([</span>
+      <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Message 1&#39;</span>
+      <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Message 2&#39;</span>
+      <span class="p">}</span>
+    <span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">find</span></code> does not have to return an array; it can also
+return an object. The database adapters already do this for
+<span class="xref std std-doc">pagination</span>.</p>
+</div>
+</div>
+<div class="section" id="get-id-params">
+<h3>.get(id, params)<a class="headerlink" href="#get-id-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.get(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Retrieves a single resource
+with the given <code class="docutils literal notranslate"><span class="pre">id</span></code> from the service.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="sb">`You have to do </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">!`</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-data-params">
+<h3>.create(data, params)<a class="headerlink" href="#create-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.create(data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Creates a new resource
+with <code class="docutils literal notranslate"><span class="pre">data</span></code>. The method should return a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the newly
+created data. <code class="docutils literal notranslate"><span class="pre">data</span></code> may also be an array.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">messages</span><span class="o">:</span> <span class="p">[],</span>
+
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>A successful <code class="docutils literal notranslate"><span class="pre">create</span></code> method call emits the
+:doc:<code class="docutils literal notranslate"><span class="pre">`created</span></code> service event &lt;./events#created&gt;`.</p>
+</div>
+</div>
+<div class="section" id="update-id-data-params">
+<h3>.update(id, data, params)<a class="headerlink" href="#update-id-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.update(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Replaces the resource
+identified by <code class="docutils literal notranslate"><span class="pre">id</span></code> with <code class="docutils literal notranslate"><span class="pre">data</span></code>. The method should return a
+<code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the complete, updated resource data. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be
+<code class="docutils literal notranslate"><span class="pre">null</span></code> when updating multiple records, with <code class="docutils literal notranslate"><span class="pre">params.query</span></code>
+containing the query criteria.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>A successful <code class="docutils literal notranslate"><span class="pre">update</span></code> method call emits the
+:doc:<code class="docutils literal notranslate"><span class="pre">`updated</span></code> service event &lt;./events#updated&gt;`.</p>
+</div>
+</div>
+<div class="section" id="patch-id-data-params">
+<h3>.patch(id, data, params)<a class="headerlink" href="#patch-id-data-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">patch(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Merges the existing data of the
+resource identified by <code class="docutils literal notranslate"><span class="pre">id</span></code> with the new <code class="docutils literal notranslate"><span class="pre">data</span></code>. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be
+<code class="docutils literal notranslate"><span class="pre">null</span></code> indicating that multiple resources should be patched with
+<code class="docutils literal notranslate"><span class="pre">params.query</span></code> containing the query criteria.</p>
+<p>The method should return with the complete, updated resource data.
+Implement <code class="docutils literal notranslate"><span class="pre">patch</span></code> additionally (or instead of) <code class="docutils literal notranslate"><span class="pre">update</span></code> if you want
+to distinguish between partial and full updates and support the
+<code class="docutils literal notranslate"><span class="pre">PATCH</span></code> HTTP method.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>A successful <code class="docutils literal notranslate"><span class="pre">patch</span></code> method call emits the
+:doc:<code class="docutils literal notranslate"><span class="pre">`patched</span></code> service event &lt;./events#patched&gt;`.</p>
+</div>
+</div>
+<div class="section" id="remove-id-params">
+<h3>.remove(id, params)<a class="headerlink" href="#remove-id-params" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.remove(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Removes the resource with
+<code class="docutils literal notranslate"><span class="pre">id</span></code>. The method should return a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the removed
+resource. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be <code class="docutils literal notranslate"><span class="pre">null</span></code>, which indicates the deletion of
+multiple resources, with <code class="docutils literal notranslate"><span class="pre">params.query</span></code> containing the query criteria.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>A successful <code class="docutils literal notranslate"><span class="pre">remove</span></code> method call emits the
+:doc:<code class="docutils literal notranslate"><span class="pre">`removed</span></code> service event &lt;./events#remove&gt;`.</p>
+</div>
+</div>
+<div class="section" id="setup-app-path">
+<h3>.setup(app, path)<a class="headerlink" href="#setup-app-path" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.setup(app,</span> <span class="pre">path)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> is a special method that
+initializes the service, passing an instance of the Feathers application
+and the path it has been registered on.</p>
+<p>For services registered before <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> is invoked, the <code class="docutils literal notranslate"><span class="pre">setup</span></code>
+function of each registered service is called on invoking
+<code class="docutils literal notranslate"><span class="pre">app.listen</span></code>. For services registered after <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> is invoked,
+<code class="docutils literal notranslate"><span class="pre">setup</span></code> is called automatically by Feathers when a service is
+registered.</p>
+<p><span class="xref std std-doc">hooks/readme</span>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// app.js</span>
+<span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">rest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express/rest&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">MessageService</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
+      <span class="nx">id</span><span class="p">,</span>
+      <span class="nx">read</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="sb">`Feathers is great!`</span><span class="p">,</span>
+      <span class="nx">createdAt</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">MyService</span> <span class="p">{</span>
+  <span class="nx">setup</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">get</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">messages</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">messages</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">message</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">message</span> <span class="p">};</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">rest</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">MessageService</span><span class="p">())</span>
+  <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/my-service&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">MyService</span><span class="p">())</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="feathers-functionality">
+<h2>Feathers functionality<a class="headerlink" href="#feathers-functionality" title="永久链接至标题">¶</a></h2>
+<p>When registering a service, Feathers (or its plugins) can also add its
+own methods to a service. Most notably, every service will automatically
+become an instance of a <a class="reference external" href="https://nodejs.org/api/events.html#events_class_eventemitter">NodeJS
+EventEmitter</a>.</p>
+<div class="section" id="hooks-hooks">
+<h3>.hooks(hooks)<a class="headerlink" href="#hooks-hooks" title="永久链接至标题">¶</a></h3>
+<p>Register <a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> for this service.</p>
+</div>
+<div class="section" id="publish-event-publisher">
+<h3>.publish([event, ] publisher)<a class="headerlink" href="#publish-event-publisher" title="永久链接至标题">¶</a></h3>
+<p>Register an event publishing callback. For more information, see the
+<a class="reference internal" href="channels.html"><span class="doc">活动频道</span></a>.</p>
+</div>
+<div class="section" id="mixin-mixin">
+<h3>.mixin(mixin)<a class="headerlink" href="#mixin-mixin" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">service.mixin(mixin)</span> <span class="pre">-&gt;</span> <span class="pre">service</span></code> extends the functionality of a
+service. For more information see the
+<a class="reference external" href="https://github.com/daffl/uberproto">Uberproto</a> project page.</p>
+</div>
+<div class="section" id="on-eventname-listener">
+<h3>.on(eventname, listener)<a class="headerlink" href="#on-eventname-listener" title="永久链接至标题">¶</a></h3>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">NodeJS EventEmitter
+.on</a>.
+Registers a <code class="docutils literal notranslate"><span class="pre">listener</span></code> method (<code class="docutils literal notranslate"><span class="pre">function(data)</span> <span class="pre">{}</span></code>) for the given
+<code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>For more information about service events, see the
+<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+</div>
+</div>
+<div class="section" id="emit-eventname-data">
+<h3>.emit(eventname, data)<a class="headerlink" href="#emit-eventname-data" title="永久链接至标题">¶</a></h3>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_emit_eventname_args">NodeJS EventEmitter
+.emit</a>.
+Emits the event <code class="docutils literal notranslate"><span class="pre">eventname</span></code> to all event listeners.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>For more information about service events, see the
+<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+</div>
+</div>
+<div class="section" id="removelistener-eventname-listener">
+<h3>.removeListener(eventname, [ listener ])<a class="headerlink" href="#removelistener-eventname-listener" title="永久链接至标题">¶</a></h3>
+<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener">NodeJS EventEmitter
+.removeListener</a>.
+Removes all listeners, or the given listener, for <code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>For more information about service events, see the
+<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+        <a href="hooks.html" class="btn btn-neutral float-right" title="钩" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+
+
+        <a href="application.html" class="btn btn-neutral float-left" title="应用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>

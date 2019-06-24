@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing to Feathers &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Comment/Problem" href="issue_template.html" />
+    <link rel="prev" title="github" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">github</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing to Feathers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#report-a-bug">Report a bug</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#report-a-security-concern">Report a Security Concern</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull Requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-style">Code style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests">Tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#community-contributions">Community Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributor-code-of-conduct">Contributor Code of Conduct</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="issue_template.html">Comment/Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="issue_template.html#system-configuration-optional">System configuration (optional)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">github</a> &raquo;</li>
+        
+      <li>Contributing to Feathers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/.github/contributing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contributing-to-feathers">
+<h1>Contributing to Feathers<a class="headerlink" href="#contributing-to-feathers" title="永久链接至标题">¶</a></h1>
+<p>Thank you for contributing to Feathers! :heart: :tada:</p>
+<p>Feathers embraces modularity and is broken up across many repos. To make
+this easier to manage we currently use Github projects for issue triage
+and visibility. To get a high level view of the core releases you can go
+to <a class="reference external" href="https://github.com/feathersjs/feathers/projects">https://github.com/feathersjs/feathers/projects</a>.</p>
+<div class="section" id="report-a-bug">
+<h2>Report a bug<a class="headerlink" href="#report-a-bug" title="永久链接至标题">¶</a></h2>
+<p>Before creating an issue please make sure you have checked out the docs,
+specifically the <a class="reference external" href="https://docs.feathersjs.com/help/faq.html">FAQ</a>
+section. You might want to also try searching Github. It’s pretty likely
+someone has already asked a similar question.</p>
+<p>If you haven’t found your answer please feel free to join our <a class="reference external" href="http://slack.feathersjs.com">slack
+channel</a>, create an issue on Github, or
+post on <a class="reference external" href="http://stackoverflow.com">Stackoverflow</a> using the
+<code class="docutils literal notranslate"><span class="pre">feathers</span></code> or <code class="docutils literal notranslate"><span class="pre">feathersjs</span></code> tag. We try our best to monitor
+Stackoverflow but you’re likely to get more immediate responses in Slack
+and Github.</p>
+<p>Issues can be reported in the <a class="reference external" href="https://github.com/feathersjs/feathers/issues">issue
+tracker</a>. Since
+feathers combines many modules it can be hard for us to assess the root
+cause without knowing which modules are being used and what your
+configuration looks like, so <strong>it helps us immensely if you can link to
+a simple example that reproduces your issue</strong>.</p>
+</div>
+<div class="section" id="report-a-security-concern">
+<h2>Report a Security Concern<a class="headerlink" href="#report-a-security-concern" title="永久链接至标题">¶</a></h2>
+<p>We take security very seriously at Feathers. We welcome any peer review
+of our 100% open source code to ensure nobody’s Feathers app is ever
+compromised or hacked. As a web application developer you are
+responsible for any security breaches. We do our very best to make sure
+Feathers is as secure as possible by default.</p>
+<p>In order to give the community time to respond and upgrade we strongly
+urge you report all security issues to us. Send one of the core team
+members a PM in <a class="reference external" href="http://slack.feathersjs.com">Slack</a> or email us at
+<a class="reference external" href="mailto:hello&#37;&#52;&#48;feathersjs&#46;com">hello<span>&#64;</span>feathersjs<span>&#46;</span>com</a> with details and we will respond ASAP.</p>
+<p>For full details refer to our <a class="reference external" href="https://docs.feathersjs.com/SECURITY.html">Security
+docs</a>.</p>
+</div>
+<div class="section" id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="永久链接至标题">¶</a></h2>
+<p>We :heart: pull requests and we’re continually working to make it as
+easy as possible for people to contribute, including a <a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">Plugin
+Generator</a>
+and a <a class="reference external" href="https://github.com/feathersjs/feathers-service-tests">common test
+suite</a> for
+database adapters.</p>
+<p>We prefer small pull requests with minimal code changes. The smaller
+they are the easier they are to review and merge. A FeathersJS
+maintainer will pick up your PR and review it as soon as they can. They
+may ask for changes or reject your pull request. This is not a
+reflection of you as an engineer or a person. Please accept feedback
+graciously as we will also try to be sensitive when providing it.</p>
+<p>Although we generally accept many PRs they can be rejected for many
+reasons. We will be as transparent as possible but it may simply be that
+you do not have the same context, historical knowledge or information
+regarding the roadmap that the maintainers have. We value the time you
+take to put together any contributions so we pledge to always be
+respectful of that time and will try to be as open as possible so that
+you don’t waste it. :smile:</p>
+<p><strong>All PRs (except documentation) should be accompanied with tests and
+pass the linting rules.</strong></p>
+<div class="section" id="code-style">
+<h3>Code style<a class="headerlink" href="#code-style" title="永久链接至标题">¶</a></h3>
+<p>Before running the tests from the <code class="docutils literal notranslate"><span class="pre">test/</span></code> folder <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> will run
+ESlint. You can check your code changes individually by running
+<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">lint</span></code>.</p>
+</div>
+<div class="section" id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://mochajs.org/">Mocha</a> tests are located in the <code class="docutils literal notranslate"><span class="pre">test/</span></code>
+folder and can be run using the <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">mocha</span></code> or <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> (with
+ESLint and code coverage) command.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h3>
+<p>Feathers documentation is contained in Markdown files in the
+<a class="reference external" href="https://github.com/feathersjs/docs">docs</a> repository. To change the
+documentation submit a pull request to that repo, referencing any other
+PR if applicable, and the docs will be updated with the next release.</p>
+</div>
+</div>
+<div class="section" id="community-contributions">
+<h2>Community Contributions<a class="headerlink" href="#community-contributions" title="永久链接至标题">¶</a></h2>
+<p>If you’ve written something awesome about Feathers, for the Feathers
+ecosystem, or created an app using Feathers please add it to the
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/awesome-feathersjs">awesome-feathersjs</a>.</p>
+<p>If you are looking to create a new plugin you also might want to check
+out the <a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">Plugin
+Generator</a>
+that can be used to scaffold plugins to be Feathers compliant from the
+start.</p>
+<p>If you think your module would be a good core <code class="docutils literal notranslate"><span class="pre">feathersjs</span></code> module or
+<code class="docutils literal notranslate"><span class="pre">featherjs-ecosystem</span></code> module then please contact one of the Feathers
+maintainers in <a class="reference external" href="http://slack.feathersjs.com">Slack</a> and we can
+discuss whether it belongs and how to get it there. :beers:</p>
+</div>
+<div class="section" id="contributor-code-of-conduct">
+<h2>Contributor Code of Conduct<a class="headerlink" href="#contributor-code-of-conduct" title="永久链接至标题">¶</a></h2>
+<p>As contributors and maintainers of this project, we pledge to respect
+all people who contribute through reporting issues, posting feature
+requests, updating documentation, submitting pull requests or patches,
+and other activities.</p>
+<p>We are committed to making participation in this project a
+harassment-free experience for everyone, regardless of level of
+experience, gender, gender identity and expression, sexual orientation,
+disability, personal appearance, body size, race, ethnicity, age, or
+religion.</p>
+<p>Examples of unacceptable behavior by participants include the use of
+sexual language or imagery, derogatory comments or personal attacks,
+trolling, public or private harassment, insults, or other unprofessional
+conduct.</p>
+<p>Project maintainers have the right and responsibility to remove, edit,
+or reject comments, commits, code, wiki edits, issues, and other
+contributions that are not aligned to this Code of Conduct. Project
+maintainers who do not follow the Code of Conduct may be removed from
+the project team.</p>
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may
+be reported by opening an issue or contacting one or more of the project
+maintainers.</p>
+<p>This Code of Conduct is adapted from the <a class="reference external" href="http://contributor-covenant.org">Contributor
+Covenant</a>, version 1.0.0, available
+at <a class="reference external" href="http://contributor-covenant.org/version/1/0/0/">http://contributor-covenant.org/version/1/0/0/</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="issue_template.html" class="btn btn-neutral float-right" title="Comment/Problem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="github" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>使用视图引擎 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="缩放" href="scaling.html" />
+    <link rel="prev" title="在FeathersJS中上传文件" href="file-uploading.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">高级指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">高级指南</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file-uploading.html">在FeathersJS中上传文件</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">使用视图引擎</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-single-monolithic-app">A Single “Monolithic” App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feathers-as-a-sub-app">Feathers As A Sub-App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feathers-as-a-separate-app">Feathers As A Separate App</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">缩放</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-plugin.html">创建一个Feathers插件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">高级指南</a> &raquo;</li>
+        
+      <li>使用视图引擎</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/advanced/using-a-view-engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-a-view-engine">
+<h1>使用视图引擎<a class="headerlink" href="#using-a-view-engine" title="永久链接至标题">¶</a></h1>
+<p>Since Feathers is just an extension of Express it’s really simple to
+render templated views on the server with data from your Feathers
+services. There are a few different ways that you can structure your app
+so this guide will show you 3 typical ways you might have your Feathers
+app organized.</p>
+<div class="section" id="a-single-monolithic-app">
+<h2>A Single “Monolithic” App<a class="headerlink" href="#a-single-monolithic-app" title="永久链接至标题">¶</a></h2>
+<p>You probably already know that when you register a Feathers service,
+Feathers creates RESTful endpoints for that service automatically. Well,
+really those are just Express routes, so you can define your own as
+well.</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> Your own defined REST endpoints won’t work with hooks and
+won’t emit socket events. If you find you need that functionality
+it’s probably better for you to turn your endpoints into a minimal
+Feathers service.</p>
+</div></blockquote>
+<p>Let’s say you want to render a list of messages from most recent to
+oldest using the Jade template engine.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// You&#39;ve set up your main Feathers app already</span>
+
+<span class="c1">// Register your view engine</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;view engine&#39;</span><span class="p">,</span> <span class="s1">&#39;jade&#39;</span><span class="p">);</span>
+
+<span class="c1">// Register your message service</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/api/messages&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">());</span>
+
+<span class="c1">// Inside your main Feathers app</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span>
+  <span class="c1">// You namespace your feathers service routes so that</span>
+  <span class="c1">// don&#39;t get route conflicts and have nice URLs.</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;api/messages&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="nx">query</span><span class="o">:</span> <span class="p">{</span><span class="nx">$sort</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updatedAt</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;message-list&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Simple right? We’ve now rendered a list of messages. All your hooks will
+get triggered just like they would normally so you can use hooks to
+pre-filter your data and keep your template rendering routes super
+tight.</p>
+<blockquote>
+<div><p><strong>ProTip:</strong> If you call a Feathers service “internally” (ie. not over
+sockets or REST) you won’t have a <code class="docutils literal notranslate"><span class="pre">context.params.provider</span></code>
+attribute. This allows you to have hooks only execute when services
+are called externally vs. from your own code.</p>
+</div></blockquote>
+</div>
+<div class="section" id="feathers-as-a-sub-app">
+<h2>Feathers As A Sub-App<a class="headerlink" href="#feathers-as-a-sub-app" title="永久链接至标题">¶</a></h2>
+<p>Sometimes a better way to break up your Feathers app is to put your
+services into an API and mount your API as a sub-app. This is just like
+you would do with Express. If you do this, it’s only a slight change to
+get data from your services.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// You&#39;ve set up your main Feathers app already</span>
+
+<span class="c1">// Register your view engine</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;view engine&#39;</span><span class="p">,</span> <span class="s1">&#39;jade&#39;</span><span class="p">);</span>
+
+<span class="c1">// Require your configured API sub-app</span>
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./api&#39;</span><span class="p">);</span>
+
+<span class="c1">// Register your API sub app</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/api&#39;</span><span class="p">,</span> <span class="nx">api</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span>
+  <span class="nx">api</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="nx">query</span><span class="o">:</span> <span class="p">{</span><span class="nx">$sort</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updatedAt</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;message-list&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Not a whole lot different. Your API sub app is pretty much the same as
+your single app in the previous example, and your main Feathers app is
+just a really small wrapper that does little more than render templates.</p>
+</div>
+<div class="section" id="feathers-as-a-separate-app">
+<h2>Feathers As A Separate App<a class="headerlink" href="#feathers-as-a-separate-app" title="永久链接至标题">¶</a></h2>
+<p>If your app starts to get a bit busier you might decide to move your API
+to a completely separate standalone Feathers app, maybe even on a
+different server. In order for both apps to talk to each other they’ll
+need some way to make remote requests. Well, Feathers just so happens to
+have a <span class="xref std std-doc">../api/client</span> that can be used on
+the server. This is how it works.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// You&#39;ve set up your feathers app already</span>
+
+<span class="c1">// Register your view engine</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;view engine&#39;</span><span class="p">,</span> <span class="s1">&#39;jade&#39;</span><span class="p">);</span>
+
+<span class="c1">// Include the Feathers client modules</span>
+<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+
+<span class="c1">// Set up a socket connection to our remote API</span>
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://api.feathersjs.com&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">client</span><span class="p">().</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span>
+  <span class="nx">api</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">find</span><span class="p">({</span> <span class="nx">query</span><span class="o">:</span> <span class="p">{</span><span class="nx">$sort</span><span class="o">:</span> <span class="p">{</span> <span class="nx">updatedAt</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;message-list&#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">next</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>ProTip:</strong> In the above example we set up sockets. Alternatively you
+could use a Feathers client <a class="reference internal" href="../../api/client/rest.html"><span class="doc">REST provider</span></a>.</p>
+</div></blockquote>
+<p>And with that, we’ve shown 3 different ways that you use a template
+engine with Feathers to render service data.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scaling.html" class="btn btn-neutral float-right" title="缩放" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file-uploading.html" class="btn btn-neutral float-left" title="在FeathersJS中上传文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

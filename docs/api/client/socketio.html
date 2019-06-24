@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Socket.io 客户端 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="Primus 客户端" href="primus.html" />
+    <link rel="prev" title="REST客户端" href="rest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">核心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">传输层</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#client">客户端</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../client.html">Feathers 客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST客户端</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Socket.io 客户端</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feathersjs-socketio-client">&#64;feathersjs/socketio-client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">直接连接</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primus.html">Primus 客户端</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#authentication">认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#database">数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>Socket.io 客户端</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/client/socketio.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="socket-io-client">
+<h1>Socket.io 客户端<a class="headerlink" href="#socket-io-client" title="永久链接至标题">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果可能的话, 我们建议在客户端使用Feathers和 <code class="docutils literal notranslate"><span class="pre">feathersshots/socketio-client</span></code> 模块.但是, 如果您想在客户端上使用直接Socket.io连接而不使用Feathers, 请参阅 <a class="reference external" href="#irect-connection">直接连接</a> 部分.</p>
+</div>
+<div class="section" id="feathersjs-socketio-client">
+<h2>&#64;feathersjs/socketio-client<a class="headerlink" href="#feathersjs-socketio-client" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/feathersjs/socketio-client/"><img alt="GitHub stars" src="https://img.shields.io/github/stars/feathersjs/socketio-client.png?style=social&amp;label=Star" /></a> <a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/socketio-client"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/socketio-client.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/socketio-client/blob/master/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/socketio-client --save
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">feathersress/socketio-client</span></code> 模块允许通过Socket.io套接字连接到通过 <a class="reference internal" href="#"><span class="doc">Socket.io 客户端</span></a> 公开的服务.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>Socket.io也用于 <em>call</em> 服务方法.使用套接字调用方法和接收实时事件通常比使用 <span class="xref std std-doc">./express</span> 更快.因此, 无需在同一客户端应用程序中同时使用REST和 Socket.io.</p>
+</div>
+<div class="section" id="socketio-socket">
+<h3>socketio(socket)<a class="headerlink" href="#socketio-socket" title="永久链接至标题">¶</a></h3>
+<p>使用给定套接字和默认选项初始化Socket.io客户端.</p>
+<p>{% codetabs name=“Modular”, type=“js” -%} const feathers =
+require(‘&#64;feathersjs/feathers’); const socketio =
+require(‘&#64;feathersjs/socketio-client’); const io =
+require(‘socket.io-client’);</p>
+<p>const socket = io(‘<a class="reference external" href="http://api.feathersjs.com">http://api.feathersjs.com</a>’); const app = feathers();</p>
+<p>// Set up Socket.io client with the socket
+app.configure(socketio(socket));</p>
+<p>// Receive real-time events through Socket.io app.service(‘messages’)
+.on(‘created’, message =&gt; console.log(‘New message created’, message));</p>
+<p>// Call the <code class="docutils literal notranslate"><span class="pre">messages</span></code> service app.service(‘messages’).create({ text:
+‘A message from a REST client’ }); {%- language
+name=“&#64;feathersjs/client”, type=“html” -%}</p>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script><script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script><script src="//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js"></script><script>
+  // Socket.io is exposed as the `io` global.
+  var socket = io('http://api.feathersjs.com');
+  // @feathersjs/client is exposed as the `feathers` global.
+  var app = feathers();
+
+  // Set up Socket.io client with the socket
+  app.configure(feathers.socketio(socket));
+
+  // Receive real-time events through Socket.io
+  app.service('messages')
+    .on('created', message => console.log('New message created', message));
+
+  // Call the `messages` service
+  app.service('messages').create({
+    text: 'A message from a REST client'
+  });
+
+  // feathers.errors is an object with all of the custom error types.
+</script><p>{%- endcodetabs %}</p>
+</div>
+<div class="section" id="socketio-socket-options">
+<h3>socketio(socket, options)<a class="headerlink" href="#socketio-socket-options" title="永久链接至标题">¶</a></h3>
+<p>使用指定的套接字和选项初始化Socket.io客户端.</p>
+<p>选项可以:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> (default: 5000ms) - The time after which a method call
+fails and times out. This usually happens when calling a service or
+service method that does not exist.</p></li>
+</ul>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://api.feathersjs.com&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="c1">// Set up Socket.io client with the socket</span>
+<span class="c1">// And a timeout of 2 seconds</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">2000</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
+<p>要设置服务特定超时，您可以使用:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">timeout</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>直接连接<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Feathers设置一个普通的Socket.io服务器, 你可以连接到任何兼容Socket.io的客户端, 通常是`Socket.io client &lt;<a class="reference external" href="http://socket.io/docs/client-api/">http://socket.io/docs/client-api/</a>&gt;`_来自服务器的``socket.io-client``模块或``/ socket.io / socket.io.js``.与HTTP调用不同, websockets在浏览器中没有固有的跨源限制, 因此可以连接到任何Feathers服务器.</p>
+<blockquote>
+<div><p>这是Feathers将设置Socket.io的地方.</p>
+</div></blockquote>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Connecting to the same URL --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/socket.io/socket.io.js&quot;</span><span class="p">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">();</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Connecting to a different server --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://localhost:3030/socket.io/socket.io.js&quot;</span><span class="p">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030/&#39;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>可以通过发出``&lt;methodname&gt;``事件, 然后是服务路径和方法参数来调用服务方法.服务路径是服务已注册的名称（在“app.use``中）, 没有前导或尾部斜杠.将使用方法调用的结果或可能发生的任何错误调用``function（error, data）``Node约定之后的可选回调.</p>
+<p><code class="docutils literal notranslate"><span class="pre">params</span></code> 将在服务方法调用中设置为 <code class="docutils literal notranslate"><span class="pre">params.query</span></code>.其他服务参数可以通过 <a class="reference internal" href="../socketio.html"><span class="doc">Socket.io</span></a> 设置.</p>
+<p>如果服务路径或方法不存在，将返回相应的Feathers错误。</p>
+<div class="section" id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h3>
+<p>Sockets can be authenticated by sending the <code class="docutils literal notranslate"><span class="pre">authenticate</span></code> event with
+the <code class="docutils literal notranslate"><span class="pre">strategy</span></code> and the payload. For specific examples, see the “Direct
+Connection” section in the <a class="reference internal" href="../authentication/jwt.html"><span class="doc">JWT身份验证</span></a>
+authentication chapters.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">);</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;authenticate&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;strategyname&#39;</span><span class="p">,</span>
+  <span class="p">...</span> <span class="nx">otherData</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// message will be null</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// data will be {&quot;accessToken&quot;: &quot;your token&quot;}</span>
+  <span class="c1">// You can now send authenticated messages to the server</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="find">
+<h3>find<a class="headerlink" href="#find" title="永久链接至标题">¶</a></h3>
+<p>从服务中检索所有匹配资源的列表</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;find&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s1">&#39;read&#39;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="mi">10</span> <span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Found all messages&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').find({</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">status:</span> <span class="pre">'read',</span> <span class="pre">user:</span> <span class="pre">10</span> <span class="pre">}</span> <span class="pre">})</span></code>
+on the server.</p>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="永久链接至标题">¶</a></h3>
+<p>从服务中检索单个资源。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Found message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call <code class="docutils literal notranslate"><span class="pre">app.service('messages').get(1,</span> <span class="pre">{})</span></code> on the server.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span> <span class="nx">fetch</span><span class="o">:</span> <span class="s1">&#39;all&#39;</span> <span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Found message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').get(1,</span> <span class="pre">{</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">fetch:</span> <span class="pre">'all'</span> <span class="pre">}</span> <span class="pre">})</span></code> on the
+server.</p>
+</div>
+<div class="section" id="create">
+<h3><code class="docutils literal notranslate"><span class="pre">create</span></code><a class="headerlink" href="#create" title="永久链接至标题">¶</a></h3>
+<p>使用``data``创建一个新资源，它也可以是一个数组。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;I really have to iron&#39;</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Todo created&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').create({</span> <span class="pre">text:</span> <span class="pre">'I</span> <span class="pre">really</span> <span class="pre">have</span> <span class="pre">to</span> <span class="pre">iron'</span> <span class="pre">},</span> <span class="pre">{})</span></code>
+on the server.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;I really have to iron&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Do laundry&#39;</span> <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>Will call <code class="docutils literal notranslate"><span class="pre">app.service('messages').create</span></code> with the array.</p>
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="永久链接至标题">¶</a></h3>
+<p>完全替换单个或多个资源。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;I really have to do laundry&#39;</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Todo updated&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').update(2,</span> <span class="pre">{</span> <span class="pre">text:</span> <span class="pre">'I</span> <span class="pre">really</span> <span class="pre">have</span> <span class="pre">to</span> <span class="pre">do</span> <span class="pre">laundry'</span> <span class="pre">},</span> <span class="pre">{})</span></code>
+on the server. The <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be <code class="docutils literal notranslate"><span class="pre">null</span></code> to update multiple
+resources:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">complete</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">},</span> <span class="p">{</span> <span class="nx">complete</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').update(null,</span> <span class="pre">{</span> <span class="pre">complete:</span> <span class="pre">true</span> <span class="pre">},</span> <span class="pre">{</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">complete:</span> <span class="pre">'false'</span> <span class="pre">}</span> <span class="pre">})</span></code>
+on the server.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> is normally expected to replace an entire
+resource, which is why the database adapters only support <code class="docutils literal notranslate"><span class="pre">patch</span></code>
+for multiple records.</p>
+</div>
+</div>
+<div class="section" id="patch">
+<h3>patch<a class="headerlink" href="#patch" title="永久链接至标题">¶</a></h3>
+<p>使用新的``data``合并单个或多个资源的现有数据.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">read</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Patched message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>将在服务器上调用``app.service（’messages’）.patch（2, {read:true}, {}）``. <a href="#id1"><span class="problematic" id="id2">``</span></a>id``也可以是``null``来更新多个资源:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">complete</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">},</span> <span class="p">{</span>
+  <span class="nx">complete</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Patched message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>将在服务器上调用``app.service（’messages’）.patch（null, {complete:true}, {query:{complete:false}}）``来更改所有read app.service的状态（ ‘消息’）.</p>
+<p>This is supported out of the box by the Feathers <a class="reference internal" href="../readme.html"><span class="doc">API</span></a></p>
+</div>
+<div class="section" id="remove">
+<h3>remove<a class="headerlink" href="#remove" title="永久链接至标题">¶</a></h3>
+<p>删除一个或多个资源:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span> <span class="nx">cascade</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Removed a message&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').remove(2,</span> <span class="pre">{</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">cascade:</span> <span class="pre">true</span> <span class="pre">}</span> <span class="pre">})</span></code> on
+the server. The <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be <code class="docutils literal notranslate"><span class="pre">null</span></code> to remove multiple
+resources:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;remove&#39;</span><span class="p">,</span> <span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="p">{</span> <span class="nx">read</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>Will call
+<code class="docutils literal notranslate"><span class="pre">app.service('messages').remove(null,</span> <span class="pre">{</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">read:</span> <span class="pre">'true'</span> <span class="pre">}</span> <span class="pre">})</span></code> on
+the server to delete all read app.service(‘messages’).</p>
+</div>
+<div class="section" id="listening-to-events">
+<h3>听取事件<a class="headerlink" href="#listening-to-events" title="永久链接至标题">¶</a></h3>
+<p>通过侦听服务事件, 可以在应用程序中实现实时行为. :doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>events`以``servicepath eventname``的形式发送到套接字.</p>
+<div class="section" id="created">
+<h4>created<a class="headerlink" href="#created" title="永久链接至标题">¶</a></h4>
+<p>当服务``create``成功返回时, <a href="#id1"><span class="problematic" id="id2">``</span></a>created``事件将与回调数据一起发布.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030/&#39;</span><span class="p">);</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;messages created&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got a new Todo!&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updated-patched">
+<h4>updated, patched<a class="headerlink" href="#updated-patched" title="永久链接至标题">¶</a></h4>
+<p>当服务``update``或``patch``方法成功回调时, <a href="#id1"><span class="problematic" id="id2">``</span></a>updated``和``patched``事件将与回调数据一起发布.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030/&#39;</span><span class="p">);</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;my/messages updated&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Got an updated Todo!&#39;</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;my/messages&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Updated text&#39;</span>
+<span class="p">},</span> <span class="p">{},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// Do something here</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removed">
+<h4>removed<a class="headerlink" href="#removed" title="永久链接至标题">¶</a></h4>
+<p>当服务``remove``成功回调时, <a href="#id1"><span class="problematic" id="id2">``</span></a>removed``事件将与回调数据一起发布.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030/&#39;</span><span class="p">);</span>
+
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;messages removed&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Remove element showing the Todo from the page</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#message-&#39;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="primus.html" class="btn btn-neutral float-right" title="Primus 客户端" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rest.html" class="btn btn-neutral float-left" title="REST客户端" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

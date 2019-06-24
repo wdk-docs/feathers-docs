@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:00+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/socketio.rst:2
+msgid "Socket.io"
+msgstr ""
+
+#: ../../source/api/socketio.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/socketio.rst:10
+msgid "The [@feathersjs/socketio](https://github.com/feathersjs/socketio) module allows to call :doc:`./services` and receive :doc:`./events` via `Socket.io <http://socket.io/>`_, a NodeJS library which enables real-time bi-directional, event-based communication."
+msgstr ""
+
+#: ../../source/api/socketio.rst:16
+msgid "This page describes how to set up a Socket.io server. The :doc:`./client/socketio` shows how to connect to this server on the client and the message format for service calls and real-time events."
+msgstr ""
+
+#: ../../source/api/socketio.rst:22
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/api/socketio.rst:24
+msgid "``@feathersjs/socketio`` can be used standalone or together with a Feathers framework integration like :doc:`./express`."
+msgstr ""
+
+#: ../../source/api/socketio.rst:28
+msgid "app.configure(socketio())"
+msgstr ""
+
+#: ../../source/api/socketio.rst:30
+msgid "Sets up the Socket.io transport with the default configuration using either the server provided by :ref:`application_listen` or passed in :ref:`application_setup`."
+msgstr ""
+
+#: ../../source/api/socketio.rst:47
+msgid "Once the server has been started with ``app.listen()`` or ``app.setup(server)`` the Socket.io object is available as ``app.io``."
+msgstr ""
+
+#: ../../source/api/socketio.rst:52
+msgid "app.configure(socketio(callback))"
+msgstr ""
+
+#: ../../source/api/socketio.rst:54
+msgid "Sets up the Socket.io transport with the default configuration and call ``callback`` with the `Socket.io server object <http://socket.io/docs/server-api/>`_. This is a good place to listen to custom events or add `authorization <https://github.com/LearnBoost/socket.io/wiki/Authorizing>`_:"
+msgstr ""
+
+#: ../../source/api/socketio.rst:86
+msgid "app.configure(socketio(options [, callback]))"
+msgstr ""
+
+#: ../../source/api/socketio.rst:88
+msgid "Sets up the Socket.io transport with the given `Socket.io options object <https://github.com/socketio/engine.io#methods-1>`_ and optionally calls the callback described above."
+msgstr ""
+
+#: ../../source/api/socketio.rst:92
+msgid "This can be used to e.g. configure the path where Socket.io is initialize (``socket.io/`` by default). The following changes the path to ``ws/``:"
+msgstr ""
+
+#: ../../source/api/socketio.rst:113
+msgid "app.configure(socketio(port, [options], [callback]))"
+msgstr ""
+
+#: ../../source/api/socketio.rst:115
+msgid "Creates a new Socket.io server on a separate port. Options and a callback are optional and work as described above."
+msgstr ""
+
+#: ../../source/api/socketio.rst:129
+msgid "params"
+msgstr ""
+
+#: ../../source/api/socketio.rst:131
+msgid "`Socket.io middleware <https://socket.io/docs/server-api/#namespace-use-fn>`_ can modify the ``feathers`` property on the ``socket`` which will then be used as the service call ``params``:"
+msgstr ""
+
+#: ../../source/api/socketio.rst:155
+msgid "*Note:* ``socket.feathers`` is the same object as the ``connection`` in a :doc:`./channels`. ``socket.request`` and ``socket.handshake`` contains information the HTTP request that initiated the connection (see the `Socket.io documentation <https://socket.io/docs/server-api/#socket-request>`_)."
+msgstr ""
+
+#: ../../source/api/socketio.rst:162
+msgid "params.provider"
+msgstr ""
+
+#: ../../source/api/socketio.rst:164
+msgid "For any :doc:`./services` made through Socket.io ``params.provider`` will be set to ``socketio``. In a :doc:`./hooks` this can for example be used to prevent external users from making a service method call:"
+msgstr ""
+
+#: ../../source/api/socketio.rst:183
+msgid "params.query"
+msgstr ""
+
+#: ../../source/api/socketio.rst:185
+msgid "``params.query`` will contain the query parameters sent from the client."
+msgstr ""
+
+#: ../../source/api/socketio.rst:187
+msgid "Only ``params.query`` is passed between the server and the client, other parts of ``params`` are not. This is for security reasons so that a client can’t set things like ``params.user`` or the database options. You can always map from ``params.query`` to :doc:`./hooks`."
+msgstr ""
+
+#: ../../source/api/socketio.rst:194
+msgid "params.connection"
+msgstr ""
+
+#: ../../source/api/socketio.rst:196
+msgid "``params.connection`` is the connection object that can be used with :doc:`./channels`. It is the same object as ``socket.feathers`` in a Socket.io middleware as `shown in the ``params`` section <#params>`_."
+msgstr ""
+

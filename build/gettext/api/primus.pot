@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/primus.rst:2
+msgid "Primus"
+msgstr ""
+
+#: ../../source/api/primus.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/primus.rst:10
+msgid "The [@feathersjs/primus](https://github.com/feathersjs/primus) module allows to call :doc:`./services` and receive :doc:`./events` via `Primus <https://github.com/primus/primus>`_, a universal wrapper for real-time frameworks that supports Engine.IO, WebSockets, Faye, BrowserChannel, SockJS and Socket.IO."
+msgstr ""
+
+#: ../../source/api/primus.rst:17
+msgid "This page describes how to set up Primus server. The :doc:`./client/primus` shows how to connect to this server on the client and the message format for service calls and real-time events."
+msgstr ""
+
+#: ../../source/api/primus.rst:23
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/api/primus.rst:25
+msgid "Additionally to ``@feathersjs/primus`` your websocket library of choice also has to be installed."
+msgstr ""
+
+#: ../../source/api/primus.rst:33
+msgid "app.configure(primus(options))"
+msgstr ""
+
+#: ../../source/api/primus.rst:35
+msgid "Sets up the Primus transport with the given `Primus options <https://github.com/primus/primus>`_."
+msgstr ""
+
+#: ../../source/api/primus.rst:38
+msgid "Once the server has been started with ``app.listen()`` or ``app.setup(server)`` the Primus server object is available as ``app.primus``."
+msgstr ""
+
+#: ../../source/api/primus.rst:55
+msgid "app.configure(primus(options, callback))"
+msgstr ""
+
+#: ../../source/api/primus.rst:57
+msgid "Sets up the Primus transport with the given `Primus options <https://github.com/primus/primus>`_ and calls the callback with the Primus server instance."
+msgstr ""
+
+#: ../../source/api/primus.rst:78
+msgid "params"
+msgstr ""
+
+#: ../../source/api/primus.rst:80
+msgid "The Primus request object has a ``feathers`` property that can be extended with additional service ``params`` during authorization:"
+msgstr ""
+
+#: ../../source/api/primus.rst:103
+msgid "``params.provider``"
+msgstr ""
+
+#: ../../source/api/primus.rst:105
+msgid "For any :doc:`./services` made through a Primus socket ``params.provider`` will be set to ``primus``. In a :doc:`./hooks` this can for example be used to prevent external users from making a service method call:"
+msgstr ""
+
+#: ../../source/api/primus.rst:124
+msgid "``params.query``"
+msgstr ""
+
+#: ../../source/api/primus.rst:126
+msgid "``params.query`` will contain the query parameters sent from the client."
+msgstr ""
+
+#: ../../source/api/primus.rst:128
+msgid "Only ``params.query`` is passed between the server and the client, other parts of ``params`` are not. This is for security reasons so that a client can’t set things like ``params.user`` or the database options. You can always map from ``params.query`` to :doc:`./hooks`."
+msgstr ""
+
+#: ../../source/api/primus.rst:135
+msgid "params.connection"
+msgstr ""
+
+#: ../../source/api/primus.rst:137
+msgid "``params.connection`` is the connection object that can be used with :doc:`./channels`. It is the same object as ``req.feathers`` in a Primus middleware as `shown in the ``params`` section <#params>`_."
+msgstr ""
+

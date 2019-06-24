@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>常问问题 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="特约" href="../contributing/readme.html" />
+    <link rel="prev" title="救命！" href="../help/readme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/readme.html">救命！</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">常问问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-node-versions-does-feathers-support">What Node versions does Feathers support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-create-custom-methods">How do I create custom methods?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-nested-or-custom-routes">How do I do nested or custom routes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-you-support-another-database">Can you support another database?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-am-not-getting-real-time-events">I am not getting real-time events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-search">How do I do search?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-am-i-not-getting-json-errors">Why am I not getting JSON errors?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-am-i-not-getting-the-correct-http-error-code">Why am I not getting the correct HTTP error code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-i-do-custom-methods-like-findorcreate">How can I do custom methods like <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-you-using-jwt-for-sessions">Why are you using JWT for sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-render-templates">How do I render templates?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#oauth-is-not-setting-the-cookie">OAuth is not setting the cookie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-create-channels-or-rooms">How do I create channels or rooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-validation">How do I do validation?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preferred-way">The preferred way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-orm-way">The ORM way</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-associations">How do I do associations?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-preferred-way-1">The preferred way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-orm-way-1">The ORM way</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequelize-models-and-associations">Sequelize models and associations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-about-koa-hapi-x">What about Koa/Hapi/X?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-access-the-request-object-in-hooks-or-services">How do I access the request object in hooks or services?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-mount-sub-apps">How do I mount sub apps?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-do-some-processing-after-sending-the-response-to-the-user">How do I do some processing after sending the response to the user?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-debug-my-app">How do I debug my app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#possible-eventemitter-memory-leak-detected-warning"><code class="docutils literal notranslate"><span class="pre">possible</span> <span class="pre">EventEmitter</span> <span class="pre">memory</span> <span class="pre">leak</span> <span class="pre">detected</span></code> warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-cant-i-pass-params-from-the-client">Why can’t I pass <code class="docutils literal notranslate"><span class="pre">params</span></code> from the client?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-queries-with-null-values-arent-working">My queries with null values aren’t working</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-queries-with-arrays-failing">Why are queries with arrays failing?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-always-get-a-404-for-my-custom-middleware">I always get a 404 for my custom middleware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-get-oauth-working-across-different-domains">How do I get OAuth working across different domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-configuration-isnt-loaded">My configuration isn’t loaded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-set-up-https">How do I set up HTTPS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-feathers-production-ready">Is Feathers production ready?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>常问问题</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/faq/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faq">
+<h1>常问问题<a class="headerlink" href="#faq" title="永久链接至标题">¶</a></h1>
+<p>We’ve been collecting some commonly asked questions here. We’ll either
+be updating the guide directly, providing answers here, or both.</p>
+<div class="section" id="what-node-versions-does-feathers-support">
+<h2>What Node versions does Feathers support<a class="headerlink" href="#what-node-versions-does-feathers-support" title="永久链接至标题">¶</a></h2>
+<p>The latest version of Feathers and all plugins work with Node 6 and
+later. Node 6 will be supported until <strong>2019-04-18</strong> when the official
+support cycle ends.</p>
+<p>The <a class="reference external" href="https://docs.feathersjs.com/">Feathers guides</a> and applications
+generated by the CLI (<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/cli</span></code>) use newer language features
+like <code class="docutils literal notranslate"><span class="pre">async/await</span></code> and require Node 8 or later.</p>
+</div>
+<div class="section" id="how-do-i-create-custom-methods">
+<h2>How do I create custom methods?<a class="headerlink" href="#how-do-i-create-custom-methods" title="永久链接至标题">¶</a></h2>
+<p>One important thing to know about Feathers is that it only exposes the
+official <span class="xref std std-doc">api/services</span> to clients. While you
+can add and use any service method on the server, it is <strong>not</strong> possible
+to expose those custom methods to clients.</p>
+<p>Feathers is built around the <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer#Architectural_constraints">REST architectural
+constraints</a>
+and there are many good reasons for it. In general, almost anything that
+may require custom methods or RPC style actions can also be done either
+by creating a <span class="xref std std-doc">api/services</span> or through
+<span class="xref std std-doc">api/hooks</span>.</p>
+<p>The benefits (like security, predictability, sending well defined
+real-time events) so far heavily outweighed the slight change in
+thinking required when conceptualizing your application logic.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><p>Send email action that does not store mail message in database.</p></li>
+</ul>
+<p>Resources (services) don’t have to be database records. It can be any
+kind of resource (like the current weather for a city or creating an
+email which will send it). Sending emails is usually done with either a
+separate email <span class="xref std std-doc">api/services</span>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/email&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">sendEmail</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Or in a <span class="xref std std-doc">api/hooks</span>.</p>
+<ul class="simple">
+<li><p>Place an order in e-commerce web site. Behind the scenes, there are
+many records will be inserted in one transaction: order_item,
+order_header, voucher_tracking etc.</p></li>
+</ul>
+<p>This is what <span class="xref std std-doc">api/hooks</span> are for. When creating
+a new order you also have a well defined hook chain:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;orders&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">validateData</span><span class="p">(),</span>
+      <span class="nx">checkStock</span><span class="p">(),</span>
+      <span class="nx">checkVoucher</span><span class="p">()</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">chargePayment</span><span class="p">(),</span> <span class="c1">// hook that calls `app.service(&#39;payment&#39;).create()`</span>
+      <span class="nx">sendEmail</span><span class="p">(),</span> <span class="c1">// hook that calls `app.service(&#39;email&#39;).create()`</span>
+      <span class="nx">updateStock</span><span class="p">()</span> <span class="c1">// Update product stock here</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">userService.resetPassword</span></code> method</p></li>
+</ul>
+<p>This can also be implemented as a password service that resets the
+password in the <code class="docutils literal notranslate"><span class="pre">create</span></code> method:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">PasswordService</span> <span class="p">{</span>
+  <span class="nx">create</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">user_id</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">userService</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nx">userService</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span><span class="nx">userId</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">passwordToken</span><span class="o">:</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+    <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="nx">sendEmail</span><span class="p">(</span><span class="nx">user</span><span class="p">))</span>
+  <span class="p">}</span>
+
+  <span class="nx">setup</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">app</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-do-nested-or-custom-routes">
+<h2>How do I do nested or custom routes?<a class="headerlink" href="#how-do-i-do-nested-or-custom-routes" title="永久链接至标题">¶</a></h2>
+<p>Normally we find that they actually aren’t needed and that it is much
+better to keep your routes as flat as possible. For example something
+like <code class="docutils literal notranslate"><span class="pre">users/:userId/posts</span></code> is - although nice to read for humans -
+actually not as easy to parse and process as the equivalent
+:doc:<code class="docutils literal notranslate"><span class="pre">/posts?userId=&lt;userid&gt;</span></code> that is already <cite>supported by Feathers out of the box &lt;../api/databases/querying&gt;</cite>. Additionally, this will also
+work much better when using Feathers through websocket connections which
+do not have a concept of routes at all.</p>
+<p>However, nested routes for services can still be created by registering
+an existing service on the nested route and mapping the route parameter
+to a query parameter like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span> <span class="nx">postService</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="nx">userService</span><span class="p">);</span>
+
+<span class="c1">// re-export the posts service on the /users/:userId/posts route</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/users/:userId/posts&#39;</span><span class="p">,</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;posts&#39;</span><span class="p">));</span>
+
+<span class="c1">// A hook that updates `data` with the route parameter</span>
+<span class="kd">function</span> <span class="nx">mapUserIdToData</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span> <span class="o">&amp;&amp;</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// For the new route, map the `:userId` route parameter to the query in a hook</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users/:userId/posts&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">find</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">route</span><span class="p">.</span><span class="nx">userId</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">mapUserIdToData</span><span class="p">,</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">mapUserIdToData</span><span class="p">,</span>
+    <span class="nx">patch</span><span class="o">:</span> <span class="nx">mapUserIdToData</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<p>Now going to <code class="docutils literal notranslate"><span class="pre">/users/123/posts</span></code> will call
+<code class="docutils literal notranslate"><span class="pre">postService.find({</span> <span class="pre">query:</span> <span class="pre">{</span> <span class="pre">userId:</span> <span class="pre">123</span> <span class="pre">}</span> <span class="pre">})</span></code> and return all posts
+for that user.</p>
+<p>For more information about URL routing and parameters, refer to <a class="reference internal" href="../api/express.html"><span class="doc">the Express chapter</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>URLs should never contain actions that change data (like
+<code class="docutils literal notranslate"><span class="pre">post/publish</span></code> or <code class="docutils literal notranslate"><span class="pre">post/delete</span></code>). This has always been an
+important part of the HTTP protocol and Feathers enforces this more
+strictly than most other frameworks. For example to publish a post
+you would call <code class="docutils literal notranslate"><span class="pre">.patch(id,</span> <span class="pre">{</span> <span class="pre">published:</span> <span class="pre">true</span> <span class="pre">})</span></code>.</p>
+</div>
+</div>
+<div class="section" id="can-you-support-another-database">
+<h2>Can you support another database?<a class="headerlink" href="#can-you-support-another-database" title="永久链接至标题">¶</a></h2>
+<p>Feathers <span class="xref std std-doc">api/databases/adapters</span> implement
+90% of the functionality you may need to use Feathers with certain
+databases and ORMs. However, even if your favourite database or ORM is
+not on the list or the adapter does not support specific functionality
+you are looking for, Feathers can still accomodate all your needs by
+<span class="xref std std-doc">api/services</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>To use Feathers properly it is very important to
+understand how services work and that all existing database adapters
+are just services that talk to the database themselves.</p>
+</div>
+<p>The why and how to write your own services is covered <a class="reference internal" href="../guides/basics/readme.html"><span class="doc">in the basics guide</span></a>. In the generator a custom service
+can be created by running <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">service</span></code>, choosing “A
+custom service” and then editing the
+<code class="docutils literal notranslate"><span class="pre">&lt;servicename&gt;/&lt;servicename&gt;.class.js</span></code> file to make the appropriate
+database calls.</p>
+<p>If you would like to publish your own database adapter, first make sure
+there isn’t already a <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">community maintained adapter</a>
+for that database (many maintainers are happy to get some help, too). If
+not, you can run <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">plugin</span></code> to create a new plugin. A
+reference implementation for a database adapter can be found in the
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory repository</a>.
+It is always possible for community maintained adapters to graduate into
+an <em>official</em> Feathers adapter, at the moment there are however no plans
+to add support for any new databases from the Feathers team directly.</p>
+</div>
+<div class="section" id="i-am-not-getting-real-time-events">
+<h2>I am not getting real-time events<a class="headerlink" href="#i-am-not-getting-real-time-events" title="永久链接至标题">¶</a></h2>
+<p>Feathers Buzzard (<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers&#64;v3.0.0</span></code>) introduced a new,
+more secure event system that does <strong>not</strong> send real-time events by
+default. If you are not getting real-time events on the client, it is
+usually a problem with the <span class="xref std std-doc">api/channels</span> setup.</p>
+<p>Have a look a the example at
+<a class="reference external" href="https://feathersjs.com/">feathersjs.com</a>,
+the <a class="reference internal" href="../guides/basics/real-time.html"><span class="doc">real-time basics guide</span></a> and
+the <a class="reference internal" href="../api/channels.html"><span class="doc">channels documentation</span></a>. If you are migrating from a
+previous version, also see the <span class="xref std std-doc">channels section in the migration guide</span>.</p>
+<p>The generated application already sets up a <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> file that
+sends events to only authenticated users by default but can be modified
+to your needs according the the <a class="reference internal" href="../api/channels.html"><span class="doc">channels documentation</span></a>.</p>
+</div>
+<div class="section" id="how-do-i-do-search">
+<h2>How do I do search?<a class="headerlink" href="#how-do-i-do-search" title="永久链接至标题">¶</a></h2>
+<p>This depends on the database adapter you are using.
+See <span class="xref std std-doc">the search querying chapter</span> for more
+information.</p>
+</div>
+<div class="section" id="why-am-i-not-getting-json-errors">
+<h2>Why am I not getting JSON errors?<a class="headerlink" href="#why-am-i-not-getting-json-errors" title="永久链接至标题">¶</a></h2>
+<p>If you get a plain text error and a 500 status code for errors that
+should return different status codes, make sure you have the
+<code class="docutils literal notranslate"><span class="pre">express.errorHandler()</span></code> from the <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> module
+configured as described in the <span class="xref std std-doc">Express errors</span> chapter.</p>
+</div>
+<div class="section" id="why-am-i-not-getting-the-correct-http-error-code">
+<h2>Why am I not getting the correct HTTP error code<a class="headerlink" href="#why-am-i-not-getting-the-correct-http-error-code" title="永久链接至标题">¶</a></h2>
+<p>See the above answer.</p>
+</div>
+<div class="section" id="how-can-i-do-custom-methods-like-findorcreate">
+<h2>How can I do custom methods like <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code>?<a class="headerlink" href="#how-can-i-do-custom-methods-like-findorcreate" title="永久链接至标题">¶</a></h2>
+<p>Custom functionality can almost always be mapped to an existing service
+method using hooks. For example, <code class="docutils literal notranslate"><span class="pre">findOrCreate</span></code> can be implemented as
+a before-hook on the service’s <code class="docutils literal notranslate"><span class="pre">get</span></code> method. <a class="reference external" href="https://gist.github.com/marshallswain/9fa3b1e855633af00998">See this gist</a> for
+an example of how to implement this in a before-hook.</p>
+</div>
+<div class="section" id="why-are-you-using-jwt-for-sessions">
+<h2>Why are you using JWT for sessions<a class="headerlink" href="#why-are-you-using-jwt-for-sessions" title="永久链接至标题">¶</a></h2>
+<p>Feathers is using <a class="reference external" href="https://jwt.io/">JSON web tokens (JWT)</a> for its
+standard authentication mechanism. Some articles like <a class="reference external" href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/">Stop using JWT
+for
+sessions</a>
+promotes using standard cookies and HTTP sessions. While it brings up
+some valid points, not all of them apply to Feathers and there are other
+good reasons why Feathers relies on JWT:</p>
+<ul class="simple">
+<li><p>Feathers is designed to support many different transport mechanisms,
+most of which do not rely on HTTP but do work well with JWT as the
+authentication mechanism. This is even already the case for
+websockets where an established connection normally is not secured by
+a traditional HTTP session.</p></li>
+<li><p>By default the only thing that Feathers stored in the JWT payload is
+the user id. It is a stateful token. You can change this and make the
+token stateless by putting more data into the JWT payload but this is
+at your discretion. Currently the user is looked up on every request
+after the JWT is verified to not be expired or tampered with.</p></li>
+<li><p>You need to make sure that you revoke JWT tokens or set a low
+expiration date or add custom logic to verify that a user’s account
+is still valid/active. Currently the default expiration is 1 day. We
+chose a reasonable default for most apps but depending on your
+application this might be too long or too short.</p></li>
+</ul>
+<p>Additionally, it is still possible to use Feathers with existing
+<em>traditional</em> Express session mechanism by using <a class="reference internal" href="../api/express.html"><span class="doc">custom Express middleware</span></a>. For example, <code class="docutils literal notranslate"><span class="pre">params.user</span></code> for all
+service calls from a traditional Express session can be passed like
+this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Set service call `param.user` from `session.user`</span>
+  <span class="nx">req</span><span class="p">.</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-render-templates">
+<h2>How do I render templates?<a class="headerlink" href="#how-do-i-render-templates" title="永久链接至标题">¶</a></h2>
+<p>Feathers works just like Express so it’s the exact same. We’ve created a
+<a class="reference internal" href="../guides/advanced/using-a-view-engine.html"><span class="doc">helpful little guide right here</span></a>. For protecting
+Express views with authentication, also see <a class="reference internal" href="../guides/auth/recipe.express-middleware.html"><span class="doc">this guide</span></a>.</p>
+</div>
+<div class="section" id="oauth-is-not-setting-the-cookie">
+<h2>OAuth is not setting the cookie<a class="headerlink" href="#oauth-is-not-setting-the-cookie" title="永久链接至标题">¶</a></h2>
+<p>If you are authenticating via oAuth but your API and frontend reside on
+different domains the cookie used by the authentication client can not
+be set. Instead, a query string redirect has to be used as shown in
+<a class="reference external" href="https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67">this gist</a>.</p>
+</div>
+<div class="section" id="how-do-i-create-channels-or-rooms">
+<h2>How do I create channels or rooms<a class="headerlink" href="#how-do-i-create-channels-or-rooms" title="永久链接至标题">¶</a></h2>
+<p>In Feathers <span class="xref std std-doc">api/channels</span> are the way to send
+<span class="xref std std-doc">api/events</span> to only certain clients.</p>
+</div>
+<div class="section" id="how-do-i-do-validation">
+<h2>How do I do validation?<a class="headerlink" href="#how-do-i-do-validation" title="永久链接至标题">¶</a></h2>
+<p>If your database/ORM supports a model or schema (ie. Mongoose or
+Sequelize) then you have 2 options.</p>
+<div class="section" id="the-preferred-way">
+<h3>The preferred way<a class="headerlink" href="#the-preferred-way" title="永久链接至标题">¶</a></h3>
+<p>You perform validation at the service level <a class="reference internal" href="../api/hooks.html"><span class="doc">using hooks</span></a>. This is better because it keeps your app
+database agnostic so you can easily swap databases without having to
+change your validations much.</p>
+<p>If you write a bunch of small hooks that validate specific things it is
+easier to test and also slightly more performant because you can exit
+out of the validation chain early instead of having to go all the way to
+the point of inserting data into the database to find out if that data
+is invalid.</p>
+<p>If you don’t have a model or schema then validating with hooks is
+currently your only option. If you come up with something different feel
+free to submit a PR!</p>
+</div>
+<div class="section" id="the-orm-way">
+<h3>The ORM way<a class="headerlink" href="#the-orm-way" title="永久链接至标题">¶</a></h3>
+<p>With ORM adapters you can perform validation at the model level:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose#validation">Using Mongoose</a></p></li>
+<li><p><a class="reference external" href="http://docs.sequelizejs.com/en/latest/docs/models-definition/#validations">Using Sequelize</a></p></li>
+</ul>
+<p>The nice thing about the model level validations is Feathers will return
+the validation errors to the client in a nice consistent format for you.</p>
+</div>
+</div>
+<div class="section" id="how-do-i-do-associations">
+<h2>How do I do associations?<a class="headerlink" href="#how-do-i-do-associations" title="永久链接至标题">¶</a></h2>
+<p>Similar to validation, it depends on if your database/ORM supports
+models or not.</p>
+<div class="section" id="the-preferred-way-1">
+<span id="id1"></span><h3>The preferred way<a class="headerlink" href="#the-preferred-way-1" title="永久链接至标题">¶</a></h3>
+<p>For any of the feathers database/ORM adapters you can just use
+<span class="xref std std-doc">api/hooks</span> to fetch data from other services.</p>
+<p>This is a better approach because it keeps your application database
+agnostic and service oriented. By referencing the services (using
+<code class="docutils literal notranslate"><span class="pre">app.service().find()</span></code>, etc.) you can still decouple your app and have
+these services live on entirely separate machines or use entirely
+different databases without having to change any of your fetching code.
+We show how to associate data in a hook in the <a class="reference internal" href="../guides/chat/processing.html"><span class="doc">chat guide</span></a>.
+An alternative are the <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/#fastjoin">fastJoin</a>
+or <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/#populate">populate</a>
+in <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-hooks-common</a>.</p>
+</div>
+<div class="section" id="the-orm-way-1">
+<span id="id2"></span><h3>The ORM way<a class="headerlink" href="#the-orm-way-1" title="永久链接至标题">¶</a></h3>
+<p>With mongoose you can use the <code class="docutils literal notranslate"><span class="pre">$populate</span></code> query param to populate
+nested documents.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Find Hulk Hogan and include all the messages he sent</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hulk@hogan.net&#39;</span><span class="p">,</span>
+    <span class="nx">$populate</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;sentMessages&#39;</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>With Sequelize you can do this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Find Hulk Hogan and include all the messages he sent</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">).</span><span class="nx">find</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;hulk@hogan.net&#39;</span><span class="p">,</span>
+  <span class="nx">sequelize</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">include</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="nx">model</span><span class="o">:</span> <span class="nx">Message</span><span class="p">,</span>
+      <span class="nx">where</span><span class="o">:</span> <span class="p">{</span> <span class="nx">sender</span><span class="o">:</span> <span class="nx">Sequelize</span><span class="p">.</span><span class="nx">col</span><span class="p">(</span><span class="s1">&#39;user.id&#39;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Or set it in a hook as <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize#associations-and-relations">described here</a>.</p>
+</div>
+</div>
+<div class="section" id="sequelize-models-and-associations">
+<h2>Sequelize models and associations<a class="headerlink" href="#sequelize-models-and-associations" title="永久链接至标题">¶</a></h2>
+<p>If you are using the <a class="reference external" href="http://docs.sequelizejs.com/">Sequelize</a>
+adapter, understanding SQL and Sequelize first is very important. See
+the <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize#associations">associations section in the feathers-sequelize documentation</a>
+for more information on how to associate models using the Sequelize
+Feathers adapter.</p>
+</div>
+<div class="section" id="what-about-koa-hapi-x">
+<h2>What about Koa/Hapi/X?<a class="headerlink" href="#what-about-koa-hapi-x" title="永久链接至标题">¶</a></h2>
+<p>There are many other Node server frameworks out there like Koa, a <em>“next
+generation web framework for Node.JS”</em> using ES6 generator functions
+instead of Express middleware or HapiJS etc. Currently, Feathers is
+framework independent but only provides an
+<span class="xref std std-doc">api/express</span> integration for HTTP APIs. More
+frameworks may be supported in the future with direct <a class="reference external" href="https://nodejs.org/api/http.html">Node HTTP</a> being the most likely.</p>
+</div>
+<div class="section" id="how-do-i-access-the-request-object-in-hooks-or-services">
+<h2>How do I access the request object in hooks or services?<a class="headerlink" href="#how-do-i-access-the-request-object-in-hooks-or-services" title="永久链接至标题">¶</a></h2>
+<p>In short, you shouldn’t need to. If you look at the <a class="reference internal" href="../api/hooks.html"><span class="doc">hooks chapter</span></a> you’ll see all the params that are
+available on a hook.</p>
+<p>If you still need something from the request object (for example, the
+requesting IP address) you can simply tack it on to the <code class="docutils literal notranslate"><span class="pre">req.feathers</span></code>
+object <span class="xref std std-doc">as described here</span> or
+:doc:<code class="docutils literal notranslate"><span class="pre">socket.feathers</span></code> when using web sockets as <cite>described here &lt;../api/socketio#appconfiguresocketiocallback&gt;</cite>.</p>
+</div>
+<div class="section" id="how-do-i-mount-sub-apps">
+<h2>How do I mount sub apps?<a class="headerlink" href="#how-do-i-mount-sub-apps" title="永久链接至标题">¶</a></h2>
+<p>It’s pretty much exactly the same as Express. More information can be
+found <span class="xref std std-doc">here</span>.</p>
+</div>
+<div class="section" id="how-do-i-do-some-processing-after-sending-the-response-to-the-user">
+<h2>How do I do some processing after sending the response to the user?<a class="headerlink" href="#how-do-i-do-some-processing-after-sending-the-response-to-the-user" title="永久链接至标题">¶</a></h2>
+<p>The hooks workflow allows you to handle these situations quite
+gracefully. It depends on the promise that you return in your hook.
+Here’s an example of a hook that sends an email, but doesn’t wait for a
+success message.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="c1">// Send an email by calling to the email service.</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;emails&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
+    <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;user@email.com&#39;</span><span class="p">,</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="s1">&#39;You are so great!&#39;</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Send a message to some logging service.</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logging&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+
+  <span class="c1">// Return a resolved promise to immediately move to the next hook</span>
+  <span class="c1">// and not wait for the two previous promises to resolve.</span>
+  <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-debug-my-app">
+<h2>How do I debug my app<a class="headerlink" href="#how-do-i-debug-my-app" title="永久链接至标题">¶</a></h2>
+<p>It’s really no different than debugging any other NodeJS app but you can
+refer to <a class="reference external" href="https://blog.feathersjs.com/debugging-feathers-with-visual-studio-code-406e6adf2882">this blog post</a>
+for more Feathers specific tips and tricks.</p>
+</div>
+<div class="section" id="possible-eventemitter-memory-leak-detected-warning">
+<h2><code class="docutils literal notranslate"><span class="pre">possible</span> <span class="pre">EventEmitter</span> <span class="pre">memory</span> <span class="pre">leak</span> <span class="pre">detected</span></code> warning<a class="headerlink" href="#possible-eventemitter-memory-leak-detected-warning" title="永久链接至标题">¶</a></h2>
+<p>This warning is not as bad as it sounds. If you got it from Feathers you
+most likely registered more than 64 services and/or event listeners on a
+Socket. If you don’t think there are that many services or event
+listeners you may have a memory leak. Otherwise you can increase the
+number in the <span class="xref std std-doc">api/socketio</span> via
+<code class="docutils literal notranslate"><span class="pre">io.sockets.setMaxListeners(number)</span></code> and with
+<span class="xref std std-doc">api/primus</span> via <code class="docutils literal notranslate"><span class="pre">primus.setMaxListeners(number)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">number</span></code> can be <code class="docutils literal notranslate"><span class="pre">0</span></code> for unlimited listeners or any other number of
+how many listeners you’d expect in the worst case.</p>
+</div>
+<div class="section" id="why-cant-i-pass-params-from-the-client">
+<h2>Why can’t I pass <code class="docutils literal notranslate"><span class="pre">params</span></code> from the client?<a class="headerlink" href="#why-cant-i-pass-params-from-the-client" title="永久链接至标题">¶</a></h2>
+<p>When you make a call like:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">foo</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span> <span class="p">};</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">patch</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span> <span class="nx">admin</span><span class="o">:</span> <span class="kc">true</span> <span class="p">},</span> <span class="nx">params</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">result</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// handle response</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>on the client the <code class="docutils literal notranslate"><span class="pre">context.params</span></code> object will only be available in
+your client side hooks. It will not be provided to the server. The
+reason for this is because <code class="docutils literal notranslate"><span class="pre">context.params</span></code> on the server usually
+contains information that should be server-side only. This can be
+database options, whether a request is authenticated, etc. If we passed
+those directly from the client to the server this would be a big
+security risk. Only the client side <code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> and
+<code class="docutils literal notranslate"><span class="pre">context.params.headers</span></code> objects are provided to the server.</p>
+<p>If you need to pass info from the client to the server that is not part
+of the query you need to add it to <code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> on the
+client side and explicitly pull it out of <code class="docutils literal notranslate"><span class="pre">context.params.query</span></code> on
+the server side. This can be achieved like so:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// client side</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">$client</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">platform</span><span class="o">:</span> <span class="s1">&#39;ios&#39;</span><span class="p">,</span>
+          <span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1.0&#39;</span>
+        <span class="p">};</span>
+
+        <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// server side, inside app.hooks.js</span>
+<span class="kr">const</span> <span class="nx">hooks</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-hooks-common&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">all</span><span class="o">:</span> <span class="p">[</span>
+      <span class="c1">// remove values from context.params.query.$client and move them to context.params</span>
+      <span class="c1">// so context.params.query.$client.version -&gt; context.params.version</span>
+      <span class="c1">// and context.params.query.$client is removed.</span>
+      <span class="nx">hooks</span><span class="p">.</span><span class="nx">client</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="s1">&#39;platform&#39;</span><span class="p">)</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="my-queries-with-null-values-arent-working">
+<h2>My queries with null values aren’t working<a class="headerlink" href="#my-queries-with-null-values-arent-working" title="永久链接至标题">¶</a></h2>
+<p>When making a request using REST (HTTP) query <em>string</em> values don’t have
+any type information and will always be strings. Some database adapters
+that have a schema (like <code class="docutils literal notranslate"><span class="pre">feathers-mongoose</span></code> or
+<code class="docutils literal notranslate"><span class="pre">feathers-sequelize</span></code>) will try to convert values to the correct type
+but others (like <code class="docutils literal notranslate"><span class="pre">feathers-mongodb</span></code>) can’t. Additionally, <code class="docutils literal notranslate"><span class="pre">null</span></code>
+will always be a string and always has to be converted if you want to
+query for <code class="docutils literal notranslate"><span class="pre">null</span></code>. This can be done in a <code class="docutils literal notranslate"><span class="pre">before</span></code>
+<span class="xref std std-doc">api/hooks</span>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;myservice&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">find</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="p">{</span> <span class="nx">params</span><span class="o">:</span> <span class="p">{</span> <span class="nx">query</span> <span class="o">=</span> <span class="p">{}</span> <span class="p">}</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+
+      <span class="k">if</span><span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">phone</span> <span class="o">===</span> <span class="s1">&#39;null&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">query</span><span class="p">.</span><span class="nx">phone</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">;</span>
+
+      <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Also see <a class="reference external" href="https://github.com/feathersjs/feathers/issues/894">this
+issue</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>This issue does not happen when using websockets since it
+retains all type information.</p>
+</div>
+</div>
+<div class="section" id="why-are-queries-with-arrays-failing">
+<h2>Why are queries with arrays failing?<a class="headerlink" href="#why-are-queries-with-arrays-failing" title="永久链接至标题">¶</a></h2>
+<p>If you are using REST and queries with larger arrays (more than 21 items
+to be exact) are failing you are probably running into an issue with the
+<a class="reference external" href="https://github.com/ljharb/qs">querystring</a> module which <a class="reference external" href="https://github.com/ljharb/qs#parsing-arrays">limits the size of arrays to 21 items</a> by default. The
+recommended solution is to implement a custom query string parser
+function via <code class="docutils literal notranslate"><span class="pre">app.set('query</span> <span class="pre">parser',</span> <span class="pre">parserFunction)</span></code> with the
+<code class="docutils literal notranslate"><span class="pre">arrayLimit</span></code> option set to a higher value:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">qs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;qs&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;query parser&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">qs</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">arrayLimit</span><span class="o">:</span> <span class="mi">100</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>For more information see the <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.set">Express application settings</a>
+[&#64;feathersjs/rest#88](<a class="reference external" href="https://github.com/feathersjs/feathers-rest/issues/88">https://github.com/feathersjs/feathers-rest/issues/88</a>)
+and
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205">feathers-mongoose#205</a>.</p>
+</div>
+<div class="section" id="i-always-get-a-404-for-my-custom-middleware">
+<h2>I always get a 404 for my custom middleware<a class="headerlink" href="#i-always-get-a-404-for-my-custom-middleware" title="永久链接至标题">¶</a></h2>
+<p>Just like in Express itself, the order of middleware matters. If you
+registered a custom middleware outside of the generator, you have to
+make sure that it runs before the <code class="docutils literal notranslate"><span class="pre">notFound()</span></code> error midlleware.</p>
+</div>
+<div class="section" id="how-do-i-get-oauth-working-across-different-domains">
+<h2>How do I get OAuth working across different domains<a class="headerlink" href="#how-do-i-get-oauth-working-across-different-domains" title="永久链接至标题">¶</a></h2>
+<p>The standard Feathers oAuth setup sets the JWT in a cookie which can
+only be passed between the same domain. If your frontend is running on a
+different domain you will have to use query string redirects as outlined
+in <a class="reference external" href="https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67">this Gist</a>.</p>
+</div>
+<div class="section" id="my-configuration-isnt-loaded">
+<h2>My configuration isn’t loaded<a class="headerlink" href="#my-configuration-isnt-loaded" title="永久链接至标题">¶</a></h2>
+<p>If you are running or requiring the Feathers app from a different folder
+<span class="xref std std-doc">api/configuration</span> needs to be
+instructed where the configuration files for the app are located. Since
+it uses <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> this
+can be done by setting the <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Environment-Variables#node_config_dir">NODE_CONFIG_DIR envorinment variable</a>.</p>
+</div>
+<div class="section" id="how-do-i-set-up-https">
+<h2>How do I set up HTTPS?<a class="headerlink" href="#how-do-i-set-up-https" title="永久链接至标题">¶</a></h2>
+<p>Check out the Feathers <span class="xref std std-doc">Express HTTPS docs</span>.</p>
+</div>
+<div class="section" id="is-feathers-production-ready">
+<h2>Is Feathers production ready?<a class="headerlink" href="#is-feathers-production-ready" title="永久链接至标题">¶</a></h2>
+<p>Yes! It’s being used in production by a bunch of companies from startups
+to fortune 500s. For some more details see <a class="reference external" href="https://www.quora.com/Is-FeathersJS-production-ready">this answer on
+Quora</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing/readme.html" class="btn btn-neutral float-right" title="特约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../help/readme.html" class="btn btn-neutral float-left" title="救命！" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

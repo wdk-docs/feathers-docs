@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:22+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/databases/adapters.rst:2
+msgid "Database adapters"
+msgstr "数据库适配器"
+
+#: ../../source/api/databases/adapters.rst:4
+msgid ""
+"Feathers database adapters are modules that provide :doc:`services` that "
+"implement standard `CRUD "
+"<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ "
+"functionality for a specific database using a :doc:`./common` for "
+"initialization and settings and providing a :doc:`./querying`."
+msgstr ""
+"Feathers数据库适配器是提供：doc：`services`的模块，它使用：doc：`为特定数据库实现标准`CRUD "
+"<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_功能。 "
+"./common`用于初始化和设置，并提供：doc：`./ querying`。"
+
+#: ../../source/api/databases/adapters.rst:10
+#, fuzzy
+msgid ""
+":doc:`../services` allow to implement access to *any* database, the "
+"database adapters listed here are just convenience wrappers with a common"
+" API. You can still get Feathers functionality for databases that are not"
+" listed here. Also have a look at the list of `community database "
+"adapters <https://github.com/feathersjs/awesome-feathersjs#database>`_"
+msgstr ""
+"：doc：`services`允许实现对* any "
+"*数据库的访问，这里列出的数据库适配器只是带有通用API的便捷包装器。您仍然可以为此处未列出的数据库获取Feathers功能。另请参阅`社区数据库适配器<https://github.com/feathersjs"
+"/awesome-feathersjs#database>`_列表"
+
+#: ../../source/api/databases/adapters.rst:16
+msgid "The following databases are supported:"
+msgstr "The following databases are supported:"
+
+#: ../../source/api/databases/adapters.rst:60
+msgid "Memory/Filesystem"
+msgstr "Memory/Filesystem"
+
+#: ../../source/api/databases/adapters.rst:62
+msgid ""
+"`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-"
+"memory>`_ - An in-memory database adapter"
+msgstr ""
+"`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-"
+"memory>`_ - An in-memory database adapter"
+
+#: ../../source/api/databases/adapters.rst:64
+#, fuzzy
+msgid ""
+"`feathers-localstorage <https://github.com/feathersjs-ecosystem/feathers-"
+"localstorage>`_ - An adapter for :doc:`../authentication/client` that can"
+" use the browsers `LocalStorage <https://developer.mozilla.org/en-"
+"US/docs/Web/API/Window/localStorage>`_ or ReactNative’s `AsyncStorage "
+"<https://facebook.github.io/react-native/docs/asyncstorage.html>`_."
+msgstr ""
+"`feathers-localstorage <https://github.com/feathersjs-ecosystem/feathers-"
+"localstorage>`_  - 适用于：doc：`client`的适配器，可以使用浏览器`LocalStorage "
+"<https://developer.mozilla.org / en-US / docs / Web / API / Window / "
+"localStorage>`_或ReactNative的`AsyncStorage <https://facebook.github.io"
+"/react-native/docs/asyncstorage.html>`_。"
+
+#: ../../source/api/databases/adapters.rst:68
+msgid ""
+"`feathers-nedb <https://github.com/feathersjs-ecosystem/feathers-nedb>`_ "
+"- A database adapter for `NeDB <https://github.com/louischatriot/nedb>`_ "
+"an in-memory or file system based standalone database."
+msgstr ""
+"`feathers-nedb <https://github.com/feathersjs-ecosystem/feathers-nedb>`_ "
+"- A database adapter for `NeDB <https://github.com/louischatriot/nedb>`_ "
+"an in-memory or file system based standalone database."
+
+#: ../../source/api/databases/adapters.rst:73
+msgid "SQL"
+msgstr "SQL"
+
+#: ../../source/api/databases/adapters.rst:75
+msgid ""
+"`feathers-knex <https://github.com/feathersjs-ecosystem/feathers-knex>`_ "
+"- An adapter for `KnexJS <http://knexjs.org/>`_, an SQL query builder for"
+" NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL"
+msgstr ""
+"`feathers-knex <https://github.com/feathersjs-ecosystem/feathers-knex>`_ "
+"- An adapter for `KnexJS <http://knexjs.org/>`_, an SQL query builder for"
+" NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL"
+
+#: ../../source/api/databases/adapters.rst:77
+msgid ""
+"`feathers-sequelize <https://github.com/feathersjs-ecosystem/feathers-"
+"sequelize>`_ - An adapter for `Sequelize <http://docs.sequelizejs.com/>`_"
+" an ORM for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL"
+msgstr ""
+"`feathers-sequelize <https://github.com/feathersjs-ecosystem/feathers-"
+"sequelize>`_ - An adapter for `Sequelize <http://docs.sequelizejs.com/>`_"
+" an ORM for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL"
+
+#: ../../source/api/databases/adapters.rst:79
+msgid ""
+"`feathers-objection <https://github.com/feathersjs-ecosystem/feathers-"
+"objection>`_ - A service adapter for `Objection.js "
+"<https://vincit.github.io/objection.js>`_ - A minimal SQL ORM built on "
+"top of Knex."
+msgstr ""
+"`feathers-objection <https://github.com/feathersjs-ecosystem/feathers-"
+"objection>`_ - A service adapter for `Objection.js "
+"<https://vincit.github.io/objection.js>`_ - A minimal SQL ORM built on "
+"top of Knex."
+
+#: ../../source/api/databases/adapters.rst:83
+msgid "NoSQL"
+msgstr "NoSQL"
+
+#: ../../source/api/databases/adapters.rst:85
+msgid ""
+"`feathers-mongoose <https://github.com/feathersjs-ecosystem/feathers-"
+"mongoose>`_ - A database adapter for `Mongoose <http://mongoosejs.com/>`_"
+" an Object Modelling library for NodeJS and MongoDB"
+msgstr ""
+"`feathers-mongoose <https://github.com/feathersjs-ecosystem/feathers-"
+"mongoose>`_ - A database adapter for `Mongoose <http://mongoosejs.com/>`_"
+" an Object Modelling library for NodeJS and MongoDB"
+
+#: ../../source/api/databases/adapters.rst:87
+msgid ""
+"`feathers-mongodb <https://github.com/feathersjs-ecosystem/feathers-"
+"mongodb>`_ - A database adapter for `MongoDB <https://www.mongodb.com/>`_"
+" using the official NodeJS database driver"
+msgstr ""
+"`feathers-mongodb <https://github.com/feathersjs-ecosystem/feathers-"
+"mongodb>`_ - A database adapter for `MongoDB <https://www.mongodb.com/>`_"
+" using the official NodeJS database driver"
+
+#: ../../source/api/databases/adapters.rst:89
+msgid ""
+"`feathers-elasticsearch <https://github.com/feathersjs-ecosystem"
+"/feathers-elasticsearch>`_ - A database adapter for `Elasticsearch "
+"<https://github.com/elastic/elasticsearch>`_"
+msgstr ""
+"`feathers-elasticsearch <https://github.com/feathersjs-ecosystem"
+"/feathers-elasticsearch>`_ - A database adapter for `Elasticsearch "
+"<https://github.com/elastic/elasticsearch>`_"
+
+#: ../../source/api/databases/adapters.rst:91
+msgid ""
+"`feathers-rethinkdb <https://github.com/feathersjs-ecosystem/feathers-"
+"rethinkdb>`_ - A database adapter for `RethinkDB "
+"<https://www.rethinkdb.com/>`_ a real-time database."
+msgstr ""
+"`feathers-rethinkdb <https://github.com/feathersjs-ecosystem/feathers-"
+"rethinkdb>`_ - A database adapter for `RethinkDB "
+"<https://www.rethinkdb.com/>`_ a real-time database."
+
+#~ msgid "Database"
+#~ msgstr ""
+
+#~ msgid "Adapter"
+#~ msgstr ""
+
+#~ msgid "In memory"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-memory <https://github. com/feathersjs-"
+#~ "ecosystem/feathers -memory>`_, `feathers-nedb "
+#~ "<https://github.co m/feathersjs-ecosystem/feathers-n "
+#~ "edb>`_"
+#~ msgstr ""
+
+#~ msgid "Localstorage, AsyncStorage"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-localstorage <https://g ithub.com"
+#~ "/feathersjs-ecosystem/fe athers-localstorage>`_"
+#~ msgstr ""
+
+#~ msgid "Filesystem"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-nedb <https://github.co m/feathersjs-"
+#~ "ecosystem/feathers-n edb>`_"
+#~ msgstr ""
+
+#~ msgid "MongoDB"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-mongodb <https://github .com"
+#~ "/feathersjs-ecosystem/feather s-mongodb>`_, "
+#~ "`feathers-mongoose <https://githu b.com/feathersjs-"
+#~ "ecosystem/feathe rs-mongoose>`_"
+#~ msgstr ""
+
+#~ msgid "MySQL, PostgreSQL, MariaDB, SQLite, MSSQL"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-knex <https://github.co m/feathersjs-"
+#~ "ecosystem/feathers-k nex>`_, `feathers-sequelize "
+#~ "<https://gith ub.com/feathersjs-ecosystem/feath "
+#~ "ers-sequelize>`_"
+#~ msgstr ""
+
+#~ msgid "Elasticsearch"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-elasticsearch <https://github.com/feathersjs-"
+#~ "ecosystem/f eathers-elasticsearch>`_"
+#~ msgstr ""
+
+#~ msgid "RethinkDB"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`feathers-rethinkdb <https://gith ub.com"
+#~ "/feathersjs-ecosystem/feath ers-rethinkdb>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are modules "
+#~ "that provide :doc:`../services` that implement"
+#~ " standard `CRUD "
+#~ "<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ "
+#~ "functionality for a specific database "
+#~ "using a :doc:`./common` for initialization "
+#~ "and settings and providing a "
+#~ ":doc:`./querying`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are modules "
+#~ "that provide :doc:`services` that implement"
+#~ " standard `CRUD "
+#~ "<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ "
+#~ "functionality for a specific database "
+#~ "using a :doc:`./common` for initialization "
+#~ "and settings and providing a `common "
+#~ "query syntax <./querying.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** :doc:`services` allow to "
+#~ "implement access to *any* database, the"
+#~ " database adapters listed here are "
+#~ "just convenience wrappers with a common"
+#~ " API. You can still get Feathers "
+#~ "functionality for databases that are not"
+#~ " listed here. Also have a look "
+#~ "at the list of `community database "
+#~ "adapters <https://github.com/feathersjs/awesome-"
+#~ "feathersjs#database>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are modules "
+#~ "that provide :doc:`services` that implement"
+#~ " standard `CRUD "
+#~ "<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ "
+#~ "functionality for a specific database "
+#~ "using a :doc:`common API <./common>`_ "
+#~ "for initialization and settings and "
+#~ "providing a :doc:`./querying`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Feathers database adapters are modules "
+#~ "that provide :doc:`services` that implement"
+#~ " standard `CRUD "
+#~ "<https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ "
+#~ "functionality for a specific database "
+#~ "using a :doc:`common API <./common>` for"
+#~ " initialization and settings and providing"
+#~ " a :doc:`./querying`."
+#~ msgstr ""
+

@@ -1,0 +1,758 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:03+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/api/hooks.rst:2
+msgid "Hooks"
+msgstr "钩子"
+
+#: ../../source/api/hooks.rst:4
+msgid ""
+"Hooks are pluggable middleware functions that can be registered "
+"**before**, **after** or on \\__error__s of a :doc:`./services`. You can "
+"register a single hook function or create a chain of them to create "
+"complex work-flows. Most of the time multiple hooks are registered so the"
+" examples show the “hook chain” array style registration."
+msgstr "钩子是可插入的中间件函数,可以在 **before**, **after** 或者在a :doc:`./services` 的 \\__error__s 之前注册. 您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程. 大多数情况下,多个挂钩都被注册,因此示例显示了“挂钩链”数组样式注册."
+
+#: ../../source/api/hooks.rst:10
+msgid ""
+"A hook is **transport independent**, which means it does not matter if it"
+" has been called through HTTP(S) (REST), Socket.io, Primus or any other "
+"transport Feathers may support in the future. They are also service "
+"agnostic, meaning they can be used with ​\\ **any**\\ ​ service "
+"regardless of whether they have a model or not."
+msgstr "钩子是 **独立传输**,这意味着它是否通过HTTP(S)(REST),Socket.io,Primus或任何其他传输Feathers可能在将来支持无关紧要.它们也是服务不可知的,这意味着它们可以与\\ **任何**\\ 服务一起使用,无论它们是否具有模型."
+
+#: ../../source/api/hooks.rst:16
+msgid ""
+"Hooks are commonly used to handle things like validation, logging, "
+"populating related entities, sending notifications and more. This pattern"
+" keeps your application logic flexible, composable, and much easier to "
+"trace through and debug. For more information about the design patterns "
+"behind hooks see `this blog post <https://blog.feathersjs.com/api-"
+"service-composition-with-hooks-47af13aa6c01>`_."
+msgstr "钩子通常用于处理诸如验证,记录,填充相关实体,发送通知等内容.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.有关钩子背后的设计模式的更多信息,请参阅 `此博客文章 <https://blog.feathersjs.com/api-service-composition-with-hooks-47af13aa6c01>`_."
+
+#: ../../source/api/hooks.rst:23
+msgid "Quick Example"
+msgstr "快速示例"
+
+#: ../../source/api/hooks.rst:25
+msgid ""
+"The following example adds a ``createdAt`` and ``updatedAt`` property "
+"before saving the data to the database and logs any errors on the "
+"service:"
+msgstr "下面的示例在将数据保存到数据库之前添加了 ``createdAt`` 和 ``updatedAt`` 属性,并记录了服务上的任何错误:"
+
+#: ../../source/api/hooks.rst:56
+msgid "Hook functions"
+msgstr "钩子功能"
+
+#: ../../source/api/hooks.rst:58
+msgid ""
+"A hook function can be a normal or ``async`` function or arrow function "
+"that takes the `hook context <#hook-context>`_ as the parameter and can"
+msgstr "钩子函数可以是普通的或 ``async`` 函数或箭头函数,它以 `hook context <＃hook-context>`_ 作为参数,可以"
+
+#: ../../source/api/hooks.rst:61
+msgid "return a ``context`` object"
+msgstr "return a ``context`` object"
+
+#: ../../source/api/hooks.rst:62
+msgid "return nothing (``undefined``)"
+msgstr "return nothing (``undefined``)"
+
+#: ../../source/api/hooks.rst:63
+msgid "return ``feathers.SKIP`` to skip all further hooks"
+msgstr "返回 ``feathers.SKIP`` 以跳过所有进一步的钩子"
+
+#: ../../source/api/hooks.rst:64
+msgid "``throw`` an error"
+msgstr "``throw`` 错误"
+
+#: ../../source/api/hooks.rst:65
+msgid ""
+"for asynchronous operations return a `Promise "
+"<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_"
+" that"
+msgstr ""
+"对于异步操作,返回一个 `Promise <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_"
+
+#: ../../source/api/hooks.rst:69
+msgid "resolves with a ``context`` object"
+msgstr "用 ``context`` 对象解析"
+
+#: ../../source/api/hooks.rst:70
+msgid "resolves with ``undefined``"
+msgstr "用 ``undefined`` 解决"
+
+#: ../../source/api/hooks.rst:71
+msgid "rejects with an error"
+msgstr "拒绝错误"
+
+#: ../../source/api/hooks.rst:73
+msgid ""
+"For more information see the `hook flow <#hook-flow>`_ and `asynchronous "
+"hooks <#asynchronous-hooks>`_ section."
+msgstr ""
+"有关更多信息,请参阅 `hook flow <＃hook-flow>`_ 和 `asynchronous hooks <#inynchronous-hooks>`_ section."
+
+#: ../../source/api/hooks.rst:116
+msgid "Hook context"
+msgstr "钩子上下文"
+
+#: ../../source/api/hooks.rst:118
+msgid ""
+"The hook ``context`` is passed to a hook function and contains "
+"information about the service method call. It has **read only** "
+"properties that should not be modified and **writeable** properties that "
+"can be changed for subsequent hooks."
+msgstr ""
+"钩子 ``context`` 被传递给一个钩子函数,并包含有关服务方法调用的信息.它具有 **只读** 属性,不应被修改, **可写** 属性,可以为后续挂钩更改."
+
+#: ../../source/api/hooks.rst:123
+msgid ""
+"The ``context`` object is the same throughout a service method call so it"
+" is possible to add properties and use them in other hooks at a later "
+"time."
+msgstr ""
+"在整个服务方法调用中,``context`` 对象是相同的,因此可以添加属性并在以后的其他钩子中使用它们."
+
+#: ../../source/api/hooks.rst:128
+msgid "context.app"
+msgstr "context.app"
+
+#: ../../source/api/hooks.rst:130
+msgid ""
+":doc:`./application`. This can be used to retrieve other services (via "
+"``context.app.service('name')``) or configuration values."
+msgstr ":doc:`./application`. 这可以用于检索其他服务(通过 ``context.app.service('name')``)或配置值."
+
+#: ../../source/api/hooks.rst:135
+msgid "context.service"
+msgstr "context.service"
+
+#: ../../source/api/hooks.rst:137
+msgid ""
+"``context.service`` is a *read only* property and contains the service "
+"this hook currently runs on."
+msgstr ""
+"``context.service`` 是一个 *read only* 属性,包含当前运行此钩子的服务."
+
+#: ../../source/api/hooks.rst:141
+msgid "context.path"
+msgstr "context.path"
+
+#: ../../source/api/hooks.rst:143
+msgid ""
+"``context.path`` is a *read only* property and contains the service name "
+"(or path) without leading or trailing slashes."
+msgstr ""
+"``context.path`` 是一个 *read only* 属性,包含没有前导或尾部斜杠的服务名称(或路径)."
+
+#: ../../source/api/hooks.rst:147
+msgid "context.method"
+msgstr "context.method"
+
+#: ../../source/api/hooks.rst:149
+msgid ""
+"``context.method`` is a *read only* property with the name of the "
+":doc:`./services` (one of ``find``, ``get``, ``create``, ``update``, "
+"``patch``, ``remove``)."
+msgstr ""
+":doc:`./services` (one of ``find``, ``get``, ``create``, ``update``, ``patch``, ``remove``)."
+
+#: ../../source/api/hooks.rst:154
+msgid "context.type"
+msgstr "context.type"
+
+#: ../../source/api/hooks.rst:156
+msgid ""
+"``context.type`` is a *read only* property with the hook type (one of "
+"``before``, ``after`` or ``error``)."
+msgstr ""
+"``context.type`` 是一个 *read only* 属性,带有钩子类型(``before``, ``after`` 或 ``error`` 之一)."
+
+#: ../../source/api/hooks.rst:160
+msgid "context.params"
+msgstr "context.params"
+
+#: ../../source/api/hooks.rst:162
+#, fuzzy
+msgid ""
+"``context.params`` is a **writeable** property that contains the "
+":doc:`./services` parameters (including :ref:`services_params`."
+msgstr ""
+"``context.path`` is a *read only* property and contains the service name "
+"(or path) without leading or trailing slashes."
+
+#: ../../source/api/hooks.rst:167
+msgid "context.id"
+msgstr "context.id"
+
+#: ../../source/api/hooks.rst:169
+msgid ""
+"``context.id`` is a **writeable** property and the ``id`` for a ``get``, "
+"``remove``, ``update`` and ``patch`` service method call. For ``remove``,"
+" ``update`` and ``patch`` ``context.id`` can also be ``null`` when "
+"modifying multiple entries. In all other cases it will be ``undefined``."
+msgstr ""
+"``context.id`` is a **writeable** property and the ``id`` for a ``get``, "
+"``remove``, ``update`` and ``patch`` service method call. For ``remove``,"
+" ``update`` and ``patch`` ``context.id`` can also be ``null`` when "
+"modifying multiple entries. In all other cases it will be ``undefined``."
+
+#: ../../source/api/hooks.rst:175
+#, fuzzy
+msgid ""
+"``context.id`` is only available for method types ``get``, ``remove``, "
+"``update`` and ``patch``."
+msgstr ""
+"**Note:** ``context.id`` is only available for method types ``get``, "
+"``remove``, ``update`` and ``patch``."
+
+#: ../../source/api/hooks.rst:179
+msgid "context.data"
+msgstr "context.data"
+
+#: ../../source/api/hooks.rst:181
+msgid ""
+"``context.data`` is a **writeable** property containing the data of a "
+"``create``, ``update`` and ``patch`` service method call."
+msgstr ""
+"``context.data`` is a **writeable** property containing the data of a "
+"``create``, ``update`` and ``patch`` service method call."
+
+#: ../../source/api/hooks.rst:184
+msgid ""
+"``context.data`` will only be available for method types ``create``, "
+"``update`` and ``patch``."
+msgstr ""
+"``context.data``只适用于方法类型``create``,``update``和``patch``."
+
+#: ../../source/api/hooks.rst:188
+msgid "context.error"
+msgstr "context.error"
+
+#: ../../source/api/hooks.rst:190
+msgid ""
+"``context.error`` is a **writeable** property with the error object that "
+"was thrown in a failed method call. It is only available in ``error`` "
+"hooks."
+msgstr ""
+"``context.error`` is a **writeable** property with the error object that "
+"was thrown in a failed method call. It is only available in ``error`` "
+"hooks."
+
+#: ../../source/api/hooks.rst:194
+#, fuzzy
+msgid "``context.error`` will only be available if ``context.type`` is ``error``."
+msgstr ""
+"**Note:** ``context.error`` will only be available if ``context.type`` is"
+" ``error``."
+
+#: ../../source/api/hooks.rst:198
+msgid "context.result"
+msgstr "context.result"
+
+#: ../../source/api/hooks.rst:200
+msgid ""
+"``context.result`` is a **writeable** property containing the result of "
+"the successful service method call. It is only available in ``after`` "
+"hooks. ``context.result`` can also be set in"
+msgstr ""
+"``context.result`` is a **writeable** property containing the result of "
+"the successful service method call. It is only available in ``after`` "
+"hooks. ``context.result`` can also be set in"
+
+#: ../../source/api/hooks.rst:204
+msgid "A ``before`` hook to skip the actual service method (database) call"
+msgstr "A ``before`` hook to skip the actual service method (database) call"
+
+#: ../../source/api/hooks.rst:205
+msgid "An ``error`` hook to swallow the error and return a result instead"
+msgstr "An ``error`` hook to swallow the error and return a result instead"
+
+#: ../../source/api/hooks.rst:209
+#, fuzzy
+msgid ""
+"``context.result`` will only be available if ``context.type`` is "
+"``after`` or if ``context.result`` has been set."
+msgstr ""
+"**Note:** ``context.result`` will only be available if ``context.type`` "
+"is ``after`` or if ``context.result`` has been set."
+
+#: ../../source/api/hooks.rst:213
+msgid "context.dispatch"
+msgstr "context.dispatch"
+
+#: ../../source/api/hooks.rst:215
+msgid ""
+"``context.dispatch`` is a **writeable, optional** property and contains a"
+" “safe” version of the data that should be sent to any client. If "
+"``context.dispatch`` has not been set ``context.result`` will be sent to "
+"the client instead."
+msgstr ""
+"``context.dispatch`` is a **writeable, optional** property and contains a"
+" “safe” version of the data that should be sent to any client. If "
+"``context.dispatch`` has not been set ``context.result`` will be sent to "
+"the client instead."
+
+#: ../../source/api/hooks.rst:220
+msgid ""
+"``context.dispatch`` only affects the data sent through a Feathers "
+"Transport like `REST <./express>`_ or :doc:`./socketio`. An internal "
+"method call will still get the data set in ``context.result``."
+msgstr ""
+
+#: ../../source/api/hooks.rst:226
+msgid "context.statusCode"
+msgstr "context.statusCode"
+
+#: ../../source/api/hooks.rst:228
+msgid ""
+"``context.statusCode`` is a **writeable, optional** property that allows "
+"to override the standard `HTTP status code "
+"<https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_ that should "
+"be returned."
+msgstr ""
+"``context.statusCode`` is a **writeable, optional** property that allows "
+"to override the standard `HTTP status code "
+"<https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_ that should "
+"be returned."
+
+#: ../../source/api/hooks.rst:234
+msgid "Hook flow"
+msgstr "钩子流"
+
+#: ../../source/api/hooks.rst:236
+msgid ""
+"In general, hooks are executed in the order they are registered with the "
+"original service method being called after all ``before`` hooks. This "
+"flow can be affected as follows."
+msgstr ""
+"In general, hooks are executed in the order they are registered with the "
+"original service method being called after all ``before`` hooks. This "
+"flow can be affected as follows."
+
+#: ../../source/api/hooks.rst:241
+msgid "Throwing an error"
+msgstr "抛出一个错误"
+
+#: ../../source/api/hooks.rst:243
+msgid ""
+"When an error is thrown (or the promise is rejected), all subsequent "
+"hooks - and the service method call if it didn’t run already - will be "
+"skipped and only the error hooks will run."
+msgstr ""
+"When an error is thrown (or the promise is rejected), all subsequent "
+"hooks - and the service method call if it didn’t run already - will be "
+"skipped and only the error hooks will run."
+
+#: ../../source/api/hooks.rst:247
+msgid ""
+"The following example throws an error when the text for creating a new "
+"message is empty. You can also create very similar hooks to use your Node"
+" validation library of choice."
+msgstr ""
+"The following example throws an error when the text for creating a new "
+"message is empty. You can also create very similar hooks to use your Node"
+" validation library of choice."
+
+#: ../../source/api/hooks.rst:266
+msgid "Setting ``context.result``"
+msgstr "Setting ``context.result``"
+
+#: ../../source/api/hooks.rst:268
+msgid ""
+"When ``context.result`` is set in a ``before`` hook, the original "
+":doc:`./services` call will be skipped. All other hooks will still "
+"execute in their normal order. The following example always returns the "
+"currently `authenticated user <./authentication/server.md>`_ instead of "
+"the actual user for all ``get`` method calls:"
+msgstr ""
+"When ``context.result`` is set in a ``before`` hook, the original "
+":doc:`./services` call will be skipped. All other hooks will still "
+"execute in their normal order. The following example always returns the "
+"currently `authenticated user <./authentication/server.md>`_ instead of "
+"the actual user for all ``get`` method calls:"
+
+#: ../../source/api/hooks.rst:290
+msgid "Returning ``feathers.SKIP``"
+msgstr "Returning ``feathers.SKIP``"
+
+#: ../../source/api/hooks.rst:292
+msgid ""
+"``require('@feathersjs/feathers').SKIP`` can be returned from a hook to "
+"indicate that all following hooks should be skipped. If returned by a "
+"**before** hook, the remaining **before** hooks are skipped; any "
+"**after** hooks will still be run. If it hasn’t run yet, the service "
+"method will still be called unless ``context.result`` is set already."
+msgstr ""
+"``require('@feathersjs/feathers').SKIP`` can be returned from a hook to "
+"indicate that all following hooks should be skipped. If returned by a "
+"**before** hook, the remaining **before** hooks are skipped; any "
+"**after** hooks will still be run. If it hasn’t run yet, the service "
+"method will still be called unless ``context.result`` is set already."
+
+#: ../../source/api/hooks.rst:299
+msgid "Asynchronous hooks"
+msgstr "异步钩子"
+
+#: ../../source/api/hooks.rst:301
+msgid ""
+"When the hook function is ``async`` or a Promise is returned it will wait"
+" until all asynchronous operations resolve or reject before continuing to"
+" the next hook."
+msgstr ""
+"When the hook function is ``async`` or a Promise is returned it will wait"
+" until all asynchronous operations resolve or reject before continuing to"
+" the next hook."
+
+#: ../../source/api/hooks.rst:305
+msgid ""
+"As stated in the `hook functions <#hook-functions>`_ section the promise "
+"has to either resolve with the ``context`` object (usually done with "
+"``.then(() => context)`` at the end of the promise chain) or with "
+"``undefined``."
+msgstr ""
+"As stated in the `hook functions <#hook-functions>`_ section the promise "
+"has to either resolve with the ``context`` object (usually done with "
+"``.then(() => context)`` at the end of the promise chain) or with "
+"``undefined``."
+
+#: ../../source/api/hooks.rst:311
+msgid "async/await"
+msgstr "async/await"
+
+#: ../../source/api/hooks.rst:313
+msgid ""
+"When using Node v8.0.0 or later the use of `async/await "
+"<https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Statements/async_function>`_ is highly "
+"recommended. This will avoid many common issues when using Promises and "
+"asynchronous hook flows. Any hook function can be ``async`` in which case"
+" it will wait until all ``await`` operations are completed. Just like a "
+"normal hook it should return the ``context`` object or ``undefined``."
+msgstr ""
+"When using Node v8.0.0 or later the use of `async/await "
+"<https://developer.mozilla.org/en-"
+"US/docs/Web/JavaScript/Reference/Statements/async_function>`_ is highly "
+"recommended. This will avoid many common issues when using Promises and "
+"asynchronous hook flows. Any hook function can be ``async`` in which case"
+" it will wait until all ``await`` operations are completed. Just like a "
+"normal hook it should return the ``context`` object or ``undefined``."
+
+#: ../../source/api/hooks.rst:321
+msgid ""
+"The following example shows an async/await hook that uses another service"
+" to retrieve and populate the messages ``user`` when getting a single "
+"message:"
+msgstr ""
+"The following example shows an async/await hook that uses another service"
+" to retrieve and populate the messages ``user`` when getting a single "
+"message:"
+
+#: ../../source/api/hooks.rst:347
+msgid "Returning promises"
+msgstr "回报承诺"
+
+#: ../../source/api/hooks.rst:349
+msgid ""
+"The following example shows an asynchronous hook that uses another "
+"service to retrieve and populate the messages ``user`` when getting a "
+"single message."
+msgstr ""
+"The following example shows an asynchronous hook that uses another "
+"service to retrieve and populate the messages ``user`` when getting a "
+"single message."
+
+#: ../../source/api/hooks.rst:376
+#, fuzzy
+msgid ""
+"A common issue when hooks are not running in the expected order is a "
+"missing ``return`` statement of a promise at the top level of the hook "
+"function."
+msgstr ""
+"**Note:** A common issue when hooks are not running in the expected order"
+" is a missing ``return`` statement of a promise at the top level of the "
+"hook function."
+
+#: ../../source/api/hooks.rst:380
+msgid ""
+"Most Feathers service calls and newer Node packages already return "
+"Promises. They can be returned and chained directly. There is no need to "
+"instantiate your own ``new`` Promise instance in those cases."
+msgstr ""
+
+#: ../../source/api/hooks.rst:386
+msgid "Converting callbacks"
+msgstr "转换回调"
+
+#: ../../source/api/hooks.rst:388
+msgid ""
+"When the asynchronous operation is using a *callback* instead of "
+"returning a promise you have to create and return a new Promise (``new "
+"Promise((resolve, reject) => {})``) or use `util.promisify "
+"<https://nodejs.org/api/util.html#util_util_promisify_original>`_."
+msgstr ""
+"When the asynchronous operation is using a *callback* instead of "
+"returning a promise you have to create and return a new Promise (``new "
+"Promise((resolve, reject) => {})``) or use `util.promisify "
+"<https://nodejs.org/api/util.html#util_util_promisify_original>`_."
+
+#: ../../source/api/hooks.rst:393
+msgid ""
+"The following example reads a JSON file converting `fs.readFile "
+"<https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback>`_ "
+"with ``util.promisify``:"
+msgstr ""
+"The following example reads a JSON file converting `fs.readFile "
+"<https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback>`_ "
+"with ``util.promisify``:"
+
+#: ../../source/api/hooks.rst:419
+#, fuzzy
+msgid ""
+"Other tools like `Bluebird <https://github.com/petkaantonov/bluebird>`_ "
+"also help converting between callbacks and promises."
+msgstr ""
+"**Pro Tip:** Other tools like `Bluebird "
+"<https://github.com/petkaantonov/bluebird>`_ also help converting between"
+" callbacks and promises."
+
+#: ../../source/api/hooks.rst:424
+msgid "Registering hooks"
+msgstr "注册钩子"
+
+#: ../../source/api/hooks.rst:426
+msgid ""
+"Hook functions are registered on a service through the "
+"``app.service(<servicename>).hooks(hooks)`` method. There are several "
+"options for what can be passed as ``hooks``:"
+msgstr ""
+"Hook函数通过``app.service（<servicename>）。hooks（hooks）``方法在服务上注册。什么可以作为``hooks``传递:"
+
+#: ../../source/api/hooks.rst:486
+msgid ""
+"When using the full object, ``all`` is a special keyword meaning this "
+"hook will run for all methods. ``all`` hooks will be registered before "
+"other method specific hooks."
+msgstr ""
+"当使用完整对象时，``all`` 是一个特殊的关键字，这意味着这个钩子将为所有方法运行。 ``all`` 钩子将在其他特定于方法的钩子之前注册。"
+
+#: ../../source/api/hooks.rst:490
+msgid ""
+"``app.service(<servicename>).hooks(hooks)`` can be called multiple times "
+"and the hooks will be registered in that order. Normally all hooks should"
+" be registered at once however to see at a glance what the service is "
+"going to do."
+msgstr ""
+"``app.service(<servicename>).hooks(hooks)`` can be called multiple times "
+"and the hooks will be registered in that order. Normally all hooks should"
+" be registered at once however to see at a glance what the service is "
+"going to do."
+
+#: ../../source/api/hooks.rst:498
+msgid "Application hooks"
+msgstr "应用程序挂钩"
+
+#: ../../source/api/hooks.rst:500
+msgid ""
+"To add hooks to every service ``app.hooks(hooks)`` can be used. "
+"Application hooks are `registered in the same format as service hooks "
+"<#registering-hooks>`_ and also work exactly the same. Note when "
+"application hooks will be executed however:"
+msgstr ""
+"To add hooks to every service ``app.hooks(hooks)`` can be used. "
+"Application hooks are `registered in the same format as service hooks "
+"<#registering-hooks>`_ and also work exactly the same. Note when "
+"application hooks will be executed however:"
+
+#: ../../source/api/hooks.rst:505
+msgid ""
+"``before`` application hooks will always run *before* all service "
+"``before`` hooks"
+msgstr ""
+"``before`` 应用程序挂钩总是在*所有服务 ``before`` 挂钩之前运行*"
+
+#: ../../source/api/hooks.rst:507
+msgid ""
+"``after`` application hooks will always run *after* all service ``after``"
+" hooks"
+msgstr ""
+"``after`` 应用程序挂钩总是在 *all service ``after`` 挂钩后运行*"
+
+#: ../../source/api/hooks.rst:509
+msgid ""
+"``error`` application hooks will always run *after* all service ``error``"
+" hooks"
+msgstr ""
+"``error`` 应用程序挂钩总是在 *all service ``error`` 挂钩后运行*"
+
+#: ../../source/api/hooks.rst:512
+msgid ""
+"Here is an example for a very useful application hook that logs every "
+"service method error with the service and method name as well as the "
+"error stack."
+msgstr ""
+"下面是一个非常有用的应用程序挂钩的示例，它使用服务和方法名称以及错误堆栈记录每个服务方法错误。"
+
+#~ msgid ""
+#~ "Hooks are pluggable middleware functions "
+#~ "that can be registered **before**, "
+#~ "**after** or on \\__error__s of a "
+#~ "`service method <./services.md>`_. You can "
+#~ "register a single hook function or "
+#~ "create a chain of them to create"
+#~ " complex work-flows. Most of the "
+#~ "time multiple hooks are registered so"
+#~ " the examples show the “hook chain”"
+#~ " array style registration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``context.app`` is a *read only* "
+#~ "property that contains the `Feathers "
+#~ "application object <./application.md>`_. This "
+#~ "can be used to retrieve other "
+#~ "services (via ``context.app.service('name')``) or"
+#~ " configuration values."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``context.params`` is a **writeable** property"
+#~ " that contains the `service method "
+#~ "<./services.md>`_ parameters (including "
+#~ "``params.query``). For more information see"
+#~ " the `service params documentation "
+#~ "<./services.md#params>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Note:** ``context.dispatch`` only affects "
+#~ "the data sent through a Feathers "
+#~ "Transport like `REST <./express>`_ or "
+#~ "`Socket.io <./socketio.md>`_. An internal "
+#~ "method call will still get the "
+#~ "data set in ``context.result``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When ``context.result`` is set in a "
+#~ "``before`` hook, the original "
+#~ ":doc:`./services` call will be skipped. "
+#~ "All other hooks will still execute "
+#~ "in their normal order. The following "
+#~ "example always returns the currently "
+#~ ":doc:`./authentication/server` instead of the "
+#~ "actual user for all ``get`` method "
+#~ "calls:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** As stated in the `hook"
+#~ " functions <#hook-functions>`_ section the"
+#~ " promise has to either resolve with"
+#~ " the ``context`` object (usually done "
+#~ "with ``.then(() => context)`` at the "
+#~ "end of the promise chain) or with"
+#~ " ``undefined``."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Important:** Most Feathers service calls "
+#~ "and newer Node packages already return"
+#~ " Promises. They can be returned and"
+#~ " chained directly. There is no need"
+#~ " to instantiate your own ``new`` "
+#~ "Promise instance in those cases."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Hooks are pluggable middleware functions "
+#~ "that can be registered **before**, "
+#~ "**after** or on \\__error__s of a "
+#~ ":doc:`service method <./services>`_. You can"
+#~ " register a single hook function or"
+#~ " create a chain of them to "
+#~ "create complex work-flows. Most of "
+#~ "the time multiple hooks are registered"
+#~ " so the examples show the “hook "
+#~ "chain” array style registration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:``context.app`` is a *read only* "
+#~ "property that contains the `Feathers "
+#~ "application object <./application>`_. This can"
+#~ " be used to retrieve other services"
+#~ " (via ``context.app.service('name')``) or "
+#~ "configuration values."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``context.params`` is a **writeable** property"
+#~ " that contains the :doc:`./services` "
+#~ "parameters (including :doc:``params.query``). For"
+#~ " more information see the `service "
+#~ "params documentation <./services#params>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Pro Tip:** ``app.service(<servicename>).hooks(hooks)``"
+#~ " can be called multiple times and "
+#~ "the hooks will be registered in "
+#~ "that order. Normally all hooks should"
+#~ " be registered at once however to "
+#~ "see at a glance what the service"
+#~ " is going to do."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Hooks are pluggable middleware functions "
+#~ "that can be registered **before**, "
+#~ "**after** or on \\__error__s of a "
+#~ ":doc:`service method <./services>`. You can"
+#~ " register a single hook function or"
+#~ " create a chain of them to "
+#~ "create complex work-flows. Most of "
+#~ "the time multiple hooks are registered"
+#~ " so the examples show the “hook "
+#~ "chain” array style registration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:``context.app`` is a *read only* "
+#~ "property that contains the `Feathers "
+#~ "application object <./application>`. This can"
+#~ " be used to retrieve other services"
+#~ " (via ``context.app.service('name')``) or "
+#~ "configuration values."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "``context.params`` is a **writeable** property"
+#~ " that contains the :doc:`./services` "
+#~ "parameters (including :doc:``params.query``). For"
+#~ " more information see the `service "
+#~ "params documentation <./services#params>`."
+#~ msgstr ""
+

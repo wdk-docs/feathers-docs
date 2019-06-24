@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/readme.rst:2
+msgid "Authentication Guides & Recipes"
+msgstr "身份验证指南和食谱"
+
+#: ../../source/guides/auth/readme.rst:4
+msgid ""
+":doc:`chat/readme`\\  The Feathers chat application guide shows how to "
+"set up basic username and password authentication and how to use it "
+"through direct requests and in a browser application."
+msgstr ":doc:`chat/readme`\\  Feathers聊天应用程序指南显示了如何设置基本用户名和密码身份验证以及如何通过直接请求和浏览器应用程序使用它."
+
+#: ../../source/guides/auth/readme.rst:9
+msgid ""
+":doc:`../api/authentication/server`\\  The complete authentication API "
+"documentation."
+msgstr ""
+":doc:`../../api/authentication/server`\\  完整的身份验证API文档."
+
+#: ../../source/guides/auth/readme.rst:12
+msgid ""
+":doc:`./how-jwt-works`\\  Learn more about JWT and how it might differ "
+"from authentication methods you’ve used, previously. (This guide is a "
+"work in progress.)"
+msgstr ""
+":doc:`./how-jwt-works`\\  了解有关JWT的更多信息,以及它与您之前使用的身份验证方法的不同之处. (本指南正在进行中.)"
+
+#: ../../source/guides/auth/readme.rst:16
+msgid ""
+":doc:`./recipe.customize-jwt-payload`.  You can customize the JWT "
+"payload. Learn important security implications before you decide to do "
+"it."
+msgstr ":doc:`./recipe.customize-jwt-payload`.  您可以自定义JWT有效负载.在决定执行此操作之前,请了解重要的安全隐患."
+
+#: ../../source/guides/auth/readme.rst:20
+msgid ""
+":doc:`./recipe.customize-response`.  Learn how you can customize the "
+"response after a user has attempted to login."
+msgstr ":doc:`./recipe.customize-response`.  了解如何在用户尝试登录后自定义响应."
+
+#: ../../source/guides/auth/readme.rst:23
+msgid ""
+":doc:`./recipe.mixed-auth`.  Learn how to setup an endpoint so that it "
+"handles unauthenticated and authenticated users with different responses "
+"for each."
+msgstr ":doc:`./recipe.mixed-auth`.  了解如何设置端点,以便处理未经身份验证且经过身份验证的用户,并为每个用户提供不同的响应."
+
+#: ../../source/guides/auth/readme.rst:27
+msgid ""
+":doc:`./recipe.oauth-basic`\\  Learn how OAuth (Facebook, Google, GitHub)"
+" login works, and how you can use it in your application."
+msgstr ""
+":doc:`./recipe.oauth-basic`\\  了解OAuth(Facebook,Google,GitHub)登录的工作原理,以及如何在您的应用程序中使用它."
+
+#: ../../source/guides/auth/readme.rst:31
+#, fuzzy
+msgid ""
+":doc:`./recipe.custom-auth-strategy`.  Learn how to setup a completely "
+"custom passport-based auth strategy."
+msgstr ""
+":doc:`./recipe.custom-auth-strategy`\\  了解如何设置完全自定义的基于护照的身份验证策略."
+
+#~ msgid ""
+#~ "`Auth Recipe: Create Endpoints with "
+#~ "Mixed Auth <./recipe.mixed-auth.md>`_\\  Learn"
+#~ " how to setup an endpoint so "
+#~ "that it handles unauthenticated and "
+#~ "authenticated users with different responses"
+#~ " for each."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:`Auth Recipe: Create Endpoints with "
+#~ "Mixed Auth <./recipe.mixed-auth>`_\\  Learn"
+#~ " how to setup an endpoint so "
+#~ "that it handles unauthenticated and "
+#~ "authenticated users with different responses"
+#~ " for each."
+#~ msgstr ""
+
+#~ msgid ""
+#~ ":doc:`Auth Recipe: Create Endpoints with "
+#~ "Mixed Auth <./recipe.mixed-auth>`\\  Learn "
+#~ "how to setup an endpoint so that"
+#~ " it handles unauthenticated and "
+#~ "authenticated users with different responses"
+#~ " for each."
+#~ msgstr ""
+

@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 19:42+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/chat/readme.rst:2
+msgid "Creating a Chat Application"
+msgstr "创建聊天应用程序"
+
+#: ../../source/guides/chat/readme.rst:4
+msgid ""
+"Well alright! Let’s build our first Feathers app! We’re going to build a "
+"real-time chat app with `NeDB <https://github.com/louischatriot/nedb>`_ "
+"as the database. It’s a great way to cover all the things that you’d need"
+" to do in a real world application and how Feathers can help. It also "
+"makes a lot more sense to have a real-time component than a Todo list. "
+":wink:"
+msgstr ""
+"好吧！让我们构建我们的第一个Feathers应用程序！我们将使用 `NeDB "
+"<https://github.com/louischatriot/nedb>`_ 作为数据库构建一个实时聊天应用程序.这是一个很好的方式来涵盖在现实世界的应用程序中你需要做的所有事情以及Feathers如何提供帮助.拥有实时组件比Todo列表更有意义."
+" :眨眼:"
+
+#: ../../source/guides/chat/readme.rst:11
+msgid ""
+"In this tutorial, you go from nothing to a real-time chat app complete "
+"with signup, login, token based authentication and authorization all with"
+" a RESTful and real-time API. You can go through this guide right away, "
+"but we recommend you first get a basic understanding of Feathers in the "
+":doc:`../basics/readme`."
+msgstr "在本教程中,您将从无到有实时聊天应用程序,包括注册,登录,基于令牌的身份验证和授权,所有这些都使用RESTful和实时API.您可以立即阅读本指南,但我们建议您首先在 :doc:`../basics/readme` 中对Feathers有一个基本的了解."
+
+#: ../../source/guides/chat/readme.rst:20
+msgid "Chat app screenshot"
+msgstr "聊天应用截图"
+
+#: ../../source/guides/chat/readme.rst:22
+msgid ""
+"You can find a complete working example `here "
+"<https://github.com/feathersjs/feathers-chat>`_."
+msgstr "您可以再 `这里 <https://github.com/feathersjs/feathers-chat>`_ 找到一个完整的工作示例."
+
+#: ../../source/guides/chat/readme.rst:25
+msgid ":doc:`./creating`"
+msgstr ""
+
+#: ../../source/guides/chat/readme.rst:27
+msgid "Create a new application using the generator."
+msgstr "使用生成器创建新应用程序."
+
+#: ../../source/guides/chat/readme.rst:29
+msgid ":doc:`./service`"
+msgstr ":doc:`./service`"
+
+#: ../../source/guides/chat/readme.rst:31
+msgid "Add an API endpoint to store messages."
+msgstr "添加API端点以存储消息."
+
+#: ../../source/guides/chat/readme.rst:33
+msgid ":doc:`./authentication`"
+msgstr ":doc:`./authentication`"
+
+#: ../../source/guides/chat/readme.rst:35
+msgid "Add user registration and login."
+msgstr "添加用户注册和登录."
+
+#: ../../source/guides/chat/readme.rst:37
+msgid ":doc:`./processing`"
+msgstr ":doc:`./processing`"
+
+#: ../../source/guides/chat/readme.rst:39
+msgid "Sanitize and process user data."
+msgstr "清理和处理用户数据."
+
+#: ../../source/guides/chat/readme.rst:41
+msgid ":doc:`./frontend`"
+msgstr ":doc:`./frontend`"
+
+#: ../../source/guides/chat/readme.rst:43
+msgid ""
+"Learn how to use Feathers in the browser by creating a small real-time "
+"chat frontend."
+msgstr "通过创建一个小型实时聊天前端,了解如何在浏览器中使用Feathers."
+
+#: ../../source/guides/chat/readme.rst:46
+msgid ":doc:`./testing`"
+msgstr ""
+
+#: ../../source/guides/chat/readme.rst:48
+msgid "Write automated unit tests and add code coverage to our chat application."
+msgstr "编写自动化单元测试并将代码覆盖添加到聊天应用程序中."
+

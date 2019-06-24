@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>缩放 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建一个Feathers插件" href="creating-a-plugin.html" />
+    <link rel="prev" title="使用视图引擎" href="using-a-view-engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">高级指南</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">高级指南</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file-uploading.html">在FeathersJS中上传文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-a-view-engine.html">使用视图引擎</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">缩放</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-scaling">水平缩放</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cluster-configuration">群集配置</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="creating-a-plugin.html">创建一个Feathers插件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">高级指南</a> &raquo;</li>
+        
+      <li>缩放</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/advanced/scaling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scaling">
+<h1>缩放<a class="headerlink" href="#scaling" title="永久链接至标题">¶</a></h1>
+<p>根据您的要求,您的Feathers应用可能需要提供高可用性.Feathers旨在扩展.</p>
+<p>Feathers应用程序中使用的传输类型将影响缩放配置.例如,仅使用 <code class="docutils literal notranslate"><span class="pre">feathers-rest</span></code> 适配器的Feathers应用程序将需要较少的缩放配置,因为HTTP是无状态协议.如果通过 <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> 或 <code class="docutils literal notranslate"><span class="pre">feathers-primus</span></code> 适配器使用websockets(有状态协议),配置可能会更复杂,以确保websockets正常工作.</p>
+<div class="section" id="horizontal-scaling">
+<h2>水平缩放<a class="headerlink" href="#horizontal-scaling" title="永久链接至标题">¶</a></h2>
+<p>水平缩放指的是:</p>
+<ul class="simple">
+<li><p>设置 <a class="reference external" href="https://nodejs.org/api/cluster.html">cluster</a>,或</p></li>
+<li><p>添加更多机器以支持您的应用程序</p></li>
+</ul>
+<p>为了实现高可用性,可以使用两种策略的不同组合.</p>
+</div>
+<div class="section" id="cluster-configuration">
+<h2>群集配置<a class="headerlink" href="#cluster-configuration" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://nodejs.org/api/cluster.html">簇</a> support内置于核心NodeJS中.由于NodeJS是单线程的,因此集群允许您在多个子进程(和多个线程)之间轻松分发应用程序请求.在多核环境中运行Feathers时,群集是一个不错的选择.</p>
+<p>下面是使用 <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> 提供程序向羽毛添加聚类的示例。默认情况下，websocket连接通过多个HTTP请求的握手开始，并升级到websocket协议。但是，启用群集时，同一工作程序将不会处理握手的所有HTTP请求，从而导致HTTP 400错误。为确保握手成功，强制单个工作人员通过禁用http传输并专门使用 <code class="docutils literal notranslate"><span class="pre">websocket</span></code> 传输来处理握手。</p>
+<p>禁用websockets的HTTP传输时需要注意很明显的副作用.虽然所有现代浏览器都支持websocket连接,但是没有websocket支持 <a class="reference external" href="http://caniuse.com/#feat=websockets">IE &lt;= 9 和 Android Browser &lt;= 4.3</a>. 如果您必须支持这些浏览器,请使用其他缩放策略.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s1">&#39;cluster&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">socketio</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/socketio&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">CLUSTER_COUNT</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">isMaster</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">CLUSTER_COUNT</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cluster</span><span class="p">.</span><span class="nx">fork</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+  <span class="c1">// ensure the same worker handles websocket connections</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">({</span>
+    <span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">]</span>
+  <span class="p">}));</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在您的Feathers客户端代码中,将 socket.io-client 限制为 <code class="docutils literal notranslate"><span class="pre">websocket</span></code> transport 并禁用 <code class="docutils literal notranslate"><span class="pre">upgrade</span></code>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">io</span> <span class="nx">from</span> <span class="s1">&#39;socket.io-client&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">socketio</span> <span class="nx">from</span> <span class="s1">&#39;feathers-socketio/client&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">socketio</span><span class="p">(</span>
+    <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://api.feathersjs.com&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">],</span>
+      <span class="nx">upgrade</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">})</span>
+  <span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="creating-a-plugin.html" class="btn btn-neutral float-right" title="创建一个Feathers插件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="using-a-view-engine.html" class="btn btn-neutral float-left" title="使用视图引擎" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/advanced/scaling.rst:2
+msgid "Scaling"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:4
+msgid "Depending on your requirements, your feathers application may need to provide high availability. Feathers is designed to scale."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:7
+msgid "The types of transports used in a feathers application will impact the scaling configuration. For example, a feathers app that uses the ``feathers-rest`` adapter exclusively will require less scaling configuration because HTTP is a stateless protocol. If using websockets (a stateful protocol) through the ``feathers-socketio`` or ``feathers-primus`` adapters, configuration may be more complex to ensure websockets work properly."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:16
+msgid "Horizontal Scaling"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:18
+msgid "Scaling horizontally refers to either:"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:20
+msgid "setting up a `cluster <https://nodejs.org/api/cluster.html>`_, or"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:21
+msgid "adding more machines to support your application"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:23
+msgid "To achieve high availability, varying combinations of both strategies may be used."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:27
+msgid "Cluster configuration"
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:29
+msgid "`Cluster <https://nodejs.org/api/cluster.html>`_ support is built into core NodeJS. Since NodeJS is single threaded, clustering allows you to easily distribute application requests among multiple child processes (and multiple threads). Clustering is a good choice when running feathers in a multi-core environment."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:35
+msgid "Below is an example of adding clustering to feathers with the ``feathers-socketio`` provider. By default, websocket connections begin via a handshake of multiple HTTP requests and are upgraded to the websocket protocol. However, when clustering is enabled, the same worker will not process all HTTP requests for a handshake, leading to HTTP 400 errors. To ensure a successful handshake, force a single worker to process the handshake by disabling the http transport and exclusively using the ``websocket`` transport."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:44
+msgid "There are notable side effects to be aware of when disabling the HTTP transport for websockets. While all modern browsers support websocket connections, there is no websocket support for `IE <=9 and Android Browser <=4.3 <http://caniuse.com/#feat=websockets>`_. If you must support these browsers, use alternative scaling strategies."
+msgstr ""
+
+#: ../../source/guides/advanced/scaling.rst:71
+msgid "In your feathers client code, limit the socket.io-client to the ``websocket`` transport and disable ``upgrade``."
+msgstr ""
+

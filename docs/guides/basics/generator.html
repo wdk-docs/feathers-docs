@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Feathers生成器(CLI) &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="创建聊天应用程序" href="../chat/index.html" />
+    <link rel="prev" title="客户端使用" href="clients.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="databases.html">数据库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="real-time.html">实时API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="clients.html">客户端使用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Feathers生成器(CLI)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-the-cli">安装CLI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-functions">配置功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hook-functions">钩子功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auth/index.html">身份验证指南和食谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">Feathers 基础功能</a> &raquo;</li>
+        
+      <li>Feathers生成器(CLI)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/basics/generator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-feathers-generator-cli">
+<h1>Feathers生成器(CLI)<a class="headerlink" href="#the-feathers-generator-cli" title="永久链接至标题">¶</a></h1>
+<p>到目前为止,我们在一个文件中手动编写代码,以便更好地了解Feathers本身的工作原理. Feathers CLI允许我们使用推荐的结构初始化新的Feathers应用程序.它也有帮助</p>
+<ul class="simple">
+<li><p>配置验证</p></li>
+<li><p>生成数据库支持的服务</p></li>
+<li><p>设置数据库连接</p></li>
+<li><p>生成钩子(带测试)</p></li>
+<li><p>添加Express中间件</p></li>
+</ul>
+<p>在本章中,我们将介绍如何安装CLI以及生成器用于构建服务器应用程序的常用模式. CLI的进一步使用将在 <a class="reference internal" href="../chat/readme.html"><span class="doc">创建聊天应用程序</span></a> 中讨论.</p>
+<div class="section" id="installing-the-cli">
+<h2>安装CLI<a class="headerlink" href="#installing-the-cli" title="永久链接至标题">¶</a></h2>
+<p>CLI应该通过npm全局安装:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>一旦成功,我们现在应该在命令行上提供``feathers``命令,我们可以查看:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>哪个应该显示“3.8.2”或更高版本.</p>
+</div>
+<div class="section" id="configure-functions">
+<h2>配置功能<a class="headerlink" href="#configure-functions" title="永久链接至标题">¶</a></h2>
+<p>生成的应用程序中使用的最常见模式是 <em>configure functions</em>,这些函数采用Feathers <a class="reference internal" href="../../api/application.html"><span class="doc">应用</span></a> 然后使用它,例如:注册服务.然后将这些函数传递给 <span class="xref std std-doc">../../api/application#configurecallback</span>.</p>
+<p>让我们来看看 <a class="reference internal" href="databases.html"><span class="doc">数据库</span></a>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">({</span>
+  <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="mi">25</span>
+  <span class="p">}</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
+<p>可以使用像这样的配置功能拆分:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">configureMessages</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">({</span>
+    <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+      <span class="k">default</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="nx">max</span><span class="o">:</span> <span class="mi">25</span>
+    <span class="p">}</span>
+  <span class="p">}));</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">configureMessages</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>现在我们可以将该函数移动到一个单独的文件,如 <code class="docutils literal notranslate"><span class="pre">messages.service.js</span></code>,并将其设置为该文件的 <a class="reference external" href="https://nodejs.org/api/modules.html">默认模块导出</a>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">,</span> <span class="nx">memory</span><span class="p">({</span>
+    <span class="nx">paginate</span><span class="o">:</span> <span class="p">{</span>
+      <span class="k">default</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="nx">max</span><span class="o">:</span> <span class="mi">25</span>
+    <span class="p">}</span>
+  <span class="p">}));</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>然后将其导入 <code class="docutils literal notranslate"><span class="pre">app.js</span></code> 并使用它:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">configureMessages</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./messages.service.js&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">configureMessages</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>这是生成器如何将事物拆分为单独文件的最常见模式,并且任何使用 <code class="docutils literal notranslate"><span class="pre">app</span></code> 对象的文档示例都可以在configure函数中使用.您可以创建自己的文件,在 <code class="docutils literal notranslate"><span class="pre">app.js</span></code> 中导出configure函数和 <code class="docutils literal notranslate"><span class="pre">require</span></code> 和 <code class="docutils literal notranslate"><span class="pre">app.configure</span></code> 它们</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>请记住,调用configure函数的顺序可能很重要,例如如果它正在使用服务,则必须首先注册该服务.</p>
+</div>
+</div>
+<div class="section" id="hook-functions">
+<h2>钩子功能<a class="headerlink" href="#hook-functions" title="永久链接至标题">¶</a></h2>
+<p>我们已经在 <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> 中看到了如何创建一个包装器函数,它允许使用 <code class="docutils literal notranslate"><span class="pre">setTimestamp</span></code> 示例自定义钩子的选项:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">setTimestamp</span> <span class="o">=</span> <span class="nx">name</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">(</span><span class="s1">&#39;createdAt&#39;</span><span class="p">),</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">(</span><span class="s1">&#39;updatedAt&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>这也是钩子生成器使用的模式,但在它自己的文件中,如 <code class="docutils literal notranslate"><span class="pre">hooks/set-timestamp.js</span></code>,它们看起来像这样:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">async</span> <span class="nx">context</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>现在我们可以使用这样的钩子:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">setTimestamp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./hooks/set-timestamp.js&#39;</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;createdAt&#39;</span> <span class="p">}),</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="nx">setTimestamp</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;updatedAt&#39;</span> <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>我们在这里使用了一个选项对象,它允许我们更容易地添加新的选项而不是函数参数.</p>
+</div>
+</div>
+<div class="section" id="whats-next">
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>在本章中,我们安装了Feathers CLI(和生成器),并查看了用于构造生成的应用程序的模式.现在我们可以使用生成器 <a class="reference internal" href="../chat/readme.html"><span class="doc">创建聊天应用程序</span></a> 完成身份验证和JavaScript前端！</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../chat/index.html" class="btn btn-neutral float-right" title="创建聊天应用程序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clients.html" class="btn btn-neutral float-left" title="客户端使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

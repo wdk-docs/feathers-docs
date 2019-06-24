@@ -1,0 +1,298 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/Summary.rst:2
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Summary.rst:4
+msgid ":doc:`index`"
+msgstr ""
+
+#: ../../source/Summary.rst:5
+msgid ":doc:`guides/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:7
+msgid ":doc:`guides/basics/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:9
+msgid ":doc:`guides/basics/setup`"
+msgstr ""
+
+#: ../../source/Summary.rst:10
+msgid ":doc:`guides/basics/starting`"
+msgstr ""
+
+#: ../../source/Summary.rst:11
+msgid ":doc:`guides/basics/services`"
+msgstr ""
+
+#: ../../source/Summary.rst:12
+msgid ":doc:`guides/basics/hooks`"
+msgstr ""
+
+#: ../../source/Summary.rst:13
+msgid ":doc:`guides/basics/rest`"
+msgstr ""
+
+#: ../../source/Summary.rst:14
+msgid ":doc:`guides/basics/databases`"
+msgstr ""
+
+#: ../../source/Summary.rst:15
+msgid ":doc:`guides/basics/real-time`"
+msgstr ""
+
+#: ../../source/Summary.rst:16
+msgid ":doc:`guides/basics/clients`"
+msgstr ""
+
+#: ../../source/Summary.rst:17
+msgid ":doc:`guides/basics/generator`"
+msgstr ""
+
+#: ../../source/Summary.rst:19
+msgid ":doc:`guides/chat/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:21
+msgid ":doc:`guides/chat/creating`"
+msgstr ""
+
+#: ../../source/Summary.rst:22
+msgid ":doc:`guides/chat/service`"
+msgstr ""
+
+#: ../../source/Summary.rst:23
+msgid ":doc:`guides/chat/authentication`"
+msgstr ""
+
+#: ../../source/Summary.rst:24
+msgid ":doc:`guides/chat/processing`"
+msgstr ""
+
+#: ../../source/Summary.rst:25
+msgid ":doc:`guides/chat/frontend`"
+msgstr ""
+
+#: ../../source/Summary.rst:26
+msgid ":doc:`guides/chat/testing`"
+msgstr ""
+
+#: ../../source/Summary.rst:28
+msgid ":doc:`guides/frameworks/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:29
+msgid ":doc:`guides/auth/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:31
+msgid ":doc:`guides/auth/how-jwt-works`"
+msgstr ""
+
+#: ../../source/Summary.rst:32
+msgid ":doc:`guides/auth/recipe.express-middleware`"
+msgstr ""
+
+#: ../../source/Summary.rst:33
+msgid ":doc:`guides/auth/recipe.customize-response`"
+msgstr ""
+
+#: ../../source/Summary.rst:34
+msgid ":doc:`guides/auth/recipe.customize-jwt-payload`"
+msgstr ""
+
+#: ../../source/Summary.rst:35
+msgid ":doc:`guides/auth/recipe.mixed-auth`"
+msgstr ""
+
+#: ../../source/Summary.rst:36
+msgid ":doc:`guides/auth/recipe.oauth-basic`"
+msgstr ""
+
+#: ../../source/Summary.rst:37
+msgid ":doc:`guides/auth/recipe.custom-auth-strategy`"
+msgstr ""
+
+#: ../../source/Summary.rst:39
+msgid ":doc:`guides/advanced/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:41
+msgid ":doc:`guides/advanced/file-uploading`"
+msgstr ""
+
+#: ../../source/Summary.rst:42
+msgid ":doc:`guides/advanced/using-a-view-engine`"
+msgstr ""
+
+#: ../../source/Summary.rst:43
+msgid ":doc:`guides/advanced/scaling`"
+msgstr ""
+
+#: ../../source/Summary.rst:44
+msgid ":doc:`guides/advanced/creating-a-plugin`"
+msgstr ""
+
+#: ../../source/Summary.rst:46
+msgid ":doc:`api/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:48
+msgid "Core"
+msgstr ""
+
+#: ../../source/Summary.rst:50
+msgid ":doc:`api/application`"
+msgstr ""
+
+#: ../../source/Summary.rst:51
+msgid ":doc:`api/services`"
+msgstr ""
+
+#: ../../source/Summary.rst:52
+msgid ":doc:`api/hooks`"
+msgstr ""
+
+#: ../../source/Summary.rst:53
+msgid ":doc:`api/events`"
+msgstr ""
+
+#: ../../source/Summary.rst:54
+msgid ":doc:`api/channels`"
+msgstr ""
+
+#: ../../source/Summary.rst:55
+msgid ":doc:`api/errors`"
+msgstr ""
+
+#: ../../source/Summary.rst:56
+msgid ":doc:`api/configuration`"
+msgstr ""
+
+#: ../../source/Summary.rst:58
+msgid "Transports"
+msgstr ""
+
+#: ../../source/Summary.rst:60
+msgid ":doc:`api/express`"
+msgstr ""
+
+#: ../../source/Summary.rst:61
+msgid ":doc:`api/socketio`"
+msgstr ""
+
+#: ../../source/Summary.rst:62
+msgid ":doc:`api/primus`"
+msgstr ""
+
+#: ../../source/Summary.rst:64
+msgid "Client"
+msgstr ""
+
+#: ../../source/Summary.rst:66
+msgid ":doc:`api/client`"
+msgstr ""
+
+#: ../../source/Summary.rst:67
+msgid ":doc:`api/client/rest`"
+msgstr ""
+
+#: ../../source/Summary.rst:68
+msgid ":doc:`api/client/socketio`"
+msgstr ""
+
+#: ../../source/Summary.rst:69
+msgid ":doc:`api/client/primus`"
+msgstr ""
+
+#: ../../source/Summary.rst:71
+msgid "Authentication"
+msgstr ""
+
+#: ../../source/Summary.rst:73
+msgid ":doc:`api/authentication/server`"
+msgstr ""
+
+#: ../../source/Summary.rst:74
+msgid ":doc:`api/authentication/client`"
+msgstr ""
+
+#: ../../source/Summary.rst:75
+msgid ":doc:`api/authentication/local`"
+msgstr ""
+
+#: ../../source/Summary.rst:76
+msgid ":doc:`api/authentication/jwt`"
+msgstr ""
+
+#: ../../source/Summary.rst:77
+msgid ":doc:`api/authentication/oauth1`"
+msgstr ""
+
+#: ../../source/Summary.rst:78
+msgid ":doc:`api/authentication/oauth2`"
+msgstr ""
+
+#: ../../source/Summary.rst:80
+msgid "Database"
+msgstr ""
+
+#: ../../source/Summary.rst:82
+msgid ":doc:`api/databases/adapters`"
+msgstr ""
+
+#: ../../source/Summary.rst:83
+msgid ":doc:`api/databases/common`"
+msgstr ""
+
+#: ../../source/Summary.rst:84
+msgid ":doc:`api/databases/querying`"
+msgstr ""
+
+#: ../../source/Summary.rst:86
+msgid ":doc:`migrating`"
+msgstr ""
+
+#: ../../source/Summary.rst:87
+msgid ":doc:`SECURITY`"
+msgstr ""
+
+#: ../../source/Summary.rst:88
+msgid "`Ecosystem <https://github.com/feathersjs/awesome-feathersjs>`_"
+msgstr ""
+
+#: ../../source/Summary.rst:89
+msgid ":doc:`help/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:90
+msgid ":doc:`faq/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:91
+msgid ":doc:`contributing/readme`"
+msgstr ""
+
+#: ../../source/Summary.rst:92
+msgid ":doc:`license`"
+msgstr ""
+

@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/guides/basics/generator.rst:2
+msgid "The Feathers generator (CLI)"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:4
+msgid "Until now we wrote code by hand in a single file to get a better understanding how Feathers itself works. The Feathers CLI allows us to initialize a new Feathers application with a recommended structure. It also helps with"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:9
+msgid "Configuring authentication"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:10
+msgid "Generating database backed services"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:11
+msgid "Setting up database connections"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:12
+msgid "Generating hooks (with tests)"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:13
+msgid "Adding Express middleware"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:15
+msgid "In this chapter we will look at installing the CLI and common patterns the generator uses to structure our server application. Further use of the CLI will be discussed in the :doc:`../chat/readme`."
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:20
+msgid "Installing the CLI"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:22
+msgid "The CLI should be installed globally via npm:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:28
+msgid "Once successful we should now have the ``feathers`` command available on the command line which we can check with:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:35
+msgid "Which should show a version of ``3.8.2`` or later."
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:38
+msgid "Configure functions"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:40
+msgid "The most common pattern used in the generated application is *configure functions*, functions that take the Feathers :doc:`../../api/application` and then use it, e.g. to register services. Those functions are then passed to :doc:`../../api/application#configurecallback`."
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:45
+msgid "Let’s look at our :doc:`databases`:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:61
+msgid "Which could be split up using a configure function like this:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:81
+msgid "Now we can move that function into a separate file like ``messages.service.js`` and set it as the `default module export <https://nodejs.org/api/modules.html>`_ for that file:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:98
+msgid "And then import it into ``app.js`` and use it:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:109
+msgid "This is the most common pattern how the generators split things up into separate files and any documentation example that uses the ``app`` object can be used in a configure function. You can create your own files that export a configure function and ``require`` and ``app.configure`` them in ``app.js``"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:115
+msgid "Keep in mind that the order in which configure functions are called might matter, e.g. if it is using a service, that service has to be registered first."
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:120
+msgid "Hook functions"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:122
+msgid "We already saw in the :doc:`./hooks` how we can create a wrapper function that allows to customize the options of a hook with the ``setTimestamp`` example:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:143
+msgid "This is also the pattern the hook generator uses but in its own file like ``hooks/set-timestamp.js`` which could look like this:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:156
+msgid "Now we can use that hook like this:"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:171
+msgid "We are using an options object here which allows us to more easily add new options than function parameters."
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:175
+msgid "What’s next?"
+msgstr ""
+
+#: ../../source/guides/basics/generator.rst:177
+msgid "In this chapter we installed the Feathers CLI (and generator) and looked at patterns that are used in structuring the generated application. Now we can use the generator to :doc:`../chat/readme` complete with authentication and a JavaScript frontend!"
+msgstr ""
+

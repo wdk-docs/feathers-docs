@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/api/errors.rst:2
+msgid "Errors"
+msgstr ""
+
+#: ../../source/api/errors.rst:4
+msgid "|npm version| |Changelog|"
+msgstr ""
+
+#: ../../source/api/errors.rst:10
+msgid "The ``@feathersjs/errors`` module contains a set of standard error classes used by all other Feathers modules as well as an `Express error handler <https://expressjs.com/en/guide/error-handling.html>`_ to format those - and other - errors and setting the correct HTTP status codes for REST calls."
+msgstr ""
+
+#: ../../source/api/errors.rst:17
+msgid "Feathers errors"
+msgstr ""
+
+#: ../../source/api/errors.rst:19
+msgid "The following error types, all of which are instances of ``FeathersError``, are available:"
+msgstr ""
+
+#: ../../source/api/errors.rst:22
+msgid "All of the Feathers plugins will automatically emit the appropriate Feathers errors for you. For example, most of the database adapters will already send ``Conflict`` or ``Unprocessable`` errors with the validation errors from the ORM."
+msgstr ""
+
+#: ../../source/api/errors.rst:27
+msgid "400: ``BadRequest``"
+msgstr ""
+
+#: ../../source/api/errors.rst:28
+msgid "401: ``NotAuthenticated``"
+msgstr ""
+
+#: ../../source/api/errors.rst:29
+msgid "402: ``PaymentError``"
+msgstr ""
+
+#: ../../source/api/errors.rst:30
+msgid "403: ``Forbidden``"
+msgstr ""
+
+#: ../../source/api/errors.rst:31
+msgid "404: ``NotFound``"
+msgstr ""
+
+#: ../../source/api/errors.rst:32
+msgid "405: ``MethodNotAllowed``"
+msgstr ""
+
+#: ../../source/api/errors.rst:33
+msgid "406: ``NotAcceptable``"
+msgstr ""
+
+#: ../../source/api/errors.rst:34
+msgid "408: ``Timeout``"
+msgstr ""
+
+#: ../../source/api/errors.rst:35
+msgid "409: ``Conflict``"
+msgstr ""
+
+#: ../../source/api/errors.rst:36
+msgid "411: ``LengthRequired``"
+msgstr ""
+
+#: ../../source/api/errors.rst:37
+msgid "422: ``Unprocessable``"
+msgstr ""
+
+#: ../../source/api/errors.rst:38
+msgid "429: ``TooManyRequests``"
+msgstr ""
+
+#: ../../source/api/errors.rst:39
+msgid "500: ``GeneralError``"
+msgstr ""
+
+#: ../../source/api/errors.rst:40
+msgid "501: ``NotImplemented``"
+msgstr ""
+
+#: ../../source/api/errors.rst:41
+msgid "502: ``BadGateway``"
+msgstr ""
+
+#: ../../source/api/errors.rst:42
+msgid "503: ``Unavailable``"
+msgstr ""
+
+#: ../../source/api/errors.rst:44
+msgid "Feathers errors contain the following fields:"
+msgstr ""
+
+#: ../../source/api/errors.rst:46
+msgid "``name`` - The error name (e.g. “BadRequest”, “ValidationError”, etc.)"
+msgstr ""
+
+#: ../../source/api/errors.rst:48
+msgid "``message`` - The error message string"
+msgstr ""
+
+#: ../../source/api/errors.rst:49
+msgid "``code`` - The HTTP status code"
+msgstr ""
+
+#: ../../source/api/errors.rst:50
+msgid "``className`` - A CSS class name that can be handy for styling errors based on the error type. (e.g. “bad-request” , etc.)"
+msgstr ""
+
+#: ../../source/api/errors.rst:52
+msgid "``data`` - An object containing anything you passed to a Feathers error except for the ``errors`` object."
+msgstr ""
+
+#: ../../source/api/errors.rst:54
+msgid "``errors`` - An object containing whatever was passed to a Feathers error inside ``errors``. This is typically validation errors or if you want to group multiple errors together."
+msgstr ""
+
+#: ../../source/api/errors.rst:60
+msgid "To convert a Feathers error back to an object call ``error.toJSON()``. A normal ``console.log`` of a JavaScript Error object will not automatically show those additional properties described above (even though they can be accessed directly)."
+msgstr ""
+
+#: ../../source/api/errors.rst:66
+msgid "Custom errors"
+msgstr ""
+
+#: ../../source/api/errors.rst:68
+msgid "You can create custom errors by extending from the ``FeathersError`` class and calling its constructor with ``(msg, name, code, className, data)``:"
+msgstr ""
+
+#: ../../source/api/errors.rst:72
+msgid "``message`` - The error message"
+msgstr ""
+
+#: ../../source/api/errors.rst:73
+msgid "``name`` - The error name (e.g. ``my-errror``)"
+msgstr ""
+
+#: ../../source/api/errors.rst:74
+msgid "``code`` - An `HTTP error code <https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html>`_"
+msgstr ""
+
+#: ../../source/api/errors.rst:76
+msgid "``className`` - The full name of the error class"
+msgstr ""
+
+#: ../../source/api/errors.rst:77
+msgid "``data`` - Additional data to include in the error"
+msgstr ""
+
+#: ../../source/api/errors.rst:94
+msgid "Examples"
+msgstr ""
+
+#: ../../source/api/errors.rst:96
+msgid "Here are a few ways that you can use them:"
+msgstr ""
+
+#: ../../source/api/errors.rst:131
+msgid "Server Side Errors"
+msgstr ""
+
+#: ../../source/api/errors.rst:133
+msgid "Promises swallow errors if you forget to add a ``catch()`` statement. Therefore, you should make sure that you **always** call ``.catch()`` on your promises. To catch uncaught errors at a global level you can add the code below to your top-most file."
+msgstr ""
+
+#: ../../source/api/errors.rst:145
+msgid "Error Handling"
+msgstr ""
+
+#: ../../source/api/errors.rst:147
+msgid "It is important to make sure that errors get cleaned up before they go back to the client. `Express error handling middlware <https://docs.feathersjs.com/api/express.html#expresserrorhandler>`_ works only for REST calls. If you want to make sure that ws errors are handled as well, you need to use `App Hooks <https://docs.feathersjs.com/guides/basics/hooks.html#application-hooks>`_. App Error Hooks get called on an error to every service call regardless of transport."
+msgstr ""
+
+#: ../../source/api/errors.rst:156
+msgid "Here is an example error handler you can add to app.hooks errors."
+msgstr ""
+
+#: ../../source/api/errors.rst:176
+msgid "then add it to the error.all hook"
+msgstr ""
+

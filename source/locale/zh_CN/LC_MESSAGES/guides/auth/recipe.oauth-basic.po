@@ -1,0 +1,355 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:2
+msgid "FeathersJS Auth Recipe: Set up Basic OAuth Login"
+msgstr "FeathersJS Auth Recipe:设置基本OAuth登录"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:4
+msgid ""
+"The Auk release of FeathersJS includes a powerful new "
+":doc:`../../api/authentication/server` built on top of `PassportJS "
+"<http://www.passportjs.org/>`_. This now gives the Feathers community "
+"access to hundreds of authentication strategies from the Passport "
+"community. Since many of the Passport strategies are for OAuth, we’ve "
+"created two auth plugins, :doc:`../api/authentication/oauth1` and "
+":doc:`../api/authentication/oauth2`. These new plugins use a Passport "
+"strategy to allow OAuth logins into your app."
+msgstr "FeatusJS的Auk版本包括一个强大的新的：doc：`../../ api / authentication / server`建立在`PassportJS <http://www.passportjs.org/>`_之上。现在，这使Feathers社区可以访问Passport社区中的数百种身份验证策略。由于许多Passport策略都是针对OAuth的，因此我们创建了两个auth插件：doc：`../ api / authentication / oauth1`和：doc：`../ api / authentication / oauth2`。这些新插件使用Passport策略允许OAuth登录到您的应用程序。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:15
+msgid ""
+"Adding OAuth authentication to your app is a great way to quickly allow "
+"users to login. It allows the user to use an existing Internet account "
+"with another service to login to your app. Among lots of good reasons, it"
+" often eliminates the need for the email address verification dance. This"
+" is even more likely for very common OAuth providers, like GitHub, "
+"Google, and Facebook."
+msgstr "向应用添加OAuth身份验证是快速允许用户登录的好方法.它允许用户使用现有的Internet帐户和其他服务登录您的应用程序.有很多好的理由,它通常不需要电子邮件地址验证舞蹈.对于非常常见的OAuth提供商,例如GitHub,Google和Facebook,这种情况更有可能发生."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:22
+msgid ""
+"Simplified login is almost always a good idea, but for many developers "
+"implementing OAuth can be difficult. Let’s take a look at how it works, "
+"in general. After that, we’ll see how the new "
+":doc:`../api/authentication/server` server plugin makes it easy to get up"
+" and running."
+msgstr "简化登录几乎总是一个好主意,但对于许多开发人员而言,实施OAuth可能很困难.我们来看看它的工作原理.之后,我们将看到新的:doc:`../api/authentication/server`服务器插件如何让它易于启动和运行."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:29
+msgid "How OAuth Works"
+msgstr "OAuth的工作原理"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:31
+msgid ""
+"There are a couple of different methods you can use to implement OAuth. "
+"Here are the basic steps of the flow that the ``feathers-authentication-"
+"oauth1`` and ``feathers-authentication-oauth2`` plugins use."
+msgstr ""
+"您可以使用几种不同的方法来实施OAuth。以下是``feathers-authentication-oauth1``和``feathers-authentication-oauth2``插件使用的流程的基本步骤。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:36
+msgid ""
+"You register your application with the OAuth Provider. This includes "
+"giving the provider a callback URL (more on this later). The provider "
+"will give you an app identifier and an app secret. The secret is "
+"basically a special password for your app."
+msgstr "您向OAuth提供商注册您的应用程序.这包括为提供商提供回调URL(稍后将详细介绍).提供商将为您提供应用标识符和应用密钥.秘密基本上是您的应用程序的特殊密码."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:40
+msgid ""
+"You direct the user’s browser to the OAuth provider’s site, providing the"
+" app identifier in the query string."
+msgstr ""
+"您将用户的浏览器定向到OAuth提供商的站点，在查询字符串中提供应用程序标识符。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:42
+msgid ""
+"The content provider uses the app identifier to retrieve information "
+"about your app. That information is then presented to the user with a "
+"login form. The user can grant or deny access to your application."
+msgstr ""
+"内容提供商使用应用标识符来检索有关您的应用的信息。然后使用登录表单将该信息呈现给用户。用户可以授予或拒绝访问您的应用程序。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:45
+msgid ""
+"Upon making a decision, the provider redirects the user’s browser to the "
+"callback URL you setup in the first step. It includes a short-lived "
+"authorization code in the querystring."
+msgstr ""
+"做出决定后，提供商会将用户的浏览器重定向到您在第一步中设置的回调URL。它包含查询字符串中的短期授权代码。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:48
+msgid ""
+"Your server sends a request to the OAuth provider’s server. It includes "
+"the authorization code and the secret. If the authorization code and "
+"secret are valid, the provider returns an OAuth access token to your "
+"server. Some user data can also be sent."
+msgstr "您的服务器向OAuth提供商的服务器发送请求.它包括授权代码和秘密.如果授权代码和机密有效,则提供程序会向您的服务器返回OAuth访问令牌.还可以发送一些用户数据."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:52
+msgid ""
+"Your server can save the user information into the ``/users`` table. It "
+"can also use this access token to make requests to the provider’s API. "
+"This same information can also be sent to the browser for use."
+msgstr ""
+"您的服务器可以将用户信息保存到``/ users``表中。它还可以使用此访问令牌向提供者的API发出请求。也可以将相同的信息发送到浏览器以供使用。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:55
+msgid ""
+"With Feathers, there is an additional step. After logging in, a JWT "
+"access token is stored in a cookie and sent to the browser. The client "
+"uses the JWT to authenticate with the server on subsequent requests."
+msgstr ""
+"有了Feathers，还有一个额外的步骤。登录后，JWT访问令牌存储在cookie中并发送到浏览器。客户端使用JWT在后续请求中对服务器进行身份验证。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:61
+msgid "Implementing OAuth with Feathers"
+msgstr "用Feathers实现OAuth"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:63
+msgid ""
+"The Feathers CLI allows you to easily setup a new application with OAuth."
+" Here are the steps to generate an application:"
+msgstr ""
+"Feathers CLI允许您使用OAuth轻松设置新应用程序。以下是生成应用程序的步骤:"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:66
+msgid "``npm install -g @feathersjs/cli``\\"
+msgstr "``npm install -g @feathersjs/cli``\\"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:67
+msgid ""
+"``mkdir feathers-demo-oauth; cd feathers-demo-oauth``\\  or a folder name"
+" you prefer."
+msgstr ""
+"``mkdir feathers-demo-oauth; cd feathers-demo-oauth``\\  或您喜欢的文件夹名称。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:69
+msgid "``feathers generate app``\\  use the default prompts."
+msgstr "``feathers generate app``\\  使用默认提示。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:70
+msgid "``feathers generate authentication``"
+msgstr "``羽毛生成认证``"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:72
+msgid ""
+"Select ``Facebook``, ``GitHub``, or ``Google`` when prompted for a "
+"provider. **This guide will show how to use GitHub.**"
+msgstr ""
+"当提示提供者时，选择“Facebook``，”GitHub“或”Google“。 **本指南将说明如何使用GitHub。**"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:74
+msgid "Select the defaults for the remaining prompts."
+msgstr "选择其余提示的默认值。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:77
+msgid "Setting up the OAuth Provider"
+msgstr "设置OAuth提供程序"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:79
+msgid ""
+"To setup the provider, you use each provider’s website. Here are links to"
+" common providers:"
+msgstr ""
+"要设置提供程序，请使用每个提供程序的网站。以下是常见提供商的链接:"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:82
+msgid "`Facebook <https://developers.facebook.com/docs/apps/register>`_"
+msgstr "`Facebook <https://developers.facebook.com/docs/apps/register>`_"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:83
+msgid "`GitHub <https://github.com/settings/developers>`_"
+msgstr "`GitHub <https://github.com/settings/developers>`_"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:84
+msgid "`Google <https://developers.google.com/identity/protocols/OAuth2>`_"
+msgstr "`Google <https://developers.google.com/identity/protocols/OAuth2>`_"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:86
+msgid ""
+"Once your app is setup, the OAuth provider will give you a ``Client ID`` "
+"and ``Client Secret``."
+msgstr "设置好应用后，OAuth提供商将为您提供“客户端ID”和“客户端密码”。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:90
+msgid "Configuring Your Application"
+msgstr "配置应用程序"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:92
+msgid ""
+"Once you have your app’s ``Client ID`` and ``Client Secret``, it’s time "
+"to setup the app to communicate with the provider. Open the "
+"``default.json`` configuration file. The generator added a key to the "
+"config for the provider you selected. The below configuration example has"
+" a ``github`` config. Copy over and replace the placeholders with the "
+"``clientID`` and ``clientSecret``."
+msgstr "一旦你有你的应用程序的``Client ID``和``Client Secret``,就可以设置应用程序与提供商进行通信了.打开``default.json``配置文件.生成器为您选择的提供程序的配置添加了一个密钥.下面的配置示例有一个``github``配置.复制并用``clientID``和``clientSecret``替换占位符."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:99
+msgid "**config/default.json**"
+msgstr "**config/default.json**"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:144
+msgid "Test Login with OAuth"
+msgstr "使用OAuth测试登录"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:146
+msgid ""
+"Your app is ready for OAuth logins. We’ve made it that simple! Let’s try "
+"it out. Open the file ``public/index.html`` and scroll to the bottom. Add"
+" the following code just under the ``h2``:"
+msgstr ""
+"您的应用已准备好进行OAuth登录。我们就这么简单了！我们来试试吧。打开文件``public / index.html``并滚动到底部。在``h2``下添加以下代码:"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:156
+msgid ""
+"Now add the following code to the same page. The first script tag loads "
+"Feathers Client from a CDN. The second script loads Socket.io. The third "
+"script creates a Feathers Client instance and attempts to authenticate "
+"with the JWT strategy upon page load. The authentication client plugin "
+"has been configured with a ``cookie`` value of ``feathers-jwt``."
+msgstr "现在将以下代码添加到同一页面.第一个脚本标记从CDN加载Feathers Client.第二个脚本加载Socket.io.第三个脚本创建一个Feathers Client实例,并尝试在页面加载时使用JWT策略进行身份验证.身份验证客户端插件配置了``bouquet```值为``feathers-jwt``."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:162
+msgid ""
+"Note: This code loads the ``feathers-client`` package from a CDN. This is"
+" **not** the recommended usage for most apps, but is good for "
+"demonstration purposes. We recommend using a bundler as described in the "
+":doc:`../api/client`."
+msgstr "注意:此代码从CDN加载``feathers-client``包.这不是**大多数应用程序的推荐用法,但是出于演示目的而有用.我们建议使用如下文所述的捆绑器:doc:`../api/client`."
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:193
+msgid ""
+"Now, run the server, open ``http://localhost:3030``. Before you click the"
+" “Login with GitHub” link, open the console. If you refresh you’ll see "
+"the message in the catch block. Since we haven’t logged in, yet, we don’t"
+" have a stored JWT access token. Now, click the ``Login with GitHub`` "
+"button. Assuming you haven’t logged in to Github with this application, "
+"before, you’ll see a GitHub login page. Once you login to GitHub, you’ll "
+"be redirected back to ``http://localhost:3030``. Now, if you look at your"
+" console, you should see a success message."
+msgstr "现在，运行服务器，打开``http：// localhost：3030``。在单击“使用GitHub登录”链接之前，请打开控制台。如果刷新，您将在catch块中看到该消息。由于我们尚未登录，因此我们没有存储的JWT访问令牌。现在，单击“使用GitHub登录”按钮。假设您没有使用此应用程序登录Github，之前，您将看到GitHub登录页面。登录GitHub后，您将被重定向回``http：// localhost：3030``。现在，如果您查看控制台，您应该会看到成功消息。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:202
+msgid ""
+"What just happened? When you clicked on that link, it opened the "
+"``/auth/github`` link, which is just a shortcut for redirecting to GitHub"
+" with your ``Client ID``. The entire OAuth process that we described "
+"earlier took place. The browser received a ``feathers-jwt`` cookie from "
+"the server. Finally the script that we added in the last step used the "
+"``feathers-authentication-client`` to authenticate using the JWT returned"
+" from the server. There were a lot of steps that happened in a very short"
+" time. The best news is that you’re authenticated with OAuth."
+msgstr "刚刚发生了什么？当你点击该链接时，它打开了``/ auth / github``链接，这只是用你的``Client ID``重定向到GitHub的快捷方式。我们之前描述的整个OAuth流程都已发生。浏览器从服务器收到一个``feathers-jwt`` cookie。最后，我们在最后一步中添加的脚本使用``feathers-authentication-client``来使用从服务器返回的JWT进行身份验证。在很短的时间内发生了很多步骤。最好的消息是您使用OAuth进行了身份验证。"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:213
+msgid "Wrapping Up"
+msgstr "包起来"
+
+#: ../../source/guides/auth/recipe.oauth-basic.rst:215
+msgid ""
+"You’ve now seen how OAuth login is greatly simplified with the new "
+"Feathers Authentication plugins. Having plugins built on top of "
+"PassportJS allows for a lot of flexibility. You can now build nearly any "
+"authentication experience imaginable. In the final part of this guide, "
+"you were able to authenticate the Feathers client. Hopefully this will "
+"get you started integrating OAuth into your application."
+msgstr "您现在已经了解了如何使用新的Feathers Authentication插件大大简化OAuth登录.在PassportJS之上构建插件可以提供很大的灵活性.您现在可以构建几乎任何可以想象的身份验证体验.在本指南的最后部分,您可以对Feathers客户端进行身份验证.希望这会让您开始将OAuth集成到您的应用程序中."
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new `authentication suite "
+#~ "<../../api/authentication/server.md>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "This now gives the Feathers community"
+#~ " access to hundreds of authentication "
+#~ "strategies from the Passport community. "
+#~ "Since many of the Passport strategies"
+#~ " are for OAuth, we’ve created two "
+#~ "auth plugins, ```feathers-authentication-"
+#~ "oauth1:doc:`../../api/authentication/oauth1` and "
+#~ "```feathers-authentication-"
+#~ "oauth2:doc:`../api/authentication/oauth2`. These new "
+#~ "plugins use a Passport strategy to "
+#~ "allow OAuth logins into your app."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Simplified login is almost always a "
+#~ "good idea, but for many developers "
+#~ "implementing OAuth can be difficult. "
+#~ "Let’s take a look at how it "
+#~ "works, in general. After that, we’ll "
+#~ "see how the new ```feathers-"
+#~ "authentication:doc:`../api/authentication/server` server "
+#~ "plugin makes it easy to get up "
+#~ "and running."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new `authentication suite "
+#~ "<../../api/authentication/server.md>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "This now gives the Feathers community"
+#~ " access to hundreds of authentication "
+#~ "strategies from the Passport community. "
+#~ "Since many of the Passport strategies"
+#~ " are for OAuth, we’ve created two "
+#~ "auth plugins, :doc:`../api/authentication/oauth1` "
+#~ "and :doc:`../api/authentication/oauth2`. These new"
+#~ " plugins use a Passport strategy to"
+#~ " allow OAuth logins into your app."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>`_ built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "This now gives the Feathers community"
+#~ " access to hundreds of authentication "
+#~ "strategies from the Passport community. "
+#~ "Since many of the Passport strategies"
+#~ " are for OAuth, we’ve created two "
+#~ "auth plugins, :doc:`../api/authentication/oauth1` "
+#~ "and :doc:`../api/authentication/oauth2`. These new"
+#~ " plugins use a Passport strategy to"
+#~ " allow OAuth logins into your app."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Auk release of FeathersJS includes"
+#~ " a powerful new :doc:`authentication suite"
+#~ " <../../api/authentication/server>` built on top"
+#~ " of `PassportJS <http://www.passportjs.org/>`_. "
+#~ "This now gives the Feathers community"
+#~ " access to hundreds of authentication "
+#~ "strategies from the Passport community. "
+#~ "Since many of the Passport strategies"
+#~ " are for OAuth, we’ve created two "
+#~ "auth plugins, :doc:`../api/authentication/oauth1` "
+#~ "and :doc:`../api/authentication/oauth2`. These new"
+#~ " plugins use a Passport strategy to"
+#~ " allow OAuth logins into your app."
+#~ msgstr ""
+

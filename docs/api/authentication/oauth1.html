@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OAuth1身份验证 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="OAuth2身份验证" href="oauth2.html" />
+    <link rel="prev" title="JWT身份验证" href="jwt.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers[fɛðɚ]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#core">核心</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#transports">传输层</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#client">客户端</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#authentication">认证</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="server.html">认证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client.html">验证客户端</a></li>
+<li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OAuth1身份验证</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verifier">Verifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-oauth-response">Customizing The OAuth Response</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-usage">Client Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="oauth2.html">OAuth2身份验证</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#database">数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3(秃鹰)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">令人敬畏的Feathers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">求助！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">API</a> &raquo;</li>
+        
+      <li>OAuth1身份验证</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/authentication/oauth1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oauth1-authentication">
+<h1>OAuth1身份验证<a class="headerlink" href="#oauth1-authentication" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/authentication-oauth1"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/authentication-oauth1.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/authentication-oauth1/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication-oauth1 --save
+</pre></div>
+</div>
+<p>[&#64;feathersjs/authentication-oauth1](<a class="reference external" href="https://github.com/feathersjs/authentication-oauth1">https://github.com/feathersjs/authentication-oauth1</a>)
+is a server side module that allows you to use any
+<a class="reference external" href="http://passportjs.org/">Passport</a> OAuth1 authentication strategy
+within your Feathers application, most notably
+<a class="reference external" href="https://github.com/jaredhanson/passport-twitter">Twitter</a>.</p>
+<p>This module contains 2 core pieces:</p>
+<ol class="arabic simple">
+<li><p>The main initialization function</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Verifier</span></code> class</p></li>
+</ol>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h2>
+<p>In most cases initializing the module is as simple as doing this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">authentication</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-jwt&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">oauth1</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-oauth1&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express-session&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">TwitterStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-twitter&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
+
+<span class="c1">// Setup in memory session</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">session</span><span class="p">({</span>
+  <span class="nx">secret</span><span class="o">:</span> <span class="s1">&#39;super secret&#39;</span><span class="p">,</span>
+  <span class="nx">resave</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">saveUninitialized</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}));</span>
+
+<span class="c1">// Setup authentication</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">authentication</span><span class="p">(</span><span class="nx">settings</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">jwt</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">oauth1</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;twitter&#39;</span><span class="p">,</span>
+  <span class="nx">Strategy</span><span class="o">:</span> <span class="nx">TwitterStrategy</span><span class="p">,</span>
+  <span class="nx">consumerKey</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer key&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">consumerSecret</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer secret&gt;&#39;</span>
+<span class="p">}));</span>
+
+<span class="c1">// Setup a hook to only allow valid JWTs to authenticate</span>
+<span class="c1">// and get new JWT access tokens</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span>
+      <span class="nx">authentication</span><span class="p">.</span><span class="nx">hooks</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">([</span><span class="s1">&#39;jwt&#39;</span><span class="p">])</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>这将从配置文件中的全局身份验证对象中提取。它还将混合以下默认值，可以自定义。</p>
+<p>注册OAuth1插件将自动设置路由以处理OAuth重定向和授权。</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">idField</span><span class="o">:</span> <span class="s1">&#39;&lt;provider&gt;Id&#39;</span><span class="p">,</span> <span class="c1">// The field to look up the entity by when logging in with the provider. Defaults to &#39;&lt;provider&gt;Id&#39; (ie. &#39;twitterId&#39;).</span>
+    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/auth/&lt;provider&gt;&#39;</span><span class="p">,</span> <span class="c1">// The route to register the middleware</span>
+    <span class="nx">callbackURL</span><span class="o">:</span> <span class="s1">&#39;http(s)://hostame[:port]/auth/&lt;provider&gt;/callback&#39;</span><span class="p">,</span> <span class="c1">// The callback url. Will automatically take into account your host and port and whether you are in production based on your app environment to construct the url. (ie. in development http://localhost:3030/auth/twitter/callback)</span>
+    <span class="nx">entity</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="c1">// the entity that you are looking up</span>
+    <span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="c1">// the service to look up the entity</span>
+    <span class="nx">passReqToCallback</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// whether the request object should be passed to `verify`</span>
+    <span class="nx">session</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// whether to use sessions,</span>
+    <span class="nx">handler</span><span class="o">:</span> <span class="kd">function</span><span class="p">,</span> <span class="c1">// Express middleware for handling the oauth callback. Defaults to the built in middleware.</span>
+    <span class="nx">formatter</span><span class="o">:</span> <span class="kd">function</span><span class="p">,</span> <span class="c1">// The response formatter. Defaults the the built in feathers-rest formatter, which returns JSON.</span>
+    <span class="nx">Verifier</span><span class="o">:</span> <span class="nx">Verifier</span><span class="p">,</span> <span class="c1">// A Verifier class. Defaults to the built-in one but can be a custom one. See below for details.</span>
+    <span class="nx">makeQuery</span><span class="o">:</span> <span class="kd">function</span> <span class="c1">// Makes query for finding an existing user. Defaults to (profile, options) =&gt; ({ [options.idField]: profile.id })</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Additional passport strategy options can be provided based on the OAuth1
+strategy you are configuring.</p>
+</div>
+<div class="section" id="verifier">
+<h2>Verifier<a class="headerlink" href="#verifier" title="永久链接至标题">¶</a></h2>
+<p>这是验证类，它通过在给定服务上查找实体（通常是“用户”）来处理OAuth1验证，并创建或更新实体并返回它们。它具有以下可以覆盖的方法。除了``verify``之外，所有方法都返回一个promise，它与`passport-oauth1 &lt;<a class="reference external" href="https://github.com/jaredhanson/passport-oauth1">https://github.com/jaredhanson/passport-oauth1</a>&gt;`_具有完全相同的签名。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="c1">// the class constructor</span>
+    <span class="nx">_updateEntity</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="c1">// updates an existing entity</span>
+    <span class="nx">_createEntity</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="c1">// creates an entity if they didn&#39;t exist already</span>
+    <span class="nx">_normalizeResult</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="c1">// normalizes result from service to account for pagination</span>
+    <span class="nx">verify</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="c1">// queries the service and calls the other internal functions.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>可以扩展``Verifier``类，以便您可以自定义它的行为，而无需重写和测试完全自定义的本地Passport实现。虽然如果您不想使用此插件，这始终是一个选项。</p>
+<p>An example of customizing the Verifier:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">oauth1</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Verifier</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/authentication-oauth1&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">CustomVerifier</span> <span class="kr">extends</span> <span class="nx">Verifier</span> <span class="p">{</span>
+  <span class="c1">// The verify function has the exact same inputs and</span>
+  <span class="c1">// return values as a vanilla passport strategy</span>
+  <span class="nx">verify</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">accessToken</span><span class="p">,</span> <span class="nx">refreshToken</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do your custom stuff. You can call internal Verifier methods</span>
+    <span class="c1">// and reference this.app and this.options. This method must be implemented.</span>
+
+    <span class="c1">// the &#39;user&#39; variable can be any truthy value</span>
+    <span class="c1">// the &#39;payload&#39; is the payload for the JWT access token that is generated after successful authentication</span>
+    <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">payload</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">oauth1</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;twitter&#39;</span>
+  <span class="nx">Strategy</span><span class="o">:</span> <span class="nx">TwitterStrategy</span><span class="p">,</span>
+  <span class="nx">consumerKey</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer key&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">consumerSecret</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer secret&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">Verifier</span><span class="o">:</span> <span class="nx">CustomVerifier</span>
+<span class="p">}));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="customizing-the-oauth-response">
+<h2>Customizing The OAuth Response<a class="headerlink" href="#customizing-the-oauth-response" title="永久链接至标题">¶</a></h2>
+<p>每当您使用Twitter等OAuth1提供程序进行身份验证时，提供程序都会发送回一个``accessToken``，<code class="docutils literal notranslate"><span class="pre">refreshToken``和一个``profile</span></code>，其中包含基于OAuth1``范围`的经过身份验证的实体的信息。你已经要求并获得批准。“</p>
+<p>每当您使用OAuth1提供程序（如Twitter）进行身份验证时，提供程序将发回一个``accessToken``，<a href="#id1"><span class="problematic" id="id2">``</span></a>refreshToken``和一个包含基于OAuth1``scope的身份的``profile``的信息。验证实体。您已申请并获得批准。 “</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">oauth1</span><span class="p">({</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;twitter&#39;</span><span class="p">,</span>
+  <span class="nx">entity</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
+  <span class="nx">service</span><span class="o">:</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span>
+  <span class="nx">Strategy</span><span class="p">,</span>
+  <span class="nx">consumerKey</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer key&gt;&#39;</span><span class="p">,</span>
+  <span class="nx">consumerSecret</span><span class="o">:</span> <span class="s1">&#39;&lt;your consumer secret&gt;&#39;</span>
+<span class="p">}));</span>
+
+<span class="kd">function</span> <span class="nx">customizeTwitterProfile</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Customizing Twitter Profile&#39;</span><span class="p">);</span>
+    <span class="c1">// If there is a twitter field they signed up or</span>
+    <span class="c1">// signed in with twitter so let&#39;s pull the email. If</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">twitter</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">email</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">twitter</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If you want to do something whenever any OAuth</span>
+    <span class="c1">// provider authentication occurs you can do this.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">oauth</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something for all OAuth providers</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">oauth</span><span class="p">.</span><span class="nx">provider</span> <span class="o">===</span> <span class="s1">&#39;twitter&#39;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something specific to the twitter provider</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
+  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="p">[</span><span class="nx">customizeTwitterProfile</span><span class="p">()],</span>
+    <span class="nx">update</span><span class="o">:</span> <span class="p">[</span><span class="nx">customizeTwitterProfile</span><span class="p">()]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-usage">
+<h2>Client Usage<a class="headerlink" href="#client-usage" title="永久链接至标题">¶</a></h2>
+<p>当该模块是注册服务器端时，无论您是否使用``feathers-authentication-client``，用户都必须导航到身份验证策略URL。这可以通过设置``window.location``或通过应用程序中的链接来实现。</p>
+<p>例如，您可能有Twitter的登录按钮:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/twitter&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Login With Twitter<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="oauth2.html" class="btn btn-neutral float-right" title="OAuth2身份验证" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="jwt.html" class="btn btn-neutral float-left" title="JWT身份验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

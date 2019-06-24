@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FeathersJS Auth Recipe：设置基本OAuth登录 &mdash; feathers docs v2019.06.21 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="FeathersJS Auth Recipe：自定义身份验证策略" href="recipe.custom-auth-strategy.html" />
+    <link rel="prev" title="FeathersJS Auth Recipe：使用混合身份验证创建端点" href="recipe.mixed-auth.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> feathers docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Feathers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basics/index.html">Feathers 基础功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chat/index.html">创建聊天应用程序</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe：自定义JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe：自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe：使用混合身份验证创建端点</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe：设置基本OAuth登录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-oauth-works">How OAuth Works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementing-oauth-with-feathers">Implementing OAuth with Feathers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-the-oauth-provider">Setting up the OAuth Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-your-application">Configuring Your Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-login-with-oauth">Test Login with OAuth</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe：自定义身份验证策略</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe：认证Express中间件（SSR）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../frameworks/readme.html">与前端框架集成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrating.html">Feathers v3（秃鹰）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SECURITY.html">Feathers 安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Ecosystem/index.html">生态系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help/readme.html">救命！</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/readme.html">常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/readme.html">特约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">有许可证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../.github/index.html">github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Summary.html">摘要</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">feathers docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">指南</a> &raquo;</li>
+        
+          <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
+        
+      <li>FeathersJS Auth Recipe：设置基本OAuth登录</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/guides/auth/recipe.oauth-basic.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="feathersjs-auth-recipe-set-up-basic-oauth-login">
+<h1>FeathersJS Auth Recipe：设置基本OAuth登录<a class="headerlink" href="#feathersjs-auth-recipe-set-up-basic-oauth-login" title="永久链接至标题">¶</a></h1>
+<p>The Auk release of FeathersJS includes a powerful new <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">authentication suite</span></a> built on top of
+<a class="reference external" href="http://www.passportjs.org/">PassportJS</a>. This now gives the Feathers
+community access to hundreds of authentication strategies from the
+Passport community. Since many of the Passport strategies are for OAuth,
+we’ve created two auth plugins,
+<span class="xref std std-doc">../api/authentication/oauth1</span>
+and
+<span class="xref std std-doc">../api/authentication/oauth2</span>.
+These new plugins use a Passport strategy to allow OAuth logins into
+your app.</p>
+<p>Adding OAuth authentication to your app is a great way to quickly allow
+users to login. It allows the user to use an existing Internet account
+with another service to login to your app. Among lots of good reasons,
+it often eliminates the need for the email address verification dance.
+This is even more likely for very common OAuth providers, like GitHub,
+Google, and Facebook.</p>
+<p>Simplified login is almost always a good idea, but for many developers
+implementing OAuth can be difficult. Let’s take a look at how it works,
+in general. After that, we’ll see how the new
+<span class="xref std std-doc">../api/authentication/server</span>
+server plugin makes it easy to get up and running.</p>
+<div class="section" id="how-oauth-works">
+<h2>How OAuth Works<a class="headerlink" href="#how-oauth-works" title="永久链接至标题">¶</a></h2>
+<p>There are a couple of different methods you can use to implement OAuth.
+Here are the basic steps of the flow that the
+<code class="docutils literal notranslate"><span class="pre">feathers-authentication-oauth1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">feathers-authentication-oauth2</span></code> plugins use.</p>
+<ol class="arabic simple">
+<li><p>You register your application with the OAuth Provider. This includes
+giving the provider a callback URL (more on this later). The provider
+will give you an app identifier and an app secret. The secret is
+basically a special password for your app.</p></li>
+<li><p>You direct the user’s browser to the OAuth provider’s site, providing
+the app identifier in the query string.</p></li>
+<li><p>The content provider uses the app identifier to retrieve information
+about your app. That information is then presented to the user with a
+login form. The user can grant or deny access to your application.</p></li>
+<li><p>Upon making a decision, the provider redirects the user’s browser to
+the callback URL you setup in the first step. It includes a
+short-lived authorization code in the querystring.</p></li>
+<li><p>Your server sends a request to the OAuth provider’s server. It
+includes the authorization code and the secret. If the authorization
+code and secret are valid, the provider returns an OAuth access token
+to your server. Some user data can also be sent.</p></li>
+<li><p>Your server can save the user information into the <code class="docutils literal notranslate"><span class="pre">/users</span></code> table.
+It can also use this access token to make requests to the provider’s
+API. This same information can also be sent to the browser for use.</p></li>
+<li><p>With Feathers, there is an additional step. After logging in, a JWT
+access token is stored in a cookie and sent to the browser. The
+client uses the JWT to authenticate with the server on subsequent
+requests.</p></li>
+</ol>
+</div>
+<div class="section" id="implementing-oauth-with-feathers">
+<h2>Implementing OAuth with Feathers<a class="headerlink" href="#implementing-oauth-with-feathers" title="永久链接至标题">¶</a></h2>
+<p>The Feathers CLI allows you to easily setup a new application with
+OAuth. Here are the steps to generate an application:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">&#64;feathersjs/cli</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">feathers-demo-oauth;</span> <span class="pre">cd</span> <span class="pre">feathers-demo-oauth</span></code> or a folder
+name you prefer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">app</span></code> use the default prompts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">authentication</span></code></p>
+<ul class="simple">
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Facebook</span></code>, <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>, or <code class="docutils literal notranslate"><span class="pre">Google</span></code> when prompted for a
+provider. <strong>This guide will show how to use GitHub.</strong></p></li>
+<li><p>Select the defaults for the remaining prompts.</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-up-the-oauth-provider">
+<h2>Setting up the OAuth Provider<a class="headerlink" href="#setting-up-the-oauth-provider" title="永久链接至标题">¶</a></h2>
+<p>To setup the provider, you use each provider’s website. Here are links
+to common providers:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.facebook.com/docs/apps/register">Facebook</a></p></li>
+<li><p><a class="reference external" href="https://github.com/settings/developers">GitHub</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/identity/protocols/OAuth2">Google</a></p></li>
+</ul>
+<p>Once your app is setup, the OAuth provider will give you a <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">Secret</span></code>.</p>
+</div>
+<div class="section" id="configuring-your-application">
+<h2>Configuring Your Application<a class="headerlink" href="#configuring-your-application" title="永久链接至标题">¶</a></h2>
+<p>Once you have your app’s <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code> and <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">Secret</span></code>, it’s time
+to setup the app to communicate with the provider. Open the
+<code class="docutils literal notranslate"><span class="pre">default.json</span></code> configuration file. The generator added a key to the
+config for the provider you selected. The below configuration example
+has a <code class="docutils literal notranslate"><span class="pre">github</span></code> config. Copy over and replace the placeholders with the
+<code class="docutils literal notranslate"><span class="pre">clientID</span></code> and <code class="docutils literal notranslate"><span class="pre">clientSecret</span></code>.</p>
+<p><strong>config/default.json</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;host&quot;: &quot;localhost&quot;,
+  &quot;port&quot;: 3030,
+  &quot;public&quot;: &quot;../public/&quot;,
+  &quot;paginate&quot;: {
+    &quot;default&quot;: 10,
+    &quot;max&quot;: 50
+  },
+  &quot;authentication&quot;: {
+    &quot;secret&quot;: &quot;cc71e4f97a80c878491197399aabf74e9c0b115c9f8071e75b306c99c891a54b7171852f8c5508e1fe4dcfaedbb603178b0935261928592e487e628f2f669f3a752f2beb3661b29d521b36c8a39e1be6823c0362df5ef1e212d7f2daae789df1065293b98ec9b43309ffe24dba3a2ec2362c5ce5c9155c6438ec380bc7c56d6a169988c0f6754077c5129e8a0ee5fd85b2182d87f84312387e1bbefebe49ad1bf2dcf783e7d8cbee40272b141358b8e23150eee5ea8fc04b2a0f3d824e7fa9d46c025c619c3281af91b7a19fd760bccedae379b735c85024b25a9c91749935b2f29d5b69b2c1ff29368b4aa9cf426d9960302e5e7b903d53e18ccbe2325cf3b6&quot;,
+    &quot;strategies&quot;: [
+      &quot;jwt&quot;
+    ],
+    &quot;path&quot;: &quot;/authentication&quot;,
+    &quot;service&quot;: &quot;users&quot;,
+    &quot;jwt&quot;: {
+      &quot;header&quot;: {
+        &quot;typ&quot;: &quot;access&quot;
+      },
+      &quot;audience&quot;: &quot;https://yourdomain.com&quot;,
+      &quot;subject&quot;: &quot;anonymous&quot;,
+      &quot;issuer&quot;: &quot;feathers&quot;,
+      &quot;algorithm&quot;: &quot;HS256&quot;,
+      &quot;expiresIn&quot;: &quot;1d&quot;
+    },
+    &quot;github&quot;: {
+      &quot;clientID&quot;: &quot;your github client id&quot;, // Replace this with your app&#39;s Client ID
+      &quot;clientSecret&quot;: &quot;your github client secret&quot;, // Replace this with your app&#39;s Client Secret
+      &quot;callbackURL&quot;: &quot;/&quot;
+    },
+    &quot;cookie&quot;: {
+      &quot;enabled&quot;: true,
+      &quot;name&quot;: &quot;feathers-jwt&quot;,
+      &quot;httpOnly&quot;: false,
+      &quot;secure&quot;: false
+    }
+  },
+  &quot;nedb&quot;: &quot;../data&quot;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-login-with-oauth">
+<h2>Test Login with OAuth<a class="headerlink" href="#test-login-with-oauth" title="永久链接至标题">¶</a></h2>
+<p>Your app is ready for OAuth logins. We’ve made it that simple! Let’s try
+it out. Open the file <code class="docutils literal notranslate"><span class="pre">public/index.html</span></code> and scroll to the bottom.
+Add the following code just under the <code class="docutils literal notranslate"><span class="pre">h2</span></code>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;center-text&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/github&quot;</span><span class="p">&gt;</span>Login With GitHub<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now add the following code to the same page. The first script tag loads
+Feathers Client from a CDN. The second script loads Socket.io. The third
+script creates a Feathers Client instance and attempts to authenticate
+with the JWT strategy upon page load. The authentication client plugin
+has been configured with a <code class="docutils literal notranslate"><span class="pre">cookie</span></code> value of <code class="docutils literal notranslate"><span class="pre">feathers-jwt</span></code>.</p>
+<blockquote>
+<div><p>Note: This code loads the <code class="docutils literal notranslate"><span class="pre">feathers-client</span></code> package from a CDN.
+This is <strong>not</strong> the recommended usage for most apps, but is good for
+demonstration purposes. We recommend using a bundler as described in
+the <span class="xref std std-doc">../api/client</span>.</p>
+</div></blockquote>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/feathers-client@2.0.0/dist/feathers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="c1">// Socket.io is exposed as the `io` global.</span>
+  <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">transports</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;websocket&#39;</span><span class="p">]});</span>
+  <span class="c1">// feathers-client is exposed as the `feathers` global.</span>
+  <span class="kd">var</span> <span class="nx">feathersClient</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">hooks</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">authentication</span><span class="p">({</span>
+      <span class="nx">cookie</span><span class="o">:</span> <span class="s1">&#39;feathers-jwt&#39;</span>
+    <span class="p">}));</span>
+
+  <span class="nx">feathersClient</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Feathers Client has Authenticated with the JWT access token!&#39;</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;We have not logged in with OAuth, yet.  This means there\&#39;s no cookie storing the accessToken.  As a result, feathersClient.authenticate() failed.&#39;</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now, run the server, open <code class="docutils literal notranslate"><span class="pre">http://localhost:3030</span></code>. Before you click
+the “Login with GitHub” link, open the console. If you refresh you’ll
+see the message in the catch block. Since we haven’t logged in, yet, we
+don’t have a stored JWT access token. Now, click the
+<code class="docutils literal notranslate"><span class="pre">Login</span> <span class="pre">with</span> <span class="pre">GitHub</span></code> button. Assuming you haven’t logged in to Github
+with this application, before, you’ll see a GitHub login page. Once you
+login to GitHub, you’ll be redirected back to <code class="docutils literal notranslate"><span class="pre">http://localhost:3030</span></code>.
+Now, if you look at your console, you should see a success message.</p>
+<p>What just happened? When you clicked on that link, it opened the
+<code class="docutils literal notranslate"><span class="pre">/auth/github</span></code> link, which is just a shortcut for redirecting to
+GitHub with your <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code>. The entire OAuth process that we
+described earlier took place. The browser received a <code class="docutils literal notranslate"><span class="pre">feathers-jwt</span></code>
+cookie from the server. Finally the script that we added in the last
+step used the <code class="docutils literal notranslate"><span class="pre">feathers-authentication-client</span></code> to authenticate using
+the JWT returned from the server. There were a lot of steps that
+happened in a very short time. The best news is that you’re
+authenticated with OAuth.</p>
+</div>
+<div class="section" id="wrapping-up">
+<h2>Wrapping Up<a class="headerlink" href="#wrapping-up" title="永久链接至标题">¶</a></h2>
+<p>You’ve now seen how OAuth login is greatly simplified with the new
+Feathers Authentication plugins. Having plugins built on top of
+PassportJS allows for a lot of flexibility. You can now build nearly any
+authentication experience imaginable. In the final part of this guide,
+you were able to authenticate the Feathers client. Hopefully this will
+get you started integrating OAuth into your application.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe：自定义身份验证策略" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe：使用混合身份验证创建端点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, BandCap
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

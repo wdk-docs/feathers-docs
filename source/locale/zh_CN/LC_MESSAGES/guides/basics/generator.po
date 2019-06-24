@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, BandCap
+# This file is distributed under the same license as the feathers docs
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: feathers docs \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../source/guides/basics/generator.rst:2
+msgid "The Feathers generator (CLI)"
+msgstr "Feathers生成器(CLI)"
+
+#: ../../source/guides/basics/generator.rst:4
+msgid ""
+"Until now we wrote code by hand in a single file to get a better "
+"understanding how Feathers itself works. The Feathers CLI allows us to "
+"initialize a new Feathers application with a recommended structure. It "
+"also helps with"
+msgstr "到目前为止,我们在一个文件中手动编写代码,以便更好地了解Feathers本身的工作原理. Feathers CLI允许我们使用推荐的结构初始化新的Feathers应用程序.它也有帮助"
+
+#: ../../source/guides/basics/generator.rst:9
+msgid "Configuring authentication"
+msgstr "配置验证"
+
+#: ../../source/guides/basics/generator.rst:10
+msgid "Generating database backed services"
+msgstr "生成数据库支持的服务"
+
+#: ../../source/guides/basics/generator.rst:11
+msgid "Setting up database connections"
+msgstr "设置数据库连接"
+
+#: ../../source/guides/basics/generator.rst:12
+msgid "Generating hooks (with tests)"
+msgstr "生成钩子(带测试)"
+
+#: ../../source/guides/basics/generator.rst:13
+msgid "Adding Express middleware"
+msgstr "添加Express中间件"
+
+#: ../../source/guides/basics/generator.rst:15
+msgid ""
+"In this chapter we will look at installing the CLI and common patterns "
+"the generator uses to structure our server application. Further use of "
+"the CLI will be discussed in the :doc:`../chat/readme`."
+msgstr "在本章中,我们将介绍如何安装CLI以及生成器用于构建服务器应用程序的常用模式. CLI的进一步使用将在 :doc:`../chat/readme` 中讨论."
+
+#: ../../source/guides/basics/generator.rst:20
+msgid "Installing the CLI"
+msgstr "安装CLI"
+
+#: ../../source/guides/basics/generator.rst:22
+msgid "The CLI should be installed globally via npm:"
+msgstr "CLI应该通过npm全局安装:"
+
+#: ../../source/guides/basics/generator.rst:28
+msgid ""
+"Once successful we should now have the ``feathers`` command available on "
+"the command line which we can check with:"
+msgstr ""
+"一旦成功,我们现在应该在命令行上提供``feathers``命令,我们可以查看:"
+
+#: ../../source/guides/basics/generator.rst:35
+msgid "Which should show a version of ``3.8.2`` or later."
+msgstr "哪个应该显示“3.8.2”或更高版本."
+
+#: ../../source/guides/basics/generator.rst:38
+msgid "Configure functions"
+msgstr "配置功能"
+
+#: ../../source/guides/basics/generator.rst:40
+msgid ""
+"The most common pattern used in the generated application is *configure "
+"functions*, functions that take the Feathers :doc:`../../api/application`"
+" and then use it, e.g. to register services. Those functions are then "
+"passed to :doc:`../../api/application#configurecallback`."
+msgstr "生成的应用程序中使用的最常见模式是 *configure functions*,这些函数采用Feathers :doc:`../../api/application` 然后使用它,例如:注册服务.然后将这些函数传递给 :doc:`../../api/application#configurecallback`."
+
+#: ../../source/guides/basics/generator.rst:45
+msgid "Let’s look at our :doc:`databases`:"
+msgstr "让我们来看看 :doc:`databases`:"
+
+#: ../../source/guides/basics/generator.rst:61
+msgid "Which could be split up using a configure function like this:"
+msgstr "可以使用像这样的配置功能拆分:"
+
+#: ../../source/guides/basics/generator.rst:81
+msgid ""
+"Now we can move that function into a separate file like "
+"``messages.service.js`` and set it as the `default module export "
+"<https://nodejs.org/api/modules.html>`_ for that file:"
+msgstr ""
+"现在我们可以将该函数移动到一个单独的文件,如 ``messages.service.js``,并将其设置为该文件的 `默认模块导出 <https://nodejs.org/api/modules.html>`_:"
+
+#: ../../source/guides/basics/generator.rst:98
+msgid "And then import it into ``app.js`` and use it:"
+msgstr "然后将其导入 ``app.js`` 并使用它:"
+
+#: ../../source/guides/basics/generator.rst:109
+msgid ""
+"This is the most common pattern how the generators split things up into "
+"separate files and any documentation example that uses the ``app`` object"
+" can be used in a configure function. You can create your own files that "
+"export a configure function and ``require`` and ``app.configure`` them in"
+" ``app.js``"
+msgstr "这是生成器如何将事物拆分为单独文件的最常见模式,并且任何使用 ``app`` 对象的文档示例都可以在configure函数中使用.您可以创建自己的文件,在 ``app.js`` 中导出configure函数和 ``require`` 和 ``app.configure`` 它们"
+
+#: ../../source/guides/basics/generator.rst:115
+msgid ""
+"Keep in mind that the order in which configure functions are called might"
+" matter, e.g. if it is using a service, that service has to be registered"
+" first."
+msgstr ""
+"请记住,调用configure函数的顺序可能很重要,例如如果它正在使用服务,则必须首先注册该服务."
+
+#: ../../source/guides/basics/generator.rst:120
+msgid "Hook functions"
+msgstr "钩子功能"
+
+#: ../../source/guides/basics/generator.rst:122
+msgid ""
+"We already saw in the :doc:`./hooks` how we can create a wrapper function"
+" that allows to customize the options of a hook with the ``setTimestamp``"
+" example:"
+msgstr ""
+"我们已经在 :doc:`./hooks` 中看到了如何创建一个包装器函数,它允许使用 ``setTimestamp`` 示例自定义钩子的选项:"
+
+#: ../../source/guides/basics/generator.rst:143
+msgid ""
+"This is also the pattern the hook generator uses but in its own file like"
+" ``hooks/set-timestamp.js`` which could look like this:"
+msgstr ""
+"这也是钩子生成器使用的模式,但在它自己的文件中,如 ``hooks/set-timestamp.js``,它们看起来像这样:"
+
+#: ../../source/guides/basics/generator.rst:156
+msgid "Now we can use that hook like this:"
+msgstr "现在我们可以使用这样的钩子:"
+
+#: ../../source/guides/basics/generator.rst:171
+msgid ""
+"We are using an options object here which allows us to more easily add "
+"new options than function parameters."
+msgstr ""
+"我们在这里使用了一个选项对象,它允许我们更容易地添加新的选项而不是函数参数."
+
+#: ../../source/guides/basics/generator.rst:175
+msgid "What’s next?"
+msgstr "下一步是什么？"
+
+#: ../../source/guides/basics/generator.rst:177
+msgid ""
+"In this chapter we installed the Feathers CLI (and generator) and looked "
+"at patterns that are used in structuring the generated application. Now "
+"we can use the generator to :doc:`../chat/readme` complete with "
+"authentication and a JavaScript frontend!"
+msgstr "在本章中,我们安装了Feathers CLI(和生成器),并查看了用于构造生成的应用程序的模式.现在我们可以使用生成器 :doc:`../chat/readme` 完成身份验证和JavaScript前端！"
+
+#~ msgid ""
+#~ "In this chapter we will look at"
+#~ " installing the CLI and common "
+#~ "patterns the generator uses to structure"
+#~ " our server application. Further use "
+#~ "of the CLI will be discussed in"
+#~ " the `chat application guide "
+#~ "<../chat/readme.md>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The most common pattern used in "
+#~ "the generated application is *configure "
+#~ "functions*, functions that take the "
+#~ "Feathers `app object <../../api/application.md>`_"
+#~ " and then use it, e.g. to "
+#~ "register services. Those functions are "
+#~ "then passed to `app.configure "
+#~ "<../../api/application.md#configurecallback>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we installed the "
+#~ "Feathers CLI (and generator) and looked"
+#~ " at patterns that are used in "
+#~ "structuring the generated application. Now "
+#~ "we can use the generator to `build"
+#~ " a full chat application "
+#~ "<../chat/readme.md>`_ complete with authentication"
+#~ " and a JavaScript frontend!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we will look at"
+#~ " installing the CLI and common "
+#~ "patterns the generator uses to structure"
+#~ " our server application. Further use "
+#~ "of the CLI will be discussed in"
+#~ " the :doc:`chat application guide "
+#~ "<../chat/readme>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The most common pattern used in "
+#~ "the generated application is *configure "
+#~ "functions*, functions that take the "
+#~ "Feathers :doc:`app object <../../api/application>`_"
+#~ " and then use it, e.g. to "
+#~ "register services. Those functions are "
+#~ "then passed to :doc:`app.configure "
+#~ "<../../api/application#configurecallback>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we installed the "
+#~ "Feathers CLI (and generator) and looked"
+#~ " at patterns that are used in "
+#~ "structuring the generated application. Now "
+#~ "we can use the generator to "
+#~ ":doc:`build a full chat application "
+#~ "<../chat/readme>`_ complete with authentication "
+#~ "and a JavaScript frontend!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we will look at"
+#~ " installing the CLI and common "
+#~ "patterns the generator uses to structure"
+#~ " our server application. Further use "
+#~ "of the CLI will be discussed in"
+#~ " the :doc:`chat application guide "
+#~ "<../chat/readme>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The most common pattern used in "
+#~ "the generated application is *configure "
+#~ "functions*, functions that take the "
+#~ "Feathers :doc:`app object <../../api/application>`"
+#~ " and then use it, e.g. to "
+#~ "register services. Those functions are "
+#~ "then passed to :doc:`app.configure "
+#~ "<../../api/application#configurecallback>`."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this chapter we installed the "
+#~ "Feathers CLI (and generator) and looked"
+#~ " at patterns that are used in "
+#~ "structuring the generated application. Now "
+#~ "we can use the generator to "
+#~ ":doc:`build a full chat application "
+#~ "<../chat/readme>` complete with authentication "
+#~ "and a JavaScript frontend!"
+#~ msgstr ""
+
