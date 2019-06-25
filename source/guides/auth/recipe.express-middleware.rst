@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Authenticating Express middleware (SSR)
+Authenticating Express middleware (SSR)
 ===============================================================
 
 Feathers authentication also supports authenticating routes of Express
@@ -62,7 +62,7 @@ will look for a JWT in the cookie but only routes that parse the cookie
 will be able to access it. This can be done with the `cookie-parser
 Express middleware <https://github.com/expressjs/cookie-parser>`_:
 
-::
+.. code-block:: sh
 
    npm install cookie-parser
 
@@ -79,7 +79,7 @@ engine <http://expressjs.com/en/guide/using-template-engines.html>`_.
 For this example we will use
 `EJS <https://www.npmjs.com/package/ejs>`_:
 
-::
+.. code-block:: sh
 
    npm install ejs
 
@@ -149,7 +149,7 @@ The login form has to make a POST request to the ``/authentication``
 endpoint and send the same fields as any other API client would. In our
 case specifically:
 
-::
+.. code-block:: sh
 
    {
      "strategy": "local",

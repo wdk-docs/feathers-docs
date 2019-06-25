@@ -71,11 +71,11 @@ msgid ""
 "REST) you won’t have a ``context.params.provider`` attribute. This allows"
 " you to have hooks only execute when services are called externally vs. "
 "from your own code."
-msgstr "如果你在内部调用一个Feathers服务（即不通过套接字或REST）你将没有 ``context.params.provider`` 属性.这允许您只在外部调用服务而不是从您自己的代码调用服务时执行钩子."
+msgstr "如果你在内部调用一个Feathers服务(即不通过套接字或REST)你将没有 ``context.params.provider`` 属性.这允许您只在外部调用服务而不是从您自己的代码调用服务时执行钩子."
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:57
 msgid "Feathers As A Sub-App"
-msgstr "羽毛作为子应用程序"
+msgstr "Feathers 作为子应用程序"
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:59
 msgid ""
@@ -95,7 +95,7 @@ msgstr ""
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:89
 msgid "Feathers As A Separate App"
-msgstr "羽毛作为一个单独的应用程序"
+msgstr "Feathers 作为一个单独的应用程序"
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:91
 msgid ""

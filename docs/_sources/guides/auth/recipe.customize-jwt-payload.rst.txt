@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Customizing the JWT Payload
+Customizing the JWT Payload
 ===================================================
 
 The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of
@@ -13,11 +13,10 @@ The JWT Payload
 
 If you read the resources on :doc:`./how-jwt-works`,
 you’ll know that a JWT is an encoded string that can contain a payload.
-For a quick example, check out the Debugger on
-`jwt.io <https://jwt.io/>`_. The purple section on
-`jwt.io <https://jwt.io/>`_ is the payload. You’ll also notice that you
-can put arbitrary data in the payload. The payload data gets encoded as
-a section of the JWT string.
+For a quick example, check out the Debugger on `jwt.io <https://jwt.io/>`_.
+The purple section on `jwt.io <https://jwt.io/>`_ is the payload.
+You’ll also notice that you can put arbitrary data in the payload.
+The payload data gets encoded as a section of the JWT string.
 
 The default JWT payload contains the following claims:
 
@@ -91,7 +90,7 @@ Now the payload will contain the ``test`` attribute:
 
 ..
 
-   Note: The payload is not automatically decoded and made available in
+.. note:: The payload is not automatically decoded and made available in
    the hooks, thus, requiring you to implement this functionality in
    your app. Using ``jwt-decode`` is a simple solution that could be
    dropped in a hook as needed.

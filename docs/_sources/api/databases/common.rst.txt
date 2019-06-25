@@ -41,6 +41,8 @@ Returns a new service instance initialized with the given options.
    multiple items. Can be ``true`` for all methods or an array of
    allowed methods (e.g. ``[ 'remove', 'create' ]``)
 
+.. _api_databases_common_pagination:
+
 Pagination
 ----------
 
@@ -55,7 +57,7 @@ options in the ``paginate`` object:
 When ``paginate.default`` is set, ``find`` will return an *page object*
 (instead of the normal array) in the following form:
 
-::
+.. code-block:: sh
 
    {
      "total": "<total number of records>",
@@ -164,13 +166,13 @@ results or a page object if `pagination is enabled <#pagination>`_.
 
 Find all messages for user with id 1
 
-::
+.. code-block:: sh
 
    GET /messages?userId=1
 
 Find all messages belonging to room 1 or 3
 
-::
+.. code-block:: sh
 
    GET /messages?roomId[$in]=1&roomId[$in]=3
 
@@ -186,7 +188,7 @@ initialization).
    app.service('messages').get(1)
      .then(message => console.log(message));
 
-::
+.. code-block:: sh
 
    GET /messages/1
 
@@ -210,7 +212,7 @@ adapter.create(data, params)
      }])
      .then(messages => console.log(messages));
 
-::
+.. code-block:: sh
 
    POST /messages
    {
@@ -232,7 +234,7 @@ changed.
      })
      .then(message => console.log(message));
 
-::
+.. code-block:: sh
 
    PUT /messages/1
    { "text": "Updated message" }
@@ -260,14 +262,14 @@ same as in ``.find``). ``id`` can not be changed.
      read: true
    }, params);
 
-::
+.. code-block:: sh
 
    PATCH /messages/1
    { "text": "A patched message" }
 
 Mark all unread messages as read
 
-::
+.. code-block:: sh
 
    PATCH /messages?read=false
    { "read": true }
@@ -291,13 +293,13 @@ records that match ``params.query`` the same as in ``.find``).
    // Remove all read messages
    app.service('messages').remove(null, params);
 
-::
+.. code-block:: sh
 
    DELETE /messages/1
 
 Remove all read messages
 
-::
+.. code-block:: sh
 
    DELETE /messages?read=true
 

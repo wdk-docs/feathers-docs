@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Express" href="express.html" />
+    <link rel="next" title="REST transport" href="rest.html" />
     <link rel="prev" title="错误" href="errors.html" /> 
 </head>
 
@@ -101,6 +101,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#example">例</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST transport</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#transports">传输层</a></li>
@@ -187,14 +188,14 @@
   <div class="section" id="configuration">
 <h1>配置<a class="headerlink" href="#configuration" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/configuration"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/configuration.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/configuration/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/configuration --save
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/configuration --save
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">feathersress/configuration</span></code> 是 <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> 的包装器,允许配置服务器端Feathers应用程序.</p>
 <p>默认情况下,这个实现将在 <code class="docutils literal notranslate"><span class="pre">config/*</span></code> 中查找保留约定的 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>.根据 <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Configuration-Files">配置文档</a>, 您可以为应用程序部署组织 <em>“应用程序部署的分层配置”</em>. 有关如何实现此操作的更多信息,请参阅下面的使用部分.</p>
 <div class="section" id="usage">
 <h2>用法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/configuration</span></code> 模块是一个app配置函数,它接受一个根目录(通常类似于应用程序中的 <code class="docutils literal notranslate"><span class="pre">_dirname</span></code>)和配置文件夹(默认设置为 <code class="docutils literal notranslate"><span class="pre">config</span></code>)：</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/configuration</span></code> 模块是一个app配置函数,它接受一个根目录(通常类似于应用程序中的 <code class="docutils literal notranslate"><span class="pre">_dirname</span></code>)和配置文件夹(默认设置为 <code class="docutils literal notranslate"><span class="pre">config</span></code>):</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">configuration</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/configuration&#39;</span><span class="p">);</span>
 
@@ -224,7 +225,7 @@
 <ul>
 <li><p>如果值是有效的环境变量(例如 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code>),请改用它的值</p></li>
 <li><p>如果值以 <code class="docutils literal notranslate"><span class="pre">./</span></code> 或 <code class="docutils literal notranslate"><span class="pre">../</span></code> 开头,则将其转换为相对于配置文件路径的绝对路径</p></li>
-<li><p>如果值被转义（以 <code class="docutils literal notranslate"><span class="pre">\</span></code> 开头），则始终使用该值（例如 <code class="docutils literal notranslate"><span class="pre">\\NODE_ENV</span></code> 将变为 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code>）</p></li>
+<li><p>如果值被转义(以 <code class="docutils literal notranslate"><span class="pre">\</span></code> 开头), 则始终使用该值(例如 <code class="docutils literal notranslate"><span class="pre">\\NODE_ENV</span></code> 将变为 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code>)</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">default</span></code> 和 <code class="docutils literal notranslate"><span class="pre">&lt;env&gt;</span></code> 配置都可以是模块,它们用 <code class="docutils literal notranslate"><span class="pre">module.exports</span> <span class="pre">=</span> <span class="pre">{...}</span></code> 和 <code class="docutils literal notranslate"><span class="pre">.js</span></code> 文件后缀提供计算设置.有关示例,请参阅 <code class="docutils literal notranslate"><span class="pre">test/config/testing.js</span></code>. 上面列出的所有规则都适用于 <code class="docutils literal notranslate"><span class="pre">.js</span></code> 模块.</p></li>
@@ -232,7 +233,7 @@
 </div>
 <div class="section" id="example">
 <h2>例<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
-<p>在 <code class="docutils literal notranslate"><span class="pre">config/default.json</span></code> 中我们想要使用本地开发环境和默认的MongoDB连接字符串：</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">config/default.json</span></code> 中我们想要使用本地开发环境和默认的MongoDB连接字符串:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;frontend&quot;</span><span class="o">:</span> <span class="s2">&quot;../public&quot;</span><span class="p">,</span>
   <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
@@ -242,7 +243,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>在 <code class="docutils literal notranslate"><span class="pre">config/production.json</span></code> 中,我们将使用环境变量(例如由Heroku设置)并使用 <code class="docutils literal notranslate"><span class="pre">public/dist</span></code> 来加载前端生成版本：</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">config/production.json</span></code> 中,我们将使用环境变量(例如由Heroku设置)并使用 <code class="docutils literal notranslate"><span class="pre">public/dist</span></code> 来加载前端生成版本:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;frontend&quot;</span><span class="o">:</span> <span class="s2">&quot;./public/dist&quot;</span><span class="p">,</span>
   <span class="s2">&quot;host&quot;</span><span class="o">:</span> <span class="s2">&quot;myapp.com&quot;</span><span class="p">,</span>
@@ -269,25 +270,25 @@
 </pre></div>
 </div>
 <p>如果你现在运行</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">app</span>
-<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">public</span>
-<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">localhost</span>
-<span class="o">//</span> <span class="o">-&gt;</span> <span class="mi">3030</span>
-<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">mongodb</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">27017</span><span class="o">/</span><span class="n">myapp</span>
-<span class="o">//</span> <span class="o">-&gt;</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">templates</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>node app
+// -&gt; path/to/app/public
+// -&gt; localhost
+// -&gt; <span class="m">3030</span>
+// -&gt; mongodb://localhost:27017/myapp
+// -&gt; path/to/templates
 </pre></div>
 </div>
-<p>或者通过在 <code class="docutils literal notranslate"><span class="pre">config/custom-environment-variables.json</span></code> 中设置自定义环境变量：</p>
+<p>或者通过在 <code class="docutils literal notranslate"><span class="pre">config/custom-environment-variables.json</span></code> 中设置自定义环境变量:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;port&quot;</span><span class="o">:</span> <span class="s2">&quot;PORT&quot;</span><span class="p">,</span>
   <span class="s2">&quot;mongodb&quot;</span><span class="o">:</span> <span class="s2">&quot;MONGOHQ_URL&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ PORT=8080 MONGOHQ_URL=mongodb://localhost:27017/production NODE_ENV=production node app
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">PORT</span><span class="o">=</span><span class="m">8080</span> <span class="nv">MONGOHQ_URL</span><span class="o">=</span>mongodb://localhost:27017/production <span class="nv">NODE_ENV</span><span class="o">=</span>production node app
 // -&gt; path/to/app/public/dist
 // -&gt; myapp.com
-// -&gt; 8080
+// -&gt; <span class="m">8080</span>
 // -&gt; mongodb://localhost:27017/production
 // -&gt; path/to/templates
 </pre></div>
@@ -304,7 +305,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="express.html" class="btn btn-neutral float-right" title="Express" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rest.html" class="btn btn-neutral float-right" title="REST transport" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="errors.html" class="btn btn-neutral float-left" title="错误" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

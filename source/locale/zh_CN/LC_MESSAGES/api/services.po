@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:00+0800\n"
+"POT-Creation-Date: 2019-06-25 14:02+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,9 +27,9 @@ msgid ""
 "“Services” are the heart of every Feathers application. Services are "
 "JavaScript objects (or instances of `ES6 classes "
 "<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_)"
-" that implement :ref:`services_service-method`. Feathers itself will also"
-" add some :ref:`services_feathers-functionality` to its services."
-msgstr ""
+" that implement :ref:`services_service-methods`. Feathers itself will "
+"also add some :ref:`services_feathers-functionality` to its services."
+msgstr "“服务”是每个Feathers应用程序的核心.服务是JavaScript对象(或 `ES6类 <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_ 的实例), 它们实现 :ref:`services_service-methods`. Feathers本身也会为其服务添加一些 :ref:`services_feathers-functional`."
 
 #: ../../source/api/services.rst:12
 msgid "Service methods"
@@ -46,72 +46,60 @@ msgid ""
 "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or using "
 "`async/await <https://developer.mozilla.org/en-"
 "US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
-msgstr ""
+msgstr "服务方法是预定义的 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_ 方法, 您的服务对象可以实现(或已经由以下其中一个实现的方法 :doc:`./databases/common`. 下面是Feathers *服务接口* 的完整示例, 作为普通的JavaScript对象, 返回一个 `Promise <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ 或使用 `async/await <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
 
 #: ../../source/api/services.rst:54
 msgid ""
 "Services can also be an instance of an `ES6 class "
 "<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_:"
 msgstr ""
-"Services can also be an instance of an `ES6 class "
-"<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_:"
+"服务也可以是 `ES6类 <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_ 的实例:"
 
 #: ../../source/api/services.rst:85
-#, fuzzy
 msgid ""
 "Methods are optional, and if a method is not implemented Feathers will "
 "automatically emit a ``NotImplemented`` error."
-msgstr ""
-"**ProTip:** Methods are optional, and if a method is not implemented "
-"Feathers will automatically emit a ``NotImplemented`` error."
+msgstr "方法是可选的, 如果没有实现方法, Feathers会自动发出 ``NotImplemented`` 错误."
 
 #: ../../source/api/services.rst:91
 msgid ""
 "Always use the service returned by ``app.service(path)`` not the service "
 "object (the ``myService`` object above) directly. See the `app.service "
 "documentation <./application.md#servicepath>`_ for more information."
-msgstr ""
+msgstr "始终使用 ``app.service(path)`` 返回的服务, 而不是服务对象(上面的 ``myService`` 对象).有关更多信息, 请参阅 `app.service文档 <./application.md #servicepath>`_."
 
 #: ../../source/api/services.rst:95
-#, fuzzy
 msgid ""
 "Service methods must return a `Promise <https://developer.mozilla.org/en-"
 "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or be declared"
 " as ``async`` and have the following parameters:"
 msgstr ""
-"Service methods must return a ```Promise`` <https://developer.mozilla.org"
-"/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or be "
-"declared as ``async`` and have the following parameters:"
+"服务方法必须返回一个 `Promise <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ 或者声明为 ``async`` 和有以下参数:"
 
 #: ../../source/api/services.rst:98
 msgid ""
 "``id`` — The identifier for the resource. A resource is the data "
 "identified by a unique id."
 msgstr ""
-"``id`` — The identifier for the resource. A resource is the data "
-"identified by a unique id."
+"``id`` — 资源的标识符.资源是由唯一ID标识的数据."
 
 #: ../../source/api/services.rst:99
 msgid "``data`` — The resource data."
-msgstr "``data`` — 资源数据。"
+msgstr "``data`` — 资源数据."
 
 #: ../../source/api/services.rst:100
-#, fuzzy
 msgid ""
-"``params`` - Additional parameters for the method call, see :ref"
-":`services-params`"
+"``params`` - Additional parameters for the method call, see "
+":ref:`services_params`"
 msgstr ""
-"``params`` - Additional parameters for the method call, see `params "
-"<#params>`_"
+"``params`` - 方法调用的其他参数, 请参阅 `params <#params>`_"
 
 #: ../../source/api/services.rst:102
-#, fuzzy
 msgid ""
 "Once registered, the service can be retrieved and used via "
-":ref:`application_servicepath`."
+":ref:`api_application_servicepath`."
 msgstr ""
-"Once registered, the service can be retrieved and used via `app.service()"
-" <./application.md#servicepath>`_:"
+"注册后, 可以通过 `app.service() <./application.md #servicepath>`_ 检索和使用该服务:"
 
 #: ../../source/api/services.rst:111
 msgid ""
@@ -119,9 +107,7 @@ msgid ""
 "replace the database in the example with a package that uses some API to,"
 " for example, pull in GitHub stars or stock ticker data."
 msgstr ""
-"Keep in mind that services don’t have to use databases. You could easily "
-"replace the database in the example with a package that uses some API to,"
-" for example, pull in GitHub stars or stock ticker data."
+"请记住, 服务不必使用数据库.您可以使用使用某些API的软件包轻松替换示例中的数据库, 例如, 引入GitHub星标或股票代码数据."
 
 #: ../../source/api/services.rst:115
 msgid ""
@@ -130,10 +116,7 @@ msgid ""
 "database adapters. For specifics on how to use the database adapters, see"
 " the :doc:`./databases/common`."
 msgstr ""
-"This section describes the general usage of service methods and how to "
-"implement them. They are already implemented by the official Feathers "
-"database adapters. For specifics on how to use the database adapters, see"
-" the :doc:`./databases/common`."
+"本节介绍服务方法的一般用法以及如何实现它们.它们已由官方Feathers数据库适配器实现.有关如何使用数据库适配器的详细信息, 请参阅 :doc:`./databases/common`."
 
 #: ../../source/api/services.rst:123
 msgid "params"
@@ -145,16 +128,14 @@ msgid ""
 "Some properties in ``params`` can be set by Feathers already. Commonly "
 "used are:"
 msgstr ""
-"``params`` contain additional information for the service method call. "
-"Some properties in ``params`` can be set by Feathers already. Commonly "
-"used are:"
+"``params`` 包含服务方法调用的附加信息. “params” 中的一些属性可以由Feathers设置.常用的有:"
 
 #: ../../source/api/services.rst:129
 msgid ""
 "``params.query`` - the query parameters from the client, either passed as"
 " URL query parameters (see the :doc:`./express` chapter) or through "
 "websockets (see :doc:`./socketio` or :doc:`./primus`)."
-msgstr ""
+msgstr "``params.query`` - 来自客户端的查询参数, 或者作为URL查询参数传递(参见 :doc:`./express` 章节)或者通过websockets传递(参见 :doc:`./socketio` 或 :doc:`./primus`)."
 
 #: ../../source/api/services.rst:133
 msgid ""
@@ -162,31 +143,26 @@ msgid ""
 "``primus``) used for this service call. Will be ``undefined`` for "
 "internal calls from the server (unless passed explicitly)."
 msgstr ""
-"``params.provider`` - The transport (``rest``, ``socketio`` or "
-"``primus``) used for this service call. Will be ``undefined`` for "
-"internal calls from the server (unless passed explicitly)."
+"``params.provider`` - 用于此服务调用的传输(``rest``, ``socketio`` 或 ``primus``).对于来自服务器的内部调用, 将是 ``undefined`` (除非明确传递)."
 
 #: ../../source/api/services.rst:136
 msgid ":doc:`./authentication/server` or passed explicitly."
-msgstr ""
+msgstr ":doc:`./authentication/server` 或明确传递."
 
 #: ../../source/api/services.rst:137
 msgid ""
 "``params.connection`` - If the service call has been made by a real-time "
 "transport (e.g. through websockets), ``params.connection`` is the "
 "connection object that can be used with :doc:`./channels`."
-msgstr ":doc:`./channels`."
+msgstr "``params.connection`` - 如果服务调用是通过实时传输(例如通过websockets)进行的, ``params.connection`` 是可以使用的连接对象 :doc:`./channels`."
 
 #: ../../source/api/services.rst:144
-#, fuzzy
 msgid ""
 "For external calls only ``params.query`` will be sent between the client "
 "and server. If not passed, ``params.query`` will be ``undefined`` for "
 "internal calls."
 msgstr ""
-"**Important:** For external calls only ``params.query`` will be sent "
-"between the client and server. If not passed, ``params.query`` will be "
-"``undefined`` for internal calls."
+"对于外部调用, 只有 ``params.query`` 将在客户端和服务器之间发送.如果没有通过, ``params.query`` 对于内部调用将是 ``undefined``."
 
 #: ../../source/api/services.rst:149
 msgid ".find(params)"
@@ -197,19 +173,15 @@ msgid ""
 "``service.find(params) -> Promise`` - Retrieves a list of all resources "
 "from the service. Provider parameters will be passed as ``params.query``."
 msgstr ""
-"``service.find(params) -> Promise`` - Retrieves a list of all resources "
-"from the service. Provider parameters will be passed as ``params.query``."
+"``service.find(params) - > Promise`` - 从服务中检索所有资源的列表. Provider参数将作为 ``params.query`` 传递."
 
 #: ../../source/api/services.rst:173
-#, fuzzy
 msgid ""
 "``find`` does not have to return an array; it can also return an object. "
 "The database adapters already do this for "
-":ref:`databases/common_pagination`."
+":ref:`api_databases_common_pagination`."
 msgstr ""
-"**Note:** ``find`` does not have to return an array; it can also return "
-"an object. The database adapters already do this for `pagination "
-"<./databases/common.md#pagination>`_."
+"``find`` 不必返回一个数组;它也可以返回一个对象.数据库适配器已经为 `pagination <./databases/common.md #pagination>`_ 执行此操作."
 
 #: ../../source/api/services.rst:178
 msgid ".get(id, params)"
@@ -220,8 +192,7 @@ msgid ""
 "``service.get(id, params) -> Promise`` - Retrieves a single resource with"
 " the given ``id`` from the service."
 msgstr ""
-"``service.get(id, params) -> Promise`` - Retrieves a single resource with"
-" the given ``id`` from the service."
+"``service.get(id, params) -> Promise`` - 从服务中检索具有给定“id”的单个资源."
 
 #: ../../source/api/services.rst:195
 msgid ".create(data, params)"
@@ -233,22 +204,18 @@ msgid ""
 " ``data``. The method should return a ``Promise`` with the newly created "
 "data. ``data`` may also be an array."
 msgstr ""
-"``service.create(data, params) -> Promise`` - Creates a new resource with"
-" ``data``. The method should return a ``Promise`` with the newly created "
-"data. ``data`` may also be an array."
+"``service.create(data, params) - > Promise`` - 使用 ``data`` 创建一个新资源.该方法应该使用新创建的数据返回“Promise”. ``data`` 也可以是一个数组."
 
 #: ../../source/api/services.rst:215
-#, fuzzy
-msgid "A successful ``create`` method call emits the :ref:`events_created`."
+msgid "A successful ``create`` method call emits the :ref:`api_events_created`."
 msgstr ""
-"**Important:** A successful ``create`` method call emits the ```created``"
-" service event <./events.md#created>`_."
+"一个成功的 ``create`` 方法调用会发出 ``created`` `服务事件 <./events.md＃created>`_."
 
-#: ../../source/api/services.rst:219
+#: ../../source/api/services.rst:218
 msgid ".update(id, data, params)"
 msgstr ".update(id, data, params)"
 
-#: ../../source/api/services.rst:221
+#: ../../source/api/services.rst:220
 msgid ""
 "``service.update(id, data, params) -> Promise`` - Replaces the resource "
 "identified by ``id`` with ``data``. The method should return a "
@@ -256,435 +223,169 @@ msgid ""
 "``null`` when updating multiple records, with ``params.query`` containing"
 " the query criteria."
 msgstr ""
-"``service.update(id, data, params) -> Promise`` - Replaces the resource "
-"identified by ``id`` with ``data``. The method should return a "
-"``Promise`` with the complete, updated resource data. ``id`` can also be "
-"``null`` when updating multiple records, with ``params.query`` containing"
-" the query criteria."
+"``service.update(id, data, params) - > Promise`` - 用 ``data`` 替换 ``id`` 标识的资源.该方法应该返回一个带有完整, 更新的资源数据的“Promise”.更新多个记录时, ``id`` 也可以是 ``null``, ``params.query`` 包含查询条件."
 
-#: ../../source/api/services.rst:227
-#, fuzzy
+#: ../../source/api/services.rst:226
 msgid "A successful ``update`` method call emits the :ref:`events_updated`."
 msgstr ""
-"**Important:** A successful ``update`` method call emits the ```updated``"
-" service event <./events.md#updated>`_."
+"一个成功的 ``update`` 方法调用会发出 ``updated`` `服务事件 <./events.md＃updated>`_."
 
-#: ../../source/api/services.rst:231
+#: ../../source/api/services.rst:230
 msgid ".patch(id, data, params)"
 msgstr ".patch(id, data, params)"
 
-#: ../../source/api/services.rst:233
+#: ../../source/api/services.rst:232
 msgid ""
 "``patch(id, data, params) -> Promise`` - Merges the existing data of the "
 "resource identified by ``id`` with the new ``data``. ``id`` can also be "
 "``null`` indicating that multiple resources should be patched with "
 "``params.query`` containing the query criteria."
 msgstr ""
-"``patch(id, data, params) -> Promise`` - Merges the existing data of the "
-"resource identified by ``id`` with the new ``data``. ``id`` can also be "
-"``null`` indicating that multiple resources should be patched with "
-"``params.query`` containing the query criteria."
+"``patch(id, data, params) - > Promise`` - 将 ``id`` 标识的资源的现有数据与新的 ``data`` 合并. ``id`` 也可以是 ``null``, 表示应该用包含查询条件的 ``params.query`` 修补多个资源."
 
-#: ../../source/api/services.rst:238
+#: ../../source/api/services.rst:237
 msgid ""
 "The method should return with the complete, updated resource data. "
 "Implement ``patch`` additionally (or instead of) ``update`` if you want "
 "to distinguish between partial and full updates and support the ``PATCH``"
 " HTTP method."
 msgstr ""
-"The method should return with the complete, updated resource data. "
-"Implement ``patch`` additionally (or instead of) ``update`` if you want "
-"to distinguish between partial and full updates and support the ``PATCH``"
-" HTTP method."
+"该方法应返回完整的更新资源数据.如果你想区分部分和完全更新并支持 ``PATCH`` HTTP方法, 另外(或代替) ``update`` 实现 ``patch``."
 
-#: ../../source/api/services.rst:243
-#, fuzzy
+#: ../../source/api/services.rst:242
 msgid "A successful ``patch`` method call emits the :ref:`events_patched`."
 msgstr ""
-"**Important:** A successful ``patch`` method call emits the ```patched`` "
-"service event <./events.md#patched>`_."
+"一个成功的 ``patch`` 方法调用会发出 ``patched`` `服务事件 <./events.md #patchched>`_."
 
-#: ../../source/api/services.rst:247
+#: ../../source/api/services.rst:246
 msgid ".remove(id, params)"
 msgstr ".remove(id, params)"
 
-#: ../../source/api/services.rst:249
+#: ../../source/api/services.rst:248
 msgid ""
 "``service.remove(id, params) -> Promise`` - Removes the resource with "
 "``id``. The method should return a ``Promise`` with the removed resource."
 " ``id`` can also be ``null``, which indicates the deletion of multiple "
 "resources, with ``params.query`` containing the query criteria."
 msgstr ""
-"``service.remove(id, params) -> Promise`` - Removes the resource with "
-"``id``. The method should return a ``Promise`` with the removed resource."
-" ``id`` can also be ``null``, which indicates the deletion of multiple "
-"resources, with ``params.query`` containing the query criteria."
+"``service.remove(id, params) - > Promise`` - 用 ``id`` 删除资源.该方法应该返回一个带有已移除资源的 ``Promise``. ``id`` 也可以是 ``null``, 表示删除多个资源, ``params.query`` 包含查询条件."
 
-#: ../../source/api/services.rst:254
-#, fuzzy
+#: ../../source/api/services.rst:253
 msgid "A successful ``remove`` method call emits the :ref:`events_remove`."
 msgstr ""
-"**Important:** A successful ``remove`` method call emits the ```removed``"
-" service event <./events.md#remove>`_."
+"一个成功的 ``remove`` 方法调用会发出 ``removed`` `服务事件 <./events.md #remove>`_."
 
-#: ../../source/api/services.rst:258
+#: ../../source/api/services.rst:257
 msgid ".setup(app, path)"
 msgstr ".setup(app, path)"
 
-#: ../../source/api/services.rst:260
+#: ../../source/api/services.rst:259
 msgid ""
 "``service.setup(app, path) -> Promise`` is a special method that "
 "initializes the service, passing an instance of the Feathers application "
 "and the path it has been registered on."
 msgstr ""
-"``service.setup(app, path) -> Promise`` is a special method that "
-"initializes the service, passing an instance of the Feathers application "
-"and the path it has been registered on."
+"对于在调用 ``app.listen`` 之前注册的服务, 当调用 ``app.listen`` 时, 会调用每个注册服务的 ``setup`` 函数.对于在调用 ``app.listen`` 之后注册的服务, Feathers会在注册服务时自动调用 ``setup``."
 
-#: ../../source/api/services.rst:264
+#: ../../source/api/services.rst:263
 msgid ""
 "For services registered before ``app.listen`` is invoked, the ``setup`` "
 "function of each registered service is called on invoking ``app.listen``."
 " For services registered after ``app.listen`` is invoked, ``setup`` is "
 "called automatically by Feathers when a service is registered."
 msgstr ""
-"For services registered before ``app.listen`` is invoked, the ``setup`` "
-"function of each registered service is called on invoking ``app.listen``."
-" For services registered after ``app.listen`` is invoked, ``setup`` is "
-"called automatically by Feathers when a service is registered."
+"对于在调用 ``app.listen`` 之前注册的服务, 在调用 ``app.listen`` 时调用每个注册服务的 ``setup`` 函数.对于在调用 ``app.listen`` 之后注册的服务, 在注册服务时, Feathers会自动调用 ``setup``."
 
-#: ../../source/api/services.rst:270
+#: ../../source/api/services.rst:269
 msgid ""
 "``setup`` is a great place to initialize your service with any special "
 "configuration or if connecting services that are very tightly coupled "
 "(see below), as opposed to using :doc:`hooks/readme`."
-msgstr ":doc:`hooks/readme`."
+msgstr "``setup`` 是一个使用任何特殊配置初始化服务的好地方, 或者如果连接紧密耦合的服务(见下文), 而不是使用 :doc:`hooks/readme`."
 
-#: ../../source/api/services.rst:318
+#: ../../source/api/services.rst:317
 msgid "Feathers functionality"
 msgstr "Feathers功能"
 
-#: ../../source/api/services.rst:320
+#: ../../source/api/services.rst:319
 msgid ""
 "When registering a service, Feathers (or its plugins) can also add its "
 "own methods to a service. Most notably, every service will automatically "
 "become an instance of a `NodeJS EventEmitter "
 "<https://nodejs.org/api/events.html#events_class_eventemitter>`_."
 msgstr ""
-"When registering a service, Feathers (or its plugins) can also add its "
-"own methods to a service. Most notably, every service will automatically "
-"become an instance of a `NodeJS EventEmitter "
-"<https://nodejs.org/api/events.html#events_class_eventemitter>`_."
+"注册服务时, Feathers(或其插件)也可以将自己的方法添加到服务中.最值得注意的是, 每个服务都将自动成为 `NodeJS EventEmitter <https://nodejs.org/api/events.html#events_class_eventemitter>`_ 的实例."
 
-#: ../../source/api/services.rst:326
+#: ../../source/api/services.rst:325
 msgid ".hooks(hooks)"
 msgstr ".hooks(hooks)"
 
-#: ../../source/api/services.rst:328
+#: ../../source/api/services.rst:327
 msgid "Register :doc:`./hooks` for this service."
-msgstr "Register :doc:`./hooks` for this service."
+msgstr "注册 :doc:`./hooks` 用于此服务."
 
-#: ../../source/api/services.rst:331
+#: ../../source/api/services.rst:330
 msgid ".publish([event, ] publisher)"
 msgstr ".publish([event, ] publisher)"
 
-#: ../../source/api/services.rst:333
+#: ../../source/api/services.rst:332
 msgid ""
 "Register an event publishing callback. For more information, see the "
 ":doc:`./channels`."
 msgstr ""
-"Register an event publishing callback. For more information, see the "
-":doc:`./channels`."
+"注册事件发布回调.有关更多信息, 请参阅 :doc:`./channels`."
 
-#: ../../source/api/services.rst:337
+#: ../../source/api/services.rst:336
 msgid ".mixin(mixin)"
 msgstr ".mixin(mixin)"
 
-#: ../../source/api/services.rst:339
+#: ../../source/api/services.rst:338
 msgid ""
 "``service.mixin(mixin) -> service`` extends the functionality of a "
 "service. For more information see the `Uberproto "
 "<https://github.com/daffl/uberproto>`_ project page."
 msgstr ""
-"``service.mixin(mixin) -> service`` extends the functionality of a "
-"service. For more information see the `Uberproto "
-"<https://github.com/daffl/uberproto>`_ project page."
+"``service.mixin(mixin) - > service`` 扩展了服务的功能.有关更多信息, 请参阅 `Uberproto <https://github.com/daffl/uberproto>`_ 项目页面."
 
-#: ../../source/api/services.rst:344
+#: ../../source/api/services.rst:343
 msgid ".on(eventname, listener)"
 msgstr ".on(eventname, listener)"
 
-#: ../../source/api/services.rst:346
+#: ../../source/api/services.rst:345
 msgid ""
 "Provided by the core `NodeJS EventEmitter .on "
 "<https://nodejs.org/api/events.html#events_emitter_on_eventname_listener>`_."
 " Registers a ``listener`` method (``function(data) {}``) for the given "
 "``eventname``."
 msgstr ""
-"Provided by the core `NodeJS EventEmitter .on "
-"<https://nodejs.org/api/events.html#events_emitter_on_eventname_listener>`_."
-" Registers a ``listener`` method (``function(data) {}``) for the given "
-"``eventname``."
+"由核心 `NodeJS EventEmitter .on <https://nodejs.org/api/events.html#events_emitter_on_eventname_listener>`_ 提供.为给定的 ``eventname`` 注册一个 ``listener`` 方法(``function(data){}``)."
 
-#: ../../source/api/services.rst:351 ../../source/api/services.rst:361
-#: ../../source/api/services.rst:371
-#, fuzzy
+#: ../../source/api/services.rst:350 ../../source/api/services.rst:360
+#: ../../source/api/services.rst:370
 msgid "For more information about service events, see the :doc:`./events`."
 msgstr ""
-"**Important:** For more information about service events, see the "
-":doc:`./events`."
+"有关服务事件的更多信息, 请参阅 :doc:`./events`."
 
-#: ../../source/api/services.rst:355
+#: ../../source/api/services.rst:354
 msgid ".emit(eventname, data)"
 msgstr ".emit(eventname, data)"
 
-#: ../../source/api/services.rst:357
+#: ../../source/api/services.rst:356
 msgid ""
 "Provided by the core `NodeJS EventEmitter .emit "
 "<https://nodejs.org/api/events.html#events_emitter_emit_eventname_args>`_."
 " Emits the event ``eventname`` to all event listeners."
 msgstr ""
-"Provided by the core `NodeJS EventEmitter .emit "
-"<https://nodejs.org/api/events.html#events_emitter_emit_eventname_args>`_."
-" Emits the event ``eventname`` to all event listeners."
+"核心 `NodeJS EventEmitter .emit <https://nodejs.org/api/events.html#events_emitter_emit_eventname_args>`_ 提供.将事件 ``eventname`` 发送给所有事件侦听器."
 
-#: ../../source/api/services.rst:365
+#: ../../source/api/services.rst:364
 msgid ".removeListener(eventname, [ listener ])"
 msgstr ".removeListener(eventname, [ listener ])"
 
-#: ../../source/api/services.rst:367
+#: ../../source/api/services.rst:366
 msgid ""
 "Provided by the core `NodeJS EventEmitter .removeListener "
 "<https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener>`_."
 " Removes all listeners, or the given listener, for ``eventname``."
 msgstr ""
-"Provided by the core `NodeJS EventEmitter .removeListener "
-"<https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener>`_."
-" Removes all listeners, or the given listener, for ``eventname``."
-
-#~ msgid ""
-#~ "Service methods are pre-defined `CRUD"
-#~ " <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_"
-#~ " methods that your service object can"
-#~ " implement (or that have already been"
-#~ " implemented by one of the `database"
-#~ " adapters <./databases/common.md>`_). Below is"
-#~ " a complete example of the Feathers"
-#~ " *service interface* as a normal "
-#~ "JavaScript object either returning a "
-#~ "```Promise`` <https://developer.mozilla.org/en-"
-#~ "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or"
-#~ " using `async/await <https://developer.mozilla.org"
-#~ "/en-US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Important:** Always use the service "
-#~ "returned by ``app.service(path)`` not the "
-#~ "service object (the ``myService`` object "
-#~ "above) directly. See the `app.service "
-#~ "documentation <./application.md#servicepath>`_ for "
-#~ "more information."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Important:** This section describes the "
-#~ "general usage of service methods and "
-#~ "how to implement them. They are "
-#~ "already implemented by the official "
-#~ "Feathers database adapters. For specifics "
-#~ "on how to use the database "
-#~ "adapters, see the `database adapters "
-#~ "common API <./databases/common.md>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``params.query`` - the query parameters "
-#~ "from the client, either passed as "
-#~ "URL query parameters (see the "
-#~ ":doc:`./express` chapter) or through "
-#~ "websockets (see :doc:`./socketio` or `Primus"
-#~ " <./primus.md>`_)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Service methods are pre-defined `CRUD"
-#~ " <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_"
-#~ " methods that your service object can"
-#~ " implement (or that have already been"
-#~ " implemented by one of the "
-#~ ":doc:`database adapters <./databases/common>`_). "
-#~ "Below is a complete example of the"
-#~ " Feathers *service interface* as a "
-#~ "normal JavaScript object either returning "
-#~ "a ```Promise`` <https://developer.mozilla.org/en-"
-#~ "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or"
-#~ " using `async/await <https://developer.mozilla.org"
-#~ "/en-US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "This section describes the general usage"
-#~ " of service methods and how to "
-#~ "implement them. They are already "
-#~ "implemented by the official Feathers "
-#~ "database adapters. For specifics on how"
-#~ " to use the database adapters, see"
-#~ " the :doc:`database adapters common API "
-#~ "<./databases/common>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Service methods are pre-defined `CRUD"
-#~ " <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_"
-#~ " methods that your service object can"
-#~ " implement (or that have already been"
-#~ " implemented by one of the "
-#~ ":doc:`database adapters <./databases/common>`). "
-#~ "Below is a complete example of the"
-#~ " Feathers *service interface* as a "
-#~ "normal JavaScript object either returning "
-#~ "a ```Promise`` <https://developer.mozilla.org/en-"
-#~ "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or"
-#~ " using `async/await <https://developer.mozilla.org"
-#~ "/en-US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "This section describes the general usage"
-#~ " of service methods and how to "
-#~ "implement them. They are already "
-#~ "implemented by the official Feathers "
-#~ "database adapters. For specifics on how"
-#~ " to use the database adapters, see"
-#~ " the :doc:`database adapters common API "
-#~ "<./databases/common>`."
-#~ msgstr ""
-
-#~ msgid ""
-#~ ":doc:``params.user`` - The authenticated user,"
-#~ " either set by `Feathers authentication "
-#~ "<./authentication/server>` or passed explicitly."
-#~ msgstr ":doc:`./authentication/server` or passed explicitly."
-
-#~ msgid ""
-#~ "“Services” are the heart of every "
-#~ "Feathers application. Services are JavaScript"
-#~ " objects (or instances of `ES6 "
-#~ "classes "
-#~ "<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_)"
-#~ " that implement `certain methods "
-#~ "<#service-methods>`_. Feathers itself will "
-#~ "also add some `additional methods and"
-#~ " functionality <#feathers-functionality>`_ to "
-#~ "its services."
-#~ msgstr ""
-#~ "“Services” are the heart of every "
-#~ "Feathers application. Services are JavaScript"
-#~ " objects (or instances of `ES6 "
-#~ "classes "
-#~ "<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_)"
-#~ " that implement `certain methods "
-#~ "<#service-methods>`_. Feathers itself will "
-#~ "also add some `additional methods and"
-#~ " functionality <#feathers-functionality>`_ to "
-#~ "its services."
-
-#~ msgid ""
-#~ "Service methods are pre-defined `CRUD"
-#~ " <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`_"
-#~ " methods that your service object can"
-#~ " implement (or that have already been"
-#~ " implemented by one of the "
-#~ ":doc:`./databases/common`.. Below is a "
-#~ "complete example of the Feathers "
-#~ "*service interface* as a normal "
-#~ "JavaScript object either returning a "
-#~ "```Promise`` <https://developer.mozilla.org/en-"
-#~ "US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ or"
-#~ " using `async/await <https://developer.mozilla.org"
-#~ "/en-US/docs/Web/JavaScript/Reference/Statements/async_function>`_:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "{% codetabs name=“Promise”, type=“js” -%} "
-#~ "const myService = { find(params) { "
-#~ "return Promise.resolve([]); }, get(id, params)"
-#~ " {}, create(data, params) {}, update(id,"
-#~ " data, params) {}, patch(id, data, "
-#~ "params) {}, remove(id, params) {}, "
-#~ "setup(app, path) {} }"
-#~ msgstr ""
-#~ "{% codetabs name=“Promise”, type=“js” -%} "
-#~ "const myService = { find(params) { "
-#~ "return Promise.resolve([]); }, get(id, params)"
-#~ " {}, create(data, params) {}, update(id,"
-#~ " data, params) {}, patch(id, data, "
-#~ "params) {}, remove(id, params) {}, "
-#~ "setup(app, path) {} }"
-
-#~ msgid ""
-#~ "app.use(‘/my-service’, myService); {%- "
-#~ "language name=“async/await”, type=“js” -%} "
-#~ "const myService = { async find(params)"
-#~ " { return []; }, async get(id, "
-#~ "params) {}, async create(data, params) "
-#~ "{}, async update(id, data, params) {},"
-#~ " async patch(id, data, params) {}, "
-#~ "async remove(id, params) {}, setup(app, "
-#~ "path) {} }"
-#~ msgstr ""
-#~ "app.use(‘/my-service’, myService); {%- "
-#~ "language name=“async/await”, type=“js” -%} "
-#~ "const myService = { async find(params)"
-#~ " { return []; }, async get(id, "
-#~ "params) {}, async create(data, params) "
-#~ "{}, async update(id, data, params) {},"
-#~ " async patch(id, data, params) {}, "
-#~ "async remove(id, params) {}, setup(app, "
-#~ "path) {} }"
-
-#~ msgid "app.use(‘/my-service’, myService); {%- endcodetabs %}"
-#~ msgstr "app.use(‘/my-service’, myService); {%- endcodetabs %}"
-
-#~ msgid ""
-#~ "{%- codetabs name=“Promise”, type=“js” -%} "
-#~ "class MyService { find(params) { return"
-#~ " Promise.resolve([]); } get(id, params) {}"
-#~ " create(data, params) {} update(id, data,"
-#~ " params) {} patch(id, data, params) "
-#~ "{} remove(id, params) {} setup(app, "
-#~ "path) {} }"
-#~ msgstr ""
-#~ "{%- codetabs name=“Promise”, type=“js” -%} "
-#~ "class MyService { find(params) { return"
-#~ " Promise.resolve([]); } get(id, params) {}"
-#~ " create(data, params) {} update(id, data,"
-#~ " params) {} patch(id, data, params) "
-#~ "{} remove(id, params) {} setup(app, "
-#~ "path) {} }"
-
-#~ msgid ""
-#~ "app.use(‘/my-service’, new MyService()); {%-"
-#~ " language name=“async/await”, type=“js” -%} "
-#~ "class MyService { async find(params) {"
-#~ " return []; } async get(id, params)"
-#~ " {} async create(data, params) {} "
-#~ "async update(id, data, params) {} async"
-#~ " patch(id, data, params) {} async "
-#~ "remove(id, params) {} setup(app, path) "
-#~ "{} }"
-#~ msgstr ""
-#~ "app.use(‘/my-service’, new MyService()); {%-"
-#~ " language name=“async/await”, type=“js” -%} "
-#~ "class MyService { async find(params) {"
-#~ " return []; } async get(id, params)"
-#~ " {} async create(data, params) {} "
-#~ "async update(id, data, params) {} async"
-#~ " patch(id, data, params) {} async "
-#~ "remove(id, params) {} setup(app, path) "
-#~ "{} }"
-
-#~ msgid "app.use(‘/my-service’, new MyService()); {%- endcodetabs %}"
-#~ msgstr "app.use(‘/my-service’, new MyService()); {%- endcodetabs %}"
-
+"核心 `NodeJS EventEmitter .removeListener <https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener>`_ 提供.为 ``eventname`` 删除所有监听器或给定的监听器."

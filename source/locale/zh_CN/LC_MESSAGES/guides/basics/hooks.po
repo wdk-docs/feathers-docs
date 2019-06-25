@@ -42,8 +42,8 @@ msgid ""
 "functions that can be registered **before**, **after** or on \\__error__s"
 " of a service method. You can register a single hook function or create a"
 " chain of them to create complex work-flows."
-msgstr "This is where Feathers hooks come in. Hooks are pluggable middleware functions that can be registered **before**, **after** or on \\__error__s of a service method. You can register a single hook function or create a chain of them to create complex work-flows."
-"这是Feathers钩子的用武之地.钩子是可插入的中间件函数,可以在 **之后**,**之后** 或服务方法的 \\__ error__s "
+msgstr ""
+"这是Feathers钩子的用武之地.钩子是可插入的中间件函数,可以在 **before**, **before** 或服务方法的 \\__error__s "
 "之后注册.您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程."
 
 #: ../../source/guides/basics/hooks.rst:18
@@ -52,12 +52,11 @@ msgid ""
 "are usually also service agnostic, meaning they can be used with ​\\ "
 "*any*\\ ​ service. This pattern keeps your application logic flexible, "
 "composable, and much easier to trace through and debug."
-msgstr "Just like services themselves, hooks are *transport independent*. They are usually also service agnostic, meaning they can be used with ​\\ *any*\\ ​ service. This pattern keeps your application logic flexible, composable, and much easier to trace through and debug."
+msgstr ""
 "就像服务本身一样,钩子是 *独立于运输的*.它们通常也是服务不可知的,这意味着它们可以与 \\ *any*\\ "
 "服务一起使用.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试."
 
 #: ../../source/guides/basics/hooks.rst:24
-#, fuzzy
 msgid ""
 "A full overview of the hook API can be found in the "
 ":doc:`../../api/hooks`."
@@ -100,8 +99,7 @@ msgid ""
 "the next once the current hook function completes. If a hook function "
 "throws an error, all remaining hooks (and possibly the service call) will"
 " be skipped and the error will be returned."
-msgstr "A hook function is a function that takes the `hook context <#hook-context>`_ as the parameter and returns that context or nothing. Hook functions run in the order they are registered and will only continue to the next once the current hook function completes. If a hook function throws an error, all remaining hooks (and possibly the service call) will be skipped and the error will be returned."
-"钩子函数是一个函数,它将 `钩子上下文 <#hook-context>`_ "
+msgstr ""
 "作为参数并返回该上下文或什么都不返回.挂钩函数按照它们注册的顺序运行,并且只有在当前挂钩函数完成后才会继续到下一个.如果钩子函数抛出错误,将跳过所有剩余的挂钩(可能还有服务调用),并返回错误."
 
 #: ../../source/guides/basics/hooks.rst:61
@@ -110,7 +108,7 @@ msgid ""
 "``createdAt`` property name from the example above configurable) is to "
 "create a wrapper function that takes those options and returns a hook "
 "function:"
-msgstr "A common pattern to make hooks more re-usable (e.g. making the ``createdAt`` property name from the example above configurable) is to create a wrapper function that takes those options and returns a hook function:"
+msgstr ""
 "使钩子更易于重复使用的常见模式(例如,使上面的示例中的 ``createdAt`` "
 "属性名称可配置)是创建一个包装函数,它接受这些选项并返回一个钩子函数:"
 
@@ -171,7 +169,7 @@ msgid ""
 "look at in the next chapter) the call has been made through. Usually "
 "``rest``, ``socketio``, ``primus``. Will be ``undefined`` for internal "
 "calls."
-msgstr "``context.params.provider`` - The name of the transport (which we will look at in the next chapter) the call has been made through. Usually ``rest``, ``socketio``, ``primus``. Will be ``undefined`` for internal calls."
+msgstr ""
 "``context.params.provider`` - 传输的名称(我们将在下一章中看到)调用已完成. 通常是 ``rest``, "
 "``socketio``, ``primus``. 内部调用将是 ``undefined``. "
 
@@ -202,7 +200,6 @@ msgid ""
 msgstr "``context.result`` - 服务方法调用的结果(在 ``after`` 钩子中)"
 
 #: ../../source/guides/basics/hooks.rst:121
-#, fuzzy
 msgid ""
 "For more information about the hook context see the "
 ":doc:`../../api/hooks`."
@@ -253,7 +250,7 @@ msgid ""
 "US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or "
 ":doc:`../../api/errors` which has some additional functionality (like "
 "returning the proper error code for REST calls)."
-msgstr "If a hook throws an error, all following hooks will be skipped and the error will be returned to the user. This makes ``before`` hooks a great place to validate incoming data by throwing an error for invalid data. We can throw a normal `JavaScript error <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error>`_ or :doc:`../../api/errors` which has some additional functionality (like returning the proper error code for REST calls)."
+msgstr ""
 "如果钩子抛出错误,将跳过所有后续钩子并将错误返回给用户. 这使得 ``before`` "
 "挂钩成为一个很好的地方,通过抛出无效数据的错误来验证传入的数据.我们可以抛出正常的 `JavaScript错误 "
 "<https://developer.mozilla.org/en-"
@@ -273,7 +270,6 @@ msgid ""
 msgstr "我们只需要 ``create``, ``update`` 和 ``patch`` 的钩子,因为这些是允许用户提交数据的唯一服务方法:"
 
 #: ../../source/guides/basics/hooks.rst:249
-#, fuzzy
 msgid ""
 "Throwing an appropriate :doc:`../../api/errors` allows to add more "
 "information and return the correct HTTP status code."
@@ -336,13 +332,12 @@ msgid "What’s next?"
 msgstr "下一步是什么？"
 
 #: ../../source/guides/basics/hooks.rst:292
-#, fuzzy
 msgid ""
 "In this chapter we learned how Feathers hooks can be used as middleware "
 "for service method calls to validate and manipulate incoming and outgoing"
 " data without having to change our service. In the next chapter we will "
 "turn our messages service into a :doc:`./rest`."
-msgstr "In this chapter we learned how Feathers hooks can be used as middleware for service method calls to validate and manipulate incoming and outgoing data without having to change our service. In the next chapter we will turn our messages service into a :doc:`./rest`."
+msgstr ""
 "在本章中,我们学习了如何将Feathers钩子用作服务方法调用的中间件,以验证和操作传入和传出数据,而无需更改我们的服务.在下一章中,我们将把消息服务转换为"
 " :doc:`全功能REST API <./rest>`."
 

@@ -16,9 +16,8 @@ In the browser the Primus client library (usually at
 
    <script type="text/javascript" src="primus/primus.js"></script>
 
-..
-
-.. important:: This will make the ``Primus`` object globally
+.. important::
+   This will make the ``Primus`` object globally
    available. Module loader options are currently not available.
 
 Client use in NodeJS
@@ -43,7 +42,7 @@ In NodeJS a Primus client can be initialized as follows:
 
 |GitHub stars| |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/primus-client --save
 
@@ -54,45 +53,35 @@ websocket library.
 .. important:: Primus sockets are also used to *call* service
    methods. Using sockets for both, calling methods and receiving
    real-time events is generally faster than using
-   :doc:`./express` and there is no need to use both, REST and
+   :doc:`./rest` and there is no need to use both, REST and
    websockets in the same client application at the same time.
 
 ``primus(socket)``
 ~~~~~~~~~~~~~~~~~~
 
-Initialize the Primus client using a given socket and the default
-options.
+Initialize the Primus client using a given socket and the default options.
 
-{% codetabs name=“Modular”, type=“js” -%} const feathers =
-require(‘@feathersjs/feathers’); const primusClient =
-require(‘@feathersjs/primus-client’); const socket = new
-Primus(‘http://api.my-feathers-server.com’);
+.. code-block:: js
 
-const app = feathers();
+    const feathers = require(‘@feathersjs/feathers’);
+    const primusClient = require(‘@feathersjs/primus-client’);
+    const socket = new Primus(‘http://api.my-feathers-server.com’);
 
-app.configure(primusClient(socket));
+    const app = feathers();
 
-// Receive real-time events through Primus app.service(‘messages’)
-.on(‘created’, message => console.log(‘New message created’, message));
+    app.configure(primusClient(socket));
 
-// Call the ``messages`` service app.service(‘messages’).create({ text:
-‘A message from a REST client’ }); {%- language
-name=“@feathersjs/client”, type=“html” -%}
+    // Receive real-time events through Primus
+    app.service(‘messages’).on(‘created’, message => console.log(‘New message created’, message));
 
-.. raw:: html
+    // Call the ``messages``
+    service app.service(‘messages’).create({ text: ‘A message from a REST client’ });
+
+.. code-block:: html
 
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
-
-.. raw:: html
-
    <script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
-
-.. raw:: html
-
    <script type="text/javascript" src="primus/primus.js"></script>
-
-.. raw:: html
-
    <script>
      // Socket.io is exposed as the `io` global.
      var socket = new Primus('http://api.my-feathers-server.com');
@@ -111,8 +100,6 @@ name=“@feathersjs/client”, type=“html” -%}
      });
    </script>
 
-{%- endcodetabs %}
-
 ``primus(socket, options)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -129,9 +116,7 @@ Options can be:
    const feathers = require('@feathersjs/feathers');
    const Primus = require('@feathersjs/primus-client');
    const socket = new Primus('http://api.my-feathers-server.com');
-
    const app = feathers();
-
    app.configure(primus(socket, { timeout: 2000 }));
 
 The timeout per service can be changed like this:
@@ -148,11 +133,10 @@ from ``primus/primus.js`` and instantiating a new ``Primus`` instance.
 Unlike HTTP calls, websockets do not have a cross-origin restriction in
 the browser so it is possible to connect to any Feathers server.
 
-See the `Primus
-docs <https://github.com/primus/primus#connecting-from-the-browser>`_
+See the `Primus docs <https://github.com/primus/primus#connecting-from-the-browser>`_
 for more details.
 
-   .. tip: The socket connection URL has to point to the server root
+.. tip:: The socket connection URL has to point to the server root
    which is where Feathers will set up Primus.
 
 .. code:: html

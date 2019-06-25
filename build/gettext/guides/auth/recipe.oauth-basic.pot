@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 15:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:2
-msgid "FeathersJS Auth Recipe: Set up Basic OAuth Login"
+msgid "Set up Basic OAuth Login"
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:4
-msgid "The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of `PassportJS <http://www.passportjs.org/>`_. This now gives the Feathers community access to hundreds of authentication strategies from the Passport community. Since many of the Passport strategies are for OAuth, we’ve created two auth plugins, :doc:`../api/authentication/oauth1` and :doc:`../api/authentication/oauth2`. These new plugins use a Passport strategy to allow OAuth logins into your app."
+msgid "The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of `PassportJS <http://www.passportjs.org/>`_. This now gives the Feathers community access to hundreds of authentication strategies from the Passport community. Since many of the Passport strategies are for OAuth, we’ve created two auth plugins, :doc:`../../api/authentication/oauth1` and :doc:`../../api/authentication/oauth2`. These new plugins use a Passport strategy to allow OAuth logins into your app."
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:15
@@ -29,7 +29,7 @@ msgid "Adding OAuth authentication to your app is a great way to quickly allow u
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:22
-msgid "Simplified login is almost always a good idea, but for many developers implementing OAuth can be difficult. Let’s take a look at how it works, in general. After that, we’ll see how the new :doc:`../api/authentication/server` server plugin makes it easy to get up and running."
+msgid "Simplified login is almost always a good idea, but for many developers implementing OAuth can be difficult. Let’s take a look at how it works, in general. After that, we’ll see how the new :doc:`../../api/authentication/server` server plugin makes it easy to get up and running."
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:29
@@ -149,7 +149,7 @@ msgid "Now add the following code to the same page. The first script tag loads F
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:162
-msgid "Note: This code loads the ``feathers-client`` package from a CDN. This is **not** the recommended usage for most apps, but is good for demonstration purposes. We recommend using a bundler as described in the :doc:`../api/client`."
+msgid "This code loads the ``feathers-client`` package from a CDN. This is **not** the recommended usage for most apps, but is good for demonstration purposes. We recommend using a bundler as described in the :doc:`../../api/client`."
 msgstr ""
 
 #: ../../source/guides/auth/recipe.oauth-basic.rst:193

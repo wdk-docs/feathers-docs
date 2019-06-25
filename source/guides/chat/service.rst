@@ -12,7 +12,7 @@ In Feathers any API endpoint is represented as a
 the :doc:`../basics/services`. To generate a new service,
 we can run:
 
-::
+.. code-block:: sh
 
    feathers generate service
 
@@ -61,7 +61,7 @@ Testing the API
 
 If we now start our API with
 
-::
+.. code-block:: sh
 
    npm start
 
@@ -73,7 +73,7 @@ We can also ``POST`` new messages and ``PUT``, ``PATCH`` and ``DELETE``
 existing messages (via ``/messages/<_id>``), for example from the
 command line using `CURL <https://curl.haxx.se/>`_:
 
-::
+.. code-block:: sh
 
    curl 'http://localhost:3030/messages/' -H 'Content-Type: application/json' --data-binary '{ "text": "Hello from the command line!" }'
 

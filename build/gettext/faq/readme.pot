@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:36+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,361 +84,361 @@ msgstr ""
 msgid "This can also be implemented as a password service that resets the password in the ``create`` method:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:109
+#: ../../source/faq/readme.rst:111
 msgid "How do I do nested or custom routes?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:111
+#: ../../source/faq/readme.rst:113
 msgid "Normally we find that they actually aren’t needed and that it is much better to keep your routes as flat as possible. For example something like ``users/:userId/posts`` is - although nice to read for humans - actually not as easy to parse and process as the equivalent :doc:`../api/databases/querying`. Additionally, this will also work much better when using Feathers through websocket connections which do not have a concept of routes at all."
 msgstr ""
 
-#: ../../source/faq/readme.rst:119
+#: ../../source/faq/readme.rst:121
 msgid "However, nested routes for services can still be created by registering an existing service on the nested route and mapping the route parameter to a query parameter like this:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:150
+#: ../../source/faq/readme.rst:152
 msgid "Now going to ``/users/123/posts`` will call ``postService.find({ query: { userId: 123 } })`` and return all posts for that user."
 msgstr ""
 
-#: ../../source/faq/readme.rst:154
+#: ../../source/faq/readme.rst:156
 msgid "For more information about URL routing and parameters, refer to :doc:`../api/express`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:156
+#: ../../source/faq/readme.rst:158
 msgid "URLs should never contain actions that change data (like ``post/publish`` or ``post/delete``). This has always been an important part of the HTTP protocol and Feathers enforces this more strictly than most other frameworks. For example to publish a post you would call ``.patch(id, { published: true })``."
 msgstr ""
 
-#: ../../source/faq/readme.rst:163
+#: ../../source/faq/readme.rst:165
 msgid "Can you support another database?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:165
+#: ../../source/faq/readme.rst:167
 msgid "Feathers :doc:`../api/databases/adapters` implement 90% of the functionality you may need to use Feathers with certain databases and ORMs. However, even if your favourite database or ORM is not on the list or the adapter does not support specific functionality you are looking for, Feathers can still accomodate all your needs by :doc:`../api/services`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:172
+#: ../../source/faq/readme.rst:174
 msgid "To use Feathers properly it is very important to understand how services work and that all existing database adapters are just services that talk to the database themselves."
 msgstr ""
 
-#: ../../source/faq/readme.rst:176
+#: ../../source/faq/readme.rst:178
 msgid "The why and how to write your own services is covered :doc:`../guides/basics/readme`. In the generator a custom service can be created by running ``feathers generate service``, choosing “A custom service” and then editing the ``<servicename>/<servicename>.class.js`` file to make the appropriate database calls."
 msgstr ""
 
-#: ../../source/faq/readme.rst:182
+#: ../../source/faq/readme.rst:184
 msgid "If you would like to publish your own database adapter, first make sure there isn’t already a `community maintained adapter <https://github.com/feathersjs/awesome-feathersjs#database>`_ for that database (many maintainers are happy to get some help, too). If not, you can run ``feathers generate plugin`` to create a new plugin. A reference implementation for a database adapter can be found in the `feathers-memory repository <https://github.com/feathersjs-ecosystem/feathers-memory>`_. It is always possible for community maintained adapters to graduate into an *official* Feathers adapter, at the moment there are however no plans to add support for any new databases from the Feathers team directly."
 msgstr ""
 
-#: ../../source/faq/readme.rst:193
+#: ../../source/faq/readme.rst:195
 msgid "I am not getting real-time events"
 msgstr ""
 
-#: ../../source/faq/readme.rst:195
+#: ../../source/faq/readme.rst:197
 msgid "Feathers Buzzard (``@feathersjs/feathers@v3.0.0``) introduced a new, more secure event system that does **not** send real-time events by default. If you are not getting real-time events on the client, it is usually a problem with the :doc:`../api/channels` setup."
 msgstr ""
 
-#: ../../source/faq/readme.rst:200
+#: ../../source/faq/readme.rst:202
 msgid "Have a look a the example at `feathersjs.com <https://feathersjs.com/>`_, the :doc:`../guides/basics/real-time` and the :doc:`../api/channels`. If you are migrating from a previous version, also see the :doc:`../migrating#adding-channels`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:206
+#: ../../source/faq/readme.rst:208
 msgid "The generated application already sets up a ``channels.js`` file that sends events to only authenticated users by default but can be modified to your needs according the the :doc:`../api/channels`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:211
+#: ../../source/faq/readme.rst:213
 msgid "How do I do search?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:213
+#: ../../source/faq/readme.rst:215
 msgid "This depends on the database adapter you are using. See :doc:`../api/databases/querying#search` for more information."
 msgstr ""
 
-#: ../../source/faq/readme.rst:218
+#: ../../source/faq/readme.rst:220
 msgid "Why am I not getting JSON errors?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:220
+#: ../../source/faq/readme.rst:222
 msgid "If you get a plain text error and a 500 status code for errors that should return different status codes, make sure you have the ``express.errorHandler()`` from the ``@feathersjs/express`` module configured as described in the :doc:`../api/express#expresserrorhandler` chapter."
 msgstr ""
 
-#: ../../source/faq/readme.rst:226
+#: ../../source/faq/readme.rst:228
 msgid "Why am I not getting the correct HTTP error code"
 msgstr ""
 
-#: ../../source/faq/readme.rst:228
+#: ../../source/faq/readme.rst:230
 msgid "See the above answer."
 msgstr ""
 
-#: ../../source/faq/readme.rst:231
+#: ../../source/faq/readme.rst:233
 msgid "How can I do custom methods like ``findOrCreate``?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:233
+#: ../../source/faq/readme.rst:235
 msgid "Custom functionality can almost always be mapped to an existing service method using hooks. For example, ``findOrCreate`` can be implemented as a before-hook on the service’s ``get`` method. `See this gist <https://gist.github.com/marshallswain/9fa3b1e855633af00998>`_ for an example of how to implement this in a before-hook."
 msgstr ""
 
-#: ../../source/faq/readme.rst:239
+#: ../../source/faq/readme.rst:241
 msgid "Why are you using JWT for sessions"
 msgstr ""
 
-#: ../../source/faq/readme.rst:241
+#: ../../source/faq/readme.rst:243
 msgid "Feathers is using `JSON web tokens (JWT) <https://jwt.io/>`_ for its standard authentication mechanism. Some articles like `Stop using JWT for sessions <http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/>`_ promotes using standard cookies and HTTP sessions. While it brings up some valid points, not all of them apply to Feathers and there are other good reasons why Feathers relies on JWT:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:249
+#: ../../source/faq/readme.rst:251
 msgid "Feathers is designed to support many different transport mechanisms, most of which do not rely on HTTP but do work well with JWT as the authentication mechanism. This is even already the case for websockets where an established connection normally is not secured by a traditional HTTP session."
 msgstr ""
 
-#: ../../source/faq/readme.rst:254
+#: ../../source/faq/readme.rst:256
 msgid "By default the only thing that Feathers stored in the JWT payload is the user id. It is a stateful token. You can change this and make the token stateless by putting more data into the JWT payload but this is at your discretion. Currently the user is looked up on every request after the JWT is verified to not be expired or tampered with."
 msgstr ""
 
-#: ../../source/faq/readme.rst:259
+#: ../../source/faq/readme.rst:261
 msgid "You need to make sure that you revoke JWT tokens or set a low expiration date or add custom logic to verify that a user’s account is still valid/active. Currently the default expiration is 1 day. We chose a reasonable default for most apps but depending on your application this might be too long or too short."
 msgstr ""
 
-#: ../../source/faq/readme.rst:265
+#: ../../source/faq/readme.rst:267
 msgid "Additionally, it is still possible to use Feathers with existing *traditional* Express session mechanism by using :doc:`../api/express`. For example, ``params.user`` for all service calls from a traditional Express session can be passed like this:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:278
+#: ../../source/faq/readme.rst:280
 msgid "How do I render templates?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:280
+#: ../../source/faq/readme.rst:282
 msgid "Feathers works just like Express so it’s the exact same. We’ve created a :doc:`../guides/advanced/using-a-view-engine`. For protecting Express views with authentication, also see :doc:`../guides/auth/recipe.express-middleware`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:285
+#: ../../source/faq/readme.rst:287
 msgid "OAuth is not setting the cookie"
 msgstr ""
 
-#: ../../source/faq/readme.rst:287
+#: ../../source/faq/readme.rst:289
 msgid "If you are authenticating via oAuth but your API and frontend reside on different domains the cookie used by the authentication client can not be set. Instead, a query string redirect has to be used as shown in `this gist <https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:293
+#: ../../source/faq/readme.rst:295
 msgid "How do I create channels or rooms"
 msgstr ""
 
-#: ../../source/faq/readme.rst:295
+#: ../../source/faq/readme.rst:297
 msgid "In Feathers :doc:`../api/channels` are the way to send :doc:`../api/events` to only certain clients."
 msgstr ""
 
-#: ../../source/faq/readme.rst:299
+#: ../../source/faq/readme.rst:301
 msgid "How do I do validation?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:301
+#: ../../source/faq/readme.rst:303
 msgid "If your database/ORM supports a model or schema (ie. Mongoose or Sequelize) then you have 2 options."
 msgstr ""
 
-#: ../../source/faq/readme.rst:305
-#: ../../source/faq/readme.rst:341
+#: ../../source/faq/readme.rst:307
+#: ../../source/faq/readme.rst:343
 msgid "The preferred way"
 msgstr ""
 
-#: ../../source/faq/readme.rst:307
+#: ../../source/faq/readme.rst:309
 msgid "You perform validation at the service level :doc:`../api/hooks`. This is better because it keeps your app database agnostic so you can easily swap databases without having to change your validations much."
 msgstr ""
 
-#: ../../source/faq/readme.rst:311
+#: ../../source/faq/readme.rst:313
 msgid "If you write a bunch of small hooks that validate specific things it is easier to test and also slightly more performant because you can exit out of the validation chain early instead of having to go all the way to the point of inserting data into the database to find out if that data is invalid."
 msgstr ""
 
-#: ../../source/faq/readme.rst:317
+#: ../../source/faq/readme.rst:319
 msgid "If you don’t have a model or schema then validating with hooks is currently your only option. If you come up with something different feel free to submit a PR!"
 msgstr ""
 
-#: ../../source/faq/readme.rst:322
-#: ../../source/faq/readme.rst:359
+#: ../../source/faq/readme.rst:324
+#: ../../source/faq/readme.rst:361
 msgid "The ORM way"
 msgstr ""
 
-#: ../../source/faq/readme.rst:324
+#: ../../source/faq/readme.rst:326
 msgid "With ORM adapters you can perform validation at the model level:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:326
+#: ../../source/faq/readme.rst:328
 msgid "`Using Mongoose <https://github.com/feathersjs-ecosystem/feathers-mongoose#validation>`_"
 msgstr ""
 
-#: ../../source/faq/readme.rst:327
+#: ../../source/faq/readme.rst:329
 msgid "`Using Sequelize <http://docs.sequelizejs.com/en/latest/docs/models-definition/#validations>`_"
 msgstr ""
 
-#: ../../source/faq/readme.rst:329
+#: ../../source/faq/readme.rst:331
 msgid "The nice thing about the model level validations is Feathers will return the validation errors to the client in a nice consistent format for you."
 msgstr ""
 
-#: ../../source/faq/readme.rst:333
+#: ../../source/faq/readme.rst:335
 msgid "How do I do associations?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:335
+#: ../../source/faq/readme.rst:337
 msgid "Similar to validation, it depends on if your database/ORM supports models or not."
 msgstr ""
 
-#: ../../source/faq/readme.rst:343
+#: ../../source/faq/readme.rst:345
 msgid "For any of the feathers database/ORM adapters you can just use :doc:`../api/hooks` to fetch data from other services."
 msgstr ""
 
-#: ../../source/faq/readme.rst:346
+#: ../../source/faq/readme.rst:348
 msgid "This is a better approach because it keeps your application database agnostic and service oriented. By referencing the services (using ``app.service().find()``, etc.) you can still decouple your app and have these services live on entirely separate machines or use entirely different databases without having to change any of your fetching code. We show how to associate data in a hook in the :doc:`../guides/chat/processing`. An alternative are the `fastJoin <https://feathers-plus.github.io/v1/feathers-hooks-common/#fastjoin>`_ or `populate <https://feathers-plus.github.io/v1/feathers-hooks-common/#populate>`_ in `feathers-hooks-common <https://feathers-plus.github.io/v1/feathers-hooks-common/>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:361
+#: ../../source/faq/readme.rst:363
 msgid "With mongoose you can use the ``$populate`` query param to populate nested documents."
 msgstr ""
 
-#: ../../source/faq/readme.rst:374
+#: ../../source/faq/readme.rst:376
 msgid "With Sequelize you can do this:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:389
+#: ../../source/faq/readme.rst:391
 msgid "Or set it in a hook as `described here <https://github.com/feathersjs-ecosystem/feathers-sequelize#associations-and-relations>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:392
+#: ../../source/faq/readme.rst:394
 msgid "Sequelize models and associations"
 msgstr ""
 
-#: ../../source/faq/readme.rst:394
+#: ../../source/faq/readme.rst:396
 msgid "If you are using the `Sequelize <http://docs.sequelizejs.com/>`_ adapter, understanding SQL and Sequelize first is very important. See the `associations section in the feathers-sequelize documentation <https://github.com/feathersjs-ecosystem/feathers-sequelize#associations>`_ for more information on how to associate models using the Sequelize Feathers adapter."
 msgstr ""
 
-#: ../../source/faq/readme.rst:401
+#: ../../source/faq/readme.rst:403
 msgid "What about Koa/Hapi/X?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:403
+#: ../../source/faq/readme.rst:405
 msgid "There are many other Node server frameworks out there like Koa, a *“next generation web framework for Node.JS”* using ES6 generator functions instead of Express middleware or HapiJS etc. Currently, Feathers is framework independent but only provides an :doc:`../api/express` integration for HTTP APIs. More frameworks may be supported in the future with direct `Node HTTP <https://nodejs.org/api/http.html>`_ being the most likely."
 msgstr ""
 
-#: ../../source/faq/readme.rst:411
+#: ../../source/faq/readme.rst:413
 msgid "How do I access the request object in hooks or services?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:413
+#: ../../source/faq/readme.rst:415
 msgid "In short, you shouldn’t need to. If you look at the :doc:`../api/hooks` you’ll see all the params that are available on a hook."
 msgstr ""
 
-#: ../../source/faq/readme.rst:416
+#: ../../source/faq/readme.rst:418
 msgid "If you still need something from the request object (for example, the requesting IP address) you can simply tack it on to the ``req.feathers`` object :doc:`../api/express#params` or :doc:`../api/socketio#appconfiguresocketiocallback`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:422
+#: ../../source/faq/readme.rst:424
 msgid "How do I mount sub apps?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:424
+#: ../../source/faq/readme.rst:426
 msgid "It’s pretty much exactly the same as Express. More information can be found :doc:`../api/express#sub-apps`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:428
+#: ../../source/faq/readme.rst:430
 msgid "How do I do some processing after sending the response to the user?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:430
+#: ../../source/faq/readme.rst:432
 msgid "The hooks workflow allows you to handle these situations quite gracefully. It depends on the promise that you return in your hook. Here’s an example of a hook that sends an email, but doesn’t wait for a success message."
 msgstr ""
 
-#: ../../source/faq/readme.rst:454
+#: ../../source/faq/readme.rst:456
 msgid "How do I debug my app"
 msgstr ""
 
-#: ../../source/faq/readme.rst:456
+#: ../../source/faq/readme.rst:458
 msgid "It’s really no different than debugging any other NodeJS app but you can refer to `this blog post <https://blog.feathersjs.com/debugging-feathers-with-visual-studio-code-406e6adf2882>`_ for more Feathers specific tips and tricks."
 msgstr ""
 
-#: ../../source/faq/readme.rst:461
+#: ../../source/faq/readme.rst:463
 msgid "``possible EventEmitter memory leak detected`` warning"
 msgstr ""
 
-#: ../../source/faq/readme.rst:463
+#: ../../source/faq/readme.rst:465
 msgid "This warning is not as bad as it sounds. If you got it from Feathers you most likely registered more than 64 services and/or event listeners on a Socket. If you don’t think there are that many services or event listeners you may have a memory leak. Otherwise you can increase the number in the :doc:`../api/socketio` via ``io.sockets.setMaxListeners(number)`` and with :doc:`../api/primus` via ``primus.setMaxListeners(number)``. ``number`` can be ``0`` for unlimited listeners or any other number of how many listeners you’d expect in the worst case."
 msgstr ""
 
-#: ../../source/faq/readme.rst:474
+#: ../../source/faq/readme.rst:476
 msgid "Why can’t I pass ``params`` from the client?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:476
+#: ../../source/faq/readme.rst:478
 msgid "When you make a call like:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:485
+#: ../../source/faq/readme.rst:487
 msgid "on the client the ``context.params`` object will only be available in your client side hooks. It will not be provided to the server. The reason for this is because ``context.params`` on the server usually contains information that should be server-side only. This can be database options, whether a request is authenticated, etc. If we passed those directly from the client to the server this would be a big security risk. Only the client side ``context.params.query`` and ``context.params.headers`` objects are provided to the server."
 msgstr ""
 
-#: ../../source/faq/readme.rst:494
+#: ../../source/faq/readme.rst:496
 msgid "If you need to pass info from the client to the server that is not part of the query you need to add it to ``context.params.query`` on the client side and explicitly pull it out of ``context.params.query`` on the server side. This can be achieved like so:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:532
+#: ../../source/faq/readme.rst:534
 msgid "My queries with null values aren’t working"
 msgstr ""
 
-#: ../../source/faq/readme.rst:534
+#: ../../source/faq/readme.rst:536
 msgid "When making a request using REST (HTTP) query *string* values don’t have any type information and will always be strings. Some database adapters that have a schema (like ``feathers-mongoose`` or ``feathers-sequelize``) will try to convert values to the correct type but others (like ``feathers-mongodb``) can’t. Additionally, ``null`` will always be a string and always has to be converted if you want to query for ``null``. This can be done in a ``before`` :doc:`../api/hooks`:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:561
+#: ../../source/faq/readme.rst:563
 msgid "Also see `this issue <https://github.com/feathersjs/feathers/issues/894>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:564
+#: ../../source/faq/readme.rst:566
 msgid "This issue does not happen when using websockets since it retains all type information."
 msgstr ""
 
-#: ../../source/faq/readme.rst:568
+#: ../../source/faq/readme.rst:570
 msgid "Why are queries with arrays failing?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:570
+#: ../../source/faq/readme.rst:572
 msgid "If you are using REST and queries with larger arrays (more than 21 items to be exact) are failing you are probably running into an issue with the `querystring <https://github.com/ljharb/qs>`_ module which `limits the size of arrays to 21 items <https://github.com/ljharb/qs#parsing-arrays>`_ by default. The recommended solution is to implement a custom query string parser function via ``app.set('query parser', parserFunction)`` with the ``arrayLimit`` option set to a higher value:"
 msgstr ""
 
-#: ../../source/faq/readme.rst:587
-msgid "For more information see the `Express application settings <http://expressjs.com/en/4x/api.html#app.set>`_ [@feathersjs/rest#88](https://github.com/feathersjs/feathers-rest/issues/88) and `feathers-mongoose#205 <https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205>`_."
-msgstr ""
-
-#: ../../source/faq/readme.rst:593
-msgid "I always get a 404 for my custom middleware"
+#: ../../source/faq/readme.rst:589
+msgid "For more information see the `Express application settings <http://expressjs.com/en/4x/api.html#app.set>`_ `@feathersjs/rest#88 <https://github.com/feathersjs/feathers-rest/issues/88>`_ and `feathers-mongoose#205 <https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205>`_."
 msgstr ""
 
 #: ../../source/faq/readme.rst:595
+msgid "I always get a 404 for my custom middleware"
+msgstr ""
+
+#: ../../source/faq/readme.rst:597
 msgid "Just like in Express itself, the order of middleware matters. If you registered a custom middleware outside of the generator, you have to make sure that it runs before the ``notFound()`` error midlleware."
 msgstr ""
 
-#: ../../source/faq/readme.rst:600
+#: ../../source/faq/readme.rst:602
 msgid "How do I get OAuth working across different domains"
 msgstr ""
 
-#: ../../source/faq/readme.rst:602
+#: ../../source/faq/readme.rst:604
 msgid "The standard Feathers oAuth setup sets the JWT in a cookie which can only be passed between the same domain. If your frontend is running on a different domain you will have to use query string redirects as outlined in `this Gist <https://gist.github.com/marshallswain/3c9e5b3b177b977468b5b711b6254f67>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:608
+#: ../../source/faq/readme.rst:610
 msgid "My configuration isn’t loaded"
 msgstr ""
 
-#: ../../source/faq/readme.rst:610
+#: ../../source/faq/readme.rst:612
 msgid "If you are running or requiring the Feathers app from a different folder :doc:`../api/configuration` needs to be instructed where the configuration files for the app are located. Since it uses `node-config <https://github.com/lorenwest/node-config>`_ this can be done by setting the `NODE_CONFIG_DIR envorinment variable <https://github.com/lorenwest/node-config/wiki/Environment-Variables#node_config_dir>`_."
 msgstr ""
 
-#: ../../source/faq/readme.rst:617
+#: ../../source/faq/readme.rst:619
 msgid "How do I set up HTTPS?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:619
+#: ../../source/faq/readme.rst:621
 msgid "Check out the Feathers :doc:`../api/express#https`."
 msgstr ""
 
-#: ../../source/faq/readme.rst:622
+#: ../../source/faq/readme.rst:624
 msgid "Is Feathers production ready?"
 msgstr ""
 
-#: ../../source/faq/readme.rst:624
+#: ../../source/faq/readme.rst:626
 msgid "Yes! It’s being used in production by a bunch of companies from startups to fortune 500s. For some more details see `this answer on Quora <https://www.quora.com/Is-FeathersJS-production-ready>`_."
 msgstr ""
 

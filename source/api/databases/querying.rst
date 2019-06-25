@@ -26,7 +26,7 @@ directly for equality.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?read=false&roomId=2
 
@@ -45,7 +45,7 @@ directly for equality.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?$limit=2&read=false
 
@@ -72,7 +72,7 @@ directly for equality.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?$limit=2&$skip=2&read=false
 
@@ -95,7 +95,7 @@ ascending, ``-1`` descending).
      }
    });
 
-::
+.. code-block:: sh
 
    /messages?$limit=10&$sort[createdAt]=-1
 
@@ -120,7 +120,7 @@ will work for any service method.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?$select[]=text&$select[]=userId
    GET /messages/1?$select[]=text
@@ -142,7 +142,7 @@ Find all records where the property does (``$in``) or does not
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?roomId[$in]=2&roomId[$in]=5
 
@@ -165,7 +165,7 @@ Find all records where the value is less (``$lt``) or less and equal
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?createdAt[$lt]=1479664146607
 
@@ -188,7 +188,7 @@ Find all records where the value is more (``$gt``) or more and equal
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?createdAt[$gt]=1479664146607
 
@@ -208,7 +208,7 @@ Find all records that do not equal the given property value.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?archived[$ne]=true
 
@@ -230,7 +230,7 @@ Find all records that match any of the given criteria.
      }
    });
 
-::
+.. code-block:: sh
 
    GET /messages?$or[0][archived][$ne]=true&$or[1][roomId]=2
 

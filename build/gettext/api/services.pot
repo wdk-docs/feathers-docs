@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:00+0800\n"
+"POT-Creation-Date: 2019-06-25 14:02+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "Services"
 msgstr ""
 
 #: ../../source/api/services.rst:4
-msgid "“Services” are the heart of every Feathers application. Services are JavaScript objects (or instances of `ES6 classes <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_) that implement :ref:`services_service-method`. Feathers itself will also add some :ref:`services_feathers-functionality` to its services."
+msgid "“Services” are the heart of every Feathers application. Services are JavaScript objects (or instances of `ES6 classes <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_) that implement :ref:`services_service-methods`. Feathers itself will also add some :ref:`services_feathers-functionality` to its services."
 msgstr ""
 
 #: ../../source/api/services.rst:12
@@ -57,11 +57,11 @@ msgid "``data`` — The resource data."
 msgstr ""
 
 #: ../../source/api/services.rst:100
-msgid "``params`` - Additional parameters for the method call, see :ref:`services-params`"
+msgid "``params`` - Additional parameters for the method call, see :ref:`services_params`"
 msgstr ""
 
 #: ../../source/api/services.rst:102
-msgid "Once registered, the service can be retrieved and used via :ref:`application_servicepath`."
+msgid "Once registered, the service can be retrieved and used via :ref:`api_application_servicepath`."
 msgstr ""
 
 #: ../../source/api/services.rst:111
@@ -109,7 +109,7 @@ msgid "``service.find(params) -> Promise`` - Retrieves a list of all resources f
 msgstr ""
 
 #: ../../source/api/services.rst:173
-msgid "``find`` does not have to return an array; it can also return an object. The database adapters already do this for :ref:`databases/common_pagination`."
+msgid "``find`` does not have to return an array; it can also return an object. The database adapters already do this for :ref:`api_databases_common_pagination`."
 msgstr ""
 
 #: ../../source/api/services.rst:178
@@ -129,124 +129,124 @@ msgid "``service.create(data, params) -> Promise`` - Creates a new resource with
 msgstr ""
 
 #: ../../source/api/services.rst:215
-msgid "A successful ``create`` method call emits the :ref:`events_created`."
+msgid "A successful ``create`` method call emits the :ref:`api_events_created`."
 msgstr ""
 
-#: ../../source/api/services.rst:219
+#: ../../source/api/services.rst:218
 msgid ".update(id, data, params)"
 msgstr ""
 
-#: ../../source/api/services.rst:221
+#: ../../source/api/services.rst:220
 msgid "``service.update(id, data, params) -> Promise`` - Replaces the resource identified by ``id`` with ``data``. The method should return a ``Promise`` with the complete, updated resource data. ``id`` can also be ``null`` when updating multiple records, with ``params.query`` containing the query criteria."
 msgstr ""
 
-#: ../../source/api/services.rst:227
+#: ../../source/api/services.rst:226
 msgid "A successful ``update`` method call emits the :ref:`events_updated`."
 msgstr ""
 
-#: ../../source/api/services.rst:231
+#: ../../source/api/services.rst:230
 msgid ".patch(id, data, params)"
 msgstr ""
 
-#: ../../source/api/services.rst:233
+#: ../../source/api/services.rst:232
 msgid "``patch(id, data, params) -> Promise`` - Merges the existing data of the resource identified by ``id`` with the new ``data``. ``id`` can also be ``null`` indicating that multiple resources should be patched with ``params.query`` containing the query criteria."
 msgstr ""
 
-#: ../../source/api/services.rst:238
+#: ../../source/api/services.rst:237
 msgid "The method should return with the complete, updated resource data. Implement ``patch`` additionally (or instead of) ``update`` if you want to distinguish between partial and full updates and support the ``PATCH`` HTTP method."
 msgstr ""
 
-#: ../../source/api/services.rst:243
+#: ../../source/api/services.rst:242
 msgid "A successful ``patch`` method call emits the :ref:`events_patched`."
 msgstr ""
 
-#: ../../source/api/services.rst:247
+#: ../../source/api/services.rst:246
 msgid ".remove(id, params)"
 msgstr ""
 
-#: ../../source/api/services.rst:249
+#: ../../source/api/services.rst:248
 msgid "``service.remove(id, params) -> Promise`` - Removes the resource with ``id``. The method should return a ``Promise`` with the removed resource. ``id`` can also be ``null``, which indicates the deletion of multiple resources, with ``params.query`` containing the query criteria."
 msgstr ""
 
-#: ../../source/api/services.rst:254
+#: ../../source/api/services.rst:253
 msgid "A successful ``remove`` method call emits the :ref:`events_remove`."
 msgstr ""
 
-#: ../../source/api/services.rst:258
+#: ../../source/api/services.rst:257
 msgid ".setup(app, path)"
 msgstr ""
 
-#: ../../source/api/services.rst:260
+#: ../../source/api/services.rst:259
 msgid "``service.setup(app, path) -> Promise`` is a special method that initializes the service, passing an instance of the Feathers application and the path it has been registered on."
 msgstr ""
 
-#: ../../source/api/services.rst:264
+#: ../../source/api/services.rst:263
 msgid "For services registered before ``app.listen`` is invoked, the ``setup`` function of each registered service is called on invoking ``app.listen``. For services registered after ``app.listen`` is invoked, ``setup`` is called automatically by Feathers when a service is registered."
 msgstr ""
 
-#: ../../source/api/services.rst:270
+#: ../../source/api/services.rst:269
 msgid "``setup`` is a great place to initialize your service with any special configuration or if connecting services that are very tightly coupled (see below), as opposed to using :doc:`hooks/readme`."
 msgstr ""
 
-#: ../../source/api/services.rst:318
+#: ../../source/api/services.rst:317
 msgid "Feathers functionality"
 msgstr ""
 
-#: ../../source/api/services.rst:320
+#: ../../source/api/services.rst:319
 msgid "When registering a service, Feathers (or its plugins) can also add its own methods to a service. Most notably, every service will automatically become an instance of a `NodeJS EventEmitter <https://nodejs.org/api/events.html#events_class_eventemitter>`_."
 msgstr ""
 
-#: ../../source/api/services.rst:326
+#: ../../source/api/services.rst:325
 msgid ".hooks(hooks)"
 msgstr ""
 
-#: ../../source/api/services.rst:328
+#: ../../source/api/services.rst:327
 msgid "Register :doc:`./hooks` for this service."
 msgstr ""
 
-#: ../../source/api/services.rst:331
+#: ../../source/api/services.rst:330
 msgid ".publish([event, ] publisher)"
 msgstr ""
 
-#: ../../source/api/services.rst:333
+#: ../../source/api/services.rst:332
 msgid "Register an event publishing callback. For more information, see the :doc:`./channels`."
 msgstr ""
 
-#: ../../source/api/services.rst:337
+#: ../../source/api/services.rst:336
 msgid ".mixin(mixin)"
 msgstr ""
 
-#: ../../source/api/services.rst:339
+#: ../../source/api/services.rst:338
 msgid "``service.mixin(mixin) -> service`` extends the functionality of a service. For more information see the `Uberproto <https://github.com/daffl/uberproto>`_ project page."
 msgstr ""
 
-#: ../../source/api/services.rst:344
+#: ../../source/api/services.rst:343
 msgid ".on(eventname, listener)"
 msgstr ""
 
-#: ../../source/api/services.rst:346
+#: ../../source/api/services.rst:345
 msgid "Provided by the core `NodeJS EventEmitter .on <https://nodejs.org/api/events.html#events_emitter_on_eventname_listener>`_. Registers a ``listener`` method (``function(data) {}``) for the given ``eventname``."
 msgstr ""
 
-#: ../../source/api/services.rst:351
-#: ../../source/api/services.rst:361
-#: ../../source/api/services.rst:371
+#: ../../source/api/services.rst:350
+#: ../../source/api/services.rst:360
+#: ../../source/api/services.rst:370
 msgid "For more information about service events, see the :doc:`./events`."
 msgstr ""
 
-#: ../../source/api/services.rst:355
+#: ../../source/api/services.rst:354
 msgid ".emit(eventname, data)"
 msgstr ""
 
-#: ../../source/api/services.rst:357
+#: ../../source/api/services.rst:356
 msgid "Provided by the core `NodeJS EventEmitter .emit <https://nodejs.org/api/events.html#events_emitter_emit_eventname_args>`_. Emits the event ``eventname`` to all event listeners."
 msgstr ""
 
-#: ../../source/api/services.rst:365
+#: ../../source/api/services.rst:364
 msgid ".removeListener(eventname, [ listener ])"
 msgstr ""
 
-#: ../../source/api/services.rst:367
+#: ../../source/api/services.rst:366
 msgid "Provided by the core `NodeJS EventEmitter .removeListener <https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener>`_. Removes all listeners, or the given listener, for ``eventname``."
 msgstr ""
 

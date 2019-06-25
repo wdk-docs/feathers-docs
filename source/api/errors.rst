@@ -3,7 +3,7 @@ Errors
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/errors --save
 
@@ -155,7 +155,7 @@ of transport.
 
 Here is an example error handler you can add to app.hooks errors.
 
-::
+.. code-block:: sh
 
    const errors = require("@feathersjs/errors");
    const errorHandler = ctx => {
@@ -175,7 +175,7 @@ Here is an example error handler you can add to app.hooks errors.
 
 then add it to the error.all hook
 
-::
+.. code-block:: sh
 
 
    module.exports = {

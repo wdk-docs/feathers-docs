@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FeathersJS Auth Recipe:自定义身份验证策略 &mdash; feathers docs v2019.06.21 文档</title>
+  <title>自定义身份验证策略 &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="FeathersJS Auth Recipe:认证Express中间件(SSR)" href="recipe.express-middleware.html" />
-    <link rel="prev" title="FeathersJS Auth Recipe:设置基本OAuth登录" href="recipe.oauth-basic.html" /> 
+    <link rel="next" title="认证Express中间件(SSR)" href="recipe.express-middleware.html" />
+    <link rel="prev" title="设置基本OAuth登录" href="recipe.oauth-basic.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,18 +91,18 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe:自定义JWT Payload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe:自定义登录响应</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe:设置基本OAuth登录</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe:自定义身份验证策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web Tokens 是如何工作的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">自定义 JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">设置基本OAuth登录</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">自定义身份验证策略</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#setting-up-the-basic-app">设置基本应用程序</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#creating-a-custom-api-key-auth-strategy">创建自定义API密钥身份验证策略</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#creating-an-anonymous-user-strategy">创建匿名用户策略</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe:认证Express中间件(SSR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">认证Express中间件(SSR)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
@@ -168,7 +168,7 @@
         
           <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
         
-      <li>FeathersJS Auth Recipe:自定义身份验证策略</li>
+      <li>自定义身份验证策略</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,8 +187,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="feathersjs-auth-recipe-custom-auth-strategy">
-<h1>FeathersJS Auth Recipe:自定义身份验证策略<a class="headerlink" href="#feathersjs-auth-recipe-custom-auth-strategy" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="custom-auth-strategy">
+<h1>自定义身份验证策略<a class="headerlink" href="#custom-auth-strategy" title="永久链接至标题">¶</a></h1>
 <p>FeatusJS的Auk版本包括一个强大的新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上.新插件非常灵活,允许您自定义几乎所有内容.我们可以利用它来使用 <a class="reference external" href="https://www.npmjs.com/package/passport-custom">Passport Custom</a> 创建完全自定义的身份验证策略.我们来看看本指南中的两个这样的例子.</p>
 <div class="section" id="setting-up-the-basic-app">
 <h2>设置基本应用程序<a class="headerlink" href="#setting-up-the-basic-app" title="永久链接至标题">¶</a></h2>
@@ -222,7 +222,7 @@
 <div class="section" id="creating-a-custom-api-key-auth-strategy">
 <h2>创建自定义API密钥身份验证策略<a class="headerlink" href="#creating-a-custom-api-key-auth-strategy" title="永久链接至标题">¶</a></h2>
 <p>我们可以看到的第一个自定义策略示例是API密钥策略.在其中,我们将检查请求中是否存在包含特定API密钥的特定标头.如果为true,我们将成功授权该请求.</p>
-<p>首先让我们使用 <a class="reference external" href="https://www.npmjs.com/package/passport-custom">passport-custom</a> npm包制定策略.</p>
+<p>First let’s make the strategy using <a class="reference external" href="https://www.npmjs.com/package/passport-custom">passport-custom</a> npm package.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">Strategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-custom&#39;</span><span class="p">);</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">opts</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -443,7 +443,10 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>请注意,这看起来非常类似于 <code class="docutils literal notranslate"><span class="pre">local</span></code> 策略的请求主体:</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>this looks very similar to a request body for <code class="docutils literal notranslate"><span class="pre">local</span></code> strategy:</p>
+</div>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">POST</span> <span class="o">/</span><span class="nx">authentication</span>
 
 <span class="p">{</span>
@@ -468,10 +471,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="recipe.express-middleware.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe:认证Express中间件(SSR)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recipe.express-middleware.html" class="btn btn-neutral float-right" title="认证Express中间件(SSR)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="recipe.oauth-basic.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe:设置基本OAuth登录" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="recipe.oauth-basic.html" class="btn btn-neutral float-left" title="设置基本OAuth登录" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

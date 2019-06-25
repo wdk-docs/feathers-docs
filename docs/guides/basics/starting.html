@@ -192,22 +192,22 @@
   <div class="section" id="our-first-feathers-application">
 <h1>我们的第一个Feathers应用程序<a class="headerlink" href="#our-first-feathers-application" title="永久链接至标题">¶</a></h1>
 <p>现在我们 <a class="reference internal" href="setup.html"><span class="doc">配置</span></a> 我们可以创建我们的第一个Feathers应用程序.它可以在NodeJS和浏览器中使用.首先, 让我们为我们运行的所有示例创建一个新文件夹:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">feathers</span><span class="o">-</span><span class="n">basics</span>
-<span class="n">cd</span> <span class="n">feathers</span><span class="o">-</span><span class="n">basics</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir feathers-basics
+<span class="nb">cd</span> feathers-basics
 </pre></div>
 </div>
 <p>由于任何Feathers应用程序都是Node应用程序, 我们可以使用 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 创建一个默认的 <a class="reference external" href="https://docs.npmjs.com/files/package.json">package.json</a> :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">init</span> <span class="o">--</span><span class="n">yes</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm init --yes
 </pre></div>
 </div>
 <div class="section" id="installing-feathers">
 <h2>安装Feathers<a class="headerlink" href="#installing-feathers" title="永久链接至标题">¶</a></h2>
 <p>Feathers can be installed like any other Node module by installing the
-[&#64;feathersjs/feathers](<a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/feathers">https://www.npmjs.com/package/&#64;feathersjs/feathers</a>)
+<a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/feathers">&#64;feathersjs/feathers</a>
 package through <a class="reference external" href="https://www.npmjs.com">npm</a>. The same package can
 also be used with a module loader like Browserify or Webpack and React
 Native.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">feathers</span> <span class="o">--</span><span class="n">save</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/feathers --save
 </pre></div>
 </div>
 <div class="admonition note">
@@ -252,7 +252,7 @@ Native.</p>
 </pre></div>
 </div>
 <p>我们可以运行它</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span> <span class="n">app</span><span class="o">.</span><span class="n">js</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>node app.js
 </pre></div>
 </div>
 <p>应该看到</p>
@@ -269,12 +269,12 @@ object see the <a class="reference internal" href="../../api/application.html"><
 <h2>在浏览器中<a class="headerlink" href="#in-the-browser" title="永久链接至标题">¶</a></h2>
 <p>The Feathers application we created above can also run just the same in the browser. The easiest way to load Feathers here is through a <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tag pointing to the CDN version of Feathers. Loading it will make a <code class="docutils literal notranslate"><span class="pre">feathers</span></code> global variable available.我们上面创建的Feathers应用程序也可以在浏览器中运行.在这里加载Feathers的最简单方法是通过一个指向CDN版本Feathers的 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签.加载它将使 <code class="docutils literal notranslate"><span class="pre">feathers</span></code> 全局变量可用.</p>
 <p>我们将浏览器文件放入一个新文件夹中</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">public</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir public
 </pre></div>
 </div>
 <p>We will also need to host the folder with a webserver. This can be done with any webserver like Apache or with the <a class="reference external" href="https://www.npmjs.com/package/http-server">http-server module</a> that we can install and host the <code class="docutils literal notranslate"><span class="pre">public/</span></code> folder like this:我们还需要使用网络服务器托管该文件夹.这可以通过任何像Apache这样的网络服务器或 <a class="reference external" href="https://www.npmjs.com/package/http-server">http-server模块</a> 来完成, 我们可以安装和托管 <code class="docutils literal notranslate"><span class="pre">public/</span></code> 文件夹像这样:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="n">g</span>
-<span class="n">http</span><span class="o">-</span><span class="n">server</span> <span class="n">public</span><span class="o">/</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install http-server -g
+http-server public/
 </pre></div>
 </div>
 <div class="admonition note">

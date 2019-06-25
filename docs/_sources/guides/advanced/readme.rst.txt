@@ -12,4 +12,4 @@ have :doc:`../chat/readme`.
 Some external advanced guides:
 
 -  `Debugging <https://blog.feathersjs.com/debugging-feathers-with-visual-studio-code-406e6adf2882>`_
--  :doc:`https://github.com/feathers-plus/feathers-authentication-management/blob/master/docs`
+-  `Local Authentication Management <https://github.com/feathers-plus/feathers-authentication-management/blob/master/docs.md>`_

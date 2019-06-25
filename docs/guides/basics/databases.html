@@ -213,7 +213,7 @@ database adapter.</p>
 is a Feathers database adapter that - similar to our messages service -
 stores its data in memory. We will use it for the examples because it
 also works in the browser. Let’s install it with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">feathers</span><span class="o">-</span><span class="n">memory</span> <span class="o">--</span><span class="n">save</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install feathers-memory --save
 </pre></div>
 </div>
 <p>We can use the adapter by requiring it and initializing it with the options we want. Here we enable pagination showing 10 entries by default and a maximum of 25 (so that clients can’t just request all data at once and crash our server):我们可以通过要求它并使用我们想要的选项初始化它来使用适配器.在这里, 我们启用分页, 默认显示10个条目, 最多25个(这样客户端不能只是一次请求所有数据并使我们的服务器崩溃):</p>

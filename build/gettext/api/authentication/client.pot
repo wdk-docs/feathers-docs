@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/authentication/client.rst:10
-msgid "The [@feathersjs/authentication-client](https://github.com/feathersjs/authentication-client) module allows you to easily authenticate against a Feathers server. It is not required, but makes it easier to implement authentication in your client by automatically storing and sending the JWT access token and handling re-authenticating when a websocket disconnects."
+msgid "The `@feathersjs/authentication-client <https://github.com/feathersjs/authentication-client>`_ module allows you to easily authenticate against a Feathers server. It is not required, but makes it easier to implement authentication in your client by automatically storing and sending the JWT access token and handling re-authenticating when a websocket disconnects."
 msgstr ""
 
 #: ../../source/api/authentication/client.rst:17

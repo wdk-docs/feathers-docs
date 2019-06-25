@@ -4,7 +4,7 @@ Creating the application
 In this part we are going to create a new Feathers application using the
 generator. We can install the generator via:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/cli -g
 
@@ -20,14 +20,14 @@ Generating the application
 With everything :doc:`../basics/setup`, let’s create a
 directory for our new app:
 
-::
+.. code-block:: sh
 
    $ mkdir feathers-chat
    $ cd feathers-chat/
 
 Now we can generate the application:
 
-::
+.. code-block:: sh
 
    $ feathers generate app
 
@@ -114,7 +114,7 @@ Running the server and tests
 
 The server can now be started by running
 
-::
+.. code-block:: sh
 
    npm start
 
@@ -124,7 +124,7 @@ remember to stop (CTRL + C) and start the server again.
 
 The app also comes with a set of basic tests which can be run with
 
-::
+.. code-block:: sh
 
    npm test
 

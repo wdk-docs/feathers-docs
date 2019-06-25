@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 11:03+0800\n"
+"POT-Creation-Date: 2019-06-25 14:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,35 +32,35 @@ msgstr ""
 msgid "**Core:** Feathers core functionality"
 msgstr ""
 
-#: ../../source/api/index.rst:28
+#: ../../source/api/index.rst:29
 msgid "Transports"
 msgstr ""
 
-#: ../../source/api/index.rst:30
+#: ../../source/api/index.rst:31
 msgid "Expose a Feathers application as an API server"
 msgstr ""
 
-#: ../../source/api/index.rst:40
+#: ../../source/api/index.rst:41
 msgid "Client"
 msgstr ""
 
-#: ../../source/api/index.rst:42
+#: ../../source/api/index.rst:43
 msgid "More details on how to use Feathers on the client"
 msgstr ""
 
-#: ../../source/api/index.rst:53
+#: ../../source/api/index.rst:54
 msgid "Authentication"
 msgstr ""
 
-#: ../../source/api/index.rst:55
+#: ../../source/api/index.rst:56
 msgid "Feathers authentication mechanism"
 msgstr ""
 
-#: ../../source/api/index.rst:68
+#: ../../source/api/index.rst:69
 msgid "Database"
 msgstr ""
 
-#: ../../source/api/index.rst:70
+#: ../../source/api/index.rst:71
 msgid "Feathers common database adapter API and querying mechanism"
 msgstr ""
 

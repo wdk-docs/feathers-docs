@@ -3,7 +3,7 @@ Services
 
 “Services” are the heart of every Feathers application. Services are
 JavaScript objects (or instances of `ES6 classes <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes>`_)
-that implement :ref:`services_service-method`. Feathers itself
+that implement :ref:`services_service-methods`. Feathers itself
 will also add some :ref:`services_feathers-functionality` to its services.
 
 .. _services_service-methods:
@@ -79,7 +79,7 @@ Services can also be an instance of an `ES6 class <https://developer.mozilla.org
     setup(app, path) {}
   }
 
-  app.use(‘/my-service’, new MyService()); {%- endcodetabs %}
+  app.use(‘/my-service’, new MyService());
 
 .. tip::
    Methods are optional, and if a method is not implemented
@@ -97,9 +97,9 @@ or be declared as ``async`` and have the following parameters:
 
 -  ``id`` — The identifier for the resource. A resource is the data identified by a unique id.
 -  ``data`` — The resource data.
--  ``params`` - Additional parameters for the method call, see :ref:`services-params`
+-  ``params`` - Additional parameters for the method call, see :ref:`services_params`
 
-Once registered, the service can be retrieved and used via :ref:`application_servicepath`.
+Once registered, the service can be retrieved and used via :ref:`api_application_servicepath`.
 
 .. code:: js
 
@@ -117,7 +117,7 @@ to, for example, pull in GitHub stars or stock ticker data.
    the official Feathers database adapters. For specifics on how to use
    the database adapters, see the :doc:`./databases/common`.
 
-.. _services-params:
+.. _services_params:
 
 params
 ~~~~~~
@@ -172,7 +172,7 @@ from the service. Provider parameters will be passed as
 
 .. note:: ``find`` does not have to return an array; it can also
    return an object. The database adapters already do this for
-   :ref:`databases/common_pagination`.
+   :ref:`api_databases_common_pagination`.
 
 .get(id, params)
 ~~~~~~~~~~~~~~~~
@@ -212,8 +212,7 @@ created data. ``data`` may also be an array.
 
 ..
 
-.. important:: A successful ``create`` method call emits the
-   :ref:`events_created`.
+.. important:: A successful ``create`` method call emits the :ref:`api_events_created`.
 
 .update(id, data, params)
 ~~~~~~~~~~~~~~~~~~~~~~~~~

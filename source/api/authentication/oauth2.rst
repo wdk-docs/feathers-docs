@@ -3,11 +3,11 @@ OAuth2 Authentication
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/authentication-oauth2 --save
 
-[@feathersjs/authentication-oauth2](https://github.com/feathersjs/authentication-oauth2)
+`@feathersjs/authentication-oauth2 <https://github.com/feathersjs/authentication-oauth2>`_
 is a server side module that allows you to use any
 `Passport <http://passportjs.org/>`_ OAuth2 authentication strategy
 within your Feathers application. There are hundreds of them! Some

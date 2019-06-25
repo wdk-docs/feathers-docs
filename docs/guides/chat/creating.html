@@ -189,7 +189,7 @@
   <div class="section" id="creating-the-application">
 <h1>创建应用程序<a class="headerlink" href="#creating-the-application" title="永久链接至标题">¶</a></h1>
 <p>在这一部分中,我们将使用生成器创建一个新的Feathers应用程序.我们可以安装发电机:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/cli -g
 </pre></div>
 </div>
 <div class="admonition important">
@@ -199,15 +199,15 @@
 <div class="section" id="generating-the-application">
 <h2>生成应用程序<a class="headerlink" href="#generating-the-application" title="永久链接至标题">¶</a></h2>
 <p>随着一切 <a class="reference internal" href="../basics/setup.html"><span class="doc">配置</span></a>,让我们为我们的新应用创建一个目录:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir feathers-chat
-$ cd feathers-chat/
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir feathers-chat
+$ <span class="nb">cd</span> feathers-chat/
 </pre></div>
 </div>
 <p>现在我们可以生成应用程序了:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ feathers generate app
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ feathers generate app
 </pre></div>
 </div>
-<p>当显示项目名称时，只需按 Enter 键或输入名称（无空格）。:</p>
+<p>当显示项目名称时, 只需按 Enter 键或输入名称(无空格).:</p>
 <p>接下来,写下您的应用程序的简短描述.</p>
 <p>只需按Enter即可回答询问源文件夹的下一个提示.这会将所有源文件放入 <code class="docutils literal notranslate"><span class="pre">src/</span></code> 文件夹中.</p>
 <p>下一个提示将询问您要使用的包管理器.默认为标准 <a class="reference external" href="https://www.npmjs.com/">npm</a>.</p>
@@ -256,12 +256,12 @@ $ cd feathers-chat/
 <div class="section" id="running-the-server-and-tests">
 <h2>运行服务器和测试<a class="headerlink" href="#running-the-server-and-tests" title="永久链接至标题">¶</a></h2>
 <p>现在可以通过运行来启动服务器</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm start
 </pre></div>
 </div>
 <p>之后,您可以在 <a class="reference external" href="http://localhost:3030">localhost:3030</a> 看到欢迎页面.进行修改时,请记住停止(CTRL + C)并再次启动服务器.</p>
 <p>该应用程序还附带了一组可以运行的基本测试</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm <span class="nb">test</span>
 </pre></div>
 </div>
 </div>

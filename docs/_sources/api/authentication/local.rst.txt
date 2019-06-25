@@ -3,11 +3,11 @@ Local Authentication
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/authentication-local --save
 
-[@feathersjs/authentication-local](https://github.com/feathersjs/authentication-local)
+`@feathersjs/authentication-local <https://github.com/feathersjs/authentication-local>`_
 is a server side module that wraps the
 `passport-local <https://github.com/jaredhanson/passport-local>`_
 authentication strategy, which lets you authenticate with your Feathers

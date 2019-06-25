@@ -3,11 +3,11 @@ OAuth1 Authentication
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/authentication-oauth1 --save
 
-[@feathersjs/authentication-oauth1](https://github.com/feathersjs/authentication-oauth1)
+`@feathersjs/authentication-oauth1 <https://github.com/feathersjs/authentication-oauth1>`_
 is a server side module that allows you to use any
 `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy
 within your Feathers application, most notably

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 14:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,15 +28,15 @@ msgstr ""
 msgid "`The Auth0 JWT Documentation <https://auth0.com/docs/jwt>`_ - If you want a good high-level overview."
 msgstr ""
 
-#: ../../source/guides/auth/how-jwt-works.rst:11
+#: ../../source/guides/auth/how-jwt-works.rst:10
 msgid "`The IETF JWT Specification <https://tools.ietf.org/html/rfc7519>`_ - If you want to get really technical."
 msgstr ""
 
-#: ../../source/guides/auth/how-jwt-works.rst:15
+#: ../../source/guides/auth/how-jwt-works.rst:13
 msgid "Customizing the JWT Claims"
 msgstr ""
 
-#: ../../source/guides/auth/how-jwt-works.rst:17
-msgid "``feathers-authentication@1.x`` allows you to customize the data stored inside the JWT. We refer to the data in the JWT as the ``payload``. There are a few reserved attributes, which in the `Official JWT Spec <https://tools.ietf.org/html/rfc7519>`_ are called ``claims``. You can customize some of these claims in the :doc:`../../api/authentication/server#default-options`. To get more familiar with the purpose of each ``claim``, please refer to `Section 4 of the Official JWT Specification <https://tools.ietf.org/html/rfc7519#section-4>`_."
+#: ../../source/guides/auth/how-jwt-works.rst:15
+msgid "``feathers-authentication@1.x`` allows you to customize the data stored inside the JWT. We refer to the data in the JWT as the ``payload``. There are a few reserved attributes, which in the `Official JWT Spec <https://tools.ietf.org/html/rfc7519>`_ are called ``claims``. You can customize some of these claims in the :ref:`api_auth_server-otions`. To get more familiar with the purpose of each ``claim``, please refer to `Section 4 of the Official JWT Specification <https://tools.ietf.org/html/rfc7519#section-4>`_."
 msgstr ""
 

@@ -5,7 +5,7 @@ Now that we are :doc:`./setup` we can create our first Feathers
 application. It will work in both, NodeJS and the browser. First, let’s
 create a new folder for all our examples to run in:
 
-::
+.. code-block:: sh
 
    mkdir feathers-basics
    cd feathers-basics
@@ -14,7 +14,7 @@ Since any Feathers application is a Node application, we can create a
 default `package.json <https://docs.npmjs.com/files/package.json>`_
 using ``npm``:
 
-::
+.. code-block:: sh
 
    npm init --yes
 
@@ -22,12 +22,12 @@ Installing Feathers
 -------------------
 
 Feathers can be installed like any other Node module by installing the
-[@feathersjs/feathers](https://www.npmjs.com/package/@feathersjs/feathers)
+`@feathersjs/feathers <https://www.npmjs.com/package/@feathersjs/feathers>`_
 package through `npm <https://www.npmjs.com>`_. The same package can
 also be used with a module loader like Browserify or Webpack and React
 Native.
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/feathers --save
 
@@ -83,7 +83,7 @@ like this:
 
 We can run it with
 
-::
+.. code-block:: sh
 
    node app.js
 
@@ -108,7 +108,7 @@ will make a ``feathers`` global variable available.
 
 Let’s put the browser files into a new folder
 
-::
+.. code-block:: sh
 
    mkdir public
 
@@ -117,7 +117,7 @@ with any webserver like Apache or with the `http-server
 module <https://www.npmjs.com/package/http-server>`_ that we can
 install and host the ``public/`` folder like this:
 
-::
+.. code-block:: sh
 
    npm install http-server -g
    http-server public/

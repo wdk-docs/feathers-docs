@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FeathersJS 认证食谱: 认证Express中间件(SSR) &mdash; feathers docs v2019.06.21 文档</title>
+  <title>认证Express中间件(SSR) &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
     <link rel="next" title="高级指南" href="../advanced/index.html" />
-    <link rel="prev" title="FeathersJS Auth Recipe:自定义身份验证策略" href="recipe.custom-auth-strategy.html" /> 
+    <link rel="prev" title="自定义身份验证策略" href="recipe.custom-auth-strategy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,13 +91,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe:自定义JWT Payload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe:自定义登录响应</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe:设置基本OAuth登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe:自定义身份验证策略</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS 认证食谱: 认证Express中间件(SSR)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web Tokens 是如何工作的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">自定义 JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">自定义身份验证策略</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">认证Express中间件(SSR)</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">配置</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#setting-up-middleware">设置中间件</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#views">查看</a></li>
@@ -168,7 +168,7 @@
         
           <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
         
-      <li>FeathersJS 认证食谱: 认证Express中间件(SSR)</li>
+      <li>认证Express中间件(SSR)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -187,8 +187,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="feathersjs-auth-recipe-authenticating-express-middleware-ssr">
-<h1>FeathersJS 认证食谱: 认证Express中间件(SSR)<a class="headerlink" href="#feathersjs-auth-recipe-authenticating-express-middleware-ssr" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="authenticating-express-middleware-ssr">
+<h1>认证Express中间件(SSR)<a class="headerlink" href="#authenticating-express-middleware-ssr" title="永久链接至标题">¶</a></h1>
 <p>Feathers身份验证还支持验证Express中间件的路由,并可用于服务器端呈现.此配方显示如何创建登录表单, <code class="docutils literal notranslate"><span class="pre">/logout</span></code> 端点和受保护的 <code class="docutils literal notranslate"><span class="pre">/chat</span></code> 端点,该端点呈现来自我们的所有用户和最近的聊天消息 <span class="xref std std-doc">chat/readme</span>.</p>
 <p>关键步骤是:</p>
 <ol class="arabic simple">
@@ -223,7 +223,7 @@
 <div class="section" id="setting-up-middleware">
 <h2>设置中间件<a class="headerlink" href="#setting-up-middleware" title="永久链接至标题">¶</a></h2>
 <p><span class="xref std std-doc">../api/authentication/jwt</span> 将在cookie中查找JWT,但只有解析cookie的路径才能访问它.这可以通过  <a class="reference external" href="https://github.com/expressjs/cookie-parser">cookie-parser Express中间件</a> 来完成:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">cookie</span><span class="o">-</span><span class="n">parser</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install cookie-parser
 </pre></div>
 </div>
 <p>现在我们可以通过首先向链中添加 <code class="docutils literal notranslate"><span class="pre">cookieParser(),authenticate('jwt')</span></code> 来保护任何Express路由.</p>
@@ -232,7 +232,7 @@
 <p>只有在实际需要由cookie中的JWT保护的路由之前注册cookie解析器中间件才能防止CSRF安全问题.</p>
 </div>
 <p>由于我们想要在服务器上呈现视图,我们必须注册一个 <a class="reference external" href="http://expressjs.com/en/guide/using-template-engines.html">Express模板引擎</a>. 在本例中,我们将使用 <a class="reference external" href="https://www.npmjs.com/package/ejs">EJS</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">ejs</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install ejs
 </pre></div>
 </div>
 <p>接下来,我们可以将 <code class="docutils literal notranslate"><span class="pre">src/middleware/index.js</span></code> 更新为</p>
@@ -290,11 +290,11 @@
 <div class="section" id="views">
 <h2>查看<a class="headerlink" href="#views" title="永久链接至标题">¶</a></h2>
 <p>登录表单必须向 <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 端点发出POST请求,并发送与任何其他API客户端相同的字段.在我们的案例中具体:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;user@example.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;mypassword&quot;</span>
-<span class="p">}</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;strategy&quot;</span>: <span class="s2">&quot;local&quot;</span>,
+  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;user@example.com&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;mypassword&quot;</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">email</span></code> 和 <code class="docutils literal notranslate"><span class="pre">passwords</span></code> 是正常的输入字段,我们可以将 <code class="docutils literal notranslate"><span class="pre">strategy</span></code> 添加为隐藏字段.表单必须向 <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 端点提交POST请求.由于服务可以接受JSON和URL编码形式,因此我们不需要做任何其他事情. <code class="docutils literal notranslate"><span class="pre">views/login.ejs</span></code> 的登录页面如下所示:</p>
@@ -430,7 +430,7 @@
         <a href="../advanced/index.html" class="btn btn-neutral float-right" title="高级指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe:自定义身份验证策略" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-left" title="自定义身份验证策略" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

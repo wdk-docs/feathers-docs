@@ -34,9 +34,8 @@ methods that a service object can implement. Feathers service methods are:
 
 Below is an example of Feathers service interface as a normal object and a JavaScript class:
 
-.. code-block::
+.. code-block:: js
 
-    {% codetabs name=“Object”, type=“js” -%}
     const myService = {
       async find(params) { return []; },
       async get(id, params) {},
@@ -46,7 +45,6 @@ Below is an example of Feathers service interface as a normal object and a JavaS
       async remove(id, params) {}
     }
     app.use(‘/my-service’, myService);
-    {%- language name=“Class”, type=“js” -%}
     class myService {
       async find(params) { return []; }
       async get(id, params) {}
@@ -56,7 +54,6 @@ Below is an example of Feathers service interface as a normal object and a JavaS
       async remove(id, params) {}
     }
     app.use(‘/my-service’, new myService());
-    {%- endcodetabs %}
 
 The parameters for service methods are:
 
@@ -181,13 +178,13 @@ of its service methods. Add the following to the end of ``app.js``:
 
 And run it with
 
-::
+.. code-block:: sh
 
    node app.js
 
 We should see this:
 
-::
+.. code-block:: sh
 
    Available messages [ { id: 1, text: 'First message' },
      { id: 2, text: 'Second message' } ]
@@ -244,14 +241,14 @@ functionality. For now, let’s update the ``processMessages`` function in
 
 If we now run the file via
 
-::
+.. code-block:: sh
 
    node app.js
 
 We will see how the event handlers are logging the information of
 created and deleted message like this:
 
-::
+.. code-block:: sh
 
    Created a new message { id: 1, text: 'First message' }
    Created a new message { id: 2, text: 'Second message' }

@@ -3,11 +3,11 @@ Socket.io
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/socketio --save
 
-The [@feathersjs/socketio](https://github.com/feathersjs/socketio)
+The `@feathersjs/socketio <https://github.com/feathersjs/socketio>`_
 module allows to call :doc:`./services` and receive
 :doc:`./events` via
 `Socket.io <http://socket.io/>`_, a NodeJS library which enables
@@ -152,7 +152,7 @@ used as the service call ``params``:
 
 ..
 
-   *Note:* ``socket.feathers`` is the same object as the ``connection``
+.. note:: ``socket.feathers`` is the same object as the ``connection``
    in a :doc:`./channels`. ``socket.request`` and
    ``socket.handshake`` contains information the HTTP request that
    initiated the connection (see the `Socket.io

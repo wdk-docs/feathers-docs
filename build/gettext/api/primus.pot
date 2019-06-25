@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/primus.rst:10
-msgid "The [@feathersjs/primus](https://github.com/feathersjs/primus) module allows to call :doc:`./services` and receive :doc:`./events` via `Primus <https://github.com/primus/primus>`_, a universal wrapper for real-time frameworks that supports Engine.IO, WebSockets, Faye, BrowserChannel, SockJS and Socket.IO."
+msgid "The `@feathersjs/primus <https://github.com/feathersjs/primus>`_ module allows to call :doc:`./services` and receive :doc:`./events` via `Primus <https://github.com/primus/primus>`_, a universal wrapper for real-time frameworks that supports Engine.IO, WebSockets, Faye, BrowserChannel, SockJS and Socket.IO."
 msgstr ""
 
 #: ../../source/api/primus.rst:17

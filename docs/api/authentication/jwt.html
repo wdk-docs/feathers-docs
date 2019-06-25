@@ -185,10 +185,14 @@
   <div class="section" id="jwt-authentication">
 <h1>JWT身份验证<a class="headerlink" href="#jwt-authentication" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/authentication-jwt"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/authentication-jwt.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/authentication-jwt/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication-jwt --save
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication-jwt --save
 </pre></div>
 </div>
-<p>[&#64; feathersjs / authentication-jwt]（<a class="reference external" href="https://github.com/feathersjs/authentication-jwt">https://github.com/feathersjs/authentication-jwt</a>）是一个模块：doc：<cite>。/ server</cite>，它包装了`passport-jwt &lt;https：// github。 com / themikenicholson / passport-jwt&gt;`_ authentication strategy，它允许您使用`JSON Web Token &lt;<a class="reference external" href="https://jwt.io/">https://jwt.io/</a>&gt;`_ access token对您的Feathers应用程序进行身份验证。</p>
+<p><a class="reference external" href="https://github.com/feathersjs/authentication-jwt">&#64;feathersjs/authentication-jwt</a>
+is a module for the <a class="reference internal" href="server.html"><span class="doc">认证</span></a> that wraps
+the <a class="reference external" href="https://github.com/themikenicholson/passport-jwt">passport-jwt</a>
+authentication strategy, which lets you authenticate with your Feathers
+application using a <a class="reference external" href="https://jwt.io/">JSON Web Token</a> access token.</p>
 <p>This module contains 3 core pieces:</p>
 <ol class="arabic simple">
 <li><p>The main initialization function</p></li>
@@ -249,14 +253,14 @@ options can be provided.</p>
 </div>
 <div class="section" id="verifier">
 <h2>Verifier<a class="headerlink" href="#verifier" title="永久链接至标题">¶</a></h2>
-<p>[&#64; feathersjs / authentication-jwt] (<a class="reference external" href="https://github.com/feathersjs/authentication-jwt">https://github.com/feathersjs/authentication-jwt</a>) is a module: doc:<cite>. / server</cite>, which wraps <a class="reference external" href="https://github.Com/themikenicholson/passport-jwt">passport-jwt</a> authentication strategy, which allows you to authenticate your Feathers application using the <a class="reference external" href="https://jwt.io/">JSON Web Token</a> access token.</p>
+<p>[&#64; feathersjs/authentication-jwt] (<a class="reference external" href="https://github.com/feathersjs/authentication-jwt">https://github.com/feathersjs/authentication-jwt</a>) is a module: doc:<cite>./server</cite>, which wraps <a class="reference external" href="https://github.Com/themikenicholson/passport-jwt">passport-jwt</a> authentication strategy, which allows you to authenticate your Feathers application using the <a class="reference external" href="https://jwt.io/">JSON Web Token</a> access token.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="c1">// the class constructor</span>
     <span class="nx">verify</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">payload</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="c1">// queries the configured service</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>可以扩展``Verifier``类，以便您可以自定义它的行为，而无需重写和测试完全自定义的本地Passport实现。虽然如果您不想使用此插件，这始终是一个选项。</p>
+<p>可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项.</p>
 <p>An example of customizing the Verifier:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Verifier</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication-jwt&#39;</span><span class="p">);</span>
 

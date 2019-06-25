@@ -19,8 +19,8 @@ msgstr ""
 "Generated-By: Babel 2.6.0\n"
 
 #: ../../source/guides/auth/recipe.customize-response.rst:2
-msgid "FeathersJS Auth Recipe: Customizing the Login Response"
-msgstr "FeathersJS Auth Recipe:自定义登录响应"
+msgid "Customizing the Login Response"
+msgstr "自定义登录响应"
 
 #: ../../source/guides/auth/recipe.customize-response.rst:4
 msgid ""

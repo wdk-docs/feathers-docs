@@ -18,13 +18,13 @@ To quickly upgrade any Feathers plugin or application you can use the
 ``upgrade`` command from the new CLI. First, if you have it installed,
 uninstall the old ``feathers-cli``:
 
-::
+.. code-block:: sh
 
    npm uninstall feathers-cli -g
 
 Then install ``@feathersjs/cli`` and upgrade a project:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/cli -g
    cd path/to/project
@@ -133,7 +133,7 @@ service specific publishers):
 
 ..
 
-   **Very important:** The ``channels.js`` file shown above will publish
+.. important:: The ``channels.js`` file shown above will publish
    all real-time events to all authenticated users. This is already
    safer than the previous default but you should carefully review the
    :doc:`./api/channels` documentation and implement

@@ -17,12 +17,12 @@ After successful installation, the ``node`` and ``npm`` commands should
 be available on the terminal and show something similar when running the
 following commands:
 
-::
+.. code-block:: sh
 
    $ node --version
    v8.5.0
 
-::
+.. code-block:: sh
 
    $ npm --version
    5.5.1

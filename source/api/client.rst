@@ -12,22 +12,17 @@ that talk to a Feathers server.
 In order to connect to a Feathers server, a client creates
 :doc:`./services` that use a REST or websocket connection to
 relay method calls and allow listening to :doc:`./events` on
-the server. This means the `Feathers application
-instance <./application>`_ is usable the exact same way as on the
+the server. This means the :ref:`Feathers application
+instance <api_feathersjs-client>` is usable the exact same way as on the
 server.
 
 Modules most relevant on the client are:
 
--  ``@feathersjs/feathers`` to initialize a new Feathers
-   :doc:`./application`
--  :doc:`./client/rest` to connect to services
-   through :doc:`./express`.
--  :doc:`./client/socketio` to connect to
-   services through :doc:`./socketio`.
--  :doc:`./client/primus` to connect to
-   services through :doc:`./primus`.
--  :doc:`./authentication/client` to
-   authenticate a client
+-  ``@feathersjs/feathers`` to initialize a new Feathers :doc:`./application`
+-  :doc:`./client/rest` to connect to services through :doc:`./express`.
+-  :doc:`./client/socketio` to connect to services through :doc:`./socketio`.
+-  :doc:`./client/primus` to connect to services through :doc:`./primus`.
+-  :doc:`./authentication/client` to authenticate a client
 
 ..
 
@@ -44,7 +39,7 @@ The examples are using :doc:`./client/socketio`.
 For other connection methods see the chapters linked above.
 
 .. important:: Feathers can be used on the client through the
-   individual modules or the [@feathersjs/client](#feathersjsclient)
+   individual modules or the :ref:`@feathersjs/client <api_feathersjs-client>`
    module. The latter combines all modules mentioned above into a
    single, ES5 transpiled version.
 
@@ -55,7 +50,7 @@ To connect to a Feathers server in NodeJS, install the desired client
 connection library (here, ``socket.io-client``), alongside the Feathers
 core library, and the connection-specific library:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client --save
 
@@ -85,12 +80,11 @@ React Native
 ------------
 
 React Native usage is the same as for the `Node client <#node>`_.
-Install the required packages into your `React
-Native <https://facebook.github.io/react-native/>`_ project.
+Install the required packages into your `React Native <https://facebook.github.io/react-native/>`_ project.
 
 .. code:: bash
 
-   $ npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client
+   npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client
 
 Then in the main application file:
 
@@ -117,11 +111,8 @@ Then in the main application file:
      text: 'Message from client'
    });
 
-Since React Native for Android doesn’t handle timeouts exceeding one
-minute, consider setting lower values for ``pingInterval`` and
-``pingTimeout`` of ``feathers-socketio`` on your server. This which will
-stop warnings related to this
-`issue <https://github.com/facebook/react-native/issues/12981>`_. For
+Since React Native for Android doesn’t handle timeouts exceeding one minute, consider setting lower values for ``pingInterval`` and ``pingTimeout`` of ``feathers-socketio`` on your server.
+This which will stop warnings related to this `issue <https://github.com/facebook/react-native/issues/12981>`_. For
 example:
 
 .. code:: js
@@ -168,10 +159,10 @@ create-react-app
 `create-react-app <https://github.com/facebookincubator/create-react-app>`_
 uses `Webpack <#webpack>`_ but does not allow to modify the
 configuration unless you eject. If you do not want to eject, use the
-[@feathersjs/client](https://github.com/feathersjs/client) module
+`@feathersjs/client <https://github.com/feathersjs/client>`_ module
 instead.
 
-::
+.. code-block:: sh
 
    npm i --save @feathersjs/client
 
@@ -195,14 +186,16 @@ As mentioned above, ``node_modules/@feathersjs`` and all its subfolders
 must be included in the ES6+ transpilation step when using any module
 loader that is using a transpiler. For non-CommonJS formats (like AMD)
 and an ES5 compatible version of Feathers and its client modules you can
-use the [@feathersjs/client module](#feathersjsclient).
+use the :ref:`@feathersjs/client module <api_feathersjs-client>`.
+
+.. _api_feathersjs-client:
 
 @feathersjs/client
 ------------------
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/client --save
 
@@ -256,8 +249,7 @@ should follow the steps described in the `Node <#node>`_ and `React
 Native <#react-native>`_ sections and **not** use
 ``@feathersjs/client``.
 
-.. note:: All Feathers client examples show direct usage and usage
-   with ``@feathersjs/client``.
+.. note:: All Feathers client examples show direct usage and usage with ``@feathersjs/client``.
 
 Load with a module loader
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -289,8 +281,7 @@ size.
 Load from CDN with ``<script>``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Below is an example of the scripts you would use to load
-``@feathersjs/client`` from `unpkg.com <https://unpkg.com>`_.
+Below is an example of the scripts you would use to load ``@feathersjs/client`` from `unpkg.com <https://unpkg.com>`_.
 
 .. code:: html
 
@@ -302,14 +293,11 @@ Below is an example of the scripts you would use to load
      var socket = io('http://localhost:3030');
      // @feathersjs/client is exposed as the `feathers` global.
      var app = feathers();
-
      app.configure(feathers.socketio(socket));
      app.configure(feathers.authentication());
-
      app.service('messages').create({
        text: 'A new message'
      });
-
      // feathers.errors is an object with all of the custom error types.
    </script>
 
@@ -323,18 +311,14 @@ Here’s how to load feathers-client using RequireJS Syntax:
    define(function (require) {
      const feathers = require('@feathersjs/client');
      const io = require('socket.io-client');
-
      const socket = io('http://localhost:3030');
      // @feathersjs/client is exposed as the `feathers` global.
      const app = feathers();
-
      app.configure(feathers.socketio(socket));
      app.configure(feathers.authentication());
-
      app.service('messages').create({
        text: 'A new message'
      });
-
      return const;
    });
 

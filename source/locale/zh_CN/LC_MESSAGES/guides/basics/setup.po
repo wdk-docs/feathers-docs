@@ -106,7 +106,7 @@ msgid ""
 "depth knowledge of Express but some experience with Express will be "
 "helpful in the future (see the `Express guide "
 "<http://expressjs.com/en/guide/routing.html>`_ to get started)."
-msgstr "Feathers独立工作，但也提供 :doc:`../../api/express` with `Express <http://expressjs.com/>`_.本指南不需要任何深入的Express知识，但有一些使用Express的经验将来会有所帮助(参见 `快速指南<http://expressjs.com/en/guide/routing.html>`_ 获取启动)."
+msgstr "Feathers独立工作, 但也提供带 `Express <http://expressjs.com/>`_ 的 :doc:`../../api/express`.本指南不需要任何深入的Express知识, 但有一些使用Express的经验将来会有所帮助(参见 `快速指南 <http://expressjs.com/en/guide/routing.html>`_ 获取启动)."
 
 #: ../../source/guides/basics/setup.rst:62
 msgid "What we won’t cover"

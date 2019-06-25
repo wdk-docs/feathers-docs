@@ -3,7 +3,7 @@ Configuration
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/configuration --save
 
@@ -136,7 +136,7 @@ Now it can be used in our ``app.js`` like this:
 
 If you now run
 
-::
+.. code-block:: sh
 
    node app
    // -> path/to/app/public
@@ -155,7 +155,7 @@ Or via custom environment variables by setting them in
      "mongodb": "MONGOHQ_URL"
    }
 
-::
+.. code-block:: sh
 
    $ PORT=8080 MONGOHQ_URL=mongodb://localhost:27017/production NODE_ENV=production node app
    // -> path/to/app/public/dist

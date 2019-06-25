@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 12:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,7 +98,7 @@ msgid "With a REST client, e.g. \\ `Postman <https://chrome.google.com/webstore
 msgstr ""
 
 #: ../../source/guides/chat/authentication.rst:99
-msgid "The returned token can then be used to authenticate this specific user, by adding it to the ``Authorization`` header of new HTTP requests. Since we will also use Feathers on the client when creating a frontend, we don’t have to worry about manually creating and using the token for this guide. For more information for authenticating REST API calls see the :doc:`../../api/client/rest#authentication`."
+msgid "The returned token can then be used to authenticate this specific user, by adding it to the ``Authorization`` header of new HTTP requests. Since we will also use Feathers on the client when creating a frontend, we don’t have to worry about manually creating and using the token for this guide. For more information for authenticating REST API calls see the :ref:`api-client-rest-authentication`."
 msgstr ""
 
 #: ../../source/guides/chat/authentication.rst:107

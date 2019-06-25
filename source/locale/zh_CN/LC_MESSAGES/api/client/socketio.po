@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:18+0800\n"
+"POT-Creation-Date: 2019-06-25 16:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,9 +29,8 @@ msgid ""
 "Socket.io connection without using Feathers on the client, see the "
 "`Direct connection <#direct-connection>`_ section."
 msgstr ""
-"如果可能的话, 我们建议在客户端使用Feathers和 ``feathersshots/socketio-"
-"client`` 模块.但是, 如果您想在客户端上使用直接Socket.io连接而不使用Feathers, 请参阅 `直接连接 <#irect-"
-"connection>`_ 部分."
+"如果可能的话, 我们建议在客户端使用Feathers和 ``feathersshots/socketio-client`` 模块.但是, "
+"如果您想在客户端上使用直接Socket.io连接而不使用Feathers, 请参阅 `直接连接 <#irect-connection>`_ 部分."
 
 #: ../../source/api/client/socketio.rst:11
 msgid "@feathersjs/socketio-client"
@@ -45,17 +44,18 @@ msgstr "|GitHub stars| |npm version| |Changelog|"
 msgid ""
 "The ``@feathersjs/socketio-client`` module allows to connect to services "
 "exposed through the :doc:`socketio` via a Socket.io socket."
-msgstr "``feathersress/socketio-client`` 模块允许通过Socket.io套接字连接到通过 :doc:`socketio` 公开的服务."
+msgstr ""
+"``feathersress/socketio-client`` 模块允许通过Socket.io套接字连接到通过 :doc:`socketio` "
+"公开的服务."
 
 #: ../../source/api/client/socketio.rst:23
 msgid ""
 "Socket.io is also used to *call* service methods. Using sockets for both "
 "calling methods and receiving real-time events is generally faster than "
-"using :doc:`./express`. There is therefore no need to use both REST and "
+"using :doc:`../express`. There is therefore no need to use both REST and "
 "Socket.io in the same client application."
 msgstr ""
-"Socket.io也用于 *call* 服务方法.使用套接字调用方法和接收实时事件通常比使用 :doc:`./"
-"express` 更快.因此, 无需在同一客户端应用程序中同时使用REST和 Socket.io."
+"Socket.io也用于 *call* 服务方法.使用套接字调用方法和接收实时事件通常比使用 :doc:`../express` 更快.因此, 无需在同一客户端应用程序中同时使用REST和Socket.io."
 
 #: ../../source/api/client/socketio.rst:30
 msgid "socketio(socket)"
@@ -65,86 +65,37 @@ msgstr "socketio(socket)"
 msgid ""
 "Initialize the Socket.io client using a given socket and the default "
 "options."
-msgstr ""
-"使用给定套接字和默认选项初始化Socket.io客户端."
+msgstr "使用给定套接字和默认选项初始化Socket.io客户端."
 
-#: ../../source/api/client/socketio.rst:35
-#, python-format
-msgid ""
-"{% codetabs name=“Modular”, type=“js” -%} const feathers = "
-"require(‘@feathersjs/feathers’); const socketio = require(‘@feathersjs"
-"/socketio-client’); const io = require(‘socket.io-client’);"
-msgstr ""
-"{% codetabs name=“Modular”, type=“js” -%} const feathers = "
-"require(‘@feathersjs/feathers’); const socketio = require(‘@feathersjs"
-"/socketio-client’); const io = require(‘socket.io-client’);"
-
-#: ../../source/api/client/socketio.rst:40
-msgid "const socket = io(‘http://api.feathersjs.com’); const app = feathers();"
-msgstr "const socket = io(‘http://api.feathersjs.com’); const app = feathers();"
-
-#: ../../source/api/client/socketio.rst:42
-#, fuzzy
-msgid ""
-"// Set up Socket.io client with the socket "
-"app.configure(socketio(socket));"
-msgstr "//Set up Socket.io client with the socket app.configure(socketio(socket));"
-
-#: ../../source/api/client/socketio.rst:45
-#, fuzzy
-msgid ""
-"// Receive real-time events through Socket.io app.service(‘messages’) "
-".on(‘created’, message => console.log(‘New message created’, message));"
-msgstr ""
-"//Receive real-time events through Socket.io app.service(‘messages’) "
-".on(‘created’, message => console.log(‘New message created’, message));"
-
-#: ../../source/api/client/socketio.rst:48
-#, fuzzy
-msgid ""
-"// Call the ``messages`` service app.service(‘messages’).create({ text: "
-"‘A message from a REST client’ }); {%- language "
-"name=“@feathersjs/client”, type=“html” -%}"
-msgstr ""
-"//Call the ``messages`` service app.service(‘messages’).create({ text: ‘A"
-" message from a REST client’ }); {%- language name=“@feathersjs/client”, "
-"type=“html” -%}"
-
-#: ../../source/api/client/socketio.rst:87
-msgid "{%- endcodetabs %}"
-msgstr "{%- endcodetabs %}"
-
-#: ../../source/api/client/socketio.rst:90
+#: ../../source/api/client/socketio.rst:80
 msgid "socketio(socket, options)"
 msgstr "socketio(socket, options)"
 
-#: ../../source/api/client/socketio.rst:92
+#: ../../source/api/client/socketio.rst:82
 msgid "Initialize the Socket.io client with the specified socket and options."
 msgstr "使用指定的套接字和选项初始化Socket.io客户端."
 
-#: ../../source/api/client/socketio.rst:94
+#: ../../source/api/client/socketio.rst:84
 msgid "Options can be:"
 msgstr "选项可以:"
 
-#: ../../source/api/client/socketio.rst:96
+#: ../../source/api/client/socketio.rst:86
 msgid ""
 "``timeout`` (default: 5000ms) - The time after which a method call fails "
 "and times out. This usually happens when calling a service or service "
 "method that does not exist."
 msgstr ""
-"``timeout`` (default: 5000ms) - The time after which a method call fails "
-"and times out. This usually happens when calling a service or service "
-"method that does not exist."
+"``timeout`` (默认: 5000ms) - 方法调用失败并超时的时间.这通常在调用不存在的服务或服务方法时发生."
 
-#: ../../source/api/client/socketio.rst:115
+#: ../../source/api/client/socketio.rst:105
 msgid "To set a service specific timeout you can use:"
-msgstr "要设置服务特定超时，您可以使用:"
+msgstr "要设置服务特定超时, 您可以使用:"
 
-#: ../../source/api/client/socketio.rst:122
+#: ../../source/api/client/socketio.rst:112
 msgid "Direct connection"
 msgstr "直接连接"
 
-#: ../../source/api/client/socketio.rst:124
+#: ../../source/api/client/socketio.rst:114
 msgid ""
 "Feathers sets up a normal Socket.io server that you can connect to with "
 "any Socket.io compatible client, usually the `Socket.io client "
@@ -153,16 +104,15 @@ msgid ""
 "HTTP calls, websockets do not have an inherent cross-origin restriction "
 "in the browser so it is possible to connect to any Feathers server."
 msgstr ""
-"Feathers设置一个普通的Socket.io服务器, 你可以连接到任何兼容Socket.io的客户端, 通常是`Socket.io client "
-"<http://socket.io/docs/client-api/>`_来自服务器的``socket.io-client``模块或``/ "
-"socket.io / "
-"socket.io.js``.与HTTP调用不同, websockets在浏览器中没有固有的跨源限制, 因此可以连接到任何Feathers服务器."
+"Feathers 设置一个普通的 Socket.io 服务器, 你可以连接到任何兼容Socket.io的客户端, 通常是 `Socket.io客户端 <http://socket.io/docs/client-api/>`_ 来自服务器的 ``socket.io-client`` 模块或 ``/socket.io/socket.io.js``.与HTTP调用不同, websockets在浏览器中没有固有的跨源限制, 因此可以连接到任何Feathers服务器."
 
-#: ../../source/api/client/socketio.rst:133
-msgid "which is where Feathers will set up Socket.io."
-msgstr "这是Feathers将设置Socket.io的地方."
+#: ../../source/api/client/socketio.rst:122
+msgid ""
+"The socket connection URL has to point to the server root which is where "
+"Feathers will set up Socket.io."
+msgstr "套接字连接URL必须指向服务器根, 这是Feathers将设置Socket.io的地方."
 
-#: ../../source/api/client/socketio.rst:149
+#: ../../source/api/client/socketio.rst:139
 msgid ""
 "Service methods can be called by emitting a ``<methodname>`` event "
 "followed by the service path and method parameters. The service path is "
@@ -170,221 +120,211 @@ msgid ""
 "leading or trailing slashes. An optional callback following the "
 "``function(error, data)`` Node convention will be called with the result "
 "of the method call or any errors that might have occurred."
-msgstr "可以通过发出``<methodname>``事件, 然后是服务路径和方法参数来调用服务方法.服务路径是服务已注册的名称（在“app.use``中）, 没有前导或尾部斜杠.将使用方法调用的结果或可能发生的任何错误调用``function（error, data）``Node约定之后的可选回调."
+msgstr ""
+"可以通过发出 ``<methodname>`` 事件, "
+"然后是服务路径和方法参数来调用服务方法.服务路径是服务已注册的名称(在 ``app.use`` 中), "
+"没有前导或尾部斜杠.将使用方法调用的结果或可能发生的任何错误调用 ``function(error, data)`` Node约定之后的可选回调."
 
-#: ../../source/api/client/socketio.rst:156
+#: ../../source/api/client/socketio.rst:146
 msgid ""
 "``params`` will be set as ``params.query`` in the service method call. "
 "Other service parameters can be set through a :doc:`../socketio`."
 msgstr "``params`` 将在服务方法调用中设置为 ``params.query``.其他服务参数可以通过 :doc:`../socketio` 设置."
 
-#: ../../source/api/client/socketio.rst:159
+#: ../../source/api/client/socketio.rst:149
 msgid ""
 "If the service path or method does not exist, an appropriate Feathers "
 "error will be returned."
-msgstr ""
-"如果服务路径或方法不存在，将返回相应的Feathers错误。"
+msgstr "如果服务路径或方法不存在, 将返回相应的Feathers错误."
 
-#: ../../source/api/client/socketio.rst:163
+#: ../../source/api/client/socketio.rst:153
 msgid "Authentication"
 msgstr "Authentication"
 
-#: ../../source/api/client/socketio.rst:165
+#: ../../source/api/client/socketio.rst:155
 msgid ""
 "Sockets can be authenticated by sending the ``authenticate`` event with "
 "the ``strategy`` and the payload. For specific examples, see the “Direct "
 "Connection” section in the :doc:`../authentication/jwt` authentication "
 "chapters."
-msgstr ""
+msgstr "可以通过发送带有 ``strategy`` 和有效负载的 ``authenticate`` 事件来验证套接字.有关具体示例, 请参阅 :doc:`../authentication/jwt` 身份验证章节中的 “直接连接” 部分."
 
-#: ../../source/api/client/socketio.rst:185
+#: ../../source/api/client/socketio.rst:175
 msgid "find"
 msgstr "find"
 
-#: ../../source/api/client/socketio.rst:187
+#: ../../source/api/client/socketio.rst:177
 msgid "Retrieves a list of all matching resources from the service"
 msgstr "从服务中检索所有匹配资源的列表"
 
-#: ../../source/api/client/socketio.rst:195
+#: ../../source/api/client/socketio.rst:185
 msgid ""
 "Will call ``app.service('messages').find({ query: { status: 'read', user:"
 " 10 } })`` on the server."
 msgstr ""
-"Will call ``app.service('messages').find({ query: { status: 'read', user:"
-" 10 } })`` on the server."
+"将在服务器上调用 ``app.service('messages').find({ query: { status: 'read', user: 10 } })``."
 
-#: ../../source/api/client/socketio.rst:200
+#: ../../source/api/client/socketio.rst:188
 msgid "get"
 msgstr "get"
 
-#: ../../source/api/client/socketio.rst:202
+#: ../../source/api/client/socketio.rst:190
 msgid "Retrieve a single resource from the service."
-msgstr "从服务中检索单个资源。"
+msgstr "从服务中检索单个资源."
 
-#: ../../source/api/client/socketio.rst:210
+#: ../../source/api/client/socketio.rst:198
 msgid "Will call ``app.service('messages').get(1, {})`` on the server."
-msgstr "Will call ``app.service('messages').get(1, {})`` on the server."
+msgstr "将在服务器上调用 ``app.service('messages').get(1, {})``."
 
-#: ../../source/api/client/socketio.rst:218
+#: ../../source/api/client/socketio.rst:206
 msgid ""
 "Will call ``app.service('messages').get(1, { query: { fetch: 'all' } })``"
 " on the server."
 msgstr ""
-"Will call ``app.service('messages').get(1, { query: { fetch: 'all' } })``"
-" on the server."
+"将在服务器上调用 ``app.service('messages').get(1, { query: { fetch: 'all' } })``."
 
-#: ../../source/api/client/socketio.rst:223
+#: ../../source/api/client/socketio.rst:211
 msgid "``create``"
 msgstr "``create``"
 
-#: ../../source/api/client/socketio.rst:225
+#: ../../source/api/client/socketio.rst:213
 msgid "Create a new resource with ``data`` which may also be an array."
-msgstr "使用``data``创建一个新资源，它也可以是一个数组。"
+msgstr "使用 ``data`` 创建一个新资源, 它也可以是一个数组."
 
-#: ../../source/api/client/socketio.rst:235
+#: ../../source/api/client/socketio.rst:223
 msgid ""
 "Will call ``app.service('messages').create({ text: 'I really have to "
 "iron' }, {})`` on the server."
 msgstr ""
-"Will call ``app.service('messages').create({ text: 'I really have to "
-"iron' }, {})`` on the server."
+"将在服务器上调用 ``app.service('messages').create({ text: 'I really have to iron' }, {})``."
 
-#: ../../source/api/client/socketio.rst:246
+#: ../../source/api/client/socketio.rst:234
 msgid "Will call ``app.service('messages').create`` with the array."
-msgstr "Will call ``app.service('messages').create`` with the array."
+msgstr "将使用数组调用 ``app.service('messages').create``."
 
-#: ../../source/api/client/socketio.rst:249
+#: ../../source/api/client/socketio.rst:237
 msgid "update"
 msgstr "update"
 
-#: ../../source/api/client/socketio.rst:251
+#: ../../source/api/client/socketio.rst:239
 msgid "Completely replace a single or multiple resources."
-msgstr "完全替换单个或多个资源。"
+msgstr "完全替换单个或多个资源."
 
-#: ../../source/api/client/socketio.rst:261
+#: ../../source/api/client/socketio.rst:249
 msgid ""
 "Will call ``app.service('messages').update(2, { text: 'I really have to "
 "do laundry' }, {})`` on the server. The ``id`` can also be ``null`` to "
 "update multiple resources:"
 msgstr ""
-"Will call ``app.service('messages').update(2, { text: 'I really have to "
-"do laundry' }, {})`` on the server. The ``id`` can also be ``null`` to "
-"update multiple resources:"
+"将在服务器上调用 ``app.service('messages').update(2, { text: 'I really have to do laundry' }, {})``. ``id`` 也可以是 ``null`` 来更新多个资源:"
 
-#: ../../source/api/client/socketio.rst:272
+#: ../../source/api/client/socketio.rst:260
 msgid ""
 "Will call ``app.service('messages').update(null, { complete: true }, { "
 "query: { complete: 'false' } })`` on the server."
 msgstr ""
-"Will call ``app.service('messages').update(null, { complete: true }, { "
-"query: { complete: 'false' } })`` on the server."
+"将在服务器上调用 ``app.service('messages').update(null, { complete: true }, { query: { complete: 'false' } })``."
 
-#: ../../source/api/client/socketio.rst:276
-#, fuzzy
+#: ../../source/api/client/socketio.rst:264
 msgid ""
 "``update`` is normally expected to replace an entire resource, which is "
 "why the database adapters only support ``patch`` for multiple records."
-msgstr "**ProTip:** 通常希望``update``替换整个资源, 这就是为什么数据库适配器只支持多个记录的``patch``."
+msgstr "通常希望 ``update`` 替换整个资源, 这就是为什么数据库适配器只支持多个记录的 ``patch``."
 
-#: ../../source/api/client/socketio.rst:281
+#: ../../source/api/client/socketio.rst:269
 msgid "patch"
 msgstr "patch"
 
-#: ../../source/api/client/socketio.rst:283
+#: ../../source/api/client/socketio.rst:271
 msgid ""
 "Merge the existing data of a single or multiple resources with the new "
 "``data``."
-msgstr "使用新的``data``合并单个或多个资源的现有数据."
+msgstr "使用新的 ``data`` 合并单个或多个资源的现有数据."
 
-#: ../../source/api/client/socketio.rst:294
+#: ../../source/api/client/socketio.rst:282
 msgid ""
 "Will call ``app.service('messages').patch(2, { read: true }, {})`` on the"
 " server. The ``id`` can also be ``null`` to update multiple resources:"
 msgstr ""
-"将在服务器上调用``app.service（'messages'）.patch（2, {read:true}, {}）``. "
-"``id``也可以是``null``来更新多个资源:"
+"将在服务器上调用 ``app.service('messages').patch(2, {read:true}, {})``. ``id`` 也可以是 ``null`` 来更新多个资源:"
 
-#: ../../source/api/client/socketio.rst:308
+#: ../../source/api/client/socketio.rst:296
 msgid ""
 "Will call ``app.service('messages').patch(null, { complete: true }, { "
 "query: { complete: false } })`` on the server, to change the status for "
 "all read app.service(‘messages’)."
 msgstr ""
-"将在服务器上调用``app.service（'messages'）.patch（null, {complete:true}, {query:{complete:false}}）``来更改所有read"
-" app.service的状态（ '消息'）."
+"将在服务器上调用 ``app.service('messages').patch(null, { complete: true }, { query: { complete: false } })`` 来更改所有read app.service(‘messages’)."
 
-#: ../../source/api/client/socketio.rst:313
-#, fuzzy
+#: ../../source/api/client/socketio.rst:301
 msgid "This is supported out of the box by the Feathers :doc:`../readme`"
-msgstr "这是由Feathers开箱即用的 :doc:`../databases/readme`"
+msgstr "这是由Feathers开箱即用的 :doc:`../readme`"
 
-#: ../../source/api/client/socketio.rst:316
+#: ../../source/api/client/socketio.rst:304
 msgid "remove"
 msgstr "remove"
 
-#: ../../source/api/client/socketio.rst:318
+#: ../../source/api/client/socketio.rst:306
 msgid "Remove a single or multiple resources:"
 msgstr "删除一个或多个资源:"
 
-#: ../../source/api/client/socketio.rst:326
+#: ../../source/api/client/socketio.rst:314
 msgid ""
 "Will call ``app.service('messages').remove(2, { query: { cascade: true } "
 "})`` on the server. The ``id`` can also be ``null`` to remove multiple "
 "resources:"
 msgstr ""
-"Will call ``app.service('messages').remove(2, { query: { cascade: true } "
-"})`` on the server. The ``id`` can also be ``null`` to remove multiple "
-"resources:"
+"将在服务器上调用 ``app.service('messages').remove(2, { query: { cascade: true } })``. ``id`` 也可以是 ``null`` 来删除多个资源:"
 
-#: ../../source/api/client/socketio.rst:335
+#: ../../source/api/client/socketio.rst:323
 msgid ""
 "Will call ``app.service('messages').remove(null, { query: { read: 'true' "
 "} })`` on the server to delete all read app.service(‘messages’)."
 msgstr ""
-"Will call ``app.service('messages').remove(null, { query: { read: 'true' "
-"} })`` on the server to delete all read app.service(‘messages’)."
+"将在服务器上调用 ``app.service('messages').remove(null, { query: { read: 'true' } })`` 删除所有read app.service(‘messages’)."
 
-#: ../../source/api/client/socketio.rst:340
+#: ../../source/api/client/socketio.rst:330
 msgid "Listening to events"
-msgstr "听取事件"
+msgstr "监听事件"
 
-#: ../../source/api/client/socketio.rst:342
+#: ../../source/api/client/socketio.rst:332
 msgid ""
 "Listening to service events allows real-time behaviour in an application."
 " :doc:`events` are sent to the socket in the form of ``servicepath "
 "eventname``."
-msgstr "通过侦听服务事件, 可以在应用程序中实现实时行为. :doc:`events`以``servicepath eventname``的形式发送到套接字."
+msgstr ""
+"通过侦听服务事件, 可以在应用程序中实现实时行为. :doc:`events` 以 ``servicepath eventname`` 的形式发送到套接字."
 
-#: ../../source/api/client/socketio.rst:347
+#: ../../source/api/client/socketio.rst:337
 msgid "created"
 msgstr "created"
 
-#: ../../source/api/client/socketio.rst:349
+#: ../../source/api/client/socketio.rst:339
 msgid ""
 "The ``created`` event will be published with the callback data, when a "
 "service ``create`` returns successfully."
-msgstr "当服务``create``成功返回时, ``created``事件将与回调数据一起发布."
+msgstr "当服务 ``create`` 成功返回时, ``created`` 事件将与回调数据一起发布."
 
-#: ../../source/api/client/socketio.rst:361
+#: ../../source/api/client/socketio.rst:351
 msgid "updated, patched"
 msgstr "updated, patched"
 
-#: ../../source/api/client/socketio.rst:363
+#: ../../source/api/client/socketio.rst:353
 msgid ""
 "The ``updated`` and ``patched`` events will be published with the "
 "callback data, when a service ``update`` or ``patch`` method calls back "
 "successfully."
-msgstr "当服务``update``或``patch``方法成功回调时, ``updated``和``patched``事件将与回调数据一起发布."
+msgstr "当服务 ``update`` 或 ``patch`` 方法成功回调时, ``updated`` 和 ``patched`` 事件将与回调数据一起发布."
 
-#: ../../source/api/client/socketio.rst:382
+#: ../../source/api/client/socketio.rst:372
 msgid "removed"
 msgstr "removed"
 
-#: ../../source/api/client/socketio.rst:384
+#: ../../source/api/client/socketio.rst:374
 msgid ""
 "The ``removed`` event will be published with the callback data, when a "
 "service ``remove`` calls back successfully."
-msgstr "当服务``remove``成功回调时, ``removed``事件将与回调数据一起发布."
+msgstr "当服务 ``remove`` 成功回调时, ``removed`` 事件将与回调数据一起发布."
 
 #~ msgid ""
 #~ "**Note:** We recommend using Feathers "
@@ -427,4 +367,55 @@ msgstr "当服务``remove``成功回调时, ``removed``事件将与回调数据�
 #~ "Connection” section in the :doc:`./jwt` "
 #~ "authentication chapters."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "{% codetabs name=“Modular”, type=“js” -%} "
+#~ "const feathers = require(‘@feathersjs/feathers’);"
+#~ " const socketio = require(‘@feathersjs"
+#~ "/socketio-client’); const io = "
+#~ "require(‘socket.io-client’);"
+#~ msgstr ""
+#~ "{% codetabs name=“Modular”, type=“js” -%} "
+#~ "const feathers = require(‘@feathersjs/feathers’);"
+#~ " const socketio = require(‘@feathersjs"
+#~ "/socketio-client’); const io = "
+#~ "require(‘socket.io-client’);"
+
+#~ msgid "const socket = io(‘http://api.feathersjs.com’); const app = feathers();"
+#~ msgstr "const socket = io(‘http://api.feathersjs.com’); const app = feathers();"
+
+#~ msgid ""
+#~ "//Set up Socket.io client with "
+#~ "the socket app.configure(socketio(socket));"
+#~ msgstr ""
+#~ "//Set up Socket.io client with the "
+#~ "socket app.configure(socketio(socket));"
+
+#~ msgid ""
+#~ "//Receive real-time events through "
+#~ "Socket.io app.service(‘messages’) .on(‘created’, "
+#~ "message => console.log(‘New message created’,"
+#~ " message));"
+#~ msgstr ""
+#~ "//Receive real-time events through "
+#~ "Socket.io app.service(‘messages’) .on(‘created’, "
+#~ "message => console.log(‘New message created’,"
+#~ " message));"
+
+#~ msgid ""
+#~ "//Call the ``messages`` service "
+#~ "app.service(‘messages’).create({ text: ‘A message"
+#~ " from a REST client’ }); {%- "
+#~ "language name=“@feathersjs/client”, type=“html” -%}"
+#~ msgstr ""
+#~ "//Call the ``messages`` service "
+#~ "app.service(‘messages’).create({ text: ‘A message"
+#~ " from a REST client’ }); {%- "
+#~ "language name=“@feathersjs/client”, type=“html” -%}"
+
+#~ msgid "{%- endcodetabs %}"
+#~ msgstr "{%- endcodetabs %}"
+
+#~ msgid "which is where Feathers will set up Socket.io."
+#~ msgstr "这是Feathers将设置Socket.io的地方."
 

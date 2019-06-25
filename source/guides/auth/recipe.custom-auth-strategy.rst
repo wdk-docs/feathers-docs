@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Custom Auth Strategy
+Custom Auth Strategy
 ============================================
 
 The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of
@@ -47,9 +47,7 @@ Within it, we’ll check if there is a specific header in the request
 containing a specific API key. If true, we’ll successfully authorize the
 request.
 
-First let’s make the strategy using
-```passport-custom`` <https://www.npmjs.com/package/passport-custom>`_
-npm package.
+First let’s make the strategy using `passport-custom <https://www.npmjs.com/package/passport-custom>`_ npm package.
 
 .. code:: js
 
@@ -93,8 +91,7 @@ Next let’s add this to our server setup
      })
    );
 
-Next let’s create a custom authentication hook that conditionally
-applies auth for all external requests.
+Next let’s create a custom authentication hook that conditionally applies auth for all external requests.
 
 .. code:: js
 
@@ -294,8 +291,7 @@ Now any such request will return a valid JWT token:
      strategy: 'anonymous'
    }
 
-Note that this looks very similar to a request body for ``local``
-strategy:
+.. note:: this looks very similar to a request body for ``local`` strategy:
 
 .. code:: js
 

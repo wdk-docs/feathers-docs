@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:53+0800\n"
+"POT-Creation-Date: 2019-06-25 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,106 +33,106 @@ msgid "The `Express framework bindings <#expressapp>`_ to make a Feathers applic
 msgstr ""
 
 #: ../../source/api/express.rst:15
-msgid "An Express based transport to expose services through a `REST API <#expressrest>`_"
+msgid "An Express based transport to expose services through a :ref:`api_express_rest`"
 msgstr ""
 
-#: ../../source/api/express.rst:17
+#: ../../source/api/express.rst:16
 msgid "An :doc:`./errors`"
 msgstr ""
 
-#: ../../source/api/express.rst:25
-msgid "**Very Important:** This page describes how to set up an Express server and REST API. See the :doc:`./client/rest` how to use this server on the client."
+#: ../../source/api/express.rst:24
+msgid "This page describes how to set up an Express server and REST API. See the :doc:`./client/rest` how to use this server on the client."
 msgstr ""
 
-#: ../../source/api/express.rst:28
+#: ../../source/api/express.rst:27
 msgid "This chapter assumes that you are familiar with `Express <http://expressjs.com/en/guide/routing.html>`_."
 msgstr ""
 
-#: ../../source/api/express.rst:32
+#: ../../source/api/express.rst:31
 msgid "express(app)"
 msgstr ""
 
-#: ../../source/api/express.rst:34
+#: ../../source/api/express.rst:33
 msgid ":doc:`./application` into a fully Express (4+) compatible application that additionally to Feathers functionality also lets you use the `Express API <http://expressjs.com/en/4x/api.html>`_."
 msgstr ""
 
-#: ../../source/api/express.rst:46
-msgid "Note that ``@feathersjs/express`` (``express``) also exposes the standard `Express middleware <http://expressjs.com/en/4x/api.html#express>`_:"
+#: ../../source/api/express.rst:45
+msgid "``@feathersjs/express`` (``express``) also exposes the standard `Express middleware <http://expressjs.com/en/4x/api.html#express>`_:"
 msgstr ""
 
-#: ../../source/api/express.rst:50
+#: ../../source/api/express.rst:48
 msgid "``express.json`` - A JSON body parser"
 msgstr ""
 
-#: ../../source/api/express.rst:51
+#: ../../source/api/express.rst:49
 msgid "``express.urlencoded`` - A URL encoded form body parser"
 msgstr ""
 
-#: ../../source/api/express.rst:52
+#: ../../source/api/express.rst:50
 msgid "``express.static`` - To statically host files in a folder"
 msgstr ""
 
-#: ../../source/api/express.rst:53
+#: ../../source/api/express.rst:51
 msgid "``express.Router`` - Creates an Express router object"
 msgstr ""
 
-#: ../../source/api/express.rst:58
+#: ../../source/api/express.rst:56
 msgid "express()"
 msgstr ""
 
-#: ../../source/api/express.rst:60
+#: ../../source/api/express.rst:58
 msgid "If no Feathers application is passed, ``express() -> app`` returns a plain Express application just like a normal call to Express would."
 msgstr ""
 
-#: ../../source/api/express.rst:64
+#: ../../source/api/express.rst:62
 msgid "app.use(path, service|mw|[mw])"
 msgstr ""
 
-#: ../../source/api/express.rst:66
+#: ../../source/api/express.rst:64
 msgid ":doc:`./services`. an `Express middleware <http://expressjs.com/en/guide/writing-middleware.html>`_ or an array of `Express middleware <http://expressjs.com/en/guide/writing-middleware.html>`_ on the given path. If :doc:`./services` is passed it will use Feathers registration mechanism, for a middleware function Express."
 msgstr ""
 
-#: ../../source/api/express.rst:100
+#: ../../source/api/express.rst:98
 msgid "app.listen(port)"
 msgstr ""
 
-#: ../../source/api/express.rst:102
+#: ../../source/api/express.rst:100
 msgid "``app.listen(port) -> HttpServer`` will first call Express `app.listen <http://expressjs.com/en/4x/api.html#app.listen>`_ and then internally also call the :ref:`application_setupserver`."
 msgstr ""
 
-#: ../../source/api/express.rst:114
+#: ../../source/api/express.rst:112
 msgid "app.setup(server)"
 msgstr ""
 
-#: ../../source/api/express.rst:116
+#: ../../source/api/express.rst:114
 msgid "``app.setup(server) -> app`` is usually called internally by ``app.listen`` but in the cases described below needs to be called explicitly."
 msgstr ""
 
-#: ../../source/api/express.rst:121
+#: ../../source/api/express.rst:119
 msgid "Sub-Apps"
 msgstr ""
 
-#: ../../source/api/express.rst:123
+#: ../../source/api/express.rst:121
 msgid "When registering an application as a sub-app, ``app.setup(server)`` has to be called to initialize the sub-apps services."
 msgstr ""
 
-#: ../../source/api/express.rst:144
+#: ../../source/api/express.rst:142
 msgid "We recommend avoiding complex sub-app setups because websockets and Feathers built in authentication are not fully sub-app aware at the moment."
 msgstr ""
 
-#: ../../source/api/express.rst:149
+#: ../../source/api/express.rst:147
 msgid "HTTPS"
 msgstr ""
 
-#: ../../source/api/express.rst:151
+#: ../../source/api/express.rst:149
 msgid "HTTPS requires creating a separate server in which case ``app.setup(server)`` also has to be called explicitly."
 msgstr ""
 
-#: ../../source/api/express.rst:173
+#: ../../source/api/express.rst:171
 msgid "Virtual Hosts"
 msgstr ""
 
-#: ../../source/api/express.rst:175
+#: ../../source/api/express.rst:173
 msgid "The `vhost <https://github.com/expressjs/vhost>`_ Express middleware can be used to run a Feathers application on a virtual host but again requires ``app.setup(server)`` to be called explicitly."
 msgstr ""
 
@@ -282,7 +282,7 @@ msgid "Avoid setting ``req.feathers = something`` directly since it may already 
 msgstr ""
 
 #: ../../source/api/express.rst:374
-msgid "**Very important:** Since the order of Express middleware matters, any middleware that sets service parameters has to be registered *before* your services (in a generated application before ``app.configure(services)`` or in ``middleware/index.js``)."
+msgid "Since the order of Express middleware matters, any middleware that sets service parameters has to be registered *before* your services (in a generated application before ``app.configure(services)`` or in ``middleware/index.js``)."
 msgstr ""
 
 #: ../../source/api/express.rst:381
@@ -354,50 +354,54 @@ msgid "``expres.errorHandler`` is an `Express error handler <https://expressjs.c
 msgstr ""
 
 #: ../../source/api/express.rst:485
-msgid "You can still use any other Express compatible `error middleware <http://expressjs.com/en/guide/error-handling.html>`_ with Feathers. In fact, the ``express.errors`` is just a slightly customized one. **Very Important:** Just as in Express, the error handler has to be registered *after* all middleware and services."
+msgid "You can still use any other Express compatible `error middleware <http://expressjs.com/en/guide/error-handling.html>`_ with Feathers. In fact, the ``express.errors`` is just a slightly customized one."
 msgstr ""
 
-#: ../../source/api/express.rst:491
-msgid "``app.use(express.errorHandler())``"
+#: ../../source/api/express.rst:490
+msgid "Just as in Express, the error handler has to be registered *after* all middleware and services."
 msgstr ""
 
 #: ../../source/api/express.rst:493
+msgid "``app.use(express.errorHandler())``"
+msgstr ""
+
+#: ../../source/api/express.rst:495
 msgid "Set up the error handler with the default configuration."
 msgstr ""
 
-#: ../../source/api/express.rst:506
+#: ../../source/api/express.rst:508
 msgid "``app.use(express.errorHandler(options))``"
 msgstr ""
 
-#: ../../source/api/express.rst:533
+#: ../../source/api/express.rst:535
 msgid "If you want to have the response in json format be sure to set the ``Accept`` header in your request to ``application/json`` otherwise the default error handler will return HTML."
 msgstr ""
 
-#: ../../source/api/express.rst:537
+#: ../../source/api/express.rst:539
 msgid "The following options can be passed when creating a new localstorage service:"
 msgstr ""
 
-#: ../../source/api/express.rst:540
+#: ../../source/api/express.rst:542
 msgid "``html`` (Function|Object) [optional] - A custom formatter function or an object that contains the path to your custom html error pages."
 msgstr ""
 
-#: ../../source/api/express.rst:542
+#: ../../source/api/express.rst:544
 msgid "``logger`` (Function|false) (default: ``console``) - Set a logger object to log the error (it will be logger with ``logger.error(error)``"
 msgstr ""
 
-#: ../../source/api/express.rst:548
+#: ../../source/api/express.rst:550
 msgid "``html`` can also be set to ``false`` to disable html error pages altogether so that only JSON is returned."
 msgstr ""
 
-#: ../../source/api/express.rst:552
+#: ../../source/api/express.rst:554
 msgid "Routing"
 msgstr ""
 
-#: ../../source/api/express.rst:554
+#: ../../source/api/express.rst:556
 msgid "Express route placeholders in a service URL will be added to the services ``params.route``."
 msgstr ""
 
-#: ../../source/api/express.rst:558
-msgid "See the :doc:`../faq/readme#how-do-i-do-nested-or-custom-routes` for more details on when and when not to use nested routes."
+#: ../../source/api/express.rst:560
+msgid "See the :ref:`faq_how-do-i-do-nested-or-custom-routes` for more details on when and when not to use nested routes."
 msgstr ""
 

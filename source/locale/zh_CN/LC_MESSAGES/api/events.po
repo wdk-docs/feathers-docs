@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:36+0800\n"
+"POT-Creation-Date: 2019-06-25 13:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,8 @@ msgid ""
 "in Feathers are provided through the `NodeJS EventEmitter "
 "<https://nodejs.org/api/events.html>`_ interface. This section describes"
 msgstr ""
-"事件是Feathers实时功能的关键部分. Feathers中的所有事件都通过 `NodeJS EventEmitter <https://nodejs.org/api/events.html>`_ interface提供.本节介绍"
+"事件是Feathers实时功能的关键部分. Feathers中的所有事件都通过 `NodeJS EventEmitter "
+"<https://nodejs.org/api/events.html>`_ interface提供.本节介绍"
 
 #: ../../source/api/events.rst:8
 msgid "A quick overview of the `NodeJS EventEmitter interface <#eventemitters>`_"
@@ -42,15 +43,13 @@ msgstr "标准的 `服务事件 <＃service-events>`_"
 msgid ""
 "How to allow sending `custom events <#custom-events>`_ from the server to"
 " the client"
-msgstr ""
-"如何允许从服务器向客户端发送 `自定义事件 <#custom-events>`_"
+msgstr "如何允许从服务器向客户端发送 `自定义事件 <#custom-events>`_"
 
 #: ../../source/api/events.rst:15
 msgid ""
 "For more information on how to send real-time events to clients, see the "
 ":doc:`./channels`."
-msgstr ""
-"有关如何向客户端发送实时事件的更多信息,请参阅 :doc:`./channels`."
+msgstr "有关如何向客户端发送实时事件的更多信息,请参阅 :doc:`./channels`."
 
 #: ../../source/api/events.rst:19
 msgid "EventEmitters"
@@ -62,7 +61,8 @@ msgid ""
 "`NodeJS EventEmitter <https://nodejs.org/api/events.html>`_ and can be "
 "used accordingly."
 msgstr ""
-"一旦注册,任何 :doc:`./services` 变成标准的 `NodeJS EventEmitter <https://nodejs.org/api/events.html>`_ 并且可以相应地使用."
+"一旦注册,任何 :doc:`./services` 变成标准的 `NodeJS EventEmitter "
+"<https://nodejs.org/api/events.html>`_ 并且可以相应地使用."
 
 #: ../../source/api/events.rst:55
 msgid "Service Events"
@@ -77,26 +77,25 @@ msgid ""
 "automatically from the server to all connected clients. This is "
 "essentially how Feathers does real-time."
 msgstr ""
-"当相应的服务方法成功返回时,任何服务都会自动发出 ``created``, ``updated``, ``patchched`` 和 ``removed`` 事件.这适用于客户端以及服务器.当客户端使用 :doc:`socketio` 或 :doc:`primus` 时,事件将自动从服务器推送到所有连接的客户端.这实际上是Feathers实时的方式."
+"当相应的服务方法成功返回时,任何服务都会自动发出 ``created``, ``updated``, ``patchched`` 和 "
+"``removed`` 事件.这适用于客户端以及服务器.当客户端使用 :doc:`socketio` 或 :doc:`primus` "
+"时,事件将自动从服务器推送到所有连接的客户端.这实际上是Feathers实时的方式."
 
 #: ../../source/api/events.rst:65
 msgid "Events are not fired until all of your :doc:`./hooks` have executed."
-msgstr ""
-"直到你的所有 :doc:`./hooks` 都被执行后才会触发事件."
+msgstr "直到你的所有 :doc:`./hooks` 都被执行后才会触发事件."
 
 #: ../../source/api/events.rst:74
 msgid ""
 "For information on how those events are published for real-time updates "
 "to connected clients, see the :doc:`./channels`."
-msgstr ""
-"有关如何发布这些事件以实现对已连接客户端的实时更新的信息,请参阅 :doc:`./channels`."
+msgstr "有关如何发布这些事件以实现对已连接客户端的实时更新的信息,请参阅 :doc:`./channels`."
 
 #: ../../source/api/events.rst:77
 msgid ""
 "Additionally to the event ``data``, all events also get the `hook context"
 " <./hooks>`_ from their method call passed as the second parameter."
-msgstr ""
-"除了事件 ``data`` 之外,所有事件还从它们作为第二个参数传递的方法调用中得到 `钩子上下文 <./hooks>`_."
+msgstr "除了事件 ``data`` 之外,所有事件还从它们作为第二个参数传递的方法调用中得到 `钩子上下文 <./hooks>`_."
 
 #: ../../source/api/events.rst:81
 msgid "created"
@@ -106,8 +105,7 @@ msgstr "created"
 msgid ""
 "The ``created`` event will fire with the result data when a service "
 "``create`` returns successfully."
-msgstr ""
-"当服务 ``create`` 成功返回时, ``created`` 事件将触发结果数据."
+msgstr "当服务 ``create`` 成功返回时, ``created`` 事件将触发结果数据."
 
 #: ../../source/api/events.rst:107
 msgid "updated, patched"
@@ -117,8 +115,7 @@ msgstr "updated, patched"
 msgid ""
 "The ``updated`` and ``patched`` events will fire with the callback data "
 "when a service ``update`` or ``patch`` method calls back successfully."
-msgstr ""
-"当服务 ``update`` 或 ``patch`` 方法成功回调时, ``updated`` 和 ``patched`` 事件将使用回调数据触发."
+msgstr "当服务 ``update`` 或 ``patch`` 方法成功回调时, ``updated`` 和 ``patched`` 事件将使用回调数据触发."
 
 #: ../../source/api/events.rst:141
 msgid "removed"
@@ -128,8 +125,7 @@ msgstr "removed"
 msgid ""
 "The ``removed`` event will fire with the callback data when a service "
 "``remove`` calls back successfully."
-msgstr ""
-"当服务 ``remove`` 成功回调时, ``removed`` 事件将使用回调数据触发."
+msgstr "当服务 ``remove`` 成功回调时, ``removed`` 事件将使用回调数据触发."
 
 #: ../../source/api/events.rst:165
 msgid "Custom events"
@@ -144,38 +140,45 @@ msgid ""
 "``context`` for custom events won’t be a full hook context but just an "
 "object containing ``{ app, service, path, result }``."
 msgstr ""
-"默认情况下,实时客户端只接收 `标准事件 <＃service-events>`_.但是,可以将服务上的自定义事件列表定义为 ``service.events``,当服务器上调用 ``service.emit('customevent',data)`` 时,也应该传递这些事件.自定义事件的 ``context`` 不是一个完整的钩子上下文,而只是一个包含 ``{app,service,path,result}`` 的对象."
+"默认情况下,实时客户端只接收 `标准事件 <＃service-events>`_.但是,可以将服务上的自定义事件列表定义为 "
+"``service.events``,当服务器上调用 ``service.emit('customevent',data)`` "
+"时,也应该传递这些事件.自定义事件的 ``context`` 不是一个完整的钩子上下文,而只是一个包含 "
+"``{app,service,path,result}`` 的对象."
 
 #: ../../source/api/events.rst:173
 msgid ""
 "Custom events can only be sent from the server to the client, not the "
 "other way (client to server). :ref:`faq_how-do-i-create-custom-methods`"
 msgstr ""
-"自定义事件只能从服务器发送到客户端,而不是其他方式(客户端到服务器). `学到更多 <../faq/readme.md#how-do-i-create-custom-methods>`_"
+"自定义事件只能从服务器发送到客户端,而不是其他方式(客户端到服务器). `学到更多 <../faq/readme.md#how-do-i"
+"-create-custom-methods>`_"
 
 #: ../../source/api/events.rst:176
 msgid ""
 "For example, a payment service that sends status events to the client "
 "while processing a payment could look like this:"
-msgstr ""
-"例如,在处理付款时向客户端发送状态事件的付款服务可能如下所示:"
+msgstr "例如,在处理付款时向客户端发送状态事件的付款服务可能如下所示:"
 
 #: ../../source/api/events.rst:196
 msgid ""
 "The :doc:`./databases/common` also take a list of custom events as an "
 ":ref:`databases_common_serviceoptions`."
 msgstr ""
-":doc:`./databases/common` 也将自定义事件列表作为 `初始化选项 <./databases/common.md #serviceoptions>`_:"
+":doc:`./databases/common` 也将自定义事件列表作为 `初始化选项 <./databases/common.md "
+"#serviceoptions>`_:"
 
 #: ../../source/api/events.rst:207
 msgid "Using ``service.emit`` custom events can also be sent in a hook:"
 msgstr "使用 ``service.emit`` 自定义事件也可以在钩子中发送:"
 
 #: ../../source/api/events.rst:219
+#, fuzzy
 msgid ""
 "Custom events can be :ref:`channels_publishing` just like standard events"
-" and listened to it in a :ref:`client/socketio_listening-to-events`."
-msgstr "自定义事件可以是 :ref:`channels_publishing` 就像标准事件一样,并在 :ref:`client/socketio_listening-to-events` 中监听它."
+" and listened to it in a :ref:`client_socketio_listening-to-events`."
+msgstr ""
+"自定义事件可以是 :ref:`channels_publishing` 就像标准事件一样,并在 :ref:`client"
+"/socketio_listening-to-events` 中监听它."
 
 #~ msgid ""
 #~ "Any service automaticaly emits ``created``,"

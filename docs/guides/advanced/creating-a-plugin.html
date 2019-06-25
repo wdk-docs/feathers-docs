@@ -196,25 +196,25 @@
 </div>
 <p>这将支持开始编写插件所需的一切.</p>
 <p>从发电机输出文件:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">package</span><span class="o">.</span><span class="n">json</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">babelrc</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">editorconfig</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">jshintrc</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">travis</span><span class="o">.</span><span class="n">yml</span>
-<span class="n">create</span> <span class="n">src</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">js</span>
-<span class="n">create</span> <span class="n">test</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">js</span>
-<span class="n">create</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
-<span class="n">create</span> <span class="n">LICENSE</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">gitignore</span>
-<span class="n">create</span> <span class="o">.</span><span class="n">npmignore</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>create package.json
+create .babelrc
+create .editorconfig
+create .jshintrc
+create .travis.yml
+create src/index.js
+create test/index.test.js
+create README.md
+create LICENSE
+create .gitignore
+create .npmignore
 </pre></div>
 </div>
 <p>简单吧？我们在技术上可以称它为一天,因为我们创建了一个插件.但是,我们可能想要做更多.一般来说,插件是 <a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a>.有趣的是,插件可以包含我们将在下面创建的多个服务.这个例子将构建2个服务.第一个将允许我们找到Feathers核心团队的成员,第二个将允许我们找到美国最好的州.</p>
 <p>##验证我们的服务</p>
 <p>在我们开始编写更多代码之前,我们需要看到事情正在发挥作用.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd example &amp;&amp; node app.js
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> example <span class="o">&amp;&amp;</span> node app.js
 
-Error: Cannot find module &#39;../lib/index&#39;
+Error: Cannot find module <span class="s1">&#39;../lib/index&#39;</span>
 </pre></div>
 </div>
 <p>简单？我们可以在技术上称它为一天,因为我们创建了一个插件.但是,我们可能想要做更多.一般来说,插件是 <span class="xref std std-doc">../api/services</span>.有趣的是,该插件可以包含我们将在下面创建的多个服务.此示例将构建2个服务.第一个将允许我们找到Feathers核心团队的成员,第二个将允许我们找到美国最好的州.</p>
@@ -234,7 +234,7 @@ Error: Cannot find module &#39;../lib/index&#39;
 </pre></div>
 </div>
 <p>回到工作.该错误消息告诉我们,我们需要构建我们的项目.在这种情况下,这意味着babel需要做的事情.对于开发,您可以运行手表</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm run watch
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm run watch
 
 &gt; creatingPlugin@0.0.0 watch /Users/ajones/git/training/creatingPlugin
 &gt; babel --watch -d lib/ src/
@@ -243,8 +243,8 @@ src/index.js -&gt; lib/index.js
 </pre></div>
 </div>
 <p>之后,您可以运行示例应用程序,一切都应该很好.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node app.js
-Feathers app started on 127.0.0.1:3030
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ node app.js
+Feathers app started on <span class="m">127</span>.0.0.1:3030
 </pre></div>
 </div>
 <div class="section" id="expanding-our-plugin">
@@ -407,19 +407,19 @@ Feathers app started on 127.0.0.1:3030
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Feathers app started on 127.0.0.1:3030&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node app.js
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ node app.js
 
-Feathers app started on 127.0.0.1:3030
-[ &#39;Alaska&#39; ]
-[ &#39;Mikey&#39;,
-  &#39;Cory Smith&#39;,
-  &#39;David Luecke&#39;,
-  &#39;Emmanuel Bourmalo&#39;,
-  &#39;Eric Kryski&#39;,
-  &#39;Glavin Wiechert&#39;,
-  &#39;Jack Guy&#39;,
-  &#39;Anton Kulakov&#39;,
-  &#39;Marshall Thompson&#39; ]
+Feathers app started on <span class="m">127</span>.0.0.1:3030
+<span class="o">[</span> <span class="s1">&#39;Alaska&#39;</span> <span class="o">]</span>
+<span class="o">[</span> <span class="s1">&#39;Mikey&#39;</span>,
+  <span class="s1">&#39;Cory Smith&#39;</span>,
+  <span class="s1">&#39;David Luecke&#39;</span>,
+  <span class="s1">&#39;Emmanuel Bourmalo&#39;</span>,
+  <span class="s1">&#39;Eric Kryski&#39;</span>,
+  <span class="s1">&#39;Glavin Wiechert&#39;</span>,
+  <span class="s1">&#39;Jack Guy&#39;</span>,
+  <span class="s1">&#39;Anton Kulakov&#39;</span>,
+  <span class="s1">&#39;Marshall Thompson&#39;</span> <span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -442,11 +442,11 @@ Feathers app started on 127.0.0.1:3030
 <span class="p">});</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm run test
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm run <span class="nb">test</span>
 </pre></div>
 </div>
 <p>因为这只是一个快速的示例jshint可能会失败.您可以修复语法或更改测试命令.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm run compile &amp;&amp; npm run mocha
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm run compile <span class="o">&amp;&amp;</span> npm run mocha
 </pre></div>
 </div>
 <p>这应该为您提供创建Feathers插件的基本概念.</p>

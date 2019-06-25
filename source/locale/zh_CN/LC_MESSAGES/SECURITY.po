@@ -93,7 +93,7 @@ msgstr "如果 ``context.id === null`` 则抛出错误来禁用多个元素更�
 
 #: ../../source/SECURITY.rst:48
 msgid "Escape any HTML and JavaScript to avoid XSS attacks."
-msgstr "转义任何HTML和JavaScript以避免XSS攻击。"
+msgstr "转义任何HTML和JavaScript以避免XSS攻击."
 
 #: ../../source/SECURITY.rst:50
 msgid "Escape any SQL (typically done by the SQL library) to avoid SQL injection."

@@ -196,12 +196,12 @@
 <h2>先决条件<a class="headerlink" href="#prerequisites" title="永久链接至标题">¶</a></h2>
 <p>Feathers和大多数插件都在 <a class="reference external" href="https://nodejs.org/en/">NodeJS</a> v6.0.0及更高版本上运行. 对于指南, 我们将使用仅适用于Node v8.0.0及更高版本的语法. 在MacOS和其他Unix系统上, <a class="reference external" href="https://github.com/creationix/nvm">节点版本管理器</a> 是快速安装最新版本的NodeJS并使其保持最新的好方法.</p>
 <p>安装成功后, 终端上应该有 <code class="docutils literal notranslate"><span class="pre">node</span></code> 和 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 命令, 并在运行以下命令时显示类似的命令:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ node --version
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ node --version
 v8.5.0
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm --version
-5.5.1
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm --version
+<span class="m">5</span>.5.1
 </pre></div>
 </div>
 <p>Feathers在浏览器中工作并支持IE 10及更高版本. 但是, 本指南中使用的示例仅适用于最新版本的Chrome, Firefox, Safari和Edge.</p>
@@ -210,7 +210,7 @@ v8.5.0
 <h2>你应该知道什么<a class="headerlink" href="#what-you-should-know" title="永久链接至标题">¶</a></h2>
 <p>读者应该有使用 <a class="reference external" href="http://es6-features.org/">ES6</a> 的一些合理的JavaScript经验, 以及一些NodeJS的经验和它支持的JavaScript功能, 如 <a class="reference external" href="https://nodejs.org/api/modules.html">module system</a>. 熟悉HTTP和 <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST API</a> 以及websockets也很有帮助.</p>
 <p>指南示例使用 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a>. 我们强烈建议您熟悉 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promises</a> 和 <code class="docutils literal notranslate"><span class="pre">async/await</span></code> (以及它们如何互动). 有关JavaScript承诺的详细介绍, 请参阅 <a class="reference external" href="https://www.promisejs.org/">promisejs.org</a> 然后在 <a class="reference external" href="https://blog.risingstack.com/mastering-async-await-in-nodejs/">这篇博客文章中</a> 跟进 <code class="docutils literal notranslate"><span class="pre">async/await</span></code>.</p>
-<p>Feathers独立工作，但也提供 <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> with <a class="reference external" href="http://expressjs.com/">Express</a>.本指南不需要任何深入的Express知识，但有一些使用Express的经验将来会有所帮助(参见 <a href="#id1"><span class="problematic" id="id2">`快速指南&lt;http://expressjs.com/en/guide/routing.html&gt;`_</span></a> 获取启动).</p>
+<p>Feathers独立工作, 但也提供带 <a class="reference external" href="http://expressjs.com/">Express</a> 的 <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a>.本指南不需要任何深入的Express知识, 但有一些使用Express的经验将来会有所帮助(参见 <a class="reference external" href="http://expressjs.com/en/guide/routing.html">快速指南</a> 获取启动).</p>
 </div>
 <div class="section" id="what-we-wont-cover">
 <h2>我们不会涉及的内容<a class="headerlink" href="#what-we-wont-cover" title="永久链接至标题">¶</a></h2>

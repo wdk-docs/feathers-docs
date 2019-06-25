@@ -81,7 +81,7 @@ is a Feathers database adapter that - similar to our messages service -
 stores its data in memory. We will use it for the examples because it
 also works in the browser. Let’s install it with:
 
-::
+.. code-block:: sh
 
    npm install feathers-memory --save
 

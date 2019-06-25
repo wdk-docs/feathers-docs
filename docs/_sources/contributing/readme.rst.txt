@@ -64,5 +64,5 @@ Share
 
 We take pride in having great documentation and we are very appreciative
 of any help we can get. Please, let the world know you’ve contributed to
-the Feathers Book or give [@FeathersJS](https://twitter.com/feathersjs)
+the Feathers Book or give `@FeathersJS <https://twitter.com/feathersjs>`_
 a shout out on Twitter to let others know about your changes.

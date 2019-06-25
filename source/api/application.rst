@@ -39,6 +39,8 @@ An initialized Feathers application is referred to as the **app object**.
 .. note::
    ``path`` can be ``/`` to register a service at the root level.
 
+.. _api_application_servicepath:
+
 .service(path)
 --------------
 
@@ -97,6 +99,8 @@ the server object.
 
 ``listen`` will only be available if a server side transport (REST,
 Socket.io or Primus) has been configured.
+
+.. _application_setupserver:
 
 .setup([server])
 ----------------

@@ -193,7 +193,7 @@
 <div class="section" id="generate-authentication">
 <h2>生成身份验证<a class="headerlink" href="#generate-authentication" title="永久链接至标题">¶</a></h2>
 <p>要为您的应用程序添加身份验证,我们可以运行</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">authentication</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>feathers generate authentication
 </pre></div>
 </div>
 <p>首先询问我们想要使用哪些身份验证提供程序.在本指南中,我们仅介绍本地身份验证.它应该默认选中.按enter键.</p>
@@ -209,22 +209,22 @@
 </div>
 <div class="section" id="create-a-user-and-log-in">
 <h2>创建用户并登录<a class="headerlink" href="#create-a-user-and-log-in" title="永久链接至标题">¶</a></h2>
-<p>我们刚刚创建了 <code class="docutils literal notranslate"><span class="pre">users</span></code> 服务并启用了本地身份验证.重新启动应用程序时,我们现在可以使用 <code class="docutils literal notranslate"><span class="pre">email</span></code> 和 <code class="docutils literal notranslate"><span class="pre">password</span></code> 创建一个新用户,类似于我们对消息所做的操作.然后将登录信息处理成JWT(JSON Web令牌). (有关更多信息,请参阅 <a class="reference internal" href="../auth/how-jwt-works.html"><span class="doc">JSON Web令牌的工作原理</span></a>).</p>
+<p>我们刚刚创建了 <code class="docutils literal notranslate"><span class="pre">users</span></code> 服务并启用了本地身份验证.重新启动应用程序时,我们现在可以使用 <code class="docutils literal notranslate"><span class="pre">email</span></code> 和 <code class="docutils literal notranslate"><span class="pre">password</span></code> 创建一个新用户,类似于我们对消息所做的操作.然后将登录信息处理成JWT(JSON Web令牌). (有关更多信息,请参阅 <a class="reference internal" href="../auth/how-jwt-works.html"><span class="doc">JSON Web Tokens 是如何工作的</span></a>).</p>
 <div class="section" id="create-the-user">
 <h3>创建用户<a class="headerlink" href="#create-the-user" title="永久链接至标题">¶</a></h3>
 <p>我们将使用以下数据创建一个新用户:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;feathers@example.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span>
-<span class="p">}</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;feathers@example.com&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;secret&quot;</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>生成的用户服务会自动安全地在数据库中散列密码,并将其从响应中排除. (密码永远不应该传回给客户).有几种方法可以创建新用户,例如,通过CURL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/users/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;http://localhost:3030/users/&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data-binary <span class="s1">&#39;{ &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
 </pre></div>
 </div>
 <p>使用REST客户端,例如 <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a> 使用此按钮:</p>
-<p><a href="#id3"><span class="problematic" id="id4">|在邮递员中运行|</span></a></p>
+<p><a class="reference external" href="https://app.getpostman.com/run-collection/9668636a9596d1e4a496"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>创建具有相同电子邮件地址的用户只能使用一次,然后失败,因为它已存在于数据库中.这是对NeDB实施的限制;它可能必须在使用其他数据库时手动实现.</p>
@@ -233,20 +233,20 @@
 <div class="section" id="get-a-token">
 <h3>获得一个令牌<a class="headerlink" href="#get-a-token" title="永久链接至标题">¶</a></h3>
 <p>要创建JWT,我们现在可以使用所需的策略(<code class="docutils literal notranslate"><span class="pre">local</span></code>)将登录信息发布到 <code class="docutils literal notranslate"><span class="pre">authentication</span></code> 服务:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s2">&quot;strategy&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;feathers@example.com&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span>
-<span class="p">}</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;strategy&quot;</span>: <span class="s2">&quot;local&quot;</span>,
+  <span class="s2">&quot;email&quot;</span>: <span class="s2">&quot;feathers@example.com&quot;</span>,
+  <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;secret&quot;</span>
+<span class="o">}</span>
 </pre></div>
 </div>
 <p>通过CURL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/authentication/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;strategy&quot;: &quot;local&quot;, &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;http://localhost:3030/authentication/&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data-binary <span class="s1">&#39;{ &quot;strategy&quot;: &quot;local&quot;, &quot;email&quot;: &quot;feathers@example.com&quot;, &quot;password&quot;: &quot;secret&quot; }&#39;</span>
 </pre></div>
 </div>
 <p>使用REST客户端,例如 <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>:</p>
-<p><a href="#id5"><span class="problematic" id="id6">|在邮递员中运行|</span></a></p>
-<p>然后,可以使用返回的令牌对此特定用户进行身份验证,方法是将其添加到新HTTP请求的 <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> 标头中.由于我们在创建前端时也会在客户端上使用Feathers,因此我们不必担心手动创建和使用本指南的令牌.有关验证REST API调用的更多信息,请参阅 <span class="xref std std-doc">../../api/client/rest＃authentication</span>.</p>
+<p><a class="reference external" href="https://app.getpostman.com/run-collection/9668636a9596d1e4a496"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
+<p>然后,可以使用返回的令牌对此特定用户进行身份验证,方法是将其添加到新HTTP请求的 <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> 标头中.由于我们在创建前端时也会在客户端上使用Feathers,因此我们不必担心手动创建和使用本指南的令牌.有关验证REST API调用的更多信息,请参阅 <a class="reference internal" href="../../api/client/rest.html#api-client-rest-authentication"><span class="std std-ref">认证</span></a>.</p>
 </div>
 </div>
 <div class="section" id="securing-the-messages-service">

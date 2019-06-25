@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:03+0800\n"
+"POT-Creation-Date: 2019-06-25 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,7 +141,7 @@ msgid "context.params"
 msgstr ""
 
 #: ../../source/api/hooks.rst:162
-msgid "``context.params`` is a **writeable** property that contains the :doc:`./services` parameters (including :ref:`services_params`."
+msgid "``context.params`` is a **writeable** property that contains the :doc:`./services` parameters (including ``params.query``). For more information see the :ref:`services_params`."
 msgstr ""
 
 #: ../../source/api/hooks.rst:167
@@ -333,10 +333,14 @@ msgid "Application hooks"
 msgstr ""
 
 #: ../../source/api/hooks.rst:500
-msgid "To add hooks to every service ``app.hooks(hooks)`` can be used. Application hooks are `registered in the same format as service hooks <#registering-hooks>`_ and also work exactly the same. Note when application hooks will be executed however:"
+msgid "To add hooks to every service ``app.hooks(hooks)`` can be used. Application hooks are `registered in the same format as service hooks <#registering-hooks>`_ and also work exactly the same."
 msgstr ""
 
-#: ../../source/api/hooks.rst:505
+#: ../../source/api/hooks.rst:504
+msgid "when application hooks will be executed however:"
+msgstr ""
+
+#: ../../source/api/hooks.rst:506
 msgid "``before`` application hooks will always run *before* all service ``before`` hooks"
 msgstr ""
 
@@ -344,11 +348,11 @@ msgstr ""
 msgid "``after`` application hooks will always run *after* all service ``after`` hooks"
 msgstr ""
 
-#: ../../source/api/hooks.rst:509
+#: ../../source/api/hooks.rst:508
 msgid "``error`` application hooks will always run *after* all service ``error`` hooks"
 msgstr ""
 
-#: ../../source/api/hooks.rst:512
+#: ../../source/api/hooks.rst:510
 msgid "Here is an example for a very useful application hook that logs every service method error with the service and method name as well as the error stack."
 msgstr ""
 

@@ -128,7 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-get-oauth-working-across-different-domains">如何让OAuth跨不同的域工作</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#my-configuration-isnt-loaded">我的配置未加载</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-set-up-https">如何设置HTTPS?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#is-feathers-production-ready">羽毛生产准备好了吗?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-feathers-production-ready">Feathers 生产准备好了吗?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
@@ -271,7 +271,7 @@
 </div>
 </div>
 <div class="section" id="how-do-i-do-nested-or-custom-routes">
-<h2>如何进行嵌套或自定义路由?<a class="headerlink" href="#how-do-i-do-nested-or-custom-routes" title="永久链接至标题">¶</a></h2>
+<span id="faq-how-do-i-do-nested-or-custom-routes"></span><h2>如何进行嵌套或自定义路由?<a class="headerlink" href="#how-do-i-do-nested-or-custom-routes" title="永久链接至标题">¶</a></h2>
 <p>通常情况下,我们发现实际上并不需要它们,并且保持路线尽可能平坦要好得多.例如 <code class="docutils literal notranslate"><span class="pre">users/:userId/posts</span></code> 之类的东西 - 虽然很适合人类阅读 - 但实际上并不像等价的那样容易解析和处理 <a class="reference internal" href="../api/databases/querying.html"><span class="doc">查询</span></a>. 另外,当通过没有路线概念的websocket连接使用Feathers时,这也会更好.</p>
 <p>但是, 仍然可以通过在嵌套路由上注册现有服务并将route参数映射到这样的查询参数来创建服务的嵌套路由.:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/posts&#39;</span><span class="p">,</span> <span class="nx">postService</span><span class="p">);</span>
@@ -315,7 +315,7 @@
 <p>要正确使用Feathers, 了解服务如何工作以及所有现有数据库适配器只是与数据库本身通信的服务非常重要.</p>
 </div>
 <p>编写自己的服务的原因和方法包括 <a class="reference internal" href="../guides/basics/readme.html"><span class="doc">Feathers 基础知识</span></a>.在生成器中,可以通过运行 <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">service</span></code>,选择“自定义服务”,然后编辑 <code class="docutils literal notranslate"><span class="pre">&lt;servicename&gt;/&lt;servicename&gt;</span> <span class="pre">.class.js</span></code> 文件来创建自定义服务,以生成相应的数据库调用.</p>
-<p>如果您想发布自己的数据库适配器, 首先要确保该数据库还没有一个 <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">社区维护适配器</a> ( 许多维护者都是很高兴得到一些帮助).  如果没有, 你可以运行 <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">plugin</span></code> 来创建一个新的插件. 可以在 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">羽毛记忆库</a> 中找到数据库适配器的参考实现. 社区维护的适配器总是有可能毕业于 <em>官方</em> Feathers适配器, 但目前还没有计划直接添加对Feathers团队的任何新数据库的支持.</p>
+<p>如果您想发布自己的数据库适配器, 首先要确保该数据库还没有一个 <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">社区维护适配器</a> ( 许多维护者都是很高兴得到一些帮助).  如果没有, 你可以运行 <code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">plugin</span></code> 来创建一个新的插件. 可以在 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">Feathers 记忆库</a> 中找到数据库适配器的参考实现. 社区维护的适配器总是有可能毕业于 <em>官方</em> Feathers适配器, 但目前还没有计划直接添加对Feathers团队的任何新数据库的支持.</p>
 </div>
 <div class="section" id="i-am-not-getting-real-time-events">
 <h2>我没有得到实时事件<a class="headerlink" href="#i-am-not-getting-real-time-events" title="永久链接至标题">¶</a></h2>
@@ -357,7 +357,7 @@
 </div>
 <div class="section" id="how-do-i-render-templates">
 <h2>如何渲染模板?<a class="headerlink" href="#how-do-i-render-templates" title="永久链接至标题">¶</a></h2>
-<p>Feathers就像Express一样工作,所以它完全相同.我们创建了一个 <a class="reference internal" href="../guides/advanced/using-a-view-engine.html"><span class="doc">使用视图引擎</span></a>.有关使用身份验证保护Express视图的信息,请参阅 <a class="reference internal" href="../guides/auth/recipe.express-middleware.html"><span class="doc">FeathersJS Auth Recipe:认证Express中间件(SSR)</span></a>.</p>
+<p>Feathers就像Express一样工作,所以它完全相同.我们创建了一个 <a class="reference internal" href="../guides/advanced/using-a-view-engine.html"><span class="doc">使用视图引擎</span></a>.有关使用身份验证保护Express视图的信息,请参阅 <a class="reference internal" href="../guides/auth/recipe.express-middleware.html"><span class="doc">认证Express中间件(SSR)</span></a>.</p>
 </div>
 <div class="section" id="oauth-is-not-setting-the-cookie">
 <h2>OAuth未设置Cookie<a class="headerlink" href="#oauth-is-not-setting-the-cookie" title="永久链接至标题">¶</a></h2>
@@ -438,16 +438,16 @@ in <a class="reference external" href="https://feathers-plus.github.io/v1/feathe
 </div>
 <div class="section" id="what-about-koa-hapi-x">
 <h2>Koa/Hapi/X 怎么样?<a class="headerlink" href="#what-about-koa-hapi-x" title="永久链接至标题">¶</a></h2>
-<p>还有许多其他节点服务器框架，如Koa，一个*“Node.JS的下一代Web框架”<a href="#id1"><span class="problematic" id="id2">*</span></a>使用ES6生成器函数而不是Express中间件或HapiJS等。 目前，Feathers与框架无关，但仅为HTTP API提供 <a class="reference internal" href="../api/express.html"><span class="doc">Express</span></a> 集成。 未来可能会支持更多的框架，直接 <a class="reference external" href="https://nodejs.org/api/http.html">Node HTTP</a> 是最有可能的。</p>
+<p>还有许多其他节点服务器框架, 如Koa, 一个*“Node.JS的下一代Web框架”<a href="#id1"><span class="problematic" id="id2">*</span></a>使用ES6生成器函数而不是Express中间件或HapiJS等. 目前, Feathers与框架无关, 但仅为HTTP API提供 <a class="reference internal" href="../api/express.html"><span class="doc">Express</span></a> 集成. 未来可能会支持更多的框架, 直接 <a class="reference external" href="https://nodejs.org/api/http.html">Node HTTP</a> 是最有可能的.</p>
 </div>
 <div class="section" id="how-do-i-access-the-request-object-in-hooks-or-services">
 <h2>如何在挂钩或服务中访问请求对象?<a class="headerlink" href="#how-do-i-access-the-request-object-in-hooks-or-services" title="永久链接至标题">¶</a></h2>
-<p>简而言之，你不应该这样做。如果你看一下 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> ，你会看到钩子上可用的所有参数。</p>
+<p>简而言之, 你不应该这样做.如果你看一下 <a class="reference internal" href="../api/hooks.html"><span class="doc">钩子</span></a> , 你会看到钩子上可用的所有参数.</p>
 <p>如果您仍然需要请求对象中的某些内容(例如, 请求的IP地址), 您只需将其添加到 <code class="docutils literal notranslate"><span class="pre">req.feathers</span></code> 对象 <span class="xref std std-doc">../api/express#params</span> 或 :doc :<cite>../API/socketio＃appconfiguresocketiocallback</cite>.</p>
 </div>
 <div class="section" id="how-do-i-mount-sub-apps">
 <h2>如何挂载子应用程序?<a class="headerlink" href="#how-do-i-mount-sub-apps" title="永久链接至标题">¶</a></h2>
-<p>它与Express几乎完全相同。可以找到更多信息 <span class="xref std std-doc">../api/express #sub-apps</span>.</p>
+<p>它与Express几乎完全相同.可以找到更多信息 <span class="xref std std-doc">../api/express #sub-apps</span>.</p>
 </div>
 <div class="section" id="how-do-i-do-some-processing-after-sending-the-response-to-the-user">
 <h2>将响应发送给用户后如何进行处理?<a class="headerlink" href="#how-do-i-do-some-processing-after-sending-the-response-to-the-user" title="永久链接至标题">¶</a></h2>
@@ -581,7 +581,10 @@ query for <code class="docutils literal notranslate"><span class="pre">null</spa
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>有关更多信息, 请参阅 <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.set">Express应用程序设置</a> [&#64;feathersjs/rest＃88](<a class="reference external" href="https://github.com/feathersjs/feathers-rest/issues/88">https://github.com/feathersjs/feathers-rest/issues/88</a>) 和 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205">feathers-mongoose＃205</a>.</p>
+<p>For more information see the <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.set">Express application settings</a>
+<a class="reference external" href="https://github.com/feathersjs/feathers-rest/issues/88">&#64;feathersjs/rest#88</a>
+and
+<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205">feathers-mongoose#205</a>.</p>
 </div>
 <div class="section" id="i-always-get-a-404-for-my-custom-middleware">
 <h2>我的自定义中间件总是得到404<a class="headerlink" href="#i-always-get-a-404-for-my-custom-middleware" title="永久链接至标题">¶</a></h2>
@@ -603,10 +606,10 @@ can be done by setting the <a class="reference external" href="https://github.co
 </div>
 <div class="section" id="how-do-i-set-up-https">
 <h2>如何设置HTTPS?<a class="headerlink" href="#how-do-i-set-up-https" title="永久链接至标题">¶</a></h2>
-<p>查看羽毛 <span class="xref std std-doc">../api/express#https</span>.</p>
+<p>查看Feathers <span class="xref std std-doc">../api/express#https</span>.</p>
 </div>
 <div class="section" id="is-feathers-production-ready">
-<h2>羽毛生产准备好了吗?<a class="headerlink" href="#is-feathers-production-ready" title="永久链接至标题">¶</a></h2>
+<h2>Feathers 生产准备好了吗?<a class="headerlink" href="#is-feathers-production-ready" title="永久链接至标题">¶</a></h2>
 <p>Yes! It’s being used in production by a bunch of companies from startups
 to fortune 500s. For some more details see <a class="reference external" href="https://www.quora.com/Is-FeathersJS-production-ready">this answer on
 Quora</a>.</p>

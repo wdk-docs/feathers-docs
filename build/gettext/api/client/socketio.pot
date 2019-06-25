@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:18+0800\n"
+"POT-Creation-Date: 2019-06-25 16:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "The ``@feathersjs/socketio-client`` module allows to connect to services 
 msgstr ""
 
 #: ../../source/api/client/socketio.rst:23
-msgid "Socket.io is also used to *call* service methods. Using sockets for both calling methods and receiving real-time events is generally faster than using :doc:`./express`. There is therefore no need to use both REST and Socket.io in the same client application."
+msgid "Socket.io is also used to *call* service methods. Using sockets for both calling methods and receiving real-time events is generally faster than using :doc:`../express`. There is therefore no need to use both REST and Socket.io in the same client application."
 msgstr ""
 
 #: ../../source/api/client/socketio.rst:30
@@ -48,211 +48,187 @@ msgstr ""
 msgid "Initialize the Socket.io client using a given socket and the default options."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:35
-msgid "{% codetabs name=“Modular”, type=“js” -%} const feathers = require(‘@feathersjs/feathers’); const socketio = require(‘@feathersjs/socketio-client’); const io = require(‘socket.io-client’);"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:40
-msgid "const socket = io(‘http://api.feathersjs.com’); const app = feathers();"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:42
-msgid "// Set up Socket.io client with the socket app.configure(socketio(socket));"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:45
-msgid "// Receive real-time events through Socket.io app.service(‘messages’) .on(‘created’, message => console.log(‘New message created’, message));"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:48
-msgid "// Call the ``messages`` service app.service(‘messages’).create({ text: ‘A message from a REST client’ }); {%- language name=“@feathersjs/client”, type=“html” -%}"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:87
-msgid "{%- endcodetabs %}"
-msgstr ""
-
-#: ../../source/api/client/socketio.rst:90
+#: ../../source/api/client/socketio.rst:80
 msgid "socketio(socket, options)"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:92
+#: ../../source/api/client/socketio.rst:82
 msgid "Initialize the Socket.io client with the specified socket and options."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:94
+#: ../../source/api/client/socketio.rst:84
 msgid "Options can be:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:96
+#: ../../source/api/client/socketio.rst:86
 msgid "``timeout`` (default: 5000ms) - The time after which a method call fails and times out. This usually happens when calling a service or service method that does not exist."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:115
+#: ../../source/api/client/socketio.rst:105
 msgid "To set a service specific timeout you can use:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:122
+#: ../../source/api/client/socketio.rst:112
 msgid "Direct connection"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:124
+#: ../../source/api/client/socketio.rst:114
 msgid "Feathers sets up a normal Socket.io server that you can connect to with any Socket.io compatible client, usually the `Socket.io client <http://socket.io/docs/client-api/>`_ either by loading the ``socket.io-client`` module or ``/socket.io/socket.io.js`` from the server. Unlike HTTP calls, websockets do not have an inherent cross-origin restriction in the browser so it is possible to connect to any Feathers server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:133
-msgid "which is where Feathers will set up Socket.io."
+#: ../../source/api/client/socketio.rst:122
+msgid "The socket connection URL has to point to the server root which is where Feathers will set up Socket.io."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:149
+#: ../../source/api/client/socketio.rst:139
 msgid "Service methods can be called by emitting a ``<methodname>`` event followed by the service path and method parameters. The service path is the name the service has been registered with (in ``app.use``), without leading or trailing slashes. An optional callback following the ``function(error, data)`` Node convention will be called with the result of the method call or any errors that might have occurred."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:156
+#: ../../source/api/client/socketio.rst:146
 msgid "``params`` will be set as ``params.query`` in the service method call. Other service parameters can be set through a :doc:`../socketio`."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:159
+#: ../../source/api/client/socketio.rst:149
 msgid "If the service path or method does not exist, an appropriate Feathers error will be returned."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:163
+#: ../../source/api/client/socketio.rst:153
 msgid "Authentication"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:165
+#: ../../source/api/client/socketio.rst:155
 msgid "Sockets can be authenticated by sending the ``authenticate`` event with the ``strategy`` and the payload. For specific examples, see the “Direct Connection” section in the :doc:`../authentication/jwt` authentication chapters."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:185
+#: ../../source/api/client/socketio.rst:175
 msgid "find"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:187
+#: ../../source/api/client/socketio.rst:177
 msgid "Retrieves a list of all matching resources from the service"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:195
+#: ../../source/api/client/socketio.rst:185
 msgid "Will call ``app.service('messages').find({ query: { status: 'read', user: 10 } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:200
+#: ../../source/api/client/socketio.rst:188
 msgid "get"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:202
+#: ../../source/api/client/socketio.rst:190
 msgid "Retrieve a single resource from the service."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:210
+#: ../../source/api/client/socketio.rst:198
 msgid "Will call ``app.service('messages').get(1, {})`` on the server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:218
+#: ../../source/api/client/socketio.rst:206
 msgid "Will call ``app.service('messages').get(1, { query: { fetch: 'all' } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:223
+#: ../../source/api/client/socketio.rst:211
 msgid "``create``"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:225
+#: ../../source/api/client/socketio.rst:213
 msgid "Create a new resource with ``data`` which may also be an array."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:235
+#: ../../source/api/client/socketio.rst:223
 msgid "Will call ``app.service('messages').create({ text: 'I really have to iron' }, {})`` on the server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:246
+#: ../../source/api/client/socketio.rst:234
 msgid "Will call ``app.service('messages').create`` with the array."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:249
+#: ../../source/api/client/socketio.rst:237
 msgid "update"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:251
+#: ../../source/api/client/socketio.rst:239
 msgid "Completely replace a single or multiple resources."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:261
+#: ../../source/api/client/socketio.rst:249
 msgid "Will call ``app.service('messages').update(2, { text: 'I really have to do laundry' }, {})`` on the server. The ``id`` can also be ``null`` to update multiple resources:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:272
+#: ../../source/api/client/socketio.rst:260
 msgid "Will call ``app.service('messages').update(null, { complete: true }, { query: { complete: 'false' } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:276
+#: ../../source/api/client/socketio.rst:264
 msgid "``update`` is normally expected to replace an entire resource, which is why the database adapters only support ``patch`` for multiple records."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:281
+#: ../../source/api/client/socketio.rst:269
 msgid "patch"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:283
+#: ../../source/api/client/socketio.rst:271
 msgid "Merge the existing data of a single or multiple resources with the new ``data``."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:294
+#: ../../source/api/client/socketio.rst:282
 msgid "Will call ``app.service('messages').patch(2, { read: true }, {})`` on the server. The ``id`` can also be ``null`` to update multiple resources:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:308
+#: ../../source/api/client/socketio.rst:296
 msgid "Will call ``app.service('messages').patch(null, { complete: true }, { query: { complete: false } })`` on the server, to change the status for all read app.service(‘messages’)."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:313
+#: ../../source/api/client/socketio.rst:301
 msgid "This is supported out of the box by the Feathers :doc:`../readme`"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:316
+#: ../../source/api/client/socketio.rst:304
 msgid "remove"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:318
+#: ../../source/api/client/socketio.rst:306
 msgid "Remove a single or multiple resources:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:326
+#: ../../source/api/client/socketio.rst:314
 msgid "Will call ``app.service('messages').remove(2, { query: { cascade: true } })`` on the server. The ``id`` can also be ``null`` to remove multiple resources:"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:335
+#: ../../source/api/client/socketio.rst:323
 msgid "Will call ``app.service('messages').remove(null, { query: { read: 'true' } })`` on the server to delete all read app.service(‘messages’)."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:340
+#: ../../source/api/client/socketio.rst:330
 msgid "Listening to events"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:342
+#: ../../source/api/client/socketio.rst:332
 msgid "Listening to service events allows real-time behaviour in an application. :doc:`events` are sent to the socket in the form of ``servicepath eventname``."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:347
+#: ../../source/api/client/socketio.rst:337
 msgid "created"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:349
+#: ../../source/api/client/socketio.rst:339
 msgid "The ``created`` event will be published with the callback data, when a service ``create`` returns successfully."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:361
+#: ../../source/api/client/socketio.rst:351
 msgid "updated, patched"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:363
+#: ../../source/api/client/socketio.rst:353
 msgid "The ``updated`` and ``patched`` events will be published with the callback data, when a service ``update`` or ``patch`` method calls back successfully."
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:382
+#: ../../source/api/client/socketio.rst:372
 msgid "removed"
 msgstr ""
 
-#: ../../source/api/client/socketio.rst:384
+#: ../../source/api/client/socketio.rst:374
 msgid "The ``removed`` event will be published with the callback data, when a service ``remove`` calls back successfully."
 msgstr ""
 

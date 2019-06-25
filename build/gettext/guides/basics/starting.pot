@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgid "Installing Feathers"
 msgstr ""
 
 #: ../../source/guides/basics/starting.rst:24
-msgid "Feathers can be installed like any other Node module by installing the [@feathersjs/feathers](https://www.npmjs.com/package/@feathersjs/feathers) package through `npm <https://www.npmjs.com>`_. The same package can also be used with a module loader like Browserify or Webpack and React Native."
+msgid "Feathers can be installed like any other Node module by installing the `@feathersjs/feathers <https://www.npmjs.com/package/@feathersjs/feathers>`_ package through `npm <https://www.npmjs.com>`_. The same package can also be used with a module loader like Browserify or Webpack and React Native."
 msgstr ""
 
 #: ../../source/guides/basics/starting.rst:37

@@ -28,7 +28,7 @@ Using the transport
 
 After installing
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/socketio --save
 
@@ -146,7 +146,7 @@ service ``app.js`` looks like this:
 
 As always, we can start our server again by running
 
-::
+.. code-block:: sh
 
    node app.js
 

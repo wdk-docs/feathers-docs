@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:15+0800\n"
+"POT-Creation-Date: 2019-06-25 16:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,127 +92,127 @@ msgstr ""
 msgid "Below is an example of Feathers service interface as a normal object and a JavaScript class:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:61
+#: ../../source/guides/basics/services.rst:58
 msgid "The parameters for service methods are:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:63
+#: ../../source/guides/basics/services.rst:60
 msgid "``id`` - The unique identifier for the data"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:64
+#: ../../source/guides/basics/services.rst:61
 msgid "``data`` - The data sent by the user (for creating and updating)"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:65
+#: ../../source/guides/basics/services.rst:62
 msgid "``params`` (*optional*) - Additional parameters, for example the authenticated user or the query"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:69
+#: ../../source/guides/basics/services.rst:66
 msgid "A service does not have to implement all those methods but must have at least one."
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:72
+#: ../../source/guides/basics/services.rst:69
 msgid "For more information about service, service methods and parameters see the :doc:`../../api/services`."
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:76
+#: ../../source/guides/basics/services.rst:73
 msgid "A messages service"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:78
+#: ../../source/guides/basics/services.rst:75
 msgid "Now that we know how service methods look like we can implement our own chat message service that allows us to find, create, remove and update messages in-memory. Here we will use a JavaScript class to work with our messages but as we’ve seen above it could also be a normal object."
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:83
+#: ../../source/guides/basics/services.rst:80
 msgid "Below is the complete updated ``app.js`` with comments:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:155
+#: ../../source/guides/basics/services.rst:152
 msgid "Using services"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:157
+#: ../../source/guides/basics/services.rst:154
 msgid "A service object can be registered on a Feathers application by calling ``app.use(path, service)``. ``path`` will be the name of the service (and the URL if it is exposed as an API which we will learn later)."
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:161
+#: ../../source/guides/basics/services.rst:158
 msgid "We can retrieve that service via ``app.service(path)`` and then call any of its service methods. Add the following to the end of ``app.js``:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:182
+#: ../../source/guides/basics/services.rst:179
 msgid "And run it with"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:188
+#: ../../source/guides/basics/services.rst:185
 msgid "We should see this:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:196
+#: ../../source/guides/basics/services.rst:193
 msgid "Service events"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:198
+#: ../../source/guides/basics/services.rst:195
 msgid "When you register a service it will automatically become a `NodeJS EventEmitter <https://nodejs.org/api/events.html>`_ that sends events with the new data when a service method that modifies data (``create``,``update``, ``patch`` and ``remove``) returns. Events can be listened to with ``app.service('messages').on('eventName', data => {})``. Here is a list of the service methods and their corresponding events:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:204
+#: ../../source/guides/basics/services.rst:201
 msgid "Service method"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:204
+#: ../../source/guides/basics/services.rst:201
 msgid "Service event"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:206
+#: ../../source/guides/basics/services.rst:203
 msgid "``service.create()``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:206
+#: ../../source/guides/basics/services.rst:203
 msgid "``service.on('created')``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:207
+#: ../../source/guides/basics/services.rst:204
 msgid "``service.update()``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:207
+#: ../../source/guides/basics/services.rst:204
 msgid "``service.on('updated')``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:208
+#: ../../source/guides/basics/services.rst:205
 msgid "``service.patch()``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:208
+#: ../../source/guides/basics/services.rst:205
 msgid "``service.on('patched')``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:209
+#: ../../source/guides/basics/services.rst:206
 msgid "``service.remove()``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:209
+#: ../../source/guides/basics/services.rst:206
 msgid "``service.on('removed')``"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:212
+#: ../../source/guides/basics/services.rst:209
 msgid "We will see later that this is the key to how Feathers enables real-time functionality. For now, let’s update the ``processMessages`` function in ``app.js`` as follows:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:245
+#: ../../source/guides/basics/services.rst:242
 msgid "If we now run the file via"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:251
+#: ../../source/guides/basics/services.rst:248
 msgid "We will see how the event handlers are logging the information of created and deleted message like this:"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:262
+#: ../../source/guides/basics/services.rst:259
 msgid "What’s next?"
 msgstr ""
 
-#: ../../source/guides/basics/services.rst:264
+#: ../../source/guides/basics/services.rst:261
 msgid "In this chapter we learned about services as Feathers core concept for abstracting data operations. We also saw how a service sends events which we will use later to create real-time applications. First, we will look at :doc:`./hooks` which is the other key part of how Feathers works."
 msgstr ""
 

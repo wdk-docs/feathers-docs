@@ -21,7 +21,7 @@ plugin.
 
 Output files from generator:
 
-::
+.. code-block:: sh
 
       create package.json
       create .babelrc
@@ -48,7 +48,7 @@ allow us to find the best state in the United States.
 Before we start writing more code we need to see that things are
 working.
 
-::
+.. code-block:: sh
 
    $ cd example && node app.js
 
@@ -82,7 +82,7 @@ Back in business. That error message was telling us that we need to
 build our project. In this case it means babel needs to do it’s thing.
 For development you can run watch
 
-::
+.. code-block:: sh
 
    $ npm run watch
 
@@ -94,7 +94,7 @@ For development you can run watch
 After that you can run the example app and everything should be good to
 go.
 
-::
+.. code-block:: sh
 
    $ node app.js
    Feathers app started on 127.0.0.1:3030
@@ -285,7 +285,7 @@ file.
 
    console.log('Feathers app started on 127.0.0.1:3030');
 
-::
+.. code-block:: sh
 
    $ node app.js
 
@@ -324,14 +324,14 @@ and replace it with the following.
      });
    });
 
-::
+.. code-block:: sh
 
    $ npm run test
 
 Because this is just a quick sample jshint might fail. You can either
 fix the syntax or change the test command.
 
-::
+.. code-block:: sh
 
 
    $ npm run compile && npm run mocha

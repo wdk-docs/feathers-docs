@@ -3,11 +3,11 @@ Primus
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/primus --save
 
-The [@feathersjs/primus](https://github.com/feathersjs/primus) module
+The `@feathersjs/primus <https://github.com/feathersjs/primus>`_ module
 allows to call :doc:`./services` and receive
 :doc:`./events` via
 `Primus <https://github.com/primus/primus>`_, a universal wrapper for
@@ -25,7 +25,7 @@ Configuration
 Additionally to ``@feathersjs/primus`` your websocket library of choice
 also has to be installed.
 
-::
+.. code-block:: sh
 
    $ npm install ws --save
 

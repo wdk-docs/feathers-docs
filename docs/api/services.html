@@ -95,10 +95,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
-<li class="toctree-l3"><a class="reference internal" href="events.html">活动</a></li>
-<li class="toctree-l3"><a class="reference internal" href="channels.html">活动频道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="events.html">事件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channels.html">事件频道</a></li>
 <li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
 <li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST transport</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#transports">传输层</a></li>
@@ -184,20 +185,10 @@
             
   <div class="section" id="services">
 <h1>服务<a class="headerlink" href="#services" title="永久链接至标题">¶</a></h1>
-<p>“Services” are the heart of every Feathers application. Services are
-JavaScript objects (or instances of <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 classes</a>)
-that implement <span class="xref std std-ref">services_service-method</span>. Feathers itself
-will also add some <a class="reference internal" href="#services-feathers-functionality"><span class="std std-ref">Feathers功能</span></a> to its services.</p>
+<p>“服务”是每个Feathers应用程序的核心.服务是JavaScript对象(或 <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6类</a> 的实例), 它们实现 <a class="reference internal" href="#services-service-methods"><span class="std std-ref">服务方式</span></a>. Feathers本身也会为其服务添加一些 <span class="xref std std-ref">services_feathers-functional</span>.</p>
 <div class="section" id="service-methods">
 <span id="services-service-methods"></span><h2>服务方式<a class="headerlink" href="#service-methods" title="永久链接至标题">¶</a></h2>
-<p>Service methods are pre-defined
-<a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a>
-methods that your service object can implement (or that have already
-been implemented by one of the <a class="reference internal" href="databases/common.html"><span class="doc">通用API</span></a>.. Below is a complete example of the
-Feathers <em>service interface</em> as a normal JavaScript object either
-returning a <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>
-or using
-<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a>:</p>
+<p>服务方法是预定义的 <a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> 方法, 您的服务对象可以实现(或已经由以下其中一个实现的方法 <a class="reference internal" href="databases/common.html"><span class="doc">通用API</span></a>. 下面是Feathers <em>服务接口</em> 的完整示例, 作为普通的JavaScript对象, 返回一个 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> 或使用 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async/await</a>:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span>const myService = {
   find(params) {
     return Promise.resolve([]);
@@ -226,7 +217,7 @@ app.use(‘/my-service’, myService);
 app.use(‘/my-service’, myService);
 </pre></div>
 </div>
-<p>Services can also be an instance of an <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6 class</a>:</p>
+<p>服务也可以是 <a class="reference external" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes">ES6类</a> 的实例:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span>class MyService {
   find(params) { return Promise.resolve([]); }
   get(id, params) {}
@@ -250,72 +241,52 @@ app.use(‘/my-service’, new MyService());
   setup(app, path) {}
 }
 
-app.use(‘/my-service’, new MyService()); {%- endcodetabs %}
+app.use(‘/my-service’, new MyService());
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>Methods are optional, and if a method is not implemented
-Feathers will automatically emit a <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> error.</p>
+<p>方法是可选的, 如果没有实现方法, Feathers会自动发出 <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code> 错误.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>Always use the service returned by
-<code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> not the service object (the <code class="docutils literal notranslate"><span class="pre">myService</span></code>
-object above) directly. See the <a class="reference external" href="./application.md#servicepath">app.service documentation</a> for more information.</p>
+<p>始终使用 <code class="docutils literal notranslate"><span class="pre">app.service(path)</span></code> 返回的服务, 而不是服务对象(上面的 <code class="docutils literal notranslate"><span class="pre">myService</span></code> 对象).有关更多信息, 请参阅 <a class="reference external" href="./application.md#servicepath">app.service文档</a>.</p>
 </div>
-<p>Service methods must return a <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>
-or be declared as <code class="docutils literal notranslate"><span class="pre">async</span></code> and have the following parameters:</p>
+<p>服务方法必须返回一个 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> 或者声明为 <code class="docutils literal notranslate"><span class="pre">async</span></code> 和有以下参数:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> — The identifier for the resource. A resource is the data identified by a unique id.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> — 资源数据。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code> - Additional parameters for the method call, see <a class="reference internal" href="#services-params"><span class="std std-ref">params</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> — 资源的标识符.资源是由唯一ID标识的数据.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> — 资源数据.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code> - 方法调用的其他参数, 请参阅 <a class="reference external" href="#params">params</a></p></li>
 </ul>
-<p>Once registered, the service can be retrieved and used via <span class="xref std std-ref">application_servicepath</span>.</p>
+<p>注册后, 可以通过 <a class="reference external" href="./application.md#servicepath">app.service()</a> 检索和使用该服务:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myService</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;my-service&#39;</span><span class="p">);</span>
 
 <span class="nx">myService</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">items</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;.find()&#39;</span><span class="p">,</span> <span class="nx">items</span><span class="p">));</span>
 <span class="nx">myService</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;.get(1)&#39;</span><span class="p">,</span> <span class="nx">item</span><span class="p">));</span>
 </pre></div>
 </div>
-<p>Keep in mind that services don’t have to use databases. You could easily
-replace the database in the example with a package that uses some API
-to, for example, pull in GitHub stars or stock ticker data.</p>
+<p>请记住, 服务不必使用数据库.您可以使用使用某些API的软件包轻松替换示例中的数据库, 例如, 引入GitHub星标或股票代码数据.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>This section describes the general usage of service
-methods and how to implement them. They are already implemented by
-the official Feathers database adapters. For specifics on how to use
-the database adapters, see the <a class="reference internal" href="databases/common.html"><span class="doc">通用API</span></a>.</p>
+<p>本节介绍服务方法的一般用法以及如何实现它们.它们已由官方Feathers数据库适配器实现.有关如何使用数据库适配器的详细信息, 请参阅 <a class="reference internal" href="databases/common.html"><span class="doc">通用API</span></a>.</p>
 </div>
 <div class="section" id="params">
 <span id="services-params"></span><h3>params<a class="headerlink" href="#params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">params</span></code> contain additional information for the service method call.
-Some properties in <code class="docutils literal notranslate"><span class="pre">params</span></code> can be set by Feathers already. Commonly
-used are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">params</span></code> 包含服务方法调用的附加信息. “params” 中的一些属性可以由Feathers设置.常用的有:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">params.query</span></code> - the query parameters from the client, either
-passed as URL query parameters (see the <a class="reference internal" href="express.html"><span class="doc">Express</span></a>
-chapter) or through websockets (see <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a> or
-<a class="reference internal" href="primus.html"><span class="doc">Primus</span></a>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">params.provider</span></code> - The transport (<code class="docutils literal notranslate"><span class="pre">rest</span></code>, <code class="docutils literal notranslate"><span class="pre">socketio</span></code> or
-<code class="docutils literal notranslate"><span class="pre">primus</span></code>) used for this service call. Will be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> for
-internal calls from the server (unless passed explicitly).</p></li>
-<li><p><a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a> or passed explicitly.</p></li>
-<li><p><a class="reference internal" href="channels.html"><span class="doc">活动频道</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params.query</span></code> - 来自客户端的查询参数, 或者作为URL查询参数传递(参见 <a class="reference internal" href="express.html"><span class="doc">Express</span></a> 章节)或者通过websockets传递(参见 <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a> 或 <a class="reference internal" href="primus.html"><span class="doc">Primus</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params.provider</span></code> - 用于此服务调用的传输(<code class="docutils literal notranslate"><span class="pre">rest</span></code>, <code class="docutils literal notranslate"><span class="pre">socketio</span></code> 或 <code class="docutils literal notranslate"><span class="pre">primus</span></code>).对于来自服务器的内部调用, 将是 <code class="docutils literal notranslate"><span class="pre">undefined</span></code> (除非明确传递).</p></li>
+<li><p><a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a> 或明确传递.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">params.connection</span></code> - 如果服务调用是通过实时传输(例如通过websockets)进行的, <code class="docutils literal notranslate"><span class="pre">params.connection</span></code> 是可以使用的连接对象 <a class="reference internal" href="channels.html"><span class="doc">事件频道</span></a>.</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>For external calls only <code class="docutils literal notranslate"><span class="pre">params.query</span></code> will be sent
-between the client and server. If not passed, <code class="docutils literal notranslate"><span class="pre">params.query</span></code> will
-be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> for internal calls.</p>
+<p>对于外部调用, 只有 <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 将在客户端和服务器之间发送.如果没有通过, <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 对于内部调用将是 <code class="docutils literal notranslate"><span class="pre">undefined</span></code>.</p>
 </div>
 </div>
 <div class="section" id="find-params">
 <h3>.find(params)<a class="headerlink" href="#find-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.find(params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Retrieves a list of all resources
-from the service. Provider parameters will be passed as
-<code class="docutils literal notranslate"><span class="pre">params.query</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.find(params)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise</span></code> - 从服务中检索所有资源的列表. Provider参数将作为 <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 传递.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">find</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">([</span>
@@ -333,15 +304,12 @@ from the service. Provider parameters will be passed as
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p><code class="docutils literal notranslate"><span class="pre">find</span></code> does not have to return an array; it can also
-return an object. The database adapters already do this for
-<span class="xref std std-ref">databases/common_pagination</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">find</span></code> 不必返回一个数组;它也可以返回一个对象.数据库适配器已经为 <a class="reference external" href="./databases/common.md#pagination">pagination</a> 执行此操作.</p>
 </div>
 </div>
 <div class="section" id="get-id-params">
 <h3>.get(id, params)<a class="headerlink" href="#get-id-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.get(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Retrieves a single resource
-with the given <code class="docutils literal notranslate"><span class="pre">id</span></code> from the service.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.get(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - 从服务中检索具有给定“id”的单个资源.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
@@ -355,9 +323,7 @@ with the given <code class="docutils literal notranslate"><span class="pre">id</
 </div>
 <div class="section" id="create-data-params">
 <h3>.create(data, params)<a class="headerlink" href="#create-data-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.create(data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Creates a new resource
-with <code class="docutils literal notranslate"><span class="pre">data</span></code>. The method should return a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the newly
-created data. <code class="docutils literal notranslate"><span class="pre">data</span></code> may also be an array.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.create(data,</span> <span class="pre">params)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise</span></code> - 使用 <code class="docutils literal notranslate"><span class="pre">data</span></code> 创建一个新资源.该方法应该使用新创建的数据返回“Promise”. <code class="docutils literal notranslate"><span class="pre">data</span></code> 也可以是一个数组.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/messages&#39;</span><span class="p">,</span> <span class="p">{</span>
   <span class="nx">messages</span><span class="o">:</span> <span class="p">[],</span>
 
@@ -371,62 +337,39 @@ created data. <code class="docutils literal notranslate"><span class="pre">data<
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>A successful <code class="docutils literal notranslate"><span class="pre">create</span></code> method call emits the
-<span class="xref std std-ref">events_created</span>.</p>
+<p>一个成功的 <code class="docutils literal notranslate"><span class="pre">create</span></code> 方法调用会发出 <code class="docutils literal notranslate"><span class="pre">created</span></code> <a class="reference external" href="./events.md＃created">服务事件</a>.</p>
 </div>
 </div>
 <div class="section" id="update-id-data-params">
 <h3>.update(id, data, params)<a class="headerlink" href="#update-id-data-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.update(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Replaces the resource
-identified by <code class="docutils literal notranslate"><span class="pre">id</span></code> with <code class="docutils literal notranslate"><span class="pre">data</span></code>. The method should return a
-<code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the complete, updated resource data. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be
-<code class="docutils literal notranslate"><span class="pre">null</span></code> when updating multiple records, with <code class="docutils literal notranslate"><span class="pre">params.query</span></code>
-containing the query criteria.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.update(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise</span></code> - 用 <code class="docutils literal notranslate"><span class="pre">data</span></code> 替换 <code class="docutils literal notranslate"><span class="pre">id</span></code> 标识的资源.该方法应该返回一个带有完整, 更新的资源数据的“Promise”.更新多个记录时, <code class="docutils literal notranslate"><span class="pre">id</span></code> 也可以是 <code class="docutils literal notranslate"><span class="pre">null</span></code>, <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 包含查询条件.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>A successful <code class="docutils literal notranslate"><span class="pre">update</span></code> method call emits the
-<span class="xref std std-ref">events_updated</span>.</p>
+<p>一个成功的 <code class="docutils literal notranslate"><span class="pre">update</span></code> 方法调用会发出 <code class="docutils literal notranslate"><span class="pre">updated</span></code> <a class="reference external" href="./events.md＃updated">服务事件</a>.</p>
 </div>
 </div>
 <div class="section" id="patch-id-data-params">
 <h3>.patch(id, data, params)<a class="headerlink" href="#patch-id-data-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">patch(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Merges the existing data of the
-resource identified by <code class="docutils literal notranslate"><span class="pre">id</span></code> with the new <code class="docutils literal notranslate"><span class="pre">data</span></code>. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be
-<code class="docutils literal notranslate"><span class="pre">null</span></code> indicating that multiple resources should be patched with
-<code class="docutils literal notranslate"><span class="pre">params.query</span></code> containing the query criteria.</p>
-<p>The method should return with the complete, updated resource data.
-Implement <code class="docutils literal notranslate"><span class="pre">patch</span></code> additionally (or instead of) <code class="docutils literal notranslate"><span class="pre">update</span></code> if you want
-to distinguish between partial and full updates and support the
-<code class="docutils literal notranslate"><span class="pre">PATCH</span></code> HTTP method.</p>
+<p><code class="docutils literal notranslate"><span class="pre">patch(id,</span> <span class="pre">data,</span> <span class="pre">params)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise</span></code> - 将 <code class="docutils literal notranslate"><span class="pre">id</span></code> 标识的资源的现有数据与新的 <code class="docutils literal notranslate"><span class="pre">data</span></code> 合并. <code class="docutils literal notranslate"><span class="pre">id</span></code> 也可以是 <code class="docutils literal notranslate"><span class="pre">null</span></code>, 表示应该用包含查询条件的 <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 修补多个资源.</p>
+<p>该方法应返回完整的更新资源数据.如果你想区分部分和完全更新并支持 <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> HTTP方法, 另外(或代替) <code class="docutils literal notranslate"><span class="pre">update</span></code> 实现 <code class="docutils literal notranslate"><span class="pre">patch</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>A successful <code class="docutils literal notranslate"><span class="pre">patch</span></code> method call emits the
-<span class="xref std std-ref">events_patched</span>.</p>
+<p>一个成功的 <code class="docutils literal notranslate"><span class="pre">patch</span></code> 方法调用会发出 <code class="docutils literal notranslate"><span class="pre">patched</span></code> <a class="reference external" href="./events.md#patchched">服务事件</a>.</p>
 </div>
 </div>
 <div class="section" id="remove-id-params">
 <h3>.remove(id, params)<a class="headerlink" href="#remove-id-params" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.remove(id,</span> <span class="pre">params)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> - Removes the resource with
-<code class="docutils literal notranslate"><span class="pre">id</span></code>. The method should return a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> with the removed
-resource. <code class="docutils literal notranslate"><span class="pre">id</span></code> can also be <code class="docutils literal notranslate"><span class="pre">null</span></code>, which indicates the deletion of
-multiple resources, with <code class="docutils literal notranslate"><span class="pre">params.query</span></code> containing the query criteria.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.remove(id,</span> <span class="pre">params)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise</span></code> - 用 <code class="docutils literal notranslate"><span class="pre">id</span></code> 删除资源.该方法应该返回一个带有已移除资源的 <code class="docutils literal notranslate"><span class="pre">Promise</span></code>. <code class="docutils literal notranslate"><span class="pre">id</span></code> 也可以是 <code class="docutils literal notranslate"><span class="pre">null</span></code>, 表示删除多个资源, <code class="docutils literal notranslate"><span class="pre">params.query</span></code> 包含查询条件.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>A successful <code class="docutils literal notranslate"><span class="pre">remove</span></code> method call emits the
-<span class="xref std std-ref">events_remove</span>.</p>
+<p>一个成功的 <code class="docutils literal notranslate"><span class="pre">remove</span></code> 方法调用会发出 <code class="docutils literal notranslate"><span class="pre">removed</span></code> <a class="reference external" href="./events.md#remove">服务事件</a>.</p>
 </div>
 </div>
 <div class="section" id="setup-app-path">
 <h3>.setup(app, path)<a class="headerlink" href="#setup-app-path" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.setup(app,</span> <span class="pre">path)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> is a special method that
-initializes the service, passing an instance of the Feathers application
-and the path it has been registered on.</p>
-<p>For services registered before <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> is invoked, the <code class="docutils literal notranslate"><span class="pre">setup</span></code>
-function of each registered service is called on invoking
-<code class="docutils literal notranslate"><span class="pre">app.listen</span></code>. For services registered after <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> is invoked,
-<code class="docutils literal notranslate"><span class="pre">setup</span></code> is called automatically by Feathers when a service is
-registered.</p>
-<p><span class="xref std std-doc">hooks/readme</span>.</p>
+<p>对于在调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 之前注册的服务, 当调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 时, 会调用每个注册服务的 <code class="docutils literal notranslate"><span class="pre">setup</span></code> 函数.对于在调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 之后注册的服务, Feathers会在注册服务时自动调用 <code class="docutils literal notranslate"><span class="pre">setup</span></code>.</p>
+<p>对于在调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 之前注册的服务, 在调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 时调用每个注册服务的 <code class="docutils literal notranslate"><span class="pre">setup</span></code> 函数.对于在调用 <code class="docutils literal notranslate"><span class="pre">app.listen</span></code> 之后注册的服务, 在注册服务时, Feathers会自动调用 <code class="docutils literal notranslate"><span class="pre">setup</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">setup</span></code> 是一个使用任何特殊配置初始化服务的好地方, 或者如果连接紧密耦合的服务(见下文), 而不是使用 <span class="xref std std-doc">hooks/readme</span>.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// app.js</span>
 <span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
@@ -471,57 +414,41 @@ registered.</p>
 </div>
 <div class="section" id="feathers-functionality">
 <span id="services-feathers-functionality"></span><h2>Feathers功能<a class="headerlink" href="#feathers-functionality" title="永久链接至标题">¶</a></h2>
-<p>When registering a service, Feathers (or its plugins) can also add its
-own methods to a service. Most notably, every service will automatically
-become an instance of a <a class="reference external" href="https://nodejs.org/api/events.html#events_class_eventemitter">NodeJS
-EventEmitter</a>.</p>
+<p>注册服务时, Feathers(或其插件)也可以将自己的方法添加到服务中.最值得注意的是, 每个服务都将自动成为 <a class="reference external" href="https://nodejs.org/api/events.html#events_class_eventemitter">NodeJS EventEmitter</a> 的实例.</p>
 <div class="section" id="hooks-hooks">
 <h3>.hooks(hooks)<a class="headerlink" href="#hooks-hooks" title="永久链接至标题">¶</a></h3>
-<p>Register <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> for this service.</p>
+<p>注册 <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> 用于此服务.</p>
 </div>
 <div class="section" id="publish-event-publisher">
 <h3>.publish([event, ] publisher)<a class="headerlink" href="#publish-event-publisher" title="永久链接至标题">¶</a></h3>
-<p>Register an event publishing callback. For more information, see the
-<a class="reference internal" href="channels.html"><span class="doc">活动频道</span></a>.</p>
+<p>注册事件发布回调.有关更多信息, 请参阅 <a class="reference internal" href="channels.html"><span class="doc">事件频道</span></a>.</p>
 </div>
 <div class="section" id="mixin-mixin">
 <h3>.mixin(mixin)<a class="headerlink" href="#mixin-mixin" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">service.mixin(mixin)</span> <span class="pre">-&gt;</span> <span class="pre">service</span></code> extends the functionality of a
-service. For more information see the
-<a class="reference external" href="https://github.com/daffl/uberproto">Uberproto</a> project page.</p>
+<p><code class="docutils literal notranslate"><span class="pre">service.mixin(mixin)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">service</span></code> 扩展了服务的功能.有关更多信息, 请参阅 <a class="reference external" href="https://github.com/daffl/uberproto">Uberproto</a> 项目页面.</p>
 </div>
 <div class="section" id="on-eventname-listener">
 <h3>.on(eventname, listener)<a class="headerlink" href="#on-eventname-listener" title="永久链接至标题">¶</a></h3>
-<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">NodeJS EventEmitter
-.on</a>.
-Registers a <code class="docutils literal notranslate"><span class="pre">listener</span></code> method (<code class="docutils literal notranslate"><span class="pre">function(data)</span> <span class="pre">{}</span></code>) for the given
-<code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+<p>由核心 <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">NodeJS EventEmitter .on</a> 提供.为给定的 <code class="docutils literal notranslate"><span class="pre">eventname</span></code> 注册一个 <code class="docutils literal notranslate"><span class="pre">listener</span></code> 方法(<code class="docutils literal notranslate"><span class="pre">function(data){}</span></code>).</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>For more information about service events, see the
-<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+<p>有关服务事件的更多信息, 请参阅 <a class="reference internal" href="events.html"><span class="doc">事件</span></a>.</p>
 </div>
 </div>
 <div class="section" id="emit-eventname-data">
 <h3>.emit(eventname, data)<a class="headerlink" href="#emit-eventname-data" title="永久链接至标题">¶</a></h3>
-<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_emit_eventname_args">NodeJS EventEmitter
-.emit</a>.
-Emits the event <code class="docutils literal notranslate"><span class="pre">eventname</span></code> to all event listeners.</p>
+<p>核心 <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_emit_eventname_args">NodeJS EventEmitter .emit</a> 提供.将事件 <code class="docutils literal notranslate"><span class="pre">eventname</span></code> 发送给所有事件侦听器.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>For more information about service events, see the
-<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+<p>有关服务事件的更多信息, 请参阅 <a class="reference internal" href="events.html"><span class="doc">事件</span></a>.</p>
 </div>
 </div>
 <div class="section" id="removelistener-eventname-listener">
 <h3>.removeListener(eventname, [ listener ])<a class="headerlink" href="#removelistener-eventname-listener" title="永久链接至标题">¶</a></h3>
-<p>Provided by the core <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener">NodeJS EventEmitter
-.removeListener</a>.
-Removes all listeners, or the given listener, for <code class="docutils literal notranslate"><span class="pre">eventname</span></code>.</p>
+<p>核心 <a class="reference external" href="https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener">NodeJS EventEmitter .removeListener</a> 提供.为 <code class="docutils literal notranslate"><span class="pre">eventname</span></code> 删除所有监听器或给定的监听器.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>For more information about service events, see the
-<a class="reference internal" href="events.html"><span class="doc">活动</span></a>.</p>
+<p>有关服务事件的更多信息, 请参阅 <a class="reference internal" href="events.html"><span class="doc">事件</span></a>.</p>
 </div>
 </div>
 </div>

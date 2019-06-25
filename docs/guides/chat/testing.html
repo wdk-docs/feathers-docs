@@ -95,13 +95,13 @@
 <li class="toctree-l3"><a class="reference internal" href="processing.html">处理数据</a></li>
 <li class="toctree-l3"><a class="reference internal" href="frontend.html">建立一个前端</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">写测试</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#unit-testing-hooks">Unit testing hooks</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#test-database-setup">Test database setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#testing-services">Testing services</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#client-server-testing">Client/server testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#code-coverage">Code coverage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#changing-the-default-test-directory">Changing the default test directory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#whats-next">What’s next?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unit-testing-hooks">单元测试挂钩</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-database-setup">测试数据库设置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-services">测试服务</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-server-testing">Client/server 测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-coverage">代码覆盖率</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changing-the-default-test-directory">更改默认测试目录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#whats-next">下一步是什么？</a></li>
 </ul>
 </li>
 </ul>
@@ -191,32 +191,17 @@
             
   <div class="section" id="writing-tests">
 <h1>写测试<a class="headerlink" href="#writing-tests" title="永久链接至标题">¶</a></h1>
-<p>Every time we generate a hook or service, the generator will also set up
-a basic <a class="reference external" href="https://mochajs.org/">Mocha</a> test that we can use to
-implement unit tests for it. In this chapter, we will implement unit
-tests for our <a class="reference internal" href="processing.html"><span class="doc">处理数据</span></a> and integration tests for the
-<a class="reference internal" href="service.html"><span class="doc">创建服务</span></a>.</p>
-<p>We can run the <a class="reference external" href="https://eslint.org/">code Linter</a> and Mocha tests
-with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+<p>每当我们生成一个钩子或服务时, 生成器也会设置一个基本的 <a class="reference external" href="https://mochajs.org/">Mocha</a> test, 我们可以使用它来为它实现单元测试. 在本章中, 我们将为我们的 <a class="reference internal" href="processing.html"><span class="doc">处理数据</span></a> 和 <a class="reference internal" href="service.html"><span class="doc">创建服务</span></a> 的集成测试实现单元测试.</p>
+<p>我们可以运行 <a class="reference external" href="https://eslint.org/">code Linter</a> 和Mocha测试</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm <span class="nb">test</span>
 </pre></div>
 </div>
-<p>This will fail initially, since we implemented functionality in our
-hooks that is not covered by the standard tests. So let’s get those to
-pass first.</p>
+<p>这将最初失败, 因为我们在钩子中实现了标准测试未涵盖的功能. 所以让我们先通过.</p>
 <div class="section" id="unit-testing-hooks">
-<h2>Unit testing hooks<a class="headerlink" href="#unit-testing-hooks" title="永久链接至标题">¶</a></h2>
-<p>The best way to test individual hooks is to set up a dummy Feathers
-application with some services that return the data we expect and can
-test against, then register the hooks and make actual service calls to
-verify that they return what we’d expect.</p>
-<p>The first hook we created was for processing new messages. For this
-hook, we can create a <code class="docutils literal notranslate"><span class="pre">messages</span></code> dummy custom
-<a class="reference internal" href="../basics/services.html"><span class="doc">服务</span></a> that just returns the same data from
-the <code class="docutils literal notranslate"><span class="pre">create</span></code> service method. To pretend we are an authenticated user,
-we have to pass <code class="docutils literal notranslate"><span class="pre">params.user</span></code>. For this test, this can be a simple
-JavaScript object with an <code class="docutils literal notranslate"><span class="pre">_id</span></code>.</p>
-<p>Update <code class="docutils literal notranslate"><span class="pre">test/hooks/process-messages.test.js</span></code> to the following:</p>
+<h2>单元测试挂钩<a class="headerlink" href="#unit-testing-hooks" title="永久链接至标题">¶</a></h2>
+<p>测试单个钩子的最好方法是设置一个虚拟Feathers应用程序, 其中包含一些返回我们期望的数据并可以测试的服务, 然后注册钩子并进行实际的服务调用以验证它们返回我们期望的内容.</p>
+<p>我们创建的第一个钩子是用于处理新消息. 对于这个钩子, 我们可以创建一个 <code class="docutils literal notranslate"><span class="pre">messages</span></code> 虚拟自定义 <a class="reference internal" href="../basics/services.html"><span class="doc">服务</span></a>, 只返回来自 <code class="docutils literal notranslate"><span class="pre">create</span></code> 服务方法的相同数据. 假装我们是经过身份验证的用户, 我们必须通过 <code class="docutils literal notranslate"><span class="pre">params.user</span></code>. 对于此测试, 这可以是一个带有 <code class="docutils literal notranslate"><span class="pre">_id</span></code> 的简单JavaScript对象.</p>
+<p>将 <code class="docutils literal notranslate"><span class="pre">test/hooks/process-messages.test.js</span></code> 更新为以下内容:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">processMessage</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/hooks/process-message&#39;</span><span class="p">);</span>
@@ -265,8 +250,7 @@ JavaScript object with an <code class="docutils literal notranslate"><span class
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>We can take a similar approach to test the <code class="docutils literal notranslate"><span class="pre">gravatar</span></code> hook in
-<code class="docutils literal notranslate"><span class="pre">test/hooks/gravatar.test.js</span></code>:</p>
+<p>我们可以采用类似的方法来测试 <code class="docutils literal notranslate"><span class="pre">test/hooks/gravatar.test.js</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">gravatar</span></code> 钩子. :</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">gravatar</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/hooks/gravatar&#39;</span><span class="p">);</span>
@@ -305,17 +289,11 @@ JavaScript object with an <code class="docutils literal notranslate"><span class
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>In the tests above, we created a dummy service. But sometimes, we need
-the full Feathers service functionality.
-<a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a>
-is a useful <a class="reference internal" href="../basics/databases.html"><span class="doc">数据库</span></a> that supports
-the Feathers query syntax (and pagination) but does not require a
-database server. We can install it as a development dependency:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">feathers</span><span class="o">-</span><span class="n">memory</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<p>在上面的测试中, 我们创建了一个虚拟服务. 但有时, 我们需要完整的Feathers服务功能. <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a> 是一个有用的 <a class="reference internal" href="../basics/databases.html"><span class="doc">数据库</span></a>, 支持Feathers查询语法(和分页)但不支持需要数据库服务器. 我们可以将它安装为开发依赖项:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install feathers-memory --save-dev
 </pre></div>
 </div>
-<p>Let’s use it to test the <code class="docutils literal notranslate"><span class="pre">populateUser</span></code> hook, by updating
-<code class="docutils literal notranslate"><span class="pre">test/hooks/populate-user.test.js</span></code> to the following:</p>
+<p>让我们用它来测试 <code class="docutils literal notranslate"><span class="pre">populateUser</span></code> 钩子, 将 <code class="docutils literal notranslate"><span class="pre">test/hooks/populate-user.test.js</span></code> 更新为:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">memory</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-memory&#39;</span><span class="p">);</span>
@@ -363,39 +341,30 @@ database server. We can install it as a development dependency:</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>If we now run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+<p>如果我们现在运行:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm <span class="nb">test</span>
 </pre></div>
 </div>
-<p>All our tests should pass. Yay!</p>
+<p>我们所有的测试都应该通过好极了！</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>There are some error stacks printed when running the tests.
-This is normal, they are log entries when running the tests for 404
-(Not Found) errors.</p>
+<p>运行测试时会打印一些错误堆栈. 这是正常的, 它们是运行404(未找到)错误测试时的日志条目.</p>
 </div>
 </div>
 <div class="section" id="test-database-setup">
-<h2>Test database setup<a class="headerlink" href="#test-database-setup" title="永久链接至标题">¶</a></h2>
-<p>When testing database functionality, we want to make sure that the tests
-use a different database. We can achieve this by creating a new
-environment configuration in <code class="docutils literal notranslate"><span class="pre">config/test.json</span></code> with the following
-content:</p>
+<h2>测试数据库设置<a class="headerlink" href="#test-database-setup" title="永久链接至标题">¶</a></h2>
+<p>在测试数据库功能时, 我们希望确保测试使用不同的数据库. 我们可以通过在 <code class="docutils literal notranslate"><span class="pre">config/test.json</span></code> 中创建一个具有以下内容的新环境配置来实现这一点:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;nedb&quot;</span><span class="o">:</span> <span class="s2">&quot;../test/data&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>This will set up the NeDB database to use <code class="docutils literal notranslate"><span class="pre">test/data</span></code> as the base
-directory instead of <code class="docutils literal notranslate"><span class="pre">data/</span></code> when <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> is set to <code class="docutils literal notranslate"><span class="pre">test</span></code>. The
-same thing can be done with connection strings for other databases.</p>
-<p>We also want to make sure that before every test run, the database is
-cleaned up. To make that possible across platforms, first run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">shx</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<p>当 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> 设置为 <code class="docutils literal notranslate"><span class="pre">test</span></code> 时, 这将设置NeDB数据库使用 <code class="docutils literal notranslate"><span class="pre">test/data</span></code> 作为基目录而不是 <code class="docutils literal notranslate"><span class="pre">data/</span></code>. 对于其他数据库的连接字符串也可以完成同样的事情.</p>
+<p>我们还希望确保在每次测试运行之前清理数据库. 为了在跨平台实现这一点, 首先运行:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install shx --save-dev
 </pre></div>
 </div>
-<p>Now we can update the <code class="docutils literal notranslate"><span class="pre">script</span></code> section of <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to the
-following:</p>
+<p>现在我们可以将 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 的 <code class="docutils literal notranslate"><span class="pre">script</span></code> 部分更新为以下内容:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
   <span class="s2">&quot;test&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run eslint &amp;&amp; npm run mocha&quot;</span><span class="p">,</span>
   <span class="s2">&quot;eslint&quot;</span><span class="o">:</span> <span class="s2">&quot;eslint src/. test/. --config .eslintrc.json&quot;</span><span class="p">,</span>
@@ -405,26 +374,17 @@ following:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>On Windows the <code class="docutils literal notranslate"><span class="pre">mocha</span></code> should look like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">clean</span> <span class="o">&amp;</span> <span class="n">SET</span> <span class="n">NODE_ENV</span><span class="o">=</span><span class="n">test</span><span class="o">&amp;</span> <span class="n">mocha</span> <span class="n">test</span><span class="o">/</span> <span class="o">--</span><span class="n">recursive</span> <span class="o">--</span><span class="n">exit</span>
+<p>在Windows上, <code class="docutils literal notranslate"><span class="pre">mocha</span></code> 应该是这样的:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run clean <span class="p">&amp;</span> SET <span class="nv">NODE_ENV</span><span class="o">=</span>test<span class="p">&amp;</span> mocha test/ --recursive --exit
 </pre></div>
 </div>
-<p>This will make sure that the <code class="docutils literal notranslate"><span class="pre">test/data</span></code> folder is removed before
-every test run and <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code> is set properly.</p>
+<p>这将确保在每次测试运行之前删除 <code class="docutils literal notranslate"><span class="pre">test/data</span></code> 文件夹并正确设置 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span></code>.</p>
 </div>
 <div class="section" id="testing-services">
-<h2>Testing services<a class="headerlink" href="#testing-services" title="永久链接至标题">¶</a></h2>
-<p>To test the actual <code class="docutils literal notranslate"><span class="pre">messages</span></code> and <code class="docutils literal notranslate"><span class="pre">users</span></code> services (with all hooks
-wired up), we can use any REST API testing tool to make requests and
-verify that they return correct responses.</p>
-<p>But there is a much faster, easier and complete approach. Since
-everything on top of our own hooks and services is already provided (and
-tested) by Feathers, we can require the
-<a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a> directly, and “fake” authentication
-by setting <code class="docutils literal notranslate"><span class="pre">params.user</span></code> as demonstrated in the hook tests above.</p>
-<p>By default, the generator creates a service test file,
-e.g. <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code>, that only tests that the service
-exists, like this:</p>
+<h2>测试服务<a class="headerlink" href="#testing-services" title="永久链接至标题">¶</a></h2>
+<p>为了测试实际的 <code class="docutils literal notranslate"><span class="pre">messages</span></code> 和 <code class="docutils literal notranslate"><span class="pre">users</span></code> 服务(所有挂钩连线), 我们可以使用任何REST API测试工具发出请求并验证它们是否返回正确的响应.</p>
+<p>但是有一种更快, 更简单和完整的方法. 由于Feathers已经提供(和测试)了我们自己的钩子和服务之上的所有东西, 我们可以直接要求 <a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a>, 并通过设置 <code class="docutils literal notranslate"><span class="pre">params.user</span></code> 来 “fake” 认证 如上面的钩子测试中所示.</p>
+<p>默认情况下, 生成器创建服务测试文件, 例如,  <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code>, 只测试服务是否存在, 如下所示:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
 
@@ -437,11 +397,7 @@ exists, like this:</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>We can then add similar tests that use the service. Following is an
-updated <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code> that adds two tests. The first
-verifies that users can be created, the gravatar gets set and the
-password gets encrypted. The second verifies that the password does not
-get sent to external requests:</p>
+<p>然后我们可以添加使用该服务的类似测试. 以下是一个更新的 <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code>, 它增加了两个测试. 第一个验证是否可以创建用户, 设置gravatar并加密密码. 第二个验证密码未发送到外部请求:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
 
@@ -479,10 +435,7 @@ get sent to external requests:</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>We take a similar approach for <code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code>. We
-create a test-specific user from the <code class="docutils literal notranslate"><span class="pre">users</span></code> service. We then pass it
-as <code class="docutils literal notranslate"><span class="pre">params.user</span></code> when creating a new message, and validates that
-message’s content:</p>
+<p>我们对 <code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code> 采取了类似的方法. 我们从 <code class="docutils literal notranslate"><span class="pre">users</span></code> 服务创建一个特定于测试的用户. 然后我们在创建新消息时将其作为 <code class="docutils literal notranslate"><span class="pre">params.user</span></code> 传递, 并验证该消息的内容:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../src/app&#39;</span><span class="p">);</span>
 
@@ -518,23 +471,15 @@ message’s content:</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>Run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> one more time, to verify that the tests for all our
-hooks, and the new service tests pass.</p>
+<p>再次运行 <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code>, 验证我们所有钩子的测试以及新的服务测试是否通过.</p>
 </div>
 <div class="section" id="client-server-testing">
-<h2>Client/server testing<a class="headerlink" href="#client-server-testing" title="永久链接至标题">¶</a></h2>
-<p>You can write tests which start up both a server for your app, and a
-Feathers client which your test can use to call the server. Such tests
-can expose faults in the interaction between the client and the server.
-They are also useful in testing the authentication of requests from the
-client. Install it as a development dependency:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">client</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<h2>Client/server 测试<a class="headerlink" href="#client-server-testing" title="永久链接至标题">¶</a></h2>
+<p>您可以编写测试来启动应用程序的服务器, 以及测试可用于调用服务器的Feathers客户端. 此类测试可能会暴露客户端与服务器之间交互的错误. 它们还可用于测试来自客户端的请求的身份验证. 将其安装为开发依赖项:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/client --save-dev
 </pre></div>
 </div>
-<p>Test <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code> from above runs on the server. We
-convert it, in the following <code class="docutils literal notranslate"><span class="pre">tests/services/client-users.test.js</span></code>, so
-the tests are run on the client instead of on the server. This also
-causes client authentication to be tested.</p>
+<p>从上面测试 <code class="docutils literal notranslate"><span class="pre">test/services/users.test.js</span></code> 在服务器上运行. 我们将其转换为以下 <code class="docutils literal notranslate"><span class="pre">tests/services/client-users.test.js</span></code>, 因此测试在客户端而不是服务器上运行. 这也会导致客户端身份验证被测试.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">assert</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;assert&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">feathersClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
@@ -637,29 +582,17 @@ causes client authentication to be tested.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>We first make a call on the <em>server</em> to create a new user. We then start
-up a server for our app. Finally the function <code class="docutils literal notranslate"><span class="pre">makeClient</span></code> is called
-to create a Feathers client and authenticate it using the newly created
-user.</p>
-<p>The individual tests remain unchanged except that the service calls are
-now made on the client (<code class="docutils literal notranslate"><span class="pre">client.service(...).create</span></code>) instead of on
-the server (<code class="docutils literal notranslate"><span class="pre">app.service(...).create</span></code>).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">describe('Run</span> <span class="pre">tests</span> <span class="pre">using</span> <span class="pre">client</span> <span class="pre">and</span> <span class="pre">server',</span></code> statement stops a
-new server and client from being created for each test. This results in
-the test module running noticeably faster, though the tests are now
-exposed to potential iteractions. You can remove the statement to
-isolate the tests from one another.</p>
+<p>我们首先在* server <a href="#id1"><span class="problematic" id="id2">*</span></a>上调用以创建新用户. 然后, 我们为我们的应用程序启动服务器. 最后调用函数 <code class="docutils literal notranslate"><span class="pre">makeClient</span></code> 来创建Feathers客户端并使用新创建的用户对其进行身份验证.</p>
+<p>各个测试保持不变, 除了服务调用现在在客户端(<code class="docutils literal notranslate"><span class="pre">client.service(...).create</span></code>)而不是在服务器上进行(<code class="docutils literal notranslate"><span class="pre">app.service(...).create</span></code>).</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>describe(‘使用客户端和服务器运行测试’, ‘<a href="#id3"><span class="problematic" id="id4">`</span></a>语句停止为每个测试创建一个新的服务器和客户端.这导致测试模块运行明显更快, 尽管测试现在暴露于潜在的迭代.您可以删除该语句以将测试彼此隔离.</p>
 </div>
 <div class="section" id="code-coverage">
-<h2>Code coverage<a class="headerlink" href="#code-coverage" title="永久链接至标题">¶</a></h2>
-<p>Code coverage is a great way to get some insights into how much of our
-code is actually executed during the tests. Using
-<a class="reference external" href="https://github.com/gotwarlost/istanbul">Istanbul</a> we can add it
-easily:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">nyc</span> <span class="o">--</span><span class="n">save</span><span class="o">-</span><span class="n">dev</span>
+<h2>代码覆盖率<a class="headerlink" href="#code-coverage" title="永久链接至标题">¶</a></h2>
+<p>代码覆盖率是一种很好的方式, 可以了解我们在测试期间实际执行了多少代码. 使用 <a class="reference external" href="https://github.com/gotwarlost/istanbul">Istanbul</a> 我们可以轻松添加它:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install nyc --save-dev
 </pre></div>
 </div>
-<p>Now we have to update the <code class="docutils literal notranslate"><span class="pre">script</span></code> section of our <code class="docutils literal notranslate"><span class="pre">package.json</span></code> to:</p>
+<p>现在我们必须更新 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 的 <code class="docutils literal notranslate"><span class="pre">script</span></code> 部分:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span> <span class="p">{</span>
   <span class="s2">&quot;test&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run eslint &amp;&amp; npm run coverage&quot;</span><span class="p">,</span>
   <span class="s2">&quot;coverage&quot;</span><span class="o">:</span> <span class="s2">&quot;npm run clean &amp;&amp; NODE_ENV=test nyc mocha&quot;</span><span class="p">,</span>
@@ -670,20 +603,19 @@ easily:</p>
 <span class="p">},</span>
 </pre></div>
 </div>
-<p>On Windows, the <code class="docutils literal notranslate"><span class="pre">coverage</span></code> command looks like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">run</span> <span class="n">clean</span> <span class="o">&amp;</span> <span class="n">SET</span> <span class="n">NODE_ENV</span><span class="o">=</span><span class="n">test</span><span class="o">&amp;</span> <span class="n">nyc</span> <span class="n">mocha</span>
+<p>在Windows上, <code class="docutils literal notranslate"><span class="pre">coverage</span></code> 命令如下所示:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run clean <span class="p">&amp;</span> SET <span class="nv">NODE_ENV</span><span class="o">=</span>test<span class="p">&amp;</span> nyc mocha
 </pre></div>
 </div>
-<p>Now run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">test</span>
+<p>现在跑:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm <span class="nb">test</span>
 </pre></div>
 </div>
-<p>This will print out some additional coverage information.</p>
+<p>这将打印出一些额外的覆盖信息.</p>
 </div>
 <div class="section" id="changing-the-default-test-directory">
-<h2>Changing the default test directory<a class="headerlink" href="#changing-the-default-test-directory" title="永久链接至标题">¶</a></h2>
-<p>To change the default test directory, specify the directory you want in
-your project’s <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file:</p>
+<h2>更改默认测试目录<a class="headerlink" href="#changing-the-default-test-directory" title="永久链接至标题">¶</a></h2>
+<p>要更改默认测试目录, 请在项目的 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 文件中指定所需的目录:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;directories&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;test&quot;</span><span class="p">:</span> <span class="s2">&quot;server/test/&quot;</span>
@@ -691,8 +623,7 @@ your project’s <code class="docutils literal notranslate"><span class="pre">pa
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Also, don’t forget to update your mocha script in your <code class="docutils literal notranslate"><span class="pre">package.json</span></code>
-file:</p>
+<p>另外, 不要忘记更新 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 文件中的mocha脚本:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;scripts&quot;: {
   &quot;mocha&quot;: &quot;mocha server/test/ --recursive --exit&quot;
 }
@@ -700,11 +631,8 @@ file:</p>
 </div>
 </div>
 <div class="section" id="whats-next">
-<h2>What’s next?<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
-<p>That’s it - our chat guide is completed! We now have a fully-tested REST
-and real-time API, with a plain JavaScript frontend including login and
-signup. Follow up in the <a class="reference internal" href="../../api/readme.html"><span class="doc">API</span></a> for complete details about using
-Feathers, or start building your own first Feathers application!</p>
+<h2>下一步是什么？<a class="headerlink" href="#whats-next" title="永久链接至标题">¶</a></h2>
+<p>就是这样 - 我们的聊天指南已经完成！我们现在有一个经过全面测试的REST和实时API, 带有一个包含登录和注册的简单JavaScript前端. 关于使用Feathers的完整细节, 或者开始构建自己的第一个Feathers应用程序, 请关注 <a class="reference internal" href="../../api/readme.html"><span class="doc">API</span></a> ！</p>
 </div>
 </div>
 

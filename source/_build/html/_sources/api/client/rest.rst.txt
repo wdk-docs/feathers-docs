@@ -15,7 +15,7 @@ REST Client
    $ npm install @feathersjs/rest-client --save
 
 ``@feathersjs/rest-client`` allows to connect to a service exposed
-through the :doc:`../express#expressrest` using
+through the :ref:`api_express_rest` using
 `jQuery <https://jquery.com/>`_,
 `request <https://github.com/request/request>`_,
 `Superagent <http://visionmedia.github.io/superagent/>`_,

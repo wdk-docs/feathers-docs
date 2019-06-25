@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,6 +77,6 @@ msgid "Share"
 msgstr ""
 
 #: ../../source/contributing/readme.rst:65
-msgid "We take pride in having great documentation and we are very appreciative of any help we can get. Please, let the world know you’ve contributed to the Feathers Book or give [@FeathersJS](https://twitter.com/feathersjs) a shout out on Twitter to let others know about your changes."
+msgid "We take pride in having great documentation and we are very appreciative of any help we can get. Please, let the world know you’ve contributed to the Feathers Book or give `@FeathersJS <https://twitter.com/feathersjs>`_ a shout out on Twitter to let others know about your changes."
 msgstr ""
 

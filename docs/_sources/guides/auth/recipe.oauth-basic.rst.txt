@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Set up Basic OAuth Login
+Set up Basic OAuth Login
 ================================================
 
 The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of
@@ -6,9 +6,9 @@ The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentica
 community access to hundreds of authentication strategies from the
 Passport community. Since many of the Passport strategies are for OAuth,
 we’ve created two auth plugins,
-:doc:`../api/authentication/oauth1`
+:doc:`../../api/authentication/oauth1`
 and
-:doc:`../api/authentication/oauth2`.
+:doc:`../../api/authentication/oauth2`.
 These new plugins use a Passport strategy to allow OAuth logins into
 your app.
 
@@ -22,7 +22,7 @@ Google, and Facebook.
 Simplified login is almost always a good idea, but for many developers
 implementing OAuth can be difficult. Let’s take a look at how it works,
 in general. After that, we’ll see how the new
-:doc:`../api/authentication/server`
+:doc:`../../api/authentication/server`
 server plugin makes it easy to get up and running.
 
 How OAuth Works
@@ -159,10 +159,10 @@ script creates a Feathers Client instance and attempts to authenticate
 with the JWT strategy upon page load. The authentication client plugin
 has been configured with a ``cookie`` value of ``feathers-jwt``.
 
-   Note: This code loads the ``feathers-client`` package from a CDN.
+.. note:: This code loads the ``feathers-client`` package from a CDN.
    This is **not** the recommended usage for most apps, but is good for
    demonstration purposes. We recommend using a bundler as described in
-   the :doc:`../api/client`.
+   the :doc:`../../api/client`.
 
 .. code:: html
 

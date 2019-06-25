@@ -3,27 +3,20 @@ Authentication
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/authentication --save
 
-The
-[@feathersjs/authentication](https://github.com/feathersjs/authentication)
+The `@feathersjs/authentication <https://github.com/feathersjs/authentication>`_
 module assists in using JWT for authentication. It has three primary
 purposes:
 
-1. Setup an ``/authentication`` endpoint to create JSON Web Tokens
-   (JWT). JWT are used as access tokens. You can learn more about JWT at
-   `jwt.io <https://jwt.io>`_
+1. Setup an ``/authentication`` endpoint to create JSON Web Tokens (JWT). JWT are used as access tokens. You can learn more about JWT at `jwt.io <https://jwt.io>`_
 2. Provide a consistent authentication API for all Feathers transports
-3. Provide a framework for authentication plugins that use
-   `Passport <http://passportjs.org/>`_ strategies to protect
-   endpoints.
-
-..
+3. Provide a framework for authentication plugins that use `Passport <http://passportjs.org/>`_ strategies to protect endpoints.
 
 .. note:: If you are using a 0.x version of
-   `https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating`_.
+   `migration guide <https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating>`_.
    The hooks that were once bundled with this module are now located at
    `feathers-authentication-hooks <https://github.com/feathersjs-ecosystem/feathers-authentication-hooks>`_.
 
@@ -32,15 +25,11 @@ Complementary Plugins
 
 The following plugins are complementary, but entirely optional:
 
--  Using the authentication server on the client:
-   :doc:`./client`
--  Local (username/password) authentication:
-   :doc:`./local`
+-  Using the authentication server on the client: :doc:`./client`
+-  Local (username/password) authentication: :doc:`./local`
 -  JWT authentication: :doc:`./jwt`
--  OAuth1 authentication:
-   :doc:`./oauth1`
--  OAuth2 authentication:
-   :doc:`./oauth2`
+-  OAuth1 authentication: :doc:`./oauth1`
+-  OAuth2 authentication: :doc:`./oauth2`
 
 app.configure(auth(options))
 ----------------------------
@@ -58,8 +47,9 @@ be used.
 
 ..
 
-.. important:: The plugin has to be configured **before** any other
-   service.
+.. important:: The plugin has to be configured **before** any other service.
+
+.. _api_auth_server-otions:
 
 Options
 -------
@@ -98,9 +88,8 @@ required by some of the authentication plugins.
 
 ..
 
-.. note:: The ``typ`` in the JWT header options is not a typo. It is
-   the `typ parameter defined in the JWT
-   specification <https://tools.ietf.org/html/rfc7519#section-5.1>`_.
+.. note:: The ``typ`` in the JWT header options is not a typo.
+   It is the `typ parameter defined in the JWT specification <https://tools.ietf.org/html/rfc7519#section-5.1>`_.
 
 app.service(‘authentication’)
 -----------------------------
@@ -124,7 +113,7 @@ The API of this method utilizes the ``context`` object.
 If you are manually generating JWT’s, and for example, wanted to create
 a JWT with the `payload <https://jwt.io>`_ ``{userId: "abc123"}``:
 
-::
+.. code-block:: sh
 
    const data = {payload: {userId: "abc123"}};
    service.create(data);
@@ -252,13 +241,10 @@ These two events use a ``callback`` function with the same signature.
 
    -  Using ``feathers-socketio`` and ``feathers-primus``:
 
-      -  ``provider`` {String} - the transport name: ``socketio`` or
-         ``primus``
-      -  ``connection`` {Object} - the same as ``params`` in the hook
-         context
-      -  ``socket`` {SocketObject} - the current user’s WebSocket
-         object. It also contains the ``feathers`` attribute, which is
-         the same as ``params`` in the hook context.
+      -  ``provider`` {String} - the transport name: ``socketio`` or ``primus``
+      -  ``connection`` {Object} - the same as ``params`` in the hook context
+      -  ``socket`` {SocketObject} - the current user’s WebSocket object.
+         It also contains the ``feathers`` attribute, which is the same as ``params`` in the hook context.
 
 Express Middleware
 ------------------
@@ -277,8 +263,7 @@ as the regular Passport express middleware:
 
 For details, see the :doc:`../../guides/auth/recipe.express-middleware`.
 
-Additional middleware are included and exposed, but you typically don’t
-need to worry about them:
+Additional middleware are included and exposed, but you typically don’t need to worry about them:
 
 -  ``emitEvents`` - emit ``login`` and ``logout`` events
 -  ``exposeCookies`` - expose cookies to Feathers so they are available
@@ -294,16 +279,16 @@ need to worry about them:
 -  ``successRedirect`` - support redirecting on auth success. Only
    triggered if ``hook.redirect`` is set.
 -  ``setCookie`` - support setting the JWT access token in a cookie.
-   Only enabled if cookies are enabled. **Note: Feathers will NOT read
-   an access token from a cookie. This would expose the API to CSRF
-   attacks.** This ``setCookie`` feature is available primarily for
-   helping with Server Side Rendering.
+   Only enabled if cookies are enabled.
+
+.. note:: Feathers will NOT read an access token from a cookie.
+      This would expose the API to CSRF attacks.** This ``setCookie``
+      feature is available primarily for helping with Server Side Rendering.
 
 Complete Example
 ----------------
 
-Here’s an example of a Feathers server that uses
-``@feathersjs/authentication`` for local authentication.
+Here’s an example of a Feathers server that uses ``@feathersjs/authentication`` for local authentication.
 
 .. code:: js
 

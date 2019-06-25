@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:00+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/socketio.rst:10
-msgid "The [@feathersjs/socketio](https://github.com/feathersjs/socketio) module allows to call :doc:`./services` and receive :doc:`./events` via `Socket.io <http://socket.io/>`_, a NodeJS library which enables real-time bi-directional, event-based communication."
+msgid "The `@feathersjs/socketio <https://github.com/feathersjs/socketio>`_ module allows to call :doc:`./services` and receive :doc:`./events` via `Socket.io <http://socket.io/>`_, a NodeJS library which enables real-time bi-directional, event-based communication."
 msgstr ""
 
 #: ../../source/api/socketio.rst:16
@@ -89,7 +89,7 @@ msgid "`Socket.io middleware <https://socket.io/docs/server-api/#namespace-use-f
 msgstr ""
 
 #: ../../source/api/socketio.rst:155
-msgid "*Note:* ``socket.feathers`` is the same object as the ``connection`` in a :doc:`./channels`. ``socket.request`` and ``socket.handshake`` contains information the HTTP request that initiated the connection (see the `Socket.io documentation <https://socket.io/docs/server-api/#socket-request>`_)."
+msgid "``socket.feathers`` is the same object as the ``connection`` in a :doc:`./channels`. ``socket.request`` and ``socket.handshake`` contains information the HTTP request that initiated the connection (see the `Socket.io documentation <https://socket.io/docs/server-api/#socket-request>`_)."
 msgstr ""
 
 #: ../../source/api/socketio.rst:162

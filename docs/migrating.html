@@ -96,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#feathersjs-npm-scope"><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> npm scope</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#main-feathers">主要Feathers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#authentication">认证</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#client-side-feathers">客户端羽毛</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client-side-feathers">客户端 Feathers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#documentation-changes">文档更改</a></li>
@@ -194,13 +194,13 @@
 <div class="section" id="quick-upgrade">
 <h2>快速升级<a class="headerlink" href="#quick-upgrade" title="永久链接至标题">¶</a></h2>
 <p>要快速升级任何Feathers插件或应用程序,您可以使用新CLI中的 <code class="docutils literal notranslate"><span class="pre">upgrade</span></code> 命令.首先,如果安装了它,请卸载旧的 <code class="docutils literal notranslate"><span class="pre">feathers-cli</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">uninstall</span> <span class="n">feathers</span><span class="o">-</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm uninstall feathers-cli -g
 </pre></div>
 </div>
 <p>然后安装 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/cli</span></code> 并升级项目:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">cli</span> <span class="o">-</span><span class="n">g</span>
-<span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">project</span>
-<span class="n">feathers</span> <span class="n">upgrade</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/cli -g
+<span class="nb">cd</span> path/to/project
+feathers upgrade
 </pre></div>
 </div>
 <blockquote>
@@ -283,9 +283,15 @@
 <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">channels</span><span class="p">);</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p><strong>非常重要:</strong> 上面显示的` <cite>channels.js`</cite> 文件会将所有实时事件发布给所有经过身份验证的用户.这比以前的默认值更安全,但您应该仔细查看:doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>./api/channels`文档并实现适当的通道,以便只有正确的用户才能接收实时事件.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">channels.js</span></code> file shown above will publish
+all real-time events to all authenticated users. This is already
+safer than the previous default but you should carefully review the
+<a class="reference internal" href="api/channels.html"><span class="doc">事件频道</span></a> documentation and implement
+appropriate channels so that only the right users are going to
+receive real-time events.</p>
+</div>
 <p>将应用程序迁移到通道后,可以删除所有 <code class="docutils literal notranslate"><span class="pre">&lt;servicename&gt;</span> <span class="pre">.filter.js</span></code> 文件.</p>
 </div>
 <div class="section" id="protecting-fields">
@@ -424,7 +430,7 @@ without changes), see <a class="reference internal" href="api/client.html#api-cl
 </table>
 </div>
 <div class="section" id="client-side-feathers">
-<h3>客户端羽毛<a class="headerlink" href="#client-side-feathers" title="永久链接至标题">¶</a></h3>
+<h3>客户端 Feathers<a class="headerlink" href="#client-side-feathers" title="永久链接至标题">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 48%" />

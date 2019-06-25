@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 12:25+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,7 +157,7 @@ msgid "`Observables with Angular2 and FeathersJS <https://berndsgn.ch/posts/obse
 msgstr ""
 
 #: ../../source/Ecosystem/index.rst:56
-msgid "[Feathers + React + Redux + Webpack + local auth. Production quality](https://github.com/eddyystop/feathers-starter-react-redux-login-roles)."
+msgid "`Feathers + React + Redux + Webpack + local auth. Production quality <https://github.com/eddyystop/feathers-starter-react-redux-login-roles>`_."
 msgstr ""
 
 #: ../../source/Ecosystem/index.rst:57
@@ -189,7 +189,7 @@ msgid "`Feathers Chat + Phone Signup SMS pin <https://github.com/morenoh149/feat
 msgstr ""
 
 #: ../../source/Ecosystem/index.rst:64
-msgid "`Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-examples/tree/master/examples/feathers/sql-database>`_ - An example for integrating Feathers with [Forest admin](https://www.forestadmin.com/)."
+msgid "`Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-examples/tree/master/examples/feathers/sql-database>`_ - An example for integrating Feathers with `Forest admin <https://www.forestadmin.com/>`_."
 msgstr ""
 
 #: ../../source/Ecosystem/index.rst:65

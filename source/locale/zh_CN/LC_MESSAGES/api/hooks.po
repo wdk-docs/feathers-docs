@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:03+0800\n"
+"POT-Creation-Date: 2019-06-25 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,10 @@ msgid ""
 "register a single hook function or create a chain of them to create "
 "complex work-flows. Most of the time multiple hooks are registered so the"
 " examples show the “hook chain” array style registration."
-msgstr "钩子是可插入的中间件函数,可以在 **before**, **after** 或者在a :doc:`./services` 的 \\__error__s 之前注册. 您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程. 大多数情况下,多个挂钩都被注册,因此示例显示了“挂钩链”数组样式注册."
+msgstr ""
+"钩子是可插入的中间件函数,可以在 **before**, **after** 或者在a :doc:`./services` 的 "
+"\\__error__s 之前注册. 您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程. "
+"大多数情况下,多个挂钩都被注册,因此示例显示了“挂钩链”数组样式注册."
 
 #: ../../source/api/hooks.rst:10
 msgid ""
@@ -38,7 +41,10 @@ msgid ""
 "transport Feathers may support in the future. They are also service "
 "agnostic, meaning they can be used with ​\\ **any**\\ ​ service "
 "regardless of whether they have a model or not."
-msgstr "钩子是 **独立传输**,这意味着它是否通过HTTP(S)(REST),Socket.io,Primus或任何其他传输Feathers可能在将来支持无关紧要.它们也是服务不可知的,这意味着它们可以与\\ **任何**\\ 服务一起使用,无论它们是否具有模型."
+msgstr ""
+"钩子是 "
+"**独立传输**,这意味着它是否通过HTTP(S)(REST),Socket.io,Primus或任何其他传输Feathers可能在将来支持无关紧要.它们也是服务不可知的,这意味着它们可以与\\"
+" **任何**\\ 服务一起使用,无论它们是否具有模型."
 
 #: ../../source/api/hooks.rst:16
 msgid ""
@@ -48,7 +54,10 @@ msgid ""
 "trace through and debug. For more information about the design patterns "
 "behind hooks see `this blog post <https://blog.feathersjs.com/api-"
 "service-composition-with-hooks-47af13aa6c01>`_."
-msgstr "钩子通常用于处理诸如验证,记录,填充相关实体,发送通知等内容.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.有关钩子背后的设计模式的更多信息,请参阅 `此博客文章 <https://blog.feathersjs.com/api-service-composition-with-hooks-47af13aa6c01>`_."
+msgstr ""
+"钩子通常用于处理诸如验证,记录,填充相关实体,发送通知等内容.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.有关钩子背后的设计模式的更多信息,请参阅"
+" `此博客文章 <https://blog.feathersjs.com/api-service-composition-with-hooks-"
+"47af13aa6c01>`_."
 
 #: ../../source/api/hooks.rst:23
 msgid "Quick Example"
@@ -93,7 +102,8 @@ msgid ""
 "<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_"
 " that"
 msgstr ""
-"对于异步操作,返回一个 `Promise <https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_"
+"对于异步操作,返回一个 `Promise "
+"<https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_"
 
 #: ../../source/api/hooks.rst:69
 msgid "resolves with a ``context`` object"
@@ -112,7 +122,8 @@ msgid ""
 "For more information see the `hook flow <#hook-flow>`_ and `asynchronous "
 "hooks <#asynchronous-hooks>`_ section."
 msgstr ""
-"有关更多信息,请参阅 `hook flow <＃hook-flow>`_ 和 `asynchronous hooks <#inynchronous-hooks>`_ section."
+"有关更多信息,请参阅 `hook flow <＃hook-flow>`_ 和 `asynchronous hooks "
+"<#inynchronous-hooks>`_ section."
 
 #: ../../source/api/hooks.rst:116
 msgid "Hook context"
@@ -125,15 +136,15 @@ msgid ""
 "properties that should not be modified and **writeable** properties that "
 "can be changed for subsequent hooks."
 msgstr ""
-"钩子 ``context`` 被传递给一个钩子函数,并包含有关服务方法调用的信息.它具有 **只读** 属性,不应被修改, **可写** 属性,可以为后续挂钩更改."
+"钩子 ``context`` 被传递给一个钩子函数,并包含有关服务方法调用的信息.它具有 **只读** 属性,不应被修改, **可写** "
+"属性,可以为后续挂钩更改."
 
 #: ../../source/api/hooks.rst:123
 msgid ""
 "The ``context`` object is the same throughout a service method call so it"
 " is possible to add properties and use them in other hooks at a later "
 "time."
-msgstr ""
-"在整个服务方法调用中,``context`` 对象是相同的,因此可以添加属性并在以后的其他钩子中使用它们."
+msgstr "在整个服务方法调用中,``context`` 对象是相同的,因此可以添加属性并在以后的其他钩子中使用它们."
 
 #: ../../source/api/hooks.rst:128
 msgid "context.app"
@@ -153,8 +164,7 @@ msgstr "context.service"
 msgid ""
 "``context.service`` is a *read only* property and contains the service "
 "this hook currently runs on."
-msgstr ""
-"``context.service`` 是一个 *read only* 属性,包含当前运行此钩子的服务."
+msgstr "``context.service`` 是一个 *read only* 属性,包含当前运行此钩子的服务."
 
 #: ../../source/api/hooks.rst:141
 msgid "context.path"
@@ -164,8 +174,7 @@ msgstr "context.path"
 msgid ""
 "``context.path`` is a *read only* property and contains the service name "
 "(or path) without leading or trailing slashes."
-msgstr ""
-"``context.path`` 是一个 *read only* 属性,包含没有前导或尾部斜杠的服务名称(或路径)."
+msgstr "``context.path`` 是一个 *read only* 属性,包含没有前导或尾部斜杠的服务名称(或路径)."
 
 #: ../../source/api/hooks.rst:147
 msgid "context.method"
@@ -177,7 +186,8 @@ msgid ""
 ":doc:`./services` (one of ``find``, ``get``, ``create``, ``update``, "
 "``patch``, ``remove``)."
 msgstr ""
-":doc:`./services` (one of ``find``, ``get``, ``create``, ``update``, ``patch``, ``remove``)."
+":doc:`./services` (one of ``find``, ``get``, ``create``, ``update``, "
+"``patch``, ``remove``)."
 
 #: ../../source/api/hooks.rst:154
 msgid "context.type"
@@ -188,7 +198,8 @@ msgid ""
 "``context.type`` is a *read only* property with the hook type (one of "
 "``before``, ``after`` or ``error``)."
 msgstr ""
-"``context.type`` 是一个 *read only* 属性,带有钩子类型(``before``, ``after`` 或 ``error`` 之一)."
+"``context.type`` 是一个 *read only* 属性,带有钩子类型(``before``, ``after`` 或 "
+"``error`` 之一)."
 
 #: ../../source/api/hooks.rst:160
 msgid "context.params"
@@ -198,7 +209,8 @@ msgstr "context.params"
 #, fuzzy
 msgid ""
 "``context.params`` is a **writeable** property that contains the "
-":doc:`./services` parameters (including :ref:`services_params`."
+":doc:`./services` parameters (including ``params.query``). For more "
+"information see the :ref:`services_params`."
 msgstr ""
 "``context.path`` is a *read only* property and contains the service name "
 "(or path) without leading or trailing slashes."
@@ -244,8 +256,7 @@ msgstr ""
 msgid ""
 "``context.data`` will only be available for method types ``create``, "
 "``update`` and ``patch``."
-msgstr ""
-"``context.data``只适用于方法类型``create``,``update``和``patch``."
+msgstr "``context.data``只适用于方法类型``create``,``update``和``patch``."
 
 #: ../../source/api/hooks.rst:188
 msgid "context.error"
@@ -547,16 +558,14 @@ msgid ""
 "Hook functions are registered on a service through the "
 "``app.service(<servicename>).hooks(hooks)`` method. There are several "
 "options for what can be passed as ``hooks``:"
-msgstr ""
-"Hook函数通过``app.service（<servicename>）。hooks（hooks）``方法在服务上注册。什么可以作为``hooks``传递:"
+msgstr "Hook函数通过``app.service(<servicename>).hooks(hooks)``方法在服务上注册.什么可以作为``hooks``传递:"
 
 #: ../../source/api/hooks.rst:486
 msgid ""
 "When using the full object, ``all`` is a special keyword meaning this "
 "hook will run for all methods. ``all`` hooks will be registered before "
 "other method specific hooks."
-msgstr ""
-"当使用完整对象时，``all`` 是一个特殊的关键字，这意味着这个钩子将为所有方法运行。 ``all`` 钩子将在其他特定于方法的钩子之前注册。"
+msgstr "当使用完整对象时, ``all`` 是一个特殊的关键字, 这意味着这个钩子将为所有方法运行. ``all`` 钩子将在其他特定于方法的钩子之前注册."
 
 #: ../../source/api/hooks.rst:490
 msgid ""
@@ -575,45 +584,45 @@ msgid "Application hooks"
 msgstr "应用程序挂钩"
 
 #: ../../source/api/hooks.rst:500
+#, fuzzy
 msgid ""
 "To add hooks to every service ``app.hooks(hooks)`` can be used. "
 "Application hooks are `registered in the same format as service hooks "
-"<#registering-hooks>`_ and also work exactly the same. Note when "
-"application hooks will be executed however:"
+"<#registering-hooks>`_ and also work exactly the same."
 msgstr ""
 "To add hooks to every service ``app.hooks(hooks)`` can be used. "
 "Application hooks are `registered in the same format as service hooks "
 "<#registering-hooks>`_ and also work exactly the same. Note when "
 "application hooks will be executed however:"
 
-#: ../../source/api/hooks.rst:505
+#: ../../source/api/hooks.rst:504
+msgid "when application hooks will be executed however:"
+msgstr ""
+
+#: ../../source/api/hooks.rst:506
 msgid ""
 "``before`` application hooks will always run *before* all service "
 "``before`` hooks"
-msgstr ""
-"``before`` 应用程序挂钩总是在*所有服务 ``before`` 挂钩之前运行*"
+msgstr "``before`` 应用程序挂钩总是在*所有服务 ``before`` 挂钩之前运行*"
 
 #: ../../source/api/hooks.rst:507
 msgid ""
 "``after`` application hooks will always run *after* all service ``after``"
 " hooks"
-msgstr ""
-"``after`` 应用程序挂钩总是在 *all service ``after`` 挂钩后运行*"
+msgstr "``after`` 应用程序挂钩总是在 *all service ``after`` 挂钩后运行*"
 
-#: ../../source/api/hooks.rst:509
+#: ../../source/api/hooks.rst:508
 msgid ""
 "``error`` application hooks will always run *after* all service ``error``"
 " hooks"
-msgstr ""
-"``error`` 应用程序挂钩总是在 *all service ``error`` 挂钩后运行*"
+msgstr "``error`` 应用程序挂钩总是在 *all service ``error`` 挂钩后运行*"
 
-#: ../../source/api/hooks.rst:512
+#: ../../source/api/hooks.rst:510
 msgid ""
 "Here is an example for a very useful application hook that logs every "
 "service method error with the service and method name as well as the "
 "error stack."
-msgstr ""
-"下面是一个非常有用的应用程序挂钩的示例，它使用服务和方法名称以及错误堆栈记录每个服务方法错误。"
+msgstr "下面是一个非常有用的应用程序挂钩的示例, 它使用服务和方法名称以及错误堆栈记录每个服务方法错误."
 
 #~ msgid ""
 #~ "Hooks are pluggable middleware functions "

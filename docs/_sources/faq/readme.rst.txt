@@ -105,6 +105,8 @@ password in the ``create`` method:
      }
    }
 
+.. _faq_how-do-i-do-nested-or-custom-routes:
+
 How do I do nested or custom routes?
 ------------------------------------
 
@@ -585,7 +587,7 @@ function via ``app.set('query parser', parserFunction)`` with the
    });
 
 For more information see the `Express application settings <http://expressjs.com/en/4x/api.html#app.set>`_
-[@feathersjs/rest#88](https://github.com/feathersjs/feathers-rest/issues/88)
+`@feathersjs/rest#88 <https://github.com/feathersjs/feathers-rest/issues/88>`_
 and
 `feathers-mongoose#205 <https://github.com/feathersjs-ecosystem/feathers-mongoose/issues/205>`_.
 

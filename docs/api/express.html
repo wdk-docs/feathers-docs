@@ -37,7 +37,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Socket.io" href="socketio.html" />
-    <link rel="prev" title="配置" href="configuration.html" /> 
+    <link rel="prev" title="REST transport" href="rest.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,7 +98,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#express-rest">express.rest()</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#express-notfound-options">express.notFound(options)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#express-errorhandler">express.errorHandler()</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#routing">Routing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#routing">路由</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="socketio.html">Socket.io</a></li>
@@ -188,23 +188,23 @@
   <div class="section" id="express">
 <h1>Express<a class="headerlink" href="#express" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/express"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/express.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/express/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/express --save
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/express --save
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> 模块包含用于Feathers的 <a class="reference external" href="http://expressjs.com/">Express</a> 框架集成:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="#expressapp">Express框架绑定</a> 使Feathers应用程序Express兼容</p></li>
-<li><p>An Express based transport to expose services through a <a class="reference external" href="#expressrest">REST
-API</a></p></li>
+<li><p>基于Express的传输, 通过:ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>api_express_rest`公开服务</p></li>
 <li><p>An <a class="reference internal" href="errors.html"><span class="doc">错误</span></a></p></li>
 </ul>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p><strong>Very Important:</strong> This page describes how to set up an Express
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>This page describes how to set up an Express
 server and REST API. See the <a class="reference internal" href="client/rest.html"><span class="doc">REST客户端</span></a> how to use this server on the client.</p>
-</div></blockquote>
+</div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
 <p>This chapter assumes that you are familiar with
@@ -222,9 +222,11 @@ use the <a class="reference external" href="http://expressjs.com/en/4x/api.html"
 <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">(</span><span class="nx">feathers</span><span class="p">());</span>
 </pre></div>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> (<code class="docutils literal notranslate"><span class="pre">express</span></code>) also exposes the
-standard <a class="reference external" href="http://expressjs.com/en/4x/api.html#express">Express
-middleware</a>:</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code> (<code class="docutils literal notranslate"><span class="pre">express</span></code>) also exposes the
+standard <a class="reference external" href="http://expressjs.com/en/4x/api.html#express">Express middleware</a>:</p>
+</div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">express.json</span></code> - A JSON body parser</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> - A URL encoded form body parser</p></li>
@@ -275,7 +277,7 @@ Express.</p>
 <h2>app.listen(port)<a class="headerlink" href="#app-listen-port" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">app.listen(port)</span> <span class="pre">-&gt;</span> <span class="pre">HttpServer</span></code> will first call Express
 <a class="reference external" href="http://expressjs.com/en/4x/api.html#app.listen">app.listen</a> and then
-internally also call the <span class="xref std std-ref">application_setupserver</span>.</p>
+internally also call the <a class="reference internal" href="application.html#application-setupserver"><span class="std std-ref">.setup([server])</span></a>.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Listen on port 3030</span>
 <span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
 
@@ -361,7 +363,7 @@ requires <code class="docutils literal notranslate"><span class="pre">app.setup(
 </div>
 </div>
 <div class="section" id="express-rest">
-<h2>express.rest()<a class="headerlink" href="#express-rest" title="永久链接至标题">¶</a></h2>
+<span id="api-express-rest"></span><h2>express.rest()<a class="headerlink" href="#express-rest" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">express.rest</span></code> registers a Feathers transport mechanism that allows
 you to expose and consume <a class="reference internal" href="services.html"><span class="doc">服务</span></a> through a
 <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful
@@ -408,25 +410,14 @@ methods</a>:</p>
 </tr>
 </tbody>
 </table>
-<p>To expose services through a RESTful API we will have to configure
-<code class="docutils literal notranslate"><span class="pre">express.rest</span></code> and provide our own body parser middleware (usually the
-standard <a class="reference external" href="https://github.com/expressjs/body-parser">Express 4
-body-parser</a>) to make REST
-<code class="docutils literal notranslate"><span class="pre">.create</span></code>, <code class="docutils literal notranslate"><span class="pre">.update</span></code> and <code class="docutils literal notranslate"><span class="pre">.patch</span></code> calls parse the data in the HTTP
-body. If you would like to add other middleware <em>before</em> the REST
-handler, call <code class="docutils literal notranslate"><span class="pre">app.use(middleware)</span></code> before registering any services.</p>
+<p>要通过RESTful API公开服务, 我们必须配置``express.rest``并提供我们自己的身体解析器中间件(通常是标准的`Express 4 body-parser &lt;<a class="reference external" href="https://github.com/expressjs/body-parser">https://github.com/expressjs/body-parser</a> &gt;`_)使REST``.create``, <code class="docutils literal notranslate"><span class="pre">.update``和</span></code>.patch``调用解析HTTP正文中的数据.如果你想在* REST处理程序之前添加其他中间件*, 请在注册任何服务之前调用``app.use(middleware)``.</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>The body-parser middleware has to be registered <em>before</em>
-any service. Otherwise the service method will throw a
-<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">data</span> <span class="pre">provided</span></code> or
-<code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">parameter</span> <span class="pre">for</span> <span class="pre">'create'</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">an</span> <span class="pre">object</span></code> error.</p>
+<p>身体解析器中间件必须在*任何服务之前注册*.否则, 服务方法将抛出一个``No data provided``或``’first’的第一个参数必须是一个object``错误.</p>
 </div>
 <div class="section" id="app-configure-express-rest">
 <h3>app.configure(express.rest())<a class="headerlink" href="#app-configure-express-rest" title="永久链接至标题">¶</a></h3>
-<p>Configures the transport provider with a standard formatter sending JSON
-response via
-<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.json">res.json</a>.</p>
+<p>使用标准格式化程序通过`res.json &lt;<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.json">http://expressjs.com/en/4x/api.html#res.json</a>&gt;`_发送JSON响应来配置传输提供程序.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 
@@ -444,13 +435,7 @@ response via
 </div>
 <div class="section" id="app-configure-express-rest-formatter">
 <h3>app.configure(express.rest(formatter))<a class="headerlink" href="#app-configure-express-rest-formatter" title="永久链接至标题">¶</a></h3>
-<p>The default REST response formatter is a middleware that formats the
-data retrieved by the service as JSON. If you would like to configure
-your own <code class="docutils literal notranslate"><span class="pre">formatter</span></code> middleware pass a <code class="docutils literal notranslate"><span class="pre">formatter(req,</span> <span class="pre">res)</span></code>
-function. This middleware will have access to <code class="docutils literal notranslate"><span class="pre">res.data</span></code> which is the
-data returned by the service.
-<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.format">res.format</a> can be
-used for content negotiation.</p>
+<p>默认的REST响应格式化程序是一个中间件, 它将服务检索的数据格式化为JSON.如果你想配置你自己的``formatter``中间件传递``formatter(req, res)``函数.这个中间件可以访问``res.data``, 它是服务返回的数据. <a href="#id1"><span class="problematic" id="id2">`</span></a>res.format &lt;<a class="reference external" href="http://expressjs.com/en/4x/api.html#res.format">http://expressjs.com/en/4x/api.html#res.format</a>&gt;`_可用于内容协商.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 
@@ -473,10 +458,8 @@ used for content negotiation.</p>
 </div>
 </div>
 <div class="section" id="custom-service-middleware">
-<h3>Custom service middleware<a class="headerlink" href="#custom-service-middleware" title="永久链接至标题">¶</a></h3>
-<p>Custom Express middleware that only should run before or after a
-specific service can be passed to <code class="docutils literal notranslate"><span class="pre">app.use</span></code> in the order it should
-run:</p>
+<h3>自定义服务中间件<a class="headerlink" href="#custom-service-middleware" title="永久链接至标题">¶</a></h3>
+<p>只能在特定服务之前或之后运行的Custom Express中间件可按其应运行的顺序传递给“app.use”.:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">todoService</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">({</span>
@@ -489,14 +472,12 @@ run:</p>
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">ensureAuthenticated</span><span class="p">,</span> <span class="nx">logRequest</span><span class="p">,</span> <span class="nx">todoService</span><span class="p">,</span> <span class="nx">updateData</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Middleware that runs after the service has the service call information
-available as</p>
+<p>在服务之后运行的中间件具有可用的服务调用信息</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">res.data</span></code> - The data that will be sent</p></li>
-<li><p><a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> context of the service
-method call</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">res.data</span></code>  - 将要发送的数据</p></li>
+<li><p>:doc:服务方法调用的`./hooks`上下文</p></li>
 </ul>
-<p>For example <code class="docutils literal notranslate"><span class="pre">updateData</span></code> could look like this:</p>
+<p>例如``updateData``可能看起来像这样:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">updateData</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">updateData</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
   <span class="nx">next</span><span class="p">();</span>
@@ -505,17 +486,12 @@ method call</p></li>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>If you run <code class="docutils literal notranslate"><span class="pre">res.send</span></code> in a custom middleware after the
-service and don’t call <code class="docutils literal notranslate"><span class="pre">next</span></code>, other middleware (like the REST
-formatter) will be skipped. This can be used to e.g. render different
-views for certain service method calls.</p>
+<p>如果在服务之后在自定义中间件中运行``res.send``并且不调用``next``, 则将跳过其他中间件(如REST格式化程序).这可以用于例如为某些服务方法调用呈现不同的视图.</p>
 </div>
 </div>
 <div class="section" id="params">
 <h3>params<a class="headerlink" href="#params" title="永久链接至标题">¶</a></h3>
-<p>All middleware registered after the <span class="xref std std-doc">./rest</span> will
-have access to the <code class="docutils literal notranslate"><span class="pre">req.feathers</span></code> object to set properties on the
-service method <code class="docutils literal notranslate"><span class="pre">params</span></code>:</p>
+<p>在:doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>./rest`之后注册的所有中间件都可以访问``req.feathers``对象来设置服务方法``params`的属性.:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;body-parser&#39;</span><span class="p">);</span>
@@ -545,18 +521,12 @@ service method <code class="docutils literal notranslate"><span class="pre">para
 <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>You can see the parameters set by running the example and visiting
-<code class="docutils literal notranslate"><span class="pre">http://localhost:3030/todos/test</span></code>.</p>
-<p>Avoid setting <code class="docutils literal notranslate"><span class="pre">req.feathers</span> <span class="pre">=</span> <span class="pre">something</span></code> directly since it may already
-contain information that other Feathers plugins rely on. Adding
-individual properties or using
-<code class="docutils literal notranslate"><span class="pre">Object.assign(req.feathers,</span> <span class="pre">something)</span></code> is the more reliable option.</p>
-<blockquote>
-<div><p><strong>Very important:</strong> Since the order of Express middleware matters,
-any middleware that sets service parameters has to be registered
-<em>before</em> your services (in a generated application before
-<code class="docutils literal notranslate"><span class="pre">app.configure(services)</span></code> or in <code class="docutils literal notranslate"><span class="pre">middleware/index.js</span></code>).</p>
-</div></blockquote>
+<p>您可以通过运行示例并访问``http://localhost:3030/todos/test``来查看设置的参数.</p>
+<p>避免直接设置``req.feathers = something``, 因为它可能已包含其他Feathers插件所依赖的信息.添加单个属性或使用``Object.assign(req.feathers, something)``是更可靠的选择.</p>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>由于Express中间件的顺序很重要, 任何设置服务参数的中间件都必须在*您的服务之前注册*(在`app.configure(services)``或``middleware/index.js`之前的生成应用程序中).</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
 <p>Although it may be convenient to set
@@ -576,17 +546,13 @@ examples see the <a class="reference internal" href="databases/querying.html"><s
 chapter.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>Only <code class="docutils literal notranslate"><span class="pre">params.query</span></code> is passed between the server and
-the client, other parts of <code class="docutils literal notranslate"><span class="pre">params</span></code> are not. This is for security
-reasons so that a client can’t set things like <code class="docutils literal notranslate"><span class="pre">params.user</span></code> or the
-database options. You can always map from <code class="docutils literal notranslate"><span class="pre">params.query</span></code> to other
-<a class="reference internal" href="hooks.html"><span class="doc">钩</span></a>.</p>
+<p>服务器和客户端之间只传递``params.query``, 而``params``的其他部分则没有.这是出于安全原因, 因此客户端无法设置``params.user``或数据库选项.你总是可以从``params.query``映射到其他:doc:<cite>./ hooks</cite>.</p>
 </div>
-<p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /messages?read=true&amp;$sort[createdAt]=-1
+<p>例如:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>GET /messages?read<span class="o">=</span>true<span class="p">&amp;</span><span class="nv">$sort</span><span class="o">[</span>createdAt<span class="o">]=</span>-1
 </pre></div>
 </div>
-<p>Will set <code class="docutils literal notranslate"><span class="pre">params.query</span></code> to</p>
+<p>将``params.query``设置为</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;read&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
   <span class="s2">&quot;$sort&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;createdAt&quot;</span><span class="o">:</span> <span class="s2">&quot;-1&quot;</span> <span class="p">}</span>
@@ -595,27 +561,16 @@ database options. You can always map from <code class="docutils literal notransl
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>Since the URL is just a string, there will be <strong>no type
-conversion</strong>. This can be done manually in a <a class="reference internal" href="hooks.html"><span class="doc">钩</span></a> or
-with the <a class="reference external" href="https://github.com/xpepermint/query-types">query-types</a>
-Express middleware to convert Boolean and Numeric types.</p>
+<p>由于URL只是一个字符串, 因此**将没有类型转换**.这可以在:doc:<a class="reference external" href="https://github.com/xpepermint/query-types">./hooks`中手动完成, 或者使用`query-types</a> Express中间件来转换布尔和数字类型.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>If an array in your request consists of more than 20 items,
-the <a class="reference external" href="https://www.npmjs.com/package/qs">qs</a> parser implicitly
-<a class="reference external" href="https://github.com/ljharb/qs#parsing-arrays">converts</a> it to an
-object with indices as keys. To extend this limit, you can set a
-custom query parser:
-<code class="docutils literal notranslate"><span class="pre">app.set('query</span> <span class="pre">parser',</span> <span class="pre">str</span> <span class="pre">=&gt;</span> <span class="pre">qs.parse(str,</span> <span class="pre">{arrayLimit:</span> <span class="pre">1000}))</span></code></p>
+<p>如果请求中的数组包含20个以上的项, 则`qs &lt;<a class="reference external" href="https://www.npmjs.com/package/qs">https://www.npmjs.com/package/qs</a>&gt;`_ parser隐式`转换&lt;<a class="reference external" href="https://github.com/ljharb">https://github.com/ljharb</a>/qs#解析数组&gt;`_它到索引为键的对象.要扩展此限制, 您可以设置自定义查询解析器:<code class="docutils literal notranslate"><span class="pre">app.set('query</span> <span class="pre">parser',</span> <span class="pre">str</span> <span class="pre">=&gt;</span> <span class="pre">qs.parse(str,</span> <span class="pre">{arrayLimit:1000}))</span></code></p>
 </div>
 </div>
 <div class="section" id="params-provider">
 <h3><code class="docutils literal notranslate"><span class="pre">params.provider</span></code><a class="headerlink" href="#params-provider" title="永久链接至标题">¶</a></h3>
-<p>For any <a class="reference internal" href="services.html"><span class="doc">服务</span></a> made through REST
-<a class="reference internal" href="hooks.html"><span class="doc">钩</span></a>
-this can for example be used to prevent external users from making a
-service method call:</p>
+<p>对于任何:doc:<cite>./services`通过REST:doc:</cite>./hooks`这可以用来防止外部用户进行服务方法调用:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
   <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">remove</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
@@ -631,18 +586,14 @@ service method call:</p>
 </div>
 <div class="section" id="params-route">
 <h3>params.route<a class="headerlink" href="#params-route" title="永久链接至标题">¶</a></h3>
-<p>See the <a class="reference external" href="#routing">routing section</a>.</p>
+<p>请参阅`routing section &lt;#routing&gt;`_.</p>
 </div>
 </div>
 <div class="section" id="express-notfound-options">
 <h2>express.notFound(options)<a class="headerlink" href="#express-notfound-options" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">express.notFound()</span></code> returns middleware that returns a <code class="docutils literal notranslate"><span class="pre">NotFound</span></code>
-(404) <a class="reference internal" href="errors.html"><span class="doc">错误</span></a>. It should be used as the last
-middleware <strong>before</strong> the error handler. The following options are
-available:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>express.notFound()``返回返回``NotFound``(404)的中间件:doc:<cite>./errors</cite>.它应该被用作**错误处理程序之前的最后一个中间件**.可以使用以下选项:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the URL should be included in the
-error message (default: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: 如果URL应该包含在错误消息中, 则设置为``true``(默认值:<code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></li>
 </ul>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Return errors that include the URL</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="nx">notFound</span><span class="p">({</span> <span class="nx">verbose</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
@@ -652,21 +603,18 @@ error message (default: <code class="docutils literal notranslate"><span class="
 </div>
 <div class="section" id="express-errorhandler">
 <h2>express.errorHandler()<a class="headerlink" href="#express-errorhandler" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">expres.errorHandler</span></code> is an <a class="reference external" href="https://expressjs.com/en/guide/error-handling.html">Express error
-handler</a>
-middleware that formats any error response to a REST call as JSON (or
-HTML if e.g. someone hits our API directly in the browser) and sets the
-appropriate error code.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>expres.errorHandler``是一个`Express错误处理程序&lt;<a class="reference external" href="https://expressjs.com/en/guide/error-handling.html">https://expressjs.com/en/guide/error-handling.html</a>&gt;`_中间件, 它将对REST调用的任何错误响应格式化为JSON(或HTML, 如果例如某人直接在浏览器中点击我们的API)并设置相应的错误代码.</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>You can still use any other Express compatible <a class="reference external" href="http://expressjs.com/en/guide/error-handling.html">error middleware</a>
-with Feathers. In fact, the <code class="docutils literal notranslate"><span class="pre">express.errors</span></code> is just a slightly
-customized one. <strong>Very Important:</strong> Just as in Express, the error
-handler has to be registered <em>after</em> all middleware and services.</p>
+<p>你仍然可以使用任何其他Express兼容的`错误中间件&lt;<a class="reference external" href="http://expressjs.com/en/guide/error-handling.html">http://expressjs.com/en/guide/error-handling.html</a>&gt;`_ with Feathers.事实上, <a href="#id1"><span class="problematic" id="id2">``</span></a>express.errors``只是一个稍微定制的.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p>就像在Express中一样, 错误处理程序必须在*所有中间件和服务之后注册*.</p>
 </div>
 <div class="section" id="app-use-express-errorhandler">
 <h3><code class="docutils literal notranslate"><span class="pre">app.use(express.errorHandler())</span></code><a class="headerlink" href="#app-use-express-errorhandler" title="永久链接至标题">¶</a></h3>
-<p>Set up the error handler with the default configuration.</p>
+<p>使用默认配置设置错误处理程序.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 
@@ -703,34 +651,25 @@ handler has to be registered <em>after</em> all middleware and services.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>If you want to have the response in json format be sure
-to set the <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header in your request to <code class="docutils literal notranslate"><span class="pre">application/json</span></code>
-otherwise the default error handler will return HTML.</p>
+<p>如果你想以json格式获得响应, 请确保在你的请求中将``Accept``头设置为``application/json``, 否则默认的错误处理程序将返回HTML.</p>
 </div>
-<p>The following options can be passed when creating a new localstorage
-service:</p>
+<p>创建新的localstorage服务时, 可以传递以下选项:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">html</span></code> (Function|Object) [optional] - A custom formatter function
-or an object that contains the path to your custom html error pages.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">logger</span></code> (Function|false) (default: <code class="docutils literal notranslate"><span class="pre">console</span></code>) - Set a logger
-object to log the error (it will be logger with
-<code class="docutils literal notranslate"><span class="pre">logger.error(error)</span></code></p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>html``(Function | Object)[可选]  - 自定义格式化程序函数或包含自定义html错误页面路径的对象.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logger</span></code> (Function|false) (default: <code class="docutils literal notranslate"><span class="pre">console</span></code>) - 设置一个logger对象来记录错误(它将是带有``logger.error(error)``的记录器</p></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p><code class="docutils literal notranslate"><span class="pre">html</span></code> can also be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> to disable html
-error pages altogether so that only JSON is returned.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>html``也可以设置为``false``来完全禁用html错误页面, 这样只返回JSON.</p>
 </div>
 </div>
 </div>
 <div class="section" id="routing">
-<h2>Routing<a class="headerlink" href="#routing" title="永久链接至标题">¶</a></h2>
-<p>Express route placeholders in a service URL will be added to the
-services <code class="docutils literal notranslate"><span class="pre">params.route</span></code>.</p>
+<h2>路由<a class="headerlink" href="#routing" title="永久链接至标题">¶</a></h2>
+<p>服务URL中的快速路径占位符将添加到服务``params.route``中.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>See the <span class="xref std std-doc">../faq/readme#how-do-i-do-nested-or-custom-routes</span> for
-more details on when and when not to use nested routes.</p>
+<p>有关何时以及何时不使用嵌套路由的更多详细信息, 请参阅嵌套路由的常见问题条目&lt;../faq/readme.md＃how-do-i-do-nested-or-custom-routes&gt;`_.</p>
 </div>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
@@ -777,7 +716,7 @@ more details on when and when not to use nested routes.</p>
         <a href="socketio.html" class="btn btn-neutral float-right" title="Socket.io" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="configuration.html" class="btn btn-neutral float-left" title="配置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rest.html" class="btn btn-neutral float-left" title="REST transport" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

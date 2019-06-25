@@ -93,7 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#authentication">认证</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#database">数据库</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">数据库适配器</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#memory-filesystem">Memory/Filesystem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#memory-filesystem">内存/文件系统</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sql">SQL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nosql">NoSQL</a></li>
 </ul>
@@ -181,52 +181,35 @@
             
   <div class="section" id="database-adapters">
 <h1>数据库适配器<a class="headerlink" href="#database-adapters" title="永久链接至标题">¶</a></h1>
-<p>Feathers数据库适配器是提供：doc：<cite>services`的模块，它使用：doc：`为特定数据库实现标准`CRUD &lt;https://en.wikipedia.org/wiki/Create,_read,_update_and_delete&gt;`_功能。 ./common`用于初始化和设置，并提供：doc：</cite>./ querying`。</p>
+<p>Feathers数据库适配器是提供 <span class="xref std std-doc">services</span> 的模块, 它使用 <a class="reference internal" href="common.html"><span class="doc">通用API</span></a> 为特定数据库实现标准 <a class="reference external" href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> 功能, 用于初始化和设置, 并提供 <a class="reference internal" href="querying.html"><span class="doc">查询</span></a>.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p><a class="reference internal" href="../services.html"><span class="doc">服务</span></a> allow to implement
-access to <em>any</em> database, the database adapters listed here are just
-convenience wrappers with a common API. You can still get Feathers
-functionality for databases that are not listed here. Also have a
-look at the list of <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">community database adapters</a></p>
+<p><a class="reference internal" href="../services.html"><span class="doc">服务</span></a> 允许实现对 <em>任何</em> 数据库的访问, 这里列出的数据库适配器只是带有通用API的便捷包装器.您仍然可以为此处未列出的数据库获取Feathers功能.另请参阅 <a class="reference external" href="https://github.com/feathersjs/awesome-feathersjs#database">社区数据库适配器</a> 列表</p>
 </div>
-<p>The following databases are supported:</p>
+<p>支持以下数据库:</p>
 <div class="section" id="memory-filesystem">
-<h2>Memory/Filesystem<a class="headerlink" href="#memory-filesystem" title="永久链接至标题">¶</a></h2>
+<h2>内存/文件系统<a class="headerlink" href="#memory-filesystem" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a>
-- An in-memory database adapter</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-localstorage">feathers-localstorage</a>
-- An adapter for <a class="reference internal" href="../authentication/client.html"><span class="doc">验证客户端</span></a> that can use
-the browsers <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a>
-or ReactNative’s <a class="reference external" href="https://facebook.github.io/react-native/docs/asyncstorage.html">AsyncStorage</a>.</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-nedb">feathers-nedb</a>
-- A database adapter for <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a> an in-memory or file
-system based standalone database.</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-memory">feathers-memory</a> - 内存数据库适配器</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-localstorage">feathers-localstorage</a>  - 适用于 <a class="reference internal" href="../authentication/client.html"><span class="doc">验证客户端</span></a> 的适配器, 可以使用浏览器 <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">LocalStorage</a> 或 ReactNative的 <a class="reference external" href="https://facebook.github.io/react-native/docs/asyncstorage.html">AsyncStorage</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-nedb">feathers-nedb</a> - 用于 <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a> 基于内存或文件系统的独立数据库的数据库适配器.</p></li>
 </ul>
 </div>
 <div class="section" id="sql">
 <h2>SQL<a class="headerlink" href="#sql" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-knex">feathers-knex</a>
-- An adapter for <a class="reference external" href="http://knexjs.org/">KnexJS</a>, an SQL query builder for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize">feathers-sequelize</a>
-- An adapter for <a class="reference external" href="http://docs.sequelizejs.com/">Sequelize</a> an ORM for NodeJS supporting PostgreSQL, MySQL, SQLite and MSSQL</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-objection">feathers-objection</a>
-- A service adapter for <a class="reference external" href="https://vincit.github.io/objection.js">Objection.js</a> - A minimal SQL ORM built on top of Knex.</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-knex">feathers-knex</a> - 适用于 <a class="reference external" href="http://knexjs.org/">KnexJS</a> 的适配器, 是支持PostgreSQL, MySQL, SQLite和MSSQL的NodeJS的SQL查询构建器</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-sequelize">feathers-sequelize</a> - 适用于 <a class="reference external" href="http://docs.sequelizejs.com/">Sequelize</a> 一个支持PostgreSQL, MySQL, SQLite和MSSQL的NodeJS的ORM的适配器</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-objection">feathers-objection</a> - 用于 <a class="reference external" href="https://vincit.github.io/objection.js">Objection.js的服务适配器</a> - 在Knex之上构建的最小SQL ORM.</p></li>
 </ul>
 </div>
 <div class="section" id="nosql">
 <h2>NoSQL<a class="headerlink" href="#nosql" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose">feathers-mongoose</a>
-- A database adapter for <a class="reference external" href="http://mongoosejs.com/">Mongoose</a> an Object Modelling library for NodeJS and MongoDB</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongodb">feathers-mongodb</a>
-- A database adapter for <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> using the official NodeJS database driver</p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-elasticsearch">feathers-elasticsearch</a>
-- A database adapter for <a class="reference external" href="https://github.com/elastic/elasticsearch">Elasticsearch</a></p></li>
-<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-rethinkdb">feathers-rethinkdb</a>
-- A database adapter for <a class="reference external" href="https://www.rethinkdb.com/">RethinkDB</a> a real-time database.</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongoose">feathers-mongoose</a> - 一个数据库适配器, 用于 <a class="reference external" href="http://mongoosejs.com/">Mongoose</a> 一个NodeJS和MongoDB的对象建模库</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-mongodb">feathers-mongodb</a> - 使用官方NodeJS数据库驱动程序的 <a class="reference external" href="https://www.mongodb.com/">MongoDB</a> 的数据库适配器</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-elasticsearch">feathers-elasticsearch</a> - 用于 <a class="reference external" href="https://github.com/elastic/elasticsearch">Elasticsearch</a> 的数据库适配器</p></li>
+<li><p><a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-rethinkdb">feathers-rethinkdb</a> - 用于 <a class="reference external" href="https://www.rethinkdb.com/">RethinkDB</a> 实时数据库的数据库适配器.</p></li>
 </ul>
 </div>
 </div>

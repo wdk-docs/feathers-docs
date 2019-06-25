@@ -103,6 +103,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="errors.html">错误</a></li>
 <li class="toctree-l3"><a class="reference internal" href="configuration.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rest.html">REST transport</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#transports">传输层</a></li>
@@ -204,7 +205,7 @@
 <li><p>实时事件应仅发送给经过身份验证的用户</p></li>
 <li><p>用户只有在加入某个聊天室时才能获得有关消息的更新</p></li>
 <li><p>只有同一组织中的用户才能收到有关其数据更改的实时更新</p></li>
-<li><p>创建新用户时，只应通知管理员</p></li>
+<li><p>创建新用户时, 只应通知管理员</p></li>
 <li><p>当用户被创建,修改或删除时,非管理员应该只接收用户对象的 “安全” 版本(例如,只有 <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code> 和 <code class="docutils literal notranslate"><span class="pre">avatar</span></code>)</p></li>
 </ul>
 <div class="section" id="example">
@@ -269,7 +270,15 @@
 </div>
 <div class="section" id="app-on-login">
 <h3>app.on(‘login’)<a class="headerlink" href="#app-on-login" title="永久链接至标题">¶</a></h3>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>app.on(‘login’,(payload,info)=&gt; {})``由:doc:<a href="#id3"><span class="problematic" id="id4">`</span></a>./authentication/server`发送,并且还包含``info``对象中的连接作为第二个参数传递.注意,如果通过例如登录发生登录,它也可以是“未定义的”. REST不支持实时连接.</p>
+<p><code class="docutils literal notranslate"><span class="pre">app.on('login',</span> <span class="pre">(payload,</span> <span class="pre">info)</span> <span class="pre">=&gt;</span> <span class="pre">{})</span></code> is sent by the
+<a class="reference internal" href="authentication/server.html"><span class="doc">认证</span></a> and also contains
+the connection in the <code class="docutils literal notranslate"><span class="pre">info</span></code> object that is passed as the second
+parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>that it can also be <code class="docutils literal notranslate"><span class="pre">undefined</span></code> if the login happened
+through e.g. REST which does not support real-time connectivity.</p>
+</div>
 <p>这是添加与用户相关的频道的连接的好地方(例如聊天室,管理状态等)</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">payload</span><span class="p">,</span> <span class="p">{</span> <span class="nx">connection</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="c1">// connection can be undefined if there is no</span>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:18+0800\n"
+"POT-Creation-Date: 2019-06-25 16:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgid "REST Client"
 msgstr ""
 
 #: ../../source/api/client/rest.rst:4
-msgid "For directly using a Feathers REST API (via HTTP) without using Feathers on the client see the `HTTP API <#http-api>`_ section."
+msgid "For directly using a Feathers REST API (via HTTP) without using Feathers on the client see the :ref:`api_client_rest_http-api` section."
 msgstr ""
 
 #: ../../source/api/client/rest.rst:9
@@ -33,7 +33,7 @@ msgid "|GitHub stars| |npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/client/rest.rst:17
-msgid "``@feathersjs/rest-client`` allows to connect to a service exposed through the :doc:`../express#expressrest` using `jQuery <https://jquery.com/>`_, `request <https://github.com/request/request>`_, `Superagent <http://visionmedia.github.io/superagent/>`_, `Axios <https://github.com/mzabriskie/axios>`_ or `Fetch <https://facebook.github.io/react-native/docs/network.html>`_ as the AJAX library."
+msgid "``@feathersjs/rest-client`` allows to connect to a service exposed through the :ref:`api_express_rest` using `jQuery <https://jquery.com/>`_, `request <https://github.com/request/request>`_, `Superagent <http://visionmedia.github.io/superagent/>`_, `Axios <https://github.com/mzabriskie/axios>`_ or `Fetch <https://facebook.github.io/react-native/docs/network.html>`_ as the AJAX library."
 msgstr ""
 
 #: ../../source/api/client/rest.rst:32
@@ -52,247 +52,223 @@ msgstr ""
 msgid "REST client services can be initialized by loading ``@feathersjs/rest-client`` and initializing a client object with a base URL:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:54
-msgid "{% codetabs name=“Modular”, type=“js” -%} const feathers = require(‘@feathersjs/feathers’); const rest = require(‘@feathersjs/rest-client’);"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:58
-msgid "const app = feathers();"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:60
-msgid "// Connect to the same as the browser URL (only in the browser) const restClient = rest();"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:63
-msgid "// Connect to a different URL const restClient = rest(‘http://feathers-api.com’)"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:66
-msgid "// Configure an AJAX library (see below) with that client app.configure(restClient.fetch(window.fetch));"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:69
-msgid "// Connect to the ``http://feathers-api.com/messages`` service const messages = app.service(‘messages’); {%- language name=“@feathersjs/client”, type=“html” -%}"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:95
-msgid "{%- endcodetabs %}"
-msgstr ""
-
-#: ../../source/api/client/rest.rst:103
+#: ../../source/api/client/rest.rst:91
 msgid "In the browser, the base URL is relative from where services are registered. That means that a service at ``http://api.feathersjs.com/api/v1/messages`` with a base URL of ``http://api.feathersjs.com`` would be available as ``app.service('api/v1/messages')``. With a base URL of ``http://api.feathersjs.com/api/v1`` it would be ``app.service('messages')``."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:112
+#: ../../source/api/client/rest.rst:100
 msgid "params.headers"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:114
+#: ../../source/api/client/rest.rst:102
 msgid "Request specific headers can be through ``params.headers`` in a service call:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:126
+#: ../../source/api/client/rest.rst:114
 msgid "params.connection"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:128
+#: ../../source/api/client/rest.rst:116
 msgid "Allows to pass additional options specific to the AJAX library. ``params.connection.headers`` will be merged with ``params.headers``:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:141
+#: ../../source/api/client/rest.rst:129
 msgid "With the ``fetch`` fork `yetch <https://github.com/Netflix/yetch>`_ it can also be used to abort requests:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:160
+#: ../../source/api/client/rest.rst:148
 msgid "jQuery"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:162
+#: ../../source/api/client/rest.rst:150
 msgid "Pass the instance of jQuery (``$``) to ``restClient.jquery``:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:168
+#: ../../source/api/client/rest.rst:156
 msgid "Or with a module loader:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:177
+#: ../../source/api/client/rest.rst:165
 msgid "Request"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:179
+#: ../../source/api/client/rest.rst:167
 msgid "The `request <https://github.com/request/request>`_ object needs to be passed explicitly to ``feathers.request``. Using `request.defaults <https://github.com/request/request#convenience-methods>`_ - which creates a new request object - is a great way to set things like default headers or authentication information:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:199
+#: ../../source/api/client/rest.rst:187
 msgid "Superagent"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:201
+#: ../../source/api/client/rest.rst:189
 msgid "`Superagent <http://visionmedia.github.io/superagent/>`_ currently works with a default configuration:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:211
+#: ../../source/api/client/rest.rst:199
 msgid "Axios"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:213
+#: ../../source/api/client/rest.rst:201
 msgid "`Axios <http://github.com/mzabriskie/axios>`_ currently works with a default configuration:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:223
+#: ../../source/api/client/rest.rst:211
 msgid "Fetch"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:225
+#: ../../source/api/client/rest.rst:213
 msgid "Fetch also uses a default configuration:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:238
+#: ../../source/api/client/rest.rst:228
 msgid "HTTP API"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:240
+#: ../../source/api/client/rest.rst:230
 msgid "You can communicate with a Feathers REST API using any other HTTP REST client. The following section describes what HTTP method, body and query parameters belong to which service method call."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:244
-msgid "All query parameters in a URL will be set as ``params.query`` on the server. Other service parameters can be set through :doc:`express`. URL query parameter values will always be strings. Conversion (e.g. the string ``'true'`` to boolean ``true``) can be done in a hook as well."
+#: ../../source/api/client/rest.rst:234
+msgid "All query parameters in a URL will be set as ``params.query`` on the server. Other service parameters can be set through :doc:`../express`. URL query parameter values will always be strings. Conversion (e.g. the string ``'true'`` to boolean ``true``) can be done in a hook as well."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:250
+#: ../../source/api/client/rest.rst:240
 msgid "The body type for ``POST``, ``PUT`` and ``PATCH`` requests is determined by the Express `body-parser <http://expressjs.com/en/4x/api.html#express.json>`_ middleware which has to be registered *before* any service. You should also make sure you are setting your ``Accept`` header to ``application/json``."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:258
+#: ../../source/api/client/rest.rst:250
 msgid "Authentication"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:260
+#: ../../source/api/client/rest.rst:252
 msgid "Authenticating HTTP (REST) requests is a two step process. First you have to obtain a JWT from the :doc:`../authentication/server` by POSTing the strategy you want to use:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:273
+#: ../../source/api/client/rest.rst:257
+msgid "POST /authentication the Content-Type header set to application/json"
+msgstr ""
+
+#: ../../source/api/client/rest.rst:266
 msgid "Here is what that looks like with curl:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:279
+#: ../../source/api/client/rest.rst:272
 msgid "Then to authenticate subsequent requests, add the returned ``accessToken`` to the ``Authorization`` header:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:286
+#: ../../source/api/client/rest.rst:279
 msgid "Also see the :doc:`../authentication/jwt` and :doc:`../authentication/local` authentication chapter."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:289
+#: ../../source/api/client/rest.rst:282
 msgid "find"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:291
+#: ../../source/api/client/rest.rst:284
 msgid "Retrieves a list of all matching resources from the service"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:297
+#: ../../source/api/client/rest.rst:290
 msgid "Will call ``messages.find({ query: { status: 'read', user: '10' } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:300
+#: ../../source/api/client/rest.rst:293
 msgid "If you want to use any of the built-in find operands ($le, $lt, $ne, $eq, $in, etc.) the general format is as follows:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:307
+#: ../../source/api/client/rest.rst:300
 msgid "For example, to find the records where field *status* is not equal to **active** you could do"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:314
+#: ../../source/api/client/rest.rst:307
 msgid "More information about the possible parameters for official database adapters can be found :doc:`../databases/querying`."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:318
+#: ../../source/api/client/rest.rst:311
 msgid "get"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:320
+#: ../../source/api/client/rest.rst:313
 msgid "Retrieve a single resource from the service."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:326
+#: ../../source/api/client/rest.rst:319
 msgid "Will call ``messages.get(1, {})`` on the server."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:332
+#: ../../source/api/client/rest.rst:325
 msgid "Will call ``messages.get(1, { query: { fetch: 'all' } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:336
+#: ../../source/api/client/rest.rst:329
 msgid "create"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:338
+#: ../../source/api/client/rest.rst:331
 msgid "Create a new resource with ``data`` which may also be an array."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:345
+#: ../../source/api/client/rest.rst:338
 msgid "Will call ``messages.create({ \"text\": \"I really have to iron\" }, {})`` on the server."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:357
+#: ../../source/api/client/rest.rst:350
 msgid "update"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:359
+#: ../../source/api/client/rest.rst:352
 msgid "Completely replace a single or multiple resources."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:366
+#: ../../source/api/client/rest.rst:359
 msgid "Will call ``messages.update(2, { \"text\": \"I really have to do laundry\" }, {})`` on the server. When no ``id`` is given by sending the request directly to the endpoint something like:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:376
+#: ../../source/api/client/rest.rst:369
 msgid "Will call ``messages.update(null, { \"complete\": true }, { query: { complete: 'false' } })`` on the server."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:380
+#: ../../source/api/client/rest.rst:373
 msgid "``update`` is normally expected to replace an entire resource which is why the database adapters only support ``patch`` for multiple records."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:385
+#: ../../source/api/client/rest.rst:378
 msgid "patch"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:387
+#: ../../source/api/client/rest.rst:380
 msgid "Merge the existing data of a single or multiple resources with the new ``data``."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:395
+#: ../../source/api/client/rest.rst:388
 msgid "Will call ``messages.patch(2, { \"read\": true }, {})`` on the server. When no ``id`` is given by sending the request directly to the endpoint something like:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:404
+#: ../../source/api/client/rest.rst:397
 msgid "Will call ``messages.patch(null, { complete: true }, { query: { complete: 'false' } })`` on the server to change the status for all read messages."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:408
+#: ../../source/api/client/rest.rst:399
 msgid "This is supported out of the box by the Feathers :doc:`../databases/adapters`"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:411
+#: ../../source/api/client/rest.rst:402
 msgid "remove"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:413
+#: ../../source/api/client/rest.rst:404
 msgid "Remove a single or multiple resources:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:419
+#: ../../source/api/client/rest.rst:410
 msgid "Will call ``messages.remove(2, { query: { cascade: 'true' } })``."
 msgstr ""
 
-#: ../../source/api/client/rest.rst:421
+#: ../../source/api/client/rest.rst:412
 msgid "When no ``id`` is given by sending the request directly to the endpoint something like:"
 msgstr ""
 
-#: ../../source/api/client/rest.rst:428
+#: ../../source/api/client/rest.rst:419
 msgid "Will call ``messages.remove(null, { query: { read: 'true' } })`` to delete all read messages."
 msgstr ""
 

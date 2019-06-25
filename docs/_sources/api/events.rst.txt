@@ -217,7 +217,7 @@ Using ``service.emit`` custom events can also be sent in a hook:
    });
 
 Custom events can be :ref:`channels_publishing` just like standard events and
-listened to it in a :ref:`client/socketio_listening-to-events`.
+listened to it in a :ref:`client_socketio_listening-to-events`.
 
 .. code:: js
 

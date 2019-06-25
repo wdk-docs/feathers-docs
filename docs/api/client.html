@@ -93,8 +93,8 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Feathers 客户端</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#node">Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#react-native">React Native</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-loaders">Module loaders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#feathersjs-client">&#64;feathersjs/client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-loaders">模块加载器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-feathersjs-client">&#64;feathersjs/client</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="client/rest.html">REST客户端</a></li>
@@ -183,42 +183,32 @@
             
   <div class="section" id="feathers-client">
 <h1>Feathers 客户端<a class="headerlink" href="#feathers-client" title="永久链接至标题">¶</a></h1>
-<p>Feathers最显着的特点之一是它也可以用作客户端。与大多数其他框架相比，它不是一个单独的库;相反，您可以获得与客户端和服务器完全相同的功能。这意味着您可以使用：doc：<a href="#id1"><span class="problematic" id="id2">`</span></a>。/ hooks`并配置插件。默认情况下，Feathers客户端会自动创建与Feathers服务器通信的服务。</p>
-<p>为了连接到Feathers服务器，客户端创建：doc：<cite>./ services</cite>，它使用REST或websocket连接来中继方法调用，并允许在服务器上监听：doc：<cite>。/ events</cite>。这意味着`Feathers应用程序实例&lt;./ application&gt;`_的使用方式与服务器上的完全相同。</p>
-<p>Modules most relevant on the client are:</p>
+<p>Feathers最显着的特点之一是它也可以用作客户端. 与大多数其他框架相比, 它不是一个单独的库;相反, 您可以获得与客户端和服务器完全相同的功能. 这意味着您可以使用 <a class="reference internal" href="hooks.html"><span class="doc">钩子</span></a> 并配置插件. 默认情况下, Feathers客户端会自动创建与Feathers服务器通信的服务.</p>
+<p>为了连接到Feathers服务器, 客户端创建 <a class="reference internal" href="services.html"><span class="doc">服务</span></a>, 它使用REST或websocket连接来中继方法调用, 并允许在服务器上监听 <a class="reference internal" href="events.html"><span class="doc">事件</span></a>. 这意味着 <a class="reference internal" href="#api-feathersjs-client"><span class="std std-ref">Feathers应用程序实例</span></a> 的使用方式与服务器上的完全相同.</p>
+<p>与客户最相关的模块是:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers</span></code> to initialize a new Feathers
-<a class="reference internal" href="application.html"><span class="doc">应用</span></a></p></li>
-<li><p><a class="reference internal" href="client/rest.html"><span class="doc">REST客户端</span></a> to connect to services
-through <a class="reference internal" href="express.html"><span class="doc">Express</span></a>.</p></li>
-<li><p><a class="reference internal" href="client/socketio.html"><span class="doc">Socket.io 客户端</span></a> to connect to
-services through <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a>.</p></li>
-<li><p><a class="reference internal" href="client/primus.html"><span class="doc">Primus 客户端</span></a> to connect to
-services through <a class="reference internal" href="primus.html"><span class="doc">Primus</span></a>.</p></li>
-<li><p><a class="reference internal" href="authentication/client.html"><span class="doc">验证客户端</span></a> to
-authenticate a client</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/feathers</span></code> 初始化一个新的Feathers <a class="reference internal" href="application.html"><span class="doc">应用</span></a></p></li>
+<li><p><a class="reference internal" href="client/rest.html"><span class="doc">REST客户端</span></a> 通过以下方式连接服务 <a class="reference internal" href="express.html"><span class="doc">Express</span></a>.</p></li>
+<li><p><a class="reference internal" href="client/socketio.html"><span class="doc">Socket.io 客户端</span></a> 通过以下方式连接服务 <a class="reference internal" href="socketio.html"><span class="doc">Socket.io</span></a>.</p></li>
+<li><p><a class="reference internal" href="client/primus.html"><span class="doc">Primus 客户端</span></a> 通过 <a class="reference internal" href="primus.html"><span class="doc">Primus</span></a> 连接服务.</p></li>
+<li><p><a class="reference internal" href="authentication/client.html"><span class="doc">验证客户端</span></a> 来验证客户端</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>您不必在客户端上使用Feathers连接到Feathers服务器。上面的客户端章节还描述了如何在客户端没有Feathers的情况下直接使用REST HTTP，Socket.io或Primus连接。有关身份验证的详细信息，请参阅：doc：<cite>。/ authentication / client</cite>。</p>
+<p>您不必在客户端上使用Feathers连接到Feathers服务器. 上面的客户端章节还描述了如何在客户端没有Feathers的情况下直接使用REST HTTP, Socket.io或Primus连接. 有关身份验证的详细信息, 请参阅 <a class="reference internal" href="authentication/client.html"><span class="doc">验证客户端</span></a>.</p>
 </div>
-<p>本章介绍如何使用Webpack或Browserify等模块加载器或通过``&lt;script&gt;`标签将Feathers设置为Node，React Native和浏览器中的客户端。示例使用：doc：<cite>。/ client / socketio</cite>。有关其他连接方法，请参阅上面链接的章节。</p>
+<p>本章介绍如何使用Webpack或Browserify等模块加载器或通过 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签将Feathers设置为Node, React Native和浏览器中的客户端. 示例使用 <a class="reference internal" href="client/socketio.html"><span class="doc">Socket.io 客户端</span></a>. 有关其他连接方法, 请参阅上面链接的章节.</p>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>Feathers can be used on the client through the
-individual modules or the [&#64;feathersjs/client](#feathersjsclient)
-module. The latter combines all modules mentioned above into a
-single, ES5 transpiled version.</p>
+<p>可以通过各个模块或者 <a class="reference internal" href="#api-feathersjs-client"><span class="std std-ref">&#64;feathersjs/client</span></a> 模块在客户端上使用Feathers.后者将上述所有模块组合成一个ES5转换版本.</p>
 </div>
 <div class="section" id="node">
 <h2>Node<a class="headerlink" href="#node" title="永久链接至标题">¶</a></h2>
-<p>To connect to a Feathers server in NodeJS, install the desired client
-connection library (here, <code class="docutils literal notranslate"><span class="pre">socket.io-client</span></code>), alongside the Feathers
-core library, and the connection-specific library:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">feathers</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">socketio</span><span class="o">-</span><span class="n">client</span> <span class="n">socket</span><span class="o">.</span><span class="n">io</span><span class="o">-</span><span class="n">client</span> <span class="o">--</span><span class="n">save</span>
+<p>要连接到NodeJS中的Feathers服务器, 请安装所需的客户端连接库(此处为 <code class="docutils literal notranslate"><span class="pre">socket.io-client</span></code>), 以及Feathers核心库和特定于连接的库:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client --save
 </pre></div>
 </div>
-<p>Then initialize like this:</p>
+<p>然后像这样初始化:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">);</span>
@@ -241,13 +231,11 @@ core library, and the connection-specific library:</p>
 </div>
 <div class="section" id="react-native">
 <h2>React Native<a class="headerlink" href="#react-native" title="永久链接至标题">¶</a></h2>
-<p>React Native usage is the same as for the <a class="reference external" href="#node">Node client</a>.
-Install the required packages into your <a class="reference external" href="https://facebook.github.io/react-native/">React
-Native</a> project.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client
+<p>React Native用法与 <a class="reference external" href="#node">Node client</a> 相同. 将所需的软件包安装到您的 <a class="reference external" href="https://facebook.github.io/react-native/">React Native</a> project中.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client
 </pre></div>
 </div>
-<p>Then in the main application file:</p>
+<p>然后在主应用程序文件中:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">io</span> <span class="nx">from</span> <span class="s1">&#39;socket.io-client&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">socketio</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/socketio-client&#39;</span><span class="p">;</span>
@@ -270,7 +258,7 @@ Native</a> project.</p>
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>由于React Native for Android不能处理超过一分钟的超时，可以考虑在服务器上为``feathers-socketio``设置``pingInterval``和``pingTimeout``的较低值。这将停止与此问题&lt;<a class="reference external" href="https://github.com/facebook/react-native/issues/12981">https://github.com/facebook/react-native/issues/12981</a>&gt;`_相关的警告。例如：</p>
+<p>由于React Native for Android不能处理超过一分钟的超时, 可以考虑在服务器上为 <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> 设置 <code class="docutils literal notranslate"><span class="pre">pingInterval</span></code> 和 <code class="docutils literal notranslate"><span class="pre">pingTimeout</span></code> 的较低值. 这将停止与此 <a class="reference external" href="https://github.com/facebook/react-native/issues/12981">问题</a> 相关的警告. 例如:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
 <span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;feathers-socketio&#39;</span><span class="p">);</span>
 
@@ -282,11 +270,11 @@ Native</a> project.</p>
 </div>
 </div>
 <div class="section" id="module-loaders">
-<h2>Module loaders<a class="headerlink" href="#module-loaders" title="永久链接至标题">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64; feathersjs``命名空间中的所有模块都使用ES6。必须将它们转换为支持不完全支持ES6的浏览器。大多数客户端模块加载器都不会将``node_modules``文件夹排除在外，并且必须配置为包含``&#64; feathersjs``命名空间和``debug``模块中的模块。</p>
+<h2>模块加载器<a class="headerlink" href="#module-loaders" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> 命名空间中的所有模块都使用ES6. 必须将它们转换为支持不完全支持ES6的浏览器. 大多数客户端模块加载器都不会将 <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> 文件夹排除在外, 并且必须配置为包含 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs</span></code> 命名空间和 <code class="docutils literal notranslate"><span class="pre">debug</span></code> 模块中的模块.</p>
 <div class="section" id="webpack">
 <span id="api-client-webpack"></span><h3>Webpack<a class="headerlink" href="#webpack" title="永久链接至标题">¶</a></h3>
-<p>对于Webpack，推荐的``babel-loader``规则通常会排除``node_modules``中的所有内容。必须调整它以跳过``node_modules / &#64; feathersjs``和``node_modules / debug``。在你的``webpack.config.js``中的``module```````中，将``babel-loader``部分更新为：</p>
+<p>对于Webpack, 推荐的 <code class="docutils literal notranslate"><span class="pre">babel-loader</span></code> 规则通常会排除 <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> 中的所有内容. 必须调整它以跳过 <code class="docutils literal notranslate"><span class="pre">node_modules/&#64;feathersjs</span></code> 和 <code class="docutils literal notranslate"><span class="pre">node_modules/debug</span></code>. 在你的 <code class="docutils literal notranslate"><span class="pre">webpack.config.js</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">module</span></code> 中, 将 <code class="docutils literal notranslate"><span class="pre">babel-loader</span></code> 部分更新为:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.jsx?$/</span><span class="p">,</span>
   <span class="nx">exclude</span><span class="o">:</span> <span class="sr">/node_modules(\/|\\)(?!(@feathersjs|debug))/</span><span class="p">,</span>
@@ -297,40 +285,42 @@ Native</a> project.</p>
 </div>
 <div class="section" id="create-react-app">
 <h3>create-react-app<a class="headerlink" href="#create-react-app" title="永久链接至标题">¶</a></h3>
-<p><a href="#id1"><span class="problematic" id="id2">`</span></a>create-react-app &lt;<a class="reference external" href="https://github.com/facebookincubator/create-react-app">https://github.com/facebookincubator/create-react-app</a>&gt;`_使用`Webpack &lt;#webpack&gt;`_但不允许修改配置，除非你弹出。如果您不想弹出，请改用[&#64; feathersjs / client]（<a class="reference external" href="https://github.com/feathersjs/client">https://github.com/feathersjs/client</a>）模块。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">i</span> <span class="o">--</span><span class="n">save</span> <span class="nd">@feathersjs</span><span class="o">/</span><span class="n">client</span>
+<p><a class="reference external" href="https://github.com/facebookincubator/create-react-app">create-react-app</a>
+uses <a class="reference external" href="#webpack">Webpack</a> but does not allow to modify the
+configuration unless you eject. If you do not want to eject, use the
+<a class="reference external" href="https://github.com/feathersjs/client">&#64;feathersjs/client</a> module
+instead.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm i --save @feathersjs/client
 </pre></div>
 </div>
-<p>You can then import the transpiled libraries from this package:</p>
+<p>然后, 您可以从此包导入已转换的库:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s2">&quot;@feathersjs/client&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="browserify">
 <h3>Browserify<a class="headerlink" href="#browserify" title="永久链接至标题">¶</a></h3>
-<p>In Browserify the <a class="reference external" href="https://github.com/babel/babelify">babelify</a>
-transform must be used. All Feathers packages indicate that they need
-the transform and should be transpiled automatically.</p>
+<p>在Browserify中, 必须使用 <a class="reference external" href="https://github.com/babel/babelify">babelify</a> transform. 所有Feathers包都表明他们需要转换, 应该自动进行转换.</p>
 </div>
 <div class="section" id="others">
-<h3>Others<a class="headerlink" href="#others" title="永久链接至标题">¶</a></h3>
-<p>如上所述，当使用任何使用转换器的模块加载器时，<a href="#id1"><span class="problematic" id="id2">``</span></a>node_modules / &#64; feathersjs``及其所有子文件夹必须包含在ES6 +转换步骤中。对于非CommonJS格式（如AMD）和兼容ES5的Feathers及其客户端模块，您可以使用[&#64; feathersjs / client module]（＃featherssjsclient）。</p>
+<h3>其他<a class="headerlink" href="#others" title="永久链接至标题">¶</a></h3>
+<p>如上所述, 当使用任何使用转换器的模块加载器时, <code class="docutils literal notranslate"><span class="pre">node_modules/&#64;feathersjs</span></code> 及其所有子文件夹必须包含在ES6 +转换步骤中.对于非CommonJS格式(如AMD)和兼容ES5的Feathers及其客户端模块, 您可以使用 <a class="reference internal" href="#api-feathersjs-client"><span class="std std-ref">&#64;feathersjs/client module</span></a>.</p>
 </div>
 </div>
-<div class="section" id="feathersjs-client">
-<h2>&#64;feathersjs/client<a class="headerlink" href="#feathersjs-client" title="永久链接至标题">¶</a></h2>
+<div class="section" id="api-feathersjs-client">
+<span id="id4"></span><h2>&#64;feathersjs/client<a class="headerlink" href="#api-feathersjs-client" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/client"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/client.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/client/blob/master/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/client --save
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/client --save
 </pre></div>
 </div>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64; feathersjs / client``是一个模块，它将单独的Feathers客户端模块捆绑成一个模块，提供与现代浏览器（IE10 +）兼容的ES5代码。它也可以通过``&lt;script&gt;``标签直接在浏览器中使用。这是一个包含Feathers客户端模块的表：</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code> 是一个模块, 它将单独的Feathers客户端模块捆绑成一个模块, 提供与现代浏览器(IE10 +)兼容的ES5代码. 它也可以通过 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签直接在浏览器中使用. 这是一个包含Feathers客户端模块的表:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 59%" />
 <col style="width: 41%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Feathers module</p></th>
+<tr class="row-odd"><th class="head"><p>Feathers 模块</p></th>
 <th class="head"><p>&#64;feathersjs/client</p></th>
 </tr>
 </thead>
@@ -357,30 +347,24 @@ the transform and should be transpiled automatically.</p>
 </table>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>Feathers客户端库被转换为ES5并需要ES6填充程序通过`babel-polyfill &lt;<a class="reference external" href="https://www.npmjs.com/package/babel-polyfill">https://www.npmjs.com/package/babel-polyfill</a>&gt;`_模块或包含`core.js &lt;https：/ /github.com/zloirock/core-js&gt;`_在较旧的浏览器中，例如通过``&lt;script type = “text / javascript ”src = “// cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js ”&gt; &lt;/ script&gt; ``</p>
+<p>Feathers客户端库被转换为ES5并需要ES6填充程序通过 <a class="reference external" href="https://www.npmjs.com/package/babel-polyfill">babel-polyfill</a> 模块或包含 <a class="reference external" href="https://github.com/zloirock/core-js">core.js</a> 在较旧的浏览器中, 例如通过 <code class="docutils literal notranslate"><span class="pre">&lt;script</span> <span class="pre">type</span> <span class="pre">=</span> <span class="pre">\“text/javascript</span> <span class="pre">\”src</span> <span class="pre">=</span> <span class="pre">\“//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js\”&gt;&lt;/script&gt;</span></code></p>
 </div>
 <!-- --><div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>When you are loading &#64;feathersjs/client you do not
-have to install or load any of the other modules listed in the table
-above.</p>
+<p>当您加载&#64;feathersjs/client时, 您不必安装或加载上表中列出的任何其他模块.</p>
 </div>
 <div class="section" id="when-to-use">
-<h3>When to use<a class="headerlink" href="#when-to-use" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">feathersjs</span> <span class="pre">/</span> <span class="pre">client``可以直接在浏览器中使用``&lt;script&gt;``标签而不使用模块加载器，也可以使用不支持CommonJS的模块加载器（如RequireJS）或使用a创建的React应用程序默认``create-react-app</span></code>。</p>
-<p>If you are using the Feathers client with Node or React Native you
-should follow the steps described in the <a class="reference external" href="#node">Node</a> and <a class="reference external" href="#react-native">React
-Native</a> sections and <strong>not</strong> use
-<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
+<h3>何时使用<a class="headerlink" href="#when-to-use" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">feathersjs/client</span></code> 可以直接在浏览器中使用 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签而不使用模块加载器, 也可以使用不支持CommonJS的模块加载器(如RequireJS)或使用a创建的React应用程序默认 <code class="docutils literal notranslate"><span class="pre">create-react-app</span></code>.</p>
+<p>如果您使用带有Node或React Native的Feathers客户端, 您应该遵循 <a class="reference external" href="#node">Node</a> 和 <a class="reference external" href="＃react-native">React Native</a> sections 中描述的步骤, <strong>不要</strong> 使用 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>All Feathers client examples show direct usage and usage
-with <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
+<p>所有Feathers客户端示例都显示了 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code> 的直接用法和用法.</p>
 </div>
 </div>
 <div class="section" id="load-with-a-module-loader">
-<h3>Load with a module loader<a class="headerlink" href="#load-with-a-module-loader" title="永久链接至标题">¶</a></h3>
-<p>您可以将``feathersss / client``与其他浏览器模块加载器/捆绑器一起使用（而不是直接使用模块），但它可能包含您可能不使用的包，并导致稍大的包大小。</p>
+<h3>使用模块加载器加载<a class="headerlink" href="#load-with-a-module-loader" title="永久链接至标题">¶</a></h3>
+<p>您可以将 <code class="docutils literal notranslate"><span class="pre">feathersss/client</span></code> 与其他浏览器模块加载器/捆绑器一起使用(而不是直接使用模块), 但它可能包含您可能不使用的包, 并导致稍大的包大小.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">io</span> <span class="nx">from</span> <span class="s1">&#39;socket.io-client&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">;</span>
 
@@ -401,9 +385,8 @@ with <code class="docutils literal notranslate"><span class="pre">&#64;feathersj
 </div>
 </div>
 <div class="section" id="load-from-cdn-with-script">
-<h3>Load from CDN with <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code><a class="headerlink" href="#load-from-cdn-with-script" title="永久链接至标题">¶</a></h3>
-<p>Below is an example of the scripts you would use to load
-<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code> from <a class="reference external" href="https://unpkg.com">unpkg.com</a>.</p>
+<h3>使用 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 从CDN加载<a class="headerlink" href="#load-from-cdn-with-script" title="永久链接至标题">¶</a></h3>
+<p>下面是一个脚本示例, 用于从 <a class="reference external" href="https://unpkg.com">unpkg.com</a> 加载 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -412,14 +395,11 @@ with <code class="docutils literal notranslate"><span class="pre">&#64;feathersj
   <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">);</span>
   <span class="c1">// @feathersjs/client is exposed as the `feathers` global.</span>
   <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
-
   <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">authentication</span><span class="p">());</span>
-
   <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
     <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A new message&#39;</span>
   <span class="p">});</span>
-
   <span class="c1">// feathers.errors is an object with all of the custom error types.</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
@@ -427,22 +407,18 @@ with <code class="docutils literal notranslate"><span class="pre">&#64;feathersj
 </div>
 <div class="section" id="requirejs">
 <h3>RequireJS<a class="headerlink" href="#requirejs" title="永久链接至标题">¶</a></h3>
-<p>Here’s how to load feathers-client using RequireJS Syntax:</p>
+<p>以下是使用RequireJS语法加载feathers-client的方法:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">define</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/client&#39;</span><span class="p">);</span>
   <span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
-
   <span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3030&#39;</span><span class="p">);</span>
   <span class="c1">// @feathersjs/client is exposed as the `feathers` global.</span>
   <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">feathers</span><span class="p">();</span>
-
   <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">socketio</span><span class="p">(</span><span class="nx">socket</span><span class="p">));</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">feathers</span><span class="p">.</span><span class="nx">authentication</span><span class="p">());</span>
-
   <span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">).</span><span class="nx">create</span><span class="p">({</span>
     <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A new message&#39;</span>
   <span class="p">});</span>
-
   <span class="k">return</span> <span class="kr">const</span><span class="p">;</span>
 <span class="p">});</span>
 </pre></div>

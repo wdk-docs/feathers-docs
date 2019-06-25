@@ -2,7 +2,7 @@ REST Client
 ===========
 
 .. note:: For directly using a Feathers REST API (via HTTP) without
-   using Feathers on the client see the `HTTP API <#http-api>`_
+   using Feathers on the client see the :ref:`api_client_rest_http-api`
    section.
 
 @feathersjs/rest-client
@@ -10,12 +10,12 @@ REST Client
 
 |GitHub stars| |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/rest-client --save
 
 ``@feathersjs/rest-client`` allows to connect to a service exposed
-through the :doc:`../express#expressrest` using
+through the :ref:`api_express_rest` using
 `jQuery <https://jquery.com/>`_,
 `request <https://github.com/request/request>`_,
 `Superagent <http://visionmedia.github.io/superagent/>`_,
@@ -51,35 +51,30 @@ REST client services can be initialized by loading
 ``@feathersjs/rest-client`` and initializing a client object with a base
 URL:
 
-{% codetabs name=“Modular”, type=“js” -%} const feathers =
-require(‘@feathersjs/feathers’); const rest =
-require(‘@feathersjs/rest-client’);
+.. code-block:: js
 
-const app = feathers();
+   const feathers =
+   require(‘@feathersjs/feathers’); const rest =
+   require(‘@feathersjs/rest-client’);
 
-// Connect to the same as the browser URL (only in the browser) const
-restClient = rest();
+   const app = feathers();
 
-// Connect to a different URL const restClient =
-rest(‘http://feathers-api.com’)
+   // Connect to the same as the browser URL (only in the browser) const
+   restClient = rest();
 
-// Configure an AJAX library (see below) with that client
-app.configure(restClient.fetch(window.fetch));
+   // Connect to a different URL const restClient =
+   rest(‘http://feathers-api.com’)
 
-// Connect to the ``http://feathers-api.com/messages`` service const
-messages = app.service(‘messages’); {%- language
-name=“@feathersjs/client”, type=“html” -%}
+   // Configure an AJAX library (see below) with that client
+   app.configure(restClient.fetch(window.fetch));
+
+   // Connect to the ``http://feathers-api.com/messages`` service const
+   messages = app.service(‘messages’);
 
 .. raw:: html
 
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
-
-.. raw:: html
-
    <script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
-
-.. raw:: html
-
    <script>
      var app = feathers();
      // Connect to a different URL
@@ -91,14 +86,7 @@ name=“@feathersjs/client”, type=“html” -%}
      // Connect to the `http://feathers-api.com/messages` service
      const messages = app.service('messages');
    </script>
-
-{%- endcodetabs %}
-
-.. raw:: html
-
    <!-- -->
-
-..
 
 .. tip:: In the browser, the base URL is relative from where
    services are registered. That means that a service at
@@ -234,6 +222,8 @@ Fetch also uses a default configuration:
    // In modern browsers
    app.configure(restClient.fetch(window.fetch));
 
+.. _api_client_rest_http-api:
+
 HTTP API
 --------
 
@@ -243,7 +233,7 @@ parameters belong to which service method call.
 
 All query parameters in a URL will be set as ``params.query`` on the
 server. Other service parameters can be set through
-:doc:`express`. URL
+:doc:`../express`. URL
 query parameter values will always be strings. Conversion (e.g. the
 string ``'true'`` to boolean ``true``) can be done in a hook as well.
 
@@ -254,16 +244,19 @@ middleware which has to be registered *before* any service. You should
 also make sure you are setting your ``Accept`` header to
 ``application/json``.
 
+.. _api-client-rest-authentication:
+
 Authentication
 ~~~~~~~~~~~~~~
 
 Authenticating HTTP (REST) requests is a two step process. First you
-have to obtain a JWT from the :doc:`../authentication/server` by POSTing the strategy you
-want to use:
+have to obtain a JWT from the :doc:`../authentication/server`
+by POSTing the strategy you want to use:
 
-.. code:: json
 
-   // POST /authentication the Content-Type header set to application/json
+.. code-block:: json
+   :caption: POST /authentication the Content-Type header set to application/json
+
    {
      "strategy": "local",
      "email": "your email",
@@ -290,7 +283,7 @@ find
 
 Retrieves a list of all matching resources from the service
 
-::
+.. code-block:: sh
 
    GET /messages?status=read&user=10
 
@@ -300,32 +293,32 @@ on the server.
 If you want to use any of the built-in find operands ($le, $lt, $ne,
 $eq, $in, etc.) the general format is as follows:
 
-::
+.. code-block:: sh
 
    GET /messages?field[$operand]=value&field[$operand]=value2
 
 For example, to find the records where field *status* is not equal to
 **active** you could do
 
-::
+.. code-block:: sh
 
    GET /messages?status[$ne]=active
 
-More information about the possible parameters for official database
-adapters can be found :doc:`../databases/querying`.
+More information about the possible parameters for official database adapters
+can be found :doc:`../databases/querying`.
 
 get
 ~~~
 
 Retrieve a single resource from the service.
 
-::
+.. code-block:: sh
 
    GET /messages/1
 
 Will call ``messages.get(1, {})`` on the server.
 
-::
+.. code-block:: sh
 
    GET /messages/1?fetch=all
 
@@ -337,7 +330,7 @@ create
 
 Create a new resource with ``data`` which may also be an array.
 
-::
+.. code-block:: sh
 
    POST /messages
    { "text": "I really have to iron" }
@@ -345,7 +338,7 @@ Create a new resource with ``data`` which may also be an array.
 Will call ``messages.create({ "text": "I really have to iron" }, {})``
 on the server.
 
-::
+.. code-block:: sh
 
    POST /messages
    [
@@ -358,7 +351,7 @@ update
 
 Completely replace a single or multiple resources.
 
-::
+.. code-block:: sh
 
    PUT /messages/2
    { "text": "I really have to do laundry" }
@@ -368,7 +361,7 @@ Will call
 the server. When no ``id`` is given by sending the request directly to
 the endpoint something like:
 
-::
+.. code-block:: sh
 
    PUT /messages?complete=false
    { "complete": true }
@@ -387,7 +380,7 @@ patch
 Merge the existing data of a single or multiple resources with the new
 ``data``.
 
-::
+.. code-block:: sh
 
    PATCH /messages/2
    { "read": true }
@@ -396,14 +389,12 @@ Will call ``messages.patch(2, { "read": true }, {})`` on the server.
 When no ``id`` is given by sending the request directly to the endpoint
 something like:
 
-::
+.. code-block:: sh
 
    PATCH /messages?complete=false
    { "complete": true }
 
-Will call
-``messages.patch(null, { complete: true }, { query: { complete: 'false' } })``
-on the server to change the status for all read messages.
+Will call ``messages.patch(null, { complete: true }, { query: { complete: 'false' } })`` on the server to change the status for all read messages.
 
 This is supported out of the box by the Feathers :doc:`../databases/adapters`
 
@@ -412,7 +403,7 @@ remove
 
 Remove a single or multiple resources:
 
-::
+.. code-block:: sh
 
    DELETE /messages/2?cascade=true
 
@@ -421,7 +412,7 @@ Will call ``messages.remove(2, { query: { cascade: 'true' } })``.
 When no ``id`` is given by sending the request directly to the endpoint
 something like:
 
-::
+.. code-block:: sh
 
    DELETE /messages?read=true
 

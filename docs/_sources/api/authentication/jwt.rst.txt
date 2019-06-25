@@ -3,11 +3,11 @@ JWT Authentication
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/authentication-jwt --save
 
-[@feathersjs/authentication-jwt](https://github.com/feathersjs/authentication-jwt)
+`@feathersjs/authentication-jwt <https://github.com/feathersjs/authentication-jwt>`_
 is a module for the :doc:`./server` that wraps
 the `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_
 authentication strategy, which lets you authenticate with your Feathers

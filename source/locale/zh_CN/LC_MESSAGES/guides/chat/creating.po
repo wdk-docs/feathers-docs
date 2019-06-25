@@ -53,7 +53,7 @@ msgstr "现在我们可以生成应用程序了:"
 msgid ""
 "When presented with the project name, just hit enter, or enter a name (no"
 " spaces)."
-msgstr "当显示项目名称时，只需按 Enter 键或输入名称（无空格）。:"
+msgstr "当显示项目名称时, 只需按 Enter 键或输入名称(无空格).:"
 
 #: ../../source/guides/chat/creating.rst:37
 msgid "Next, write a short description of your application."

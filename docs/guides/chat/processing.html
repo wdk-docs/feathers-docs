@@ -192,7 +192,7 @@
 <div class="section" id="sanitize-new-message">
 <h2>消除新消息<a class="headerlink" href="#sanitize-new-message" title="永久链接至标题">¶</a></h2>
 <p>创建新消息时,我们会自动清理输入,添加发送消息的用户并包含消息创建日期,然后再将其保存到数据库中.这就是 <a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a> 开始发挥作用的地方.在这种特定情况下, <em>before</em> 钩子.要创建一个新的钩子,我们可以运行:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">hook</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>feathers generate hook
 </pre></div>
 </div>
 <p>我们把这个钩子叫做 <code class="docutils literal notranslate"><span class="pre">process-message</span></code>.我们希望预处理客户提供的数据.因此,在下一个询问何种钩子的提示中,选择 <code class="docutils literal notranslate"><span class="pre">before</span></code> 并按Enter键.</p>
@@ -252,7 +252,7 @@
 <div class="section" id="add-a-user-avatar">
 <h2>添加用户头像<a class="headerlink" href="#add-a-user-avatar" title="永久链接至标题">¶</a></h2>
 <p>让我们生成另一个钩子来添加一个链接到与用户的电子邮件地址相关联的 <a class="reference external" href="http://en.gravatar.com/">Gravatar</a> image,这样我们就可以显示一个头像了.跑:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">hook</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>feathers generate hook
 </pre></div>
 </div>
 <p>选择与我们之前的钩子几乎相同:</p>

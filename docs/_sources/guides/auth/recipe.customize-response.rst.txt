@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Customizing the Login Response
+Customizing the Login Response
 ======================================================
 
 The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of

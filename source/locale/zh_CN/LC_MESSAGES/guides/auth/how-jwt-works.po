@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 14:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/guides/auth/how-jwt-works.rst:2
 msgid "How JSON Web Tokens Work"
-msgstr "JSON Web令牌的工作原理"
+msgstr "JSON Web Tokens 是如何工作的"
 
 #: ../../source/guides/auth/how-jwt-works.rst:4
 msgid ""
@@ -34,32 +34,32 @@ msgstr "本指南正在进行中.这里有一些有用的信息,而我们在Feat
 msgid ""
 "`The Auth0 JWT Documentation <https://auth0.com/docs/jwt>`_ - If you want"
 " a good high-level overview."
-msgstr ""
-"`Auth0 JWT文档<https://auth0.com/docs/jwt>`_  - 如果你想要一个很好的高级概述."
+msgstr "`Auth0 JWT文档 <https://auth0.com/docs/jwt>`_  - 如果你想要一个很好的高级概述."
 
-#: ../../source/guides/auth/how-jwt-works.rst:11
+#: ../../source/guides/auth/how-jwt-works.rst:10
 msgid ""
 "`The IETF JWT Specification <https://tools.ietf.org/html/rfc7519>`_ - If "
 "you want to get really technical."
-msgstr ""
-"`IETF JWT规范<https://tools.ietf.org/html/rfc7519>`_  - 如果你想获得真正的技术."
+msgstr "`IETF JWT规范 <https://tools.ietf.org/html/rfc7519>`_  - 如果你想获得真正的技术."
 
-#: ../../source/guides/auth/how-jwt-works.rst:15
+#: ../../source/guides/auth/how-jwt-works.rst:13
 msgid "Customizing the JWT Claims"
 msgstr "自定义JWT声明"
 
-#: ../../source/guides/auth/how-jwt-works.rst:17
+#: ../../source/guides/auth/how-jwt-works.rst:15
 msgid ""
 "``feathers-authentication@1.x`` allows you to customize the data stored "
 "inside the JWT. We refer to the data in the JWT as the ``payload``. There"
 " are a few reserved attributes, which in the `Official JWT Spec "
 "<https://tools.ietf.org/html/rfc7519>`_ are called ``claims``. You can "
-"customize some of these claims in the "
-":doc:`../../api/authentication/server#default-options`. To get more "
-"familiar with the purpose of each ``claim``, please refer to `Section 4 "
-"of the Official JWT Specification "
+"customize some of these claims in the :ref:`api_auth_server-otions`. To "
+"get more familiar with the purpose of each ``claim``, please refer to "
+"`Section 4 of the Official JWT Specification "
 "<https://tools.ietf.org/html/rfc7519#section-4>`_."
-msgstr "``feathers-authentication @ 1.x``允许您自定义存储在JWT中的数据.我们将JWT中的数据称为“有效负载”.有一些保留属性,在`Official JWT Spec <https://tools.ietf.org/html/rfc7519>`_中被称为``claim``.您可以在:doc:`../../api/authentication/server＃default-options`中自定义其中一些声明.为了更加熟悉每个“索赔”的目的,请参阅官方JWT规范的第4节<https://tools.ietf.org/html/rfc7519#section-4>`_."
+msgstr ""
+"``feathers-authentication @ 1.x`` "
+"允许您自定义存储在JWT中的数据.我们将JWT中的数据称为 ``payload``.有一些保留属性,在 `JWT官方规范 "
+"<https://tools.ietf.org/html/rfc7519>`_ 中被称为 ``claim``. 您可以在 :ref:`api_auth_server-otions` 中自定义其中一些声明. 为了更加熟悉每个 ``claim`` 的目的, 请参阅官方 `JWT规范的第4节 <https://tools.ietf.org/html/rfc7519#section-4>`_."
 
 #~ msgid ""
 #~ "``feathers-authentication@1.x`` allows you to"

@@ -26,7 +26,7 @@ msgstr "API"
 msgid ""
 "This section describes all the APIs of Feathers and its individual "
 "modules."
-msgstr "本节介绍Feathers的所有API及其各个模块。"
+msgstr "本节介绍Feathers的所有API及其各个模块."
 
 #: ../../source/api/index.rst:12
 msgid "Core"

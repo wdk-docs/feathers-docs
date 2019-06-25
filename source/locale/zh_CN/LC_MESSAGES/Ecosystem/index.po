@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 12:25+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,23 +150,23 @@ msgid ""
 "`Feathers Chat <https://github.com/feathersjs/feathers-chat>`_ `Official "
 "Feathers Repo </img/tiny-feathers-logo.png>`_"
 msgstr ""
-"`Feathers聊天 <https://github.com/feathersjs/feathers-chat>`_ `Official Feathers "
-"Repo </img/tiny-feathers-logo.png>`_"
+"`Feathers聊天 <https://github.com/feathersjs/feathers-chat>`_ `Official "
+"Feathers Repo </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:45
 msgid ""
 "`Feathers React Native Chat <https://github.com/feathersjs-ecosystem"
 "/feathers-react-native-chat>`_"
 msgstr ""
-"`Feathers反应原生聊天 <https://github.com/feathersjs-ecosystem/feathers-react-native-"
-"chat>`_"
+"`Feathers反应原生聊天 <https://github.com/feathersjs-ecosystem/feathers-react-"
+"native-chat>`_"
 
 #: ../../source/Ecosystem/index.rst:46
 msgid ""
 "`Feathers-Vuex (Vue.js) Chat <https://github.com/feathers-plus/feathers-"
 "chat-vuex>`_"
 msgstr ""
-"`Feathers-Vuex（Vue.js）聊天 <https://github.com/feathers-plus/feathers-chat-"
+"`Feathers-Vuex(Vue.js)聊天 <https://github.com/feathers-plus/feathers-chat-"
 "vuex>`_"
 
 #: ../../source/Ecosystem/index.rst:47
@@ -174,7 +174,7 @@ msgid ""
 "`Feathers-Vuex (Vue.js) TodoMVC example project "
 "<https://github.com/wdmtech/feathers-vuex-todomvc>`_"
 msgstr ""
-"`Feathers-Vuex（Vue.js）TodoMVC示例项目 <https://github.com/wdmtech/feathers-"
+"`Feathers-Vuex(Vue.js)TodoMVC示例项目 <https://github.com/wdmtech/feathers-"
 "vuex-todomvc>`_"
 
 #: ../../source/Ecosystem/index.rst:48
@@ -196,8 +196,8 @@ msgid ""
 "`Feathers 2 + Vue 2 + SSR + Email Verification "
 "<https://github.com/codingfriend1/Feathers-Vue>`_"
 msgstr ""
-"`Feathers2 + Vue 2 + SSR +电子邮件验证 <https://github.com/codingfriend1/Feathers-"
-"Vue>`_"
+"`Feathers2 + Vue 2 + SSR +电子邮件验证 <https://github.com/codingfriend1"
+"/Feathers-Vue>`_"
 
 #: ../../source/Ecosystem/index.rst:52
 msgid ""
@@ -228,10 +228,11 @@ msgstr ""
 "with-angular-and-feathersjs/>`_"
 
 #: ../../source/Ecosystem/index.rst:56
+#, fuzzy
 msgid ""
-"[Feathers + React + Redux + Webpack + local auth. Production "
-"quality](https://github.com/eddyystop/feathers-starter-react-redux-login-"
-"roles)."
+"`Feathers + React + Redux + Webpack + local auth. Production quality "
+"<https://github.com/eddyystop/feathers-starter-react-redux-login-"
+"roles>`_."
 msgstr ""
 "[Feathers + React + Redux + Webpack + local auth. Production "
 "quality](https://github.com/eddyystop/feathers-starter-react-redux-login-"
@@ -241,7 +242,7 @@ msgstr ""
 msgid ""
 "`Live query. Mirror part of a DB on the client. "
 "<https://github.com/eddyystop/feathers-live-query>`_"
-msgstr "`实时查询。镜像客户端上DB的一部分。 <https://github.com/eddyystop/feathers-live-query>`_"
+msgstr "`实时查询.镜像客户端上DB的一部分. <https://github.com/eddyystop/feathers-live-query>`_"
 
 #: ../../source/Ecosystem/index.rst:58
 msgid ""
@@ -249,7 +250,7 @@ msgid ""
 " for production) <https://github.com/bertho-zero/react-redux-universal-"
 "hot-example>`_"
 msgstr ""
-"`Feathers + React + Redux + Webpack +完整的auth +离线模式（非常适合制作） "
+"`Feathers + React + Redux + Webpack +完整的auth +离线模式(非常适合制作) "
 "<https://github.com/bertho-zero/react-redux-universal-hot-example>`_"
 
 #: ../../source/Ecosystem/index.rst:59
@@ -257,7 +258,7 @@ msgid ""
 "`Build a CRUD App Using React, Redux and FeathersJS "
 "<https://www.sitepoint.com/crud-app-react-redux-feathersjs/>`_"
 msgstr ""
-"`使用React，Redux和FeathersJS构建CRUD应用程序 <https://www.sitepoint.com/crud-app-"
+"`使用React, Redux和FeathersJS构建CRUD应用程序 <https://www.sitepoint.com/crud-app-"
 "react-redux-feathersjs/>`_"
 
 #: ../../source/Ecosystem/index.rst:60
@@ -275,30 +276,31 @@ msgid ""
 "`Passwordless Auth Example Using feathers-authentication-management "
 "<https://github.com/rhythnic/feathers-passwordless-auth-example>`_"
 msgstr ""
-"`无密码验证示例使用Feathers验证管理 <https://github.com/rhythnic/feathers-passwordless-auth-"
-"example>`_"
+"`无密码验证示例使用Feathers验证管理 <https://github.com/rhythnic/feathers-"
+"passwordless-auth-example>`_"
 
 #: ../../source/Ecosystem/index.rst:62
 msgid ""
 "`Feathers Chat + Login with Facebook <https://github.com/morenoh149"
 "/feathers-chat-facebook-signup-api>`_"
 msgstr ""
-"`Feathers聊天+用Facebook登录 <https://github.com/morenoh149/feathers-chat-facebook-"
-"signup-api>`_"
+"`Feathers聊天+用Facebook登录 <https://github.com/morenoh149/feathers-chat-"
+"facebook-signup-api>`_"
 
 #: ../../source/Ecosystem/index.rst:63
 msgid ""
 "`Feathers Chat + Phone Signup SMS pin <https://github.com/morenoh149"
 "/feathers-chat-phone-signup-sms>`_"
 msgstr ""
-"`Feathers聊天+电话注册短信引脚 <https://github.com/morenoh149/feathers-chat-phone-signup-"
-"sms>`_"
+"`Feathers聊天+电话注册短信引脚 <https://github.com/morenoh149/feathers-chat-phone-"
+"signup-sms>`_"
 
 #: ../../source/Ecosystem/index.rst:64
+#, fuzzy
 msgid ""
 "`Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-"
 "examples/tree/master/examples/feathers/sql-database>`_ - An example for "
-"integrating Feathers with [Forest admin](https://www.forestadmin.com/)."
+"integrating Feathers with `Forest admin <https://www.forestadmin.com/>`_."
 msgstr ""
 "`Feathers + Forest Admin示例 <https://github.com/ForestAdmin/forest-"
 "examples/tree/master/examples/feathers/sql-database>`_ - An example for "
@@ -325,7 +327,7 @@ msgid ""
 "`MyEthereum.app: Feathers + Sequelize + React + Redux + Jest + Zeit "
 "deployments <https://github.com/petermikitsh/myethereumapp>`_"
 msgstr ""
-"`MyEthereum.app：Feathers + Sequelize + React + Redux + Jest + Zeit部署 "
+"`MyEthereum.app:Feathers + Sequelize + React + Redux + Jest + Zeit部署 "
 "<https://github.com/petermikitsh/myethereumapp>`_"
 
 #: ../../source/Ecosystem/index.rst:68
@@ -374,7 +376,7 @@ msgid ""
 "<https://github.com/nesterow/frontless>`_ Isomorphic application "
 "boilerplate for RiotJS."
 msgstr ""
-"`无风：Feathers+ RiotJS + Turbolinks + Express "
+"`无风:Feathers+ RiotJS + Turbolinks + Express "
 "<https://github.com/nesterow/frontless>`_ Isomorphic application "
 "boilerplate for RiotJS."
 
@@ -526,7 +528,7 @@ msgid ""
 "Token-Based User Account System for FeathersJS (configure)."
 msgstr ""
 "`feathers-accounts <https://www.npmjs.com/package/feathers-accounts>`_ - "
-"FeathersJS的基于令牌的用户帐户系统（配置）。"
+"FeathersJS的基于令牌的用户帐户系统(配置)."
 
 #: ../../source/Ecosystem/index.rst:112
 msgid ""
@@ -559,7 +561,8 @@ msgid ""
 "password reset capabilities to local feathers-authentication (service)"
 msgstr ""
 "`feathers-authentication-management <https://github.com/feathers-plus"
-"/feathers-authentication-management>`_ - 用户电子邮件验证和密码重置功能到本地Feathers - 身份验证（服务）"
+"/feathers-authentication-management>`_ - 用户电子邮件验证和密码重置功能到本地Feathers - "
+"身份验证(服务)"
 
 #: ../../source/Ecosystem/index.rst:116
 msgid ""
@@ -580,7 +583,7 @@ msgid ""
 "rediscache>`_ - API endpoint caching with Redis."
 msgstr ""
 "`feathers-hooks-rediscache <https://github.com/idealley/feathers-hooks-"
-"rediscache>`_ - 使用Redis进行API端点缓存。"
+"rediscache>`_ - 使用Redis进行API端点缓存."
 
 #: ../../source/Ecosystem/index.rst:124
 msgid "Database"
@@ -658,7 +661,7 @@ msgid ""
 "various FeatherJS services to manage a MongoDB server with Amity."
 msgstr ""
 "`amity-mongodb <https://www.npmjs.com/package/amity-mongodb>`_ - "
-"使用各种FeatherJS服务来管理Amity的MongoDB服务器。"
+"使用各种FeatherJS服务来管理Amity的MongoDB服务器."
 
 #: ../../source/Ecosystem/index.rst:136
 msgid ""
@@ -667,7 +670,7 @@ msgid ""
 "NodeJS driver for ArangoDB."
 msgstr ""
 "`feathers-arangodb <https://github.com/AnatidaeProject/feathers-"
-"arangodb>`_ - ArangoDB的Feathers数据库适配器，使用ArangoDB的官方NodeJS驱动程序。"
+"arangodb>`_ - ArangoDB的Feathers数据库适配器, 使用ArangoDB的官方NodeJS驱动程序."
 
 #: ../../source/Ecosystem/index.rst:137
 msgid ""
@@ -675,7 +678,7 @@ msgid ""
 "- Feathers abstract blob store service (service)"
 msgstr ""
 "`feathers-blob <https://github.com/feathersjs-ecosystem/feathers-blob>`_ "
-"- Feathers抽象blob商店服务（服务）"
+"- Feathers抽象blob商店服务(服务)"
 
 #: ../../source/Ecosystem/index.rst:138
 msgid ""
@@ -684,7 +687,7 @@ msgid ""
 "Feathers. (configure)"
 msgstr ""
 "`feathers-blueprints <https://www.npmjs.com/package/feathers-"
-"blueprints>`_ - 向Feathers添加一些Sails.js蓝图功能。 （配置）"
+"blueprints>`_ - 向Feathers添加一些Sails.js蓝图功能. (配置)"
 
 #: ../../source/Ecosystem/index.rst:139
 msgid ""
@@ -692,7 +695,7 @@ msgid ""
 "- A bookshelf ORM service adapter (service)"
 msgstr ""
 "`feathers-bookshelf <https://www.npmjs.com/package/feathers-bookshelf>`_ "
-"- 书架ORM服务适配器（服务）"
+"- 书架ORM服务适配器(服务)"
 
 #: ../../source/Ecosystem/index.rst:140
 msgid "`feathers-couchdb <https://github.com/lontongcorp/feathers-couchdb>`_"
@@ -728,7 +731,7 @@ msgid ""
 "Create an LinvoDB Service for FeatherJS. (service)"
 msgstr ""
 "`feathers-linvodb <https://www.npmjs.com/package/feathers-linvodb>`_ - "
-"为FeatherJS创建LinvoDB服务。 （服务）"
+"为FeatherJS创建LinvoDB服务. (服务)"
 
 #: ../../source/Ecosystem/index.rst:145
 msgid ""
@@ -745,7 +748,7 @@ msgid ""
 "(service)"
 msgstr ""
 "`feathers-mongo-collections <https://www.npmjs.com/package/feathers-"
-"mongo-collections>`_ - FeathersJS的MongoDB集合服务。 （服务）"
+"mongo-collections>`_ - FeathersJS的MongoDB集合服务. (服务)"
 
 #: ../../source/Ecosystem/index.rst:147
 msgid ""
@@ -754,7 +757,7 @@ msgid ""
 "(service)"
 msgstr ""
 "`feathers-mongo-databases <https://www.npmjs.com/package/feathers-mongo-"
-"databases>`_ - 为FeathersJS创建MongoDB数据库服务。 （服务）"
+"databases>`_ - 为FeathersJS创建MongoDB数据库服务. (服务)"
 
 #: ../../source/Ecosystem/index.rst:148
 msgid ""
@@ -763,7 +766,7 @@ msgid ""
 "collections using FeathersJS services."
 msgstr ""
 "`feathers-mongodb-management <https://github.com/feathersjs-ecosystem"
-"/feathers-mongodb-management>`_ - 使用FeathersJS服务管理MongoDB用户，数据库和集合。"
+"/feathers-mongodb-management>`_ - 使用FeathersJS服务管理MongoDB用户, 数据库和集合."
 
 #: ../../source/Ecosystem/index.rst:149
 msgid ""
@@ -772,7 +775,7 @@ msgid ""
 "MongoDB adapter, adding revision support. (service)"
 msgstr ""
 "`feathers-mongodb-revisions <https://www.npmjs.com/package/feathers-"
-"mongodb-revisions>`_ - 此Feathers数据库适配器扩展了基本的MongoDB适配器，添加了修订支持。 （服务）"
+"mongodb-revisions>`_ - 此Feathers数据库适配器扩展了基本的MongoDB适配器, 添加了修订支持. (服务)"
 
 #: ../../source/Ecosystem/index.rst:150
 msgid ""
@@ -790,7 +793,7 @@ msgid ""
 "given service (middleware)"
 msgstr ""
 "`feathers-nedb-dump <https://www.npmjs.com/package/feathers-nedb-dump>`_ "
-"- Middleware for Feathers.js - 转储和恢复给定服务的NeDB数据库（中间件）"
+"- Middleware for Feathers.js - 转储和恢复给定服务的NeDB数据库(中间件)"
 
 #: ../../source/Ecosystem/index.rst:152
 msgid ""
@@ -807,7 +810,7 @@ msgid ""
 "Featherjs."
 msgstr ""
 "`feathers-orm-service <https://www.npmjs.com/package/feathers-orm-"
-"service>`_ - 轻松为Featherjs创建对象关系映射服务。"
+"service>`_ - 轻松为Featherjs创建对象关系映射服务."
 
 #: ../../source/Ecosystem/index.rst:154
 msgid ""
@@ -839,7 +842,7 @@ msgid ""
 "A skypager ORM service adapter (service)"
 msgstr ""
 "`feathers-skypager <https://www.npmjs.com/package/feathers-skypager>`_ - "
-"一个skypager ORM服务适配器（服务）"
+"一个skypager ORM服务适配器(服务)"
 
 #: ../../source/Ecosystem/index.rst:158
 msgid ""
@@ -856,7 +859,7 @@ msgid ""
 "GraphQL but much more simple"
 msgstr ""
 "`nextql-feathers <https://github.com/giapnguyen74/nextql-feathers>`_ - "
-"用于NextQL-Yet Another Data Query Language的Featherjs插件。等效的GraphQL，但更简单"
+"用于NextQL-Yet Another Data Query Language的Featherjs插件.等效的GraphQL, 但更简单"
 
 #: ../../source/Ecosystem/index.rst:160
 msgid ""
@@ -874,7 +877,7 @@ msgid ""
 "service."
 msgstr ""
 "`feathers-json-patch <https://github.com/sibartlett/feathers-json-"
-"patch>`_ - 将JSON Patch支持添加到任何Feathers数据库适配器或服务。"
+"patch>`_ - 将JSON Patch支持添加到任何Feathers数据库适配器或服务."
 
 #: ../../source/Ecosystem/index.rst:164
 msgid "Documentation"
@@ -887,7 +890,7 @@ msgid ""
 " Swagger UI. (configure)"
 msgstr ""
 "`feathers-swagger <https://github.com/feathersjs-ecosystem/feathers-"
-"swagger>`_ - 向Feathers服务添加文档并将其提供给Swagger UI。 （配置）"
+"swagger>`_ - 向Feathers服务添加文档并将其提供给Swagger UI. (配置)"
 
 #: ../../source/Ecosystem/index.rst:169
 msgid "Email and SMS"
@@ -899,7 +902,7 @@ msgid ""
 "mailer>`_ - Feathers mailer service using nodemailer (service)"
 msgstr ""
 "`feathers-mailer <https://github.com/feathersjs-ecosystem/feathers-"
-"mailer>`_ - 使用nodemailer（服务）的Feathers邮件服务"
+"mailer>`_ - 使用nodemailer(服务)的Feathers邮件服务"
 
 #: ../../source/Ecosystem/index.rst:174
 msgid "Hooks"
@@ -911,7 +914,7 @@ msgid ""
 "hooks-common/>`_ - Collection of useful Feathers hooks."
 msgstr ""
 "`feathers-hooks-commons <https://feathers-plus.github.io/v1/feathers-"
-"hooks-common/>`_ - 有用的Feathers钩的集合。"
+"hooks-common/>`_ - 有用的Feathers钩的集合."
 
 #: ../../source/Ecosystem/index.rst:177
 msgid ""
@@ -920,7 +923,7 @@ msgid ""
 " Array of strings."
 msgstr ""
 "`feathers-hooks-csvtoarray <https://www.npmjs.com/package/feathers-hooks-"
-"csvtoarray>`_ - 用于将逗号分隔列表转换为字符串数组的Feat钩子。"
+"csvtoarray>`_ - 用于将逗号分隔列表转换为字符串数组的Feat钩子."
 
 #: ../../source/Ecosystem/index.rst:178
 msgid ""
@@ -929,7 +932,7 @@ msgid ""
 "way."
 msgstr ""
 "`feathers-hooks-jsonapify <https://www.npmjs.com/package/feathers-hooks-"
-"jsonapify>`_ - Feathers hook用于以符合JSON-API的方式输出数据。"
+"jsonapify>`_ - Feathers hook用于以符合JSON-API的方式输出数据."
 
 #: ../../source/Ecosystem/index.rst:179
 msgid ""
@@ -938,7 +941,7 @@ msgid ""
 "relations. (hook)"
 msgstr ""
 "`feathers-populate-hook <https://www.npmjs.com/package/feathers-populate-"
-"hook>`_ - Feathes hook用n：m，n：1或1：m关系填充多个字段。 （钩）"
+"hook>`_ - Feathes hook用n:m, n:1或1:m关系填充多个字段. (钩)"
 
 #: ../../source/Ecosystem/index.rst:180
 msgid ""
@@ -947,7 +950,7 @@ msgid ""
 "(hook)"
 msgstr ""
 "`feathers-transform-hook <https://www.npmjs.com/package/feathers-"
-"transform-hook>`_ - 用于转换hook.data参数的钩子钩子（钩子）"
+"transform-hook>`_ - 用于转换hook.data参数的钩子钩子(钩子)"
 
 #: ../../source/Ecosystem/index.rst:181
 msgid ""
@@ -956,7 +959,7 @@ msgid ""
 "your service response (hook)"
 msgstr ""
 "`feathers-virtual-attribute-hook <https://www.npmjs.com/package/feathers-"
-"virtual-attribute-hook>`_ - Feathers hook用于向服务响应添加虚拟属性（hook）"
+"virtual-attribute-hook>`_ - Feathers hook用于向服务响应添加虚拟属性(hook)"
 
 #: ../../source/Ecosystem/index.rst:184
 msgid "Payments"
@@ -1004,7 +1007,7 @@ msgid ""
 "Easily take advantage of multi-core systems for Feathers. (configure)"
 msgstr ""
 "`feathers-cluster <https://www.npmjs.com/package/feathers-cluster>`_ - "
-"轻松利用Feathers的多核系统。 （配置）"
+"轻松利用Feathers的多核系统. (配置)"
 
 #: ../../source/Ecosystem/index.rst:195
 msgid ""
@@ -1013,7 +1016,7 @@ msgid ""
 "publish/subscribe (configure)"
 msgstr ""
 "`feathers-sync <https://github.com/feathersjs-ecosystem/feathers-sync>`_ "
-"- 使用MongoDB发布/订阅（配置）在应用程序实例之间同步服务事件"
+"- 使用MongoDB发布/订阅(配置)在应用程序实例之间同步服务事件"
 
 #: ../../source/Ecosystem/index.rst:196
 msgid ""
@@ -1021,7 +1024,7 @@ msgid ""
 "batch/>`_ - Batch multiple Feathers service calls into one (service)"
 msgstr ""
 "`feathers-batch <https://github.com/feathersjs-ecosystem/feathers-"
-"batch/>`_ - 批量多个Feathers服务调用为一个（服务）"
+"batch/>`_ - 批量多个Feathers服务调用为一个(服务)"
 
 #: ../../source/Ecosystem/index.rst:197
 msgid ""
@@ -1042,7 +1045,7 @@ msgid ""
 "given user's Instagram feed via its public endpoints."
 msgstr ""
 "`feathers-services-instagram-feed <https://www.npmjs.com/package"
-"/feathers-services-instagram-feed>`_ - 允许通过其公共端点获取给定用户的Instagram Feed的服务。"
+"/feathers-services-instagram-feed>`_ - 允许通过其公共端点获取给定用户的Instagram Feed的服务."
 
 #: ../../source/Ecosystem/index.rst:205
 msgid "Testing"
@@ -1055,7 +1058,7 @@ msgid ""
 " tests. Starter for your customized fakes (service)"
 msgstr ""
 "`feathers-tests-fake-app-users <https://www.npmjs.com/package/feathers-"
-"tests-fake-app-users>`_ - 在服务单元测试中伪造一些Feathers依赖性。定制假货（服务）的入门"
+"tests-fake-app-users>`_ - 在服务单元测试中伪造一些Feathers依赖性.定制假货(服务)的入门"
 
 #: ../../source/Ecosystem/index.rst:208
 msgid ""
@@ -1063,7 +1066,7 @@ msgid ""
 "Quickly build reusable random data generators for your Feathers services."
 msgstr ""
 "`feathers-factory <https://github.com/JorgenVatle/feathers-factory>`_ - "
-"为Feathers服务快速构建可重用的随机数据生成器。"
+"为Feathers服务快速构建可重用的随机数据生成器."
 
 #: ../../source/Ecosystem/index.rst:211
 msgid "Logging"
@@ -1075,7 +1078,7 @@ msgid ""
 "Integrates the splunk into feathersjs services for logging."
 msgstr ""
 "`feathers-splunk <https://www.npmjs.com/package/feathers-splunk>`_ - "
-"将splunk集成到feathersjs服务中进行日志记录。"
+"将splunk集成到feathersjs服务中进行日志记录."
 
 #: ../../source/Ecosystem/index.rst:216
 msgid "Transports"
@@ -1142,7 +1145,7 @@ msgid ""
 " published."
 msgstr ""
 "`feathers-socketcluster <https://github.com/polst/feathers-"
-"socketcluster>`_ - 使用SocketCluster进行客户端/服务器通信。没有发表。"
+"socketcluster>`_ - 使用SocketCluster进行客户端/服务器通信.没有发表."
 
 #: ../../source/Ecosystem/index.rst:228
 msgid "Utilities"
@@ -1208,7 +1211,7 @@ msgid ""
 msgstr ""
 "`FeathersQuery <https://trinly01.github.io/FeathersQuery/) - Feathers "
 "Query is a Lightweight Graphical User Interface (GUI>`_ "
-"Feathers服务。它是一个可视化工具，可帮助您管理数据收集。"
+"Feathers服务.它是一个可视化工具, 可帮助您管理数据收集."
 
 #: ../../source/Ecosystem/index.rst:238
 msgid ""
@@ -1232,7 +1235,7 @@ msgid ""
 "FeathersJS service interface to read and write data in the file system."
 msgstr ""
 "`feathers-fs <https://github.com/feathersjs/feathers-fs>`_ - "
-"使用FeathersJS服务接口在文件系统中读取和写入数据。"
+"使用FeathersJS服务接口在文件系统中读取和写入数据."
 
 #: ../../source/Ecosystem/index.rst:241
 msgid ""
@@ -1240,7 +1243,7 @@ msgid ""
 "utils>`_ - Utility library for writing Feathersjs hooks. (hooks)"
 msgstr ""
 "`feathers-hooks-utils <https://www.npmjs.com/package/feathers-hooks-"
-"utils>`_ - 用于编写Feathersjs钩子的实用程序库。 （钩）"
+"utils>`_ - 用于编写Feathersjs钩子的实用程序库. (钩)"
 
 #: ../../source/Ecosystem/index.rst:242
 msgid "`feathers-profiler <https://github.com/feathers-plus/feathers-profiler>`_"
@@ -1253,7 +1256,7 @@ msgid ""
 "paths."
 msgstr ""
 "`feathers-versionate <https://github.com/luke3butler/feathers-"
-"versionate>`_ - 用于创建和使用嵌套服务路径的实用程序。"
+"versionate>`_ - 用于创建和使用嵌套服务路径的实用程序."
 
 #: ../../source/Ecosystem/index.rst:244
 msgid ""
@@ -1261,7 +1264,7 @@ msgid ""
 ".findOne(>`_ method to services in Feathers.js"
 msgstr ""
 "`feathers-findone <https://github.com/fridays/feathers-findone) - "
-"在Feathers.js中添加.findOne（>`_方法到服务"
+"在Feathers.js中添加.findOne(>`_方法到服务"
 
 #: ../../source/Ecosystem/index.rst:245
 msgid ""
@@ -1298,7 +1301,7 @@ msgid ""
 "sanitization and client notification using Joi. (hook)"
 msgstr ""
 "`feathers-hooks-validate-joi <https://www.npmjs.com/package/feathers-"
-"hooks-validate-joi>`_ - Feathes钩子实用程序，用于使用Joi进行模式验证，清理和客户端通知。 （钩）"
+"hooks-validate-joi>`_ - Feathes钩子实用程序, 用于使用Joi进行模式验证, 清理和客户端通知. (钩)"
 
 #: ../../source/Ecosystem/index.rst:255
 msgid ""
@@ -1307,7 +1310,7 @@ msgid ""
 "using JSON Schema. (hook)"
 msgstr ""
 "`feathers-hook-validation-jsonschema <https://www.npmjs.com/package"
-"/feathers-hook-validation-jsonschema>`_ - 使用JSON Schema验证Feathers资源。 （钩）"
+"/feathers-hook-validation-jsonschema>`_ - 使用JSON Schema验证Feathers资源. (钩)"
 
 #: ../../source/Ecosystem/index.rst:256
 msgid ""
@@ -1315,7 +1318,7 @@ msgid ""
 "validate feathers services using tcomb (app.service)"
 msgstr ""
 "`feathers-tcomb <https://www.npmjs.com/package/feathers-tcomb>`_ - "
-"使用tcomb验证Feathers服务（app.service）"
+"使用tcomb验证Feathers服务(app.service)"
 
 #: ../../source/Ecosystem/index.rst:257
 msgid ""
@@ -1324,7 +1327,7 @@ msgid ""
 "(hook)"
 msgstr ""
 "`feathers-validate-hook <https://www.npmjs.com/package/feathers-validate-"
-"hook>`_ - 使用is-my-json-valid（钩子）验证json-schema的Feat钩子"
+"hook>`_ - 使用is-my-json-valid(钩子)验证json-schema的Feat钩子"
 
 #: ../../source/Ecosystem/index.rst:258
 msgid ""
@@ -1332,7 +1335,7 @@ msgid ""
 "- A validator for Feathers services. (service)"
 msgstr ""
 "`feathers-validator <https://www.npmjs.com/package/feathers-validator>`_ "
-"- Feathers服务的验证器。 （服务）"
+"- Feathers服务的验证器. (服务)"
 
 #: ../../source/Ecosystem/index.rst:261
 msgid "Mobile Clients"
@@ -1342,7 +1345,7 @@ msgstr "移动客户端"
 msgid ""
 "The Feathers client works with React Native but here is a collection of "
 "native libraries/SDKs."
-msgstr "Feathers客户端使用React Native，但这里是本机库/ SDK的集合。"
+msgstr "Feathers客户端使用React Native, 但这里是本机库/SDK的集合."
 
 #: ../../source/Ecosystem/index.rst:266
 msgid "iOS"
@@ -1355,7 +1358,7 @@ msgid ""
 "written in Swift."
 msgstr ""
 "`FeathersjsClientSwift "
-"<https://github.com/truebucha/FeathersjsClientSwift>`_ - 用Swift编写的iOS客户端。"
+"<https://github.com/truebucha/FeathersjsClientSwift>`_ - 用Swift编写的iOS客户端."
 
 #: ../../source/Ecosystem/index.rst:269
 msgid ""
@@ -1363,7 +1366,7 @@ msgid ""
 "compliant SDK written in Swift 3. Supports rest and socket providers."
 msgstr ""
 "`Feathers <https://github.com/startupthekid/feathers-ios>`_ - "
-"符合Featrace标准的SDK用Swift编写的3.支持rest和socket提供程序。"
+"符合Featrace标准的SDK用Swift编写的3.支持rest和socket提供程序."
 
 #: ../../source/Ecosystem/index.rst:272
 msgid "Android"
@@ -1385,7 +1388,7 @@ msgid ""
 msgstr ""
 "`@feathersjs/client <https://docs.feathersjs.com/api/client.html>`_ "
 "`Official Feathers Module </img/tiny-feathers-logo.png>`_ "
-"-所有主要客户端软件包都集于一身。"
+"-所有主要客户端软件包都集于一身."
 
 #: ../../source/Ecosystem/index.rst:281
 msgid ""
@@ -1394,7 +1397,7 @@ msgid ""
 "any frontend frameworks (ie. React, Vue, Angular)"
 msgstr ""
 "`wings-feathers <https://www.npmjs.com/package/wings-feathers>`_ - "
-"适用于任何前端框架的FeathersJS 4-Way实时反应式数据同步和回调（即React，Vue，Angular）"
+"适用于任何前端框架的FeathersJS 4-Way实时反应式数据同步和回调(即React, Vue, Angular)"
 
 #: ../../source/Ecosystem/index.rst:282
 msgid ""
@@ -1404,7 +1407,7 @@ msgid ""
 "events."
 msgstr ""
 "`feathers-reactive <https://github.com/feathersjs-ecosystem/feathers-"
-"reactive>`_ - Feathers的实时查询流。将Feathers服务调用转换为RxJS可观察对象，自动更新实时事件。"
+"reactive>`_ - Feathers的实时查询流.将Feathers服务调用转换为RxJS可观察对象, 自动更新实时事件."
 
 #: ../../source/Ecosystem/index.rst:285
 msgid "DoneJS"
@@ -1416,7 +1419,7 @@ msgid ""
 "feathers>`_ - Feathers client library for DoneJS (feathers-client)"
 msgstr ""
 "`can-connect-feathers <https://www.npmjs.com/package/can-connect-"
-"feathers>`_ - 用于DoneJS的Feathers客户端库（Feathers客户端）"
+"feathers>`_ - 用于DoneJS的Feathers客户端库(Feathers客户端)"
 
 #: ../../source/Ecosystem/index.rst:288
 msgid ""
@@ -1425,7 +1428,7 @@ msgid ""
 "client. (feathers-client)"
 msgstr ""
 "`canjs-feathers <https://www.npmjs.com/package/canjs-feathers>`_ - "
-"CanJS模型实现通过feather-client连接到Feathers服务。 （Feathers客户端）"
+"CanJS模型实现通过feather-client连接到Feathers服务. (Feathers客户端)"
 
 #: ../../source/Ecosystem/index.rst:289
 msgid ""
@@ -1434,7 +1437,7 @@ msgid ""
 "Auth! (generator)"
 msgstr ""
 "`donejs-feathers <https://www.npmjs.com/package/donejs-feathers>`_ - "
-"一个生成器，可以快速将FeathersJS添加到您的DoneJS项目中。包括Auth！ （发电机）"
+"一个生成器, 可以快速将FeathersJS添加到您的DoneJS项目中.包括Auth！ (发电机)"
 
 #: ../../source/Ecosystem/index.rst:292
 msgid "React and Redux"
@@ -1446,7 +1449,7 @@ msgid ""
 "feathers services with redux (connector)"
 msgstr ""
 "`feathers-action <https://www.npmjs.com/package/feathers-action>`_ - "
-"使用Feathers服务与redux（连接器）"
+"使用Feathers服务与redux(连接器)"
 
 #: ../../source/Ecosystem/index.rst:295
 msgid ""
@@ -1470,7 +1473,7 @@ msgid ""
 "types>`_ - flux action types for feathers services (connector)"
 msgstr ""
 "`feathers-action-types <https://www.npmjs.com/package/feathers-action-"
-"types>`_ - Feathers服务的助焊剂动作类型（连接器）"
+"types>`_ - Feathers服务的助焊剂动作类型(连接器)"
 
 #: ../../source/Ecosystem/index.rst:298
 msgid ""
@@ -1478,7 +1481,7 @@ msgid ""
 "redux>`_ - Unofficial Feathers bindings for React-Redux."
 msgstr ""
 "`feathers-react-redux <https://www.npmjs.com/package/feathers-react-"
-"redux>`_ - React-Redux的非官方Feathers绑定。"
+"redux>`_ - React-Redux的非官方Feathers绑定."
 
 #: ../../source/Ecosystem/index.rst:299
 msgid ""
@@ -1487,7 +1490,7 @@ msgid ""
 "and perfectly with Redux."
 msgstr ""
 "`feathers-reduxify-services <https://github.com/eddyystop/feathers-"
-"reduxify-services>`_ -Wrap Feathers服务使它们与Redux透明且完美地协同工作。"
+"reduxify-services>`_ -Wrap Feathers服务使它们与Redux透明且完美地协同工作."
 
 #: ../../source/Ecosystem/index.rst:300
 msgid ""
@@ -1496,8 +1499,8 @@ msgid ""
 "with Redux, and with auth packages for React-Router."
 msgstr ""
 "`feathers-reduxify-authentication <https://github.com/eddyystop/feathers-"
-"reduxify-authentication>`_ - Wrap Feathers.authentication，因此它适用于Redux"
-"，以及React-Router的auth软件包。"
+"reduxify-authentication>`_ - Wrap Feathers.authentication, 因此它适用于Redux"
+", 以及React-Router的auth软件包."
 
 #: ../../source/Ecosystem/index.rst:303
 msgid "VueJS"
@@ -1509,7 +1512,7 @@ msgid ""
 "Integration of Feathers services with your Vuex store."
 msgstr ""
 "`feathers-vuex <https://github.com/feathers-plus/feathers-vuex>`_ - "
-"将Feathers服务与Vuex商店集成。"
+"将Feathers服务与Vuex商店集成."
 
 #: ../../source/Ecosystem/index.rst:306
 msgid ""
@@ -1518,7 +1521,7 @@ msgid ""
 " real time (connector)"
 msgstr ""
 "`vue-syncers-feathers <https://www.npmjs.com/package/vue-syncers-"
-"feathers>`_ - 使用vue对象同步Feathers服务，实时更新（连接器）"
+"feathers>`_ - 使用vue对象同步Feathers服务, 实时更新(连接器)"
 
 #: ../../source/Ecosystem/index.rst:307
 msgid ""
@@ -1526,7 +1529,7 @@ msgid ""
 " Vuejs 1.x & 2.x to easily access your feathers services."
 msgstr ""
 "`vue-feathers <https://github.com/sunabozu/vue-feathers>`_ - 适用于Vuejs "
-"1.x和2.x的插件，可轻松访问您的Feathers服务。"
+"1.x和2.x的插件, 可轻松访问您的Feathers服务."
 
 #: ../../source/Ecosystem/index.rst:310
 msgid "Angular 1"
@@ -1538,7 +1541,7 @@ msgid ""
 "client for AngularJS. FeatherJS for plain old AngularJS (1.X)"
 msgstr ""
 "`ng-feathers <https://www.npmjs.com/package/ng-feathers>`_ - "
-"AngularJS的Feathers客户端。 FeatherJS用于普通的AngularJS（1.X）"
+"AngularJS的Feathers客户端. FeatherJS用于普通的AngularJS(1.X)"
 
 #: ../../source/Ecosystem/index.rst:315
 msgid "Angular 2"
@@ -1567,8 +1570,8 @@ msgid ""
 "connected to Feathers server application via websockets (socket.io)"
 msgstr ""
 "`aurelia-feathersjs-socket-demo <https://bitbucket.org/praveengandhi"
-"/aurelia-feathersjs-socket-demo>`_ - Aurelia应用程序（使用Aurelia-"
-"CLI构建，通过websockets连接到Feathers服务器应用程序（socket.io）"
+"/aurelia-feathersjs-socket-demo>`_ - Aurelia应用程序(使用Aurelia-"
+"CLI构建, 通过websockets连接到Feathers服务器应用程序(socket.io)"
 
 #: ../../source/Ecosystem/index.rst:330
 msgid "Mithril"
@@ -1580,7 +1583,7 @@ msgid ""
 "Connect feathers.js to mithril.js (connector)"
 msgstr ""
 "`feathers-mithril <https://www.npmjs.com/package/feathers-mithril>`_ - "
-"将feathers.js连接到mithril.js（连接器）"
+"将feathers.js连接到mithril.js(连接器)"
 
 #: ../../source/Ecosystem/index.rst:335
 msgid "React Admin"
@@ -1592,11 +1595,11 @@ msgid ""
 "feathers rest/socket.io client for react-admin. (Admin)"
 msgstr ""
 "`ra-data-feathers <https://github.com/josx/ra-data-feathers>`_ - "
-"反应管理的Feathers休息/ socket.io客户端。 （管理员）"
+"反应管理的Feathers休息/socket.io客户端. (管理员)"
 
 #: ../../source/Ecosystem/index.rst:340
 msgid "Admin on Rest (replaced by React Admin)"
-msgstr "休息时管理员（由React Admin取代）"
+msgstr "休息时管理员(由React Admin取代)"
 
 #: ../../source/Ecosystem/index.rst:342
 msgid ""
@@ -1604,7 +1607,7 @@ msgid ""
 "feathers rest client for admin-on-rest. (Admin)"
 msgstr ""
 "`Aor-feathers-client <https://github.com/josx/aor-feathers-client>`_ - "
-"Feathers休息客户端为管理员休息。 （管理员）"
+"Feathers休息客户端为管理员休息. (管理员)"
 
 #~ msgid "Ecosystem"
 #~ msgstr "生态系统"

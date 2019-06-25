@@ -101,7 +101,7 @@ msgstr ""
 #: ../../source/guides/chat/authentication.rst:67
 #: ../../source/guides/chat/authentication.rst:97
 msgid "|Run in Postman|"
-msgstr "|在邮递员中运行|"
+msgstr ""
 
 #: ../../source/guides/chat/authentication.rst:69
 msgid ""
@@ -140,8 +140,8 @@ msgid ""
 "we will also use Feathers on the client when creating a frontend, we "
 "don’t have to worry about manually creating and using the token for this "
 "guide. For more information for authenticating REST API calls see the "
-":doc:`../../api/client/rest#authentication`."
-msgstr "然后,可以使用返回的令牌对此特定用户进行身份验证,方法是将其添加到新HTTP请求的 ``Authorization`` 标头中.由于我们在创建前端时也会在客户端上使用Feathers,因此我们不必担心手动创建和使用本指南的令牌.有关验证REST API调用的更多信息,请参阅 :doc:`../../api/client/rest＃authentication`."
+":ref:`api-client-rest-authentication`."
+msgstr "然后,可以使用返回的令牌对此特定用户进行身份验证,方法是将其添加到新HTTP请求的 ``Authorization`` 标头中.由于我们在创建前端时也会在客户端上使用Feathers,因此我们不必担心手动创建和使用本指南的令牌.有关验证REST API调用的更多信息,请参阅 :ref:`api-client-rest-authentication`."
 
 #: ../../source/guides/chat/authentication.rst:107
 msgid "Securing the messages service"

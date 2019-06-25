@@ -198,7 +198,7 @@
 <div class="section" id="cluster-configuration">
 <h2>群集配置<a class="headerlink" href="#cluster-configuration" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://nodejs.org/api/cluster.html">簇</a> support内置于核心NodeJS中.由于NodeJS是单线程的,因此集群允许您在多个子进程(和多个线程)之间轻松分发应用程序请求.在多核环境中运行Feathers时,群集是一个不错的选择.</p>
-<p>下面是使用 <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> 提供程序向羽毛添加聚类的示例。默认情况下，websocket连接通过多个HTTP请求的握手开始，并升级到websocket协议。但是，启用群集时，同一工作程序将不会处理握手的所有HTTP请求，从而导致HTTP 400错误。为确保握手成功，强制单个工作人员通过禁用http传输并专门使用 <code class="docutils literal notranslate"><span class="pre">websocket</span></code> 传输来处理握手。</p>
+<p>下面是使用 <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> 提供程序向 Feathers 添加聚类的示例.默认情况下, websocket连接通过多个HTTP请求的握手开始, 并升级到websocket协议.但是, 启用群集时, 同一工作程序将不会处理握手的所有HTTP请求, 从而导致HTTP 400错误.为确保握手成功, 强制单个工作人员通过禁用http传输并专门使用 <code class="docutils literal notranslate"><span class="pre">websocket</span></code> 传输来处理握手.</p>
 <p>禁用websockets的HTTP传输时需要注意很明显的副作用.虽然所有现代浏览器都支持websocket连接,但是没有websocket支持 <a class="reference external" href="http://caniuse.com/#feat=websockets">IE &lt;= 9 和 Android Browser &lt;= 4.3</a>. 如果您必须支持这些浏览器,请使用其他缩放策略.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cluster</span> <span class="nx">from</span> <span class="s1">&#39;cluster&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="nx">feathers</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">;</span>

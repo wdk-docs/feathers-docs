@@ -21,14 +21,14 @@ Installing the CLI
 
 The CLI should be installed globally via npm:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/cli -g
 
 Once successful we should now have the ``feathers`` command available on
 the command line which we can check with:
 
-::
+.. code-block:: sh
 
    feathers --version
 

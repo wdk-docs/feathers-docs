@@ -1,4 +1,4 @@
-FeathersJS Auth Recipe: Create Endpoints with Mixed Auth
+Create Endpoints with Mixed Auth
 ========================================================
 
 The Auk release of FeathersJS includes a powerful new :doc:`../../api/authentication/server` built on top of

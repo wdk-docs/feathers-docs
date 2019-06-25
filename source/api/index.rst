@@ -23,6 +23,7 @@ Core
    channels
    errors
    configuration
+   rest
 
 Transports
 ---------------

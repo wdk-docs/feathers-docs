@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 16:00+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/authentication/oauth2.rst:10
-msgid "[@feathersjs/authentication-oauth2](https://github.com/feathersjs/authentication-oauth2) is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth2 authentication strategy within your Feathers application. There are hundreds of them! Some commonly used ones are:"
+msgid "`@feathersjs/authentication-oauth2 <https://github.com/feathersjs/authentication-oauth2>`_ is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth2 authentication strategy within your Feathers application. There are hundreds of them! Some commonly used ones are:"
 msgstr ""
 
 #: ../../source/api/authentication/oauth2.rst:16

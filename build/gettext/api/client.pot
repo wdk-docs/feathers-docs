@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:39+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "One of the most notable features of Feathers is that it can also be used 
 msgstr ""
 
 #: ../../source/api/client.rst:12
-msgid "In order to connect to a Feathers server, a client creates :doc:`./services` that use a REST or websocket connection to relay method calls and allow listening to :doc:`./events` on the server. This means the `Feathers application instance <./application>`_ is usable the exact same way as on the server."
+msgid "In order to connect to a Feathers server, a client creates :doc:`./services` that use a REST or websocket connection to relay method calls and allow listening to :doc:`./events` on the server. This means the :ref:`Feathers application instance <api_feathersjs-client>` is usable the exact same way as on the server."
 msgstr ""
 
 #: ../../source/api/client.rst:19
@@ -36,216 +36,216 @@ msgstr ""
 msgid "``@feathersjs/feathers`` to initialize a new Feathers :doc:`./application`"
 msgstr ""
 
-#: ../../source/api/client.rst:23
+#: ../../source/api/client.rst:22
 msgid ":doc:`./client/rest` to connect to services through :doc:`./express`."
 msgstr ""
 
-#: ../../source/api/client.rst:25
+#: ../../source/api/client.rst:23
 msgid ":doc:`./client/socketio` to connect to services through :doc:`./socketio`."
 msgstr ""
 
-#: ../../source/api/client.rst:27
+#: ../../source/api/client.rst:24
 msgid ":doc:`./client/primus` to connect to services through :doc:`./primus`."
 msgstr ""
 
-#: ../../source/api/client.rst:29
+#: ../../source/api/client.rst:25
 msgid ":doc:`./authentication/client` to authenticate a client"
 msgstr ""
 
-#: ../../source/api/client.rst:34
+#: ../../source/api/client.rst:29
 msgid "You do not have to use Feathers on the client to connect to a Feathers server. The client chapters above also describe how to use a REST HTTP, Socket.io or Primus connection directly without Feathers on the client side. For details on authentication, see the :doc:`./authentication/client`."
 msgstr ""
 
-#: ../../source/api/client.rst:40
+#: ../../source/api/client.rst:35
 msgid "This chapter describes how to set up Feathers as the client in Node, React Native and in the browser with a module loader like Webpack or Browserify or through a ``<script>`` tag. The examples are using :doc:`./client/socketio`. For other connection methods see the chapters linked above."
 msgstr ""
 
-#: ../../source/api/client.rst:46
-msgid "Feathers can be used on the client through the individual modules or the [@feathersjs/client](#feathersjsclient) module. The latter combines all modules mentioned above into a single, ES5 transpiled version."
+#: ../../source/api/client.rst:41
+msgid "Feathers can be used on the client through the individual modules or the :ref:`@feathersjs/client <api_feathersjs-client>` module. The latter combines all modules mentioned above into a single, ES5 transpiled version."
 msgstr ""
 
-#: ../../source/api/client.rst:52
+#: ../../source/api/client.rst:47
 msgid "Node"
 msgstr ""
 
-#: ../../source/api/client.rst:54
+#: ../../source/api/client.rst:49
 msgid "To connect to a Feathers server in NodeJS, install the desired client connection library (here, ``socket.io-client``), alongside the Feathers core library, and the connection-specific library:"
 msgstr ""
 
-#: ../../source/api/client.rst:62
+#: ../../source/api/client.rst:57
 msgid "Then initialize like this:"
 msgstr ""
 
-#: ../../source/api/client.rst:85
+#: ../../source/api/client.rst:80
 msgid "React Native"
 msgstr ""
 
-#: ../../source/api/client.rst:87
+#: ../../source/api/client.rst:82
 msgid "React Native usage is the same as for the `Node client <#node>`_. Install the required packages into your `React Native <https://facebook.github.io/react-native/>`_ project."
 msgstr ""
 
-#: ../../source/api/client.rst:95
+#: ../../source/api/client.rst:89
 msgid "Then in the main application file:"
 msgstr ""
 
-#: ../../source/api/client.rst:120
+#: ../../source/api/client.rst:114
 msgid "Since React Native for Android doesn’t handle timeouts exceeding one minute, consider setting lower values for ``pingInterval`` and ``pingTimeout`` of ``feathers-socketio`` on your server. This which will stop warnings related to this `issue <https://github.com/facebook/react-native/issues/12981>`_. For example:"
 msgstr ""
 
-#: ../../source/api/client.rst:138
+#: ../../source/api/client.rst:129
 msgid "Module loaders"
 msgstr ""
 
-#: ../../source/api/client.rst:140
+#: ../../source/api/client.rst:131
 msgid "All modules in the ``@feathersjs`` namespace are using ES6. They must be transpiled to support browsers that don’t completely support ES6. Most client-side module loaders exclude the ``node_modules`` folder from being transpiled and have to be configured to include modules in the ``@feathersjs`` namespace and the ``debug`` module."
 msgstr ""
 
-#: ../../source/api/client.rst:149
+#: ../../source/api/client.rst:140
 msgid "Webpack"
 msgstr ""
 
-#: ../../source/api/client.rst:151
+#: ../../source/api/client.rst:142
 msgid "For Webpack, the recommended ``babel-loader`` rule normally excludes everything in ``node_modules``. It has to be adjusted to skip ``node_modules/@feathersjs`` and ``node_modules/debug``. In the ``module`` ``rules`` in your ``webpack.config.js``, update the ``babel-loader`` section to this:"
 msgstr ""
 
-#: ../../source/api/client.rst:166
+#: ../../source/api/client.rst:157
 msgid "create-react-app"
 msgstr ""
 
-#: ../../source/api/client.rst:168
-msgid "`create-react-app <https://github.com/facebookincubator/create-react-app>`_ uses `Webpack <#webpack>`_ but does not allow to modify the configuration unless you eject. If you do not want to eject, use the [@feathersjs/client](https://github.com/feathersjs/client) module instead."
+#: ../../source/api/client.rst:159
+msgid "`create-react-app <https://github.com/facebookincubator/create-react-app>`_ uses `Webpack <#webpack>`_ but does not allow to modify the configuration unless you eject. If you do not want to eject, use the `@feathersjs/client <https://github.com/feathersjs/client>`_ module instead."
 msgstr ""
 
-#: ../../source/api/client.rst:178
+#: ../../source/api/client.rst:169
 msgid "You can then import the transpiled libraries from this package:"
 msgstr ""
 
-#: ../../source/api/client.rst:185
+#: ../../source/api/client.rst:176
 msgid "Browserify"
 msgstr ""
 
-#: ../../source/api/client.rst:187
+#: ../../source/api/client.rst:178
 msgid "In Browserify the `babelify <https://github.com/babel/babelify>`_ transform must be used. All Feathers packages indicate that they need the transform and should be transpiled automatically."
 msgstr ""
 
-#: ../../source/api/client.rst:192
+#: ../../source/api/client.rst:183
 msgid "Others"
 msgstr ""
 
-#: ../../source/api/client.rst:194
-msgid "As mentioned above, ``node_modules/@feathersjs`` and all its subfolders must be included in the ES6+ transpilation step when using any module loader that is using a transpiler. For non-CommonJS formats (like AMD) and an ES5 compatible version of Feathers and its client modules you can use the [@feathersjs/client module](#feathersjsclient)."
+#: ../../source/api/client.rst:185
+msgid "As mentioned above, ``node_modules/@feathersjs`` and all its subfolders must be included in the ES6+ transpilation step when using any module loader that is using a transpiler. For non-CommonJS formats (like AMD) and an ES5 compatible version of Feathers and its client modules you can use the :ref:`@feathersjs/client module <api_feathersjs-client>`."
 msgstr ""
 
-#: ../../source/api/client.rst:201
-#: ../../source/api/client.rst:216
+#: ../../source/api/client.rst:194
+#: ../../source/api/client.rst:209
 msgid "@feathersjs/client"
 msgstr ""
 
-#: ../../source/api/client.rst:203
+#: ../../source/api/client.rst:196
 msgid "|npm version| |Changelog|"
 msgstr ""
 
-#: ../../source/api/client.rst:209
+#: ../../source/api/client.rst:202
 msgid "``@feathersjs/client`` is a module that bundles the separate Feathers client-side modules into one providing the code as ES5 which is compatible with modern browsers (IE10+). It can also be used directly in the browser through a ``<script>`` tag. Here is a table of which Feathers client module is included:"
 msgstr ""
 
-#: ../../source/api/client.rst:216
+#: ../../source/api/client.rst:209
 msgid "Feathers module"
 msgstr ""
 
-#: ../../source/api/client.rst:218
+#: ../../source/api/client.rst:211
 msgid "@feathersjs/feathers"
 msgstr ""
 
-#: ../../source/api/client.rst:218
+#: ../../source/api/client.rst:211
 msgid "feathers (default)"
 msgstr ""
 
-#: ../../source/api/client.rst:219
+#: ../../source/api/client.rst:212
 msgid "@feathersjs/errors"
 msgstr ""
 
-#: ../../source/api/client.rst:219
+#: ../../source/api/client.rst:212
 msgid "feathers.errors"
 msgstr ""
 
-#: ../../source/api/client.rst:220
+#: ../../source/api/client.rst:213
 msgid "@feathersjs/rest-client"
 msgstr ""
 
-#: ../../source/api/client.rst:220
+#: ../../source/api/client.rst:213
 msgid "feathers.rest"
 msgstr ""
 
-#: ../../source/api/client.rst:221
+#: ../../source/api/client.rst:214
 msgid "@feathersjs/socketio-client"
 msgstr ""
 
-#: ../../source/api/client.rst:221
+#: ../../source/api/client.rst:214
 msgid "feathers.socketio"
 msgstr ""
 
-#: ../../source/api/client.rst:222
+#: ../../source/api/client.rst:215
 msgid "@feathersjs/primus-client"
 msgstr ""
 
-#: ../../source/api/client.rst:222
+#: ../../source/api/client.rst:215
 msgid "feathers.primus"
 msgstr ""
 
-#: ../../source/api/client.rst:223
+#: ../../source/api/client.rst:216
 msgid "@feathersjs/authentication-client"
 msgstr ""
 
-#: ../../source/api/client.rst:223
+#: ../../source/api/client.rst:216
 msgid "feathers.authentication"
 msgstr ""
 
-#: ../../source/api/client.rst:228
+#: ../../source/api/client.rst:221
 msgid "The Feathers client libraries come transpiled to ES5 and require ES6 shims either through the `babel-polyfill <https://www.npmjs.com/package/babel-polyfill>`_ module or by including `core.js <https://github.com/zloirock/core-js>`_ in older browsers e.g. via ``<script type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js\"></script>``"
 msgstr ""
 
-#: ../../source/api/client.rst:242
+#: ../../source/api/client.rst:235
 msgid "When you are loading @feathersjs/client you do not have to install or load any of the other modules listed in the table above."
 msgstr ""
 
-#: ../../source/api/client.rst:247
+#: ../../source/api/client.rst:240
 msgid "When to use"
 msgstr ""
 
-#: ../../source/api/client.rst:249
+#: ../../source/api/client.rst:242
 msgid "``@feathersjs/client`` can be used directly in the browser using a ``<script>`` tag without a module loader as well as with module loaders that do not support CommonJS (like RequireJS) or React applications created with a default ``create-react-app``."
 msgstr ""
 
-#: ../../source/api/client.rst:254
+#: ../../source/api/client.rst:247
 msgid "If you are using the Feathers client with Node or React Native you should follow the steps described in the `Node <#node>`_ and `React Native <#react-native>`_ sections and **not** use ``@feathersjs/client``."
 msgstr ""
 
-#: ../../source/api/client.rst:259
+#: ../../source/api/client.rst:252
 msgid "All Feathers client examples show direct usage and usage with ``@feathersjs/client``."
 msgstr ""
 
-#: ../../source/api/client.rst:263
+#: ../../source/api/client.rst:255
 msgid "Load with a module loader"
 msgstr ""
 
-#: ../../source/api/client.rst:265
+#: ../../source/api/client.rst:257
 msgid "You can use ``@feathersjs/client`` with other browser module loaders/bundlers (instead of using the modules directly) but it may include packages you may not use and result in a slightly larger bundle size."
 msgstr ""
 
-#: ../../source/api/client.rst:290
+#: ../../source/api/client.rst:282
 msgid "Load from CDN with ``<script>``"
 msgstr ""
 
-#: ../../source/api/client.rst:292
+#: ../../source/api/client.rst:284
 msgid "Below is an example of the scripts you would use to load ``@feathersjs/client`` from `unpkg.com <https://unpkg.com>`_."
 msgstr ""
 
-#: ../../source/api/client.rst:317
+#: ../../source/api/client.rst:305
 msgid "RequireJS"
 msgstr ""
 
-#: ../../source/api/client.rst:319
+#: ../../source/api/client.rst:307
 msgid "Here’s how to load feathers-client using RequireJS Syntax:"
 msgstr ""
 

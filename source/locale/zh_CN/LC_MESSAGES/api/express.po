@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:53+0800\n"
+"POT-Creation-Date: 2019-06-25 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,39 +31,36 @@ msgid ""
 "The ``@feathersjs/express`` module contains `Express "
 "<http://expressjs.com/>`_ framework integrations for Feathers:"
 msgstr ""
-"``@feathersjs/express`` 模块包含用于Feathers的 `Express <http://expressjs.com/>`_ 框架集成:"
+"``@feathersjs/express`` 模块包含用于Feathers的 `Express "
+"<http://expressjs.com/>`_ 框架集成:"
 
 #: ../../source/api/express.rst:13
 msgid ""
 "The `Express framework bindings <#expressapp>`_ to make a Feathers "
 "application Express compatible"
-msgstr ""
-"`Express框架绑定 <#expressapp>`_ 使Feathers应用程序Express兼容"
+msgstr "`Express框架绑定 <#expressapp>`_ 使Feathers应用程序Express兼容"
 
 #: ../../source/api/express.rst:15
 msgid ""
-"An Express based transport to expose services through a `REST API "
-"<#expressrest>`_"
-msgstr ""
-"An Express based transport to expose services through a `REST API "
-"<#expressrest>`_"
+"An Express based transport to expose services through a "
+":ref:`api_express_rest`"
+msgstr "基于Express的传输, 通过:ref:`api_express_rest`公开服务"
 
-#: ../../source/api/express.rst:17
+#: ../../source/api/express.rst:16
 msgid "An :doc:`./errors`"
 msgstr ""
 
-#: ../../source/api/express.rst:25
+#: ../../source/api/express.rst:24
 #, fuzzy
 msgid ""
-"**Very Important:** This page describes how to set up an Express server "
-"and REST API. See the :doc:`./client/rest` how to use this server on the "
-"client."
+"This page describes how to set up an Express server and REST API. See the"
+" :doc:`./client/rest` how to use this server on the client."
 msgstr ""
 "**Very Important:** This page describes how to set up an Express server "
 "and REST API. See the :doc:`./client/rest` how to use this server on the "
 "client."
 
-#: ../../source/api/express.rst:28
+#: ../../source/api/express.rst:27
 #, fuzzy
 msgid ""
 "This chapter assumes that you are familiar with `Express "
@@ -72,46 +69,47 @@ msgstr ""
 "**Important:** This chapter assumes that you are familiar with `Express "
 "<http://expressjs.com/en/guide/routing.html>`_."
 
-#: ../../source/api/express.rst:32
+#: ../../source/api/express.rst:31
 msgid "express(app)"
 msgstr "express(app)"
 
-#: ../../source/api/express.rst:34
+#: ../../source/api/express.rst:33
 msgid ""
 ":doc:`./application` into a fully Express (4+) compatible application "
 "that additionally to Feathers functionality also lets you use the "
 "`Express API <http://expressjs.com/en/4x/api.html>`_."
 msgstr ""
 
-#: ../../source/api/express.rst:46
+#: ../../source/api/express.rst:45
+#, fuzzy
 msgid ""
-"Note that ``@feathersjs/express`` (``express``) also exposes the standard"
-" `Express middleware <http://expressjs.com/en/4x/api.html#express>`_:"
+"``@feathersjs/express`` (``express``) also exposes the standard `Express "
+"middleware <http://expressjs.com/en/4x/api.html#express>`_:"
 msgstr ""
 "Note that ``@feathersjs/express`` (``express``) also exposes the standard"
 " `Express middleware <http://expressjs.com/en/4x/api.html#express>`_:"
 
-#: ../../source/api/express.rst:50
+#: ../../source/api/express.rst:48
 msgid "``express.json`` - A JSON body parser"
 msgstr "``express.json`` - A JSON body parser"
 
-#: ../../source/api/express.rst:51
+#: ../../source/api/express.rst:49
 msgid "``express.urlencoded`` - A URL encoded form body parser"
 msgstr "``express.urlencoded`` - A URL encoded form body parser"
 
-#: ../../source/api/express.rst:52
+#: ../../source/api/express.rst:50
 msgid "``express.static`` - To statically host files in a folder"
 msgstr "``express.static`` - To statically host files in a folder"
 
-#: ../../source/api/express.rst:53
+#: ../../source/api/express.rst:51
 msgid "``express.Router`` - Creates an Express router object"
 msgstr "``express.Router`` - Creates an Express router object"
 
-#: ../../source/api/express.rst:58
+#: ../../source/api/express.rst:56
 msgid "express()"
 msgstr "express()"
 
-#: ../../source/api/express.rst:60
+#: ../../source/api/express.rst:58
 msgid ""
 "If no Feathers application is passed, ``express() -> app`` returns a "
 "plain Express application just like a normal call to Express would."
@@ -119,11 +117,11 @@ msgstr ""
 "If no Feathers application is passed, ``express() -> app`` returns a "
 "plain Express application just like a normal call to Express would."
 
-#: ../../source/api/express.rst:64
+#: ../../source/api/express.rst:62
 msgid "app.use(path, service|mw|[mw])"
 msgstr "app.use(path, service|mw|[mw])"
 
-#: ../../source/api/express.rst:66
+#: ../../source/api/express.rst:64
 msgid ""
 ":doc:`./services`. an `Express middleware <http://expressjs.com/en/guide"
 "/writing-middleware.html>`_ or an array of `Express middleware "
@@ -137,22 +135,22 @@ msgstr ""
 "path. If :doc:`./services` is passed it will use Feathers registration "
 "mechanism, for a middleware function Express."
 
-#: ../../source/api/express.rst:100
+#: ../../source/api/express.rst:98
 msgid "app.listen(port)"
 msgstr "app.listen(port)"
 
-#: ../../source/api/express.rst:102
+#: ../../source/api/express.rst:100
 msgid ""
 "``app.listen(port) -> HttpServer`` will first call Express `app.listen "
 "<http://expressjs.com/en/4x/api.html#app.listen>`_ and then internally "
 "also call the :ref:`application_setupserver`."
 msgstr ""
 
-#: ../../source/api/express.rst:114
+#: ../../source/api/express.rst:112
 msgid "app.setup(server)"
 msgstr "app.setup(server)"
 
-#: ../../source/api/express.rst:116
+#: ../../source/api/express.rst:114
 msgid ""
 "``app.setup(server) -> app`` is usually called internally by "
 "``app.listen`` but in the cases described below needs to be called "
@@ -162,11 +160,11 @@ msgstr ""
 "``app.listen`` but in the cases described below needs to be called "
 "explicitly."
 
-#: ../../source/api/express.rst:121
+#: ../../source/api/express.rst:119
 msgid "Sub-Apps"
 msgstr "Sub-Apps"
 
-#: ../../source/api/express.rst:123
+#: ../../source/api/express.rst:121
 msgid ""
 "When registering an application as a sub-app, ``app.setup(server)`` has "
 "to be called to initialize the sub-apps services."
@@ -174,7 +172,7 @@ msgstr ""
 "When registering an application as a sub-app, ``app.setup(server)`` has "
 "to be called to initialize the sub-apps services."
 
-#: ../../source/api/express.rst:144
+#: ../../source/api/express.rst:142
 #, fuzzy
 msgid ""
 "We recommend avoiding complex sub-app setups because websockets and "
@@ -185,11 +183,11 @@ msgstr ""
 "websockets and Feathers built in authentication are not fully sub-app "
 "aware at the moment."
 
-#: ../../source/api/express.rst:149
+#: ../../source/api/express.rst:147
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: ../../source/api/express.rst:151
+#: ../../source/api/express.rst:149
 msgid ""
 "HTTPS requires creating a separate server in which case "
 "``app.setup(server)`` also has to be called explicitly."
@@ -197,11 +195,11 @@ msgstr ""
 "HTTPS requires creating a separate server in which case "
 "``app.setup(server)`` also has to be called explicitly."
 
-#: ../../source/api/express.rst:173
+#: ../../source/api/express.rst:171
 msgid "Virtual Hosts"
 msgstr "Virtual Hosts"
 
-#: ../../source/api/express.rst:175
+#: ../../source/api/express.rst:173
 msgid ""
 "The `vhost <https://github.com/expressjs/vhost>`_ Express middleware can "
 "be used to run a Feathers application on a virtual host but again "
@@ -306,24 +304,19 @@ msgid ""
 "middleware *before* the REST handler, call ``app.use(middleware)`` before"
 " registering any services."
 msgstr ""
-"To expose services through a RESTful API we will have to configure "
-"``express.rest`` and provide our own body parser middleware (usually the "
-"standard `Express 4 body-parser <https://github.com/expressjs/body-"
-"parser>`_) to make REST ``.create``, ``.update`` and ``.patch`` calls "
-"parse the data in the HTTP body. If you would like to add other "
-"middleware *before* the REST handler, call ``app.use(middleware)`` before"
-" registering any services."
+"要通过RESTful API公开服务, 我们必须配置``express.rest``并提供我们自己的身体解析器中间件(通常是标准的`Express "
+"4 body-parser <https://github.com/expressjs/body-parser "
+">`_)使REST``.create``, ``.update``和``.patch``调用解析HTTP正文中的数据.如果你想在* "
+"REST处理程序之前添加其他中间件*, 请在注册任何服务之前调用``app.use(middleware)``."
 
 #: ../../source/api/express.rst:227
-#, fuzzy
 msgid ""
 "The body-parser middleware has to be registered *before* any service. "
 "Otherwise the service method will throw a ``No data provided`` or ``First"
 " parameter for 'create' must be an object`` error."
 msgstr ""
-"**ProTip:** The body-parser middleware has to be registered *before* any "
-"service. Otherwise the service method will throw a ``No data provided`` "
-"or ``First parameter for 'create' must be an object`` error."
+"身体解析器中间件必须在*任何服务之前注册*.否则, 服务方法将抛出一个``No data "
+"provided``或``'first'的第一个参数必须是一个object``错误."
 
 #: ../../source/api/express.rst:233
 msgid "app.configure(express.rest())"
@@ -334,8 +327,8 @@ msgid ""
 "Configures the transport provider with a standard formatter sending JSON "
 "response via `res.json <http://expressjs.com/en/4x/api.html#res.json>`_."
 msgstr ""
-"Configures the transport provider with a standard formatter sending JSON "
-"response via `res.json <http://expressjs.com/en/4x/api.html#res.json>`_."
+"使用标准格式化程序通过`res.json "
+"<http://expressjs.com/en/4x/api.html#res.json>`_发送JSON响应来配置传输提供程序."
 
 #: ../../source/api/express.rst:255
 msgid "app.configure(express.rest(formatter))"
@@ -351,58 +344,44 @@ msgid ""
 "<http://expressjs.com/en/4x/api.html#res.format>`_ can be used for "
 "content negotiation."
 msgstr ""
-"The default REST response formatter is a middleware that formats the data"
-" retrieved by the service as JSON. If you would like to configure your "
-"own ``formatter`` middleware pass a ``formatter(req, res)`` function. "
-"This middleware will have access to ``res.data`` which is the data "
-"returned by the service. `res.format "
-"<http://expressjs.com/en/4x/api.html#res.format>`_ can be used for "
-"content negotiation."
+"默认的REST响应格式化程序是一个中间件, 它将服务检索的数据格式化为JSON.如果你想配置你自己的``formatter``中间件传递``formatter(req, res)``函数.这个中间件可以访问``res.data``, 它是服务返回的数据."
+" `res.format <http://expressjs.com/en/4x/api.html#res.format>`_可用于内容协商."
 
 #: ../../source/api/express.rst:287
 msgid "Custom service middleware"
-msgstr "Custom service middleware"
+msgstr "自定义服务中间件"
 
 #: ../../source/api/express.rst:289
 msgid ""
 "Custom Express middleware that only should run before or after a specific"
 " service can be passed to ``app.use`` in the order it should run:"
-msgstr ""
-"Custom Express middleware that only should run before or after a specific"
-" service can be passed to ``app.use`` in the order it should run:"
+msgstr "只能在特定服务之前或之后运行的Custom Express中间件可按其应运行的顺序传递给“app.use”.:"
 
 #: ../../source/api/express.rst:306
 msgid ""
 "Middleware that runs after the service has the service call information "
 "available as"
-msgstr ""
-"Middleware that runs after the service has the service call information "
-"available as"
+msgstr "在服务之后运行的中间件具有可用的服务调用信息"
 
 #: ../../source/api/express.rst:309
 msgid "``res.data`` - The data that will be sent"
-msgstr "``res.data`` - The data that will be sent"
+msgstr "``res.data``  - 将要发送的数据"
 
 #: ../../source/api/express.rst:310
 msgid ":doc:`./hooks` context of the service method call"
-msgstr ":doc:`./hooks` context of the service method call"
+msgstr ":doc:服务方法调用的`./hooks`上下文"
 
 #: ../../source/api/express.rst:313
 msgid "For example ``updateData`` could look like this:"
-msgstr "For example ``updateData`` could look like this:"
+msgstr "例如``updateData``可能看起来像这样:"
 
 #: ../../source/api/express.rst:324
-#, fuzzy
 msgid ""
 "If you run ``res.send`` in a custom middleware after the service and "
 "don’t call ``next``, other middleware (like the REST formatter) will be "
 "skipped. This can be used to e.g. render different views for certain "
 "service method calls."
-msgstr ""
-"**ProTip:** If you run ``res.send`` in a custom middleware after the "
-"service and don’t call ``next``, other middleware (like the REST "
-"formatter) will be skipped. This can be used to e.g. render different "
-"views for certain service method calls."
+msgstr "如果在服务之后在自定义中间件中运行``res.send``并且不调用``next``, 则将跳过其他中间件(如REST格式化程序).这可以用于例如为某些服务方法调用呈现不同的视图."
 
 #: ../../source/api/express.rst:330
 msgid "params"
@@ -413,18 +392,13 @@ msgid ""
 "All middleware registered after the :doc:`./rest` will have access to the"
 " ``req.feathers`` object to set properties on the service method "
 "``params``:"
-msgstr ""
-"All middleware registered after the :doc:`./rest` will have access to the"
-" ``req.feathers`` object to set properties on the service method "
-"``params``:"
+msgstr "在:doc:`./rest`之后注册的所有中间件都可以访问``req.feathers``对象来设置服务方法``params`的属性.:"
 
 #: ../../source/api/express.rst:366
 msgid ""
 "You can see the parameters set by running the example and visiting "
 "``http://localhost:3030/todos/test``."
-msgstr ""
-"You can see the parameters set by running the example and visiting "
-"``http://localhost:3030/todos/test``."
+msgstr "您可以通过运行示例并访问``http://localhost:3030/todos/test``来查看设置的参数."
 
 #: ../../source/api/express.rst:369
 msgid ""
@@ -433,22 +407,18 @@ msgid ""
 "individual properties or using ``Object.assign(req.feathers, something)``"
 " is the more reliable option."
 msgstr ""
-"Avoid setting ``req.feathers = something`` directly since it may already "
-"contain information that other Feathers plugins rely on. Adding "
-"individual properties or using ``Object.assign(req.feathers, something)``"
-" is the more reliable option."
+"避免直接设置``req.feathers = "
+"something``, 因为它可能已包含其他Feathers插件所依赖的信息.添加单个属性或使用``Object.assign(req.feathers, something)``是更可靠的选择."
 
 #: ../../source/api/express.rst:374
 msgid ""
-"**Very important:** Since the order of Express middleware matters, any "
-"middleware that sets service parameters has to be registered *before* "
-"your services (in a generated application before "
-"``app.configure(services)`` or in ``middleware/index.js``)."
+"Since the order of Express middleware matters, any middleware that sets "
+"service parameters has to be registered *before* your services (in a "
+"generated application before ``app.configure(services)`` or in "
+"``middleware/index.js``)."
 msgstr ""
-"**Very important:** Since the order of Express middleware matters, any "
-"middleware that sets service parameters has to be registered *before* "
-"your services (in a generated application before "
-"``app.configure(services)`` or in ``middleware/index.js``)."
+"由于Express中间件的顺序很重要, 任何设置服务参数的中间件都必须在*您的服务之前注册*(在`app.configure(services)``或``middleware"
+"/index.js`之前的生成应用程序中)."
 
 #: ../../source/api/express.rst:381
 #, fuzzy
@@ -488,31 +458,26 @@ msgid ""
 "client can’t set things like ``params.user`` or the database options. You"
 " can always map from ``params.query`` to other :doc:`./hooks`."
 msgstr ""
-"Only ``params.query`` is passed between the server and the client, other "
-"parts of ``params`` are not. This is for security reasons so that a "
-"client can’t set things like ``params.user`` or the database options. You"
-" can always map from ``params.query`` to other :doc:`./hooks`."
+"服务器和客户端之间只传递``params.query``, 而``params``的其他部分则没有.这是出于安全原因, 因此客户端无法设置``params.user``或数据库选项.你总是可以从``params.query``映射到其他:doc:`./"
+" hooks`."
 
 #: ../../source/api/express.rst:403
 msgid "For example:"
-msgstr "For example:"
+msgstr "例如:"
 
 #: ../../source/api/express.rst:409
 msgid "Will set ``params.query`` to"
-msgstr "Will set ``params.query`` to"
+msgstr "将``params.query``设置为"
 
 #: ../../source/api/express.rst:420
-#, fuzzy
 msgid ""
 "Since the URL is just a string, there will be **no type conversion**. "
 "This can be done manually in a :doc:`./hooks` or with the `query-types "
 "<https://github.com/xpepermint/query-types>`_ Express middleware to "
 "convert Boolean and Numeric types."
 msgstr ""
-"**ProTip:** Since the URL is just a string, there will be **no type "
-"conversion**. This can be done manually in a :doc:`./hooks` or with the "
-"`query-types <https://github.com/xpepermint/query-types>`_ Express "
-"middleware to convert Boolean and Numeric types."
+"由于URL只是一个字符串, 因此**将没有类型转换**.这可以在:doc:`./hooks`中手动完成, 或者使用`query-types "
+"<https://github.com/xpepermint/query-types>`_ Express中间件来转换布尔和数字类型."
 
 #: ../../source/api/express.rst:425
 msgid ""
@@ -522,11 +487,9 @@ msgid ""
 "indices as keys. To extend this limit, you can set a custom query parser:"
 " ``app.set('query parser', str => qs.parse(str, {arrayLimit: 1000}))``"
 msgstr ""
-"If an array in your request consists of more than 20 items, the `qs "
-"<https://www.npmjs.com/package/qs>`_ parser implicitly `converts "
-"<https://github.com/ljharb/qs#parsing-arrays>`_ it to an object with "
-"indices as keys. To extend this limit, you can set a custom query parser:"
-" ``app.set('query parser', str => qs.parse(str, {arrayLimit: 1000}))``"
+"如果请求中的数组包含20个以上的项, 则`qs <https://www.npmjs.com/package/qs>`_ "
+"parser隐式`转换<https://github.com/ljharb/qs#解析数组>`_它到索引为键的对象.要扩展此限制, 您可以设置自定义查询解析器:``app.set('query"
+" parser', str => qs.parse(str, {arrayLimit:1000}))``"
 
 #: ../../source/api/express.rst:433
 msgid "``params.provider``"
@@ -537,7 +500,7 @@ msgid ""
 "For any :doc:`./services` made through REST :doc:`./hooks` this can for "
 "example be used to prevent external users from making a service method "
 "call:"
-msgstr ""
+msgstr "对于任何:doc:`./services`通过REST:doc:`./hooks`这可以用来防止外部用户进行服务方法调用:"
 
 #: ../../source/api/express.rst:454
 msgid "params.route"
@@ -545,7 +508,7 @@ msgstr "params.route"
 
 #: ../../source/api/express.rst:456
 msgid "See the `routing section <#routing>`_."
-msgstr "See the `routing section <#routing>`_."
+msgstr "请参阅`routing section <#routing>`_."
 
 #: ../../source/api/express.rst:459
 msgid "express.notFound(options)"
@@ -557,14 +520,14 @@ msgid ""
 "(404) :doc:`./errors`. It should be used as the last middleware "
 "**before** the error handler. The following options are available:"
 msgstr ""
+"``express.notFound()``返回返回``NotFound``(404)的中间件:doc:`./"
+"errors`.它应该被用作**错误处理程序之前的最后一个中间件**.可以使用以下选项:"
 
 #: ../../source/api/express.rst:466
 msgid ""
 "``verbose``: Set to ``true`` if the URL should be included in the error "
 "message (default: ``false``)"
-msgstr ""
-"``verbose``: Set to ``true`` if the URL should be included in the error "
-"message (default: ``false``)"
+msgstr "``verbose``: 如果URL应该包含在错误消息中, 则设置为``true``(默认值:``false``)"
 
 #: ../../source/api/express.rst:476
 msgid "express.errorHandler()"
@@ -578,251 +541,87 @@ msgid ""
 "someone hits our API directly in the browser) and sets the appropriate "
 "error code."
 msgstr ""
-"``expres.errorHandler`` is an `Express error handler "
-"<https://expressjs.com/en/guide/error-handling.html>`_ middleware that "
-"formats any error response to a REST call as JSON (or HTML if e.g. "
-"someone hits our API directly in the browser) and sets the appropriate "
-"error code."
+"``expres.errorHandler``是一个`Express错误处理程序<https://expressjs.com/en/guide"
+"/error-"
+"handling.html>`_中间件, 它将对REST调用的任何错误响应格式化为JSON(或HTML, 如果例如某人直接在浏览器中点击我们的API)并设置相应的错误代码."
 
 #: ../../source/api/express.rst:485
 msgid ""
 "You can still use any other Express compatible `error middleware "
 "<http://expressjs.com/en/guide/error-handling.html>`_ with Feathers. In "
-"fact, the ``express.errors`` is just a slightly customized one. **Very "
-"Important:** Just as in Express, the error handler has to be registered "
-"*after* all middleware and services."
+"fact, the ``express.errors`` is just a slightly customized one."
 msgstr ""
+"你仍然可以使用任何其他Express兼容的`错误中间件<http://expressjs.com/en/guide/error-"
+"handling.html>`_ with Feathers.事实上, ``express.errors``只是一个稍微定制的."
 
-#: ../../source/api/express.rst:491
+#: ../../source/api/express.rst:490
+msgid ""
+"Just as in Express, the error handler has to be registered *after* all "
+"middleware and services."
+msgstr "就像在Express中一样, 错误处理程序必须在*所有中间件和服务之后注册*."
+
+#: ../../source/api/express.rst:493
 msgid "``app.use(express.errorHandler())``"
 msgstr "``app.use(express.errorHandler())``"
 
-#: ../../source/api/express.rst:493
+#: ../../source/api/express.rst:495
 msgid "Set up the error handler with the default configuration."
-msgstr "Set up the error handler with the default configuration."
+msgstr "使用默认配置设置错误处理程序."
 
-#: ../../source/api/express.rst:506
+#: ../../source/api/express.rst:508
 msgid "``app.use(express.errorHandler(options))``"
 msgstr "``app.use(express.errorHandler(options))``"
 
-#: ../../source/api/express.rst:533
-#, fuzzy
+#: ../../source/api/express.rst:535
 msgid ""
 "If you want to have the response in json format be sure to set the "
 "``Accept`` header in your request to ``application/json`` otherwise the "
 "default error handler will return HTML."
 msgstr ""
-"**ProTip:** If you want to have the response in json format be sure to "
-"set the ``Accept`` header in your request to ``application/json`` "
-"otherwise the default error handler will return HTML."
+"如果你想以json格式获得响应, 请确保在你的请求中将``Accept``头设置为``application/"
+"json``, 否则默认的错误处理程序将返回HTML."
 
-#: ../../source/api/express.rst:537
+#: ../../source/api/express.rst:539
 msgid ""
 "The following options can be passed when creating a new localstorage "
 "service:"
-msgstr ""
-"The following options can be passed when creating a new localstorage "
-"service:"
-
-#: ../../source/api/express.rst:540
-msgid ""
-"``html`` (Function|Object) [optional] - A custom formatter function or an"
-" object that contains the path to your custom html error pages."
-msgstr ""
-"``html`` (Function|Object) [optional] - A custom formatter function or an"
-" object that contains the path to your custom html error pages."
+msgstr "创建新的localstorage服务时, 可以传递以下选项:"
 
 #: ../../source/api/express.rst:542
 msgid ""
+"``html`` (Function|Object) [optional] - A custom formatter function or an"
+" object that contains the path to your custom html error pages."
+msgstr "``html``(Function | Object)[可选]  - 自定义格式化程序函数或包含自定义html错误页面路径的对象."
+
+#: ../../source/api/express.rst:544
+msgid ""
 "``logger`` (Function|false) (default: ``console``) - Set a logger object "
 "to log the error (it will be logger with ``logger.error(error)``"
 msgstr ""
-"``logger`` (Function|false) (default: ``console``) - Set a logger object "
-"to log the error (it will be logger with ``logger.error(error)``"
+"``logger`` (Function|false) (default: ``console``) - "
+"设置一个logger对象来记录错误(它将是带有``logger.error(error)``的记录器"
 
-#: ../../source/api/express.rst:548
-#, fuzzy
+#: ../../source/api/express.rst:550
 msgid ""
 "``html`` can also be set to ``false`` to disable html error pages "
 "altogether so that only JSON is returned."
-msgstr ""
-"**ProTip:** ``html`` can also be set to ``false`` to disable html error "
-"pages altogether so that only JSON is returned."
-
-#: ../../source/api/express.rst:552
-msgid "Routing"
-msgstr "Routing"
+msgstr "``html``也可以设置为``false``来完全禁用html错误页面, 这样只返回JSON."
 
 #: ../../source/api/express.rst:554
+msgid "Routing"
+msgstr "路由"
+
+#: ../../source/api/express.rst:556
 msgid ""
 "Express route placeholders in a service URL will be added to the services"
 " ``params.route``."
-msgstr ""
-"Express route placeholders in a service URL will be added to the services"
-" ``params.route``."
+msgstr "服务URL中的快速路径占位符将添加到服务``params.route``中."
 
-#: ../../source/api/express.rst:558
-#, fuzzy
+#: ../../source/api/express.rst:560
 msgid ""
-"See the :doc:`../faq/readme#how-do-i-do-nested-or-custom-routes` for more"
-" details on when and when not to use nested routes."
+"See the :ref:`faq_how-do-i-do-nested-or-custom-routes` for more details "
+"on when and when not to use nested routes."
 msgstr ""
-"**Important:** See the `FAQ entry on nested routes <../faq/readme.md#how-"
-"do-i-do-nested-or-custom-routes>`_ for more details on when and when not "
-"to use nested routes."
-
-#~ msgid ""
-#~ "``express(app) -> app`` is a function"
-#~ " that turns a `Feathers application "
-#~ "<./application.md>`_ into a fully Express "
-#~ "(4+) compatible application that additionally"
-#~ " to Feathers functionality also lets "
-#~ "you use the `Express API "
-#~ "<http://expressjs.com/en/4x/api.html>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``app.use(path, service|mw|[mw]) -> app`` "
-#~ "registers either a `service object "
-#~ "<./services.md>`_, an `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "or an array of `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "on the given path. If `a service"
-#~ " object <./services.md>`_ is passed it "
-#~ "will use Feathers registration mechanism, "
-#~ "for a middleware function Express."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``app.listen(port) -> HttpServer`` will first"
-#~ " call Express `app.listen "
-#~ "<http://expressjs.com/en/4x/api.html#app.listen>`_ and "
-#~ "then internally also call the `Feathers"
-#~ " app.setup(server) <./application.md#setupserver>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Important:** Only ``params.query`` is passed"
-#~ " between the server and the client,"
-#~ " other parts of ``params`` are not."
-#~ " This is for security reasons so "
-#~ "that a client can’t set things "
-#~ "like ``params.user`` or the database "
-#~ "options. You can always map from "
-#~ "``params.query`` to other ``params`` "
-#~ "properties in a before :doc:`./hooks`."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Note:** If an array in your "
-#~ "request consists of more than 20 "
-#~ "items, the `qs <https://www.npmjs.com/package/qs>`_"
-#~ " parser implicitly `converts "
-#~ "<https://github.com/ljharb/qs#parsing-arrays>`_ it "
-#~ "to an object with indices as keys."
-#~ " To extend this limit, you can "
-#~ "set a custom query parser: "
-#~ "``app.set('query parser', str => qs.parse(str,"
-#~ " {arrayLimit: 1000}))``"
-#~ msgstr ""
-
-#~ msgid ""
-#~ ":doc:``express(app) -> app`` is a "
-#~ "function that turns a `Feathers "
-#~ "application <./application>`_ into a fully "
-#~ "Express (4+) compatible application that "
-#~ "additionally to Feathers functionality also"
-#~ " lets you use the `Express API "
-#~ "<http://expressjs.com/en/4x/api.html>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ ":doc:``app.use(path, service|mw|[mw]) -> app`` "
-#~ "registers either a `service object "
-#~ "<./services>`_, an `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "or an array of `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "on the given path. If :doc:`./services`"
-#~ " is passed it will use Feathers "
-#~ "registration mechanism, for a middleware "
-#~ "function Express."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``app.listen(port) -> HttpServer`` will first"
-#~ " call Express `app.listen "
-#~ "<http://expressjs.com/en/4x/api.html#app.listen>`_ and "
-#~ "then internally also call the "
-#~ ":doc:`Feathers app.setup(server) "
-#~ "<./application#setupserver>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "An :doc:`Express error handler "
-#~ "<#expresserrorhandler>`_ for `Feathers    errors "
-#~ "<./errors>`"
-#~ msgstr "An `Express error handler <#expresserrorhandler>`_ for :doc:`./errors`"
-
-#~ msgid ""
-#~ ":doc:``express(app) -> app`` is a "
-#~ "function that turns a `Feathers "
-#~ "application <./application>` into a fully "
-#~ "Express (4+) compatible application that "
-#~ "additionally to Feathers functionality also"
-#~ " lets you use the `Express API "
-#~ "<http://expressjs.com/en/4x/api.html>`_."
-#~ msgstr ""
-
-#~ msgid ""
-#~ ":doc:``app.use(path, service|mw|[mw]) -> app`` "
-#~ "registers either a `service object "
-#~ "<./services>`, an `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "or an array of `Express middleware "
-#~ "<http://expressjs.com/en/guide/writing-middleware.html>`_ "
-#~ "on the given path. If :doc:`./services`"
-#~ " is passed it will use Feathers "
-#~ "registration mechanism, for a middleware "
-#~ "function Express."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``app.listen(port) -> HttpServer`` will first"
-#~ " call Express `app.listen "
-#~ "<http://expressjs.com/en/4x/api.html#app.listen>`_ and "
-#~ "then internally also call the "
-#~ ":doc:`Feathers app.setup(server) "
-#~ "<./application#setupserver>`."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "``app.listen(port) -> HttpServer`` will first"
-#~ " call Express `app.listen "
-#~ "<http://expressjs.com/en/4x/api.html#app.listen>`_ and "
-#~ "then internally also call the "
-#~ ":doc:`./application#setupserver`."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**ProTip:** You can still use any "
-#~ "other Express compatible `error middleware "
-#~ "<http://expressjs.com/en/guide/error-handling.html>`_ with"
-#~ " Feathers. In fact, the ``express.errors``"
-#~ " is just a slightly customized one."
-#~ " **Very Important:** Just as in "
-#~ "Express, the error handler has to "
-#~ "be registered *after* all middleware and"
-#~ " services."
-#~ msgstr ""
-#~ "**ProTip:** You can still use any "
-#~ "other Express compatible `error middleware "
-#~ "<http://expressjs.com/en/guide/error-handling.html>`_ with"
-#~ " Feathers. In fact, the ``express.errors``"
-#~ " is just a slightly customized one."
-#~ " **Very Important:** Just as in "
-#~ "Express, the error handler has to "
-#~ "be registered *after* all middleware and"
-#~ " services."
+"有关何时以及何时不使用嵌套路由的更多详细信息, 请参阅嵌套路由的常见问题条目<../faq/readme.md＃how-do-i-do-"
+"nested-or-custom-routes>`_."
 

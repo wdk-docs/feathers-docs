@@ -62,7 +62,7 @@ msgid ""
 "The *database connection string* can also be answered with the default. "
 "(In this case of NeDB, this is the path where it should store its "
 "database files.)"
-msgstr "*数据库连接字符串*也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)"
+msgstr "*database connection string* 也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)"
 
 #: ../../source/guides/chat/service.rst:32
 msgid ""
@@ -93,17 +93,14 @@ msgid ""
 "``src/services/messages/messages.service.js`` - The service setup file "
 "which registers the service in a :doc:`../basics/generator`"
 msgstr ""
-"``src/services/messages/messages.service.js``  - "
-"在以下服务中注册服务的服务设置文件:doc:`../basics/generator`"
+"``src/services/messages/messages.service.js`` - 在以下服务中注册服务的服务设置文件 :doc:`../basics/generator`"
 
 #: ../../source/guides/chat/service.rst:50
-#, fuzzy
 msgid ""
 "``src/services/messages/messages.hooks.js`` - A file that returns an "
 ":doc:`../basics/hooks` that should be registered on the service."
 msgstr ""
-"``src/services/messages/messages.hooks.js`` - "
-"一个文件,它返回一个应该在服务上注册的 :doc:`../basics/hooks`."
+"``src/services/messages/messages.hooks.js`` - 一个文件,它返回一个应该在服务上注册的 :doc:`../basics/hooks`."
 
 #: ../../source/guides/chat/service.rst:53
 msgid ""
@@ -115,7 +112,7 @@ msgstr "``src/models/messages.model.js`` - 我们的消息模型.由于我们使
 msgid ""
 "``test/services/messages.test.js`` - A Mocha test for the service. "
 "Initially, it only tests that the service exists."
-msgstr "``test/services/messages.test.js`` - 服务的摩卡测试.最初,它只测试服务是否存在."
+msgstr "``test/services/messages.test.js`` - 服务的 Mocha 测试.最初,它只测试服务是否存在."
 
 #: ../../source/guides/chat/service.rst:60
 msgid "Testing the API"
@@ -151,7 +148,7 @@ msgstr ""
 
 #: ../../source/guides/chat/service.rst:84
 msgid "|Run in Postman|"
-msgstr "|在邮递员中运行|"
+msgstr ""
 
 #: ../../source/guides/chat/service.rst:86
 msgid ""

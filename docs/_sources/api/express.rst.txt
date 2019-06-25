@@ -3,7 +3,7 @@ Express
 
 |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/express --save
 
@@ -12,8 +12,7 @@ The ``@feathersjs/express`` module contains
 
 -  The `Express framework bindings <#expressapp>`_ to make a Feathers
    application Express compatible
--  An Express based transport to expose services through a `REST
-   API <#expressrest>`_
+-  An Express based transport to expose services through a :ref:`api_express_rest`
 -  An :doc:`./errors`
 
 .. code:: js
@@ -22,7 +21,7 @@ The ``@feathersjs/express`` module contains
 
 ..
 
-   **Very Important:** This page describes how to set up an Express
+.. important:: This page describes how to set up an Express
    server and REST API. See the :doc:`./client/rest` how to use this server on the client.
 
 .. important:: This chapter assumes that you are familiar with
@@ -43,9 +42,8 @@ use the `Express API <http://expressjs.com/en/4x/api.html>`_.
    // Create an app that is a Feathers AND Express application
    const app = express(feathers());
 
-Note that ``@feathersjs/express`` (``express``) also exposes the
-standard `Express
-middleware <http://expressjs.com/en/4x/api.html#express>`_:
+.. note:: ``@feathersjs/express`` (``express``) also exposes the
+   standard `Express middleware <http://expressjs.com/en/4x/api.html#express>`_:
 
 -  ``express.json`` - A JSON body parser
 -  ``express.urlencoded`` - A URL encoded form body parser
@@ -193,6 +191,8 @@ requires ``app.setup(server)`` to be called explicitly.
    // Here we need to call app.setup because .listen on our virtal hosted
    // app is never called
    app.setup(server);
+
+.. _api_express_rest:
 
 express.rest()
 --------------
@@ -371,7 +371,7 @@ contain information that other Feathers plugins rely on. Adding
 individual properties or using
 ``Object.assign(req.feathers, something)`` is the more reliable option.
 
-   **Very important:** Since the order of Express middleware matters,
+.. important:: Since the order of Express middleware matters,
    any middleware that sets service parameters has to be registered
    *before* your services (in a generated application before
    ``app.configure(services)`` or in ``middleware/index.js``).
@@ -402,7 +402,7 @@ chapter.
 
 For example:
 
-::
+.. code-block:: sh
 
    GET /messages?read=true&$sort[createdAt]=-1
 
@@ -484,8 +484,10 @@ appropriate error code.
 .. tip::
    You can still use any other Express compatible `error middleware <http://expressjs.com/en/guide/error-handling.html>`_
    with Feathers. In fact, the ``express.errors`` is just a slightly
-   customized one. **Very Important:** Just as in Express, the error
-   handler has to be registered *after* all middleware and services.
+   customized one.
+
+.. important::
+   Just as in Express, the error handler has to be registered *after* all middleware and services.
 
 ``app.use(express.errorHandler())``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -555,7 +557,7 @@ Express route placeholders in a service URL will be added to the
 services ``params.route``.
 
 .. important::
-   See the :doc:`../faq/readme#how-do-i-do-nested-or-custom-routes` for
+   See the :ref:`faq_how-do-i-do-nested-or-custom-routes` for
    more details on when and when not to use nested routes.
 
 .. code:: js

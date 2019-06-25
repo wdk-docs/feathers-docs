@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,13 +27,19 @@ msgid "|npm version| |Changelog|"
 msgstr "|npm version| |Changelog|"
 
 #: ../../source/api/authentication/oauth1.rst:10
+#, fuzzy
 msgid ""
+"`@feathersjs/authentication-oauth1 <https://github.com/feathersjs"
+"/authentication-oauth1>`_ is a server side module that allows you to use "
+"any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy "
+"within your Feathers application, most notably `Twitter "
+"<https://github.com/jaredhanson/passport-twitter>`_."
+msgstr ""
 "[@feathersjs/authentication-oauth1](https://github.com/feathersjs"
 "/authentication-oauth1) is a server side module that allows you to use "
 "any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy "
 "within your Feathers application, most notably `Twitter "
 "<https://github.com/jaredhanson/passport-twitter>`_."
-msgstr "[@feathersjs/authentication-oauth1](https://github.com/feathersjs/authentication-oauth1) is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy within your Feathers application, most notably `Twitter <https://github.com/jaredhanson/passport-twitter>`_."
 
 #: ../../source/api/authentication/oauth1.rst:16
 msgid "This module contains 2 core pieces:"
@@ -60,13 +66,13 @@ msgid ""
 "This will pull from your global authentication object in your config "
 "file. It will also mix in the following defaults, which can be "
 "customized."
-msgstr "这将从配置文件中的全局身份验证对象中提取。它还将混合以下默认值，可以自定义。"
+msgstr "这将从配置文件中的全局身份验证对象中提取.它还将混合以下默认值, 可以自定义."
 
 #: ../../source/api/authentication/oauth1.rst:68
 msgid ""
 "Registering the OAuth1 plugin will automatically set up routes to handle "
 "the OAuth redirects and authorization."
-msgstr "注册OAuth1插件将自动设置路由以处理OAuth重定向和授权。"
+msgstr "注册OAuth1插件将自动设置路由以处理OAuth重定向和授权."
 
 #: ../../source/api/authentication/oauth1.rst:72
 msgid "Options"
@@ -76,7 +82,9 @@ msgstr "Options"
 msgid ""
 "Additional passport strategy options can be provided based on the OAuth1 "
 "strategy you are configuring."
-msgstr "Additional passport strategy options can be provided based on the OAuth1 strategy you are configuring."
+msgstr ""
+"Additional passport strategy options can be provided based on the OAuth1 "
+"strategy you are configuring."
 
 #: ../../source/api/authentication/oauth1.rst:94
 msgid "Verifier"
@@ -90,7 +98,10 @@ msgid ""
 "methods that can all be overridden. All methods return a promise except "
 "``verify``, which has the exact same signature as `passport-oauth1 "
 "<https://github.com/jaredhanson/passport-oauth1>`_."
-msgstr "这是验证类，它通过在给定服务上查找实体（通常是“用户”）来处理OAuth1验证，并创建或更新实体并返回它们。它具有以下可以覆盖的方法。除了``verify``之外，所有方法都返回一个promise，它与`passport-oauth1 <https://github.com/jaredhanson/passport-oauth1>`_具有完全相同的签名。"
+msgstr ""
+"这是验证类, 它通过在给定服务上查找实体(通常是“用户”)来处理OAuth1验证, 并创建或更新实体并返回它们.它具有以下可以覆盖的方法.除了``verify``之外, 所有方法都返回一个promise, 它与"
+"`passport-oauth1 <https://github.com/jaredhanson/passport-"
+"oauth1>`_具有完全相同的签名."
 
 #: ../../source/api/authentication/oauth1.rst:113
 msgid ""
@@ -98,7 +109,7 @@ msgid ""
 "behavior without having to rewrite and test a totally custom local "
 "Passport implementation. Although that is always an option if you don’t "
 "want use this plugin."
-msgstr "可以扩展``Verifier``类，以便您可以自定义它的行为，而无需重写和测试完全自定义的本地Passport实现。虽然如果您不想使用此插件，这始终是一个选项。"
+msgstr "可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项."
 
 #: ../../source/api/authentication/oauth1.rst:118
 msgid "An example of customizing the Verifier:"
@@ -114,7 +125,7 @@ msgid ""
 "provider sends back an ``accessToken``, ``refreshToken``, and a "
 "``profile`` that contains the authenticated entity’s information based on"
 " the OAuth1 ``scopes`` you have requested and been granted."
-msgstr "每当您使用Twitter等OAuth1提供程序进行身份验证时，提供程序都会发送回一个``accessToken``，``refreshToken``和一个``profile``，其中包含基于OAuth1``范围`的经过身份验证的实体的信息。你已经要求并获得批准。“"
+msgstr "每当您使用Twitter等OAuth1提供程序进行身份验证时, 提供程序都会发送回一个``accessToken``, ``refreshToken``和一个``profile``, 其中包含基于OAuth1``范围`的经过身份验证的实体的信息.你已经要求并获得批准.“"
 
 #: ../../source/api/authentication/oauth1.rst:153
 msgid ""
@@ -123,7 +134,9 @@ msgid ""
 "name. You will likely want to customize the data that is returned. This "
 "can be done by adding a ``before`` hook to both the ``update`` and "
 "``create`` service methods on your ``entity``\\ ’s service."
-msgstr "每当您使用OAuth1提供程序（如Twitter）进行身份验证时，提供程序将发回一个``accessToken``，``refreshToken``和一个包含基于OAuth1``scope的身份的``profile``的信息。验证实体。您已申请并获得批准。 “"
+msgstr ""
+"每当您使用OAuth1提供程序(如Twitter)进行身份验证时, 提供程序将发回一个``accessToken``, ``refreshToken``和一个包含基于OAuth1``scope的身份的``profile``的信息.验证实体.您已申请并获得批准."
+" “"
 
 #: ../../source/api/authentication/oauth1.rst:203
 msgid "Client Usage"
@@ -135,9 +148,11 @@ msgid ""
 "``feathers-authentication-client`` or not the user has to navigate to the"
 " authentication strategy url. This could be by setting "
 "``window.location`` or through a link in your app."
-msgstr "当该模块是注册服务器端时，无论您是否使用``feathers-authentication-client``，用户都必须导航到身份验证策略URL。这可以通过设置``window.location``或通过应用程序中的链接来实现。"
+msgstr ""
+"当该模块是注册服务器端时, 无论您是否使用``feathers-authentication-"
+"client``, 用户都必须导航到身份验证策略URL.这可以通过设置``window.location``或通过应用程序中的链接来实现."
 
 #: ../../source/api/authentication/oauth1.rst:210
 msgid "For example you might have a login button for Twitter:"
-msgstr "例如，您可能有Twitter的登录按钮:"
+msgstr "例如, 您可能有Twitter的登录按钮:"
 

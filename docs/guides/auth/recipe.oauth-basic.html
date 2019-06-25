@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FeathersJS Auth Recipe:设置基本OAuth登录 &mdash; feathers docs v2019.06.21 文档</title>
+  <title>设置基本OAuth登录 &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="FeathersJS Auth Recipe:自定义身份验证策略" href="recipe.custom-auth-strategy.html" />
-    <link rel="prev" title="FeathersJS Auth Recipe:使用混合身份验证创建端点" href="recipe.mixed-auth.html" /> 
+    <link rel="next" title="自定义身份验证策略" href="recipe.custom-auth-strategy.html" />
+    <link rel="prev" title="使用混合身份验证创建端点" href="recipe.mixed-auth.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,11 +91,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">身份验证指南和食谱</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe:自定义JWT Payload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe:自定义登录响应</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe:设置基本OAuth登录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web Tokens 是如何工作的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">自定义 JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">使用混合身份验证创建端点</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">设置基本OAuth登录</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#how-oauth-works">OAuth的工作原理</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#implementing-oauth-with-feathers">用Feathers实现OAuth</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#setting-up-the-oauth-provider">设置OAuth提供程序</a></li>
@@ -104,8 +104,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#wrapping-up">包起来</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe:自定义身份验证策略</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe:认证Express中间件(SSR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">自定义身份验证策略</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">认证Express中间件(SSR)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
@@ -171,7 +171,7 @@
         
           <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
         
-      <li>FeathersJS Auth Recipe:设置基本OAuth登录</li>
+      <li>设置基本OAuth登录</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,52 +190,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="feathersjs-auth-recipe-set-up-basic-oauth-login">
-<h1>FeathersJS Auth Recipe:设置基本OAuth登录<a class="headerlink" href="#feathersjs-auth-recipe-set-up-basic-oauth-login" title="永久链接至标题">¶</a></h1>
-<p>FeatusJS的Auk版本包括一个强大的新的：doc：<cite>../../ api / authentication / server`建立在`PassportJS &lt;http://www.passportjs.org/&gt;`_之上。现在，这使Feathers社区可以访问Passport社区中的数百种身份验证策略。由于许多Passport策略都是针对OAuth的，因此我们创建了两个auth插件：doc：</cite>../ api / authentication / oauth1`和：doc：<cite>../ api / authentication / oauth2</cite>。这些新插件使用Passport策略允许OAuth登录到您的应用程序。</p>
+  <div class="section" id="set-up-basic-oauth-login">
+<h1>设置基本OAuth登录<a class="headerlink" href="#set-up-basic-oauth-login" title="永久链接至标题">¶</a></h1>
+<p>FeatusJS的Auk版本包括一个强大的新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上.现在, 这使Feathers社区可以访问Passport社区中的数百种身份验证策略.由于许多Passport策略都是针对OAuth的, 因此我们创建了两个auth插件 <a class="reference internal" href="../../api/authentication/oauth1.html"><span class="doc">OAuth1身份验证</span></a> 和 <a class="reference internal" href="../../api/authentication/oauth2.html"><span class="doc">OAuth2身份验证</span></a>. 这些新插件使用Passport策略允许OAuth登录到您的应用程序.</p>
 <p>向应用添加OAuth身份验证是快速允许用户登录的好方法.它允许用户使用现有的Internet帐户和其他服务登录您的应用程序.有很多好的理由,它通常不需要电子邮件地址验证舞蹈.对于非常常见的OAuth提供商,例如GitHub,Google和Facebook,这种情况更有可能发生.</p>
-<p>简化登录几乎总是一个好主意,但对于许多开发人员而言,实施OAuth可能很困难.我们来看看它的工作原理.之后,我们将看到新的:doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>../api/authentication/server`服务器插件如何让它易于启动和运行.</p>
+<p>简化登录几乎总是一个好主意,但对于许多开发人员而言,实施OAuth可能很困难.我们来看看它的工作原理.之后,我们将看到新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 服务器插件如何让它易于启动和运行.</p>
 <div class="section" id="how-oauth-works">
 <h2>OAuth的工作原理<a class="headerlink" href="#how-oauth-works" title="永久链接至标题">¶</a></h2>
-<p>您可以使用几种不同的方法来实施OAuth。以下是``feathers-authentication-oauth1``和``feathers-authentication-oauth2``插件使用的流程的基本步骤。</p>
+<p>您可以使用几种不同的方法来实施OAuth.以下是 <code class="docutils literal notranslate"><span class="pre">feathers-authentication-oauth1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">feathers-authentication-oauth2</span></code> 插件使用的流程的基本步骤.</p>
 <ol class="arabic simple">
 <li><p>您向OAuth提供商注册您的应用程序.这包括为提供商提供回调URL(稍后将详细介绍).提供商将为您提供应用标识符和应用密钥.秘密基本上是您的应用程序的特殊密码.</p></li>
-<li><p>您将用户的浏览器定向到OAuth提供商的站点，在查询字符串中提供应用程序标识符。</p></li>
-<li><p>内容提供商使用应用标识符来检索有关您的应用的信息。然后使用登录表单将该信息呈现给用户。用户可以授予或拒绝访问您的应用程序。</p></li>
-<li><p>做出决定后，提供商会将用户的浏览器重定向到您在第一步中设置的回调URL。它包含查询字符串中的短期授权代码。</p></li>
+<li><p>您将用户的浏览器定向到OAuth提供商的站点, 在查询字符串中提供应用程序标识符.</p></li>
+<li><p>内容提供商使用应用标识符来检索有关您的应用的信息.然后使用登录表单将该信息呈现给用户.用户可以授予或拒绝访问您的应用程序.</p></li>
+<li><p>做出决定后, 提供商会将用户的浏览器重定向到您在第一步中设置的回调URL.它包含查询字符串中的短期授权代码.</p></li>
 <li><p>您的服务器向OAuth提供商的服务器发送请求.它包括授权代码和秘密.如果授权代码和机密有效,则提供程序会向您的服务器返回OAuth访问令牌.还可以发送一些用户数据.</p></li>
-<li><p>您的服务器可以将用户信息保存到``/ users``表中。它还可以使用此访问令牌向提供者的API发出请求。也可以将相同的信息发送到浏览器以供使用。</p></li>
-<li><p>有了Feathers，还有一个额外的步骤。登录后，JWT访问令牌存储在cookie中并发送到浏览器。客户端使用JWT在后续请求中对服务器进行身份验证。</p></li>
+<li><p>您的服务器可以将用户信息保存到 <code class="docutils literal notranslate"><span class="pre">/users</span></code> 表中.它还可以使用此访问令牌向提供者的API发出请求.也可以将相同的信息发送到浏览器以供使用.</p></li>
+<li><p>有了Feathers, 还有一个额外的步骤.登录后, JWT访问令牌存储在cookie中并发送到浏览器.客户端使用JWT在后续请求中对服务器进行身份验证.</p></li>
 </ol>
 </div>
 <div class="section" id="implementing-oauth-with-feathers">
 <h2>用Feathers实现OAuth<a class="headerlink" href="#implementing-oauth-with-feathers" title="永久链接至标题">¶</a></h2>
-<p>Feathers CLI允许您使用OAuth轻松设置新应用程序。以下是生成应用程序的步骤:</p>
+<p>Feathers CLI允许您使用OAuth轻松设置新应用程序.以下是生成应用程序的步骤:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">&#64;feathersjs/cli</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">feathers-demo-oauth;</span> <span class="pre">cd</span> <span class="pre">feathers-demo-oauth</span></code> 或您喜欢的文件夹名称。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">app</span></code> 使用默认提示。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">羽毛生成认证</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">feathers-demo-oauth;</span> <span class="pre">cd</span> <span class="pre">feathers-demo-oauth</span></code>或您喜欢的文件夹名称.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feathers</span> <span class="pre">generate</span> <span class="pre">app</span></code> 使用默认提示.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Feathers</span> <span class="pre">生成认证</span></code></p>
 <ul class="simple">
-<li><p>当提示提供者时，选择“Facebook``，”GitHub“或”Google“。 <strong>本指南将说明如何使用GitHub。</strong></p></li>
-<li><p>选择其余提示的默认值。</p></li>
+<li><p>当提示提供者时, 选择 <code class="docutils literal notranslate"><span class="pre">Facebook</span></code>, <code class="docutils literal notranslate"><span class="pre">GitHub</span></code>, or <code class="docutils literal notranslate"><span class="pre">Google</span></code>. <strong>本指南将说明如何使用GitHub.</strong></p></li>
+<li><p>选择其余提示的默认值.</p></li>
 </ul>
 </li>
 </ol>
 </div>
 <div class="section" id="setting-up-the-oauth-provider">
 <h2>设置OAuth提供程序<a class="headerlink" href="#setting-up-the-oauth-provider" title="永久链接至标题">¶</a></h2>
-<p>要设置提供程序，请使用每个提供程序的网站。以下是常见提供商的链接:</p>
+<p>要设置提供程序, 请使用每个提供程序的网站.以下是常见提供商的链接:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://developers.facebook.com/docs/apps/register">Facebook</a></p></li>
 <li><p><a class="reference external" href="https://github.com/settings/developers">GitHub</a></p></li>
 <li><p><a class="reference external" href="https://developers.google.com/identity/protocols/OAuth2">Google</a></p></li>
 </ul>
-<p>设置好应用后，OAuth提供商将为您提供“客户端ID”和“客户端密码”。</p>
+<p>设置好应用后, OAuth提供商将为您提供 <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">Secret</span></code>.</p>
 </div>
 <div class="section" id="configuring-your-application">
 <h2>配置应用程序<a class="headerlink" href="#configuring-your-application" title="永久链接至标题">¶</a></h2>
-<p>一旦你有你的应用程序的``Client ID``和``Client Secret``,就可以设置应用程序与提供商进行通信了.打开``default.json``配置文件.生成器为您选择的提供程序的配置添加了一个密钥.下面的配置示例有一个``github``配置.复制并用``clientID``和``clientSecret``替换占位符.</p>
+<p>一旦你有你的应用程序的 <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">Secret</span></code>,就可以设置应用程序与提供商进行通信了.打开 <code class="docutils literal notranslate"><span class="pre">default.json</span></code> 配置文件.生成器为您选择的提供程序的配置添加了一个密钥.下面的配置示例有一个 <code class="docutils literal notranslate"><span class="pre">github</span></code> 配置.复制并用  <code class="docutils literal notranslate"><span class="pre">clientID</span></code> 和 <code class="docutils literal notranslate"><span class="pre">clientSecret</span></code> 替换占位符.</p>
 <p><strong>config/default.json</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
   &quot;host&quot;: &quot;localhost&quot;,
@@ -281,16 +281,17 @@
 </div>
 <div class="section" id="test-login-with-oauth">
 <h2>使用OAuth测试登录<a class="headerlink" href="#test-login-with-oauth" title="永久链接至标题">¶</a></h2>
-<p>您的应用已准备好进行OAuth登录。我们就这么简单了！我们来试试吧。打开文件``public / index.html``并滚动到底部。在``h2``下添加以下代码:</p>
+<p>您的应用已准备好进行OAuth登录.我们就这么简单了！我们来试试吧.打开文件 <code class="docutils literal notranslate"><span class="pre">public/index.html</span></code> 并滚动到底部.在 <code class="docutils literal notranslate"><span class="pre">h2</span></code> 下添加以下代码:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;center-text&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/github&quot;</span><span class="p">&gt;</span>Login With GitHub<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>现在将以下代码添加到同一页面.第一个脚本标记从CDN加载Feathers Client.第二个脚本加载Socket.io.第三个脚本创建一个Feathers Client实例,并尝试在页面加载时使用JWT策略进行身份验证.身份验证客户端插件配置了``bouquet```值为``feathers-jwt``.</p>
-<blockquote>
-<div><p>注意:此代码从CDN加载``feathers-client``包.这不是**大多数应用程序的推荐用法,但是出于演示目的而有用.我们建议使用如下文所述的捆绑器:doc:<cite>../api/client</cite>.</p>
-</div></blockquote>
+<p>现在将以下代码添加到同一页面.第一个脚本标记从CDN加载Feathers Client. 第二个脚本加载Socket.io. 第三个脚本创建一个Feathers Client实例, 并尝试在页面加载时使用JWT策略进行身份验证. 身份验证客户端插件配置了 <code class="docutils literal notranslate"><span class="pre">cookie</span></code> 值为 <code class="docutils literal notranslate"><span class="pre">feathers-jwt</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>此代码从CDN加载 <code class="docutils literal notranslate"><span class="pre">feathers-client</span></code> 包. 这 <strong>不是</strong> 大多数应用程序的推荐用法, 但是出于演示目的而有用.我们建议使用如下文所述的捆绑器 <a class="reference internal" href="../../api/client.html"><span class="doc">Feathers 客户端</span></a>.</p>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/feathers-client@2.0.0/dist/feathers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -316,8 +317,8 @@
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>现在，运行服务器，打开``http：// localhost：3030``。在单击“使用GitHub登录”链接之前，请打开控制台。如果刷新，您将在catch块中看到该消息。由于我们尚未登录，因此我们没有存储的JWT访问令牌。现在，单击“使用GitHub登录”按钮。假设您没有使用此应用程序登录Github，之前，您将看到GitHub登录页面。登录GitHub后，您将被重定向回``http：// localhost：3030``。现在，如果您查看控制台，您应该会看到成功消息。</p>
-<p>刚刚发生了什么？当你点击该链接时，它打开了``/ auth / github``链接，这只是用你的``Client ID``重定向到GitHub的快捷方式。我们之前描述的整个OAuth流程都已发生。浏览器从服务器收到一个``feathers-jwt`` cookie。最后，我们在最后一步中添加的脚本使用``feathers-authentication-client``来使用从服务器返回的JWT进行身份验证。在很短的时间内发生了很多步骤。最好的消息是您使用OAuth进行了身份验证。</p>
+<p>现在, 运行服务器, 打开 <code class="docutils literal notranslate"><span class="pre">http://localhost:3030</span></code>.在单击 “Login with GitHub” 链接之前, 请打开控制台.如果刷新, 您将在catch块中看到该消息.由于我们尚未登录, 因此我们没有存储的JWT访问令牌.现在, 单击 <code class="docutils literal notranslate"><span class="pre">Login</span> <span class="pre">with</span> <span class="pre">GitHub</span></code> 按钮.假设您没有使用此应用程序登录Github, 之前, 您将看到GitHub登录页面.登录GitHub后, 您将被重定向回 <code class="docutils literal notranslate"><span class="pre">http://localhost:3030</span></code>.现在, 如果您查看控制台, 您应该会看到成功消息.</p>
+<p>刚刚发生了什么？当你点击该链接时, 它打开了 <code class="docutils literal notranslate"><span class="pre">/auth/github</span></code> 链接, 这只是用你的 <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">ID</span></code> 重定向到GitHub的快捷方式.我们之前描述的整个OAuth流程都已发生.浏览器从服务器收到一个 <code class="docutils literal notranslate"><span class="pre">feathers-jwt</span></code> cookie.最后, 我们在最后一步中添加的脚本使用 <code class="docutils literal notranslate"><span class="pre">feathers-authentication-client</span></code> 来使用从服务器返回的JWT进行身份验证.在很短的时间内发生了很多步骤.最好的消息是您使用OAuth进行了身份验证.</p>
 </div>
 <div class="section" id="wrapping-up">
 <h2>包起来<a class="headerlink" href="#wrapping-up" title="永久链接至标题">¶</a></h2>
@@ -333,10 +334,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe:自定义身份验证策略" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recipe.custom-auth-strategy.html" class="btn btn-neutral float-right" title="自定义身份验证策略" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe:使用混合身份验证创建端点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-left" title="使用混合身份验证创建端点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

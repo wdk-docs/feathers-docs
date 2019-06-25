@@ -95,12 +95,12 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe:自定义JWT Payload</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">FeathersJS Auth Recipe:自定义登录响应</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe:设置基本OAuth登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe:自定义身份验证策略</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe:认证Express中间件(SSR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">自定义 JWT Payload</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-response.html">自定义登录响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">Custom Auth Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">认证Express中间件(SSR)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
@@ -187,7 +187,7 @@
             
   <div class="section" id="an-overview-of-feathers-authentication">
 <h1>Feathers 认证概述<a class="headerlink" href="#an-overview-of-feathers-authentication" title="永久链接至标题">¶</a></h1>
-<p>FeatusJS的Auk版本包括一个强大的新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上.新插件非常灵活,允许您自定义几乎所有内容.</p>
+<p>FeatusJS的 Auk 版本包含一个强大的新的建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a>.新插件非常灵活,允许您自定义几乎所有内容.</p>
 <div class="section" id="a-single-auth-endpoint">
 <h2>单个Auth端点<a class="headerlink" href="#a-single-auth-endpoint" title="永久链接至标题">¶</a></h2>
 <p>在之前的 <code class="docutils literal notranslate"><span class="pre">feathers-authentication</span></code> 插件中,有两个auth端点: <code class="docutils literal notranslate"><span class="pre">/auth/local</span></code> 用于用户名和密码登录. <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code> 用于基于JWT的登录.在制作最新版本时,我们认为auth可能更像其他的Feathers.我们创建了一个 <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 服务.这个单一的端点处理 <code class="docutils literal notranslate"><span class="pre">local</span></code> 和 <code class="docutils literal notranslate"><span class="pre">jwt</span></code> 登录等等.</p>

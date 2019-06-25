@@ -12,8 +12,7 @@ The ``@feathersjs/express`` module contains
 
 -  The `Express framework bindings <#expressapp>`_ to make a Feathers
    application Express compatible
--  An Express based transport to expose services through a `REST
-   API <#expressrest>`_
+-  An Express based transport to expose services through a :ref:`api_express_rest`
 -  An :doc:`./errors`
 
 .. code:: js

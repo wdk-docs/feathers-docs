@@ -47,7 +47,7 @@ msgid ""
 "battle-tested open-source technologies - adding a few minimal "
 "abstractions and introducing an application architecture that is easier "
 "to understand, maintain, and scale than the traditional MVC architecture."
-msgstr "Feathers通过在一些经过实战考验的开源技术之间的粘合代码实现了这一点 - 增加了一些最小的抽象，并引入了比传统MVC架构更容易理解，维护和扩展的应用程序架构。"
+msgstr "Feathers通过在一些经过实战考验的开源技术之间的粘合代码实现了这一点 - 增加了一些最小的抽象, 并引入了比传统MVC架构更容易理解, 维护和扩展的应用程序架构."
 
 #: ../../source/index.rst:22
 msgid ""
@@ -56,7 +56,7 @@ msgid ""
 "you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ or find out more"
 " about its `features <https://feathersjs.com/features>`_ and `how "
 "Feathers compares to others <https://feathersjs.com/comparison>`_."
-msgstr "如果您有兴趣，可以阅读更多关于 `Feathers如何以及为何成为 <https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ 或了解更多有关其功能 `features <https://feathersjs.com/features>`_ 和 `Feathers如何与其他人比较 <https://feathersjs.com/comparison>`_。"
+msgstr "如果您有兴趣, 可以阅读更多关于 `Feathers如何以及为何成为 <https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac>`_ 或了解更多有关其功能 `features <https://feathersjs.com/features>`_ 和 `Feathers如何与其他人比较 <https://feathersjs.com/comparison>`_."
 
 #: ../../source/index.rst:29
 msgid ""

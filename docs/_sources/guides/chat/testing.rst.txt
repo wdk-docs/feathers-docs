@@ -10,7 +10,7 @@ tests for our :doc:`./processing` and integration tests for the
 We can run the `code Linter <https://eslint.org/>`_ and Mocha tests
 with
 
-::
+.. code-block:: sh
 
    npm test
 
@@ -133,7 +133,7 @@ is a useful :doc:`../basics/databases` that supports
 the Feathers query syntax (and pagination) but does not require a
 database server. We can install it as a development dependency:
 
-::
+.. code-block:: sh
 
    npm install feathers-memory --save-dev
 
@@ -190,7 +190,7 @@ Let’s use it to test the ``populateUser`` hook, by updating
 
 If we now run:
 
-::
+.. code-block:: sh
 
    npm test
 
@@ -221,7 +221,7 @@ same thing can be done with connection strings for other databases.
 We also want to make sure that before every test run, the database is
 cleaned up. To make that possible across platforms, first run:
 
-::
+.. code-block:: sh
 
    npm install shx --save-dev
 
@@ -240,7 +240,7 @@ following:
 
 On Windows the ``mocha`` should look like:
 
-::
+.. code-block:: sh
 
    npm run clean & SET NODE_ENV=test& mocha test/ --recursive --exit
 
@@ -374,7 +374,7 @@ can expose faults in the interaction between the client and the server.
 They are also useful in testing the authentication of requests from the
 client. Install it as a development dependency:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/client --save-dev
 
@@ -509,7 +509,7 @@ code is actually executed during the tests. Using
 `Istanbul <https://github.com/gotwarlost/istanbul>`_ we can add it
 easily:
 
-::
+.. code-block:: sh
 
    npm install nyc --save-dev
 
@@ -528,13 +528,13 @@ Now we have to update the ``script`` section of our ``package.json`` to:
 
 On Windows, the ``coverage`` command looks like this:
 
-::
+.. code-block:: sh
 
    npm run clean & SET NODE_ENV=test& nyc mocha
 
 Now run:
 
-::
+.. code-block:: sh
 
    npm test
 

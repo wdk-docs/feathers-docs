@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 14:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../source/guides/auth/recipe.customize-response.rst:2
-msgid "FeathersJS Auth Recipe: Customizing the Login Response"
+#: ../../source/guides/auth/recipe.customize-response.rst:49
+msgid "Customizing the Login Response"
 msgstr ""
 
 #: ../../source/guides/auth/recipe.customize-response.rst:4
@@ -42,10 +43,6 @@ msgstr ""
 
 #: ../../source/guides/auth/recipe.customize-response.rst:42
 msgid "Based on the above, you can see that we still authenticate a ``user`` by default. In this case, the ``user`` is what we call the ``entity``. It’s the generic name of what is being authenticated. It’s customizable, but that’s not covered in this guide. Instead, let’s focus on what it takes to add the user in the login response."
-msgstr ""
-
-#: ../../source/guides/auth/recipe.customize-response.rst:49
-msgid "Customizing the Login Response"
 msgstr ""
 
 #: ../../source/guides/auth/recipe.customize-response.rst:51

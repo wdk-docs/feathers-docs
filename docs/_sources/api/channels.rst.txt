@@ -116,8 +116,10 @@ app.on(‘login’)
 ``app.on('login', (payload, info) => {})`` is sent by the
 :doc:`./authentication/server` and also contains
 the connection in the ``info`` object that is passed as the second
-parameter. Note that it can also be ``undefined`` if the login happened
-through e.g. REST which does not support real-time connectivity.
+parameter.
+
+.. note:: that it can also be ``undefined`` if the login happened
+   through e.g. REST which does not support real-time connectivity.
 
 This is a good place to add the connection to channels related to the
 user (e.g. chat rooms, admin status etc.)

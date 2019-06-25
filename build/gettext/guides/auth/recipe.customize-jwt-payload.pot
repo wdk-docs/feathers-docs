@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 14:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../source/guides/auth/recipe.customize-jwt-payload.rst:2
-msgid "FeathersJS Auth Recipe: Customizing the JWT Payload"
+msgid "Customizing the JWT Payload"
 msgstr ""
 
 #: ../../source/guides/auth/recipe.customize-jwt-payload.rst:4
@@ -32,47 +32,47 @@ msgstr ""
 msgid "If you read the resources on :doc:`./how-jwt-works`, you’ll know that a JWT is an encoded string that can contain a payload. For a quick example, check out the Debugger on `jwt.io <https://jwt.io/>`_. The purple section on `jwt.io <https://jwt.io/>`_ is the payload. You’ll also notice that you can put arbitrary data in the payload. The payload data gets encoded as a section of the JWT string."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:22
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:21
 msgid "The default JWT payload contains the following claims:"
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:40
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:39
 msgid "Notice that the payload **is encoded** and **IS NOT ENCRYPTED**. It’s an important difference. It means that you want to be careful what you store in the JWT payload."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:45
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:44
 msgid "Customizing the Payload with Hooks"
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:47
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:46
 msgid "The authentication services uses the ``params.payload`` object in the hook context for the JWT payload. This means you can customize the JWT by adding a before hook after the ``authenticate`` hook."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:73
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:72
 msgid "Now the payload will contain the ``test`` attribute:"
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:94
-msgid "Note: The payload is not automatically decoded and made available in the hooks, thus, requiring you to implement this functionality in your app. Using ``jwt-decode`` is a simple solution that could be dropped in a hook as needed."
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:93
+msgid "The payload is not automatically decoded and made available in the hooks, thus, requiring you to implement this functionality in your app. Using ``jwt-decode`` is a simple solution that could be dropped in a hook as needed."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:100
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:99
 msgid "Important Security Information"
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:102
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:101
 msgid "As you add data to the JWT payload the token size gets larger. Try it out on `jwt.io <https://jwt.io/>`_ to see for yourself. There is an important security issue to keep in mind when customizing the payload. This issue involves the default ``HS256`` algorithm used to sign the token."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:108
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:107
 msgid "With ``HS256``, there is a relationship between the length of the secret (which must be a minimum of 256-bits) and the length of the encoded token (which varies with the payload). A larger secret-to-payload ratio (so the secret is larger than the JWT) will result in a more secure JWT. This also means that keeping the secret size the same and increasing the payload size will actually make your JWT comparatively less secure."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:115
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:114
 msgid "The Feathers generator creates a 2048-bit secret, by default, so there is a small amount of allowable space for putting additional attributes in the JWT payload. It’s very important to keep the secret-to-payload length ratio as high as possible to avoid brute force attacks. In a brute force attack, the attacker attempts to retrieve the secret by guessing the secret over and over until getting it right. If your secret is compromised, they will be able to create signed JWT with whatever payload they wish. In short, be cautious about what you put in your JWT payload."
 msgstr ""
 
-#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:125
+#: ../../source/guides/auth/recipe.customize-jwt-payload.rst:124
 msgid "Finally, remember that the secret created by the generator is meant for development purposes, only. You never want to check your **production** secret into your version control system (Git, etc.). It is best to put your production secret in an environment variable and reference it in the app configuration."
 msgstr ""
 

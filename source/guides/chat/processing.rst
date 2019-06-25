@@ -15,7 +15,7 @@ before saving it in the database. This is where
 :doc:`../basics/hooks` come into play. In this specific case, a
 *before* hook. To create a new hook we can run:
 
-::
+.. code-block:: sh
 
    feathers generate hook
 
@@ -92,7 +92,7 @@ Let’s generate another hook to add a link to the
 `Gravatar <http://en.gravatar.com/>`_ image associated with the user’s
 email address, so we can display an avatar. Run:
 
-::
+.. code-block:: sh
 
    feathers generate hook
 

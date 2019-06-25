@@ -53,7 +53,7 @@ Examples
 - `Feathers + React + Mobx <https://github.com/foxhound87/rfx-stack>`_
 - `Feathers + React + Webpack <https://github.com/sscaff1/feathers-webpack-react>`_
 - `Observables with Angular2 and FeathersJS <https://berndsgn.ch/posts/observables-with-angular-and-feathersjs/>`_
-- [Feathers + React + Redux + Webpack + local auth. Production quality](https://github.com/eddyystop/feathers-starter-react-redux-login-roles).
+- `Feathers + React + Redux + Webpack + local auth. Production quality <https://github.com/eddyystop/feathers-starter-react-redux-login-roles>`_.
 - `Live query. Mirror part of a DB on the client. <https://github.com/eddyystop/feathers-live-query>`_
 - `Feathers + React + Redux + Webpack + complete auth + offline mode (ideal for production) <https://github.com/bertho-zero/react-redux-universal-hot-example>`_
 - `Build a CRUD App Using React, Redux and FeathersJS <https://www.sitepoint.com/crud-app-react-redux-feathersjs/>`_
@@ -61,7 +61,7 @@ Examples
 - `Passwordless Auth Example Using feathers-authentication-management <https://github.com/rhythnic/feathers-passwordless-auth-example>`_
 - `Feathers Chat + Login with Facebook <https://github.com/morenoh149/feathers-chat-facebook-signup-api>`_
 - `Feathers Chat + Phone Signup SMS pin <https://github.com/morenoh149/feathers-chat-phone-signup-sms>`_
-- `Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-examples/tree/master/examples/feathers/sql-database>`_ - An example for integrating Feathers with [Forest admin](https://www.forestadmin.com/).
+- `Feathers + Forest Admin example <https://github.com/ForestAdmin/forest-examples/tree/master/examples/feathers/sql-database>`_ - An example for integrating Feathers with `Forest admin <https://www.forestadmin.com/>`_.
 - `Feathers + Next.js <https://github.com/Albert-Gao/feathers-next-example>`_
 - `Feathers + Aor-feathers-client + Admin on Rest <https://github.com/kfern/feathers-aor-test-integration>`_
 - `MyEthereum.app: Feathers + Sequelize + React + Redux + Jest + Zeit deployments <https://github.com/petermikitsh/myethereumapp>`_

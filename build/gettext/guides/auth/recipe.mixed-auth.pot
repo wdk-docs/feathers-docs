@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:53+0800\n"
+"POT-Creation-Date: 2019-06-25 14:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:2
-msgid "FeathersJS Auth Recipe: Create Endpoints with Mixed Auth"
+msgid "Create Endpoints with Mixed Auth"
 msgstr ""
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:4

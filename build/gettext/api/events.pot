@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:36+0800\n"
+"POT-Creation-Date: 2019-06-25 13:32+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,6 +117,6 @@ msgid "Using ``service.emit`` custom events can also be sent in a hook:"
 msgstr ""
 
 #: ../../source/api/events.rst:219
-msgid "Custom events can be :ref:`channels_publishing` just like standard events and listened to it in a :ref:`client/socketio_listening-to-events`."
+msgid "Custom events can be :ref:`channels_publishing` just like standard events and listened to it in a :ref:`client_socketio_listening-to-events`."
 msgstr ""
 

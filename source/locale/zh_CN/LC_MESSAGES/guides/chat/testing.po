@@ -29,14 +29,11 @@ msgid ""
 " unit tests for it. In this chapter, we will implement unit tests for our"
 " :doc:`./processing` and integration tests for the :doc:`./service`."
 msgstr ""
-"Every time we generate a hook or service, the generator will also set up "
-"a basic `Mocha <https://mochajs.org/>`_ test that we can use to implement"
-" unit tests for it. In this chapter, we will implement unit tests for our"
-" :doc:`./processing` and integration tests for the :doc:`./service`."
+"每当我们生成一个钩子或服务时, 生成器也会设置一个基本的 `Mocha <https://mochajs.org/>`_ test, 我们可以使用它来为它实现单元测试. 在本章中, 我们将为我们的 :doc:`./processing` 和 :doc:`./service` 的集成测试实现单元测试. "
 
 #: ../../source/guides/chat/testing.rst:10
 msgid "We can run the `code Linter <https://eslint.org/>`_ and Mocha tests with"
-msgstr "We can run the `code Linter <https://eslint.org/>`_ and Mocha tests with"
+msgstr "我们可以运行 `code Linter <https://eslint.org/>`_ 和Mocha测试"
 
 #: ../../source/guides/chat/testing.rst:17
 msgid ""
@@ -44,13 +41,11 @@ msgid ""
 " that is not covered by the standard tests. So let’s get those to pass "
 "first."
 msgstr ""
-"This will fail initially, since we implemented functionality in our hooks"
-" that is not covered by the standard tests. So let’s get those to pass "
-"first."
+"这将最初失败, 因为我们在钩子中实现了标准测试未涵盖的功能. 所以让我们先通过. "
 
 #: ../../source/guides/chat/testing.rst:22
 msgid "Unit testing hooks"
-msgstr "Unit testing hooks"
+msgstr "单元测试挂钩"
 
 #: ../../source/guides/chat/testing.rst:24
 msgid ""
@@ -59,13 +54,9 @@ msgid ""
 "test against, then register the hooks and make actual service calls to "
 "verify that they return what we’d expect."
 msgstr ""
-"The best way to test individual hooks is to set up a dummy Feathers "
-"application with some services that return the data we expect and can "
-"test against, then register the hooks and make actual service calls to "
-"verify that they return what we’d expect."
+"测试单个钩子的最好方法是设置一个虚拟Feathers应用程序, 其中包含一些返回我们期望的数据并可以测试的服务, 然后注册钩子并进行实际的服务调用以验证它们返回我们期望的内容. "
 
 #: ../../source/guides/chat/testing.rst:29
-#, fuzzy
 msgid ""
 "The first hook we created was for processing new messages. For this hook,"
 " we can create a ``messages`` dummy custom :doc:`../basics/services` that"
@@ -73,26 +64,20 @@ msgid ""
 "pretend we are an authenticated user, we have to pass ``params.user``. "
 "For this test, this can be a simple JavaScript object with an ``_id``."
 msgstr ""
-"The first hook we created was for processing new messages. For this hook,"
-" we can create a ``messages`` dummy custom :doc:`basics/services` that "
-"just returns the same data from the ``create`` service method. To pretend"
-" we are an authenticated user, we have to pass ``params.user``. For this "
-"test, this can be a simple JavaScript object with an ``_id``."
+"我们创建的第一个钩子是用于处理新消息. 对于这个钩子, 我们可以创建一个 ``messages`` 虚拟自定义 :doc:`../basics/services`, 只返回来自 ``create`` 服务方法的相同数据. 假装我们是经过身份验证的用户, 我们必须通过 ``params.user``. 对于此测试, 这可以是一个带有 ``_id`` 的简单JavaScript对象. "
 
 #: ../../source/guides/chat/testing.rst:36
 msgid "Update ``test/hooks/process-messages.test.js`` to the following:"
-msgstr "Update ``test/hooks/process-messages.test.js`` to the following:"
+msgstr "将 ``test/hooks/process-messages.test.js`` 更新为以下内容:"
 
 #: ../../source/guides/chat/testing.rst:87
 msgid ""
 "We can take a similar approach to test the ``gravatar`` hook in "
 "``test/hooks/gravatar.test.js``:"
 msgstr ""
-"We can take a similar approach to test the ``gravatar`` hook in "
-"``test/hooks/gravatar.test.js``:"
+"我们可以采用类似的方法来测试 ``test/hooks/gravatar.test.js`` 中的 ``gravatar`` 钩子. :"
 
 #: ../../source/guides/chat/testing.rst:129
-#, fuzzy
 msgid ""
 "In the tests above, we created a dummy service. But sometimes, we need "
 "the full Feathers service functionality. `feathers-memory "
@@ -101,43 +86,34 @@ msgid ""
 "pagination) but does not require a database server. We can install it as "
 "a development dependency:"
 msgstr ""
-"In the tests above, we created a dummy service. But sometimes, we need "
-"the full Feathers service functionality. `feathers-memory "
-"<https://github.com/feathersjs-ecosystem/feathers-memory>`_ is a useful "
-":doc:`basics/databases` that supports the Feathers query syntax (and "
-"pagination) but does not require a database server. We can install it as "
-"a development dependency:"
+"在上面的测试中, 我们创建了一个虚拟服务. 但有时, 我们需要完整的Feathers服务功能. `feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_ 是一个有用的 :doc:`../basics/databases`, 支持Feathers查询语法(和分页)但不支持需要数据库服务器. 我们可以将它安装为开发依赖项:"
 
 #: ../../source/guides/chat/testing.rst:140
 msgid ""
 "Let’s use it to test the ``populateUser`` hook, by updating ``test/hooks"
 "/populate-user.test.js`` to the following:"
 msgstr ""
-"Let’s use it to test the ``populateUser`` hook, by updating ``test/hooks"
-"/populate-user.test.js`` to the following:"
+"让我们用它来测试 ``populateUser`` 钩子, 将 ``test/hooks/populate-user.test.js`` 更新为:"
 
 #: ../../source/guides/chat/testing.rst:191
 msgid "If we now run:"
-msgstr "If we now run:"
+msgstr "如果我们现在运行:"
 
 #: ../../source/guides/chat/testing.rst:197
 msgid "All our tests should pass. Yay!"
-msgstr "All our tests should pass. Yay!"
+msgstr "我们所有的测试都应该通过好极了！"
 
 #: ../../source/guides/chat/testing.rst:199
-#, fuzzy
 msgid ""
 "There are some error stacks printed when running the tests. This is "
 "normal, they are log entries when running the tests for 404 (Not Found) "
 "errors."
 msgstr ""
-"**Note:** There are some error stacks printed when running the tests. "
-"This is normal, they are log entries when running the tests for 404 (Not "
-"Found) errors."
+"运行测试时会打印一些错误堆栈. 这是正常的, 它们是运行404(未找到)错误测试时的日志条目. "
 
 #: ../../source/guides/chat/testing.rst:204
 msgid "Test database setup"
-msgstr "Test database setup"
+msgstr "测试数据库设置"
 
 #: ../../source/guides/chat/testing.rst:206
 msgid ""
@@ -146,10 +122,7 @@ msgid ""
 "environment configuration in ``config/test.json`` with the following "
 "content:"
 msgstr ""
-"When testing database functionality, we want to make sure that the tests "
-"use a different database. We can achieve this by creating a new "
-"environment configuration in ``config/test.json`` with the following "
-"content:"
+"在测试数据库功能时, 我们希望确保测试使用不同的数据库. 我们可以通过在 ``config/test.json`` 中创建一个具有以下内容的新环境配置来实现这一点:"
 
 #: ../../source/guides/chat/testing.rst:217
 msgid ""
@@ -157,41 +130,36 @@ msgid ""
 "directory instead of ``data/`` when ``NODE_ENV`` is set to ``test``. The "
 "same thing can be done with connection strings for other databases."
 msgstr ""
-"This will set up the NeDB database to use ``test/data`` as the base "
-"directory instead of ``data/`` when ``NODE_ENV`` is set to ``test``. The "
-"same thing can be done with connection strings for other databases."
+"当 ``NODE_ENV`` 设置为 ``test`` 时, 这将设置NeDB数据库使用 ``test/data`` 作为基目录而不是 ``data/``. 对于其他数据库的连接字符串也可以完成同样的事情. "
 
 #: ../../source/guides/chat/testing.rst:221
 msgid ""
 "We also want to make sure that before every test run, the database is "
 "cleaned up. To make that possible across platforms, first run:"
 msgstr ""
-"We also want to make sure that before every test run, the database is "
-"cleaned up. To make that possible across platforms, first run:"
+"我们还希望确保在每次测试运行之前清理数据库. 为了在跨平台实现这一点, 首先运行:"
 
 #: ../../source/guides/chat/testing.rst:228
 msgid ""
 "Now we can update the ``script`` section of ``package.json`` to the "
 "following:"
 msgstr ""
-"Now we can update the ``script`` section of ``package.json`` to the "
-"following:"
+"现在我们可以将 ``package.json`` 的 ``script`` 部分更新为以下内容:"
 
 #: ../../source/guides/chat/testing.rst:241
 msgid "On Windows the ``mocha`` should look like:"
-msgstr "On Windows the ``mocha`` should look like:"
+msgstr "在Windows上, ``mocha`` 应该是这样的:"
 
 #: ../../source/guides/chat/testing.rst:247
 msgid ""
 "This will make sure that the ``test/data`` folder is removed before every"
 " test run and ``NODE_ENV`` is set properly."
 msgstr ""
-"This will make sure that the ``test/data`` folder is removed before every"
-" test run and ``NODE_ENV`` is set properly."
+"这将确保在每次测试运行之前删除 ``test/data`` 文件夹并正确设置 ``NODE_ENV``. "
 
 #: ../../source/guides/chat/testing.rst:251
 msgid "Testing services"
-msgstr "Testing services"
+msgstr "测试服务"
 
 #: ../../source/guides/chat/testing.rst:253
 msgid ""
@@ -199,9 +167,7 @@ msgid ""
 "wired up), we can use any REST API testing tool to make requests and "
 "verify that they return correct responses."
 msgstr ""
-"To test the actual ``messages`` and ``users`` services (with all hooks "
-"wired up), we can use any REST API testing tool to make requests and "
-"verify that they return correct responses."
+"为了测试实际的 ``messages`` 和 ``users`` 服务(所有挂钩连线), 我们可以使用任何REST API测试工具发出请求并验证它们是否返回正确的响应. "
 
 #: ../../source/guides/chat/testing.rst:257
 msgid ""
@@ -211,11 +177,7 @@ msgid ""
 "directly, and “fake” authentication by setting ``params.user`` as "
 "demonstrated in the hook tests above."
 msgstr ""
-"But there is a much faster, easier and complete approach. Since "
-"everything on top of our own hooks and services is already provided (and "
-"tested) by Feathers, we can require the :doc:`../../api/services` "
-"directly, and “fake” authentication by setting ``params.user`` as "
-"demonstrated in the hook tests above."
+"但是有一种更快, 更简单和完整的方法. 由于Feathers已经提供(和测试)了我们自己的钩子和服务之上的所有东西, 我们可以直接要求 :doc:`../../api/services`, 并通过设置 ``params.user`` 来 “fake” 认证 如上面的钩子测试中所示. "
 
 #: ../../source/guides/chat/testing.rst:263
 msgid ""
@@ -223,9 +185,7 @@ msgid ""
 "``test/services/users.test.js``, that only tests that the service exists,"
 " like this:"
 msgstr ""
-"By default, the generator creates a service test file, e.g. \\ "
-"``test/services/users.test.js``, that only tests that the service exists,"
-" like this:"
+"默认情况下, 生成器创建服务测试文件, 例如,  \\ ``test/services/users.test.js``, 只测试服务是否存在, 如下所示:"
 
 #: ../../source/guides/chat/testing.rst:280
 msgid ""
@@ -235,11 +195,7 @@ msgid ""
 "password gets encrypted. The second verifies that the password does not "
 "get sent to external requests:"
 msgstr ""
-"We can then add similar tests that use the service. Following is an "
-"updated ``test/services/users.test.js`` that adds two tests. The first "
-"verifies that users can be created, the gravatar gets set and the "
-"password gets encrypted. The second verifies that the password does not "
-"get sent to external requests:"
+"然后我们可以添加使用该服务的类似测试. 以下是一个更新的 ``test/services/users.test.js``, 它增加了两个测试. 第一个验证是否可以创建用户, 设置gravatar并加密密码. 第二个验证密码未发送到外部请求:"
 
 #: ../../source/guides/chat/testing.rst:324
 msgid ""
@@ -248,22 +204,18 @@ msgid ""
 "as ``params.user`` when creating a new message, and validates that "
 "message’s content:"
 msgstr ""
-"We take a similar approach for ``test/services/messages.test.js``. We "
-"create a test-specific user from the ``users`` service. We then pass it "
-"as ``params.user`` when creating a new message, and validates that "
-"message’s content:"
+"我们对 ``test/services/messages.test.js`` 采取了类似的方法. 我们从 ``users`` 服务创建一个特定于测试的用户. 然后我们在创建新消息时将其作为 ``params.user`` 传递, 并验证该消息的内容:"
 
 #: ../../source/guides/chat/testing.rst:365
 msgid ""
 "Run ``npm test`` one more time, to verify that the tests for all our "
 "hooks, and the new service tests pass."
 msgstr ""
-"Run ``npm test`` one more time, to verify that the tests for all our "
-"hooks, and the new service tests pass."
+"再次运行 ``npm test``, 验证我们所有钩子的测试以及新的服务测试是否通过. "
 
 #: ../../source/guides/chat/testing.rst:369
 msgid "Client/server testing"
-msgstr "Client/server testing"
+msgstr "Client/server 测试"
 
 #: ../../source/guides/chat/testing.rst:371
 msgid ""
@@ -273,11 +225,7 @@ msgid ""
 "They are also useful in testing the authentication of requests from the "
 "client. Install it as a development dependency:"
 msgstr ""
-"You can write tests which start up both a server for your app, and a "
-"Feathers client which your test can use to call the server. Such tests "
-"can expose faults in the interaction between the client and the server. "
-"They are also useful in testing the authentication of requests from the "
-"client. Install it as a development dependency:"
+"您可以编写测试来启动应用程序的服务器, 以及测试可用于调用服务器的Feathers客户端. 此类测试可能会暴露客户端与服务器之间交互的错误. 它们还可用于测试来自客户端的请求的身份验证. 将其安装为开发依赖项:"
 
 #: ../../source/guides/chat/testing.rst:381
 msgid ""
@@ -286,10 +234,7 @@ msgid ""
 "the tests are run on the client instead of on the server. This also "
 "causes client authentication to be tested."
 msgstr ""
-"Test ``test/services/users.test.js`` from above runs on the server. We "
-"convert it, in the following ``tests/services/client-users.test.js``, so "
-"the tests are run on the client instead of on the server. This also "
-"causes client authentication to be tested."
+"从上面测试 ``test/services/users.test.js`` 在服务器上运行. 我们将其转换为以下 ``tests/services/client-users.test.js``, 因此测试在客户端而不是服务器上运行. 这也会导致客户端身份验证被测试. "
 
 #: ../../source/guides/chat/testing.rst:489
 msgid ""
@@ -298,10 +243,7 @@ msgid ""
 " create a Feathers client and authenticate it using the newly created "
 "user."
 msgstr ""
-"We first make a call on the *server* to create a new user. We then start "
-"up a server for our app. Finally the function ``makeClient`` is called to"
-" create a Feathers client and authenticate it using the newly created "
-"user."
+"我们首先在* server *上调用以创建新用户. 然后, 我们为我们的应用程序启动服务器. 最后调用函数 ``makeClient`` 来创建Feathers客户端并使用新创建的用户对其进行身份验证. "
 
 #: ../../source/guides/chat/testing.rst:494
 msgid ""
@@ -309,9 +251,7 @@ msgid ""
 "now made on the client (``client.service(...).create``) instead of on the"
 " server (``app.service(...).create``)."
 msgstr ""
-"The individual tests remain unchanged except that the service calls are "
-"now made on the client (``client.service(...).create``) instead of on the"
-" server (``app.service(...).create``)."
+"各个测试保持不变, 除了服务调用现在在客户端(``client.service(...).create``)而不是在服务器上进行(``app.service(...).create``). "
 
 #: ../../source/guides/chat/testing.rst:498
 msgid ""
@@ -321,15 +261,11 @@ msgid ""
 "exposed to potential iteractions. You can remove the statement to isolate"
 " the tests from one another."
 msgstr ""
-"The ``describe('Run tests using client and server',`` statement stops a "
-"new server and client from being created for each test. This results in "
-"the test module running noticeably faster, though the tests are now "
-"exposed to potential iteractions. You can remove the statement to isolate"
-" the tests from one another."
+"``describe('使用客户端和服务器运行测试', '`语句停止为每个测试创建一个新的服务器和客户端.这导致测试模块运行明显更快, 尽管测试现在暴露于潜在的迭代.您可以删除该语句以将测试彼此隔离."
 
 #: ../../source/guides/chat/testing.rst:505
 msgid "Code coverage"
-msgstr "Code coverage"
+msgstr "代码覆盖率"
 
 #: ../../source/guides/chat/testing.rst:507
 msgid ""
@@ -337,50 +273,45 @@ msgid ""
 "code is actually executed during the tests. Using `Istanbul "
 "<https://github.com/gotwarlost/istanbul>`_ we can add it easily:"
 msgstr ""
-"Code coverage is a great way to get some insights into how much of our "
-"code is actually executed during the tests. Using `Istanbul "
-"<https://github.com/gotwarlost/istanbul>`_ we can add it easily:"
+"代码覆盖率是一种很好的方式, 可以了解我们在测试期间实际执行了多少代码. 使用 `Istanbul <https://github.com/gotwarlost/istanbul>`_ 我们可以轻松添加它:"
 
 #: ../../source/guides/chat/testing.rst:516
 msgid "Now we have to update the ``script`` section of our ``package.json`` to:"
-msgstr "Now we have to update the ``script`` section of our ``package.json`` to:"
+msgstr "现在我们必须更新 ``package.json`` 的 ``script`` 部分:"
 
 #: ../../source/guides/chat/testing.rst:529
 msgid "On Windows, the ``coverage`` command looks like this:"
-msgstr "On Windows, the ``coverage`` command looks like this:"
+msgstr "在Windows上, ``coverage`` 命令如下所示:"
 
 #: ../../source/guides/chat/testing.rst:535
 msgid "Now run:"
-msgstr "Now run:"
+msgstr "现在跑:"
 
 #: ../../source/guides/chat/testing.rst:541
 msgid "This will print out some additional coverage information."
-msgstr "This will print out some additional coverage information."
+msgstr "这将打印出一些额外的覆盖信息. "
 
 #: ../../source/guides/chat/testing.rst:544
 msgid "Changing the default test directory"
-msgstr "Changing the default test directory"
+msgstr "更改默认测试目录"
 
 #: ../../source/guides/chat/testing.rst:546
-#, fuzzy
 msgid ""
 "To change the default test directory, specify the directory you want in "
 "your project’s ``package.json`` file:"
 msgstr ""
-"To change the default test directory, specify the directoryyou want in "
-"your project’s ``package.json`` file:"
+"要更改默认测试目录, 请在项目的 ``package.json`` 文件中指定所需的目录:"
 
 #: ../../source/guides/chat/testing.rst:557
 msgid ""
 "Also, don’t forget to update your mocha script in your ``package.json`` "
 "file:"
 msgstr ""
-"Also, don’t forget to update your mocha script in your ``package.json`` "
-"file:"
+"另外, 不要忘记更新 ``package.json`` 文件中的mocha脚本:"
 
 #: ../../source/guides/chat/testing.rst:567
 msgid "What’s next?"
-msgstr "What’s next?"
+msgstr "下一步是什么？"
 
 #: ../../source/guides/chat/testing.rst:569
 msgid ""
@@ -390,11 +321,7 @@ msgid ""
 "about using Feathers, or start building your own first Feathers "
 "application!"
 msgstr ""
-"That’s it - our chat guide is completed! We now have a fully-tested REST "
-"and real-time API, with a plain JavaScript frontend including login and "
-"signup. Follow up in the :doc:`../../api/readme` for complete details "
-"about using Feathers, or start building your own first Feathers "
-"application!"
+"就是这样 - 我们的聊天指南已经完成！我们现在有一个经过全面测试的REST和实时API, 带有一个包含登录和注册的简单JavaScript前端. 关于使用Feathers的完整细节, 或者开始构建自己的第一个Feathers应用程序, 请关注 :doc:`../../api/readme` ！"
 
 #~ msgid ""
 #~ "The first hook we created was for"

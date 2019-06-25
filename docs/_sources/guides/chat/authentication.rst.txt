@@ -9,7 +9,7 @@ Generate authentication
 
 To add authentication to our application, we can run
 
-::
+.. code-block:: sh
 
    feathers generate authentication
 
@@ -44,7 +44,7 @@ Create the user
 
 We will create a new user with the following data:
 
-::
+.. code-block:: sh
 
    {
      "email": "feathers@example.com",
@@ -56,7 +56,7 @@ the database, and exclude it from the response. (Passwords should never
 be transmitted back to clients). There are several ways to create a new
 user, for example, via CURL:
 
-::
+.. code-block:: sh
 
    curl 'http://localhost:3030/users/' -H 'Content-Type: application/json' --data-binary '{ "email": "feathers@example.com", "password": "secret" }'
 
@@ -77,7 +77,7 @@ Get a token
 To create a JWT, we can now post the login information to the
 ``authentication`` service, with the desired strategy (``local``):
 
-::
+.. code-block:: sh
 
    {
      "strategy": "local",
@@ -87,7 +87,7 @@ To create a JWT, we can now post the login information to the
 
 Via CURL:
 
-::
+.. code-block:: sh
 
    curl 'http://localhost:3030/authentication/' -H 'Content-Type: application/json' --data-binary '{ "strategy": "local", "email": "feathers@example.com", "password": "secret" }'
 
@@ -101,7 +101,7 @@ by adding it to the ``Authorization`` header of new HTTP requests. Since
 we will also use Feathers on the client when creating a frontend, we
 don’t have to worry about manually creating and using the token for this
 guide. For more information for authenticating REST API calls see the
-:doc:`../../api/client/rest#authentication`.
+:ref:`api-client-rest-authentication`.
 
 Securing the messages service
 -----------------------------

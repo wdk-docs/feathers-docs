@@ -28,17 +28,15 @@ msgid ""
 "sorting, limiting and selecting ``find`` method calls as part of "
 "``params.query``. Querying also applies ``update``, ``patch`` and "
 "``remove`` method calls if the ``id`` is set to ``null``."
-msgstr "所有官方数据库适配器都支持查询，排序，限制和选择``find``方法调用的常用方法，作为``params.query``的一部分。如果将``id``设置为``null``，查询也会应用``update``，``patch``和``remove``方法调用。"
+msgstr "所有官方数据库适配器都支持查询, 排序, 限制和选择 ``find`` 方法调用的常用方法, 作为 ``params.query`` 的一部分. 如果将 ``id`` 设置为 ``null``, 查询也会应用 ``update``, ``patch`` 和 ``remove`` 方法调用. "
 
 #: ../../source/api/databases/querying.rst:9
-#, fuzzy
 msgid ""
 "When used via REST URLs all query values are strings. Depending on the "
 "service the values in ``params.query`` might have to be converted to the "
 "right type in a :doc:`../hooks`."
 msgstr ""
-"**Important**: When used via REST URLs all query values are strings. "
-"Depending on the service the values in :doc:`hooks`."
+"通过REST URL使用时, 所有查询值都是字符串. 取决于服务的值 :doc:`hooks`. "
 
 #: ../../source/api/databases/querying.rst:14
 msgid "Equality"
@@ -49,8 +47,7 @@ msgid ""
 "All fields that do not contain special query parameters are compared "
 "directly for equality."
 msgstr ""
-"All fields that do not contain special query parameters are compared "
-"directly for equality."
+"不包含特殊查询参数的所有字段将直接进行相等性比较. "
 
 #: ../../source/api/databases/querying.rst:34
 msgid "``$limit``"
@@ -58,7 +55,7 @@ msgstr "``$limit``"
 
 #: ../../source/api/databases/querying.rst:36
 msgid "``$limit`` will return only the number of results you specify:"
-msgstr "``$limit`` will return only the number of results you specify:"
+msgstr "``$limit`` 将仅返回您指定的结果数:"
 
 #: ../../source/api/databases/querying.rst:54
 msgid ""
@@ -67,8 +64,7 @@ msgid ""
 "query against the database and return a page object with the ``total`` "
 "and an empty ``data`` array."
 msgstr ""
-"用：doc：`common＃pagination`。只是得到可用记录的数量``$ "
-"limit``设置为``0``。这只会对数据库运行一个（快速）计数查询，并返回一个带有``total``和一个空``data``数组的页面对象。"
+"用 :doc:`common＃pagination`. 只是得到可用记录的数量 ``$limit`` 设置为 ``0``. 这只会对数据库运行一个(快速)计数查询, 并返回一个带有 ``total`` 和一个空 ``data`` 数组的页面对象. "
 
 #: ../../source/api/databases/querying.rst:60
 msgid "``$skip``"
@@ -76,7 +72,7 @@ msgstr "``$skip``"
 
 #: ../../source/api/databases/querying.rst:62
 msgid "``$skip`` will skip the specified number of results:"
-msgstr "``$skip`` will skip the specified number of results:"
+msgstr "``$skip`` 将跳过指定数量的结果:"
 
 #: ../../source/api/databases/querying.rst:80
 msgid "``$sort``"
@@ -88,9 +84,7 @@ msgid ""
 "list of properties by which to sort mapped to the order (``1`` ascending,"
 " ``-1`` descending)."
 msgstr ""
-"``$sort`` will sort based on the object you provide. It can contain a "
-"list of properties by which to sort mapped to the order (``1`` ascending,"
-" ``-1`` descending)."
+"``$sort`` 将根据您提供的对象进行排序. 它可以包含一个属性列表, 通过它可以排序映射到顺序(``1`` 升序, ``-1`` 降序). "
 
 #: ../../source/api/databases/querying.rst:103
 msgid "``$select``"
@@ -101,8 +95,7 @@ msgid ""
 "``$select`` allows to pick which fields to include in the result. This "
 "will work for any service method."
 msgstr ""
-"``$select`` allows to pick which fields to include in the result. This "
-"will work for any service method."
+"``$select`` 允许选择要包含在结果中的字段. 这适用于任何服务方法. "
 
 #: ../../source/api/databases/querying.rst:129
 msgid "``$in``, ``$nin``"
@@ -113,8 +106,7 @@ msgid ""
 "Find all records where the property does (``$in``) or does not (``$nin``)"
 " match any of the given values."
 msgstr ""
-"Find all records where the property does (``$in``) or does not (``$nin``)"
-" match any of the given values."
+"找到属性所做的所有记录(``$in``)或不匹配任何给定值(``$nin``). "
 
 #: ../../source/api/databases/querying.rst:150
 msgid "``$lt``, ``$lte``"
@@ -125,8 +117,7 @@ msgid ""
 "Find all records where the value is less (``$lt``) or less and equal "
 "(``$lte``) to a given value."
 msgstr ""
-"Find all records where the value is less (``$lt``) or less and equal "
-"(``$lte``) to a given value."
+"查找值较小(“$lt``”)或更少且等于(``$lte``)到给定值的所有记录. "
 
 #: ../../source/api/databases/querying.rst:173
 msgid "``$gt``, ``$gte``"
@@ -137,8 +128,7 @@ msgid ""
 "Find all records where the value is more (``$gt``) or more and equal "
 "(``$gte``) to a given value."
 msgstr ""
-"Find all records where the value is more (``$gt``) or more and equal "
-"(``$gte``) to a given value."
+"查找值为更多(``$gt``)或更多且等于(``$gte``)到给定值的所有记录. "
 
 #: ../../source/api/databases/querying.rst:196
 msgid "``$ne``"
@@ -146,7 +136,7 @@ msgstr "``$ne``"
 
 #: ../../source/api/databases/querying.rst:198
 msgid "Find all records that do not equal the given property value."
-msgstr "Find all records that do not equal the given property value."
+msgstr "查找不等于给定属性值的所有记录. "
 
 #: ../../source/api/databases/querying.rst:216
 msgid "``$or``"
@@ -154,11 +144,11 @@ msgstr "``$or``"
 
 #: ../../source/api/databases/querying.rst:218
 msgid "Find all records that match any of the given criteria."
-msgstr "Find all records that match any of the given criteria."
+msgstr "查找符合任何给定条件的所有记录. "
 
 #: ../../source/api/databases/querying.rst:238
 msgid "Search"
-msgstr "Search"
+msgstr "搜索"
 
 #: ../../source/api/databases/querying.rst:240
 msgid ""
@@ -166,9 +156,7 @@ msgid ""
 "specific to the database you are using. Many databases already support "
 "their own search syntax:"
 msgstr ""
-"Searching is not part of the common querying syntax since it is very "
-"specific to the database you are using. Many databases already support "
-"their own search syntax:"
+"搜索不是常见查询语法的一部分, 因为它非常特定于您正在使用的数据库. 许多数据库已经支持自己的搜索语法:"
 
 #: ../../source/api/databases/querying.rst:244
 msgid ""
@@ -176,25 +164,21 @@ msgid ""
 " See `this comment "
 "<https://github.com/feathersjs/feathers/issues/334#issuecomment-234432108>`_"
 msgstr ""
-"Regular expressions (converted in a hook) for Mongoose, MongoDB and NeDB."
-" See `this comment "
-"<https://github.com/feathersjs/feathers/issues/334#issuecomment-234432108>`_"
+"Mongoose, MongoDB和NeDB的正则表达式(在钩子中转换). 见 `这个评论 <https://github.com/feathersjs/feathers/issues/334#issuecomment-234432108>`_"
 
 #: ../../source/api/databases/querying.rst:248
 msgid ""
 "For MongoDB also see `feathers-mongodb-fuzzy-search "
 "<https://www.npmjs.com/package/feathers-mongodb-fuzzy-search>`_"
 msgstr ""
-"For MongoDB also see `feathers-mongodb-fuzzy-search "
-"<https://www.npmjs.com/package/feathers-mongodb-fuzzy-search>`_"
+"对于MongoDB, 也可以看到 `feathers-mongodb-fuzzy-search <https://www.npmjs.com/package/feathers-mongodb-fuzzy-search>`_"
 
 #: ../../source/api/databases/querying.rst:250
 msgid ""
 "For NeDB also see `feathers-nedb-fuzzy-search "
 "<https://www.npmjs.com/package/feathers-nedb-fuzzy-search>`_"
 msgstr ""
-"For NeDB also see `feathers-nedb-fuzzy-search "
-"<https://www.npmjs.com/package/feathers-nedb-fuzzy-search>`_"
+"对于NeDB也可以看到 `feathers-nedb-fuzzy-search <https://www.npmjs.com/package/feathers-nedb-fuzzy-search>`_"
 
 #: ../../source/api/databases/querying.rst:253
 msgid ""
@@ -203,10 +187,7 @@ msgid ""
 " in `params.sequelize <https://github.com/feathersjs-ecosystem/feathers-"
 "sequelize#paramssequelize>`_"
 msgstr ""
-"`$like for Sequelize "
-"<http://docs.sequelizejs.com/en/latest/docs/querying/>`_ which can be set"
-" in `params.sequelize <https://github.com/feathersjs-ecosystem/feathers-"
-"sequelize#paramssequelize>`_"
+"`$like Sequelize <http://docs.sequelizejs.com/en/latest/docs/querying/>`_ 这可以在 `params.sequelize <https://github.com/feathersjs-ecosystem/feathers-中设置 - sequelize＃paramssequelize>`_"
 
 #: ../../source/api/databases/querying.rst:257
 msgid ""
@@ -216,57 +197,17 @@ msgid ""
 "/feathersjs-ecosystem/feathers-elasticsearch>`_ also support non-standard"
 " query parameters which are described in their documentation pages."
 msgstr ""
-"一些数据库适配器，如`KnexJS <https://github.com/feathersjs-ecosystem/feathers-"
-"knex>`_，`RethinkDB <https://github.com/feathersjs-ecosystem/feathers-"
-"rethinkdb>`_和`Elasticsearch <https://github.com/feathersjs-ecosystem"
-"/feathers-elasticsearch>`_还支持其文档页面中描述的非标准查询参数。"
+"一些数据库适配器, 如 `KnexJS <https://github.com/feathersjs-ecosystem/feathers-knex>`_, `RethinkDB <https://github.com/feathersjs-ecosystem/feathers-rethinkdb>`_ 和 `Elasticsearch <https://github.com/feathersjs-ecosystem/feathers-elasticsearch>`_ 还支持其文档页面中描述的非标准查询参数. "
 
 #: ../../source/api/databases/querying.rst:264
 msgid ""
 "For additional search functionality see `feathers-solr "
 "<https://www.npmjs.com/package/feathers-solr>`_"
 msgstr ""
-"For additional search functionality see `feathers-solr "
-"<https://www.npmjs.com/package/feathers-solr>`_"
+"有关其他搜索功能, 请参阅 `feathers-solr <https://www.npmjs.com/package/feathers-solr>`_"
 
 #: ../../source/api/databases/querying.rst:267
 msgid ""
 "For further discussions see `this issue "
 "<https://github.com/feathersjs/feathers/issues/334>`_."
-msgstr ""
-"For further discussions see `this issue "
-"<https://github.com/feathersjs/feathers/issues/334>`_."
-
-#~ msgid ""
-#~ "**Pro tip:** With `pagination enabled "
-#~ "<common.md#pagination>`_, to just get the "
-#~ "number of available records set "
-#~ "``$limit`` to ``0``. This will only "
-#~ "run a (fast) counting query against "
-#~ "the database and return a page "
-#~ "object with the ``total`` and an "
-#~ "empty ``data`` array."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "**Pro tip:** With :doc:`pagination enabled "
-#~ "<common#pagination>`_, to just get the "
-#~ "number of available records set "
-#~ "``$limit`` to ``0``. This will only "
-#~ "run a (fast) counting query against "
-#~ "the database and return a page "
-#~ "object with the ``total`` and an "
-#~ "empty ``data`` array."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "With :doc:`pagination enabled <common#pagination>`,"
-#~ " to just get the number of "
-#~ "available records set ``$limit`` to "
-#~ "``0``. This will only run a (fast)"
-#~ " counting query against the database "
-#~ "and return a page object with the"
-#~ " ``total`` and an empty ``data`` "
-#~ "array."
-#~ msgstr ""
-
+msgstr "有关进一步讨论, 请参阅 `此问题 <https://github.com/feathersjs/feathers/issues/334>`_."

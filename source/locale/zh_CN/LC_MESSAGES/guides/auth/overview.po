@@ -28,7 +28,7 @@ msgid ""
 ":doc:`../../api/authentication/server` built on top of `PassportJS "
 "<http://www.passportjs.org/>`_. The new plugins are very flexible, "
 "allowing you to customize nearly everything."
-msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上.新插件非常灵活,允许您自定义几乎所有内容."
+msgstr "FeatusJS的 Auk 版本包含一个强大的新的建立在 `PassportJS <http://www.passportjs.org/>`_ 之上的 :doc:`../../api/authentication/server`.新插件非常灵活,允许您自定义几乎所有内容."
 
 #: ../../source/guides/auth/overview.rst:9
 msgid "A Single Auth Endpoint"

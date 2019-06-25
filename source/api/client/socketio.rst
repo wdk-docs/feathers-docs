@@ -12,7 +12,7 @@ Socket.io Client
 
 |GitHub stars| |npm version| |Changelog|
 
-::
+.. code-block:: sh
 
    $ npm install @feathersjs/socketio-client --save
 
@@ -22,7 +22,7 @@ Socket.io socket.
 
 .. important:: Socket.io is also used to *call* service methods.
    Using sockets for both calling methods and receiving real-time events
-   is generally faster than using :doc:`./express`. There is
+   is generally faster than using :doc:`../express`. There is
    therefore no need to use both REST and Socket.io in the same client
    application.
 
@@ -32,37 +32,29 @@ socketio(socket)
 Initialize the Socket.io client using a given socket and the default
 options.
 
-{% codetabs name=“Modular”, type=“js” -%} const feathers =
-require(‘@feathersjs/feathers’); const socketio =
-require(‘@feathersjs/socketio-client’); const io =
-require(‘socket.io-client’);
+.. code-block:: js
 
-const socket = io(‘http://api.feathersjs.com’); const app = feathers();
+   const feathers = require(‘@feathersjs/feathers’);
+   const socketio = require(‘@feathersjs/socketio-client’);
+   const io = require(‘socket.io-client’);
 
-// Set up Socket.io client with the socket
-app.configure(socketio(socket));
+   const socket = io(‘http://api.feathersjs.com’); const app = feathers();
 
-// Receive real-time events through Socket.io app.service(‘messages’)
-.on(‘created’, message => console.log(‘New message created’, message));
+   // Set up Socket.io client with the socket
+   app.configure(socketio(socket));
 
-// Call the ``messages`` service app.service(‘messages’).create({ text:
-‘A message from a REST client’ }); {%- language
-name=“@feathersjs/client”, type=“html” -%}
+   // Receive real-time events through Socket.io app.service(‘messages’)
+   .on(‘created’, message => console.log(‘New message created’, message));
+
+   // Call the ``messages`` service app.service(‘messages’).create({ text:
+   ‘A message from a REST client’ }); {%- language
+   name=“@feathersjs/client”, type=“html” -%}
 
 .. raw:: html
 
    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
-
-.. raw:: html
-
    <script src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
-
-.. raw:: html
-
    <script src="//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js"></script>
-
-.. raw:: html
-
    <script>
      // Socket.io is exposed as the `io` global.
      var socket = io('http://api.feathersjs.com');
@@ -83,8 +75,6 @@ name=“@feathersjs/client”, type=“html” -%}
 
      // feathers.errors is an object with all of the custom error types.
    </script>
-
-{%- endcodetabs %}
 
 socketio(socket, options)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,7 +119,7 @@ server. Unlike HTTP calls, websockets do not have an inherent
 cross-origin restriction in the browser so it is possible to connect to
 any Feathers server.
 
-   .. tip: The socket connection URL has to point to the server root
+.. tip:: The socket connection URL has to point to the server root
    which is where Feathers will set up Socket.io.
 
 .. code:: html
@@ -192,9 +182,7 @@ Retrieves a list of all matching resources from the service
      console.log('Found all messages', data);
    });
 
-Will call
-``app.service('messages').find({ query: { status: 'read', user: 10 } })``
-on the server.
+Will call ``app.service('messages').find({ query: { status: 'read', user: 10 } })`` on the server.
 
 get
 ~~~
@@ -335,6 +323,8 @@ resources:
 Will call
 ``app.service('messages').remove(null, { query: { read: 'true' } })`` on
 the server to delete all read app.service(‘messages’).
+
+.. _client_socketio_listening-to-events:
 
 Listening to events
 ~~~~~~~~~~~~~~~~~~~

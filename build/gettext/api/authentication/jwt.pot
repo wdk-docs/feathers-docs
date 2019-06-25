@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 21:06+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/authentication/jwt.rst:10
-msgid "[@feathersjs/authentication-jwt](https://github.com/feathersjs/authentication-jwt) is a module for the :doc:`./server` that wraps the `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_ authentication strategy, which lets you authenticate with your Feathers application using a `JSON Web Token <https://jwt.io/>`_ access token."
+msgid "`@feathersjs/authentication-jwt <https://github.com/feathersjs/authentication-jwt>`_ is a module for the :doc:`./server` that wraps the `passport-jwt <https://github.com/themikenicholson/passport-jwt>`_ authentication strategy, which lets you authenticate with your Feathers application using a `JSON Web Token <https://jwt.io/>`_ access token."
 msgstr ""
 
 #: ../../source/api/authentication/jwt.rst:16

@@ -61,7 +61,7 @@ msgid ""
 "Beyond the basics, see `this list <https://github.com/feathersjs/awesome-"
 "feathersjs#examples>`_ of Feathers examples in `awesome-feathersjs "
 "<https://github.com/feathersjs/awesome-feathersjs>`_."
-msgstr "除了基础知识，请参阅 `awesome-feathersjs <https://github.com/feathersjs/awesome-feathersjs>`_ 中的Feathers示例 `列表 <https://github.com/feathersjs/awesome-feathersjs#examples>`_"
+msgstr "除了基础知识, 请参阅 `awesome-feathersjs <https://github.com/feathersjs/awesome-feathersjs>`_ 中的Feathers示例 `列表 <https://github.com/feathersjs/awesome-feathersjs#examples>`_"
 
 #: ../../source/guides/frameworks/readme.rst:29
 msgid "Framework Integrations"
@@ -73,6 +73,6 @@ msgid ""
 "clients>`_ of Feathers front-end framework integrations if you are "
 "looking for something that makes Feathers even easier to use with things "
 "like React, Vue or others."
-msgstr "如果您正在寻找使Feathers更容易与React，Vue或其他内容一起使用的东西，请参阅Feathers前端框架集成 `列表 <https://github.com/feathersjs/awesome-feathersjs#js-"
-"clients>`_。"
+msgstr "如果您正在寻找使Feathers更容易与React, Vue或其他内容一起使用的东西, 请参阅Feathers前端框架集成 `列表 <https://github.com/feathersjs/awesome-feathersjs#js-"
+"clients>`_."
 

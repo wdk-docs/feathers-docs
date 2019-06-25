@@ -60,7 +60,7 @@ server.
 
 To add the integration we install ``@feathersjs/express``:
 
-::
+.. code-block:: sh
 
    npm install @feathersjs/express --save
 
@@ -195,7 +195,7 @@ API:
 
 You can start the server by running
 
-::
+.. code-block:: sh
 
    node app.js
 

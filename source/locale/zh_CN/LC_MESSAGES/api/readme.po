@@ -26,7 +26,7 @@ msgstr "API"
 msgid ""
 "This section describes all the APIs of Feathers and its individual "
 "modules."
-msgstr "本节介绍Feathers的所有API及其各个模块。"
+msgstr "本节介绍Feathers的所有API及其各个模块."
 
 #: ../../source/api/readme.rst:7
 msgid "**Core:** Feathers core functionality"
@@ -66,7 +66,7 @@ msgstr ":doc:`errors` - Feathers中使用的错误类集合"
 msgid ""
 ":doc:`configuration` - A node-config wrapper to "
 "initialize configuration of a server side application."
-msgstr ":doc:`configuration` - 用于初始化服务器端应用程序配置的node-config包装器。"
+msgstr ":doc:`configuration` - 用于初始化服务器端应用程序配置的node-config包装器."
 
 #: ../../source/api/readme.rst:22
 msgid "**Transports:** Expose a Feathers application as an API server"
@@ -76,7 +76,7 @@ msgstr "**Transports:** 将Feathers应用程序公开为API服务器"
 msgid ""
 ":doc:`express` - Feathers Express framework bindings, REST API "
 "provider and error middleware."
-msgstr ":doc:`express` - Feathers Express框架绑定，REST API提供程序和错误中间件。"
+msgstr ":doc:`express` - Feathers Express框架绑定, REST API提供程序和错误中间件."
 
 #: ../../source/api/readme.rst:26
 msgid ":doc:`socketio` - The Socket.io real-time transport provider"
@@ -94,7 +94,7 @@ msgstr "**Client:** 有关如何在客户端上使用Feathers的更多详细信�
 msgid ""
 ":doc:`client` - Feathers client usage in Node, React Native and "
 "the browser (also with Webpack and Browserify)"
-msgstr ":doc:`client` - 在Node，React Native和浏览器中使用客户端（也使用Webpack和Browserify）"
+msgstr ":doc:`client` - 在Node, React Native和浏览器中使用客户端(也使用Webpack和Browserify)"
 
 #: ../../source/api/readme.rst:34
 msgid ""

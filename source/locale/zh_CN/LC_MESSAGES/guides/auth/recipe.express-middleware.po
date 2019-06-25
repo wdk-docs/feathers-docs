@@ -19,8 +19,8 @@ msgstr ""
 "Generated-By: Babel 2.6.0\n"
 
 #: ../../source/guides/auth/recipe.express-middleware.rst:2
-msgid "FeathersJS Auth Recipe: Authenticating Express middleware (SSR)"
-msgstr "FeathersJS 认证食谱: 认证Express中间件(SSR)"
+msgid "Authenticating Express middleware (SSR)"
+msgstr "认证Express中间件(SSR)"
 
 #: ../../source/guides/auth/recipe.express-middleware.rst:4
 msgid ""

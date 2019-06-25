@@ -160,8 +160,8 @@ context.params
 ~~~~~~~~~~~~~~
 
 ``context.params`` is a **writeable** property that contains the
-:doc:`./services` parameters (including
-:ref:`services_params`.
+:doc:`./services` parameters (including ``params.query``).
+For more information see the :ref:`services_params`.
 
 context.id
 ~~~~~~~~~~
@@ -499,15 +499,13 @@ Application hooks
 
 To add hooks to every service ``app.hooks(hooks)`` can be used.
 Application hooks are `registered in the same format as service
-hooks <#registering-hooks>`_ and also work exactly the same. Note when
-application hooks will be executed however:
+hooks <#registering-hooks>`_ and also work exactly the same.
 
--  ``before`` application hooks will always run *before* all service
-   ``before`` hooks
--  ``after`` application hooks will always run *after* all service
-   ``after`` hooks
--  ``error`` application hooks will always run *after* all service
-   ``error`` hooks
+.. note:: when application hooks will be executed however:
+
+- ``before`` application hooks will always run *before* all service ``before`` hooks
+- ``after`` application hooks will always run *after* all service ``after`` hooks
+- ``error`` application hooks will always run *after* all service ``error`` hooks
 
 Here is an example for a very useful application hook that logs every
 service method error with the service and method name as well as the

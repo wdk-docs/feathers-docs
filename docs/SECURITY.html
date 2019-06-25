@@ -181,7 +181,7 @@
 <li><p>使用挂钩检查安全角色,以确保用户只能访问应允许的数据.您可以在 <a class="reference external" href="https://feathers-plus.github.io/v1/feathers-hooks-common/">feathers-hooks-common</a> 和 <a class="reference external" href="https://github中找到有用的钩子实用程序.的.com/feathersjs生态系统/羽认证钩/">feathers-authentication-hooks</a>.</p></li>
 <li><p>通过在钩子中清理 <code class="docutils literal notranslate"><span class="pre">params.query</span></code>, 将 <a class="reference internal" href="api/databases/querying.html"><span class="doc">查询</span></a> 限制为应用程序所需的用例.</p></li>
 <li><p>如果 <code class="docutils literal notranslate"><span class="pre">context.id</span> <span class="pre">===</span> <span class="pre">null</span></code> 则抛出错误来禁用多个元素更改.</p></li>
-<li><p>转义任何HTML和JavaScript以避免XSS攻击。</p></li>
+<li><p>转义任何HTML和JavaScript以避免XSS攻击.</p></li>
 <li><p>转义任何SQL(通常由SQL库完成)以避免SQL注入.</p></li>
 <li><p>JSON Web令牌(JWT)只是签名,它们 <strong>不是</strong> 加密的.因此,可以在客户端上检查有效负载.这是设计的. <strong>除非</strong> 先加密,否则请勿在JWT <code class="docutils literal notranslate"><span class="pre">payload</span></code> 中放置任何私密内容.</p></li>
 <li><p>不要为你的令牌服务使用弱的 <code class="docutils literal notranslate"><span class="pre">secret</span></code>. 生成器会自动为您创建一个强大的生成器.无需改变它.</p></li>

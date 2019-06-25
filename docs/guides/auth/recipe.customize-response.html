@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FeathersJS Auth Recipe:自定义登录响应 &mdash; feathers docs v2019.06.21 文档</title>
+  <title>自定义登录响应 &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
-    <link rel="next" title="FeathersJS Auth Recipe:使用混合身份验证创建端点" href="recipe.mixed-auth.html" />
-    <link rel="prev" title="FeathersJS Auth Recipe:自定义JWT Payload" href="recipe.customize-jwt-payload.html" /> 
+    <link rel="next" title="使用混合身份验证创建端点" href="recipe.mixed-auth.html" />
+    <link rel="prev" title="自定义 JWT Payload" href="recipe.customize-jwt-payload.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,18 +92,18 @@
 <li class="toctree-l3"><a class="reference internal" href="readme.html">身份验证指南和食谱</a></li>
 <li class="toctree-l3"><a class="reference internal" href="overview.html">Feathers 认证概述</a></li>
 <li class="toctree-l3"><a class="reference internal" href="how-jwt-works.html">JSON Web令牌的工作原理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">FeathersJS Auth Recipe:自定义JWT Payload</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">FeathersJS Auth Recipe:自定义登录响应</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="recipe.customize-jwt-payload.html">自定义 JWT Payload</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">自定义登录响应</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#changes-to-the-login-response">登录响应的更改</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#customizing-the-login-response">自定义登录响应</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">自定义登录响应</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#accessing-the-user-entity">访问用户实体</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wrapping-up">包起来</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">FeathersJS Auth Recipe:使用混合身份验证创建端点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">FeathersJS Auth Recipe:设置基本OAuth登录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">FeathersJS Auth Recipe:自定义身份验证策略</a></li>
-<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">FeathersJS Auth Recipe:认证Express中间件(SSR)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.mixed-auth.html">使用混合身份验证创建端点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.oauth-basic.html">设置基本OAuth登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.custom-auth-strategy.html">Custom Auth Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recipe.express-middleware.html">认证Express中间件(SSR)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/index.html">高级指南</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">身份验证指南和食谱</a> &raquo;</li>
         
-      <li>FeathersJS Auth Recipe:自定义登录响应</li>
+      <li>自定义登录响应</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,8 +188,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="feathersjs-auth-recipe-customizing-the-login-response">
-<h1>FeathersJS Auth Recipe:自定义登录响应<a class="headerlink" href="#feathersjs-auth-recipe-customizing-the-login-response" title="永久链接至标题">¶</a></h1>
+  <div class="section" id="customizing-the-login-response">
+<h1>自定义登录响应<a class="headerlink" href="#customizing-the-login-response" title="永久链接至标题">¶</a></h1>
 <p>FeatusJS的Auk版本包括一个强大的新的 <a class="reference internal" href="../../api/authentication/server.html"><span class="doc">认证</span></a> 建立在 <a class="reference external" href="http://www.passportjs.org/">PassportJS</a> 之上.新插件非常灵活,允许您自定义几乎所有内容.这种灵活性需要做出一些改变.在本指南中,我们将查看登录响应的更改以及如何自定义它.</p>
 <div class="section" id="changes-to-the-login-response">
 <h2>登录响应的更改<a class="headerlink" href="#changes-to-the-login-response" title="永久链接至标题">¶</a></h2>
@@ -212,8 +212,8 @@
 <p>JWT还包含一个具有 <code class="docutils literal notranslate"><span class="pre">userId</span></code> 属性的有效负载.</p>
 <p>基于以上所述,您可以看到我们默认仍然会对 <code class="docutils literal notranslate"><span class="pre">user</span></code> 进行身份验证.在这种情况下,``user`` 就是我们所说的 <code class="docutils literal notranslate"><span class="pre">entity</span></code>.它是经过身份验证的通用名称.它是可定制的,但本指南未涉及.相反,让我们关注在登录响应中添加用户所需的内容.</p>
 </div>
-<div class="section" id="customizing-the-login-response">
-<h2>自定义登录响应<a class="headerlink" href="#customizing-the-login-response" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h2>自定义登录响应<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 端点现在是Feathers服务.它使用 <code class="docutils literal notranslate"><span class="pre">create</span></code> 方法进行登录,使用 <code class="docutils literal notranslate"><span class="pre">remove</span></code> 方法进行注销.就像所有Feathers服务一样,您可以使用 <span class="xref std std-doc">../api/hooks</span> 自定义响应.对于我们想要做的事情,重要的部分是 <code class="docutils literal notranslate"><span class="pre">context.result</span></code>,它成为了响应体.我们可以使用 <code class="docutils literal notranslate"><span class="pre">after</span></code> 钩子来定制 <code class="docutils literal notranslate"><span class="pre">context.result</span></code> 以返回我们想要的任何内容:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;/authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
   <span class="nx">after</span><span class="o">:</span> <span class="p">{</span>
@@ -267,10 +267,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-right" title="FeathersJS Auth Recipe:使用混合身份验证创建端点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="recipe.mixed-auth.html" class="btn btn-neutral float-right" title="使用混合身份验证创建端点" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="recipe.customize-jwt-payload.html" class="btn btn-neutral float-left" title="FeathersJS Auth Recipe:自定义JWT Payload" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="recipe.customize-jwt-payload.html" class="btn btn-neutral float-left" title="自定义 JWT Payload" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -38,7 +38,7 @@ msgstr ""
 
 #: ../../source/api/errors.rst:17
 msgid "Feathers errors"
-msgstr "羽毛错误"
+msgstr "Feathers 错误"
 
 #: ../../source/api/errors.rst:19
 msgid ""

@@ -19,8 +19,8 @@ msgstr ""
 "Generated-By: Babel 2.6.0\n"
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:2
-msgid "FeathersJS Auth Recipe: Create Endpoints with Mixed Auth"
-msgstr "FeathersJS Auth Recipe:使用混合身份验证创建端点"
+msgid "Create Endpoints with Mixed Auth"
+msgstr "使用混合身份验证创建端点"
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:4
 msgid ""
@@ -32,7 +32,7 @@ msgid ""
 "serve different information depending on whether the user is "
 "authenticated. An unauthenticated user might only see public records. An "
 "authenticated user might be able to see additional records."
-msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上。它可以自定义以处理几乎任何应用程序的身份验证要求。在本指南中,我们将介绍如何处理相当常见的身份验证方案:有时端点需要根据用户是否经过身份验证来提供不同的信息。未经身份验证的用户可能只会看到公共记录。经过身份验证的用户可能能够看到其他记录。"
+msgstr "FeatusJS的Auk版本包括一个强大的新的 :doc:`../../api/authentication/server` 建立在 `PassportJS <http://www.passportjs.org/>`_ 之上.它可以自定义以处理几乎任何应用程序的身份验证要求.在本指南中,我们将介绍如何处理相当常见的身份验证方案:有时端点需要根据用户是否经过身份验证来提供不同的信息.未经身份验证的用户可能只会看到公共记录.经过身份验证的用户可能能够看到其他记录."
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:13
 msgid "Setup the Authentication Endpoint"
@@ -105,7 +105,7 @@ msgid ""
 "to read the `iff hook API docs <https://feathers-plus.github.io/v1"
 "/feathers-hooks-common/#iff>`_ and `else hook API docs <https://feathers-"
 "plus.github.io/v1/feathers-hooks-common/#else>`_ if you haven’t, yet."
-msgstr "如果``user``记录包含 ``public:true``,则 **未经身份验证的** 用户应该能够访问它。 让我们看看如何使用来自 `feathers-hooks-common <https://feathers-plus.github.io/v1/feathers-hooks-common/>`_ 的 ``iff`` 和 ``else`` 条件钩子。实现这一目标。 一定要阅读 `iff hook API docs <https://feathers-plus.github.io/v1/feathers-hooks-common/#iff>`_ 和 `else hook API docs <https://feathers-plus .github.io/v1/feathers-hooks-common/＃else>`_ 如果你还没有。"
+msgstr "如果``user``记录包含 ``public:true``,则 **未经身份验证的** 用户应该能够访问它. 让我们看看如何使用来自 `feathers-hooks-common <https://feathers-plus.github.io/v1/feathers-hooks-common/>`_ 的 ``iff`` 和 ``else`` 条件钩子.实现这一目标. 一定要阅读 `iff hook API docs <https://feathers-plus.github.io/v1/feathers-hooks-common/#iff>`_ 和 `else hook API docs <https://feathers-plus .github.io/v1/feathers-hooks-common/＃else>`_ 如果你还没有."
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:129
 msgid ""
@@ -152,7 +152,7 @@ msgid ""
 " This limits the query to only find ``user`` records that have the "
 "``public`` property set to ``true``."
 msgstr ""
-"上面的语句只是将``public：true``添加到查询参数中。这限制了查询只能找到``public``属性设置为``true``的``user``记录。"
+"上面的语句只是将``public:true``添加到查询参数中.这限制了查询只能找到``public``属性设置为``true``的``user``记录."
 
 #: ../../source/guides/auth/recipe.mixed-auth.rst:200
 msgid "Wrapping Up"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 10:40+0800\n"
+"POT-Creation-Date: 2019-06-25 18:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid "|npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/api/authentication/oauth1.rst:10
-msgid "[@feathersjs/authentication-oauth1](https://github.com/feathersjs/authentication-oauth1) is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy within your Feathers application, most notably `Twitter <https://github.com/jaredhanson/passport-twitter>`_."
+msgid "`@feathersjs/authentication-oauth1 <https://github.com/feathersjs/authentication-oauth1>`_ is a server side module that allows you to use any `Passport <http://passportjs.org/>`_ OAuth1 authentication strategy within your Feathers application, most notably `Twitter <https://github.com/jaredhanson/passport-twitter>`_."
 msgstr ""
 
 #: ../../source/api/authentication/oauth1.rst:16

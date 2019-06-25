@@ -92,15 +92,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#client">客户端</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#authentication">认证</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">认证</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#complementary-plugins">Complementary Plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complementary-plugins">互补插件</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app-configure-auth-options">app.configure(auth(options))</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">选项</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app-service-authentication">app.service(‘authentication’)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#app-passport">app.passport</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#auth-hooks-authenticate-strategies">auth.hooks.authenticate(strategies)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#authentication-events">Authentication Events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#express-middleware">Express Middleware</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#complete-example">Complete Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication-events">认证事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#express-middleware">快递中间件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#complete-example">完整的例子</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="client.html">验证客户端</a></li>
@@ -191,46 +191,36 @@
   <div class="section" id="authentication">
 <h1>认证<a class="headerlink" href="#authentication" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/authentication"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/authentication.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/authentication/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication --save
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication --save
 </pre></div>
 </div>
-<p>[&#64; feathersjs / authentication]（<a class="reference external" href="https://github.com/feathersjs/authentication">https://github.com/feathersjs/authentication</a>）模块有助于使用JWT进行身份验证。它有三个主要目的：</p>
+<p><a class="reference external" href="https://github.com/feathersjs/authentication">&#64;feathersjs/authentication</a> 模块帮助使用JWT进行身份验证. 它有三个主要目的:</p>
 <ol class="arabic simple">
-<li><p>Setup an <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> endpoint to create JSON Web Tokens
-(JWT). JWT are used as access tokens. You can learn more about JWT at
-<a class="reference external" href="https://jwt.io">jwt.io</a></p></li>
-<li><p>Provide a consistent authentication API for all Feathers transports</p></li>
-<li><p>Provide a framework for authentication plugins that use
-<a class="reference external" href="http://passportjs.org/">Passport</a> strategies to protect
-endpoints.</p></li>
+<li><p>设置 <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 端点以创建JSON Web令牌(JWT). JWT用作访问令牌. 您可以在 <a class="reference external" href="https://jwt.io">jwt.io</a> 了解更多关于JWT的信息.</p></li>
+<li><p>为所有Feathers传输提供一致的身份验证API</p></li>
+<li><p>为使用 <a class="reference external" href="http://passportjs.org/">Passport</a> 策略保护端点的身份验证插件提供框架.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>If you are using a 0.x version of
-<a href="#id2"><span class="problematic" id="id3">`https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating`_</span></a>.
+<a class="reference external" href="https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating">migration guide</a>.
 The hooks that were once bundled with this module are now located at
 <a class="reference external" href="https://github.com/feathersjs-ecosystem/feathers-authentication-hooks">feathers-authentication-hooks</a>.</p>
 </div>
 <div class="section" id="complementary-plugins">
-<h2>Complementary Plugins<a class="headerlink" href="#complementary-plugins" title="永久链接至标题">¶</a></h2>
-<p>The following plugins are complementary, but entirely optional:</p>
+<h2>互补插件<a class="headerlink" href="#complementary-plugins" title="永久链接至标题">¶</a></h2>
+<p>以下插件是互补的, 但完全是可选的:</p>
 <ul class="simple">
-<li><p>Using the authentication server on the client:
-<a class="reference internal" href="client.html"><span class="doc">验证客户端</span></a></p></li>
-<li><p>Local (username/password) authentication:
-<a class="reference internal" href="local.html"><span class="doc">本地验证</span></a></p></li>
-<li><p>JWT authentication: <a class="reference internal" href="jwt.html"><span class="doc">JWT身份验证</span></a></p></li>
-<li><p>OAuth1 authentication:
-<a class="reference internal" href="oauth1.html"><span class="doc">OAuth1身份验证</span></a></p></li>
-<li><p>OAuth2 authentication:
-<a class="reference internal" href="oauth2.html"><span class="doc">OAuth2身份验证</span></a></p></li>
+<li><p>在客户端上使用身份验证服务器: <a class="reference internal" href="client.html"><span class="doc">验证客户端</span></a></p></li>
+<li><p>本地(用户名/密码)身份验证: <a class="reference internal" href="local.html"><span class="doc">本地验证</span></a></p></li>
+<li><p>JWT身份验证: <a class="reference internal" href="jwt.html"><span class="doc">JWT身份验证</span></a></p></li>
+<li><p>OAuth1身份验证: <a class="reference internal" href="oauth1.html"><span class="doc">OAuth1身份验证</span></a></p></li>
+<li><p>OAuth2身份验证: <a class="reference internal" href="oauth2.html"><span class="doc">OAuth2身份验证</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="app-configure-auth-options">
 <h2>app.configure(auth(options))<a class="headerlink" href="#app-configure-auth-options" title="永久链接至标题">¶</a></h2>
-<p>Configure the authentication plugin with the given options. For options
-that are not provided, the <a class="reference external" href="#default-options">default options</a> will
-be used.</p>
+<p>使用给定选项配置身份验证插件. 对于未提供的选项, 将使用 <a class="reference external" href="＃default-options">default options</a>.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/authentication&#39;</span><span class="p">);</span>
 
 <span class="c1">// Available options are listed in the &quot;Default Options&quot; section</span>
@@ -239,13 +229,12 @@ be used.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>The plugin has to be configured <strong>before</strong> any other
-service.</p>
+<p>在任何其他服务 <strong>之前</strong>, 必须配置插件.</p>
 </div>
 </div>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
-<p>以下默认选项将与配置文件中的全局``auth``对象混合在一起。它会将混合选项设置回应用程序，以便通过调用``app.get（’authentication’）``随时可用。它们都可以被覆盖，并且是某些身份验证插件所必需的。</p>
+<span id="api-auth-server-otions"></span><h2>选项<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
+<p>以下默认选项将与配置文件中的全局 <code class="docutils literal notranslate"><span class="pre">auth</span></code> 对象混合在一起.它会将混合选项设置回应用程序, 以便通过调用 <code class="docutils literal notranslate"><span class="pre">app.get('authentication')</span></code> 随时可用.它们都可以被覆盖, 并且是某些身份验证插件所必需的.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
  <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/authentication&#39;</span><span class="p">,</span> <span class="c1">// the authentication service path</span>
  <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="c1">// the header to use when using JWT auth</span>
@@ -273,59 +262,40 @@ service.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">typ</span></code> in the JWT header options is not a typo. It is
-the <a class="reference external" href="https://tools.ietf.org/html/rfc7519#section-5.1">typ parameter defined in the JWT
-specification</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">typ</span></code> in the JWT header options is not a typo.
+It is the <a class="reference external" href="https://tools.ietf.org/html/rfc7519#section-5.1">typ parameter defined in the JWT specification</a>.</p>
 </div>
 </div>
 <div class="section" id="app-service-authentication">
 <h2>app.service(‘authentication’)<a class="headerlink" href="#app-service-authentication" title="永久链接至标题">¶</a></h2>
-<p>The heart of this plugin is a service for creating JWT. It’s a normal
-Feathers service that implements only the <code class="docutils literal notranslate"><span class="pre">create</span></code> and <code class="docutils literal notranslate"><span class="pre">remove</span></code>
-methods. The <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> service provides all of the
-functionality that the <code class="docutils literal notranslate"><span class="pre">/auth/local</span></code> and <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code> endpoints
-did. To choose a strategy, the client must pass the <code class="docutils literal notranslate"><span class="pre">strategy</span></code> name in
-the request body. This will be different based on the plugin used. See
-the documentation for the plugins listed at the top of this page for
-more information.</p>
+<p>这个插件的核心是一个创建JWT的服务. 这是一个普通的Feathers服务, 它只实现了``create``和``remove``方法.  <code class="docutils literal notranslate"><span class="pre">/authentication``服务提供</span></code>/auth/local``和``/auth/token``端点所具有的所有功能. 要选择策略, 客户端必须在请求正文中传递``strategy``名称. 根据使用的插件, 这将有所不同. 有关详细信息, 请参阅本页顶部列出的插件的文档.</p>
 <div class="section" id="service-create-data">
 <h3>service.create(data)<a class="headerlink" href="#service-create-data" title="永久链接至标题">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">create</span></code> method will be used in nearly every Feathers application.
-It creates a JWT based on the <code class="docutils literal notranslate"><span class="pre">jwt</span></code> options configured on the plugin.
-The API of this method utilizes the <code class="docutils literal notranslate"><span class="pre">context</span></code> object.</p>
-<p>If you are manually generating JWT’s, and for example, wanted to create
-a JWT with the <a class="reference external" href="https://jwt.io">payload</a> <code class="docutils literal notranslate"><span class="pre">{userId:</span> <span class="pre">&quot;abc123&quot;}</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">payload</span><span class="p">:</span> <span class="p">{</span><span class="n">userId</span><span class="p">:</span> <span class="s2">&quot;abc123&quot;</span><span class="p">}};</span>
-<span class="n">service</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<p>几乎每个Feathers应用程序都会使用``create``方法. 它基于插件上配置的``jwt``选项创建了一个JWT. 此方法的API使用``context``对象.</p>
+<p>如果您手动生成JWT, 例如, 想要使用`payload &lt;<a class="reference external" href="https://jwt.io">https://jwt.io</a>&gt;`_``{userId:“abc123 ”}``创建一个JWT. :</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>const <span class="nv">data</span> <span class="o">=</span> <span class="o">{</span>payload: <span class="o">{</span>userId: <span class="s2">&quot;abc123&quot;</span><span class="o">}}</span><span class="p">;</span>
+service.create<span class="o">(</span>data<span class="o">)</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Anything included in the <code class="docutils literal notranslate"><span class="pre">data.payload</span></code> object will be in the JWT’s
-payload. If you include a <code class="docutils literal notranslate"><span class="pre">payload</span></code> object in
-<a class="reference external" href="https://docs.feathersjs.com/api/services.html#createdata-params">params</a>,
-it’s properties will take precedence over <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<p>例如, 如果您手动生成JWT, 则需要使用`payload &lt;<a class="reference external" href="https://jwt.io">https://jwt.io</a>&gt;`_`` {userId:“abc123 ”}``创建JWT.</p>
 </div>
 <div class="section" id="service-remove-data">
 <h3>service.remove(data)<a class="headerlink" href="#service-remove-data" title="永久链接至标题">¶</a></h3>
-<p>较少使用``remove``方法。它的主要目的是为“注销”过程添加钩子。例如，在需要高度安全控制的服务中，开发人员可以在执行令牌黑名单的``remove``方法上注册挂钩。</p>
+<p>较少使用 <code class="docutils literal notranslate"><span class="pre">remove</span></code> 方法.它的主要目的是为“注销”过程添加钩子.例如, 在需要高度安全控制的服务中, 开发人员可以在执行令牌黑名单的 <code class="docutils literal notranslate"><span class="pre">remove</span></code> 方法上注册挂钩.</p>
 </div>
 <div class="section" id="service-hooks-before">
 <h3>service.hooks({ before })<a class="headerlink" href="#service-hooks-before" title="永久链接至标题">¶</a></h3>
-<p>These properties can be modified to change the behavior of the
-<code class="docutils literal notranslate"><span class="pre">/authentication</span></code> service:</p>
+<p>可以修改这些属性以更改``/authentication``服务的行为:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">context.data.payload</span> <span class="pre">{Object}</span></code> - determines the payload of the JWT</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">context.params.payload</span> <span class="pre">{Object}</span></code> - also determines the payload of
-the JWT. Any matching attributes in the <code class="docutils literal notranslate"><span class="pre">context.data.payload</span></code> will
-be overwritten by these. Persists into after hooks.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">context.params.authenticated</span> <span class="pre">{Boolean}</span></code> - 成功验证后，将被设置为``true``，除非它在before hook中设置为``false``。如果在before hook中将其设置为“false”，则会阻止websocket被标记为已验证。坚持后钩。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.data.payload</span> <span class="pre">{Object}</span></code> - 确定JWT的有效载荷</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params.payload</span> <span class="pre">{Object}</span></code> - 还确定了JWT的有效载荷.  “context.data.payload”中的任何匹配属性都将被这些覆盖. 坚持后钩.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params.authenticated</span> <span class="pre">{Boolean}</span></code> - 成功验证后, 将被设置为``true``, 除非它在before hook中设置为``false``.如果在before hook中将其设置为“false”, 则会阻止websocket被标记为已验证.坚持后钩.</p></li>
 </ul>
 </div>
 <div class="section" id="service-hooks-after">
 <h3>service.hooks({ after })<a class="headerlink" href="#service-hooks-after" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">context.params[entity]</span> <span class="pre">{Object}</span></code> - After successful
-authentication, the <code class="docutils literal notranslate"><span class="pre">entity</span></code> looked up from the database will be
-populated here. (The default option is <code class="docutils literal notranslate"><span class="pre">user</span></code>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context.params[entity]</span> <span class="pre">{Object}</span></code> - 成功验证后, 将在此处填充从数据库中查找的``entity``.  (默认选项是``user``. )</p></li>
 </ul>
 </div>
 </div>
@@ -333,38 +303,33 @@ populated here. (The default option is <code class="docutils literal notranslate
 <h2>app.passport<a class="headerlink" href="#app-passport" title="永久链接至标题">¶</a></h2>
 <div class="section" id="app-passport-createjwt-payload-options">
 <h3>app.passport.createJWT(payload, options)<a class="headerlink" href="#app-passport-createjwt-payload-options" title="永久链接至标题">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">app.passport.createJWT(payload,</span> <span class="pre">options)</span> <span class="pre">-&gt;</span> <span class="pre">Promise</span></code> is used by the
-<a class="reference external" href="#appserviceauthentication">authentication service</a> to generate JSON
-Web Tokens.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>app.passport.createJWT(payload, options) -&gt; 承诺``由`authentication service &lt;#appserviceauthentication&gt;`_用于生成JSON Web令牌.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">payload</span> <span class="pre">{Object}</span></code> - becomes the JWT payload. Will also include an <code class="docutils literal notranslate"><span class="pre">exp</span></code> property denoting the expiry timestamp.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payload</span> <span class="pre">{Object}</span></code> - 成为JWT有效载荷. 还将包含一个表示到期时间戳的``exp``属性.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">options</span> <span class="pre">{Object}</span></code> - the options passed to <a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback">jsonwebtoken sign()</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">{String</span> <span class="pre">|</span> <span class="pre">Buffer}</span></code> - either the secret for HMAC algorithms, or the PEM encoded private key for RSA and ECDSA.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">jwt</span></code>  - 有关其他可用选项，请参阅`jsonwebtoken &lt;<a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback">https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback</a>&gt;`_ package docs。 authenticate方法使用`default``jwt``选项&lt;#default-options&gt;`_。直接使用此包时，必须手动传递它们。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">{String</span> <span class="pre">|</span> <span class="pre">Buffer}</span></code> - 要么是HMAC算法的秘密, 要么是用于RSA和ECDSA的PEM编码私钥.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jwt</span></code>  - 有关其他可用选项, 请参阅 <a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback">jsonwebtoken</a> package docs. authenticate方法使用 <code class="docutils literal notranslate"><span class="pre">default</span></code> jwt <a href="#id1"><span class="problematic" id="id2">``</span></a>选项&lt;#default-options&gt;`_.直接使用此包时, 必须手动传递它们.</p></li>
 </ul>
-<p>返回的``promise``用JWT解析或失败并出错。</p>
+<p>返回的 <code class="docutils literal notranslate"><span class="pre">promise</span></code> 用JWT解析或失败并出错.</p>
 </div>
 <div class="section" id="app-passport-verifyjwt-token-options">
 <h3>app.passport.verifyJWT(token, options)<a class="headerlink" href="#app-passport-verifyjwt-token-options" title="永久链接至标题">¶</a></h3>
-<p>Verifies the signature and payload of the passed in JWT <code class="docutils literal notranslate"><span class="pre">token</span></code> using the <code class="docutils literal notranslate"><span class="pre">options</span></code>.</p>
+<p>使用``options``验证传入的JWT``token``的签名和有效负载.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">token</span> <span class="pre">{JWT}</span></code> - the JWT to be verified.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">options</span> <span class="pre">{Object}</span></code> the options passed to <a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback">jsonwebtoken verify()</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">{String</span> <span class="pre">|</span> <span class="pre">Buffer}</span></code> - - either the secret for HMAC algorithms, or the PEM encoded private key for RSA and ECDSA.</p></li>
-<li><p>See the <a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback">jsonwebtoken</a> package docs for other available options.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token</span> <span class="pre">{JWT}</span></code> - JWT待验证.</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>options {Object}``传递给`jsonwebtoken的选项验证()&lt;<a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback">https://www.npmjs.com/package/jsonwebtoken#jwtverifytoken-secretorpublickey-options-callback</a>&gt;`_</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">{String</span> <span class="pre">|缓冲区</span></code> -   -  HMAC算法的秘密, 或RSA和ECDSA的PEM编码私钥.</p></li>
+<li><p>有关其他可用选项, 请参阅`jsonwebtoken &lt;<a class="reference external" href="https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback">https://www.npmjs.com/package/jsonwebtoken#jwtsignpayload-secretorprivatekey-options-callback</a>&gt;`_ package docs.</p></li>
 </ul>
-<p>The returned <code class="docutils literal notranslate"><span class="pre">promise</span></code> resolves with the payload or fails with an error.</p>
+<p>返回的``promise``使用有效负载解析或失败并显示错误.</p>
 </div>
 </div>
 <div class="section" id="auth-hooks-authenticate-strategies">
 <h2>auth.hooks.authenticate(strategies)<a class="headerlink" href="#auth-hooks-authenticate-strategies" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/authentication</span></code> only includes a single hook. This bundled
-<code class="docutils literal notranslate"><span class="pre">authenticate</span></code> hook is used to register an array of authentication strategies on a service method.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64; feathersjs/authentication``只包含一个钩子. 这个捆绑的``authenticate``钩子用于在服务方法上注册一组认证策略.</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>This should usually be used on your <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> service. Without it,
-you can hit the <code class="docutils literal notranslate"><span class="pre">authentication</span></code> service and generate a JWT <code class="docutils literal notranslate"><span class="pre">accessToken</span></code>
-without authentication (ie. anonymous authentication).</p>
+<p>这应该通常用在你的``/authentication``服务上. 没有它, 您可以点击``authentication``服务并生成JWT``adminToken``而无需身份验证(即匿名身份验证).</p>
 </div>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;authentication&#39;</span><span class="p">).</span><span class="nx">hooks</span><span class="p">({</span>
  <span class="nx">before</span><span class="o">:</span> <span class="p">{</span>
@@ -381,35 +346,31 @@ without authentication (ie. anonymous authentication).</p>
 </div>
 </div>
 <div class="section" id="authentication-events">
-<h2>Authentication Events<a class="headerlink" href="#authentication-events" title="永久链接至标题">¶</a></h2>
-<p>只要客户端成功验证或“注销”，就会在``app``对象上发出``login``和``logout``事件。 （使用JWT时，注销不会使JWT无效。（有关详细信息，请阅读JWT部分。）这些事件仅在服务器上发出。</p>
+<h2>认证事件<a class="headerlink" href="#authentication-events" title="永久链接至标题">¶</a></h2>
+<p>只要客户端成功验证或“注销”, 就会在``app``对象上发出``login``和``logout``事件. (使用JWT时, 注销不会使JWT无效.(有关详细信息, 请阅读JWT部分.)这些事件仅在服务器上发出.</p>
 <div class="section" id="app-on-login-callback">
 <h3>app.on(‘login’, callback))<a class="headerlink" href="#app-on-login-callback" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="app-on-logout-callback">
 <h3>app.on(‘logout’, callback))<a class="headerlink" href="#app-on-logout-callback" title="永久链接至标题">¶</a></h3>
-<p>These two events use a <code class="docutils literal notranslate"><span class="pre">callback</span></code> function with the same signature.</p>
+<p>这两个事件使用具有相同签名的``callback``函数.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code> {Object}  - 来自``authentication``服务的最终``context.result``。除非你在后钩子中自定义``context.response``，否则它只包含``accessToken``，它是JWT。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code> {Object}  - 来自``authentication``服务的最终``context.result``.除非你在后钩子中自定义``context.response``, 否则它只包含``accessToken``, 它是JWT.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">meta</span></code> {Object} - information about the request. <em>The ``meta`` data
 varies per transport / provider as follows.</em></p>
 <ul>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express/rest</span></code></p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - will always be <code class="docutils literal notranslate"><span class="pre">&quot;rest&quot;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">req</span></code> {Object} - the Express request object.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">res</span></code> {Object} - the Express response object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - 永远是``“rest ”``</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">req</span></code> {Object} - Express请求对象.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">res</span></code> {Object} - Express响应对象.</p></li>
 </ul>
 </li>
-<li><p>Using <code class="docutils literal notranslate"><span class="pre">feathers-socketio</span></code> and <code class="docutils literal notranslate"><span class="pre">feathers-primus</span></code>:</p>
+<li><p>使用``feathers-socketio``和``feathers-primus``:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - the transport name: <code class="docutils literal notranslate"><span class="pre">socketio</span></code> or
-<code class="docutils literal notranslate"><span class="pre">primus</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">connection</span></code> {Object} - the same as <code class="docutils literal notranslate"><span class="pre">params</span></code> in the hook
-context</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code> {SocketObject} - the current user’s WebSocket
-object. It also contains the <code class="docutils literal notranslate"><span class="pre">feathers</span></code> attribute, which is
-the same as <code class="docutils literal notranslate"><span class="pre">params</span></code> in the hook context.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - 运输名称:<code class="docutils literal notranslate"><span class="pre">socketio``或``primus</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connection</span></code> {Object} - 与钩子上下文中的``params``相同</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code> {SocketObject} - 当前用户的WebSocket对象. 它还包含``feathers``属性, 它与钩子上下文中的``params``相同.</p></li>
 </ul>
 </li>
 </ul>
@@ -418,9 +379,8 @@ the same as <code class="docutils literal notranslate"><span class="pre">params<
 </div>
 </div>
 <div class="section" id="express-middleware">
-<h2>Express Middleware<a class="headerlink" href="#express-middleware" title="永久链接至标题">¶</a></h2>
-<p>There is an <code class="docutils literal notranslate"><span class="pre">authenticate</span></code> middleware. It is used the exact same way
-as the regular Passport express middleware:</p>
+<h2>快递中间件<a class="headerlink" href="#express-middleware" title="永久链接至标题">¶</a></h2>
+<p>有一个``authenticate``中间件. 它的使用方法与普通的Passport express中间件完全相同:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cookieParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cookie-parser&#39;</span><span class="p">);</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/protected-route&#39;</span><span class="p">,</span> <span class="nx">cookieParser</span><span class="p">(),</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">express</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;jwt&#39;</span><span class="p">));</span>
@@ -429,24 +389,24 @@ as the regular Passport express middleware:</p>
 <span class="p">}));</span>
 </pre></div>
 </div>
-<p>For details, see the <a class="reference internal" href="../../guides/auth/recipe.express-middleware.html"><span class="doc">FeathersJS Auth Recipe:认证Express中间件(SSR)</span></a>.</p>
-<p>Additional middleware are included and exposed, but you typically don’t
-need to worry about them:</p>
+<p>有关详细信息, 请参阅:doc:<cite>../../guides/auth/recipe.express-middleware</cite>.</p>
+<p>包含并公开了其他中间件, 但您通常不需要担心它们:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">emitEvents</span></code> - emit <code class="docutils literal notranslate"><span class="pre">login</span></code> and <code class="docutils literal notranslate"><span class="pre">logout</span></code> events</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">exposeCookies</span></code>  - 向Feathers公开cookie，以便它们可用于钩子和服务。 <a href="#id1"><span class="problematic" id="id2">**</span></a>默认情况下不使用它，因为它的使用会将您的API暴露给CSRF漏洞。<a href="#id3"><span class="problematic" id="id4">**</span></a>只有在您真正知道自己在做什么的情况下才使用它。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">exposeHeaders</span></code>  - 向Feathers公开标题，以便它们可用于钩子和服务。 <a href="#id1"><span class="problematic" id="id2">**</span></a>默认情况下不使用它，因为它的使用会将您的API暴露给CSRF漏洞。<a href="#id3"><span class="problematic" id="id4">**</span></a>只有在您真正知道自己在做什么的情况下才使用它。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">failureRedirect</span></code> - support redirecting on auth failure. Only
-triggered if <code class="docutils literal notranslate"><span class="pre">hook.redirect</span></code> is set.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">successRedirect</span></code> - support redirecting on auth success. Only
-triggered if <code class="docutils literal notranslate"><span class="pre">hook.redirect</span></code> is set.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">setCookie</span></code>  - 支持在cookie中设置JWT访问令牌。仅在启用cookie时启用。 <a href="#id1"><span class="problematic" id="id2">**</span></a>注意：Feathers不会从cookie中读取访问令牌。这会使API暴露于CSRF攻击。<a href="#id3"><span class="problematic" id="id4">**</span></a>这个``setCookie``功能主要用于帮助进行服务器端渲染。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emitEvents</span></code> - 发出``login``和``logout``事件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exposeCookies</span></code>  - 向Feathers公开cookie, 以便它们可用于钩子和服务. <a href="#id1"><span class="problematic" id="id2">**</span></a>默认情况下不使用它, 因为它的使用会将您的API暴露给CSRF漏洞.**只有在您真正知道自己在做什么的情况下才使用它.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exposeHeaders</span></code>  - 向Feathers公开标题, 以便它们可用于钩子和服务. <a href="#id1"><span class="problematic" id="id2">**</span></a>默认情况下不使用它, 因为它的使用会将您的API暴露给CSRF漏洞.**只有在您真正知道自己在做什么的情况下才使用它.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">failureRedirect</span></code> - 支持重定向auth失败. 仅在设置了``hook.redirect``时触发.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">successRedirect</span></code> - 支持重定向auth成功. 仅在设置了``hook.redirect``时触发.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setCookie</span></code> - 支持在cookie中设置JWT访问令牌. 仅在启用cookie时启用.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Feathers不会从cookie中读取访问令牌. 这会使API暴露于CSRF攻击. <a href="#id1"><span class="problematic" id="id2">**</span></a>这个``setCookie``功能主要用于帮助进行服务器端渲染.</p>
+</div>
 </div>
 <div class="section" id="complete-example">
-<h2>Complete Example<a class="headerlink" href="#complete-example" title="永久链接至标题">¶</a></h2>
-<p>Here’s an example of a Feathers server that uses
-<code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/authentication</span></code> for local authentication.</p>
+<h2>完整的例子<a class="headerlink" href="#complete-example" title="永久链接至标题">¶</a></h2>
+<p>这是一个使用``&#64; feathersjs/authentication``进行本地身份验证的Feathers服务器的示例.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio&#39;</span><span class="p">);</span>

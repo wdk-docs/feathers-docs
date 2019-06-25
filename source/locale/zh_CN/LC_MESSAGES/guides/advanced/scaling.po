@@ -84,7 +84,7 @@ msgid ""
 " ensure a successful handshake, force a single worker to process the "
 "handshake by disabling the http transport and exclusively using the "
 "``websocket`` transport."
-msgstr "下面是使用 ``feathers-socketio`` 提供程序向羽毛添加聚类的示例。默认情况下，websocket连接通过多个HTTP请求的握手开始，并升级到websocket协议。但是，启用群集时，同一工作程序将不会处理握手的所有HTTP请求，从而导致HTTP 400错误。为确保握手成功，强制单个工作人员通过禁用http传输并专门使用 ``websocket`` 传输来处理握手。"
+msgstr "下面是使用 ``feathers-socketio`` 提供程序向 Feathers 添加聚类的示例.默认情况下, websocket连接通过多个HTTP请求的握手开始, 并升级到websocket协议.但是, 启用群集时, 同一工作程序将不会处理握手的所有HTTP请求, 从而导致HTTP 400错误.为确保握手成功, 强制单个工作人员通过禁用http传输并专门使用 ``websocket`` 传输来处理握手."
 
 #: ../../source/guides/advanced/scaling.rst:44
 msgid ""

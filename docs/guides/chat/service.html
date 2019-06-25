@@ -192,12 +192,12 @@
 <div class="section" id="generating-a-service">
 <h2>生成服务<a class="headerlink" href="#generating-a-service" title="永久链接至标题">¶</a></h2>
 <p>在Feathers中,任何API端点都表示为 <a class="reference internal" href="../../api/services.html"><span class="doc">服务</span></a>, 我们已经在 <a class="reference internal" href="../basics/services.html"><span class="doc">服务</span></a> 中学到了这一点.要生成新服务,我们可以运行:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feathers</span> <span class="n">generate</span> <span class="n">service</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>feathers generate service
 </pre></div>
 </div>
 <p>首先,我们必须选择我们想要创建的服务类型.您可以在许多数据库和ORM中进行选择,但是对于本指南,我们将使用默认的 <a class="reference external" href="https://github.com/louischatriot/nedb">NeDB</a>. NeDB是一个数据库,它将数据本地存储在一个文件中,不需要额外的配置或数据库服务器.</p>
 <p>接下来,当询问服务名称时,输入  <code class="docutils literal notranslate"><span class="pre">messages</span></code>.然后按Enter键保留默认路径(<code class="docutils literal notranslate"><span class="pre">/messages</span></code>).</p>
-<p><a href="#id1"><span class="problematic" id="id2">*</span></a>数据库连接字符串*也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)</p>
+<p><em>database connection string</em> 也可以使用默认值进行回答. (在这种NeDB的情况下,这是它应该存储其数据库文件的路径.)</p>
 <p>确认最后一个提示将生成一些文件并连接我们的服务:</p>
 <div class="figure align-default" id="id2">
 <img alt="Final Configuration" src="../../_images/service.png" />
@@ -209,27 +209,25 @@
 <h2>生成的文件<a class="headerlink" href="#the-generated-files" title="永久链接至标题">¶</a></h2>
 <p>我们可以看到,创建了几个文件:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.service.js</span></code>  - 在以下服务中注册服务的服务设置文件:doc:<cite>../basics/generator</cite></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.hooks.js</span></code> - A file that returns an
-<a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a> that should be
-registered on the service.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.service.js</span></code> - 在以下服务中注册服务的服务设置文件 <a class="reference internal" href="../basics/generator.html"><span class="doc">Feathers生成器(CLI)</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/services/messages/messages.hooks.js</span></code> - 一个文件,它返回一个应该在服务上注册的 <a class="reference internal" href="../basics/hooks.html"><span class="doc">钩子</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">src/models/messages.model.js</span></code> - 我们的消息模型.由于我们使用的是NeDB,因此只需实例化文件系统数据库.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code> - 服务的摩卡测试.最初,它只测试服务是否存在.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test/services/messages.test.js</span></code> - 服务的 Mocha 测试.最初,它只测试服务是否存在.</p></li>
 </ul>
 </div>
 <div class="section" id="testing-the-api">
 <h2>测试API<a class="headerlink" href="#testing-the-api" title="永久链接至标题">¶</a></h2>
 <p>如果我们现在启动我们的API</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">start</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm start
 </pre></div>
 </div>
 <p>我们可以转到 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a> 并看到来自我们的新消息服务的(空)响应.</p>
 <p>我们还可以 <code class="docutils literal notranslate"><span class="pre">POST</span></code> 新消息和 <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> 现有消息(通过 <code class="docutils literal notranslate"><span class="pre">/messages/&lt;_id&gt;</span></code>),例如从命令行使用 <a class="reference external" href="https://curl.haxx.se/">CURL</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="s1">&#39;http://localhost:3030/messages/&#39;</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Content-Type: application/json&#39;</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="n">binary</span> <span class="s1">&#39;{ &quot;text&quot;: &quot;Hello from the command line!&quot; }&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl <span class="s1">&#39;http://localhost:3030/messages/&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> --data-binary <span class="s1">&#39;{ &quot;text&quot;: &quot;Hello from the command line!&quot; }&#39;</span>
 </pre></div>
 </div>
 <p>或者使用REST客户端,例如 <a class="reference external" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">Postman</a>, 使用此按钮:</p>
-<p><a href="#id3"><span class="problematic" id="id4">|在邮递员中运行|</span></a></p>
+<p><a class="reference external" href="https://app.getpostman.com/run-collection/9668636a9596d1e4a496"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg" /></a></p>
 <p>如果我们现在再次转到 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a>, 我们将看到新创建的消息.</p>
 </div>
 <div class="section" id="whats-next">
