@@ -231,7 +231,7 @@
 </div>
 <div class="section" id="react-native">
 <h2>React Native<a class="headerlink" href="#react-native" title="永久链接至标题">¶</a></h2>
-<p>React Native用法与 <a class="reference external" href="#node">Node client</a> 相同. 将所需的软件包安装到您的 <a class="reference external" href="https://facebook.github.io/react-native/">React Native</a> project中.</p>
+<p>React Native用法与 <a class="reference external" href="#node">Node客户端</a> 相同. 将所需的软件包安装到您的 <a class="reference external" href="https://facebook.github.io/react-native/">React Native</a> 项目中.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/feathers @feathersjs/socketio-client socket.io-client
 </pre></div>
 </div>
@@ -285,11 +285,7 @@
 </div>
 <div class="section" id="create-react-app">
 <h3>create-react-app<a class="headerlink" href="#create-react-app" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://github.com/facebookincubator/create-react-app">create-react-app</a>
-uses <a class="reference external" href="#webpack">Webpack</a> but does not allow to modify the
-configuration unless you eject. If you do not want to eject, use the
-<a class="reference external" href="https://github.com/feathersjs/client">&#64;feathersjs/client</a> module
-instead.</p>
+<p><a class="reference external" href="https://github.com/facebookincubator/create-react-app">create-react-app</a> 使用 <a class="reference external" href="#webpack">Webpack</a> 但不允许修改配置, 除非你弹出. 如果您不想弹出, 请改用 <a class="reference external" href="https://github.com/feathersjs/client">&#64;feathersjs/client</a> 模块.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm i --save @feathersjs/client
 </pre></div>
 </div>
@@ -300,11 +296,11 @@ instead.</p>
 </div>
 <div class="section" id="browserify">
 <h3>Browserify<a class="headerlink" href="#browserify" title="永久链接至标题">¶</a></h3>
-<p>在Browserify中, 必须使用 <a class="reference external" href="https://github.com/babel/babelify">babelify</a> transform. 所有Feathers包都表明他们需要转换, 应该自动进行转换.</p>
+<p>在Browserify中, 必须使用 <a class="reference external" href="https://github.com/babel/babelify">babelify</a> 转换器. 所有Feathers包都表明他们需要转换, 应该自动进行转换.</p>
 </div>
 <div class="section" id="others">
 <h3>其他<a class="headerlink" href="#others" title="永久链接至标题">¶</a></h3>
-<p>如上所述, 当使用任何使用转换器的模块加载器时, <code class="docutils literal notranslate"><span class="pre">node_modules/&#64;feathersjs</span></code> 及其所有子文件夹必须包含在ES6 +转换步骤中.对于非CommonJS格式(如AMD)和兼容ES5的Feathers及其客户端模块, 您可以使用 <a class="reference internal" href="#api-feathersjs-client"><span class="std std-ref">&#64;feathersjs/client module</span></a>.</p>
+<p>如上所述, 当使用任何使用转换器的模块加载器时, <code class="docutils literal notranslate"><span class="pre">node_modules/&#64;feathersjs</span></code> 及其所有子文件夹必须包含在ES6 +转换步骤中.对于非CommonJS格式(如AMD)和兼容ES5的Feathers及其客户端模块, 您可以使用 <a class="reference internal" href="#api-feathersjs-client"><span class="std std-ref">&#64;feathersjs/client 模块</span></a>.</p>
 </div>
 </div>
 <div class="section" id="api-feathersjs-client">
@@ -356,7 +352,7 @@ instead.</p>
 <div class="section" id="when-to-use">
 <h3>何时使用<a class="headerlink" href="#when-to-use" title="永久链接至标题">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">feathersjs/client</span></code> 可以直接在浏览器中使用 <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> 标签而不使用模块加载器, 也可以使用不支持CommonJS的模块加载器(如RequireJS)或使用a创建的React应用程序默认 <code class="docutils literal notranslate"><span class="pre">create-react-app</span></code>.</p>
-<p>如果您使用带有Node或React Native的Feathers客户端, 您应该遵循 <a class="reference external" href="#node">Node</a> 和 <a class="reference external" href="＃react-native">React Native</a> sections 中描述的步骤, <strong>不要</strong> 使用 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
+<p>如果您使用带有Node或React Native的Feathers客户端, 您应该遵循 <a class="reference external" href="#node">Node</a> 和 <a class="reference external" href="#react-native">React Native</a> 部分中描述的步骤, <strong>不要</strong> 使用 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>所有Feathers客户端示例都显示了 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/client</span></code> 的直接用法和用法.</p>

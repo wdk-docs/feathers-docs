@@ -1,6 +1,8 @@
 Feathers
 ====================
 
+|GitHub stars| |npm version| |Changelog|
+
 .. image:: https://feathersjs.com/img/feathers-logo-wide.png
 
 An open source REST and realtime API layer for modern applications.
@@ -31,3 +33,10 @@ right in and :doc:`./guides/basics/readme`.
 
 You can find this documentation as a PDF
 `here <https://github.com/feathersjs/docs/raw/master/feathersjs.pdf>`_.
+
+.. |GitHub stars| image:: https://img.shields.io/github/stars/feathersjs/feathers.png?style=social&label=Star
+   :target: https://github.com/feathersjs/feathers/
+.. |npm version| image:: https://img.shields.io/npm/v/feathers.png?style=flat-square
+   :target: https://www.npmjs.com/package/feathers
+.. |Changelog| image:: https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square
+   :target: https://github.com/feathersjs/feathers/blob/master/packages/feathers/CHANGELOG.md

@@ -40,7 +40,7 @@ Configure functions
 The most common pattern used in the generated application is *configure
 functions*, functions that take the Feathers :doc:`../../api/application` and then use it, e.g. to register
 services. Those functions are then passed to
-:doc:`../../api/application#configurecallback`.
+:ref:`api_application_configure-callback`.
 
 Let’s look at our :doc:`databases`:
 

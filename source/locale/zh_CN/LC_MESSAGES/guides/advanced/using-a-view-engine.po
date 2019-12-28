@@ -103,9 +103,9 @@ msgid ""
 "to a completely separate standalone Feathers app, maybe even on a "
 "different server. In order for both apps to talk to each other they’ll "
 "need some way to make remote requests. Well, Feathers just so happens to "
-"have a :doc:`../api/client` that can be used on the server. This is how "
+"have a :doc:`../../api/client` that can be used on the server. This is how "
 "it works."
-msgstr "如果您的应用程序开始变得更加繁忙,您可能决定将API移动到完全独立的独立Feathers应用程序,甚至可能在不同的服务器上.为了让两个应用程序相互通信,他们需要一些方法来进行远程请求.好吧,Feathers恰好有一个 :doc:`../api/client` 可以在服务器上使用.这是它的工作原理."
+msgstr "如果您的应用程序开始变得更加繁忙,您可能决定将API移动到完全独立的独立Feathers应用程序,甚至可能在不同的服务器上.为了让两个应用程序相互通信,他们需要一些方法来进行远程请求.好吧,Feathers恰好有一个 :doc:`../../api/client` 可以在服务器上使用.这是它的工作原理."
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:123
 msgid ""

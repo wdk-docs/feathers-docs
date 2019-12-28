@@ -92,7 +92,7 @@ If your app starts to get a bit busier you might decide to move your API
 to a completely separate standalone Feathers app, maybe even on a
 different server. In order for both apps to talk to each other they’ll
 need some way to make remote requests. Well, Feathers just so happens to
-have a :doc:`../api/client` that can be used on
+have a :doc:`../../api/client` that can be used on
 the server. This is how it works.
 
 .. code:: js

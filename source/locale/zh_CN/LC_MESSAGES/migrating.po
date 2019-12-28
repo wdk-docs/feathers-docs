@@ -412,7 +412,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "The ``feathers-hooks-common`` documentation can be found at `feathers-"
-"plus.github.io/v1/feathers-hooks-common/<https://feathers-"
+"plus.github.io/v1/feathers-hooks-common/ <https://feathers-"
 "plus.github.io/v1/feathers-hooks-common/>`_"
 msgstr ""
 "``feathers-hooks-common`` 文档可以在 `feathers-plus.github.io/v1/feathers-"
@@ -538,7 +538,7 @@ msgstr "上面提到的核心存储库也已经被迁移到可以直接使用(�
 msgid ""
 "Since all repositories make extensive use of ES6 that also means that "
 "Node 4 is no longer supported."
-msgstr "由于所有存储库都广泛使用ES6,这也意味着不再支持节点4."
+msgstr "由于所有存储库都广泛使用ES6,这也意味着不再支持 node 4."
 
 #: ../../source/migrating.rst:502
 msgid ""

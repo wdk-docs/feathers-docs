@@ -48,7 +48,7 @@ msgid ""
 "like ``async/await`` and require Node 8 or later."
 msgstr ""
 "CLI的 `Feathers指南 <https://docs.feathersjs.com/>`_ "
-"和应用程序(``@feathersjs/cli``)使用更新的语言功能, 如 ``async/await``, 并要求 node 8或以后."
+"和应用程序(``@feathersjs/cli``)使用更新的语言功能, 如 ``async/await``, 并要求 node 8 或以后."
 
 #: ../../source/faq/readme.rst:21
 msgid "How do I create custom methods?"
@@ -572,7 +572,7 @@ msgid ""
 " with direct `Node HTTP <https://nodejs.org/api/http.html>`_ being the "
 "most likely."
 msgstr ""
-"还有许多其他节点服务器框架, 如Koa, 一个*“Node.JS的下一代Web框架”*使用ES6生成器函数而不是Express中间件或HapiJS等."
+"还有许多其他 node 服务器框架, 如Koa, 一个*“Node.JS的下一代Web框架”*使用ES6生成器函数而不是Express中间件或HapiJS等."
 " 目前, Feathers与框架无关, 但仅为HTTP API提供 :doc:`../api/express` 集成. 未来可能会支持更多的框架, 直接"
 " `Node HTTP <https://nodejs.org/api/http.html>`_ 是最有可能的."
 

@@ -64,7 +64,7 @@ Let’s have a brief look at the files that have been generated:
 -  ``config/`` - Contains the configuration files for the app.
    ``production.json`` files override ``default.json`` when in
    production mode by setting ``NODE_ENV=production``. For details, see
-   the :doc:`../api/configuration`.
+   the :doc:`../../api/configuration`.
 -  ``node_modules/`` - The generator installs the project dependencies
    either using `npm <https://docs.npmjs.com/>`_, or
    `yarn <https://yarnpkg.com/en/>`_. The dependencies are also added

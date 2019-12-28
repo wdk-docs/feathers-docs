@@ -20,48 +20,48 @@ msgstr ""
 
 #: ../../source/github/issue_template.rst:2
 msgid "Comment/Problem"
-msgstr ""
+msgstr "评论/问题"
 
 #: ../../source/github/issue_template.rst:4
 msgid "Tell us about your issue or comment. Please be as specific as possible."
-msgstr ""
+msgstr "告诉我们您的问题或评论。请尽可能具体。"
 
 #: ../../source/github/issue_template.rst:6
 msgid ""
 "If you would like to point out a typo, wording or code issue, please "
 "submit a pull request with a suggested fix instead by following the “Edit"
 " this page” link."
-msgstr ""
+msgstr "如果您想指出拼写错误，措辞或代码问题，请通过“编辑此页面”链接提交带有建议修复的拉取请求。"
 
 #: ../../source/github/issue_template.rst:11
 msgid "System configuration (optional)"
-msgstr ""
+msgstr "系统配置(可选)"
 
 #: ../../source/github/issue_template.rst:13
 msgid "Tell us about the applicable parts of your setup."
-msgstr ""
+msgstr "告诉我们您的设置的适用部分。"
 
 #: ../../source/github/issue_template.rst:15
 msgid "**Module versions** (especially the part that’s not working):"
-msgstr ""
+msgstr "**模块版本** (特别是那些不工作的部分):"
 
 #: ../../source/github/issue_template.rst:17
 msgid "**NodeJS version**:"
-msgstr ""
+msgstr "**NodeJS版本**:"
 
 #: ../../source/github/issue_template.rst:19
 msgid "**Operating System**:"
-msgstr ""
+msgstr "**操作系统**:"
 
 #: ../../source/github/issue_template.rst:21
 msgid "**Browser Version**:"
-msgstr ""
+msgstr "**浏览器版本**:"
 
 #: ../../source/github/issue_template.rst:23
 msgid "**React Native Version**:"
-msgstr ""
+msgstr "**反应原生版本**:"
 
 #: ../../source/github/issue_template.rst:25
 msgid "**Module Loader**:"
-msgstr ""
+msgstr "**模块加载器**:"
 

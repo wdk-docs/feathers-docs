@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 18:33+0800\n"
+"POT-Creation-Date: 2019-06-25 21:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgid "Provide a framework for authentication plugins that use `Passport <http:/
 msgstr ""
 
 #: ../../source/api/authentication/server.rst:18
-msgid "If you are using a 0.x version of `https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating`_. The hooks that were once bundled with this module are now located at `feathers-authentication-hooks <https://github.com/feathersjs-ecosystem/feathers-authentication-hooks>`_."
+msgid "If you are using a 0.x version of `migration guide <https://github.com/feathersjs/authentication/blob/4344c6f037f2660e4636c1c05ea22a0000649312/docs/migrating>`_. The hooks that were once bundled with this module are now located at `feathers-authentication-hooks <https://github.com/feathersjs-ecosystem/feathers-authentication-hooks>`_."
 msgstr ""
 
 #: ../../source/api/authentication/server.rst:24

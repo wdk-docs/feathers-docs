@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/guides/basics/setup.rst:2
 msgid "Setting up"
-msgstr "配置"
+msgstr "设置"
 
 #: ../../source/guides/basics/setup.rst:4
 msgid ""
@@ -40,7 +40,7 @@ msgid ""
 "Manager <https://github.com/creationix/nvm>`_ is a good way to quickly "
 "install the latest version of NodeJS and keep it up to date."
 msgstr "Feathers和大多数插件都在 `NodeJS <https://nodejs.org/en/>`_ v6.0.0及更高版本上运行. 对于指南, "
-"我们将使用仅适用于Node v8.0.0及更高版本的语法. 在MacOS和其他Unix系统上, `节点版本管理器 "
+"我们将使用仅适用于Node v8.0.0及更高版本的语法. 在MacOS和其他Unix系统上, `node 版本管理器 "
 "<https://github.com/creationix/nvm>`_ 是快速安装最新版本的NodeJS并使其保持最新的好方法. "
 
 #: ../../source/guides/basics/setup.rst:16

@@ -31,7 +31,7 @@ msgid ""
 "``@feathersjs/configuration`` is a wrapper for `node-config "
 "<https://github.com/lorenwest/node-config>`_ which allows to configure a"
 " server side Feathers application."
-msgstr "``feathersress/configuration`` 是 `node-config <https://github.com/lorenwest/node-config>`_ 的包装器,允许配置服务器端Feathers应用程序."
+msgstr "``feathersress/configuration`` 是 `node-config <https://github.com/lorenwest/node-config>`_ 的包装器, 允许配置服务器端Feathers应用程序."
 
 #: ../../source/api/configuration.rst:14
 msgid ""
@@ -41,7 +41,7 @@ msgid ""
 "you can organize *“hierarchical configurations for your app "
 "deployments”*. See the usage section below for better information how to "
 "implement this."
-msgstr "默认情况下,这个实现将在 ``config/*`` 中查找保留约定的 ``default.json``.根据 `配置文档 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_, 您可以为应用程序部署组织 *“应用程序部署的分层配置”*. 有关如何实现此操作的更多信息,请参阅下面的使用部分."
+msgstr "默认情况下, 这个实现将在 ``config/*`` 中 查找 保留约定的 ``default.json``. 根据 `配置文档 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_, 您可以组织 *“应用程序部署的分层配置”*. 有关如何实现此操作的更多信息, 请参阅下面的使用部分."
 
 #: ../../source/api/configuration.rst:22
 msgid "Usage"
@@ -88,7 +88,7 @@ msgid ""
 "more information on configuring node-config settings, see the "
 "`Configuration Files Wiki page <https://github.com/lorenwest/node-"
 "config/wiki/Configuration-Files>`_."
-msgstr "(@feathersjs/configuration不直接使用 NODE_CONFIG_DIR 环境变量,而是使用它所使用的 `node-config <https://github.com/lorenwest/node-config>`_ 模块.有关配置节点的更多信息-config设置,请参阅 `配置文档Wiki页面 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_."
+msgstr "(@feathersjs/configuration不直接使用 NODE_CONFIG_DIR 环境变量,而是使用它所使用的 `node-config <https://github.com/lorenwest/node-config>`_ 模块.有关配置 node 的更多信息-config设置,请参阅 `配置文档Wiki页面 <https://github.com/lorenwest/node-config/wiki/Configuration-Files>`_."
 
 #: ../../source/api/configuration.rst:66
 msgid "Variable types"

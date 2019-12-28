@@ -45,34 +45,23 @@ msgid "Installing Feathers"
 msgstr "安装Feathers"
 
 #: ../../source/guides/basics/starting.rst:24
-#, fuzzy
 msgid ""
 "Feathers can be installed like any other Node module by installing the "
 "`@feathersjs/feathers "
 "<https://www.npmjs.com/package/@feathersjs/feathers>`_ package through "
 "`npm <https://www.npmjs.com>`_. The same package can also be used with a "
 "module loader like Browserify or Webpack and React Native."
-msgstr ""
-"Feathers can be installed like any other Node module by installing the "
-"[@feathersjs/feathers](https://www.npmjs.com/package/@feathersjs/feathers)"
-" package through `npm <https://www.npmjs.com>`_. The same package can "
-"also be used with a module loader like Browserify or Webpack and React "
-"Native.通过 `npm <https://www.npmjs.com>`_ 安装 `@feathersjs/feathers "
-"<https://www.npmjs.com/package/@feathersjs/feathers>`_ "
-"包,可以像任何其他Node模块一样安装Feathers. 相同的包也可以与Browserify或Webpack和React "
-"Native等模块加载器一起使用."
+msgstr "通过 `npm <https://www.npmjs.com>`_ 安装 `@feathersjs/feathers <https://www.npmjs.com/package/@feathersjs/feathers>`_ 包,可以像任何其他Node模块一样安装Feathers. 相同的包也可以与Browserify或Webpack和React Native等模块加载器一起使用."
 
 #: ../../source/guides/basics/starting.rst:37
-#, fuzzy
 msgid "All Feathers core modules are in the ``@feathersjs`` npm namespace."
-msgstr "**注意:** 所有Feathers核心模块都在 ``@feathersjs`` npm 命名空间中."
+msgstr "所有Feathers核心模块都在 ``@feathersjs`` npm 命名空间中."
 
 #: ../../source/guides/basics/starting.rst:40
 msgid "Your first app"
 msgstr "你的第一个应用"
 
 #: ../../source/guides/basics/starting.rst:42
-#, fuzzy
 msgid ""
 "The base of any Feathers application is the :doc:`../../api/application` "
 "which can be created like this:"
@@ -85,13 +74,7 @@ msgid ""
 "chapter, for now let’s register and use a simple service that has only a "
 "``get`` method by creating an ``app.js`` file (in the current folder) "
 "like this:"
-msgstr ""
-"This application object has several methods, most importantly it allows "
-"us to register services. We will learn more about services in the next "
-"chapter, for now let’s register and use a simple service that has only a "
-"``get`` method by creating an ``app.js`` file (in the current folder) "
-"like this:这个应用程序对象有几种方法, 最重要的是它允许我们注册服务.我们将在下一章中了解有关服务的更多信息, 现在让我们通过创建一个 "
-"``app.js`` 文件(在当前文件夹中)注册并使用一个只有 ``get`` 方法的简单服务, 如下所示:"
+msgstr "这个应用程序对象有几种方法, 最重要的是它允许我们注册服务.我们将在下一章中了解有关服务的更多信息, 现在让我们通过创建一个 ``app.js`` 文件(在当前文件夹中)注册并使用一个只有 ``get`` 方法的简单服务, 如下所示:"
 
 #: ../../source/guides/basics/starting.rst:84
 msgid "We can run it with"
@@ -102,11 +85,10 @@ msgid "And should see"
 msgstr "应该看到"
 
 #: ../../source/guides/basics/starting.rst:98
-#, fuzzy
 msgid ""
 "For more information about the Feathers application object see the "
 ":doc:`../../api/application`."
-msgstr "**专业类型:** 有关Feathers应用程序对象的更多信息, 请参阅 :doc:`../../api/application`."
+msgstr "有关Feathers应用程序对象的更多信息, 请参阅 :doc:`../../api/application`."
 
 #: ../../source/guides/basics/starting.rst:102
 msgid "In the browser"
@@ -118,12 +100,7 @@ msgid ""
 "the browser. The easiest way to load Feathers here is through a "
 "``<script>`` tag pointing to the CDN version of Feathers. Loading it will"
 " make a ``feathers`` global variable available."
-msgstr ""
-"The Feathers application we created above can also run just the same in "
-"the browser. The easiest way to load Feathers here is through a "
-"``<script>`` tag pointing to the CDN version of Feathers. Loading it will"
-" make a ``feathers`` global variable "
-"available.我们上面创建的Feathers应用程序也可以在浏览器中运行.在这里加载Feathers的最简单方法是通过一个指向CDN版本Feathers的"
+msgstr "我们上面创建的Feathers应用程序也可以在浏览器中运行.在这里加载Feathers的最简单方法是通过一个指向CDN版本Feathers的"
 " ``<script>`` 标签.加载它将使 ``feathers`` 全局变量可用."
 
 #: ../../source/guides/basics/starting.rst:109
@@ -136,21 +113,15 @@ msgid ""
 "with any webserver like Apache or with the `http-server module "
 "<https://www.npmjs.com/package/http-server>`_ that we can install and "
 "host the ``public/`` folder like this:"
-msgstr ""
-"We will also need to host the folder with a webserver. This can be done "
-"with any webserver like Apache or with the `http-server module "
-"<https://www.npmjs.com/package/http-server>`_ that we can install and "
-"host the ``public/`` folder like "
-"this:我们还需要使用网络服务器托管该文件夹.这可以通过任何像Apache这样的网络服务器或 `http-server模块 "
+msgstr "我们还需要使用网络服务器托管该文件夹.这可以通过任何像Apache这样的网络服务器或 `http-server模块 "
 "<https://www.npmjs.com/package/http-server>`_ 来完成, 我们可以安装和托管 ``public/`` "
 "文件夹像这样:"
 
 #: ../../source/guides/basics/starting.rst:127
-#, fuzzy
 msgid ""
 "You have to keep this server running for all browser examples in the "
 "basics guide to work."
-msgstr "**注意:** 您必须使该服务器在基础指南中的所有浏览器示例中运行才能运行."
+msgstr "您必须使该服务器在基础指南中的所有浏览器示例中运行才能运行."
 
 #: ../../source/guides/basics/starting.rst:130
 msgid ""
@@ -176,25 +147,19 @@ msgid ""
 msgstr "如果您现在转到 `localhost:8080 <http://localhost:8080>`_ 并打开控制台,您也会看到记录的结果."
 
 #: ../../source/guides/basics/starting.rst:187
-#, fuzzy
 msgid ""
 "You can also load Feathers with a module loader like Webpack or "
 "Browserify. For more information see the :doc:`../../api/client`."
-msgstr ""
-"**注意:** 您还可以使用Webpack或Browserify等模块加载程序加载Feathers.有关更多信息, 请参阅 "
-":doc:`../api/client`."
+msgstr "您还可以使用 Webpack 或 Browserify 等模块加载程序加载Feathers. 有关更多信息, 请参阅 :doc:`../../api/client`."
 
 #: ../../source/guides/basics/starting.rst:191
 msgid "What’s next?"
 msgstr "下一步是什么？"
 
 #: ../../source/guides/basics/starting.rst:193
-#, fuzzy
 msgid ""
 "In this chapter we created our first Feathers application with a simple "
 "service that works in Node and the browser. Next, let’s learn more about "
 ":doc:`services`."
-msgstr ""
-"在本章中, 我们使用在Node和浏览器中运行的简单服务创建了我们的第一个Feathers应用程序.接下来, 让我们更多地了解 `服务和服务事件 "
-"<./services.md>`_."
+msgstr "在本章中，我们使用在Node和浏览器中运行的简单服务创建了我们的第一个Feathers应用程序. 接下来，让我们了解更多 :doc:`services`."
 

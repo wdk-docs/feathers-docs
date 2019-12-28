@@ -34,10 +34,9 @@ msgid ""
 "`Socket.io <http://socket.io/>`_, a NodeJS library which enables real-"
 "time bi-directional, event-based communication."
 msgstr ""
-"[@ feathersjs/"
-"socketio](https://github.com/feathersjs/socketio)模块允许调用:doc:`./"
-"services`并通过`Socket.io <http接收:doc:`./events`: "
-"//socket.io/>`_, 一个NodeJS库, 支持实时双向, 基于事件的通信."
+"[@feathersjs/"
+"socketio](https://github.com/feathersjs/socketio)模块允许调用 :doc:`./"
+"services` 并通过 `Socket.io <http接收:doc:`./events`://socket.io/>`_, 一个NodeJS库, 支持实时双向, 基于事件的通信."
 
 #: ../../source/api/socketio.rst:16
 msgid ""
@@ -57,8 +56,7 @@ msgid ""
 "``@feathersjs/socketio`` can be used standalone or together with a "
 "Feathers framework integration like :doc:`./express`."
 msgstr ""
-"``@ feathersjs/socketio``可以单独使用, 也可以与Feathers框架集成一起使用, 例如:doc:`./"
-"express`."
+"``@feathersjs/socketio``可以单独使用, 也可以与Feathers框架集成一起使用, 例如 :doc:`./express`."
 
 #: ../../source/api/socketio.rst:28
 msgid "app.configure(socketio())"
@@ -69,13 +67,13 @@ msgid ""
 "Sets up the Socket.io transport with the default configuration using "
 "either the server provided by :ref:`application_listen` or passed in "
 ":ref:`application_setup`."
-msgstr "使用由以下命令提供的服务器设置Socket.io传输:ref:`application_listen`或传入:ref:`application_setup`."
+msgstr "使用由以下命令提供的服务器设置Socket.io传输 :ref:`application_listen` 或传入 :ref:`application_setup`."
 
 #: ../../source/api/socketio.rst:47
 msgid ""
 "Once the server has been started with ``app.listen()`` or "
 "``app.setup(server)`` the Socket.io object is available as ``app.io``."
-msgstr "一旦服务器启动了``app.listen()``或``app.setup(server)``, Socket.io对象就可以作为``app.io``使用."
+msgstr "一旦服务器启动了 ``app.listen()`` 或 ``app.setup(server)``, Socket.io对象就可以作为 ``app.io`` 使用."
 
 #: ../../source/api/socketio.rst:52
 msgid "app.configure(socketio(callback))"
@@ -89,9 +87,9 @@ msgid ""
 "`authorization "
 "<https://github.com/LearnBoost/socket.io/wiki/Authorizing>`_:"
 msgstr ""
-"使用默认配置设置Socket.io传输, 并使用`Socket.io服务器对象<http://socket.io/docs/server-"
-"api/>`_调用``callback``.这是一个听取自定义事件或添加`authorization "
-"<https://github.com/LearnBoost/socket.io/wiki/Authorizing>`_的好地方:"
+"使用默认配置设置Socket.io传输, 并使用 `Socket.io服务器对象 <http://socket.io/docs/server-"
+"api/>`_ 调用 ``callback``.这是一个听取自定义事件或添加 `authorization "
+"<https://github.com/LearnBoost/socket.io/wiki/Authorizing>`_ 的好地方:"
 
 #: ../../source/api/socketio.rst:86
 msgid "app.configure(socketio(options [, callback]))"
@@ -102,13 +100,13 @@ msgid ""
 "Sets up the Socket.io transport with the given `Socket.io options object "
 "<https://github.com/socketio/engine.io#methods-1>`_ and optionally calls "
 "the callback described above."
-msgstr "使用给定的`Socket.io选项对象<https://github.com/socketio/engine.io#methods-1>`_设置Socket.io传输, 并可选择调用上述回调."
+msgstr "使用给定的 `Socket.io选项对象 <https://github.com/socketio/engine.io#methods-1>`_ 设置Socket.io传输, 并可选择调用上述回调."
 
 #: ../../source/api/socketio.rst:92
 msgid ""
 "This can be used to e.g. configure the path where Socket.io is initialize"
 " (``socket.io/`` by default). The following changes the path to ``ws/``:"
-msgstr "这可以用于例如配置Socket.io初始化的路径(默认情况下为``socket.io/``).以下更改了``ws/``的路径:"
+msgstr "这可以用于例如配置Socket.io初始化的路径(默认情况下为 ``socket.io/``).以下更改了 ``ws/`` 的路径:"
 
 #: ../../source/api/socketio.rst:113
 msgid "app.configure(socketio(port, [options], [callback]))"
@@ -130,8 +128,8 @@ msgid ""
 "fn>`_ can modify the ``feathers`` property on the ``socket`` which will "
 "then be used as the service call ``params``:"
 msgstr ""
-"`Socket.io中间件<https://socket.io/docs/server-api/#namespace-use-"
-"fn>`_可以修改``socket``上的``feathers``属性, 然后使用它作为服务调用``params``:"
+"`Socket.io中间件 <https://socket.io/docs/server-api/#namespace-use-"
+"fn>`_ 可以修改 ``socket`` 上的 ``feathers`` 属性, 然后使用它作为服务调用 ``params``:"
 
 #: ../../source/api/socketio.rst:155
 msgid ""
@@ -141,8 +139,8 @@ msgid ""
 "`Socket.io documentation <https://socket.io/docs/server-api/#socket-"
 "request>`_)."
 msgstr ""
-"``socket.feathers``与a:doc:`./channels`中的``connection``是同一个对象. "
-"``socket.request``和``socket.handshake``包含发起连接的HTTP请求的信息(参见`Socket.io "
+"``socket.feathers`` 与a :doc:`./channels` 中的 ``connection`` 是同一个对象. "
+" ``socket.request`` 和 ``socket.handshake`` 包含发起连接的HTTP请求的信息(参见 `Socket.io "
 "documentation <https://socket.io/docs/server-api/#socket-请求>`_)."
 
 #: ../../source/api/socketio.rst:162
@@ -154,7 +152,7 @@ msgid ""
 "For any :doc:`./services` made through Socket.io ``params.provider`` will"
 " be set to ``socketio``. In a :doc:`./hooks` this can for example be used"
 " to prevent external users from making a service method call:"
-msgstr ""
+msgstr "For any :doc:`./services` made through Socket.io ``params.provider`` will be set to ``socketio``. In a :doc:`./hooks` this can for example be used to prevent external users from making a service method call:"
 
 #: ../../source/api/socketio.rst:183
 msgid "params.query"
@@ -162,7 +160,7 @@ msgstr "params.query"
 
 #: ../../source/api/socketio.rst:185
 msgid "``params.query`` will contain the query parameters sent from the client."
-msgstr "``params.query``将包含从客户端发送的查询参数."
+msgstr "``params.query`` 将包含从客户端发送的查询参数."
 
 #: ../../source/api/socketio.rst:187
 msgid ""
@@ -171,7 +169,7 @@ msgid ""
 "client can’t set things like ``params.user`` or the database options. You"
 " can always map from ``params.query`` to :doc:`./hooks`."
 msgstr ""
-"服务器和客户端之间只传递``params.query``, 而``params``的其他部分则没有.这是出于安全原因, 因此客户端无法设置``params.user``或数据库选项.你总是可以从``params.query``映射到:doc:`./"
+"服务器和客户端之间只传递 ``params.query``, 而 ``params`` 的其他部分则没有.这是出于安全原因, 因此客户端无法设置 ``params.user`` 或数据库选项.你总是可以从 ``params.query`` 映射到:doc:`./"
 " hooks`."
 
 #: ../../source/api/socketio.rst:194
@@ -184,6 +182,5 @@ msgid ""
 ":doc:`./channels`. It is the same object as ``socket.feathers`` in a "
 "Socket.io middleware as `shown in the ``params`` section <#params>`_."
 msgstr ""
-"``params.connection``是可以与:doc:`./"
-"channels`一起使用的连接对象.它与Socket.io中间件中的``socket.feathers``是相同的对象, 如``params``部分<#params>`_所示."
+"``params.connection`` 是可以与 :doc:`./channels` 一起使用的连接对象. 它与Socket.io中间件中的 ``socket.feathers`` 是相同的对象, 如 ``params`` 部分<#params>`_所示."
 

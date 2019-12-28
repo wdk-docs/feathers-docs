@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-21 11:03+0800\n"
+"POT-Creation-Date: 2019-06-25 21:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../source/contents.rst:4
-#: ../../source/contents.rst:4
+#: ../../source/contents.rst:6
+#: ../../source/contents.rst:6
 msgid "Contents:"
 msgstr ""
 
@@ -25,19 +25,23 @@ msgstr ""
 msgid "Welcome to feathers docs's documentation!"
 msgstr ""
 
-#: ../../source/contents.rst:22
-msgid "Indices and tables"
+#: ../../source/contents.rst:4
+msgid "|GitHub stars| |npm version| |Changelog|"
 msgstr ""
 
 #: ../../source/contents.rst:24
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../source/contents.rst:25
-msgid ":ref:`modindex`"
+msgid "Indices and tables"
 msgstr ""
 
 #: ../../source/contents.rst:26
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../source/contents.rst:27
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../source/contents.rst:28
 msgid ":ref:`search`"
 msgstr ""
 

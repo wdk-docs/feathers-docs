@@ -76,6 +76,8 @@ but also functionality added by Feathers and its plugins like :doc:`./events` an
 
 ``app.publish([event, ] publisher) -> app`` registers a global event publisher. For more information see the :ref:`channels_publishing` chapter.
 
+.. _api_application_configure-callback:
+
 .configure(callback)
 --------------------
 

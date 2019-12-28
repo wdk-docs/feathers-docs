@@ -35,8 +35,8 @@ msgid ""
 "within your Feathers application. There are hundreds of them! Some "
 "commonly used ones are:"
 msgstr ""
-"[@ feathersjs/authentication-oauth2](https://github.com/feathersjs"
-"/authentication-oauth2)是一个服务器端模块, 允许您使用任何`Passport "
+"[@feathersjs/authentication-oauth2](https://github.com/feathersjs"
+"/authentication-oauth2)是一个服务器端模块, 允许您使用任何 `Passport "
 "<http://passportjs.org/>`_ OAuth2身份验证您的Feathers应用程序中的策略.有数百个！一些常用的是:"
 
 #: ../../source/api/authentication/oauth2.rst:16
@@ -133,9 +133,9 @@ msgid ""
 "``verify``, which has the exact same signature as `passport-oauth2 "
 "<https://github.com/jaredhanson/passport-oauth2>`_."
 msgstr ""
-"这是验证类, 它通过在给定服务上查找实体(通常是“用户”)来处理OAuth2验证, 并创建或更新实体并返回它们.它具有以下可以覆盖的方法.除了``verify``之外, 所有方法都返回一个promise, 它与"
-"`passport-oauth2 <https://github.com/jaredhanson/passport-"
-"oauth2>`_具有完全相同的签名."
+"这是验证类, 它通过在给定服务上查找实体(通常是“用户”)来处理OAuth2验证, 并创建或更新实体并返回它们.它具有以下可以覆盖的方法.除了 ``verify`` 之外, 所有方法都返回一个promise, 它与"
+" `passport-oauth2 <https://github.com/jaredhanson/passport-"
+"oauth2>`_ 具有完全相同的签名."
 
 #: ../../source/api/authentication/oauth2.rst:119
 msgid ""
@@ -143,7 +143,7 @@ msgid ""
 "behavior without having to rewrite and test a totally custom local "
 "Passport implementation. Although that is always an option if you don’t "
 "want use this plugin."
-msgstr "可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项."
+msgstr "可以扩展 s``Verifier`` 类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项."
 
 #: ../../source/api/authentication/oauth2.rst:124
 msgid "An example of customizing the Verifier:"

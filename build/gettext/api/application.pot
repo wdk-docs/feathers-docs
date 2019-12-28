@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-25 13:48+0800\n"
+"POT-Creation-Date: 2019-07-12 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,111 +64,111 @@ msgstr ""
 msgid "``app.publish([event, ] publisher) -> app`` registers a global event publisher. For more information see the :ref:`channels_publishing` chapter."
 msgstr ""
 
-#: ../../source/api/application.rst:80
+#: ../../source/api/application.rst:82
 msgid ".configure(callback)"
 msgstr ""
 
-#: ../../source/api/application.rst:82
+#: ../../source/api/application.rst:84
 msgid "``app.configure(callback) -> app`` runs a ``callback`` function that gets passed the application object. It is used to initialize plugins or services."
 msgstr ""
 
-#: ../../source/api/application.rst:93
+#: ../../source/api/application.rst:95
 msgid ".listen(port)"
 msgstr ""
 
-#: ../../source/api/application.rst:95
+#: ../../source/api/application.rst:97
 msgid "``app.listen([port]) -> HTTPServer`` starts the application on the given port. It will set up all configured transports (if any) and then run ``app.setup(server)`` (see below) with the server object and then return the server object."
 msgstr ""
 
-#: ../../source/api/application.rst:100
+#: ../../source/api/application.rst:102
 msgid "``listen`` will only be available if a server side transport (REST, Socket.io or Primus) has been configured."
 msgstr ""
 
-#: ../../source/api/application.rst:106
+#: ../../source/api/application.rst:108
 msgid ".setup([server])"
 msgstr ""
 
-#: ../../source/api/application.rst:108
+#: ../../source/api/application.rst:110
 msgid "``app.setup([server]) -> app`` is used to initialize all services by calling each :doc:`services#setupapp-path` method (if available). It will also use the ``server`` instance passed (e.g. through ``http.createServer``) to set up SocketIO (if enabled) and any other provider that might require the server instance."
 msgstr ""
 
-#: ../../source/api/application.rst:114
+#: ../../source/api/application.rst:116
 msgid "Normally ``app.setup`` will be called automatically when starting the application via ``app.listen([port])`` but there are cases when it needs to be called explicitly."
 msgstr ""
 
-#: ../../source/api/application.rst:117
+#: ../../source/api/application.rst:119
 msgid ".set(name, value)"
 msgstr ""
 
-#: ../../source/api/application.rst:119
+#: ../../source/api/application.rst:121
 msgid "``app.set(name, value) -> app`` assigns setting ``name`` to ``value``."
 msgstr ""
 
-#: ../../source/api/application.rst:122
+#: ../../source/api/application.rst:124
 msgid ".get(name)"
 msgstr ""
 
-#: ../../source/api/application.rst:124
+#: ../../source/api/application.rst:126
 msgid "``app.get(name) -> value`` retrieves the setting ``name``. For more information on server side Express settings see the `Express documentation <http://expressjs.com/en/4x/api.html#app.set>`_."
 msgstr ""
 
-#: ../../source/api/application.rst:134
+#: ../../source/api/application.rst:136
 msgid ".on(eventname, listener)"
 msgstr ""
 
-#: ../../source/api/application.rst:136
+#: ../../source/api/application.rst:138
 msgid "Provided by the core `NodeJS EventEmitter .on <https://nodejs.org/api/events.html#events_emitter_on_eventname_listener>`_. Registers a ``listener`` method (``function(data) {}``) for the given ``eventname``."
 msgstr ""
 
-#: ../../source/api/application.rst:144
+#: ../../source/api/application.rst:146
 msgid ".emit(eventname, data)"
 msgstr ""
 
-#: ../../source/api/application.rst:146
+#: ../../source/api/application.rst:148
 msgid "Provided by the core `NodeJS EventEmitter .emit <https://nodejs.org/api/events.html#events_emitter_emit_eventname_args>`_. Emits the event ``eventname`` to all event listeners."
 msgstr ""
 
-#: ../../source/api/application.rst:158
+#: ../../source/api/application.rst:160
 msgid ".removeListener(eventname, [ listener ])"
 msgstr ""
 
-#: ../../source/api/application.rst:160
+#: ../../source/api/application.rst:162
 msgid "Provided by the core `NodeJS EventEmitter .removeListener <https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener>`_. Removes all or the given listener for ``eventname``."
 msgstr ""
 
-#: ../../source/api/application.rst:164
+#: ../../source/api/application.rst:166
 msgid ".mixins"
 msgstr ""
 
-#: ../../source/api/application.rst:166
+#: ../../source/api/application.rst:168
 msgid "``app.mixins`` contains a list of service mixins. A mixin is a callback (``(service, path) => {}``) that gets run for every service that is being registered. Adding your own mixins allows to add functionality to every registered service."
 msgstr ""
 
-#: ../../source/api/application.rst:189
+#: ../../source/api/application.rst:191
 msgid ".services"
 msgstr ""
 
-#: ../../source/api/application.rst:191
+#: ../../source/api/application.rst:193
 msgid ":doc:`./services` keyed by the path they have been registered via ``app.use(path, service)``. This allows to return a list of all available service names:"
 msgstr ""
 
-#: ../../source/api/application.rst:205
+#: ../../source/api/application.rst:207
 msgid "To retrieve services, the `app.service(path) <#servicepath>`_ method should be used (not ``app.services.path`` directly)."
 msgstr ""
 
-#: ../../source/api/application.rst:207
+#: ../../source/api/application.rst:209
 msgid "A Feathers :doc:`client` does not know anything about the server it is connected to. This means that ``app.services`` will *not* automatically contain all services available on the server. Instead, the server has to provide the list of its services, e.g. through a :doc:`./services`."
 msgstr ""
 
-#: ../../source/api/application.rst:222
+#: ../../source/api/application.rst:224
 msgid ".defaultService"
 msgstr ""
 
-#: ../../source/api/application.rst:224
+#: ../../source/api/application.rst:226
 msgid "``app.defaultService`` can be a function that returns an instance of a new standard service for ``app.service(path)`` if there isn’t one registered yet."
 msgstr ""
 
-#: ../../source/api/application.rst:235
+#: ../../source/api/application.rst:237
 msgid "This is used by the :doc:`./client` to automatically register client side services that talk to a Feathers server."
 msgstr ""
 

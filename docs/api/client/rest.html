@@ -203,23 +203,22 @@
 <div class="section" id="rest-baseurl">
 <h3>rest([baseUrl])<a class="headerlink" href="#rest-baseurl" title="永久链接至标题">¶</a></h3>
 <p>可以通过加载 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/rest-client</span></code> 并使用基本URL初始化客户端对象来初始化REST客户端服务:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>const feathers =
-require(‘@feathersjs/feathers’); const rest =
-require(‘@feathersjs/rest-client’);
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span>const feathers = require(‘@feathersjs/feathers’);
+const rest = require(‘@feathersjs/rest-client’);
 
 const app = feathers();
 
-// Connect to the same as the browser URL (only in the browser) const
-restClient = rest();
+// Connect to the same as the browser URL (only in the browser)
+const restClient = rest();
 
-// Connect to a different URL const restClient =
-rest(‘http://feathers-api.com’)
+// Connect to a different URL
+const restClient = rest(‘http://feathers-api.com’)
 
 // Configure an AJAX library (see below) with that client
 app.configure(restClient.fetch(window.fetch));
 
-// Connect to the ``http://feathers-api.com/messages`` service const
-messages = app.service(‘messages’);
+// Connect to the ``http://feathers-api.com/messages`` service
+const messages = app.service(‘messages’);
 </pre></div>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
@@ -263,7 +262,7 @@ messages = app.service(‘messages’);
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>使用 <code class="docutils literal notranslate"><span class="pre">fetch</span></code> fork <a class="reference external" href="https://github.com/Netflix/yetch">yetch</a> 它也可以用来中止请求:</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">fetch</span></code> 分叉 <a class="reference external" href="https://github.com/Netflix/yetch">yetch</a> 它也可以用来中止请求:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">yetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;yetch&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">controller</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AbortController</span><span class="p">();</span>
 

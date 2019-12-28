@@ -243,7 +243,7 @@ msgid ""
 " create a Feathers client and authenticate it using the newly created "
 "user."
 msgstr ""
-"我们首先在* server *上调用以创建新用户. 然后, 我们为我们的应用程序启动服务器. 最后调用函数 ``makeClient`` 来创建Feathers客户端并使用新创建的用户对其进行身份验证. "
+"我们首先在 *server* 上调用以创建新用户. 然后, 我们为我们的应用程序启动服务器. 最后调用函数 ``makeClient`` 来创建Feathers客户端并使用新创建的用户对其进行身份验证. "
 
 #: ../../source/guides/chat/testing.rst:494
 msgid ""
@@ -261,7 +261,7 @@ msgid ""
 "exposed to potential iteractions. You can remove the statement to isolate"
 " the tests from one another."
 msgstr ""
-"``describe('使用客户端和服务器运行测试', '`语句停止为每个测试创建一个新的服务器和客户端.这导致测试模块运行明显更快, 尽管测试现在暴露于潜在的迭代.您可以删除该语句以将测试彼此隔离."
+"``describe('Run tests using client and server',`` 语句停止为每个测试创建一个新的服务器和客户端.这导致测试模块运行明显更快, 尽管测试现在暴露于潜在的迭代.您可以删除该语句以将测试彼此隔离."
 
 #: ../../source/guides/chat/testing.rst:505
 msgid "Code coverage"

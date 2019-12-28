@@ -356,7 +356,7 @@
 </pre></div>
 </div>
 <p>Custom events can be <a class="reference internal" href="channels.html#channels-publishing"><span class="std std-ref">出版</span></a> just like standard events and
-listened to it in a <a class="reference internal" href="client/socketio.html#client-socketio-listening-to-events"><span class="std std-ref">听取事件</span></a>.</p>
+listened to it in a <a class="reference internal" href="client/socketio.html#client-socketio-listening-to-events"><span class="std std-ref">监听事件</span></a>.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">client</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;payments&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{});</span>
 
 <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;payments status&#39;</span><span class="p">,</span> <span class="nx">data</span> <span class="p">=&gt;</span> <span class="p">{});</span>

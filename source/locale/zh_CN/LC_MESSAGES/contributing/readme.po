@@ -29,7 +29,7 @@ msgid ""
 "you see something that you can contribute, we would LOVE a pull request "
 "with your edits! To make this easy you can click the *“Edit this page”* "
 "link at the top of the web docs."
-msgstr "就像Feathers本身一样,所有文档都是开源的,并且可以在GitHub上编辑<https://github.com/feathersjs/docs>`_.如果您看到可以贡献的内容,我们会喜欢您的编辑拉取请求！为方便起见,您可以点击网络文档顶部的*“编辑此页面”*链接."
+msgstr "就像Feathers本身一样,所有文档都是开源的,并且 `可以在GitHub上编辑 <https://github.com/feathersjs/docs>`_.如果您看到可以贡献的内容,我们会喜欢您的编辑拉取请求！为方便起见,您可以点击网络文档顶部的*“编辑此页面”*链接."
 
 #: ../../source/contributing/readme.rst:10
 msgid ""
@@ -39,10 +39,7 @@ msgid ""
 "become a pro in a few minutes by reading their `GFM Documentation page "
 "<https://help.github.com/articles/github-flavored-markdown/>`_."
 msgstr ""
-"这些文档都是用`GitHub Flavored Markdown <https://help.github.com/articles"
-"/github-flavored-"
-"markdown/>`_编写的.如果您使用过GitHub,很可能您以前遇到过它.您可以通过阅读他们的`GFM文档页面<https://help.github.com/articles"
-"/github-flavored-markdown/>`_在几分钟内成为专家."
+"这些文档都是用 `GitHub Flavored Markdown <https://help.github.com/articles/github-flavored-markdown/>`_ 编写的.如果您使用过GitHub,很可能您以前遇到过它.您可以通过阅读他们的 `GFM文档页面 <https://help.github.com/articles/github-flavored-markdown/>`_ 在几分钟内成为专家."
 
 #: ../../source/contributing/readme.rst:18
 msgid "Organizing Files"
@@ -55,11 +52,7 @@ msgid ""
 "folder structure. The first file in each chapter is named as a "
 "description of the entire chapter’s topic. For example, the content "
 "related to databases is located in ``api/databases/``."
-msgstr ""
-"这些文件是使用`GitHub Flavored Markdown <https://help.github.com/articles"
-"/github-flavored-"
-"markdown/>`_编写的.如果你使用过GitHub,很可能你以前遇到过它.您可以通过阅读他们的`GFM文档页面<https://help.github.com/articles"
-"/github-flavored-markdown/>`在几分钟内成为专家."
+msgstr "You’ll notice that the `GitHub Repo <https://github.com/feathersjs/docs>`_ is organized in a nice logical folder structure. The first file in each chapter is named as a description of the entire chapter’s topic. For example, the content related to databases is located in ``api/databases/``."
 
 #: ../../source/contributing/readme.rst:26
 msgid ""
@@ -68,7 +61,7 @@ msgid ""
 " are laid out by looking at the ``SUMMARY.md`` file. This convention "
 "helps keep chapters together in the file system and easy to view either "
 "directly on github or gitbook."
-msgstr "有些章节分为多个部分,以帮助分解内容并使其更容易消化.您可以通过查看``SUMMARY.md``文件轻松查看章节的布局.此约定有助于将章节保存在文件系统中,并且可以直接在github或gitbook上轻松查看."
+msgstr "有些章节分为多个部分,以帮助分解内容并使其更容易消化.您可以通过查看 ``SUMMARY.md`` 文件轻松查看章节的布局.此约定有助于将章节保存在文件系统中,并且可以直接在github或gitbook上轻松查看."
 
 #: ../../source/contributing/readme.rst:33
 msgid "Table of Contents"
@@ -80,7 +73,7 @@ msgid ""
 ":doc:`https://github.com/feathersjs/docs/blob/master/SUMMARY` file. It’s "
 "a nested list of markdown links. You can link to a file simply by putting"
 " the filename (including the extension) inside the link target."
-msgstr "您可以在:doc:`https://github.com/feathersjs/docs/blob/master/SUMMARY`文件中找到目录.这是一个嵌套的降价链接列表.您只需将文件名(包括扩展名)放在链接目标中即可链接到文件."
+msgstr "您可以在 `SUMMARY <https://github.com/feathersjs/docs/blob/master/SUMMARY>`_ 文件中找到目录.这是一个嵌套的降价链接列表.您只需将文件名(包括扩展名)放在链接目标中即可链接到文件."
 
 #: ../../source/contributing/readme.rst:42
 msgid "Introduction Page"
@@ -92,7 +85,7 @@ msgid ""
 ":doc:`https://github.com/feathersjs/docs/blob/master/README` file. It’s "
 "intent is to give the reader an elevator pitch of what Feathers is and "
 "why we think it is useful."
-msgstr "这是root:doc:`https://github.com/feathersjs/docs/blob/master/README`文件.它的目的是让读者了解Feathers的电梯,以及我们认为它有用的原因."
+msgstr "这是 root `README <https://github.com/feathersjs/docs/blob/master/README>`_ 文件.它的目的是让读者了解Feathers的电梯,以及我们认为它有用的原因."
 
 #: ../../source/contributing/readme.rst:50
 msgid "Send a Pull Request"
@@ -113,22 +106,19 @@ msgid ""
 "Moments after your edits are merged, they will be automatically published"
 " to the web, as a downloadable PDF, .mobi file (Kindle compatible), and "
 "ePub file (iBooks compatible)."
-msgstr "合并编辑后的时刻,它们将自动发布到网络上,作为可下载的PDF,.mobi文件(兼容Kindle)和ePub文件(兼容iBooks)."
+msgstr "合并编辑后的时刻,它们将自动发布到网络上,作为可下载的PDF, .mobi 文件(兼容Kindle)和ePub文件(兼容iBooks)."
 
 #: ../../source/contributing/readme.rst:63
 msgid "Share"
 msgstr "分享"
 
 #: ../../source/contributing/readme.rst:65
-#, fuzzy
 msgid ""
 "We take pride in having great documentation and we are very appreciative "
 "of any help we can get. Please, let the world know you’ve contributed to "
 "the Feathers Book or give `@FeathersJS <https://twitter.com/feathersjs>`_"
 " a shout out on Twitter to let others know about your changes."
-msgstr ""
-"我们为拥有优秀的文档而感到自豪,我们非常感谢您能获得的任何帮助.请让全世界知道你为Feathers "
-"Book做出了贡献,或者在Twitter上给[@FeathersJS](https://twitter.com/feathersjs)大喊大叫,让别人知道你的变化."
+msgstr "We take pride in having great documentation and we are very appreciative of any help we can get. Please, let the world know you’ve contributed to the Feathers Book or give `@FeathersJS <https://twitter.com/feathersjs>`_ a shout out on Twitter to let others know about your changes."
 
 #~ msgid ""
 #~ "You’ll find the table of contents "

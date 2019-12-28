@@ -57,7 +57,7 @@ msgid ""
 "`Section 4 of the Official JWT Specification "
 "<https://tools.ietf.org/html/rfc7519#section-4>`_."
 msgstr ""
-"``feathers-authentication @ 1.x`` "
+"``feathers-authentication @1.x`` "
 "允许您自定义存储在JWT中的数据.我们将JWT中的数据称为 ``payload``.有一些保留属性,在 `JWT官方规范 "
 "<https://tools.ietf.org/html/rfc7519>`_ 中被称为 ``claim``. 您可以在 :ref:`api_auth_server-otions` 中自定义其中一些声明. 为了更加熟悉每个 ``claim`` 的目的, 请参阅官方 `JWT规范的第4节 <https://tools.ietf.org/html/rfc7519#section-4>`_."
 

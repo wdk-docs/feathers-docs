@@ -88,7 +88,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">设置</a></li>
 <li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
 <li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">钩子</a><ul>
@@ -198,7 +198,7 @@
 <h1>钩子<a class="headerlink" href="#hooks" title="永久链接至标题">¶</a></h1>
 <p>正如我们在 <a class="reference internal" href="services.html"><span class="doc">服务</span></a> 中看到的,Feathers服务是实现数据存储和修改的好方法.从技术上讲,我们可以在服务中实现所有应用程序逻辑,但通常应用程序需要跨多个服务的类似功能.例如,如果允许用户甚至调用服务方法或将当前日期添加到我们正在保存的所有数据,我们可能希望检查所有服务.只需使用服务,我们就必须每次都重新实现这一点.</p>
 <p>这是Feathers钩子的用武之地.钩子是可插入的中间件函数,可以在 <strong>before</strong>, <strong>before</strong> 或服务方法的 __error__s 之后注册.您可以注册单个钩子函数或创建它们的链,以创建复杂的工作流程.</p>
-<p>就像服务本身一样,钩子是 <em>独立于运输的</em>.它们通常也是服务不可知的,这意味着它们可以与 <em>any</em>服务一起使用.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.</p>
+<p>就像服务本身一样,钩子是 <em>独立于传输的</em>.它们通常也是服务不可知的,这意味着它们可以与 <em>any</em>服务一起使用.此模式使您的应用程序逻辑保持灵活,可组合,并且更容易跟踪和调试.</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>有关hook API的完整概述,请参阅 <a class="reference internal" href="../../api/hooks.html"><span class="doc">钩子</span></a>.</p>

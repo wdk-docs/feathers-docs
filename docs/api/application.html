@@ -253,7 +253,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">app.publish([event,</span> <span class="pre">]</span> <span class="pre">publisher)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">app</span></code> 注册一个全局事件发布者.有关更多信息, 请参阅 <a class="reference internal" href="channels.html#channels-publishing"><span class="std std-ref">出版</span></a> 一章.</p>
 </div>
 <div class="section" id="configure-callback">
-<h2>.configure(callback)<a class="headerlink" href="#configure-callback" title="永久链接至标题">¶</a></h2>
+<span id="api-application-configure-callback"></span><h2>.configure(callback)<a class="headerlink" href="#configure-callback" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">app.configure(callback)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">app</span></code> 运行一个 <code class="docutils literal notranslate"><span class="pre">callback</span></code> 函数, 它传递了应用程序对象.它用于初始化插件或服务.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">setupService</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;/todos&#39;</span><span class="p">,</span> <span class="nx">todoService</span><span class="p">);</span>

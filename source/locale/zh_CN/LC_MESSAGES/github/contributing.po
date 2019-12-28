@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../../source/github/contributing.rst:2
 msgid "Contributing to Feathers"
-msgstr ""
+msgstr "为羽毛做贡献"
 
 #: ../../source/github/contributing.rst:4
 msgid "Thank you for contributing to Feathers! :heart: :tada:"
-msgstr ""
+msgstr "感谢您为Feathers做出贡献！ :heart: :tada:"
 
 #: ../../source/github/contributing.rst:6
 msgid ""
@@ -32,11 +32,11 @@ msgid ""
 "this easier to manage we currently use Github projects for issue triage "
 "and visibility. To get a high level view of the core releases you can go "
 "to https://github.com/feathersjs/feathers/projects."
-msgstr ""
+msgstr "羽毛拥抱模块化，并在许多回购中被分解。为了使这更容易管理，我们目前使用Github项目进行问题分类和可见性。要获得核心版本的高级视图，您可以访问https://github.com/feathersjs/feathers/projects。"
 
 #: ../../source/github/contributing.rst:12
 msgid "Report a bug"
-msgstr ""
+msgstr "报告错误"
 
 #: ../../source/github/contributing.rst:14
 msgid ""
@@ -44,7 +44,7 @@ msgid ""
 "specifically the `FAQ <https://docs.feathersjs.com/help/faq.html>`_ "
 "section. You might want to also try searching Github. It’s pretty likely "
 "someone has already asked a similar question."
-msgstr ""
+msgstr "在创建问题之前，请确保您已检出文档，特别是`FAQ <https://docs.feathersjs.com/help/faq.html>`_部分。您可能还想尝试搜索Github。很可能有人已经问了类似的问题。"
 
 #: ../../source/github/contributing.rst:19
 msgid ""
@@ -54,7 +54,7 @@ msgid ""
 "``feathers`` or ``feathersjs`` tag. We try our best to monitor "
 "Stackoverflow but you’re likely to get more immediate responses in Slack "
 "and Github."
-msgstr ""
+msgstr "如果你还没有找到你的答案，请随时加入我们的`slack channel <http://slack.feathersjs.com>`_，在Github上创建一个问题，或发布在`Stackoverflow <http://stackoverflow.com >`_使用``feathers``或``feathersjs``标签。我们尽力监控Stackoverflow，但您可能会在Slack和Github中获得更多即时响应。“"
 
 #: ../../source/github/contributing.rst:26
 msgid ""
@@ -64,11 +64,11 @@ msgid ""
 "without knowing which modules are being used and what your configuration "
 "looks like, so **it helps us immensely if you can link to a simple "
 "example that reproduces your issue**."
-msgstr ""
+msgstr "问题可以在`问题跟踪器<https://github.com/feathersjs/feathers/issues>`_中报告。由于羽毛结合了许多模块，因此我们很难在不知道正在使用哪些模块以及您的配置如何的情况下评估根本原因，所以**如果您可以链接到一个简单的示例来重现您的问题，它将极大地帮助我们* *。"
 
 #: ../../source/github/contributing.rst:34
 msgid "Report a Security Concern"
-msgstr ""
+msgstr "报告安全问题"
 
 #: ../../source/github/contributing.rst:36
 #, python-format
@@ -78,7 +78,7 @@ msgid ""
 "compromised or hacked. As a web application developer you are responsible"
 " for any security breaches. We do our very best to make sure Feathers is "
 "as secure as possible by default."
-msgstr ""
+msgstr "我们非常重视Feathers的安全。我们欢迎任何同行评审我们的100％开源代码，以确保没有人的羽毛应用程序遭到入侵或黑客入侵。作为Web应用程序开发人员，您应对任何安全漏洞负责。我们尽最大努力确保Feathers在默认情况下尽可能安全。"
 
 #: ../../source/github/contributing.rst:42
 msgid ""
@@ -86,17 +86,17 @@ msgid ""
 "urge you report all security issues to us. Send one of the core team "
 "members a PM in `Slack <http://slack.feathersjs.com>`_ or email us at "
 "hello@feathersjs.com with details and we will respond ASAP."
-msgstr ""
+msgstr "为了让社区有时间回复和升级，我们强烈建议您向我们报告所有安全问题。请将一位核心团队成员发送给“Slack <http://slack.feathersjs.com>”的PM，或发送电子邮件至hello@feathersjs.com，我们将尽快回复。"
 
 #: ../../source/github/contributing.rst:47
 msgid ""
 "For full details refer to our `Security docs "
 "<https://docs.feathersjs.com/SECURITY.html>`_."
-msgstr ""
+msgstr "有关详细信息，请参阅我们的`安全文档<https://docs.feathersjs.com/SECURITY.html>`_。"
 
 #: ../../source/github/contributing.rst:51
 msgid "Pull Requests"
-msgstr ""
+msgstr "请求"
 
 #: ../../source/github/contributing.rst:53
 msgid ""
@@ -105,7 +105,7 @@ msgid ""
 "<https://github.com/feathersjs/generator-feathers-plugin>`_ and a `common"
 " test suite <https://github.com/feathersjs/feathers-service-tests>`_ for "
 "database adapters."
-msgstr ""
+msgstr "我们：内心：拉取请求，我们不断努力让人们尽可能轻松地做出贡献，包括`插件生成器<https://github.com/feathersjs/generator-feathers-plugin>`_和`common test suite <https://github.com/feathersjs/feathers-service-tests>`_用于数据库适配器。"
 
 #: ../../source/github/contributing.rst:60
 msgid ""
@@ -115,7 +115,7 @@ msgid ""
 "changes or reject your pull request. This is not a reflection of you as "
 "an engineer or a person. Please accept feedback graciously as we will "
 "also try to be sensitive when providing it."
-msgstr ""
+msgstr "我们更喜欢使用最少的代码更改的小拉请求。它们越小越容易审查和合并。 FeathersJS维护人员会提取您的PR并尽快进行审核。他们可能会要求更改或拒绝您的拉取请求。这不是您作为工程师或个人的反映。请慷慨地接受反馈，因为我们在提供时也会尽量保持敏感。"
 
 #: ../../source/github/contributing.rst:67
 msgid ""
@@ -126,39 +126,39 @@ msgid ""
 "take to put together any contributions so we pledge to always be "
 "respectful of that time and will try to be as open as possible so that "
 "you don’t waste it. :smile:"
-msgstr ""
+msgstr "虽然我们通常接受许多PR，但出于多种原因，它们可能会遭到拒绝。我们将尽可能透明，但可能只是因为您没有相同的上下文，历史知识或维护者所拥有的路线图信息。我们重视您将所有贡献汇总在一起所花费的时间，因此我们保证始终尊重那个时间并尽可能地保持开放，这样您就不会浪费它。 ：微笑："
 
 #: ../../source/github/contributing.rst:75
 msgid ""
 "**All PRs (except documentation) should be accompanied with tests and "
 "pass the linting rules.**"
-msgstr ""
+msgstr "**所有PR（文件除外）都应附有测试并通过linting规则。**"
 
 #: ../../source/github/contributing.rst:79
 msgid "Code style"
-msgstr ""
+msgstr "代码风格"
 
 #: ../../source/github/contributing.rst:81
 msgid ""
 "Before running the tests from the ``test/`` folder ``npm test`` will run "
 "ESlint. You can check your code changes individually by running ``npm run"
 " lint``."
-msgstr ""
+msgstr "在从``test /``文件夹``npm test``运行测试之前，将运行ESlint。您可以通过运行``npm run lint``单独检查代码更改。"
 
 #: ../../source/github/contributing.rst:86
 msgid "Tests"
-msgstr ""
+msgstr "测试"
 
 #: ../../source/github/contributing.rst:88
 msgid ""
 "`Mocha <http://mochajs.org/>`_ tests are located in the ``test/`` folder "
 "and can be run using the ``npm run mocha`` or ``npm test`` (with ESLint "
 "and code coverage) command."
-msgstr ""
+msgstr "`Mocha <http://mochajs.org/>`_ tests位于``test /``文件夹中，可以使用``npm run mocha``或``npm test``运行（使用ESLint和代码覆盖率）命令。"
 
 #: ../../source/github/contributing.rst:93
 msgid "Documentation"
-msgstr ""
+msgstr "文档"
 
 #: ../../source/github/contributing.rst:95
 msgid ""
@@ -166,11 +166,11 @@ msgid ""
 "<https://github.com/feathersjs/docs>`_ repository. To change the "
 "documentation submit a pull request to that repo, referencing any other "
 "PR if applicable, and the docs will be updated with the next release."
-msgstr ""
+msgstr "Feathers文档包含在`docs <https://github.com/feathersjs/docs>`_ repository中的Markdown文件中。要更改文档，请向该存储库提交拉取请求，引用任何其他PR（如果适用），并在下一版本中更新文档。"
 
 #: ../../source/github/contributing.rst:101
 msgid "Community Contributions"
-msgstr ""
+msgstr "社区贡献"
 
 #: ../../source/github/contributing.rst:103
 msgid ""
@@ -178,7 +178,7 @@ msgid ""
 "ecosystem, or created an app using Feathers please add it to the "
 "`awesome-feathersjs <https://github.com/feathersjs-ecosystem/awesome-"
 "feathersjs>`_."
-msgstr ""
+msgstr "如果你已经为Feathers编写了一些很棒的东西，对于Feathers生态系统，或者使用Feathers创建了一个应用程序，请将它添加到`awesome-feathersjs <https://github.com/feathersjs-ecosystem/awesome-feathersjs>`_。"
 
 #: ../../source/github/contributing.rst:107
 msgid ""
@@ -186,7 +186,7 @@ msgid ""
 "out the `Plugin Generator <https://github.com/feathersjs/generator-"
 "feathers-plugin>`_ that can be used to scaffold plugins to be Feathers "
 "compliant from the start."
-msgstr ""
+msgstr "如果你想创建一个新的插件，你也可以查看`插件生成器<https://github.com/feathersjs/generator-feathers-plugin>`_，可以用来支持插件符合Feathers从头开始。"
 
 #: ../../source/github/contributing.rst:113
 msgid ""
@@ -194,11 +194,11 @@ msgid ""
 "``featherjs-ecosystem`` module then please contact one of the Feathers "
 "maintainers in `Slack <http://slack.feathersjs.com>`_ and we can discuss "
 "whether it belongs and how to get it there. :beers:"
-msgstr ""
+msgstr "如果您认为您的模块是一个很好的核心``feathersjs``模块或``featherjs-ecosystem``模块，那么请联系`Slack <http://slack.feathersjs.com>`_中的一个Feathers维护者。我们可以讨论它是否属于如何以及如何实现它。 ：啤酒："
 
 #: ../../source/github/contributing.rst:119
 msgid "Contributor Code of Conduct"
-msgstr ""
+msgstr "贡献者行为准则"
 
 #: ../../source/github/contributing.rst:121
 msgid ""
@@ -206,7 +206,7 @@ msgid ""
 " people who contribute through reporting issues, posting feature "
 "requests, updating documentation, submitting pull requests or patches, "
 "and other activities."
-msgstr ""
+msgstr "作为该项目的贡献者和维护者，我们承诺尊重所有通过报告问题，发布功能请求，更新文档，提交拉取请求或补丁以及其他活动做出贡献的人员。"
 
 #: ../../source/github/contributing.rst:126
 msgid ""
@@ -214,7 +214,7 @@ msgid ""
 "free experience for everyone, regardless of level of experience, gender, "
 "gender identity and expression, sexual orientation, disability, personal "
 "appearance, body size, race, ethnicity, age, or religion."
-msgstr ""
+msgstr "无论经验水平，性别，性别认同和表达，性取向，残疾，个人形象，体型，种族，民族，年龄或宗教，我们都致力于为每个人提供无骚扰体验。"
 
 #: ../../source/github/contributing.rst:132
 msgid ""
@@ -222,7 +222,7 @@ msgid ""
 "sexual language or imagery, derogatory comments or personal attacks, "
 "trolling, public or private harassment, insults, or other unprofessional "
 "conduct."
-msgstr ""
+msgstr "参与者不可接受的行为的例子包括使用性语言或图像，贬损评论或人身攻击，拖钓，公开或私人骚扰，侮辱或其他非专业行为。"
 
 #: ../../source/github/contributing.rst:137
 msgid ""
@@ -231,19 +231,19 @@ msgid ""
 "contributions that are not aligned to this Code of Conduct. Project "
 "maintainers who do not follow the Code of Conduct may be removed from the"
 " project team."
-msgstr ""
+msgstr "项目维护者有权利和责任删除，编辑或拒绝与本行为准则不一致的评论，提交，代码，维基编辑，问题和其他贡献。不遵守行为准则的项目维护人员可能会从项目团队中删除。"
 
 #: ../../source/github/contributing.rst:143
 msgid ""
 "Instances of abusive, harassing, or otherwise unacceptable behavior may "
 "be reported by opening an issue or contacting one or more of the project "
 "maintainers."
-msgstr ""
+msgstr "可以通过打开问题或联系一个或多个项目维护者来报告滥用，骚扰或其他不可接受的行为的实例。"
 
 #: ../../source/github/contributing.rst:147
 msgid ""
 "This Code of Conduct is adapted from the `Contributor Covenant <http"
 "://contributor-covenant.org>`_, version 1.0.0, available at http"
 "://contributor-covenant.org/version/1/0/0/"
-msgstr ""
+msgstr "本行为准则改编自“贡献者契约<http://contributor-covenant.org>`_，版本1.0.0，可从http://contributor-covenant.org/version/1/0/0/获取"
 

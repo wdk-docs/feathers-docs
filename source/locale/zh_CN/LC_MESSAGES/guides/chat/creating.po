@@ -107,10 +107,10 @@ msgid ""
 "``config/`` - Contains the configuration files for the app. "
 "``production.json`` files override ``default.json`` when in production "
 "mode by setting ``NODE_ENV=production``. For details, see the "
-":doc:`../api/configuration`."
+":doc:`../../api/configuration`."
 msgstr ""
 "``config/`` - 包含应用程序的配置文件. ``production.json`` 文件在生产模式下通过设置 ``NODE_ENV = "
-"production`` 覆盖 ``default.json``.有关详细信息,请参阅 :doc:`../api/configuration`."
+"production`` 覆盖 ``default.json``.有关详细信息, 请参阅 :doc:`../../api/configuration`."
 
 #: ../../source/guides/chat/creating.rst:68
 msgid ""

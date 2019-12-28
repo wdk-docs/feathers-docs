@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 19:44+0800\n"
+"POT-Creation-Date: 2019-07-12 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgid "Let’s have a brief look at the files that have been generated:"
 msgstr ""
 
 #: ../../source/guides/chat/creating.rst:64
-msgid "``config/`` - Contains the configuration files for the app. ``production.json`` files override ``default.json`` when in production mode by setting ``NODE_ENV=production``. For details, see the :doc:`../api/configuration`."
+msgid "``config/`` - Contains the configuration files for the app. ``production.json`` files override ``default.json`` when in production mode by setting ``NODE_ENV=production``. For details, see the :doc:`../../api/configuration`."
 msgstr ""
 
 #: ../../source/guides/chat/creating.rst:68

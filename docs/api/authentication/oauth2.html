@@ -37,7 +37,7 @@
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="搜索" href="../../search.html" />
     <link rel="next" title="数据库适配器" href="../databases/adapters.html" />
-    <link rel="prev" title="OAuth1身份验证" href="oauth1.html" /> 
+    <link rel="prev" title="OAuth1 身份验证" href="oauth1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,7 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="client.html">验证客户端</a></li>
 <li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1 身份验证</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">OAuth2身份验证</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
@@ -274,7 +274,7 @@ strategy you are configuring.</p>
 </div>
 <div class="section" id="verifier">
 <h2>Verifier<a class="headerlink" href="#verifier" title="永久链接至标题">¶</a></h2>
-<p>这是验证类, 它通过在给定服务上查找实体(通常是“用户”)来处理OAuth2验证, 并创建或更新实体并返回它们.它具有以下可以覆盖的方法.除了``verify``之外, 所有方法都返回一个promise, 它与`passport-oauth2 &lt;<a class="reference external" href="https://github.com/jaredhanson/passport-oauth2">https://github.com/jaredhanson/passport-oauth2</a>&gt;`_具有完全相同的签名.</p>
+<p>这是验证类, 它通过在给定服务上查找实体(通常是“用户”)来处理OAuth2验证, 并创建或更新实体并返回它们.它具有以下可以覆盖的方法.除了 <code class="docutils literal notranslate"><span class="pre">verify</span></code> 之外, 所有方法都返回一个promise, 它与 <a class="reference external" href="https://github.com/jaredhanson/passport-oauth2">passport-oauth2</a> 具有完全相同的签名.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nx">constructor</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="c1">// the class constructor</span>
     <span class="nx">_updateEntity</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="c1">// updates an existing entity</span>
@@ -284,7 +284,7 @@ strategy you are configuring.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项.</p>
+<p>可以扩展 s``Verifier`` 类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项.</p>
 <p>An example of customizing the Verifier:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">oauth2</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Verifier</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/authentication-oauth2&#39;</span><span class="p">;</span>
 
@@ -379,7 +379,7 @@ strategy you are configuring.</p>
         <a href="../databases/adapters.html" class="btn btn-neutral float-right" title="数据库适配器" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="oauth1.html" class="btn btn-neutral float-left" title="OAuth1身份验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="oauth1.html" class="btn btn-neutral float-left" title="OAuth1 身份验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -116,7 +116,7 @@ msgid ""
 "address, so we can display an avatar. Run:"
 msgstr ""
 "让我们生成另一个钩子来添加一个链接到与用户的电子邮件地址相关联的 `Gravatar <http://en.gravatar.com/>`_ "
-"image,这样我们就可以显示一个头像了.跑:"
+"image,这样我们就可以显示一个头像了. 运行:"
 
 #: ../../source/guides/chat/processing.rst:99
 msgid "The selections are almost the same as our previous hook:"

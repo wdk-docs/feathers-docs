@@ -138,7 +138,7 @@ msgid ""
 "This notifies us if we are susceptible to any vulnerabilites that have "
 "been reported to the `Node Security Project "
 "<https://nodesecurity.io/>`_."
-msgstr "我们运行 `nsp <https://github.com/nodesecurity/nsp>`_ 作为CI的一部分.如果我们容易受到已向“节点安全项目 `<https://nodesecurity.io/>`_ 报告的任何漏洞的影响,则会通知我们."
+msgstr "我们运行 `nsp <https://github.com/nodesecurity/nsp>`_ 作为CI的一部分.如果我们容易受到已向 `node 安全项目 <https://nodesecurity.io/>`_ 报告的任何漏洞的影响,则会通知我们."
 
 #: ../../source/SECURITY.rst:78
 msgid "XSS Attacks"

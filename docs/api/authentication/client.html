@@ -109,7 +109,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1 身份验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="oauth2.html">OAuth2身份验证</a></li>
 </ul>
 </li>
@@ -232,7 +232,7 @@ plugin.</strong></p>
 </div>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="永久链接至标题">¶</a></h2>
-<p>在配置身份验证时, 以下默认选项将与您传入的设置混合在一起.它会将混合选项设置回应用程序, 以便随时可以通过``app.get(‘auth’)``使用它们.他们都可以被覆盖.</p>
+<p>在配置身份验证时, 以下默认选项将与您传入的设置混合在一起.它会将混合选项设置回应用程序, 以便随时可以通过 <code class="docutils literal notranslate"><span class="pre">app.get('auth')</span></code> 使用它们.他们都可以被覆盖.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nx">header</span><span class="o">:</span> <span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="c1">// the default authorization header for REST</span>
   <span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// if set will add a prefix to the header value. for example if prefix was &#39;JWT&#39; then the header would be &#39;Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOi...&#39;</span>
@@ -273,12 +273,12 @@ uses cookies. It can be useful on devices that don’t support
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>app.authenticate()``**当你想在存储时使用令牌时** <strong>, **只在应用程序初始化时</strong> <a href="#id3"><span class="problematic" id="id4">**</span></a>.一旦成功, 所有后续请求将自动发送其身份验证信息.</p>
+<p><code class="docutils literal notranslate"><span class="pre">app.authenticate()</span></code> <strong>当你想在存储时使用令牌时</strong> <strong>, **只在应用程序初始化时</strong> <a href="#id1"><span class="problematic" id="id2">**</span></a>.一旦成功, 所有后续请求将自动发送其身份验证信息.</p>
 </div>
 </div>
 <div class="section" id="app-authenticate-options">
 <h2>app.authenticate(options)<a class="headerlink" href="#app-authenticate-options" title="永久链接至标题">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>app.authenticate(options) - &gt; Promise``将尝试通过传递``strategy``和其他属性作为凭证来验证Feathers服务器.它将使用客户端上设置的任何传输(&#64; feathersjs/rest-client, &#64; feathersjs/socketio-client或&#64; feathersjs/primus-client).</p>
+<p><code class="docutils literal notranslate"><span class="pre">app.authenticate(options)</span> <span class="pre">-</span> <span class="pre">&gt;</span> <span class="pre">Promise``将尝试通过传递</span> <span class="pre">``strategy</span></code> 和其他属性作为凭证来验证Feathers服务器.它将使用客户端上设置的任何传输(&#64;feathersjs/rest-client, &#64;feathersjs/socketio-client 或 &#64;feathersjs/primus-client).</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Authenticate with the local email/password strategy</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">({</span>
   <span class="nx">strategy</span><span class="o">:</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span>

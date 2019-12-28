@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/api/authentication/oauth1.rst:2
 msgid "OAuth1 Authentication"
-msgstr "OAuth1身份验证"
+msgstr "OAuth1 身份验证"
 
 #: ../../source/api/authentication/oauth1.rst:4
 msgid "|npm version| |Changelog|"
@@ -109,7 +109,7 @@ msgid ""
 "behavior without having to rewrite and test a totally custom local "
 "Passport implementation. Although that is always an option if you don’t "
 "want use this plugin."
-msgstr "可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项."
+msgstr "可以扩展 ``Verifier`` 类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项."
 
 #: ../../source/api/authentication/oauth1.rst:118
 msgid "An example of customizing the Verifier:"
@@ -135,7 +135,7 @@ msgid ""
 "can be done by adding a ``before`` hook to both the ``update`` and "
 "``create`` service methods on your ``entity``\\ ’s service."
 msgstr ""
-"每当您使用OAuth1提供程序(如Twitter)进行身份验证时, 提供程序将发回一个``accessToken``, ``refreshToken``和一个包含基于OAuth1``scope的身份的``profile``的信息.验证实体.您已申请并获得批准."
+"每当您使用OAuth1提供程序(如Twitter)进行身份验证时, 提供程序将发回一个 ``accessToken``, ``refreshToken`` 和一个包含基于OAuth1`` scope的身份的 ``profile`` 的信息.验证实体.您已申请并获得批准."
 " “"
 
 #: ../../source/api/authentication/oauth1.rst:203
@@ -149,7 +149,7 @@ msgid ""
 " authentication strategy url. This could be by setting "
 "``window.location`` or through a link in your app."
 msgstr ""
-"当该模块是注册服务器端时, 无论您是否使用``feathers-authentication-"
+"当该模块是注册服务器端时, 无论您是否使用 ``feathers-authentication-"
 "client``, 用户都必须导航到身份验证策略URL.这可以通过设置``window.location``或通过应用程序中的链接来实现."
 
 #: ../../source/api/authentication/oauth1.rst:210

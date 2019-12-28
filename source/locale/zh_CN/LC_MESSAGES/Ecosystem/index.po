@@ -479,8 +479,7 @@ msgid ""
 "Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`@feathersjs/authentication "
-"<https://docs.feathersjs.com/api/authentication/server.html>`_ `Official "
-"Feathers Module </img/tiny-feathers-logo.png>`_"
+"<https://docs.feathersjs.com/api/authentication/server.html>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:106
 msgid ""
@@ -489,8 +488,7 @@ msgid ""
 "Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`@feathersjs/authentication-client "
-"<https://docs.feathersjs.com/api/authentication/client.html>`_ `Official "
-"Feathers Module </img/tiny-feathers-logo.png>`_"
+"<https://docs.feathersjs.com/api/authentication/client.html>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:107
 msgid ""
@@ -499,8 +497,7 @@ msgid ""
 "Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`@feathersjs/authentication-local "
-"<https://docs.feathersjs.com/api/authentication/local.html>`_ `Official "
-"Feathers Module </img/tiny-feathers-logo.png>`_"
+"<https://docs.feathersjs.com/api/authentication/local.html>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:108
 msgid ""
@@ -509,8 +506,7 @@ msgid ""
 "Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`@feathersjs/authentication-oauth1 "
-"<https://docs.feathersjs.com/api/authentication/oauth1.html>`_ `Official "
-"Feathers Module </img/tiny-feathers-logo.png>`_"
+"<https://docs.feathersjs.com/api/authentication/oauth1.html>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:109
 msgid ""
@@ -519,8 +515,7 @@ msgid ""
 "Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`@feathersjs/authentication-oauth2 "
-"<https://docs.feathersjs.com/api/authentication/oauth2.html>`_ `Official "
-"Feathers Module </img/tiny-feathers-logo.png>`_"
+"<https://docs.feathersjs.com/api/authentication/oauth2.html>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:111
 msgid ""
@@ -571,7 +566,7 @@ msgid ""
 "compatible with `v1.0+` authentication"
 msgstr ""
 "`feathers-authentication-compatibility <https://www.npmjs.com/package"
-"/feathers-authentication-compatibility>`_ - 保持`v0.x`客户端与`v1.0 +`认证兼容"
+"/feathers-authentication-compatibility>`_ - 保持 `v0.x` 客户端与 `v1.0 +` 认证兼容"
 
 #: ../../source/Ecosystem/index.rst:119
 msgid "Caching"
@@ -596,7 +591,7 @@ msgid ""
 "logo.png>`_"
 msgstr ""
 "`feathers-elasticsearch <https://github.com/feathersjs-ecosystem"
-"/feathers-elasticsearch>`_ `Official Feathers Module </img/tiny-feathers-"
+"/feathers-elasticsearch>`_ `官方羽毛模块 </img/tiny-feathers-"
 "logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:127
@@ -605,7 +600,7 @@ msgid ""
 "`Official Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`feathers-knex <https://github.com/feathersjs-ecosystem/feathers-knex>`_ "
-"`Official Feathers Module </img/tiny-feathers-logo.png>`_"
+"`官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:128
 msgid ""
@@ -613,7 +608,7 @@ msgid ""
 "localstorage>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`feathers-localstorage <https://github.com/feathersjs-ecosystem/feathers-"
-"localstorage>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+"localstorage>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:129
 msgid ""
@@ -621,7 +616,7 @@ msgid ""
 "memory>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`feathers-memory <https://github.com/feathersjs-ecosystem/feathers-"
-"memory>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+"memory>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:130
 msgid ""
@@ -629,7 +624,7 @@ msgid ""
 "mongodb>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`feathers-mongodb <https://github.com/feathersjs-ecosystem/feathers-"
-"mongodb>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+"mongodb>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:131
 msgid ""
@@ -637,7 +632,7 @@ msgid ""
 "mongoose>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
 msgstr ""
 "`feathers-mongoose <https://github.com/feathersjs-ecosystem/feathers-"
-"mongoose>`_ `Official Feathers Module </img/tiny-feathers-logo.png>`_"
+"mongoose>`_ `官方羽毛模块 </img/tiny-feathers-logo.png>`_"
 
 #: ../../source/Ecosystem/index.rst:132
 msgid ""
@@ -1287,7 +1282,7 @@ msgid ""
 "`feathers-kong <https://github.com/dekelev/feathers-kong>`_ - A Feathers "
 "service for `Kong API Gateway <https://docs.konghq.com>`_ admin API"
 msgstr ""
-"`feathers-kong <https://github.com/dekelev/feathers-kong>`_ - 用于`Kong API"
+"`feathers-kong <https://github.com/dekelev/feathers-kong>`_ - 用于 `Kong API"
 " Gateway <https://docs.konghq.com>`_ admin API的Feathers服务"
 
 #: ../../source/Ecosystem/index.rst:252

@@ -106,7 +106,7 @@
 <li class="toctree-l3"><a class="reference internal" href="client.html">验证客户端</a></li>
 <li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
-<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1身份验证</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oauth1.html">OAuth1 身份验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="oauth2.html">OAuth2身份验证</a></li>
 </ul>
 </li>
@@ -214,7 +214,7 @@ The hooks that were once bundled with this module are now located at
 <li><p>在客户端上使用身份验证服务器: <a class="reference internal" href="client.html"><span class="doc">验证客户端</span></a></p></li>
 <li><p>本地(用户名/密码)身份验证: <a class="reference internal" href="local.html"><span class="doc">本地验证</span></a></p></li>
 <li><p>JWT身份验证: <a class="reference internal" href="jwt.html"><span class="doc">JWT身份验证</span></a></p></li>
-<li><p>OAuth1身份验证: <a class="reference internal" href="oauth1.html"><span class="doc">OAuth1身份验证</span></a></p></li>
+<li><p>OAuth1身份验证: <a class="reference internal" href="oauth1.html"><span class="doc">OAuth1 身份验证</span></a></p></li>
 <li><p>OAuth2身份验证: <a class="reference internal" href="oauth2.html"><span class="doc">OAuth2身份验证</span></a></p></li>
 </ul>
 </div>
@@ -268,11 +268,11 @@ It is the <a class="reference external" href="https://tools.ietf.org/html/rfc751
 </div>
 <div class="section" id="app-service-authentication">
 <h2>app.service(‘authentication’)<a class="headerlink" href="#app-service-authentication" title="永久链接至标题">¶</a></h2>
-<p>这个插件的核心是一个创建JWT的服务. 这是一个普通的Feathers服务, 它只实现了``create``和``remove``方法.  <code class="docutils literal notranslate"><span class="pre">/authentication``服务提供</span></code>/auth/local``和``/auth/token``端点所具有的所有功能. 要选择策略, 客户端必须在请求正文中传递``strategy``名称. 根据使用的插件, 这将有所不同. 有关详细信息, 请参阅本页顶部列出的插件的文档.</p>
+<p>这个插件的核心是一个创建JWT的服务. 这是一个普通的Feathers服务, 它只实现了 <code class="docutils literal notranslate"><span class="pre">create`</span> <span class="pre">`和</span> <span class="pre">``remove</span></code> 方法.  <code class="docutils literal notranslate"><span class="pre">/authentication</span></code> 服务提供``/auth/local`` 和 <code class="docutils literal notranslate"><span class="pre">/auth/token</span></code> 端点所具有的所有功能. 要选择策略, 客户端必须在请求正文中传递 <code class="docutils literal notranslate"><span class="pre">strategy</span></code> 名称. 根据使用的插件, 这将有所不同. 有关详细信息, 请参阅本页顶部列出的插件的文档.</p>
 <div class="section" id="service-create-data">
 <h3>service.create(data)<a class="headerlink" href="#service-create-data" title="永久链接至标题">¶</a></h3>
-<p>几乎每个Feathers应用程序都会使用``create``方法. 它基于插件上配置的``jwt``选项创建了一个JWT. 此方法的API使用``context``对象.</p>
-<p>如果您手动生成JWT, 例如, 想要使用`payload &lt;<a class="reference external" href="https://jwt.io">https://jwt.io</a>&gt;`_``{userId:“abc123 ”}``创建一个JWT. :</p>
+<p>几乎每个Feathers应用程序都会使用 <code class="docutils literal notranslate"><span class="pre">create</span></code> 方法. 它基于插件上配置的 <code class="docutils literal notranslate"><span class="pre">jwt</span></code> 选项创建了一个JWT. 此方法的API使用 <code class="docutils literal notranslate"><span class="pre">context</span></code> 对象.</p>
+<p>如果您手动生成JWT, 例如, 想要使用 <a href="#id1"><span class="problematic" id="id2">`</span></a>payload &lt;<a class="reference external" href="https://jwt.io">https://jwt.io</a>&gt;`_``{userId:“abc123 ”}``创建一个JWT. :</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>const <span class="nv">data</span> <span class="o">=</span> <span class="o">{</span>payload: <span class="o">{</span>userId: <span class="s2">&quot;abc123&quot;</span><span class="o">}}</span><span class="p">;</span>
 service.create<span class="o">(</span>data<span class="o">)</span><span class="p">;</span>
 </pre></div>
@@ -326,7 +326,7 @@ service.create<span class="o">(</span>data<span class="o">)</span><span class="p
 </div>
 <div class="section" id="auth-hooks-authenticate-strategies">
 <h2>auth.hooks.authenticate(strategies)<a class="headerlink" href="#auth-hooks-authenticate-strategies" title="永久链接至标题">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64; feathersjs/authentication``只包含一个钩子. 这个捆绑的``authenticate``钩子用于在服务方法上注册一组认证策略.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>&#64;feathersjs/authentication``只包含一个钩子. 这个捆绑的``authenticate``钩子用于在服务方法上注册一组认证策略.</p>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
 <p>这应该通常用在你的``/authentication``服务上. 没有它, 您可以点击``authentication``服务并生成JWT``adminToken``而无需身份验证(即匿名身份验证).</p>
@@ -368,7 +368,7 @@ varies per transport / provider as follows.</em></p>
 </li>
 <li><p>使用``feathers-socketio``和``feathers-primus``:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - 运输名称:<code class="docutils literal notranslate"><span class="pre">socketio``或``primus</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provider</span></code> {String} - 传输名称:<code class="docutils literal notranslate"><span class="pre">socketio``或``primus</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">connection</span></code> {Object} - 与钩子上下文中的``params``相同</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code> {SocketObject} - 当前用户的WebSocket对象. 它还包含``feathers``属性, 它与钩子上下文中的``params``相同.</p></li>
 </ul>
@@ -401,12 +401,12 @@ varies per transport / provider as follows.</em></p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>Feathers不会从cookie中读取访问令牌. 这会使API暴露于CSRF攻击. <a href="#id1"><span class="problematic" id="id2">**</span></a>这个``setCookie``功能主要用于帮助进行服务器端渲染.</p>
+<p>Feathers不会从cookie中读取访问令牌. 这会使API暴露于CSRF攻击. <a href="#id1"><span class="problematic" id="id2">**</span></a>这个 <code class="docutils literal notranslate"><span class="pre">setCookie</span></code> 功能主要用于帮助进行服务器端渲染.</p>
 </div>
 </div>
 <div class="section" id="complete-example">
 <h2>完整的例子<a class="headerlink" href="#complete-example" title="永久链接至标题">¶</a></h2>
-<p>这是一个使用``&#64; feathersjs/authentication``进行本地身份验证的Feathers服务器的示例.</p>
+<p>这是一个使用 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/authentication</span></code> 进行本地身份验证的Feathers服务器的示例.</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">feathers</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/feathers&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/express&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">socketio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@feathersjs/socketio&#39;</span><span class="p">);</span>

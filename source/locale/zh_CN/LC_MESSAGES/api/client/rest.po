@@ -93,7 +93,9 @@ msgid ""
 "``app.service('messages')``."
 msgstr ""
 "在浏览器中,基本URL与注册服务的位置相关.这意味着 ``http://api.feathersjs.com/api/v1/messages`` "
-"的服务,其基本URL为 ``http://api.feathersjs.com`` 将作为 ``app.service('API/V1/messages')``.使用 ``http://api.feathersjs.com/api/v1`` 的基本URL,它将是 "
+"的服务,其基本URL为 ``http://api.feathersjs.com`` 将作为 "
+"``app.service('API/V1/messages')``.使用 "
+"``http://api.feathersjs.com/api/v1`` 的基本URL,它将是 "
 "``app.service('messages')``."
 
 #: ../../source/api/client/rest.rst:100
@@ -120,7 +122,7 @@ msgstr "允许传递特定于AJAX库的其他选项. ``params.connection.headers
 msgid ""
 "With the ``fetch`` fork `yetch <https://github.com/Netflix/yetch>`_ it "
 "can also be used to abort requests:"
-msgstr "使用 ``fetch`` fork `yetch <https://github.com/Netflix/yetch>`_ 它也可以用来中止请求:"
+msgstr "使用 ``fetch`` 分叉 `yetch <https://github.com/Netflix/yetch>`_ 它也可以用来中止请求:"
 
 #: ../../source/api/client/rest.rst:148
 msgid "jQuery"
@@ -146,7 +148,10 @@ msgid ""
 "creates a new request object - is a great way to set things like default "
 "headers or authentication information:"
 msgstr ""
-"需要将 `request <https://github.com/request/request>`_ 对象明确传递给 ``feathers.request``. 使用 `request.defaults <https://github.com/request/request#convenience-methods>`_  - 创建一个新的请求对象 - 是一种设置默认标头或身份验证信息的好方法:"
+"需要将 `request <https://github.com/request/request>`_ 对象明确传递给 "
+"``feathers.request``. 使用 `request.defaults "
+"<https://github.com/request/request#convenience-methods>`_  - 创建一个新的请求对象 "
+"- 是一种设置默认标头或身份验证信息的好方法:"
 
 #: ../../source/api/client/rest.rst:187
 msgid "Superagent"
@@ -196,8 +201,9 @@ msgid ""
 "URL query parameter values will always be strings. Conversion (e.g. the "
 "string ``'true'`` to boolean ``true``) can be done in a hook as well."
 msgstr ""
-"URL中的所有查询参数都将在服务器上设置为 ``params.query``.其他服务参数可以通过以下方式设置 :doc:`../express`. "
-"URL查询参数值始终为字符串.转换(例如字符串 ``'true'`` 至 布尔 ``true``)也可以在钩子中完成."
+"URL中的所有查询参数都将在服务器上设置为 ``params.query``.其他服务参数可以通过以下方式设置 "
+":doc:`../express`. URL查询参数值始终为字符串.转换(例如字符串 ``'true'`` 至 布尔 "
+"``true``)也可以在钩子中完成."
 
 #: ../../source/api/client/rest.rst:240
 msgid ""
@@ -225,7 +231,7 @@ msgstr ""
 ":doc:`../authentication/server` 获取JWT:"
 
 #: ../../source/api/client/rest.rst:257
-msgid "POST/authentication the Content-Type header set to application/json"
+msgid "POST /authentication the Content-Type header set to application/json"
 msgstr ""
 
 #: ../../source/api/client/rest.rst:266
@@ -455,8 +461,8 @@ msgstr "将调用 ``messages.remove(null,{query:{read:'true'}})`` 删除所有�
 #~ msgstr ""
 #~ "**ProTip:** 在浏览器中, "
 #~ "基本URL与注册服务的位置相关.这意味着``http://api.feathersjs.com/api/v1/messages``的服务,"
-#~ " 其基本URL为``http://api.feathersjs.com``将作为``app提供.服务( 'API/V1"
-#~ "/消息')``.使用`http://api.feathersjs.com/api/v1``的基本URL, "
+#~ " 其基本URL为``http://api.feathersjs.com``将作为``app提供.服务( "
+#~ "'API/V1/消息')``.使用`http://api.feathersjs.com/api/v1``的基本URL, "
 #~ "它将是``app.service('messages')``."
 
 #~ msgid ""
@@ -483,16 +489,15 @@ msgstr "将调用 ``messages.remove(null,{query:{read:'true'}})`` 删除所有�
 #~ "const restClient = rest();"
 
 #~ msgid ""
-#~ "//Connect to a different URL "
-#~ "const restClient = rest(‘http://feathers-"
-#~ "api.com’)"
+#~ "//Connect to a different URL const "
+#~ "restClient = rest(‘http://feathers-api.com’)"
 #~ msgstr ""
 #~ "//Connect to a different URL const "
 #~ "restClient = rest(‘http://feathers-api.com’)"
 
 #~ msgid ""
-#~ "//Configure an AJAX library (see "
-#~ "below) with that client "
+#~ "//Configure an AJAX library (see below)"
+#~ " with that client "
 #~ "app.configure(restClient.fetch(window.fetch));"
 #~ msgstr ""
 #~ "//Configure an AJAX library (see below)"
@@ -512,4 +517,7 @@ msgstr "将调用 ``messages.remove(null,{query:{read:'true'}})`` 删除所有�
 
 #~ msgid "{%- endcodetabs %}"
 #~ msgstr "{%- endcodetabs %}"
+
+#~ msgid "POST/authentication the Content-Type header set to application/json"
+#~ msgstr ""
 

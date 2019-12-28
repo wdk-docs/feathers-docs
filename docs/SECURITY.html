@@ -192,7 +192,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&#64;feathers/authentication-local</span></code> 中的密码存储使用 <a class="reference external" href="https://github.com/dcodeIO/bcrypt.js">bcrypt</a>.我们不单独存储盐,因为它们包含在bcrypt哈希中.</p></li>
 <li><p>默认情况下, <a class="reference external" href="https://jwt.io/">JWT</a>’s 存储在本地存储(而不是cookie)中以避免CSRF攻击.对于JWT,我们默认使用 <code class="docutils literal notranslate"><span class="pre">HS256</span></code> 算法(HMAC使用SHA-256哈希算法).如果您选择将JWT存储在cookie中,您的应用程序将具有CSRF漏洞.</p></li>
-<li><p>我们运行 <a class="reference external" href="https://github.com/nodesecurity/nsp">nsp</a> 作为CI的一部分.如果我们容易受到已向“节点安全项目 <a class="reference external" href="https://nodesecurity.io/">https://nodesecurity.io/</a> 报告的任何漏洞的影响,则会通知我们.</p></li>
+<li><p>我们运行 <a class="reference external" href="https://github.com/nodesecurity/nsp">nsp</a> 作为CI的一部分.如果我们容易受到已向 <a class="reference external" href="https://nodesecurity.io/">node 安全项目</a> 报告的任何漏洞的影响,则会通知我们.</p></li>
 </ul>
 </div>
 <div class="section" id="xss-attacks">

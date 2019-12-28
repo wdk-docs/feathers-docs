@@ -194,11 +194,11 @@
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>本指南的先决条件与 <a class="reference internal" href="../basics/setup.html"><span class="doc">配置</span></a> 相同.这意味着需要 Node 8.0.0(<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>) 或更高版本.</p>
+<p>本指南的先决条件与 <a class="reference internal" href="../basics/setup.html"><span class="doc">设置</span></a> 相同.这意味着需要 Node 8.0.0(<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>) 或更高版本.</p>
 </div>
 <div class="section" id="generating-the-application">
 <h2>生成应用程序<a class="headerlink" href="#generating-the-application" title="永久链接至标题">¶</a></h2>
-<p>随着一切 <a class="reference internal" href="../basics/setup.html"><span class="doc">配置</span></a>,让我们为我们的新应用创建一个目录:</p>
+<p>随着一切 <a class="reference internal" href="../basics/setup.html"><span class="doc">设置</span></a>,让我们为我们的新应用创建一个目录:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ mkdir feathers-chat
 $ <span class="nb">cd</span> feathers-chat/
 </pre></div>
@@ -226,7 +226,7 @@ $ <span class="nb">cd</span> feathers-chat/
 <h2>生成的文件<a class="headerlink" href="#the-generated-files" title="永久链接至标题">¶</a></h2>
 <p>让我们简要了解一下已生成的文件:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">config/</span></code> - 包含应用程序的配置文件. <code class="docutils literal notranslate"><span class="pre">production.json</span></code> 文件在生产模式下通过设置 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span> <span class="pre">=</span> <span class="pre">production</span></code> 覆盖 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>.有关详细信息,请参阅 <span class="xref std std-doc">../api/configuration</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">config/</span></code> - 包含应用程序的配置文件. <code class="docutils literal notranslate"><span class="pre">production.json</span></code> 文件在生产模式下通过设置 <code class="docutils literal notranslate"><span class="pre">NODE_ENV</span> <span class="pre">=</span> <span class="pre">production</span></code> 覆盖 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>.有关详细信息, 请参阅 <a class="reference internal" href="../../api/configuration.html"><span class="doc">配置</span></a>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">node_modules/</span></code> - 生成器使用 <a class="reference external" href="https://docs.npmjs.com/">npm</a> 或 <a class="reference external" href="https://yarnpkg.com/en/">yarn</a> 安装项目依赖项.依赖关系也添加在 <code class="docutils literal notranslate"><span class="pre">package.json</span></code> 中.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">public/</span></code> - 包含要提供的静态文件.已包含示例favicon和 <code class="docutils literal notranslate"><span class="pre">index.html</span></code> (直接转到服务器URL时显示).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">src/</span></code> - 包含Feathers服务器代码.</p>

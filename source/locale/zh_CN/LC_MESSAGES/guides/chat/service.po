@@ -26,7 +26,7 @@ msgstr "创建服务"
 msgid ""
 "Now that we have our :doc:`./creating`, we can create a new API endpoint "
 "to store messages."
-msgstr "现在我们有了:doc:`./creating`,我们可以创建一个新的API端点来存储消息."
+msgstr "现在我们有了 :doc:`./creating`, 我们可以创建一个新的API端点来存储消息."
 
 #: ../../source/guides/chat/service.rst:8
 msgid "Generating a service"

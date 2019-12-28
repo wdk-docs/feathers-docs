@@ -191,8 +191,8 @@
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/configuration --save
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">feathersress/configuration</span></code> 是 <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> 的包装器,允许配置服务器端Feathers应用程序.</p>
-<p>默认情况下,这个实现将在 <code class="docutils literal notranslate"><span class="pre">config/*</span></code> 中查找保留约定的 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>.根据 <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Configuration-Files">配置文档</a>, 您可以为应用程序部署组织 <em>“应用程序部署的分层配置”</em>. 有关如何实现此操作的更多信息,请参阅下面的使用部分.</p>
+<p><code class="docutils literal notranslate"><span class="pre">feathersress/configuration</span></code> 是 <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> 的包装器, 允许配置服务器端Feathers应用程序.</p>
+<p>默认情况下, 这个实现将在 <code class="docutils literal notranslate"><span class="pre">config/*</span></code> 中 查找 保留约定的 <code class="docutils literal notranslate"><span class="pre">default.json</span></code>. 根据 <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Configuration-Files">配置文档</a>, 您可以组织 <em>“应用程序部署的分层配置”</em>. 有关如何实现此操作的更多信息, 请参阅下面的使用部分.</p>
 <div class="section" id="usage">
 <h2>用法<a class="headerlink" href="#usage" title="永久链接至标题">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/configuration</span></code> 模块是一个app配置函数,它接受一个根目录(通常类似于应用程序中的 <code class="docutils literal notranslate"><span class="pre">_dirname</span></code>)和配置文件夹(默认设置为 <code class="docutils literal notranslate"><span class="pre">config</span></code>):</p>
@@ -213,7 +213,7 @@
 </pre></div>
 </div>
 <p>上面的代码是可移植的,所以你可以将你的 <code class="docutils literal notranslate"><span class="pre">config/</span></code> 目录与其余的Feathers文件保存在一起.例如,即使您将目录从 <code class="docutils literal notranslate"><span class="pre">server/</span></code> 更改为 <code class="docutils literal notranslate"><span class="pre">amazing-server</span></code> 等,它也可以工作.</p>
-<p>(&#64;feathersjs/configuration不直接使用 NODE_CONFIG_DIR 环境变量,而是使用它所使用的 <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> 模块.有关配置节点的更多信息-config设置,请参阅 <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Configuration-Files">配置文档Wiki页面</a>.</p>
+<p>(&#64;feathersjs/configuration不直接使用 NODE_CONFIG_DIR 环境变量,而是使用它所使用的 <a class="reference external" href="https://github.com/lorenwest/node-config">node-config</a> 模块.有关配置 node 的更多信息-config设置,请参阅 <a class="reference external" href="https://github.com/lorenwest/node-config/wiki/Configuration-Files">配置文档Wiki页面</a>.</p>
 </div>
 <div class="section" id="variable-types">
 <h2>变量类型<a class="headerlink" href="#variable-types" title="永久链接至标题">¶</a></h2>

@@ -10,76 +10,69 @@ a database that Feathers doesn’t support.
 Writing all that code yourself is pretty repetitive and cumbersome
 though which is why Feathers has a collection of pre-built services for
 different databases. They offer most the basic functionality and can
-always be fully customized to your requirements using
-:doc:`./hooks`. Feathers database adapters support a common
-:doc:`../../api/databases/common`, pagination and :doc:`../../api/databases/querying` for many popular databases
-and NodeJS ORMs:
+always be fully customized to your requirements using :doc:`./hooks`.
+Feathers database adapters support a common :doc:`../../api/databases/common`,
+pagination and :doc:`../../api/databases/querying` for many popular databases and NodeJS ORMs:
 
-+-----------------------------------+-----------------------------------+
-| Database                          | Adapter                           |
-+===================================+===================================+
-| In memory                         | `feathers-memory <https://github. |
-|                                   | com/feathersjs-ecosystem/feathers |
-|                                   | -memory>`_,                      |
-|                                   | `feathers-nedb <https://github.co |
-|                                   | m/feathersjs-ecosystem/feathers-n |
-|                                   | edb>`_                           |
-+-----------------------------------+-----------------------------------+
-| Localstorage, AsyncStorage        | `feathers-localstorage <https://g |
-|                                   | ithub.com/feathersjs-ecosystem/fe |
-|                                   | athers-localstorage>`_           |
-+-----------------------------------+-----------------------------------+
-| Filesystem                        | `feathers-nedb <https://github.co |
-|                                   | m/feathersjs-ecosystem/feathers-n |
-|                                   | edb>`_                           |
-+-----------------------------------+-----------------------------------+
-| MongoDB                           | `feathers-mongodb <https://github |
-|                                   | .com/feathersjs-ecosystem/feather |
-|                                   | s-mongodb>`_,                    |
-|                                   | `feathers-mongoose <https://githu |
-|                                   | b.com/feathersjs-ecosystem/feathe |
-|                                   | rs-mongoose>`_                   |
-+-----------------------------------+-----------------------------------+
-| MySQL, PostgreSQL, MariaDB,       | `feathers-knex <https://github.co |
-| SQLite, MSSQL                     | m/feathersjs-ecosystem/feathers-k |
-|                                   | nex>`_,                          |
-|                                   | `feathers-sequelize <https://gith |
-|                                   | ub.com/feathersjs-ecosystem/feath |
-|                                   | ers-sequelize>`_,                |
-|                                   | `feathers-objection <https://gith |
-|                                   | ub.com/feathersjs-ecosystem/feath |
-|                                   | ers-objection>`_                 |
-+-----------------------------------+-----------------------------------+
-| Elasticsearch                     | `feathers-elasticsearch <https:// |
-|                                   | github.com/feathersjs-ecosystem/f |
-|                                   | eathers-elasticsearch>`_         |
-+-----------------------------------+-----------------------------------+
-| RethinkDB                         | `feathers-rethinkdb <https://gith |
-|                                   | ub.com/feathersjs-ecosystem/feath |
-|                                   | ers-rethinkdb>`_                 |
-+-----------------------------------+-----------------------------------+
++-------------------------------------------+-----------------------------------+
+|                 Database                  |              Adapter              |
++===========================================+===================================+
+| In memory                                 | `feathers-memory <https://github. |
+|                                           | com/feathersjs-ecosystem/feathers |
+|                                           | -memory>`_,                       |
+|                                           | `feathers-nedb <https://github.co |
+|                                           | m/feathersjs-ecosystem/feathers-n |
+|                                           | edb>`_                            |
++-------------------------------------------+-----------------------------------+
+| Localstorage, AsyncStorage                | `feathers-localstorage <https://g |
+|                                           | ithub.com/feathersjs-ecosystem/fe |
+|                                           | athers-localstorage>`_            |
++-------------------------------------------+-----------------------------------+
+| Filesystem                                | `feathers-nedb <https://github.co |
+|                                           | m/feathersjs-ecosystem/feathers-n |
+|                                           | edb>`_                            |
++-------------------------------------------+-----------------------------------+
+| MongoDB                                   | `feathers-mongodb <https://github |
+|                                           | .com/feathersjs-ecosystem/feather |
+|                                           | s-mongodb>`_,                     |
+|                                           | `feathers-mongoose <https://githu |
+|                                           | b.com/feathersjs-ecosystem/feathe |
+|                                           | rs-mongoose>`_                    |
++-------------------------------------------+-----------------------------------+
+| MySQL, PostgreSQL, MariaDB, SQLite, MSSQL | `feathers-knex <https://github.co |
+|                                           | m/feathersjs-ecosystem/feathers-k |
+|                                           | nex>`_,                           |
+|                                           | `feathers-sequelize <https://gith |
+|                                           | ub.com/feathersjs-ecosystem/feath |
+|                                           | ers-sequelize>`_,                 |
+|                                           | `feathers-objection <https://gith |
+|                                           | ub.com/feathersjs-ecosystem/feath |
+|                                           | ers-objection>`_                  |
++-------------------------------------------+-----------------------------------+
+| Elasticsearch                             | `feathers-elasticsearch <https:// |
+|                                           | github.com/feathersjs-ecosystem/f |
+|                                           | eathers-elasticsearch>`_          |
++-------------------------------------------+-----------------------------------+
+| RethinkDB                                 | `feathers-rethinkdb <https://gith |
+|                                           | ub.com/feathersjs-ecosystem/feath |
+|                                           | ers-rethinkdb>`_                  |
++-------------------------------------------+-----------------------------------+
 
-..
+.. tip::  Each one of the linked adapters has a complete REST API example in their readme.
 
-.. tip::  Each one of the linked adapters has a complete REST API
-   example in their readme.
+In this chapter we will look at the basic usage of the in-memory database adapter.
 
-In this chapter we will look at the basic usage of the in-memory
-database adapter.
-
-.. important:: You should be familiar with the database technology
-   and ORM (`Sequelize <http://docs.sequelizejs.com/>`_,
-   `KnexJS <http://knexjs.org/>`_ or
-   `Mongoose <http://mongoosejs.com/>`_) before using a Feathers
+.. important::
+   You should be familiar with the database technology
+   and ORM (`Sequelize <http://docs.sequelizejs.com/>`_, `KnexJS <http://knexjs.org/>`_ or `Mongoose <http://mongoosejs.com/>`_) before using a Feathers
    database adapter.
 
 An in-memory database
 ---------------------
 
 `feathers-memory <https://github.com/feathersjs-ecosystem/feathers-memory>`_
-is a Feathers database adapter that - similar to our messages service -
-stores its data in memory. We will use it for the examples because it
-also works in the browser. Let’s install it with:
+is a Feathers database adapter that - similar to our messages service - stores its data in memory.
+We will use it for the examples because it also works in the browser. Let’s install it with:
 
 .. code-block:: sh
 
@@ -104,15 +97,14 @@ and crash our server):
      }
    }));
 
-That’s it. We have a complete CRUD service for our messages with
-querying functionality.
+That’s it. We have a complete CRUD service for our messages with querying functionality.
 
 In the browser
 --------------
 
-We can also include ``feathers-memory`` in the browser, most easily by
-loading its browser build which will add it as ``feathers.memory``. In
-``public/index.html``:
+We can also include ``feathers-memory`` in the browser,
+most easily by loading its browser build which will add it as ``feathers.memory``.
+In ``public/index.html``:
 
 .. code:: html
 
@@ -151,8 +143,7 @@ As mentioned, all database adapters support a common way of querying the
 data in a ``find`` method call using ``params.query``. You can find a
 complete list in the :doc:`../../api/databases/querying`.
 
-With pagination enabled, the ``find`` method will return an object with
-the following properties:
+With pagination enabled, the ``find`` method will return an object with the following properties:
 
 -  ``data`` - The current list of data
 -  ``limit`` - The page size
@@ -254,9 +245,8 @@ custom messages service. Using a database adapter instead will make our
 
    server.on('listening', () => console.log('Feathers REST API started at localhost:3030'));
 
-After starting the server with ``node app.js`` we can pass a query
-e.g. by going to
-`localhost:3030/messages?$limit=2 <http://localhost:3030/messages?$limit=2>`_.
+After starting the server with ``node app.js`` we can pass a query e.g. 
+by going to `localhost:3030/messages?$limit=2 <http://localhost:3030/messages?$limit=2>`_.
 
 .. note::
    The :doc:`../../api/databases/querying` has more examples how URLs should look like.

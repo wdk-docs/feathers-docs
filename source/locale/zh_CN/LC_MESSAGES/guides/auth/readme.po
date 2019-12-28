@@ -72,12 +72,11 @@ msgstr ""
 ":doc:`./recipe.oauth-basic`\\  了解OAuth(Facebook,Google,GitHub)登录的工作原理,以及如何在您的应用程序中使用它."
 
 #: ../../source/guides/auth/readme.rst:31
-#, fuzzy
 msgid ""
 ":doc:`./recipe.custom-auth-strategy`.  Learn how to setup a completely "
 "custom passport-based auth strategy."
 msgstr ""
-":doc:`./recipe.custom-auth-strategy`\\  了解如何设置完全自定义的基于护照的身份验证策略."
+":doc:`./recipe.custom-auth-strategy`.  了解如何设置完全自定义的基于护照的身份验证策略。"
 
 #~ msgid ""
 #~ "`Auth Recipe: Create Endpoints with "

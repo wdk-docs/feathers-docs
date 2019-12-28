@@ -84,7 +84,7 @@ msgstr ":doc:`socketio` - Socket.io实时传输提供程序"
 
 #: ../../source/api/readme.rst:28
 msgid ":doc:`primus` - The Primus real-time transport provider"
-msgstr ":doc:`primus` - Primus实时运输提供商"
+msgstr ":doc:`primus` - Primus实时传输提供商"
 
 #: ../../source/api/readme.rst:30
 msgid "**Client:** More details on how to use Feathers on the client"

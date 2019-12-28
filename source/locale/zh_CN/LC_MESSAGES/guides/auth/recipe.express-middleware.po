@@ -167,7 +167,7 @@ msgid ""
 "``npm ls @feathersjs/authentication-jwt`` has to show that version 2.0.0 "
 "or later is installed."
 msgstr ""
-"``npm ls @ feathersjs/authentication-jwt`` 必须显示已安装2.0.0或更高版本."
+"``npm ls @feathersjs/authentication-jwt`` 必须显示已安装2.0.0或更高版本."
 
 #: ../../source/guides/auth/recipe.express-middleware.rst:146
 msgid "Views"

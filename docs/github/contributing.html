@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contributing to Feathers &mdash; feathers docs v2019.06.21 文档</title>
+  <title>为羽毛做贡献 &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Comment/Problem" href="issue_template.html" />
+    <link rel="next" title="评论/问题" href="issue_template.html" />
     <link rel="prev" title="github" href="index.html" /> 
 </head>
 
@@ -94,21 +94,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing/readme.html">特约</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">有许可证</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">github</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing to Feathers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#report-a-bug">Report a bug</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#report-a-security-concern">Report a Security Concern</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pull-requests">Pull Requests</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#code-style">Code style</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tests">Tests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">为羽毛做贡献</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#report-a-bug">报告错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#report-a-security-concern">报告安全问题</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull-requests">请求</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-style">代码风格</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tests">测试</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation">文档</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#community-contributions">Community Contributions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#contributor-code-of-conduct">Contributor Code of Conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#community-contributions">社区贡献</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributor-code-of-conduct">贡献者行为准则</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="issue_template.html">Comment/Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="issue_template.html#system-configuration-optional">System configuration (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="issue_template.html">评论/问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="issue_template.html#system-configuration-optional">系统配置(可选)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Summary.html">摘要</a></li>
@@ -159,7 +159,7 @@
         
           <li><a href="index.html">github</a> &raquo;</li>
         
-      <li>Contributing to Feathers</li>
+      <li>为羽毛做贡献</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,129 +179,54 @@
            <div itemprop="articleBody">
             
   <div class="section" id="contributing-to-feathers">
-<h1>Contributing to Feathers<a class="headerlink" href="#contributing-to-feathers" title="永久链接至标题">¶</a></h1>
-<p>Thank you for contributing to Feathers! :heart: :tada:</p>
-<p>Feathers embraces modularity and is broken up across many repos. To make
-this easier to manage we currently use Github projects for issue triage
-and visibility. To get a high level view of the core releases you can go
-to <a class="reference external" href="https://github.com/feathersjs/feathers/projects">https://github.com/feathersjs/feathers/projects</a>.</p>
+<h1>为羽毛做贡献<a class="headerlink" href="#contributing-to-feathers" title="永久链接至标题">¶</a></h1>
+<p>感谢您为Feathers做出贡献！ :heart: :tada:</p>
+<p>羽毛拥抱模块化，并在许多回购中被分解。为了使这更容易管理，我们目前使用Github项目进行问题分类和可见性。要获得核心版本的高级视图，您可以访问https://github.com/feathersjs/feathers/projects。</p>
 <div class="section" id="report-a-bug">
-<h2>Report a bug<a class="headerlink" href="#report-a-bug" title="永久链接至标题">¶</a></h2>
-<p>Before creating an issue please make sure you have checked out the docs,
-specifically the <a class="reference external" href="https://docs.feathersjs.com/help/faq.html">FAQ</a>
-section. You might want to also try searching Github. It’s pretty likely
-someone has already asked a similar question.</p>
-<p>If you haven’t found your answer please feel free to join our <a class="reference external" href="http://slack.feathersjs.com">slack
-channel</a>, create an issue on Github, or
-post on <a class="reference external" href="http://stackoverflow.com">Stackoverflow</a> using the
-<code class="docutils literal notranslate"><span class="pre">feathers</span></code> or <code class="docutils literal notranslate"><span class="pre">feathersjs</span></code> tag. We try our best to monitor
-Stackoverflow but you’re likely to get more immediate responses in Slack
-and Github.</p>
-<p>Issues can be reported in the <a class="reference external" href="https://github.com/feathersjs/feathers/issues">issue
-tracker</a>. Since
-feathers combines many modules it can be hard for us to assess the root
-cause without knowing which modules are being used and what your
-configuration looks like, so <strong>it helps us immensely if you can link to
-a simple example that reproduces your issue</strong>.</p>
+<h2>报告错误<a class="headerlink" href="#report-a-bug" title="永久链接至标题">¶</a></h2>
+<p>在创建问题之前，请确保您已检出文档，特别是`FAQ &lt;<a class="reference external" href="https://docs.feathersjs.com/help/faq.html">https://docs.feathersjs.com/help/faq.html</a>&gt;`_部分。您可能还想尝试搜索Github。很可能有人已经问了类似的问题。</p>
+<p>如果你还没有找到你的答案，请随时加入我们的`slack channel &lt;<a class="reference external" href="http://slack.feathersjs.com">http://slack.feathersjs.com</a>&gt;`_，在Github上创建一个问题，或发布在`Stackoverflow &lt;<a class="reference external" href="http://stackoverflow.com">http://stackoverflow.com</a> &gt;`_使用``feathers``或``feathersjs``标签。我们尽力监控Stackoverflow，但您可能会在Slack和Github中获得更多即时响应。“</p>
+<p>问题可以在`问题跟踪器&lt;<a class="reference external" href="https://github.com/feathersjs/feathers/issues">https://github.com/feathersjs/feathers/issues</a>&gt;`_中报告。由于羽毛结合了许多模块，因此我们很难在不知道正在使用哪些模块以及您的配置如何的情况下评估根本原因，所以**如果您可以链接到一个简单的示例来重现您的问题，它将极大地帮助我们* <a href="#id1"><span class="problematic" id="id2">*</span></a>。</p>
 </div>
 <div class="section" id="report-a-security-concern">
-<h2>Report a Security Concern<a class="headerlink" href="#report-a-security-concern" title="永久链接至标题">¶</a></h2>
-<p>We take security very seriously at Feathers. We welcome any peer review
-of our 100% open source code to ensure nobody’s Feathers app is ever
-compromised or hacked. As a web application developer you are
-responsible for any security breaches. We do our very best to make sure
-Feathers is as secure as possible by default.</p>
-<p>In order to give the community time to respond and upgrade we strongly
-urge you report all security issues to us. Send one of the core team
-members a PM in <a class="reference external" href="http://slack.feathersjs.com">Slack</a> or email us at
-<a class="reference external" href="mailto:hello&#37;&#52;&#48;feathersjs&#46;com">hello<span>&#64;</span>feathersjs<span>&#46;</span>com</a> with details and we will respond ASAP.</p>
-<p>For full details refer to our <a class="reference external" href="https://docs.feathersjs.com/SECURITY.html">Security
-docs</a>.</p>
+<h2>报告安全问题<a class="headerlink" href="#report-a-security-concern" title="永久链接至标题">¶</a></h2>
+<p>我们非常重视Feathers的安全。我们欢迎任何同行评审我们的100％开源代码，以确保没有人的羽毛应用程序遭到入侵或黑客入侵。作为Web应用程序开发人员，您应对任何安全漏洞负责。我们尽最大努力确保Feathers在默认情况下尽可能安全。</p>
+<p>为了让社区有时间回复和升级，我们强烈建议您向我们报告所有安全问题。请将一位核心团队成员发送给“Slack &lt;<a class="reference external" href="http://slack.feathersjs.com">http://slack.feathersjs.com</a>&gt;”的PM，或发送电子邮件至hello&#64;feathersjs.com，我们将尽快回复。</p>
+<p>有关详细信息，请参阅我们的`安全文档&lt;<a class="reference external" href="https://docs.feathersjs.com/SECURITY.html">https://docs.feathersjs.com/SECURITY.html</a>&gt;`_。</p>
 </div>
 <div class="section" id="pull-requests">
-<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="永久链接至标题">¶</a></h2>
-<p>We :heart: pull requests and we’re continually working to make it as
-easy as possible for people to contribute, including a <a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">Plugin
-Generator</a>
-and a <a class="reference external" href="https://github.com/feathersjs/feathers-service-tests">common test
-suite</a> for
-database adapters.</p>
-<p>We prefer small pull requests with minimal code changes. The smaller
-they are the easier they are to review and merge. A FeathersJS
-maintainer will pick up your PR and review it as soon as they can. They
-may ask for changes or reject your pull request. This is not a
-reflection of you as an engineer or a person. Please accept feedback
-graciously as we will also try to be sensitive when providing it.</p>
-<p>Although we generally accept many PRs they can be rejected for many
-reasons. We will be as transparent as possible but it may simply be that
-you do not have the same context, historical knowledge or information
-regarding the roadmap that the maintainers have. We value the time you
-take to put together any contributions so we pledge to always be
-respectful of that time and will try to be as open as possible so that
-you don’t waste it. :smile:</p>
-<p><strong>All PRs (except documentation) should be accompanied with tests and
-pass the linting rules.</strong></p>
+<h2>请求<a class="headerlink" href="#pull-requests" title="永久链接至标题">¶</a></h2>
+<p>我们：内心：拉取请求，我们不断努力让人们尽可能轻松地做出贡献，包括`插件生成器&lt;<a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">https://github.com/feathersjs/generator-feathers-plugin</a>&gt;`_和`common test suite &lt;<a class="reference external" href="https://github.com/feathersjs/feathers-service-tests">https://github.com/feathersjs/feathers-service-tests</a>&gt;`_用于数据库适配器。</p>
+<p>我们更喜欢使用最少的代码更改的小拉请求。它们越小越容易审查和合并。 FeathersJS维护人员会提取您的PR并尽快进行审核。他们可能会要求更改或拒绝您的拉取请求。这不是您作为工程师或个人的反映。请慷慨地接受反馈，因为我们在提供时也会尽量保持敏感。</p>
+<p>虽然我们通常接受许多PR，但出于多种原因，它们可能会遭到拒绝。我们将尽可能透明，但可能只是因为您没有相同的上下文，历史知识或维护者所拥有的路线图信息。我们重视您将所有贡献汇总在一起所花费的时间，因此我们保证始终尊重那个时间并尽可能地保持开放，这样您就不会浪费它。 ：微笑：</p>
+<p><strong>所有PR（文件除外）都应附有测试并通过linting规则。</strong></p>
 <div class="section" id="code-style">
-<h3>Code style<a class="headerlink" href="#code-style" title="永久链接至标题">¶</a></h3>
-<p>Before running the tests from the <code class="docutils literal notranslate"><span class="pre">test/</span></code> folder <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> will run
-ESlint. You can check your code changes individually by running
-<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">lint</span></code>.</p>
+<h3>代码风格<a class="headerlink" href="#code-style" title="永久链接至标题">¶</a></h3>
+<p>在从``test /<a href="#id1"><span class="problematic" id="id2">``</span></a>文件夹``npm test``运行测试之前，将运行ESlint。您可以通过运行``npm run lint``单独检查代码更改。</p>
 </div>
 <div class="section" id="tests">
-<h3>Tests<a class="headerlink" href="#tests" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="http://mochajs.org/">Mocha</a> tests are located in the <code class="docutils literal notranslate"><span class="pre">test/</span></code>
-folder and can be run using the <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">mocha</span></code> or <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> (with
-ESLint and code coverage) command.</p>
+<h3>测试<a class="headerlink" href="#tests" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="http://mochajs.org/">Mocha</a> tests位于``test /<a href="#id1"><span class="problematic" id="id2">``</span></a>文件夹中，可以使用``npm run mocha``或``npm test``运行（使用ESLint和代码覆盖率）命令。</p>
 </div>
 <div class="section" id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h3>
-<p>Feathers documentation is contained in Markdown files in the
-<a class="reference external" href="https://github.com/feathersjs/docs">docs</a> repository. To change the
-documentation submit a pull request to that repo, referencing any other
-PR if applicable, and the docs will be updated with the next release.</p>
+<h3>文档<a class="headerlink" href="#documentation" title="永久链接至标题">¶</a></h3>
+<p>Feathers文档包含在`docs &lt;<a class="reference external" href="https://github.com/feathersjs/docs">https://github.com/feathersjs/docs</a>&gt;`_ repository中的Markdown文件中。要更改文档，请向该存储库提交拉取请求，引用任何其他PR（如果适用），并在下一版本中更新文档。</p>
 </div>
 </div>
 <div class="section" id="community-contributions">
-<h2>Community Contributions<a class="headerlink" href="#community-contributions" title="永久链接至标题">¶</a></h2>
-<p>If you’ve written something awesome about Feathers, for the Feathers
-ecosystem, or created an app using Feathers please add it to the
-<a class="reference external" href="https://github.com/feathersjs-ecosystem/awesome-feathersjs">awesome-feathersjs</a>.</p>
-<p>If you are looking to create a new plugin you also might want to check
-out the <a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">Plugin
-Generator</a>
-that can be used to scaffold plugins to be Feathers compliant from the
-start.</p>
-<p>If you think your module would be a good core <code class="docutils literal notranslate"><span class="pre">feathersjs</span></code> module or
-<code class="docutils literal notranslate"><span class="pre">featherjs-ecosystem</span></code> module then please contact one of the Feathers
-maintainers in <a class="reference external" href="http://slack.feathersjs.com">Slack</a> and we can
-discuss whether it belongs and how to get it there. :beers:</p>
+<h2>社区贡献<a class="headerlink" href="#community-contributions" title="永久链接至标题">¶</a></h2>
+<p>如果你已经为Feathers编写了一些很棒的东西，对于Feathers生态系统，或者使用Feathers创建了一个应用程序，请将它添加到`awesome-feathersjs &lt;<a class="reference external" href="https://github.com/feathersjs-ecosystem/awesome-feathersjs">https://github.com/feathersjs-ecosystem/awesome-feathersjs</a>&gt;`_。</p>
+<p>如果你想创建一个新的插件，你也可以查看`插件生成器&lt;<a class="reference external" href="https://github.com/feathersjs/generator-feathers-plugin">https://github.com/feathersjs/generator-feathers-plugin</a>&gt;`_，可以用来支持插件符合Feathers从头开始。</p>
+<p>如果您认为您的模块是一个很好的核心``feathersjs``模块或``featherjs-ecosystem``模块，那么请联系`Slack &lt;<a class="reference external" href="http://slack.feathersjs.com">http://slack.feathersjs.com</a>&gt;`_中的一个Feathers维护者。我们可以讨论它是否属于如何以及如何实现它。 ：啤酒：</p>
 </div>
 <div class="section" id="contributor-code-of-conduct">
-<h2>Contributor Code of Conduct<a class="headerlink" href="#contributor-code-of-conduct" title="永久链接至标题">¶</a></h2>
-<p>As contributors and maintainers of this project, we pledge to respect
-all people who contribute through reporting issues, posting feature
-requests, updating documentation, submitting pull requests or patches,
-and other activities.</p>
-<p>We are committed to making participation in this project a
-harassment-free experience for everyone, regardless of level of
-experience, gender, gender identity and expression, sexual orientation,
-disability, personal appearance, body size, race, ethnicity, age, or
-religion.</p>
-<p>Examples of unacceptable behavior by participants include the use of
-sexual language or imagery, derogatory comments or personal attacks,
-trolling, public or private harassment, insults, or other unprofessional
-conduct.</p>
-<p>Project maintainers have the right and responsibility to remove, edit,
-or reject comments, commits, code, wiki edits, issues, and other
-contributions that are not aligned to this Code of Conduct. Project
-maintainers who do not follow the Code of Conduct may be removed from
-the project team.</p>
-<p>Instances of abusive, harassing, or otherwise unacceptable behavior may
-be reported by opening an issue or contacting one or more of the project
-maintainers.</p>
-<p>This Code of Conduct is adapted from the <a class="reference external" href="http://contributor-covenant.org">Contributor
-Covenant</a>, version 1.0.0, available
-at <a class="reference external" href="http://contributor-covenant.org/version/1/0/0/">http://contributor-covenant.org/version/1/0/0/</a></p>
+<h2>贡献者行为准则<a class="headerlink" href="#contributor-code-of-conduct" title="永久链接至标题">¶</a></h2>
+<p>作为该项目的贡献者和维护者，我们承诺尊重所有通过报告问题，发布功能请求，更新文档，提交拉取请求或补丁以及其他活动做出贡献的人员。</p>
+<p>无论经验水平，性别，性别认同和表达，性取向，残疾，个人形象，体型，种族，民族，年龄或宗教，我们都致力于为每个人提供无骚扰体验。</p>
+<p>参与者不可接受的行为的例子包括使用性语言或图像，贬损评论或人身攻击，拖钓，公开或私人骚扰，侮辱或其他非专业行为。</p>
+<p>项目维护者有权利和责任删除，编辑或拒绝与本行为准则不一致的评论，提交，代码，维基编辑，问题和其他贡献。不遵守行为准则的项目维护人员可能会从项目团队中删除。</p>
+<p>可以通过打开问题或联系一个或多个项目维护者来报告滥用，骚扰或其他不可接受的行为的实例。</p>
+<p>本行为准则改编自“贡献者契约&lt;<a class="reference external" href="http://contributor-covenant.org">http://contributor-covenant.org</a>&gt;`_，版本1.0.0，可从http://contributor-covenant.org/version/1/0/0/获取</p>
 </div>
 </div>
 
@@ -313,7 +238,7 @@ at <a class="reference external" href="http://contributor-covenant.org/version/1
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="issue_template.html" class="btn btn-neutral float-right" title="Comment/Problem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="issue_template.html" class="btn btn-neutral float-right" title="评论/问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="github" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

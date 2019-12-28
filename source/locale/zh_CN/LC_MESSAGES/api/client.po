@@ -132,8 +132,8 @@ msgid ""
 " the required packages into your `React Native "
 "<https://facebook.github.io/react-native/>`_ project."
 msgstr ""
-"React Native用法与 `Node client <#node>`_ 相同. 将所需的软件包安装到您的 `React Native "
-"<https://facebook.github.io/react-native/>`_ project中. "
+"React Native用法与 `Node客户端 <#node>`_ 相同. 将所需的软件包安装到您的 `React Native "
+"<https://facebook.github.io/react-native/>`_ 项目中. "
 
 #: ../../source/api/client.rst:89
 msgid "Then in the main application file:"
@@ -188,7 +188,6 @@ msgid "create-react-app"
 msgstr "create-react-app"
 
 #: ../../source/api/client.rst:159
-#, fuzzy
 msgid ""
 "`create-react-app <https://github.com/facebookincubator/create-react-"
 "app>`_ uses `Webpack <#webpack>`_ but does not allow to modify the "
@@ -198,7 +197,7 @@ msgid ""
 msgstr ""
 "`create-react-app <https://github.com/facebookincubator/create-react-"
 "app>`_ 使用 `Webpack <#webpack>`_ 但不允许修改配置, 除非你弹出. 如果您不想弹出, "
-"请改用[@feathersjs/client](https://github.com/feathersjs/client)模块. "
+"请改用 `@feathersjs/client <https://github.com/feathersjs/client>`_ 模块. "
 
 #: ../../source/api/client.rst:169
 msgid "You can then import the transpiled libraries from this package:"
@@ -215,7 +214,7 @@ msgid ""
 " transform and should be transpiled automatically."
 msgstr ""
 "在Browserify中, 必须使用 `babelify <https://github.com/babel/babelify>`_ "
-"transform. 所有Feathers包都表明他们需要转换, 应该自动进行转换. "
+"转换器. 所有Feathers包都表明他们需要转换, 应该自动进行转换. "
 
 #: ../../source/api/client.rst:183
 msgid "Others"
@@ -231,7 +230,7 @@ msgid ""
 msgstr ""
 "如上所述, 当使用任何使用转换器的模块加载器时, ``node_modules/@feathersjs`` 及其所有子文件夹必须包含在ES6 "
 "+转换步骤中.对于非CommonJS格式(如AMD)和兼容ES5的Feathers及其客户端模块, 您可以使用 "
-":ref:`@feathersjs/client module <api_feathersjs-client>`."
+":ref:`@feathersjs/client 模块 <api_feathersjs-client>`."
 
 #: ../../source/api/client.rst:194 ../../source/api/client.rst:209
 msgid "@feathersjs/client"
@@ -347,7 +346,7 @@ msgid ""
 "<#react-native>`_ sections and **not** use ``@feathersjs/client``."
 msgstr ""
 "如果您使用带有Node或React Native的Feathers客户端, 您应该遵循 `Node <#node>`_ 和 `React "
-"Native <＃react-native>`_ sections 中描述的步骤, **不要** 使用 "
+"Native <#react-native>`_ 部分中描述的步骤, **不要** 使用 "
 "``@feathersjs/client``. "
 
 #: ../../source/api/client.rst:252

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OAuth1身份验证 &mdash; feathers docs v2019.06.21 文档</title>
+  <title>OAuth1 身份验证 &mdash; feathers docs v2019.06.21 文档</title>
   
 
   
@@ -95,7 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="client.html">验证客户端</a></li>
 <li class="toctree-l3"><a class="reference internal" href="local.html">本地验证</a></li>
 <li class="toctree-l3"><a class="reference internal" href="jwt.html">JWT身份验证</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">OAuth1身份验证</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OAuth1 身份验证</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#verifier">Verifier</a></li>
@@ -165,7 +165,7 @@
         
           <li><a href="../index.html">API</a> &raquo;</li>
         
-      <li>OAuth1身份验证</li>
+      <li>OAuth1 身份验证</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,7 +185,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="oauth1-authentication">
-<h1>OAuth1身份验证<a class="headerlink" href="#oauth1-authentication" title="永久链接至标题">¶</a></h1>
+<h1>OAuth1 身份验证<a class="headerlink" href="#oauth1-authentication" title="永久链接至标题">¶</a></h1>
 <p><a class="reference external" href="https://www.npmjs.com/package/&#64;feathersjs/authentication-oauth1"><img alt="npm version" src="https://img.shields.io/npm/v/&#64;feathersjs/authentication-oauth1.png?style=flat-square" /></a> <a class="reference external" href="https://github.com/feathersjs/feathers/blob/master/packages/authentication-oauth1/CHANGELOG.md"><img alt="Changelog" src="https://img.shields.io/badge/changelog-.md-blue.png?style=flat-square" /></a></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ npm install @feathersjs/authentication-oauth1 --save
 </pre></div>
@@ -275,7 +275,7 @@ strategy you are configuring.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>可以扩展``Verifier``类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项.</p>
+<p>可以扩展 <code class="docutils literal notranslate"><span class="pre">Verifier</span></code> 类, 以便您可以自定义它的行为, 而无需重写和测试完全自定义的本地Passport实现.虽然如果您不想使用此插件, 这始终是一个选项.</p>
 <p>An example of customizing the Verifier:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">oauth1</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Verifier</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@feathersjs/authentication-oauth1&#39;</span><span class="p">;</span>
 
@@ -305,7 +305,7 @@ strategy you are configuring.</p>
 <div class="section" id="customizing-the-oauth-response">
 <h2>Customizing The OAuth Response<a class="headerlink" href="#customizing-the-oauth-response" title="永久链接至标题">¶</a></h2>
 <p>每当您使用Twitter等OAuth1提供程序进行身份验证时, 提供程序都会发送回一个``accessToken``, <code class="docutils literal notranslate"><span class="pre">refreshToken``和一个``profile</span></code>, 其中包含基于OAuth1``范围`的经过身份验证的实体的信息.你已经要求并获得批准.“</p>
-<p>每当您使用OAuth1提供程序(如Twitter)进行身份验证时, 提供程序将发回一个``accessToken``, <a href="#id1"><span class="problematic" id="id2">``</span></a>refreshToken``和一个包含基于OAuth1``scope的身份的``profile``的信息.验证实体.您已申请并获得批准. “</p>
+<p>每当您使用OAuth1提供程序(如Twitter)进行身份验证时, 提供程序将发回一个 <code class="docutils literal notranslate"><span class="pre">accessToken</span></code>, <code class="docutils literal notranslate"><span class="pre">refreshToken</span></code> 和一个包含基于OAuth1`` scope的身份的 <code class="docutils literal notranslate"><span class="pre">profile</span></code> 的信息.验证实体.您已申请并获得批准. “</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">oauth1</span><span class="p">({</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;twitter&#39;</span><span class="p">,</span>
   <span class="nx">entity</span><span class="o">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span>
@@ -350,7 +350,7 @@ strategy you are configuring.</p>
 </div>
 <div class="section" id="client-usage">
 <h2>Client Usage<a class="headerlink" href="#client-usage" title="永久链接至标题">¶</a></h2>
-<p>当该模块是注册服务器端时, 无论您是否使用``feathers-authentication-client``, 用户都必须导航到身份验证策略URL.这可以通过设置``window.location``或通过应用程序中的链接来实现.</p>
+<p>当该模块是注册服务器端时, 无论您是否使用 <code class="docutils literal notranslate"><span class="pre">feathers-authentication-client</span></code>, 用户都必须导航到身份验证策略URL.这可以通过设置``window.location``或通过应用程序中的链接来实现.</p>
 <p>例如, 您可能有Twitter的登录按钮:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/auth/twitter&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Login With Twitter<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>

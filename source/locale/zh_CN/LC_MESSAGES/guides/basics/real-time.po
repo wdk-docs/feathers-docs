@@ -57,7 +57,7 @@ msgstr "在本章中, 我们将使用Socket.io并创建一个 :doc:`./databases`
 
 #: ../../source/guides/basics/real-time.rst:27
 msgid "Using the transport"
-msgstr "使用运输"
+msgstr "使用传输"
 
 #: ../../source/guides/basics/real-time.rst:29
 msgid "After installing"

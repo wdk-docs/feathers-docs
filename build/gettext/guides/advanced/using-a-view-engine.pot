@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: feathers docs \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 18:54+0800\n"
+"POT-Creation-Date: 2019-07-12 11:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgid "Feathers As A Separate App"
 msgstr ""
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:91
-msgid "If your app starts to get a bit busier you might decide to move your API to a completely separate standalone Feathers app, maybe even on a different server. In order for both apps to talk to each other they’ll need some way to make remote requests. Well, Feathers just so happens to have a :doc:`../api/client` that can be used on the server. This is how it works."
+msgid "If your app starts to get a bit busier you might decide to move your API to a completely separate standalone Feathers app, maybe even on a different server. In order for both apps to talk to each other they’ll need some way to make remote requests. Well, Feathers just so happens to have a :doc:`../../api/client` that can be used on the server. This is how it works."
 msgstr ""
 
 #: ../../source/guides/advanced/using-a-view-engine.rst:123

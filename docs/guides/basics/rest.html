@@ -88,7 +88,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../readme.html">指南</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Feathers 基础功能</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="readme.html">Feathers 基础知识</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup.html">配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup.html">设置</a></li>
 <li class="toctree-l3"><a class="reference internal" href="starting.html">我们的第一个Feathers应用程序</a></li>
 <li class="toctree-l3"><a class="reference internal" href="services.html">服务</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hooks.html">钩子</a></li>
@@ -196,20 +196,14 @@
 <p>这就是Feathers传输的目的.传输是一个插件, 可以将Feathers应用程序转换为服务器, 通过不同的协议公开我们的服务, 供其他客户端使用.由于传输涉及运行服务器, 因此它无法在浏览器中运行, 但我们稍后会了解到, 在浏览器Feathers应用程序中有连接到Feathers服务器的补充插件.</p>
 <p>目前, Feathers正式拥有三种传输工具:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> for exposing services through a JSON REST API</p></li>
-<li><p><a class="reference internal" href="../../api/socketio.html"><span class="doc">Socket.io</span></a> for connecting to services through websockets and also receiving real-time service events</p></li>
-<li><p><a class="reference internal" href="../../api/primus.html"><span class="doc">Primus</span></a> an alternative to Socket.io supporting several websocket protocols which also supports real-time events</p></li>
+<li><p><a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> 用于通过JSON REST API公开服务</p></li>
+<li><p><a class="reference internal" href="../../api/socketio.html"><span class="doc">Socket.io</span></a> 通过websockets连接服务并接收实时服务事件</p></li>
+<li><p><a class="reference internal" href="../../api/primus.html"><span class="doc">Primus</span></a> Socket.io的替代方案, 支持几个支持实时事件的websocket协议</p></li>
 </ul>
 <p>在本章中, 我们将介绍HTTP REST传输和Feathers Express框架集成.</p>
 <div class="section" id="rest-and-services">
 <h2>REST和服务<a class="headerlink" href="#rest-and-services" title="永久链接至标题">¶</a></h2>
-<p>One of the goals of Feathers is to make building <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST APIs</a>
-easier since it is by far the most common protocol for web APIs. For
-example, we want to make a request like <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/messages/1</span></code> and get a
-JSON response like <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;id&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;The</span> <span class="pre">first</span> <span class="pre">message&quot;</span> <span class="pre">}</span></code>. You may
-already have noticed that the Feathers service methods and the HTTP
-methods like <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> are fairly
-complementary to each other:</p>
+<p>Feathers的目标之一是使构建 <a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST API</a> 更容易, 因为它是迄今为止最常用的Web API协议. 例如, 我们想要发出像 <code class="docutils literal notranslate"><span class="pre">GET/messages/1</span></code> 这样的请求, 并获得一个JSON响应, 如 <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;id&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;The</span> <span class="pre">first</span> <span class="pre">message&quot;</span> <span class="pre">}</span></code>. 您可能已经注意到Feathers服务方法和HTTP方法如 <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> 相互补充:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 39%" />
@@ -253,13 +247,7 @@ complementary to each other:</p>
 </div>
 <div class="section" id="express-integration">
 <h2>快速整合<a class="headerlink" href="#express-integration" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="http://expressjs.com/">Express</a> is probably the most popular Node
-framework for creating web applications and APIs. The <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> allows us to turn a Feathers
-application into an application that is both a Feathers application and
-a fully compatible Express application. This means you can use Feathers
-functionality like services and also any existing Express middleware. As
-mentioned before, the Express framework integration only works on the
-server.</p>
+<p><a class="reference external" href="http://expressjs.com/">Express</a> 可能是用于创建Web应用程序和API的最流行的Node框架. <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> 允许我们将Feathers应用程序转换为一个既是Feathers应用程序又是完全兼容的Express应用程序的应用程序.这意味着您可以使用诸如服务之类的Feathers功能以及任何现有的Express中间件.如前所述, Express框架集成仅适用于服务器.</p>
 <p>要添加我们安装的集成 <code class="docutils literal notranslate"><span class="pre">&#64;feathersjs/express</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @feathersjs/express --save
 </pre></div>
@@ -285,11 +273,10 @@ server.</p>
 <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3030</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">express.json</span></code>, <code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> 和 <code class="docutils literal notranslate"><span class="pre">express.errorHandler</span></code> 是正常的Express中间件.我们仍然可以使用``app.use``来注册Feathers服务.</p>
+<p><code class="docutils literal notranslate"><span class="pre">express.json</span></code>, <code class="docutils literal notranslate"><span class="pre">express.urlencoded</span></code> 和 <code class="docutils literal notranslate"><span class="pre">express.errorHandler</span></code> 是正常的Express中间件.我们仍然可以使用 <code class="docutils literal notranslate"><span class="pre">app.use</span></code> 来注册Feathers服务.</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>You can find more information about the Express
-framework integration in the <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a>.</p>
+<p>您可以在 <a class="reference internal" href="../../api/express.html"><span class="doc">Express</span></a> 中找到有关Express框架集成的更多信息.</p>
 </div>
 </div>
 <div class="section" id="a-messages-rest-api">
@@ -390,7 +377,7 @@ framework integration in the <a class="reference internal" href="../../api/expre
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>服务器将一直运行, 直到您通过终端中的Control + C停止它.记得每次``app.js``改变时停止并启动服务器.</p>
+<p>服务器将一直运行, 直到您通过终端中的 Control + C 停止它.记得每次 <code class="docutils literal notranslate"><span class="pre">app.js</span></code> 改变时停止并启动服务器.</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
@@ -399,18 +386,14 @@ framework integration in the <a class="reference internal" href="../../api/expre
 </div>
 <div class="section" id="using-the-api">
 <h2>使用API<a class="headerlink" href="#using-the-api" title="永久链接至标题">¶</a></h2>
-<p>Once the server is running the first thing we can do is hit
-<a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a> in the
-browser. Since we already created a message on the server, the JSON
-response will look like this:</p>
+<p>一旦服务器运行, 我们可以做的第一件事是在浏览器中点击 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a>. 由于我们已经在服务器上创建了一条消息, 因此JSON响应将如下所示:</p>
 <div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="s2">&quot;Hello from the server&quot;</span><span class="p">}]</span>
 </pre></div>
 </div>
 <p>我们还可以通过转到 <a class="reference external" href="http://localhost:3030/messages/1">localhost:3030/messages/1</a> 来检索该特定消息.</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>A browser plugin like <a class="reference external" href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh">JSON viewer for Chrome</a>
-makes it much nicer to view JSON responses.</p>
+<p>一个浏览器插件, 如 <a class="reference external" href="https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh">适用于Chrome的JSON查看器</a>, 可以更好地查看JSON响应.</p>
 </div>
 <p>现在可以通过在命令行上使用cURL将带有JSON数据的POST请求发送到同一URL来创建新消息, 如下所示:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -X POST \</span>
@@ -421,10 +404,10 @@ makes it much nicer to view JSON responses.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注解</p>
-<p>您还可以使用”Postman &lt;<a class="reference external" href="https://www.getpostman.com/">https://www.getpostman.com/</a>&gt;`_等工具发出HTTP请求.</p>
+<p>您还可以使用 <a class="reference external" href="https://www.getpostman.com/">Postman</a> 等工具发出HTTP请求.</p>
 </div>
 <p>如果您现在刷新 <a class="reference external" href="http://localhost:3030/messages">localhost:3030/messages</a>, 您将看到新创建的消息.</p>
-<p>我们还可以通过向其URL发送”DELETE”来删除消息:</p>
+<p>我们还可以通过向其URL发送 <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> 来删除消息:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">curl -X DELETE \</span>
 <span class="go">  http://localhost:3030/messages/1</span>
 </pre></div>
